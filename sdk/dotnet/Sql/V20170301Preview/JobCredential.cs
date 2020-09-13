@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
 {
     /// <summary>
     /// A stored credential that can be used by a job to connect to target databases.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a credential
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var jobCredential = new AzureRM.Sql.V20170301Preview.JobCredential("jobCredential", new AzureRM.Sql.V20170301Preview.JobCredentialArgs
+    ///         {
+    ///             CredentialName = "cred1",
+    ///             JobAgentName = "agent1",
+    ///             Password = "&lt;password&gt;",
+    ///             ResourceGroupName = "group1",
+    ///             ServerName = "server1",
+    ///             Username = "myuser",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class JobCredential : Pulumi.CustomResource
     {

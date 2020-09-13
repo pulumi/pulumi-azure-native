@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.AlertsManagement.V20200804Preview
 {
     /// <summary>
     /// The health alert resource.
+    /// 
+    /// ## Example Usage
+    /// ### CreateResourceHealthAlertRule
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class HealthAlert : Pulumi.CustomResource
     {

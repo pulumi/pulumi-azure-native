@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.DelegatedNetwork.V20200808Preview
 {
     /// <summary>
     /// Represents an instance of a DNC controller.
+    /// 
+    /// ## Example Usage
+    /// ### Create controller
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var controllerDetails = new AzureRM.DelegatedNetwork.V20200808Preview.ControllerDetails("controllerDetails", new AzureRM.DelegatedNetwork.V20200808Preview.ControllerDetailsArgs
+    ///         {
+    ///             ControllerType = "Kubernetes",
+    ///             KubernetesProperties = 
+    ///             {
+    ///                 new AzureRM.DelegatedNetwork.V20200808Preview.Inputs.KubernetesPropertiesArgs
+    ///                 {
+    ///                     ApiServerEndpoint = "https://testk8s.cloudapp.net",
+    ///                     ClusterRootCA = "ddsadsad344mfdsfdl",
+    ///                     ServerAppID = "546192d7-503f-477a-9cfe-4efc3ee2b6e1",
+    ///                     ServerTenantID = "da6192d7-503f-477a-9cfe-4efc3ee2b6c3",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "TestRG",
+    ///             ResourceName = "dnctestcontroller",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ControllerDetails : Pulumi.CustomResource
     {

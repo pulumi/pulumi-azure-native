@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
 {
     /// <summary>
     /// This type describes an application resource.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateApplication
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var application = new AzureRM.ServiceFabricMesh.V20180901Preview.Application("application", new AzureRM.ServiceFabricMesh.V20180901Preview.ApplicationArgs
+    ///         {
+    ///             ApplicationResourceName = "sampleApplication",
+    ///             Description = "Service Fabric Mesh sample application.",
+    ///             Location = "EastUS",
+    ///             ResourceGroupName = "sbz_demo",
+    ///             Services = 
+    ///             {
+    ///                 new AzureRM.ServiceFabricMesh.V20180901Preview.Inputs.ServiceResourceDescriptionArgs
+    ///                 {
+    ///                     Name = "helloWorldService",
+    ///                 },
+    ///             },
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

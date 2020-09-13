@@ -32,20 +32,20 @@ namespace Pulumi.AzureRM.Media.V20180701
     ///             },
     ///             Input = new AzureRM.Media.V20180701.Inputs.JobInputArgs
     ///             {
-    ///                 OdataType = "#Microsoft.Media.JobInputAsset",
-    ///             },
-    ///             JobName = "job1",
-    ///             Outputs = 
-    ///             {
-    ///                 new AzureRM.Media.V20180701.Inputs.JobOutputArgs
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 JobName = "job1",
+    ///                 Outputs = 
     ///                 {
-    ///                     OdataType = "#Microsoft.Media.JobOutputAsset",
+    ///                     new AzureRM.Media.V20180701.Inputs.JobOutputArgs
+    ///                     {
+    ///                         AssetName = "job1-OutputAsset",
+    ///                         OdataType = "#Microsoft.Media.JobOutputAsset",
+    ///                     },
     ///                 },
-    ///             },
-    ///             ResourceGroupName = "contosoresources",
-    ///             TransformName = "exampleTransform",
-    ///         });
-    ///     }
+    ///                 ResourceGroupName = "contosoresources",
+    ///                 TransformName = "exampleTransform",
+    ///             });
+    ///         }
     /// 
     /// }
     /// 

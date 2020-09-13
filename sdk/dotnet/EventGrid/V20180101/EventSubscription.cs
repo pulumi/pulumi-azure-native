@@ -27,6 +27,10 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
     ///             Destination = new AzureRM.EventGrid.V20180101.Inputs.EventSubscriptionDestinationArgs
     ///             {
     ///                 EndpointType = "EventHub",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "resourceId", "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1" },
+    ///                 },
     ///             },
     ///             EventSubscriptionName = "examplesubscription1",
     ///             Filter = new AzureRM.EventGrid.V20180101.Inputs.EventSubscriptionFilterArgs
@@ -56,6 +60,10 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
     ///             Destination = new AzureRM.EventGrid.V20180101.Inputs.EventSubscriptionDestinationArgs
     ///             {
     ///                 EndpointType = "WebHook",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
+    ///                 },
     ///             },
     ///             EventSubscriptionName = "examplesubscription10",
     ///             Filter = new AzureRM.EventGrid.V20180101.Inputs.EventSubscriptionFilterArgs
@@ -85,6 +93,10 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
     ///             Destination = new AzureRM.EventGrid.V20180101.Inputs.EventSubscriptionDestinationArgs
     ///             {
     ///                 EndpointType = "WebHook",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
+    ///                 },
     ///             },
     ///             EventSubscriptionName = "examplesubscription2",
     ///             Filter = new AzureRM.EventGrid.V20180101.Inputs.EventSubscriptionFilterArgs
@@ -114,6 +126,10 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
     ///             Destination = new AzureRM.EventGrid.V20180101.Inputs.EventSubscriptionDestinationArgs
     ///             {
     ///                 EndpointType = "WebHook",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
+    ///                 },
     ///             },
     ///             EventSubscriptionName = "examplesubscription3",
     ///             Filter = new AzureRM.EventGrid.V20180101.Inputs.EventSubscriptionFilterArgs

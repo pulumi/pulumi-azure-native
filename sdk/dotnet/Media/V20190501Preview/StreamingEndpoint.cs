@@ -11,6 +11,70 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
 {
     /// <summary>
     /// The StreamingEndpoint.
+    /// 
+    /// ## Example Usage
+    /// ### Create a StreamingEndpoint
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingEndpoint = new AzureRM.Media.V20190501Preview.StreamingEndpoint("streamingEndpoint", new AzureRM.Media.V20190501Preview.StreamingEndpointArgs
+    ///         {
+    ///             AccessControl = new AzureRM.Media.V20190501Preview.Inputs.StreamingEndpointAccessControlArgs
+    ///             {
+    ///                 Akamai = new AzureRM.Media.V20190501Preview.Inputs.AkamaiAccessControlArgs
+    ///                 {
+    ///                     AkamaiSignatureHeaderAuthenticationKeyList = 
+    ///                     {
+    ///                         new AzureRM.Media.V20190501Preview.Inputs.AkamaiSignatureHeaderAuthenticationKeyArgs
+    ///                         {
+    ///                             Base64Key = "dGVzdGlkMQ==",
+    ///                             Expiration = "2029-12-31T16:00:00-08:00",
+    ///                             Identifier = "id1",
+    ///                         },
+    ///                         new AzureRM.Media.V20190501Preview.Inputs.AkamaiSignatureHeaderAuthenticationKeyArgs
+    ///                         {
+    ///                             Base64Key = "dGVzdGlkMQ==",
+    ///                             Expiration = "2030-12-31T16:00:00-08:00",
+    ///                             Identifier = "id2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Ip = new AzureRM.Media.V20190501Preview.Inputs.IPAccessControlArgs
+    ///                 {
+    ///                     Allow = 
+    ///                     {
+    ///                         new AzureRM.Media.V20190501Preview.Inputs.IPRangeArgs
+    ///                         {
+    ///                             Address = "192.168.1.1",
+    ///                             Name = "AllowedIp",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AccountName = "slitestmedia10",
+    ///             AvailabilitySetName = "availableset",
+    ///             CdnEnabled = false,
+    ///             Description = "test event 1",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "mediaresources",
+    ///             ScaleUnits = 1,
+    ///             StreamingEndpointName = "myStreamingEndpoint1",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StreamingEndpoint : Pulumi.CustomResource
     {

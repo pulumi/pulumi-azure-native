@@ -48,10 +48,21 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     ///             ComputeName = "compute123",
     ///             Identity = new AzureRM.MachineLearningServices.Latest.Inputs.IdentityArgs
     ///             {
-    ///                 Type = "SystemAssigned, UserAssigned",
+    ///                 Type = "SystemAssigned,UserAssigned",
     ///             },
     ///             Location = "eastus",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.MachineLearningServices.Latest.Inputs.ComputeArgs
+    ///             {
+    ///                 RemoteLoginPortPublicAccess = "NotSpecified",
+    ///                 ScaleSettings = 
+    ///                 {
+    ///                     { "maxNodeCount", 1 },
+    ///                     { "minNodeCount", 0 },
+    ///                     { "nodeIdleTimeBeforeScaleDown", "PT5M" },
+    ///                 },
+    ///                 VmPriority = "Dedicated",
+    ///                 VmSize = "STANDARD_NC6",
+    ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
     ///         });
@@ -73,7 +84,16 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.MachineLearningServices.Latest.Inputs.ComputeArgs
+    ///             {
+    ///                 ApplicationSharingPolicy = "Personal",
+    ///                 SshSettings = 
+    ///                 {
+    ///                     { "sshPublicAccess", "Disabled" },
+    ///                 },
+    ///                 Subnet = "test-subnet-resource-id",
+    ///                 VmSize = "STANDARD_NC6",
+    ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
     ///         });
@@ -95,7 +115,10 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.MachineLearningServices.Latest.Inputs.ComputeArgs
+    ///             {
+    ///                 VmSize = "STANDARD_NC6",
+    ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
     ///         });
@@ -138,7 +161,10 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.MachineLearningServices.Latest.Inputs.ComputeArgs
+    ///             {
+    ///                 AgentCount = 4,
+    ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
     ///         });
@@ -161,10 +187,18 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     ///             ComputeName = "compute123",
     ///             Identity = new AzureRM.MachineLearningServices.Latest.Inputs.IdentityArgs
     ///             {
-    ///                 Type = "SystemAssigned, UserAssigned",
+    ///                 Type = "SystemAssigned,UserAssigned",
     ///             },
     ///             Location = "eastus",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.MachineLearningServices.Latest.Inputs.ComputeArgs
+    ///             {
+    ///                 ScaleSettings = 
+    ///                 {
+    ///                     { "maxNodeCount", 1 },
+    ///                     { "minNodeCount", 0 },
+    ///                     { "nodeIdleTimeBeforeScaleDown", "PT5M" },
+    ///                 },
+    ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
     ///         });

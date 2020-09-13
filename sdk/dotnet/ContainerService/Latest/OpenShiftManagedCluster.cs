@@ -54,7 +54,11 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     ///                         Name = "Azure AD",
     ///                         Provider = new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterBaseIdentityProviderArgs
     ///                         {
+    ///                             ClientId = "clientId",
+    ///                             CustomerAdminGroupId = "customerAdminGroupId",
     ///                             Kind = "AADIdentityProvider",
+    ///                             Secret = "secret",
+    ///                             TenantId = "tenantId",
     ///                         },
     ///                     },
     ///                 },

@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.Compute.V20200930
 {
     /// <summary>
     /// Specifies information about the gallery image definition that you want to create or update.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery image.
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class GalleryImage : Pulumi.CustomResource
     {

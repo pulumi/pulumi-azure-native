@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.MixedReality.V20190228Preview
 {
     /// <summary>
     /// SpatialAnchorsAccount Response.
+    /// 
+    /// ## Example Usage
+    /// ### ResourceCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var spatialAnchorsAccount = new AzureRM.MixedReality.V20190228Preview.SpatialAnchorsAccount("spatialAnchorsAccount", new AzureRM.MixedReality.V20190228Preview.SpatialAnchorsAccountArgs
+    ///         {
+    ///             Location = "eastus2euap",
+    ///             ResourceGroupName = "MyResourceGroup",
+    ///             SpatialAnchorsAccountName = "MyAccount",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SpatialAnchorsAccount : Pulumi.CustomResource
     {

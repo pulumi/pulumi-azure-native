@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
 {
     /// <summary>
     /// Configures where to store the OMS agent data for workspaces under a scope
+    /// 
+    /// ## Example Usage
+    /// ### Create a workspace setting data for subscription
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspaceSetting = new AzureRM.Security.V20170801Preview.WorkspaceSetting("workspaceSetting", new AzureRM.Security.V20170801Preview.WorkspaceSettingArgs
+    ///         {
+    ///             Scope = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+    ///             WorkspaceId = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace",
+    ///             WorkspaceSettingName = "default",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class WorkspaceSetting : Pulumi.CustomResource
     {

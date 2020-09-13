@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
 {
     /// <summary>
     /// A sensitivity label.
+    /// 
+    /// ## Example Usage
+    /// ### Updates the sensitivity label of a given column with all parameters
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sensitivityLabel = new AzureRM.Sql.V20170301Preview.SensitivityLabel("sensitivityLabel", new AzureRM.Sql.V20170301Preview.SensitivityLabelArgs
+    ///         {
+    ///             ColumnName = "myColumn",
+    ///             DatabaseName = "myDatabase",
+    ///             InformationType = "PhoneNumber",
+    ///             InformationTypeId = "d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
+    ///             LabelId = "bf91e08c-f4f0-478a-b016-25164b2a65ff",
+    ///             LabelName = "PII",
+    ///             ResourceGroupName = "myRG",
+    ///             SchemaName = "dbo",
+    ///             SensitivityLabelSource = "current",
+    ///             ServerName = "myServer",
+    ///             TableName = "myTable",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SensitivityLabel : Pulumi.CustomResource
     {

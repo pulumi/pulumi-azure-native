@@ -11,6 +11,40 @@ namespace Pulumi.AzureRM.ContainerInstance.V20170801Preview
 {
     /// <summary>
     /// A container group.
+    /// 
+    /// ## Example Usage
+    /// ### ContainerGroupsCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var containerGroup = new AzureRM.ContainerInstance.V20170801Preview.ContainerGroup("containerGroup", new AzureRM.ContainerInstance.V20170801Preview.ContainerGroupArgs
+    ///         {
+    ///             ContainerGroupName = "demo1",
+    ///             Containers = 
+    ///             {
+    ///                 new AzureRM.ContainerInstance.V20170801Preview.Inputs.ContainerArgs
+    ///                 {
+    ///                     Name = "demo1",
+    ///                 },
+    ///             },
+    ///             IpAddress = new AzureRM.ContainerInstance.V20170801Preview.Inputs.IpAddressArgs
+    ///             {
+    ///                 Type = "Public",
+    ///             },
+    ///             Location = "west us",
+    ///             OsType = "Linux",
+    ///             ResourceGroupName = "demo",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ContainerGroup : Pulumi.CustomResource
     {

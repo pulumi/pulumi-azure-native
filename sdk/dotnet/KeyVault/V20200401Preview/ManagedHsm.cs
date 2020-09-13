@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.KeyVault.V20200401Preview
 {
     /// <summary>
     /// Resource information with extended details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new managed HSM Pool or update an existing managed HSM Pool
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedHsm = new AzureRM.KeyVault.V20200401Preview.ManagedHsm("managedHsm", new AzureRM.KeyVault.V20200401Preview.ManagedHsmArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Name = "hsm1",
+    ///             ResourceGroupName = "hsm-group",
+    ///             Sku = new AzureRM.KeyVault.V20200401Preview.Inputs.ManagedHsmSkuArgs
+    ///             {
+    ///                 Family = "B",
+    ///                 Name = "Standard_B1",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Dept", "hsm" },
+    ///                 { "Environment", "dogfood" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagedHsm : Pulumi.CustomResource
     {

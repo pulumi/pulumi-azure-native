@@ -11,6 +11,46 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
 {
     /// <summary>
     /// A manifest file that defines the custom resource provider resources.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update the custom resource provider
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var customResourceProvider = new AzureRM.CustomProviders.V20180901Preview.CustomResourceProvider("customResourceProvider", new AzureRM.CustomProviders.V20180901Preview.CustomResourceProviderArgs
+    ///         {
+    ///             Actions = 
+    ///             {
+    ///                 new AzureRM.CustomProviders.V20180901Preview.Inputs.CustomRPActionRouteDefinitionArgs
+    ///                 {
+    ///                     Endpoint = "https://mytestendpoint/",
+    ///                     Name = "TestAction",
+    ///                     RoutingType = "Proxy",
+    ///                 },
+    ///             },
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "testRG",
+    ///             ResourceProviderName = "newrp",
+    ///             ResourceTypes = 
+    ///             {
+    ///                 new AzureRM.CustomProviders.V20180901Preview.Inputs.CustomRPResourceTypeRouteDefinitionArgs
+    ///                 {
+    ///                     Endpoint = "https://mytestendpoint2/",
+    ///                     Name = "TestResource",
+    ///                     RoutingType = "Proxy,Cache",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class CustomResourceProvider : Pulumi.CustomResource
     {

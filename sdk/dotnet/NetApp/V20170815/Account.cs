@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.NetApp.V20170815
 {
     /// <summary>
     /// NetApp account resource
+    /// 
+    /// ## Example Usage
+    /// ### Accounts_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new AzureRM.NetApp.V20170815.Account("account", new AzureRM.NetApp.V20170815.AccountArgs
+    ///         {
+    ///             AccountName = "accountName",
+    ///             ResourceGroupName = "resourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

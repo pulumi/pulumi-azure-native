@@ -11,6 +11,56 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview
 {
     /// <summary>
     /// Instance of an Azure ML Operationalization Cluster resource.
+    /// 
+    /// ## Example Usage
+    /// ### PUT Operationalization Cluster
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var operationalizationCluster = new AzureRM.MachineLearningCompute.V20170601Preview.OperationalizationCluster("operationalizationCluster", new AzureRM.MachineLearningCompute.V20170601Preview.OperationalizationClusterArgs
+    ///         {
+    ///             ClusterName = "myCluster",
+    ///             ClusterType = "ACS",
+    ///             ContainerService = new AzureRM.MachineLearningCompute.V20170601Preview.Inputs.AcsClusterPropertiesArgs
+    ///             {
+    ///                 OrchestratorProperties = new AzureRM.MachineLearningCompute.V20170601Preview.Inputs.KubernetesClusterPropertiesArgs
+    ///                 {
+    ///                     ServicePrincipal = new AzureRM.MachineLearningCompute.V20170601Preview.Inputs.ServicePrincipalPropertiesArgs
+    ///                     {
+    ///                         ClientId = "abcdefghijklmnopqrt",
+    ///                         Secret = "uiuiwueiwuewiue",
+    ///                     },
+    ///                 },
+    ///                 OrchestratorType = "Kubernetes",
+    ///             },
+    ///             Description = "My Operationalization Cluster",
+    ///             GlobalServiceConfiguration = new AzureRM.MachineLearningCompute.V20170601Preview.Inputs.GlobalServiceConfigurationArgs
+    ///             {
+    ///                 Ssl = new AzureRM.MachineLearningCompute.V20170601Preview.Inputs.SslConfigurationArgs
+    ///                 {
+    ///                     Cert = "afjdklq2131casfakld=",
+    ///                     Key = "flksdafkldsajf=",
+    ///                     Status = "Enabled",
+    ///                 },
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "alpha" },
+    ///                 { "key2", "beta" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class OperationalizationCluster : Pulumi.CustomResource
     {

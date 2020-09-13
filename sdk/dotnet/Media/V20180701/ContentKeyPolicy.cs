@@ -33,18 +33,16 @@ namespace Pulumi.AzureRM.Media.V20180701
     ///                 {
     ///                     Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
     ///                     {
-    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         Name = "ClearKeyOption",
+    ///                         Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                         {
+    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         },
     ///                     },
-    ///                     Name = "ClearKeyOption",
-    ///                     Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
-    ///                     {
-    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ResourceGroupName = "contoso",
-    ///         });
-    ///     }
+    ///                     ResourceGroupName = "contoso",
+    ///                 });
+    ///             }
     /// 
     /// }
     /// 
@@ -69,18 +67,16 @@ namespace Pulumi.AzureRM.Media.V20180701
     ///                 {
     ///                     Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
     ///                     {
-    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         Name = "ArmPolicyOptionName",
+    ///                         Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                         {
+    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         },
     ///                     },
-    ///                     Name = "ArmPolicyOptionName",
-    ///                     Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
-    ///                     {
-    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ResourceGroupName = "contoso",
-    ///         });
-    ///     }
+    ///                     ResourceGroupName = "contoso",
+    ///                 });
+    ///             }
     /// 
     /// }
     /// 
@@ -105,18 +101,16 @@ namespace Pulumi.AzureRM.Media.V20180701
     ///                 {
     ///                     Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
     ///                     {
-    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         Name = "widevineoption",
+    ///                         Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                         {
+    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         },
     ///                     },
-    ///                     Name = "widevineoption",
-    ///                     Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
-    ///                     {
-    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ResourceGroupName = "contoso",
-    ///         });
-    ///     }
+    ///                     ResourceGroupName = "contoso",
+    ///                 });
+    ///             }
     /// 
     /// }
     /// 
@@ -141,30 +135,26 @@ namespace Pulumi.AzureRM.Media.V20180701
     ///                 {
     ///                     Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
     ///                     {
-    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
-    ///                     },
-    ///                     Name = "ClearKeyOption",
-    ///                     Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
-    ///                     {
-    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
-    ///                     },
-    ///                 },
-    ///                 new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyOptionArgs
-    ///                 {
-    ///                     Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
-    ///                     {
-    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
-    ///                     },
-    ///                     Name = "widevineoption",
-    ///                     Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
-    ///                     {
-    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ResourceGroupName = "contoso",
-    ///         });
-    ///     }
+    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         Name = "ClearKeyOption",
+    ///                         Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                         {
+    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         },
+    ///                         new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyOptionArgs
+    ///                         {
+    ///                             Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                             {
+    ///                                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                                 Name = "widevineoption",
+    ///                                 Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                                 {
+    ///                                     %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                                 },
+    ///                             },
+    ///                             ResourceGroupName = "contoso",
+    ///                         });
+    ///                     }
     /// 
     /// }
     /// 

@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
 {
     /// <summary>
     /// A notebook workspace resource
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBNotebookWorkspaceCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var notebookWorkspace = new AzureRM.DocumentDB.V20200601Preview.NotebookWorkspace("notebookWorkspace", new AzureRM.DocumentDB.V20200601Preview.NotebookWorkspaceArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             NotebookWorkspaceName = "default",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NotebookWorkspace : Pulumi.CustomResource
     {

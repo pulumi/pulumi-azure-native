@@ -11,6 +11,61 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
 {
     /// <summary>
     /// An Azure SQL job agent.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a job agent with all properties
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var jobAgent = new AzureRM.Sql.V20170301Preview.JobAgent("jobAgent", new AzureRM.Sql.V20170301Preview.JobAgentArgs
+    ///         {
+    ///             DatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1",
+    ///             JobAgentName = "agent1",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "group1",
+    ///             ServerName = "server1",
+    ///             Sku = new AzureRM.Sql.V20170301Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 100,
+    ///                 Name = "Agent",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "octopus", "agent" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create or update a job agent with minimum properties
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var jobAgent = new AzureRM.Sql.V20170301Preview.JobAgent("jobAgent", new AzureRM.Sql.V20170301Preview.JobAgentArgs
+    ///         {
+    ///             DatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1",
+    ///             JobAgentName = "agent1",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "group1",
+    ///             ServerName = "server1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class JobAgent : Pulumi.CustomResource
     {

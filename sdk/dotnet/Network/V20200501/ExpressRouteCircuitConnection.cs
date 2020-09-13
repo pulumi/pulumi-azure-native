@@ -11,43 +11,6 @@ namespace Pulumi.AzureRM.Network.V20200501
 {
     /// <summary>
     /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
-    /// 
-    /// ## Example Usage
-    /// ### ExpressRouteCircuitConnectionCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var expressRouteCircuitConnection = new AzureRM.Network.V20200501.ExpressRouteCircuitConnection("expressRouteCircuitConnection", new AzureRM.Network.V20200501.ExpressRouteCircuitConnectionArgs
-    ///         {
-    ///             AddressPrefix = "10.0.0.0/29",
-    ///             AuthorizationKey = "946a1918-b7a2-4917-b43c-8c4cdaee006a",
-    ///             CircuitName = "ExpressRouteARMCircuitA",
-    ///             ConnectionName = "circuitConnectionUSAUS",
-    ///             ExpressRouteCircuitPeering = new AzureRM.Network.V20200501.Inputs.SubResourceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/dedharcktlocal/peerings/AzurePrivatePeering",
-    ///             },
-    ///             Ipv6CircuitConnectionConfig = new AzureRM.Network.V20200501.Inputs.Ipv6CircuitConnectionConfigArgs
-    ///             {
-    ///                 AddressPrefix = "aa:bb::/125",
-    ///             },
-    ///             PeerExpressRouteCircuitPeering = new AzureRM.Network.V20200501.Inputs.SubResourceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid2/resourceGroups/dedharcktpeer/providers/Microsoft.Network/expressRouteCircuits/dedharcktremote/peerings/AzurePrivatePeering",
-    ///             },
-    ///             PeeringName = "AzurePrivatePeering",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ExpressRouteCircuitConnection : Pulumi.CustomResource
     {

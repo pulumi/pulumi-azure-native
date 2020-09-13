@@ -11,6 +11,59 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
 {
     /// <summary>
     /// Security Solution
+    /// 
+    /// ## Example Usage
+    /// ### Create an iot security solution
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iotSecuritySolution = new AzureRM.Security.V20170801Preview.IotSecuritySolution("iotSecuritySolution", new AzureRM.Security.V20170801Preview.IotSecuritySolutionArgs
+    ///         {
+    ///             DisabledDataSources = {},
+    ///             DisplayName = "Solution Default",
+    ///             Export = {},
+    ///             IotHubs = 
+    ///             {
+    ///                 "/subscriptions/075423e9-7d33-4166-8bdf-3920b04e3735/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/FirstIotHub",
+    ///             },
+    ///             Location = "East Us",
+    ///             RecommendationsConfiguration = 
+    ///             {
+    ///                 new AzureRM.Security.V20170801Preview.Inputs.RecommendationConfigurationPropertiesArgs
+    ///                 {
+    ///                     RecommendationType = "IoT_OpenPorts",
+    ///                     Status = "Disabled",
+    ///                 },
+    ///                 new AzureRM.Security.V20170801Preview.Inputs.RecommendationConfigurationPropertiesArgs
+    ///                 {
+    ///                     RecommendationType = "IoT_SharedCredentials",
+    ///                     Status = "Disabled",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "MyGroup",
+    ///             SolutionName = "default",
+    ///             Status = "Enabled",
+    ///             Tags = ,
+    ///             UserDefinedResources = new AzureRM.Security.V20170801Preview.Inputs.UserDefinedResourcesPropertiesArgs
+    ///             {
+    ///                 Query = "where type != \"microsoft.devices/iothubs\" | where name contains \"iot\"",
+    ///                 QuerySubscriptions = 
+    ///                 {
+    ///                     "075423e9-7d33-4166-8bdf-3920b04e3735",
+    ///                 },
+    ///             },
+    ///             Workspace = "/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IotSecuritySolution : Pulumi.CustomResource
     {

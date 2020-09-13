@@ -11,6 +11,26 @@ namespace Pulumi.AzureRM.Subscription.V20191001Preview
 {
     /// <summary>
     /// Subscription Information with the alias.
+    /// 
+    /// ## Example Usage
+    /// ### CreateAlias
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var subscriptionAlias = new AzureRM.Subscription.V20191001Preview.SubscriptionAlias("subscriptionAlias", new AzureRM.Subscription.V20191001Preview.SubscriptionAliasArgs
+    ///         {
+    ///             AliasName = "aliasForNewSub",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SubscriptionAlias : Pulumi.CustomResource
     {

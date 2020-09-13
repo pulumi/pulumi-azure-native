@@ -26,7 +26,28 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     ///         {
     ///             FunctionName = "function8197",
     ///             JobName = "sj8653",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.StreamAnalytics.V20160301.Inputs.FunctionPropertiesArgs
+    ///             {
+    ///                 Binding = 
+    ///                 {
+    ///                     { "properties", 
+    ///                     {
+    ///                         { "script", "function (x, y) { return x + y; }" },
+    ///                     } },
+    ///                     { "type", "Microsoft.StreamAnalytics/JavascriptUdf" },
+    ///                 },
+    ///                 Inputs = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "dataType", "Any" },
+    ///                     },
+    ///                 },
+    ///                 Output = 
+    ///                 {
+    ///                     { "dataType", "Any" },
+    ///                 },
+    ///             },
     ///             ResourceGroupName = "sjrg1637",
     ///         });
     ///     }
@@ -47,7 +68,51 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     ///         {
     ///             FunctionName = "function588",
     ///             JobName = "sj9093",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.StreamAnalytics.V20160301.Inputs.FunctionPropertiesArgs
+    ///             {
+    ///                 Binding = 
+    ///                 {
+    ///                     { "properties", 
+    ///                     {
+    ///                         { "apiKey", "someApiKey==" },
+    ///                         { "batchSize", 1000 },
+    ///                         { "endpoint", "someAzureMLEndpointURL" },
+    ///                         { "inputs", 
+    ///                         {
+    ///                             { "columnNames", 
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "dataType", "string" },
+    ///                                     { "mapTo", 0 },
+    ///                                     { "name", "tweet" },
+    ///                                 },
+    ///                             } },
+    ///                             { "name", "input1" },
+    ///                         } },
+    ///                         { "outputs", 
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "dataType", "string" },
+    ///                                 { "name", "Sentiment" },
+    ///                             },
+    ///                         } },
+    ///                     } },
+    ///                     { "type", "Microsoft.MachineLearning/WebService" },
+    ///                 },
+    ///                 Inputs = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "dataType", "nvarchar(max)" },
+    ///                     },
+    ///                 },
+    ///                 Output = 
+    ///                 {
+    ///                     { "dataType", "nvarchar(max)" },
+    ///                 },
+    ///             },
     ///             ResourceGroupName = "sjrg7",
     ///         });
     ///     }

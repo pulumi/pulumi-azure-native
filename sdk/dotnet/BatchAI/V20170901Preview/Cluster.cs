@@ -11,6 +11,77 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
 {
     /// <summary>
     /// Contains information about a Cluster.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update cluster
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cluster = new AzureRM.BatchAI.V20170901Preview.Cluster("cluster", new AzureRM.BatchAI.V20170901Preview.ClusterArgs
+    ///         {
+    ///             ClusterName = "demo_cluster",
+    ///             Location = "eastus",
+    ///             NodeSetup = new AzureRM.BatchAI.V20170901Preview.Inputs.NodeSetupArgs
+    ///             {
+    ///                 MountVolumes = new AzureRM.BatchAI.V20170901Preview.Inputs.MountVolumesArgs
+    ///                 {
+    ///                     AzureFileShares = 
+    ///                     {
+    ///                         new AzureRM.BatchAI.V20170901Preview.Inputs.AzureFileShareReferenceArgs
+    ///                         {
+    ///                             AccountName = "storage_account_name",
+    ///                             AzureFileUrl = "https://storage_account_name.file.core.windows.net/azure_file_share_name",
+    ///                             Credentials = new AzureRM.BatchAI.V20170901Preview.Inputs.AzureStorageCredentialsInfoArgs
+    ///                             {
+    ///                                 AccountKey = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000==",
+    ///                             },
+    ///                             DirectoryMode = "0777",
+    ///                             FileMode = "0777",
+    ///                             RelativeMountPath = "azfiles",
+    ///                         },
+    ///                     },
+    ///                     FileServers = 
+    ///                     {
+    ///                         new AzureRM.BatchAI.V20170901Preview.Inputs.FileServerReferenceArgs
+    ///                         {
+    ///                             FileServer = new AzureRM.BatchAI.V20170901Preview.Inputs.ResourceIdArgs
+    ///                             {
+    ///                                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo_resource_group/providers/Microsoft.BatchAI/fileservers/fileservercedd134b",
+    ///                             },
+    ///                             MountOptions = "rw",
+    ///                             RelativeMountPath = "nfs",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "demo_resource_group",
+    ///             ScaleSettings = new AzureRM.BatchAI.V20170901Preview.Inputs.ScaleSettingsArgs
+    ///             {
+    ///                 Manual = new AzureRM.BatchAI.V20170901Preview.Inputs.ManualScaleSettingsArgs
+    ///                 {
+    ///                     NodeDeallocationOption = "requeue",
+    ///                     TargetNodeCount = 1,
+    ///                 },
+    ///             },
+    ///             UserAccountSettings = new AzureRM.BatchAI.V20170901Preview.Inputs.UserAccountSettingsArgs
+    ///             {
+    ///                 AdminUserName = "admin_user_name",
+    ///                 AdminUserPassword = "admin_user_password",
+    ///                 AdminUserSshPublicKey = "ssh-rsa AAAAB3NzaC1yc...",
+    ///             },
+    ///             VmPriority = "dedicated",
+    ///             VmSize = "STANDARD_NC6",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 {
     /// <summary>
     /// Integration runtime resource type.
+    /// 
+    /// ## Example Usage
+    /// ### Create integration runtime
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var integrationRuntime = new AzureRM.Synapse.V20190601Preview.IntegrationRuntime("integrationRuntime", new AzureRM.Synapse.V20190601Preview.IntegrationRuntimeArgs
+    ///         {
+    ///             IntegrationRuntimeName = "exampleIntegrationRuntime",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///             WorkspaceName = "exampleWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {

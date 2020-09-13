@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.OffAzure.V20200101
 {
     /// <summary>
     /// Site REST Resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create Hyper-V site
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class HyperVSite : Pulumi.CustomResource
     {

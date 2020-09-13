@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
 {
     /// <summary>
     /// Binding resource payload
+    /// 
+    /// ## Example Usage
+    /// ### Bindings_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var binding = new AzureRM.AppPlatform.V20190501Preview.Binding("binding", new AzureRM.AppPlatform.V20190501Preview.BindingArgs
+    ///         {
+    ///             AppName = "myapp",
+    ///             BindingName = "mybinding",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceName = "myservice",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Binding : Pulumi.CustomResource
     {

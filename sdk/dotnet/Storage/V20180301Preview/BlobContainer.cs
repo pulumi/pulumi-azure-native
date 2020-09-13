@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Storage.V20180301Preview
 {
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
+    /// 
+    /// ## Example Usage
+    /// ### PutContainers
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var blobContainer = new AzureRM.Storage.V20180301Preview.BlobContainer("blobContainer", new AzureRM.Storage.V20180301Preview.BlobContainerArgs
+    ///         {
+    ///             AccountName = "sto328",
+    ///             ContainerName = "container6185",
+    ///             ResourceGroupName = "res3376",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BlobContainer : Pulumi.CustomResource
     {

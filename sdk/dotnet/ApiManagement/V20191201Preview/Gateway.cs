@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
 {
     /// <summary>
     /// Gateway details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGateway
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var gateway = new AzureRM.ApiManagement.V20191201Preview.Gateway("gateway", new AzureRM.ApiManagement.V20191201Preview.GatewayArgs
+    ///         {
+    ///             Description = "my gateway 1",
+    ///             GatewayId = "gw1",
+    ///             LocationData = new AzureRM.ApiManagement.V20191201Preview.Inputs.ResourceLocationDataContractArgs
+    ///             {
+    ///                 Name = "my location",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Gateway : Pulumi.CustomResource
     {

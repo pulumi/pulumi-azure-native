@@ -238,8 +238,12 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     ///             },
     ///             AutoScalerProfile = new AzureRM.ContainerService.Latest.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
     ///             {
+    ///                 BalanceSimilarNodeGroups = "true",
+    ///                 Expander = "most-pods",
+    ///                 NewPodScaleUpDelay = "1m",
     ///                 ScaleDownDelayAfterAdd = "15m",
     ///                 ScanInterval = "20s",
+    ///                 SkipNodesWithSystemPods = "false",
     ///             },
     ///             DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
     ///             DnsPrefix = "dnsprefix1",

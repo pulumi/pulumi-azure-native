@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
 {
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpacePrivateEndPointConnectionCreate
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

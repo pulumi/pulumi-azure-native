@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Relay.V20180101Preview
 {
     /// <summary>
     /// Private endpoint connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### RelayPutPrivateEndpointConnection
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.Relay.V20180101Preview.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.Relay.V20180101Preview.PrivateEndpointConnectionArgs
+    ///         {
+    ///             Location = "South Central US",
+    ///             NamespaceName = "sdk-Namespace-5849",
+    ///             PrivateEndpoint = new AzureRM.Relay.V20180101Preview.Inputs.PrivateEndpointArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subid}/resourceGroups/prod-by3-533-rg/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
+    ///             },
+    ///             PrivateEndpointConnectionName = "{privateEndpointConnection name}",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.Relay.V20180101Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "You may pass",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "ArunMonocle",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

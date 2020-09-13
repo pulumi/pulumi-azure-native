@@ -29,6 +29,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
     ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateCustomizerArgs
     ///                 {
     ///                     Name = "Shell Customizer Example",
+    ///                     ScriptUri = "https://example.com/path/to/script.sh",
     ///                     Type = "Shell",
     ///                 },
     ///             },
@@ -40,6 +41,8 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
     ///                     {
     ///                         { "tagName", "value" },
     ///                     },
+    ///                     ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+    ///                     Location = "1_location",
     ///                     RunOutputName = "image_it_pir_1",
     ///                     Type = "ManagedImage",
     ///                 },
@@ -53,6 +56,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
     ///             ResourceGroupName = "myResourceGroup",
     ///             Source = new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateSourceArgs
     ///             {
+    ///                 ImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
     ///                 Type = "ManagedImage",
     ///             },
     ///             Tags = 
@@ -90,23 +94,44 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
     ///             {
     ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateCustomizerArgs
     ///                 {
+    ///                     Inline = 
+    ///                     {
+    ///                         "Powershell command-1",
+    ///                         "Powershell command-2",
+    ///                         "Powershell command-3",
+    ///                     },
     ///                     Name = "PowerShell (inline) Customizer Example",
     ///                     Type = "PowerShell",
     ///                 },
     ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateCustomizerArgs
     ///                 {
     ///                     Name = "PowerShell (script) Customizer Example",
+    ///                     ScriptUri = "https://example.com/path/to/script.ps1",
     ///                     Type = "PowerShell",
+    ///                     ValidExitCodes = 
+    ///                     {
+    ///                         0,
+    ///                         1,
+    ///                     },
     ///                 },
     ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateCustomizerArgs
     ///                 {
     ///                     Name = "Restart Customizer Example",
+    ///                     RestartCheckCommand = "powershell -command \"&amp; {Write-Output 'restarted.'}\"",
+    ///                     RestartCommand = "shutdown /f /r /t 0 /c \"packer restart\"",
+    ///                     RestartTimeout = "10m",
     ///                     Type = "WindowsRestart",
     ///                 },
     ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateCustomizerArgs
     ///                 {
+    ///                     Filters = 
+    ///                     {
+    ///                         "$_.BrowseOnly",
+    ///                     },
     ///                     Name = "Windows Update Customizer Example",
+    ///                     SearchCriteria = "BrowseOnly=0 and IsInstalled=0",
     ///                     Type = "WindowsUpdate",
+    ///                     UpdateLimit = 100,
     ///                 },
     ///             },
     ///             Distribute = 
@@ -117,6 +142,8 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
     ///                     {
     ///                         { "tagName", "value" },
     ///                     },
+    ///                     ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+    ///                     Location = "1_location",
     ///                     RunOutputName = "image_it_pir_1",
     ///                     Type = "ManagedImage",
     ///                 },
@@ -130,6 +157,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
     ///             ResourceGroupName = "myResourceGroup",
     ///             Source = new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateSourceArgs
     ///             {
+    ///                 ImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
     ///                 Type = "ManagedImage",
     ///             },
     ///             Tags = 

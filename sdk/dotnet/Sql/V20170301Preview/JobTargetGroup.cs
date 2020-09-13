@@ -11,6 +11,85 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
 {
     /// <summary>
     /// A group of job targets.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a target group with all properties.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var jobTargetGroup = new AzureRM.Sql.V20170301Preview.JobTargetGroup("jobTargetGroup", new AzureRM.Sql.V20170301Preview.JobTargetGroupArgs
+    ///         {
+    ///             JobAgentName = "agent1",
+    ///             Members = 
+    ///             {
+    ///                 new AzureRM.Sql.V20170301Preview.Inputs.JobTargetArgs
+    ///                 {
+    ///                     DatabaseName = "database1",
+    ///                     MembershipType = "Exclude",
+    ///                     ServerName = "server1",
+    ///                     Type = "SqlDatabase",
+    ///                 },
+    ///                 new AzureRM.Sql.V20170301Preview.Inputs.JobTargetArgs
+    ///                 {
+    ///                     MembershipType = "Include",
+    ///                     RefreshCredential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+    ///                     ServerName = "server1",
+    ///                     Type = "SqlServer",
+    ///                 },
+    ///                 new AzureRM.Sql.V20170301Preview.Inputs.JobTargetArgs
+    ///                 {
+    ///                     ElasticPoolName = "pool1",
+    ///                     MembershipType = "Include",
+    ///                     RefreshCredential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+    ///                     ServerName = "server2",
+    ///                     Type = "SqlElasticPool",
+    ///                 },
+    ///                 new AzureRM.Sql.V20170301Preview.Inputs.JobTargetArgs
+    ///                 {
+    ///                     DatabaseName = "database1",
+    ///                     MembershipType = "Include",
+    ///                     RefreshCredential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+    ///                     ServerName = "server3",
+    ///                     ShardMapName = "shardMap1",
+    ///                     Type = "SqlShardMap",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "group1",
+    ///             ServerName = "server1",
+    ///             TargetGroupName = "targetGroup1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create or update a target group with minimal properties.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var jobTargetGroup = new AzureRM.Sql.V20170301Preview.JobTargetGroup("jobTargetGroup", new AzureRM.Sql.V20170301Preview.JobTargetGroupArgs
+    ///         {
+    ///             JobAgentName = "agent1",
+    ///             Members = {},
+    ///             ResourceGroupName = "group1",
+    ///             ServerName = "server1",
+    ///             TargetGroupName = "targetGroup1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class JobTargetGroup : Pulumi.CustomResource
     {

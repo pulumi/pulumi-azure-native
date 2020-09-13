@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.IoTCentral.V20170701PrivatePreview
 {
     /// <summary>
     /// The IoT Central application.
+    /// 
+    /// ## Example Usage
+    /// ### Apps_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new AzureRM.IoTCentral.V20170701privatePreview.App("app", new AzureRM.IoTCentral.V20170701privatePreview.AppArgs
+    ///         {
+    ///             DisplayName = "My IoT Central App",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "resRg",
+    ///             ResourceName = "myIoTCentralApp",
+    ///             Sku = new AzureRM.IoTCentral.V20170701privatePreview.Inputs.AppSkuInfoArgs
+    ///             {
+    ///                 Name = "F1",
+    ///             },
+    ///             Subdomain = "my-iot-central-app",
+    ///             Template = "iotc-default@1.0.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class App : Pulumi.CustomResource
     {

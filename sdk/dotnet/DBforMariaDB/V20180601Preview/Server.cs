@@ -11,6 +11,121 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
 {
     /// <summary>
     /// Represents a server.
+    /// 
+    /// ## Example Usage
+    /// ### Create a database as a point in time restore
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.DBforMariaDB.V20180601Preview.Server("server", new AzureRM.DBforMariaDB.V20180601Preview.ServerArgs
+    ///         {
+    ///             Location = "brazilsouth",
+    ///             ResourceGroupName = "TargetResourceGroup",
+    ///             ServerName = "targetserver",
+    ///             Sku = new AzureRM.DBforMariaDB.V20180601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Family = "Gen5",
+    ///                 Name = "GP_Gen5_2",
+    ///                 Tier = "GeneralPurpose",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "ElasticServer", "1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a new server
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.DBforMariaDB.V20180601Preview.Server("server", new AzureRM.DBforMariaDB.V20180601Preview.ServerArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ResourceGroupName = "testrg",
+    ///             ServerName = "mariadbtestsvc4",
+    ///             Sku = new AzureRM.DBforMariaDB.V20180601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Family = "Gen5",
+    ///                 Name = "GP_Gen5_2",
+    ///                 Tier = "GeneralPurpose",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "ElasticServer", "1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a replica server
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.DBforMariaDB.V20180601Preview.Server("server", new AzureRM.DBforMariaDB.V20180601Preview.ServerArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ResourceGroupName = "TargetResourceGroup",
+    ///             ServerName = "targetserver",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a server as a geo restore
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.DBforMariaDB.V20180601Preview.Server("server", new AzureRM.DBforMariaDB.V20180601Preview.ServerArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ResourceGroupName = "TargetResourceGroup",
+    ///             ServerName = "targetserver",
+    ///             Sku = new AzureRM.DBforMariaDB.V20180601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Family = "Gen5",
+    ///                 Name = "GP_Gen5_2",
+    ///                 Tier = "GeneralPurpose",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "ElasticServer", "1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

@@ -11,6 +11,94 @@ namespace Pulumi.AzureRM.Logic.V20180701Preview
 {
     /// <summary>
     /// The workflow type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a workflow
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workflow = new AzureRM.Logic.V20180701Preview.Workflow("workflow", new AzureRM.Logic.V20180701Preview.WorkflowArgs
+    ///         {
+    ///             Definition = 
+    ///             {
+    ///                 { "$schema", "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#" },
+    ///                 { "actions", 
+    ///                 {
+    ///                     { "Find_pet_by_ID", 
+    ///                     {
+    ///                         { "inputs", 
+    ///                         {
+    ///                             { "host", 
+    ///                             {
+    ///                                 { "connection", 
+    ///                                 {
+    ///                                     { "name", "@parameters('$connections')['test-custom-connector']['connectionId']" },
+    ///                                 } },
+    ///                             } },
+    ///                             { "method", "get" },
+    ///                             { "path", "/pet/@{encodeURIComponent('1')}" },
+    ///                         } },
+    ///                         { "runAfter",  },
+    ///                         { "type", "ApiConnection" },
+    ///                     } },
+    ///                 } },
+    ///                 { "contentVersion", "1.0.0.0" },
+    ///                 { "outputs",  },
+    ///                 { "parameters", 
+    ///                 {
+    ///                     { "$connections", 
+    ///                     {
+    ///                         { "defaultValue",  },
+    ///                         { "type", "Object" },
+    ///                     } },
+    ///                 } },
+    ///                 { "triggers", 
+    ///                 {
+    ///                     { "manual", 
+    ///                     {
+    ///                         { "inputs", 
+    ///                         {
+    ///                             { "schema",  },
+    ///                         } },
+    ///                         { "kind", "Http" },
+    ///                         { "type", "Request" },
+    ///                     } },
+    ///                 } },
+    ///             },
+    ///             IntegrationAccount = new AzureRM.Logic.V20180701Preview.Inputs.ResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/integrationAccounts/test-integration-account",
+    ///             },
+    ///             Location = "brazilsouth",
+    ///             Parameters = 
+    ///             {
+    ///                 { "$connections", new AzureRM.Logic.V20180701Preview.Inputs.WorkflowParameterArgs
+    ///                 {
+    ///                     Value = 
+    ///                     {
+    ///                         { "test-custom-connector", 
+    ///                         {
+    ///                             { "connectionId", "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Web/connections/test-custom-connector" },
+    ///                             { "connectionName", "test-custom-connector" },
+    ///                             { "id", "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/brazilsouth/managedApis/test-custom-connector" },
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             ResourceGroupName = "test-resource-group",
+    ///             Tags = ,
+    ///             WorkflowName = "test-workflow",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Workflow : Pulumi.CustomResource
     {

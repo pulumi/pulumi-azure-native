@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
 {
     /// <summary>
     /// An instance failover group.
+    /// 
+    /// ## Example Usage
+    /// ### Create failover group
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var instanceFailoverGroup = new AzureRM.Sql.V20171001Preview.InstanceFailoverGroup("instanceFailoverGroup", new AzureRM.Sql.V20171001Preview.InstanceFailoverGroupArgs
+    ///         {
+    ///             FailoverGroupName = "failover-group-test-3",
+    ///             LocationName = "Japan East",
+    ///             ManagedInstancePairs = 
+    ///             {
+    ///                 new AzureRM.Sql.V20171001Preview.Inputs.ManagedInstancePairInfoArgs
+    ///                 {
+    ///                     PartnerManagedInstanceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-secondary-mngdInstance",
+    ///                     PrimaryManagedInstanceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-primary-mngdInstance",
+    ///                 },
+    ///             },
+    ///             PartnerRegions = 
+    ///             {
+    ///                 new AzureRM.Sql.V20171001Preview.Inputs.PartnerRegionInfoArgs
+    ///                 {
+    ///                     Location = "Japan West",
+    ///                 },
+    ///             },
+    ///             ReadOnlyEndpoint = new AzureRM.Sql.V20171001Preview.Inputs.InstanceFailoverGroupReadOnlyEndpointArgs
+    ///             {
+    ///                 FailoverPolicy = "Disabled",
+    ///             },
+    ///             ReadWriteEndpoint = new AzureRM.Sql.V20171001Preview.Inputs.InstanceFailoverGroupReadWriteEndpointArgs
+    ///             {
+    ///                 FailoverPolicy = "Automatic",
+    ///                 FailoverWithDataLossGracePeriodMinutes = 480,
+    ///             },
+    ///             ResourceGroupName = "Default",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class InstanceFailoverGroup : Pulumi.CustomResource
     {

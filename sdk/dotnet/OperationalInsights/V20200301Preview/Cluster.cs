@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
 {
     /// <summary>
     /// The top level Log Analytics cluster resource container.
+    /// 
+    /// ## Example Usage
+    /// ### ClustersCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cluster = new AzureRM.OperationalInsights.V20200301Preview.Cluster("cluster", new AzureRM.OperationalInsights.V20200301Preview.ClusterArgs
+    ///         {
+    ///             ClusterName = "oiautorest6685",
+    ///             Location = "australiasoutheast",
+    ///             ResourceGroupName = "oiautorest6685",
+    ///             Sku = new AzureRM.OperationalInsights.V20200301Preview.Inputs.ClusterSkuArgs
+    ///             {
+    ///                 Capacity = 1000,
+    ///                 Name = "CapacityReservation",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "val1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

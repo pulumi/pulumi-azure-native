@@ -45,14 +45,35 @@ namespace Pulumi.AzureRM.Cdn.V20200415
     ///                             new AzureRM.Cdn.V20200415.Inputs.DeliveryRuleActionArgs
     ///                             {
     ///                                 Name = "CacheExpiration",
+    ///                                 Parameters = 
+    ///                                 {
+    ///                                     { "@odata.type", "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters" },
+    ///                                     { "cacheBehavior", "Override" },
+    ///                                     { "cacheDuration", "10:10:09" },
+    ///                                     { "cacheType", "All" },
+    ///                                 },
     ///                             },
     ///                             new AzureRM.Cdn.V20200415.Inputs.DeliveryRuleActionArgs
     ///                             {
     ///                                 Name = "ModifyResponseHeader",
+    ///                                 Parameters = 
+    ///                                 {
+    ///                                     { "@odata.type", "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters" },
+    ///                                     { "headerAction", "Overwrite" },
+    ///                                     { "headerName", "Access-Control-Allow-Origin" },
+    ///                                     { "value", "*" },
+    ///                                 },
     ///                             },
     ///                             new AzureRM.Cdn.V20200415.Inputs.DeliveryRuleActionArgs
     ///                             {
     ///                                 Name = "ModifyRequestHeader",
+    ///                                 Parameters = 
+    ///                                 {
+    ///                                     { "@odata.type", "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters" },
+    ///                                     { "headerAction", "Overwrite" },
+    ///                                     { "headerName", "Accept-Encoding" },
+    ///                                     { "value", "gzip" },
+    ///                                 },
     ///                             },
     ///                         },
     ///                         Conditions = 
@@ -60,6 +81,17 @@ namespace Pulumi.AzureRM.Cdn.V20200415
     ///                             new AzureRM.Cdn.V20200415.Inputs.DeliveryRuleConditionArgs
     ///                             {
     ///                                 Name = "RemoteAddress",
+    ///                                 Parameters = 
+    ///                                 {
+    ///                                     { "@odata.type", "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters" },
+    ///                                     { "matchValues", 
+    ///                                     {
+    ///                                         "192.168.1.0/24",
+    ///                                         "10.0.0.0/24",
+    ///                                     } },
+    ///                                     { "negateCondition", true },
+    ///                                     { "operator", "IPMatch" },
+    ///                                 },
     ///                             },
     ///                         },
     ///                         Name = "rule1",

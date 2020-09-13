@@ -11,51 +11,6 @@ namespace Pulumi.AzureRM.Network.V20200401
 {
     /// <summary>
     /// VpnSite Resource.
-    /// 
-    /// ## Example Usage
-    /// ### VpnSiteCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var vpnSite = new AzureRM.Network.V20200401.VpnSite("vpnSite", new AzureRM.Network.V20200401.VpnSiteArgs
-    ///         {
-    ///             AddressSpace = new AzureRM.Network.V20200401.Inputs.AddressSpaceArgs
-    ///             {
-    ///                 AddressPrefixes = 
-    ///                 {
-    ///                     "10.0.0.0/16",
-    ///                 },
-    ///             },
-    ///             IsSecuritySite = false,
-    ///             Location = "West US",
-    ///             ResourceGroupName = "rg1",
-    ///             Tags = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///             },
-    ///             VirtualWan = new AzureRM.Network.V20200401.Inputs.SubResourceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1",
-    ///             },
-    ///             VpnSiteLinks = 
-    ///             {
-    ///                 new AzureRM.Network.V20200401.Inputs.VpnSiteLinkArgs
-    ///                 {
-    ///                     Name = "vpnSiteLink1",
-    ///                 },
-    ///             },
-    ///             VpnSiteName = "vpnSite1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class VpnSite : Pulumi.CustomResource
     {

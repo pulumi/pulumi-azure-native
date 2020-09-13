@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.HybridCompute.V20200815Preview
 {
     /// <summary>
     /// A private link scoped resource
+    /// 
+    /// ## Example Usage
+    /// ### Update a scoped resource in a private link scope.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateLinkScopedResource = new AzureRM.HybridCompute.V20200815Preview.PrivateLinkScopedResource("privateLinkScopedResource", new AzureRM.HybridCompute.V20200815Preview.PrivateLinkScopedResourceArgs
+    ///         {
+    ///             LinkedResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/machineName1",
+    ///             Name = "scoped-resource-name",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ScopeName = "myPrivateLinkScope",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateLinkScopedResource : Pulumi.CustomResource
     {

@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.AzureStackHCI.V20200301Preview
 {
     /// <summary>
     /// Cluster details.
+    /// 
+    /// ## Example Usage
+    /// ### GetClusters
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cluster = new AzureRM.AzureStackHCI.V20200301Preview.Cluster("cluster", new AzureRM.AzureStackHCI.V20200301Preview.ClusterArgs
+    ///         {
+    ///             AadClientId = "24a6e53d-04e5-44d2-b7cc-1b732a847dfc",
+    ///             AadTenantId = "7e589cc1-a8b6-4dff-91bd-5ec0fa18db94",
+    ///             ClusterName = "myCluster",
+    ///             Location = "East US",
+    ///             ResourceGroupName = "test-rg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

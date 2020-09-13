@@ -11,6 +11,48 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
 {
     /// <summary>
     /// Represents a published blueprint.
+    /// 
+    /// ## Example Usage
+    /// ### PublishedManagementGroupBlueprint_Publish
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var publishedBlueprint = new AzureRM.Blueprint.V20181101Preview.PublishedBlueprint("publishedBlueprint", new AzureRM.Blueprint.V20181101Preview.PublishedBlueprintArgs
+    ///         {
+    ///             BlueprintName = "simpleBlueprint",
+    ///             ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///             VersionId = "v2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### PublishedSubscriptionBlueprint_Publish
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var publishedBlueprint = new AzureRM.Blueprint.V20181101Preview.PublishedBlueprint("publishedBlueprint", new AzureRM.Blueprint.V20181101Preview.PublishedBlueprintArgs
+    ///         {
+    ///             BlueprintName = "simpleBlueprint",
+    ///             ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///             VersionId = "v2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PublishedBlueprint : Pulumi.CustomResource
     {

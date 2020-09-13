@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.NetApp.V20170815
 {
     /// <summary>
     /// Capacity pool resource
+    /// 
+    /// ## Example Usage
+    /// ### Pools_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pool = new AzureRM.NetApp.V20170815.Pool("pool", new AzureRM.NetApp.V20170815.PoolArgs
+    ///         {
+    ///             AccountName = "accountName",
+    ///             PoolName = "poolName",
+    ///             ResourceGroupName = "resourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Pool : Pulumi.CustomResource
     {

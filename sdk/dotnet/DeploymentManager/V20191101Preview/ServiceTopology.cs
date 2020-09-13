@@ -11,6 +11,51 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
 {
     /// <summary>
     /// The resource representation of a service topology.
+    /// 
+    /// ## Example Usage
+    /// ### Create a topology with Artifact Source
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceTopology = new AzureRM.DeploymentManager.V20191101Preview.ServiceTopology("serviceTopology", new AzureRM.DeploymentManager.V20191101Preview.ServiceTopologyArgs
+    ///         {
+    ///             ArtifactSourceId = "Microsoft.DeploymentManager/artifactSources/myArtifactSource",
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceTopologyName = "myTopology",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a topology without Artifact Source
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceTopology = new AzureRM.DeploymentManager.V20191101Preview.ServiceTopology("serviceTopology", new AzureRM.DeploymentManager.V20191101Preview.ServiceTopologyArgs
+    ///         {
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceTopologyName = "myTopology",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ServiceTopology : Pulumi.CustomResource
     {

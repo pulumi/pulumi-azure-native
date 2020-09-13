@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Insights.V20200301Preview
 {
     /// <summary>
     /// An Application Insights component linked storage accounts
+    /// 
+    /// ## Example Usage
+    /// ### ComponentLinkedStorageAccountsCreateAndUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var componentLinkedStorageAccount = new AzureRM.Insights.V20200301Preview.ComponentLinkedStorageAccount("componentLinkedStorageAccount", new AzureRM.Insights.V20200301Preview.ComponentLinkedStorageAccountArgs
+    ///         {
+    ///             LinkedStorageAccount = "/subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupName/providers/Microsoft.Storage/storageAccounts/storageaccountname",
+    ///             ResourceGroupName = "someResourceGroupName",
+    ///             ResourceName = "myComponent",
+    ///             StorageType = "ServiceProfiler",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ComponentLinkedStorageAccount : Pulumi.CustomResource
     {

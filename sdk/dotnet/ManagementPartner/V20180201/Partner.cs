@@ -11,6 +11,26 @@ namespace Pulumi.AzureRM.ManagementPartner.V20180201
 {
     /// <summary>
     /// this is the management partner operations response
+    /// 
+    /// ## Example Usage
+    /// ### PutPartnerDetails
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var partner = new AzureRM.ManagementPartner.V20180201.Partner("partner", new AzureRM.ManagementPartner.V20180201.PartnerArgs
+    ///         {
+    ///             PartnerId = "123456",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Partner : Pulumi.CustomResource
     {

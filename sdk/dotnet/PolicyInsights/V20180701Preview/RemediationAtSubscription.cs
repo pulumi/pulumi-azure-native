@@ -11,6 +11,55 @@ namespace Pulumi.AzureRM.PolicyInsights.V20180701Preview
 {
     /// <summary>
     /// The remediation definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create remediation at subscription scope
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var remediationAtSubscription = new AzureRM.PolicyInsights.V20180701Preview.RemediationAtSubscription("remediationAtSubscription", new AzureRM.PolicyInsights.V20180701Preview.RemediationAtSubscriptionArgs
+    ///         {
+    ///             PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///             RemediationName = "storageRemediation",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create remediation at subscription scope with all properties
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var remediationAtSubscription = new AzureRM.PolicyInsights.V20180701Preview.RemediationAtSubscription("remediationAtSubscription", new AzureRM.PolicyInsights.V20180701Preview.RemediationAtSubscriptionArgs
+    ///         {
+    ///             Filters = new AzureRM.PolicyInsights.V20180701Preview.Inputs.RemediationFiltersArgs
+    ///             {
+    ///                 Locations = 
+    ///                 {
+    ///                     "eastus",
+    ///                     "westus",
+    ///                 },
+    ///             },
+    ///             PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///             PolicyDefinitionReferenceId = "8c8fa9e4",
+    ///             RemediationName = "storageRemediation",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RemediationAtSubscription : Pulumi.CustomResource
     {

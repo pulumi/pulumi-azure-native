@@ -11,39 +11,6 @@ namespace Pulumi.AzureRM.Network.V20170801
 {
     /// <summary>
     /// Route Filter Rule Resource
-    /// 
-    /// ## Example Usage
-    /// ### RouteFilterRuleCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var routeFilterRule = new AzureRM.Network.V20170801.RouteFilterRule("routeFilterRule", new AzureRM.Network.V20170801.RouteFilterRuleArgs
-    ///         {
-    ///             Access = "Allow",
-    ///             Communities = 
-    ///             {
-    ///                 "12076:5030",
-    ///                 "12076:5040",
-    ///             },
-    ///             ResourceGroupName = "rg1",
-    ///             RouteFilterName = "filterName",
-    ///             RouteFilterRuleType = "Community",
-    ///             RuleName = "ruleName",
-    ///             Tags = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class RouteFilterRule : Pulumi.CustomResource
     {

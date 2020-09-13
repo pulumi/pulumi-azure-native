@@ -11,6 +11,164 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
 {
     /// <summary>
     /// Represents a Blueprint definition.
+    /// 
+    /// ## Example Usage
+    /// ### ManagementGroupBlueprint
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var blueprint = new AzureRM.Blueprint.V20181101Preview.Blueprint("blueprint", new AzureRM.Blueprint.V20181101Preview.BlueprintArgs
+    ///         {
+    ///             BlueprintName = "simpleBlueprint",
+    ///             Description = "blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+    ///             Parameters = 
+    ///             {
+    ///                 { "costCenter", new AzureRM.Blueprint.V20181101Preview.Inputs.ParameterDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "displayName", "force cost center tag for all resources under given subscription." },
+    ///                     },
+    ///                     Type = "string",
+    ///                 } },
+    ///                 { "owners", new AzureRM.Blueprint.V20181101Preview.Inputs.ParameterDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "displayName", "assign owners to subscription along with blueprint assignment." },
+    ///                     },
+    ///                     Type = "array",
+    ///                 } },
+    ///                 { "storageAccountType", new AzureRM.Blueprint.V20181101Preview.Inputs.ParameterDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "displayName", "storage account type." },
+    ///                     },
+    ///                     Type = "string",
+    ///                 } },
+    ///             },
+    ///             ResourceGroups = 
+    ///             {
+    ///                 { "storageRG", new AzureRM.Blueprint.V20181101Preview.Inputs.ResourceGroupDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "description", "Contains storageAccounts that collect all shoebox logs." },
+    ///                         { "displayName", "storage resource group" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///             TargetScope = "subscription",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### ResourceGroupWithTags
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var blueprint = new AzureRM.Blueprint.V20181101Preview.Blueprint("blueprint", new AzureRM.Blueprint.V20181101Preview.BlueprintArgs
+    ///         {
+    ///             BlueprintName = "simpleBlueprint",
+    ///             Description = "An example blueprint containing an RG with two tags.",
+    ///             ResourceGroups = 
+    ///             {
+    ///                 { "myRGName", new AzureRM.Blueprint.V20181101Preview.Inputs.ResourceGroupDefinitionArgs
+    ///                 {
+    ///                     Location = "westus",
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "displayName", "My Resource Group" },
+    ///                     },
+    ///                     Name = "myRGName",
+    ///                     Tags = 
+    ///                     {
+    ///                         { "costcenter", "123456" },
+    ///                         { "nameOnlyTag", "" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             ResourceScope = "providers/Microsoft.Management/managementGroups/{ManagementGroupId}",
+    ///             TargetScope = "subscription",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### SubscriptionBlueprint
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var blueprint = new AzureRM.Blueprint.V20181101Preview.Blueprint("blueprint", new AzureRM.Blueprint.V20181101Preview.BlueprintArgs
+    ///         {
+    ///             BlueprintName = "simpleBlueprint",
+    ///             Description = "blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+    ///             Parameters = 
+    ///             {
+    ///                 { "costCenter", new AzureRM.Blueprint.V20181101Preview.Inputs.ParameterDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "displayName", "force cost center tag for all resources under given subscription." },
+    ///                     },
+    ///                     Type = "string",
+    ///                 } },
+    ///                 { "owners", new AzureRM.Blueprint.V20181101Preview.Inputs.ParameterDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "displayName", "assign owners to subscription along with blueprint assignment." },
+    ///                     },
+    ///                     Type = "array",
+    ///                 } },
+    ///                 { "storageAccountType", new AzureRM.Blueprint.V20181101Preview.Inputs.ParameterDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "displayName", "storage account type." },
+    ///                     },
+    ///                     Type = "string",
+    ///                 } },
+    ///             },
+    ///             ResourceGroups = 
+    ///             {
+    ///                 { "storageRG", new AzureRM.Blueprint.V20181101Preview.Inputs.ResourceGroupDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "description", "Contains storageAccounts that collect all shoebox logs." },
+    ///                         { "displayName", "storage resource group" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///             TargetScope = "subscription",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Blueprint : Pulumi.CustomResource
     {

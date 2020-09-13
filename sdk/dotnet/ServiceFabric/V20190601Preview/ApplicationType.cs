@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190601Preview
 {
     /// <summary>
     /// The application type name resource
+    /// 
+    /// ## Example Usage
+    /// ### Put an application type
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var applicationType = new AzureRM.ServiceFabric.V20190601Preview.ApplicationType("applicationType", new AzureRM.ServiceFabric.V20190601Preview.ApplicationTypeArgs
+    ///         {
+    ///             ApplicationTypeName = "myAppType",
+    ///             ClusterName = "myCluster",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "resRg",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApplicationType : Pulumi.CustomResource
     {

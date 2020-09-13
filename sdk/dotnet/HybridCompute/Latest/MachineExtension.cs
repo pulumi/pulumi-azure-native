@@ -11,36 +11,6 @@ namespace Pulumi.AzureRM.HybridCompute.Latest
 {
     /// <summary>
     /// Describes a Machine Extension.
-    /// 
-    /// ## Example Usage
-    /// ### Create or Update a Machine Extension
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var machineExtension = new AzureRM.HybridCompute.Latest.MachineExtension("machineExtension", new AzureRM.HybridCompute.Latest.MachineExtensionArgs
-    ///         {
-    ///             ExtensionName = "CustomScriptExtension",
-    ///             Location = "eastus2euap",
-    ///             Name = "myMachine",
-    ///             Publisher = "Microsoft.Compute",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Settings = 
-    ///             {
-    ///                 { "commandToExecute", "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"" },
-    ///             },
-    ///             Type = "CustomScriptExtension",
-    ///             TypeHandlerVersion = "1.10",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class MachineExtension : Pulumi.CustomResource
     {

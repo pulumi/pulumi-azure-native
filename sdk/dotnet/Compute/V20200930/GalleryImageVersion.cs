@@ -11,6 +11,20 @@ namespace Pulumi.AzureRM.Compute.V20200930
 {
     /// <summary>
     /// Specifies information about the gallery image version that you want to create or update.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple Gallery Image Version (Managed Image as source).
+    /// ```csharp
+    /// 
+    /// ```
+    /// ### Create or update a simple Gallery Image Version using snapshots as a source.
+    /// ```csharp
+    /// 
+    /// ```
+    /// ### Create or update a simple Gallery Image Version using vhd as a source.
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class GalleryImageVersion : Pulumi.CustomResource
     {

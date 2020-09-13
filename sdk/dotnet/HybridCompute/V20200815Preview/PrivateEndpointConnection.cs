@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.HybridCompute.V20200815Preview
 {
     /// <summary>
     /// A private endpoint connection
+    /// 
+    /// ## Example Usage
+    /// ### Approve or reject a private endpoint connection with a given name.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.HybridCompute.V20200815Preview.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.HybridCompute.V20200815Preview.PrivateEndpointConnectionArgs
+    ///         {
+    ///             PrivateEndpointConnectionName = "private-endpoint-connection-name",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.HybridCompute.V20200815Preview.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
+    ///             {
+    ///                 Description = "Approved by johndoe@contoso.com",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ScopeName = "myPrivateLinkScope",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

@@ -34,92 +34,90 @@ namespace Pulumi.AzureRM.Network.Latest
     ///                     {
     ///                         RouteConfigurationOverride = new AzureRM.Network.Latest.Inputs.RouteConfigurationArgs
     ///                         {
-    ///                             OdataType = "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration",
+    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
     ///                         },
-    ///                     },
-    ///                     MatchConditions = 
-    ///                     {
-    ///                         new AzureRM.Network.Latest.Inputs.RulesEngineMatchConditionArgs
+    ///                         MatchConditions = 
     ///                         {
-    ///                             RulesEngineMatchValue = 
+    ///                             new AzureRM.Network.Latest.Inputs.RulesEngineMatchConditionArgs
     ///                             {
-    ///                                 "CH",
+    ///                                 RulesEngineMatchValue = 
+    ///                                 {
+    ///                                     "CH",
+    ///                                 },
+    ///                                 RulesEngineMatchVariable = "RemoteAddr",
+    ///                                 RulesEngineOperator = "GeoMatch",
     ///                             },
-    ///                             RulesEngineMatchVariable = "RemoteAddr",
-    ///                             RulesEngineOperator = "GeoMatch",
     ///                         },
+    ///                         MatchProcessingBehavior = "Stop",
+    ///                         Name = "Rule1",
+    ///                         Priority = 1,
     ///                     },
-    ///                     MatchProcessingBehavior = "Stop",
-    ///                     Name = "Rule1",
-    ///                     Priority = 1,
-    ///                 },
-    ///                 new AzureRM.Network.Latest.Inputs.RulesEngineRuleArgs
-    ///                 {
-    ///                     Action = new AzureRM.Network.Latest.Inputs.RulesEngineActionArgs
+    ///                     new AzureRM.Network.Latest.Inputs.RulesEngineRuleArgs
     ///                     {
-    ///                         ResponseHeaderActions = 
+    ///                         Action = new AzureRM.Network.Latest.Inputs.RulesEngineActionArgs
     ///                         {
-    ///                             new AzureRM.Network.Latest.Inputs.HeaderActionArgs
+    ///                             ResponseHeaderActions = 
     ///                             {
-    ///                                 HeaderActionType = "Overwrite",
-    ///                                 HeaderName = "Cache-Control",
-    ///                                 Value = "public, max-age=31536000",
+    ///                                 new AzureRM.Network.Latest.Inputs.HeaderActionArgs
+    ///                                 {
+    ///                                     HeaderActionType = "Overwrite",
+    ///                                     HeaderName = "Cache-Control",
+    ///                                     Value = "public, max-age=31536000",
+    ///                                 },
     ///                             },
     ///                         },
+    ///                         MatchConditions = 
+    ///                         {
+    ///                             new AzureRM.Network.Latest.Inputs.RulesEngineMatchConditionArgs
+    ///                             {
+    ///                                 RulesEngineMatchValue = 
+    ///                                 {
+    ///                                     "jpg",
+    ///                                 },
+    ///                                 RulesEngineMatchVariable = "RequestFilenameExtension",
+    ///                                 RulesEngineOperator = "Equal",
+    ///                                 Transforms = 
+    ///                                 {
+    ///                                     "Lowercase",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Name = "Rule2",
+    ///                         Priority = 2,
     ///                     },
-    ///                     MatchConditions = 
+    ///                     new AzureRM.Network.Latest.Inputs.RulesEngineRuleArgs
     ///                     {
-    ///                         new AzureRM.Network.Latest.Inputs.RulesEngineMatchConditionArgs
+    ///                         Action = new AzureRM.Network.Latest.Inputs.RulesEngineActionArgs
     ///                         {
-    ///                             RulesEngineMatchValue = 
+    ///                             RouteConfigurationOverride = new AzureRM.Network.Latest.Inputs.RouteConfigurationArgs
     ///                             {
-    ///                                 "jpg",
+    ///                                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
     ///                             },
-    ///                             RulesEngineMatchVariable = "RequestFilenameExtension",
-    ///                             RulesEngineOperator = "Equal",
-    ///                             Transforms = 
+    ///                             MatchConditions = 
     ///                             {
-    ///                                 "Lowercase",
+    ///                                 new AzureRM.Network.Latest.Inputs.RulesEngineMatchConditionArgs
+    ///                                 {
+    ///                                     NegateCondition = false,
+    ///                                     RulesEngineMatchValue = 
+    ///                                     {
+    ///                                         "allowoverride",
+    ///                                     },
+    ///                                     RulesEngineMatchVariable = "RequestHeader",
+    ///                                     RulesEngineOperator = "Equal",
+    ///                                     Selector = "Rules-Engine-Route-Forward",
+    ///                                     Transforms = 
+    ///                                     {
+    ///                                         "Lowercase",
+    ///                                     },
+    ///                                 },
     ///                             },
+    ///                             Name = "Rule3",
+    ///                             Priority = 3,
     ///                         },
     ///                     },
-    ///                     Name = "Rule2",
-    ///                     Priority = 2,
-    ///                 },
-    ///                 new AzureRM.Network.Latest.Inputs.RulesEngineRuleArgs
-    ///                 {
-    ///                     Action = new AzureRM.Network.Latest.Inputs.RulesEngineActionArgs
-    ///                     {
-    ///                         RouteConfigurationOverride = new AzureRM.Network.Latest.Inputs.RouteConfigurationArgs
-    ///                         {
-    ///                             OdataType = "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
-    ///                         },
-    ///                     },
-    ///                     MatchConditions = 
-    ///                     {
-    ///                         new AzureRM.Network.Latest.Inputs.RulesEngineMatchConditionArgs
-    ///                         {
-    ///                             NegateCondition = false,
-    ///                             RulesEngineMatchValue = 
-    ///                             {
-    ///                                 "allowoverride",
-    ///                             },
-    ///                             RulesEngineMatchVariable = "RequestHeader",
-    ///                             RulesEngineOperator = "Equal",
-    ///                             Selector = "Rules-Engine-Route-Forward",
-    ///                             Transforms = 
-    ///                             {
-    ///                                 "Lowercase",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Name = "Rule3",
-    ///                     Priority = 3,
-    ///                 },
-    ///             },
-    ///             RulesEngineName = "rulesEngine1",
-    ///         });
-    ///     }
+    ///                     RulesEngineName = "rulesEngine1",
+    ///                 });
+    ///             }
     /// 
     /// }
     /// 

@@ -11,6 +11,57 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
 {
     /// <summary>
     /// An Azure SQL Database server.
+    /// 
+    /// ## Example Usage
+    /// ### Create server with all properties
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.Sql.V20150501Preview.Server("server", new AzureRM.Sql.V20150501Preview.ServerArgs
+    ///         {
+    ///             AdministratorLogin = "dummylogin",
+    ///             AdministratorLoginPassword = "Un53cuRE!",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-7398",
+    ///             ServerName = "sqlcrudtest-4645",
+    ///             Tags = 
+    ///             {
+    ///                 { "tagKey1", "TagValue1" },
+    ///             },
+    ///             Version = "12.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create server with minimal properties
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.Sql.V20150501Preview.Server("server", new AzureRM.Sql.V20150501Preview.ServerArgs
+    ///         {
+    ///             AdministratorLogin = "dummylogin",
+    ///             AdministratorLoginPassword = "Un53cuRE!",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-7398",
+    ///             ServerName = "sqlcrudtest-4645",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

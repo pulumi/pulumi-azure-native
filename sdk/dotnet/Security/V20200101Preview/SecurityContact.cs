@@ -11,6 +11,26 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
 {
     /// <summary>
     /// Contact details and configurations for notifications coming from Azure Security Center.
+    /// 
+    /// ## Example Usage
+    /// ### Create security contact data
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var securityContact = new AzureRM.Security.V20200101Preview.SecurityContact("securityContact", new AzureRM.Security.V20200101Preview.SecurityContactArgs
+    ///         {
+    ///             SecurityContactName = "default",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SecurityContact : Pulumi.CustomResource
     {

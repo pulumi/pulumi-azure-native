@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
 {
     /// <summary>
     /// The resource definition of this association.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an association
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var association = new AzureRM.CustomProviders.V20180901Preview.Association("association", new AzureRM.CustomProviders.V20180901Preview.AssociationArgs
+    ///         {
+    ///             AssociationName = "associationName",
+    ///             Scope = "scope",
+    ///             TargetResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/appRG/providers/Microsoft.Solutions/applications/applicationName",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Association : Pulumi.CustomResource
     {

@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
 {
     /// <summary>
     /// A Postgres Instance.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a postgres Instance.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var postgresInstance = new AzureRM.AzureData.V20190724Preview.PostgresInstance("postgresInstance", new AzureRM.AzureData.V20190724Preview.PostgresInstanceArgs
+    ///         {
+    ///             PostgresInstanceName = "testpostgresInstance",
+    ///             ResourceGroupName = "testrg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PostgresInstance : Pulumi.CustomResource
     {

@@ -37,8 +37,29 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     ///                     Name = "inputtest",
     ///                     Properties = new AzureRM.StreamAnalytics.V20160301.Inputs.InputPropertiesArgs
     ///                     {
+    ///                         Datasource = 
+    ///                         {
+    ///                             { "properties", 
+    ///                             {
+    ///                                 { "container", "containerName" },
+    ///                                 { "pathPattern", "" },
+    ///                                 { "storageAccounts", 
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "accountKey", "yourAccountKey==" },
+    ///                                         { "accountName", "yourAccountName" },
+    ///                                     },
+    ///                                 } },
+    ///                             } },
+    ///                             { "type", "Microsoft.Storage/Blob" },
+    ///                         },
     ///                         Serialization = new AzureRM.StreamAnalytics.V20160301.Inputs.SerializationArgs
     ///                         {
+    ///                             Properties = 
+    ///                             {
+    ///                                 { "encoding", "UTF8" },
+    ///                             },
     ///                             Type = "Json",
     ///                         },
     ///                         Type = "Stream",

@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.Devices.Latest
 {
     /// <summary>
     /// The private endpoint connection of a provisioning service
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_CreateOrUpdate
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class IotDpsResourcePrivateEndpointConnection : Pulumi.CustomResource
     {

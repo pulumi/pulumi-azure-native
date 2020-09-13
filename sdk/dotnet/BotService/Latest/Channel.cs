@@ -26,7 +26,11 @@ namespace Pulumi.AzureRM.BotService.Latest
     ///         {
     ///             ChannelName = "AlexaChannel",
     ///             Location = "global",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.BotService.Latest.Inputs.ChannelArgs
+    ///             {
+    ///                 AlexaSkillId = "XAlexaSkillIdX",
+    ///                 IsEnabled = true,
+    ///             },
     ///             ResourceGroupName = "OneResourceGroupName",
     ///             ResourceName = "samplebotname",
     ///         });
@@ -48,7 +52,12 @@ namespace Pulumi.AzureRM.BotService.Latest
     ///         {
     ///             ChannelName = "EmailChannel",
     ///             Location = "global",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.BotService.Latest.Inputs.ChannelArgs
+    ///             {
+    ///                 EmailAddress = "a@b.com",
+    ///                 IsEnabled = true,
+    ///                 Password = "pwd",
+    ///             },
     ///             ResourceGroupName = "OneResourceGroupName",
     ///             ResourceName = "samplebotname",
     ///         });
@@ -70,7 +79,11 @@ namespace Pulumi.AzureRM.BotService.Latest
     ///         {
     ///             ChannelName = "DirectLineSpeechChannel",
     ///             Location = "global",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.BotService.Latest.Inputs.ChannelArgs
+    ///             {
+    ///                 CognitiveServicesSubscriptionId = "XcognitiveServicesSubscriptionIdX",
+    ///                 IsEnabled = true,
+    ///             },
     ///             ResourceGroupName = "OneResourceGroupName",
     ///             ResourceName = "samplebotname",
     ///         });
@@ -92,7 +105,17 @@ namespace Pulumi.AzureRM.BotService.Latest
     ///         {
     ///             ChannelName = "LineChannel",
     ///             Location = "global",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.BotService.Latest.Inputs.ChannelArgs
+    ///             {
+    ///                 LineRegistrations = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "channelAccessToken", "channelAccessToken" },
+    ///                         { "channelSecret", "channelSecret" },
+    ///                     },
+    ///                 },
+    ///             },
     ///             ResourceGroupName = "OneResourceGroupName",
     ///             ResourceName = "samplebotname",
     ///         });

@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
 {
     /// <summary>
     /// A SQL server.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a SQL Server in a Registration group.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sqlServer = new AzureRM.AzureData.V20190724Preview.SqlServer("sqlServer", new AzureRM.AzureData.V20190724Preview.SqlServerArgs
+    ///         {
+    ///             Cores = 8,
+    ///             Edition = "Latin",
+    ///             PropertyBag = "",
+    ///             RegistrationID = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration",
+    ///             ResourceGroupName = "testrg",
+    ///             SqlServerName = "testsqlserver",
+    ///             SqlServerRegistrationName = "testsqlregistration",
+    ///             Version = "2008",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SqlServer : Pulumi.CustomResource
     {

@@ -11,6 +11,119 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
 {
     /// <summary>
     /// A class represent a SignalR service resource.
+    /// 
+    /// ## Example Usage
+    /// ### SignalR_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var signalR = new AzureRM.SignalRService.V20200701Preview.SignalR("signalR", new AzureRM.SignalRService.V20200701Preview.SignalRArgs
+    ///         {
+    ///             Cors = new AzureRM.SignalRService.V20200701Preview.Inputs.SignalRCorsSettingsArgs
+    ///             {
+    ///                 AllowedOrigins = 
+    ///                 {
+    ///                     "https://foo.com",
+    ///                     "https://bar.com",
+    ///                 },
+    ///             },
+    ///             Features = 
+    ///             {
+    ///                 new AzureRM.SignalRService.V20200701Preview.Inputs.SignalRFeatureArgs
+    ///                 {
+    ///                     Flag = "ServiceMode",
+    ///                     Properties = ,
+    ///                     Value = "Serverless",
+    ///                 },
+    ///                 new AzureRM.SignalRService.V20200701Preview.Inputs.SignalRFeatureArgs
+    ///                 {
+    ///                     Flag = "EnableConnectivityLogs",
+    ///                     Properties = ,
+    ///                     Value = "True",
+    ///                 },
+    ///                 new AzureRM.SignalRService.V20200701Preview.Inputs.SignalRFeatureArgs
+    ///                 {
+    ///                     Flag = "EnableMessagingLogs",
+    ///                     Properties = ,
+    ///                     Value = "False",
+    ///                 },
+    ///             },
+    ///             Identity = new AzureRM.SignalRService.V20200701Preview.Inputs.ManagedIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Kind = "SignalR",
+    ///             Location = "eastus",
+    ///             NetworkACLs = new AzureRM.SignalRService.V20200701Preview.Inputs.SignalRNetworkACLsArgs
+    ///             {
+    ///                 DefaultAction = "Deny",
+    ///                 PrivateEndpoints = 
+    ///                 {
+    ///                     new AzureRM.SignalRService.V20200701Preview.Inputs.PrivateEndpointACLArgs
+    ///                     {
+    ///                         Allow = 
+    ///                         {
+    ///                             "ServerConnection",
+    ///                         },
+    ///                         Name = "mySignalRService.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+    ///                     },
+    ///                 },
+    ///                 PublicNetwork = new AzureRM.SignalRService.V20200701Preview.Inputs.NetworkACLArgs
+    ///                 {
+    ///                     Allow = 
+    ///                     {
+    ///                         "ClientConnection",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ResourceName = "mySignalRService",
+    ///             Sku = new AzureRM.SignalRService.V20200701Preview.Inputs.ResourceSkuArgs
+    ///             {
+    ///                 Capacity = 1,
+    ///                 Name = "Standard_S1",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             Tls = new AzureRM.SignalRService.V20200701Preview.Inputs.SignalRTlsSettingsArgs
+    ///             {
+    ///                 ClientCertEnabled = false,
+    ///             },
+    ///             Upstream = new AzureRM.SignalRService.V20200701Preview.Inputs.ServerlessUpstreamSettingsArgs
+    ///             {
+    ///                 Templates = 
+    ///                 {
+    ///                     new AzureRM.SignalRService.V20200701Preview.Inputs.UpstreamTemplateArgs
+    ///                     {
+    ///                         Auth = new AzureRM.SignalRService.V20200701Preview.Inputs.UpstreamAuthSettingsArgs
+    ///                         {
+    ///                             ManagedIdentity = new AzureRM.SignalRService.V20200701Preview.Inputs.ManagedIdentitySettingsArgs
+    ///                             {
+    ///                                 Resource = "api://example",
+    ///                             },
+    ///                             Type = "ManagedIdentity",
+    ///                         },
+    ///                         CategoryPattern = "*",
+    ///                         EventPattern = "connect,disconnect",
+    ///                         HubPattern = "*",
+    ///                         UrlTemplate = "https://example.com/chat/api/connect",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SignalR : Pulumi.CustomResource
     {

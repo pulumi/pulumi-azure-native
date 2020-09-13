@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
 {
     /// <summary>
     /// Single Namespace item in List or Get Operation
+    /// 
+    /// ## Example Usage
+    /// ### NamespaceCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @namespace = new AzureRM.EventHub.V20180101Preview.Namespace("namespace", new AzureRM.EventHub.V20180101Preview.NamespaceArgs
+    ///         {
+    ///             Location = "South Central US",
+    ///             NamespaceName = "sdk-Namespace-5849",
+    ///             ResourceGroupName = "ArunMonocle",
+    ///             Sku = new AzureRM.EventHub.V20180101Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource
     {

@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.ContainerService.V20200901
 {
     /// <summary>
     /// Agent Pool.
+    /// 
+    /// ## Example Usage
+    /// ### Create Agent Pool with Ephemeral OS Disk
+    /// ```csharp
+    /// 
+    /// ```
+    /// ### Create Agent Pool with PPG
+    /// ```csharp
+    /// 
+    /// ```
+    /// ### Create Spot Agent Pool
+    /// ```csharp
+    /// 
+    /// ```
+    /// ### Create/Update Agent Pool
+    /// ```csharp
+    /// 
+    /// ```
+    /// ### Update Agent Pool
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class AgentPool : Pulumi.CustomResource
     {

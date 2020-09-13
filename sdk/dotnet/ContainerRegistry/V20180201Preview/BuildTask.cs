@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
 {
     /// <summary>
     /// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+    /// 
+    /// ## Example Usage
+    /// ### BuildTasks_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var buildTask = new AzureRM.ContainerRegistry.V20180201Preview.BuildTask("buildTask", new AzureRM.ContainerRegistry.V20180201Preview.BuildTaskArgs
+    ///         {
+    ///             Alias = "myalias",
+    ///             BuildTaskName = "myBuildTask",
+    ///             Location = "eastus",
+    ///             Platform = new AzureRM.ContainerRegistry.V20180201Preview.Inputs.PlatformPropertiesArgs
+    ///             {
+    ///                 Cpu = 2,
+    ///                 OsType = "Linux",
+    ///             },
+    ///             RegistryName = "myRegistry",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             SourceRepository = new AzureRM.ContainerRegistry.V20180201Preview.Inputs.SourceRepositoryPropertiesArgs
+    ///             {
+    ///                 IsCommitTriggerEnabled = true,
+    ///                 RepositoryUrl = "https://github.com/Azure/azure-rest-api-specs",
+    ///                 SourceControlAuthProperties = new AzureRM.ContainerRegistry.V20180201Preview.Inputs.SourceControlAuthInfoArgs
+    ///                 {
+    ///                     Scope = "repo",
+    ///                     Token = "xxxxxx",
+    ///                     TokenType = "OAuth",
+    ///                 },
+    ///                 SourceControlType = "Github",
+    ///             },
+    ///             Status = "Enabled",
+    ///             Tags = 
+    ///             {
+    ///                 { "testkey", "value" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BuildTask : Pulumi.CustomResource
     {

@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
 {
     /// <summary>
     /// Represents a server firewall rule.
+    /// 
+    /// ## Example Usage
+    /// ### FirewallRuleCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallRule = new AzureRM.DBforMySQL.V20171201Preview.FirewallRule("firewallRule", new AzureRM.DBforMySQL.V20171201Preview.FirewallRuleArgs
+    ///         {
+    ///             EndIpAddress = "255.255.255.255",
+    ///             FirewallRuleName = "rule1",
+    ///             ResourceGroupName = "TestGroup",
+    ///             ServerName = "testserver",
+    ///             StartIpAddress = "0.0.0.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

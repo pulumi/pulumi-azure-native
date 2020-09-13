@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.Cache.V20190701
 {
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
+    /// 
+    /// ## Example Usage
+    /// ### LinkedServer_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var linkedServer = new AzureRM.Cache.V20190701.LinkedServer("linkedServer", new AzureRM.Cache.V20190701.LinkedServerArgs
+    ///         {
+    ///             LinkedRedisCacheId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
+    ///             LinkedRedisCacheLocation = "West US",
+    ///             LinkedServerName = "cache2",
+    ///             Name = "cache1",
+    ///             ResourceGroupName = "rg1",
+    ///             ServerRole = "Secondary",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class LinkedServer : Pulumi.CustomResource
     {

@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.BotService.V20171201
 {
     /// <summary>
     /// Bot resource definition
+    /// 
+    /// ## Example Usage
+    /// ### Create Bot
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bot = new AzureRM.BotService.V20171201.Bot("bot", new AzureRM.BotService.V20171201.BotArgs
+    ///         {
+    ///             Etag = "etag1",
+    ///             Kind = "sdk",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "OneResourceGroupName",
+    ///             ResourceName = "samplebotname",
+    ///             Sku = new AzureRM.BotService.V20171201.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S1",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Bot : Pulumi.CustomResource
     {

@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.Authorization.V20170601Preview
 {
     /// <summary>
     /// The policy assignment.
+    /// 
+    /// ## Example Usage
+    /// ### Put a policy assignment
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policyAssignment = new AzureRM.Authorization.V20170601Preview.PolicyAssignment("policyAssignment", new AzureRM.Authorization.V20170601Preview.PolicyAssignmentArgs
+    ///         {
+    ///             Description = "Policies required to minimize the risk of accidental cost overruns",
+    ///             DisplayName = "Storage Cost Management",
+    ///             Metadata = 
+    ///             {
+    ///                 { "category", "Cost Management" },
+    ///             },
+    ///             NotScopes = 
+    ///             {
+    ///                 "/subscriptions/subId/resourcegroups/testingResourceGroup",
+    ///             },
+    ///             Parameters = 
+    ///             {
+    ///                 { "allowedSkus", 
+    ///                 {
+    ///                     { "type", "Array" },
+    ///                 } },
+    ///             },
+    ///             PolicyAssignmentName = "costManagement",
+    ///             PolicyDefinitionId = "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus",
+    ///             Scope = "subscriptions/subId",
+    ///             Sku = new AzureRM.Authorization.V20170601Preview.Inputs.PolicySkuArgs
+    ///             {
+    ///                 Name = "A0",
+    ///                 Tier = "Free",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PolicyAssignment : Pulumi.CustomResource
     {

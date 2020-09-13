@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
 {
     /// <summary>
     /// Represents a server firewall rule.
+    /// 
+    /// ## Example Usage
+    /// ### FirewallRuleCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallRule = new AzureRM.DBforMariaDB.V20180601Preview.FirewallRule("firewallRule", new AzureRM.DBforMariaDB.V20180601Preview.FirewallRuleArgs
+    ///         {
+    ///             EndIpAddress = "255.255.255.255",
+    ///             FirewallRuleName = "rule1",
+    ///             ResourceGroupName = "TestGroup",
+    ///             ServerName = "testserver",
+    ///             StartIpAddress = "0.0.0.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

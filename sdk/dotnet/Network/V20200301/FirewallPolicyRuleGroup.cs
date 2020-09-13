@@ -32,7 +32,35 @@ namespace Pulumi.AzureRM.Network.V20200301
     ///             {
     ///                 new AzureRM.Network.V20200301.Inputs.FirewallPolicyRuleArgs
     ///                 {
+    ///                     Action = 
+    ///                     {
+    ///                         { "type", "Deny" },
+    ///                     },
     ///                     Name = "Example-Filter-Rule",
+    ///                     RuleConditions = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "destinationAddresses", 
+    ///                             {
+    ///                                 "*",
+    ///                             } },
+    ///                             { "destinationPorts", 
+    ///                             {
+    ///                                 "*",
+    ///                             } },
+    ///                             { "ipProtocols", 
+    ///                             {
+    ///                                 "TCP",
+    ///                             } },
+    ///                             { "name", "network-condition1" },
+    ///                             { "ruleConditionType", "NetworkRuleCondition" },
+    ///                             { "sourceAddresses", 
+    ///                             {
+    ///                                 "10.1.25.0/24",
+    ///                             } },
+    ///                         },
+    ///                     },
     ///                     RuleType = "FirewallPolicyFilterRule",
     ///                 },
     ///             },
@@ -61,7 +89,35 @@ namespace Pulumi.AzureRM.Network.V20200301
     ///             {
     ///                 new AzureRM.Network.V20200301.Inputs.FirewallPolicyRuleArgs
     ///                 {
+    ///                     Action = 
+    ///                     {
+    ///                         { "type", "Deny" },
+    ///                     },
     ///                     Name = "Example-Filter-Rule",
+    ///                     RuleConditions = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "destinationIpGroups", 
+    ///                             {
+    ///                                 "/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2",
+    ///                             } },
+    ///                             { "destinationPorts", 
+    ///                             {
+    ///                                 "*",
+    ///                             } },
+    ///                             { "ipProtocols", 
+    ///                             {
+    ///                                 "TCP",
+    ///                             } },
+    ///                             { "name", "network-condition1" },
+    ///                             { "ruleConditionType", "NetworkRuleCondition" },
+    ///                             { "sourceIpGroups", 
+    ///                             {
+    ///                                 "/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1",
+    ///                             } },
+    ///                         },
+    ///                     },
     ///                     RuleType = "FirewallPolicyFilterRule",
     ///                 },
     ///             },

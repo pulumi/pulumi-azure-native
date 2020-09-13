@@ -32,7 +32,35 @@ namespace Pulumi.AzureRM.Network.V20191101
     ///             {
     ///                 new AzureRM.Network.V20191101.Inputs.FirewallPolicyRuleArgs
     ///                 {
+    ///                     Action = 
+    ///                     {
+    ///                         { "type", "Deny" },
+    ///                     },
     ///                     Name = "Example-Filter-Rule",
+    ///                     RuleConditions = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "destinationAddresses", 
+    ///                             {
+    ///                                 "*",
+    ///                             } },
+    ///                             { "destinationPorts", 
+    ///                             {
+    ///                                 "*",
+    ///                             } },
+    ///                             { "ipProtocols", 
+    ///                             {
+    ///                                 "TCP",
+    ///                             } },
+    ///                             { "name", "network-condition1" },
+    ///                             { "ruleConditionType", "NetworkRuleCondition" },
+    ///                             { "sourceAddresses", 
+    ///                             {
+    ///                                 "10.1.25.0/24",
+    ///                             } },
+    ///                         },
+    ///                     },
     ///                     RuleType = "FirewallPolicyFilterRule",
     ///                 },
     ///             },

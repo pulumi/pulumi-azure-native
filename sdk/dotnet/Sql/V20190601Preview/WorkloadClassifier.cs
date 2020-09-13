@@ -11,6 +11,59 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
 {
     /// <summary>
     /// Workload classifier operations for a data warehouse
+    /// 
+    /// ## Example Usage
+    /// ### Create a workload group with all properties specified.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workloadClassifier = new AzureRM.Sql.V20190601Preview.WorkloadClassifier("workloadClassifier", new AzureRM.Sql.V20190601Preview.WorkloadClassifierArgs
+    ///         {
+    ///             Context = "test_context",
+    ///             DatabaseName = "testdb",
+    ///             EndTime = "14:00",
+    ///             Importance = "high",
+    ///             Label = "test_label",
+    ///             MemberName = "dbo",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             StartTime = "12:00",
+    ///             WorkloadClassifierName = "wlm_workloadclassifier",
+    ///             WorkloadGroupName = "wlm_workloadgroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a workload group with the required properties specified.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workloadClassifier = new AzureRM.Sql.V20190601Preview.WorkloadClassifier("workloadClassifier", new AzureRM.Sql.V20190601Preview.WorkloadClassifierArgs
+    ///         {
+    ///             DatabaseName = "testdb",
+    ///             MemberName = "dbo",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             WorkloadClassifierName = "wlm_workloadclassifier",
+    ///             WorkloadGroupName = "wlm_workloadgroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class WorkloadClassifier : Pulumi.CustomResource
     {

@@ -11,6 +11,40 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
 {
     /// <summary>
     /// Information about appliance definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update appliance definition
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var applianceDefinition = new AzureRM.Solutions.V20160901Preview.ApplianceDefinition("applianceDefinition", new AzureRM.Solutions.V20160901Preview.ApplianceDefinitionArgs
+    ///         {
+    ///             ApplianceDefinitionName = "myApplianceDef",
+    ///             Authorizations = 
+    ///             {
+    ///                 new AzureRM.Solutions.V20160901Preview.Inputs.ApplianceProviderAuthorizationArgs
+    ///                 {
+    ///                     PrincipalId = "validprincipalguid",
+    ///                     RoleDefinitionId = "validroleguid",
+    ///                 },
+    ///             },
+    ///             Description = "myApplianceDef description",
+    ///             DisplayName = "myApplianceDef",
+    ///             Location = "East US 2",
+    ///             LockLevel = "None",
+    ///             PackageFileUri = "https://path/to/packagezipfile",
+    ///             ResourceGroupName = "rg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApplianceDefinition : Pulumi.CustomResource
     {

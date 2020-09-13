@@ -11,6 +11,73 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 {
     /// <summary>
     /// An object that represents a pipeline run for a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### PipelineRunCreate_Export
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pipelineRun = new AzureRM.ContainerRegistry.V20191201Preview.PipelineRun("pipelineRun", new AzureRM.ContainerRegistry.V20191201Preview.PipelineRunArgs
+    ///         {
+    ///             PipelineRunName = "myPipelineRun",
+    ///             RegistryName = "myRegistry",
+    ///             Request = new AzureRM.ContainerRegistry.V20191201Preview.Inputs.PipelineRunRequestArgs
+    ///             {
+    ///                 Artifacts = 
+    ///                 {
+    ///                     "sourceRepository/hello-world",
+    ///                     "sourceRepository2@sha256:00000000000000000000000000000000000",
+    ///                 },
+    ///                 PipelineResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline",
+    ///                 Target = new AzureRM.ContainerRegistry.V20191201Preview.Inputs.PipelineRunTargetPropertiesArgs
+    ///                 {
+    ///                     Name = "myblob.tar.gz",
+    ///                     Type = "AzureStorageBlob",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### PipelineRunCreate_Import
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pipelineRun = new AzureRM.ContainerRegistry.V20191201Preview.PipelineRun("pipelineRun", new AzureRM.ContainerRegistry.V20191201Preview.PipelineRunArgs
+    ///         {
+    ///             ForceUpdateTag = "2020-03-04T17:23:21.9261521+00:00",
+    ///             PipelineRunName = "myPipelineRun",
+    ///             RegistryName = "myRegistry",
+    ///             Request = new AzureRM.ContainerRegistry.V20191201Preview.Inputs.PipelineRunRequestArgs
+    ///             {
+    ///                 CatalogDigest = "sha256@",
+    ///                 PipelineResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/importPipelines/myImportPipeline",
+    ///                 Source = new AzureRM.ContainerRegistry.V20191201Preview.Inputs.PipelineRunSourcePropertiesArgs
+    ///                 {
+    ///                     Name = "myblob.tar.gz",
+    ///                     Type = "AzureStorageBlob",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PipelineRun : Pulumi.CustomResource
     {

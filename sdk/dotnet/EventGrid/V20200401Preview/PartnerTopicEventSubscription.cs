@@ -11,6 +11,42 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 {
     /// <summary>
     /// Event Subscription
+    /// 
+    /// ## Example Usage
+    /// ### PartnerTopicEventSubscriptions_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var partnerTopicEventSubscription = new AzureRM.EventGrid.V20200401Preview.PartnerTopicEventSubscription("partnerTopicEventSubscription", new AzureRM.EventGrid.V20200401Preview.PartnerTopicEventSubscriptionArgs
+    ///         {
+    ///             Destination = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             {
+    ///                 EndpointType = "WebHook",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
+    ///                 },
+    ///             },
+    ///             EventSubscriptionName = "exampleEventSubscriptionName1",
+    ///             Filter = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionFilterArgs
+    ///             {
+    ///                 IsSubjectCaseSensitive = false,
+    ///                 SubjectBeginsWith = "ExamplePrefix",
+    ///                 SubjectEndsWith = "ExampleSuffix",
+    ///             },
+    ///             PartnerTopicName = "examplePartnerTopic1",
+    ///             ResourceGroupName = "examplerg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PartnerTopicEventSubscription : Pulumi.CustomResource
     {

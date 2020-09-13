@@ -11,6 +11,348 @@ namespace Pulumi.AzureRM.Network.V20180301Preview
 {
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type).
+    /// 
+    /// ## Example Usage
+    /// ### Create A recordset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180301Preview.RecordSet("recordSet", new AzureRM.Network.V20180301Preview.RecordSetArgs
+    ///         {
+    ///             ARecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180301Preview.Inputs.ARecordArgs
+    ///                 {
+    ///                     Ipv4Address = "127.0.0.1",
+    ///                 },
+    ///             },
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             RecordType = "A",
+    ///             RelativeRecordSetName = "record1",
+    ///             ResourceGroupName = "rg1",
+    ///             Ttl = 3600,
+    ///             ZoneName = "zone1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create AAAA recordset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180301Preview.RecordSet("recordSet", new AzureRM.Network.V20180301Preview.RecordSetArgs
+    ///         {
+    ///             AaaaRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180301Preview.Inputs.AaaaRecordArgs
+    ///                 {
+    ///                     Ipv6Address = "::1",
+    ///                 },
+    ///             },
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             RecordType = "AAAA",
+    ///             RelativeRecordSetName = "record1",
+    ///             ResourceGroupName = "rg1",
+    ///             Ttl = 3600,
+    ///             ZoneName = "zone1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create CAA recordset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180301Preview.RecordSet("recordSet", new AzureRM.Network.V20180301Preview.RecordSetArgs
+    ///         {
+    ///             CaaRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180301Preview.Inputs.CaaRecordArgs
+    ///                 {
+    ///                     Flags = 0,
+    ///                     Tag = "issue",
+    ///                     Value = "ca.contoso.com",
+    ///                 },
+    ///             },
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             RecordType = "CAA",
+    ///             RelativeRecordSetName = "record1",
+    ///             ResourceGroupName = "rg1",
+    ///             Ttl = 3600,
+    ///             ZoneName = "zone1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create CNAME recordset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180301Preview.RecordSet("recordSet", new AzureRM.Network.V20180301Preview.RecordSetArgs
+    ///         {
+    ///             CnameRecord = new AzureRM.Network.V20180301Preview.Inputs.CnameRecordArgs
+    ///             {
+    ///                 Cname = "contoso.com",
+    ///             },
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             RecordType = "CNAME",
+    ///             RelativeRecordSetName = "record1",
+    ///             ResourceGroupName = "rg1",
+    ///             Ttl = 3600,
+    ///             ZoneName = "zone1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create MX recordset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180301Preview.RecordSet("recordSet", new AzureRM.Network.V20180301Preview.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             MxRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180301Preview.Inputs.MxRecordArgs
+    ///                 {
+    ///                     Exchange = "mail.contoso.com",
+    ///                     Preference = 0,
+    ///                 },
+    ///             },
+    ///             RecordType = "MX",
+    ///             RelativeRecordSetName = "record1",
+    ///             ResourceGroupName = "rg1",
+    ///             Ttl = 3600,
+    ///             ZoneName = "zone1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create NS recordset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180301Preview.RecordSet("recordSet", new AzureRM.Network.V20180301Preview.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             NsRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180301Preview.Inputs.NsRecordArgs
+    ///                 {
+    ///                     Nsdname = "ns1.contoso.com",
+    ///                 },
+    ///             },
+    ///             RecordType = "NS",
+    ///             RelativeRecordSetName = "record1",
+    ///             ResourceGroupName = "rg1",
+    ///             Ttl = 3600,
+    ///             ZoneName = "zone1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create PTR recordset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180301Preview.RecordSet("recordSet", new AzureRM.Network.V20180301Preview.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             PtrRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180301Preview.Inputs.PtrRecordArgs
+    ///                 {
+    ///                     Ptrdname = "localhost",
+    ///                 },
+    ///             },
+    ///             RecordType = "PTR",
+    ///             RelativeRecordSetName = "1",
+    ///             ResourceGroupName = "rg1",
+    ///             Ttl = 3600,
+    ///             ZoneName = "0.0.127.in-addr.arpa",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create SOA recordset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180301Preview.RecordSet("recordSet", new AzureRM.Network.V20180301Preview.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             RecordType = "SOA",
+    ///             RelativeRecordSetName = "@",
+    ///             ResourceGroupName = "rg1",
+    ///             SoaRecord = new AzureRM.Network.V20180301Preview.Inputs.SoaRecordArgs
+    ///             {
+    ///                 Email = "hostmaster.contoso.com",
+    ///                 ExpireTime = 2419200,
+    ///                 Host = "ns1.contoso.com",
+    ///                 MinimumTtl = 300,
+    ///                 RefreshTime = 3600,
+    ///                 RetryTime = 300,
+    ///                 SerialNumber = 1,
+    ///             },
+    ///             Ttl = 3600,
+    ///             ZoneName = "zone1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create SRV recordset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180301Preview.RecordSet("recordSet", new AzureRM.Network.V20180301Preview.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             RecordType = "SRV",
+    ///             RelativeRecordSetName = "record1",
+    ///             ResourceGroupName = "rg1",
+    ///             SrvRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180301Preview.Inputs.SrvRecordArgs
+    ///                 {
+    ///                     Port = 80,
+    ///                     Priority = 0,
+    ///                     Target = "contoso.com",
+    ///                     Weight = 10,
+    ///                 },
+    ///             },
+    ///             Ttl = 3600,
+    ///             ZoneName = "zone1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create TXT recordset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180301Preview.RecordSet("recordSet", new AzureRM.Network.V20180301Preview.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             RecordType = "TXT",
+    ///             RelativeRecordSetName = "record1",
+    ///             ResourceGroupName = "rg1",
+    ///             Ttl = 3600,
+    ///             TxtRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180301Preview.Inputs.TxtRecordArgs
+    ///                 {
+    ///                     Value = 
+    ///                     {
+    ///                         "string1",
+    ///                         "string2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ZoneName = "zone1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RecordSet : Pulumi.CustomResource
     {

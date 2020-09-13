@@ -11,6 +11,48 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
 {
     /// <summary>
     /// The Managed Network Group resource
+    /// 
+    /// ## Example Usage
+    /// ### ManagementNetworkGroupsPut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedNetworkGroup = new AzureRM.ManagedNetwork.V20190601Preview.ManagedNetworkGroup("managedNetworkGroup", new AzureRM.ManagedNetwork.V20190601Preview.ManagedNetworkGroupArgs
+    ///         {
+    ///             ManagedNetworkGroupName = "myManagedNetworkGroup1",
+    ///             ManagedNetworkName = "myManagedNetwork",
+    ///             ManagementGroups = {},
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Subnets = 
+    ///             {
+    ///                 new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA",
+    ///                 },
+    ///             },
+    ///             Subscriptions = {},
+    ///             VirtualNetworks = 
+    ///             {
+    ///                 new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+    ///                 },
+    ///                 new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagedNetworkGroup : Pulumi.CustomResource
     {

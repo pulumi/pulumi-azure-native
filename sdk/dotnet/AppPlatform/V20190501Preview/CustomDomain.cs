@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
 {
     /// <summary>
     /// Custom domain resource payload.
+    /// 
+    /// ## Example Usage
+    /// ### CustomDomains_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var customDomain = new AzureRM.AppPlatform.V20190501Preview.CustomDomain("customDomain", new AzureRM.AppPlatform.V20190501Preview.CustomDomainArgs
+    ///         {
+    ///             AppName = "myapp",
+    ///             DomainName = "mydomain.com",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceName = "myservice",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class CustomDomain : Pulumi.CustomResource
     {

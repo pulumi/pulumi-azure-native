@@ -11,6 +11,41 @@ namespace Pulumi.AzureRM.Migrate.V20171111Preview
 {
     /// <summary>
     /// An assessment created for a group in the Migration project.
+    /// 
+    /// ## Example Usage
+    /// ### Assessments_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var assessment = new AzureRM.Migrate.V20171111Preview.Assessment("assessment", new AzureRM.Migrate.V20171111Preview.AssessmentArgs
+    ///         {
+    ///             AssessmentName = "assessment01",
+    ///             AzureHybridUseBenefit = "Yes",
+    ///             AzureLocation = "WestUs",
+    ///             AzureOfferCode = "MSAZR0003P",
+    ///             AzurePricingTier = "Standard",
+    ///             AzureStorageRedundancy = "LocallyRedundant",
+    ///             Currency = "USD",
+    ///             DiscountPercentage = 100,
+    ///             ETag = "\"1100637e-0000-0000-0000-59f6ed1f0000\"",
+    ///             GroupName = "group01",
+    ///             Percentile = "Percentile50",
+    ///             ProjectName = "project01",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ScalingFactor = 1.2,
+    ///             Stage = "InProgress",
+    ///             TimeRange = "Day",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Assessment : Pulumi.CustomResource
     {

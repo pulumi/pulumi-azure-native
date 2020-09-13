@@ -26,27 +26,32 @@ namespace Pulumi.AzureRM.Insights.V20180416
     ///         {
     ///             Action = new AzureRM.Insights.V20180416.Inputs.ActionArgs
     ///             {
-    ///                 OdataType = "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-    ///             },
-    ///             Description = "log alert description",
-    ///             Enabled = "true",
-    ///             Location = "eastus",
-    ///             ResourceGroupName = "Rac46PostSwapRG",
-    ///             RuleName = "logalertfoo",
-    ///             Schedule = new AzureRM.Insights.V20180416.Inputs.ScheduleArgs
-    ///             {
-    ///                 FrequencyInMinutes = 15,
-    ///                 TimeWindowInMinutes = 15,
-    ///             },
-    ///             Source = new AzureRM.Insights.V20180416.Inputs.SourceArgs
-    ///             {
-    ///                 DataSourceId = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
-    ///                 Query = "Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)",
-    ///                 QueryType = "ResultCount",
-    ///             },
-    ///             Tags = ,
-    ///         });
-    ///     }
+    ///                 AznsAction = 
+    ///                 {
+    ///                     { "actionGroup", {} },
+    ///                     { "customWebhookPayload", "{}" },
+    ///                     { "emailSubject", "Email Header" },
+    ///                 },
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 Description = "log alert description",
+    ///                 Enabled = "true",
+    ///                 Location = "eastus",
+    ///                 ResourceGroupName = "Rac46PostSwapRG",
+    ///                 RuleName = "logalertfoo",
+    ///                 Schedule = new AzureRM.Insights.V20180416.Inputs.ScheduleArgs
+    ///                 {
+    ///                     FrequencyInMinutes = 15,
+    ///                     TimeWindowInMinutes = 15,
+    ///                 },
+    ///                 Source = new AzureRM.Insights.V20180416.Inputs.SourceArgs
+    ///                 {
+    ///                     DataSourceId = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
+    ///                     Query = "Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)",
+    ///                     QueryType = "ResultCount",
+    ///                 },
+    ///                 Tags = ,
+    ///             });
+    ///         }
     /// 
     /// }
     /// 
@@ -64,32 +69,39 @@ namespace Pulumi.AzureRM.Insights.V20180416
     ///         {
     ///             Action = new AzureRM.Insights.V20180416.Inputs.ActionArgs
     ///             {
-    ///                 OdataType = "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-    ///             },
-    ///             Description = "Sample Cross Resource alert",
-    ///             Enabled = "true",
-    ///             Location = "eastus",
-    ///             ResourceGroupName = "Rac46PostSwapRG",
-    ///             RuleName = "SampleCrossResourceAlert",
-    ///             Schedule = new AzureRM.Insights.V20180416.Inputs.ScheduleArgs
-    ///             {
-    ///                 FrequencyInMinutes = 60,
-    ///                 TimeWindowInMinutes = 60,
-    ///             },
-    ///             Source = new AzureRM.Insights.V20180416.Inputs.SourceArgs
-    ///             {
-    ///                 AuthorizedResources = 
+    ///                 AznsAction = 
     ///                 {
-    ///                     "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
-    ///                     "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+    ///                     { "actionGroup", 
+    ///                     {
+    ///                         "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/actiongroups/test-ag",
+    ///                     } },
+    ///                     { "emailSubject", "Cross Resource Mail!!" },
     ///                 },
-    ///                 DataSourceId = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
-    ///                 Query = "union requests, workspace(\"sampleWorkspace\").Update",
-    ///                 QueryType = "ResultCount",
-    ///             },
-    ///             Tags = ,
-    ///         });
-    ///     }
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 Description = "Sample Cross Resource alert",
+    ///                 Enabled = "true",
+    ///                 Location = "eastus",
+    ///                 ResourceGroupName = "Rac46PostSwapRG",
+    ///                 RuleName = "SampleCrossResourceAlert",
+    ///                 Schedule = new AzureRM.Insights.V20180416.Inputs.ScheduleArgs
+    ///                 {
+    ///                     FrequencyInMinutes = 60,
+    ///                     TimeWindowInMinutes = 60,
+    ///                 },
+    ///                 Source = new AzureRM.Insights.V20180416.Inputs.SourceArgs
+    ///                 {
+    ///                     AuthorizedResources = 
+    ///                     {
+    ///                         "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
+    ///                         "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+    ///                     },
+    ///                     DataSourceId = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+    ///                     Query = "union requests, workspace(\"sampleWorkspace\").Update",
+    ///                     QueryType = "ResultCount",
+    ///                 },
+    ///                 Tags = ,
+    ///             });
+    ///         }
     /// 
     /// }
     /// 
@@ -107,20 +119,27 @@ namespace Pulumi.AzureRM.Insights.V20180416
     ///         {
     ///             Action = new AzureRM.Insights.V20180416.Inputs.ActionArgs
     ///             {
-    ///                 OdataType = "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
-    ///             },
-    ///             Description = "log to metric description",
-    ///             Enabled = "true",
-    ///             Location = "West Europe",
-    ///             ResourceGroupName = "alertsweu",
-    ///             RuleName = "logtometricfoo",
-    ///             Source = new AzureRM.Insights.V20180416.Inputs.SourceArgs
-    ///             {
-    ///                 DataSourceId = "/subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/Microsoft.OperationalInsights/workspaces/alertsweu",
-    ///             },
-    ///             Tags = ,
-    ///         });
-    ///     }
+    ///                 Criteria = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "dimensions", {} },
+    ///                         { "metricName", "Average_% Idle Time" },
+    ///                     },
+    ///                 },
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 Description = "log to metric description",
+    ///                 Enabled = "true",
+    ///                 Location = "West Europe",
+    ///                 ResourceGroupName = "alertsweu",
+    ///                 RuleName = "logtometricfoo",
+    ///                 Source = new AzureRM.Insights.V20180416.Inputs.SourceArgs
+    ///                 {
+    ///                     DataSourceId = "/subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/Microsoft.OperationalInsights/workspaces/alertsweu",
+    ///                 },
+    ///                 Tags = ,
+    ///             });
+    ///         }
     /// 
     /// }
     /// 

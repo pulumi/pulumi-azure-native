@@ -11,6 +11,93 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
 {
     /// <summary>
     /// Defines the PUT rollout request body.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update rollout
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rollout = new AzureRM.DeploymentManager.V20180901Preview.Rollout("rollout", new AzureRM.DeploymentManager.V20180901Preview.RolloutArgs
+    ///         {
+    ///             ArtifactSourceId = "/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/artifactSources/myArtifactSource",
+    ///             BuildVersion = "1.0.0.1",
+    ///             Identity = new AzureRM.DeploymentManager.V20180901Preview.Inputs.IdentityArgs
+    ///             {
+    ///                 IdentityIds = 
+    ///                 {
+    ///                     "/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userassignedidentities/myuseridentity",
+    ///                 },
+    ///                 Type = "userAssigned",
+    ///             },
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             RolloutName = "myRollout",
+    ///             StepGroups = 
+    ///             {
+    ///                 new AzureRM.DeploymentManager.V20180901Preview.Inputs.StepArgs
+    ///                 {
+    ///                     DeploymentTargetId = "Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit1'",
+    ///                     Name = "FirstRegion",
+    ///                     PostDeploymentSteps = 
+    ///                     {
+    ///                         new AzureRM.DeploymentManager.V20180901Preview.Inputs.PrePostStepArgs
+    ///                         {
+    ///                             StepId = "Microsoft.DeploymentManager/steps/postDeployStep1",
+    ///                         },
+    ///                     },
+    ///                     PreDeploymentSteps = 
+    ///                     {
+    ///                         new AzureRM.DeploymentManager.V20180901Preview.Inputs.PrePostStepArgs
+    ///                         {
+    ///                             StepId = "Microsoft.DeploymentManager/steps/preDeployStep1",
+    ///                         },
+    ///                         new AzureRM.DeploymentManager.V20180901Preview.Inputs.PrePostStepArgs
+    ///                         {
+    ///                             StepId = "Microsoft.DeploymentManager/steps/preDeployStep2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureRM.DeploymentManager.V20180901Preview.Inputs.StepArgs
+    ///                 {
+    ///                     DependsOnStepGroups = 
+    ///                     {
+    ///                         "FirstRegion",
+    ///                     },
+    ///                     DeploymentTargetId = "Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit2'",
+    ///                     Name = "SecondRegion",
+    ///                     PostDeploymentSteps = 
+    ///                     {
+    ///                         new AzureRM.DeploymentManager.V20180901Preview.Inputs.PrePostStepArgs
+    ///                         {
+    ///                             StepId = "Microsoft.DeploymentManager/steps/postDeployStep5",
+    ///                         },
+    ///                     },
+    ///                     PreDeploymentSteps = 
+    ///                     {
+    ///                         new AzureRM.DeploymentManager.V20180901Preview.Inputs.PrePostStepArgs
+    ///                         {
+    ///                             StepId = "Microsoft.DeploymentManager/steps/preDeployStep3",
+    ///                         },
+    ///                         new AzureRM.DeploymentManager.V20180901Preview.Inputs.PrePostStepArgs
+    ///                         {
+    ///                             StepId = "Microsoft.DeploymentManager/steps/preDeployStep4",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = ,
+    ///             TargetServiceTopologyId = "/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/serviceTopologies/myTopology",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Rollout : Pulumi.CustomResource
     {

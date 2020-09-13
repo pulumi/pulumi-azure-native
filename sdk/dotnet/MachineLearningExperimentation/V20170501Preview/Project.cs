@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.MachineLearningExperimentation.V20170501Preview
 {
     /// <summary>
     /// An object that represents a machine learning project.
+    /// 
+    /// ## Example Usage
+    /// ### CreateProject
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var project = new AzureRM.MachineLearningExperimentation.V20170501Preview.Project("project", new AzureRM.MachineLearningExperimentation.V20170501Preview.ProjectArgs
+    ///         {
+    ///             AccountName = "testaccount",
+    ///             FriendlyName = "testName",
+    ///             Gitrepo = "https://github/abc",
+    ///             Location = "East US",
+    ///             ProjectName = "testProject",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Tags = 
+    ///             {
+    ///                 { "tagKey1", "TagValue1" },
+    ///             },
+    ///             WorkspaceName = "testworkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Project : Pulumi.CustomResource
     {

@@ -11,6 +11,51 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
 {
     /// <summary>
     /// Contact details for security issues
+    /// 
+    /// ## Example Usage
+    /// ### Create security contact data full
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var securityContact = new AzureRM.Security.V20170801Preview.SecurityContact("securityContact", new AzureRM.Security.V20170801Preview.SecurityContactArgs
+    ///         {
+    ///             AlertNotifications = "On",
+    ///             AlertsToAdmins = "On",
+    ///             Email = "john@contoso.com",
+    ///             Phone = "(214)275-4038",
+    ///             SecurityContactName = "default1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create security contact data minimal
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var securityContact = new AzureRM.Security.V20170801Preview.SecurityContact("securityContact", new AzureRM.Security.V20170801Preview.SecurityContactArgs
+    ///         {
+    ///             AlertNotifications = "On",
+    ///             AlertsToAdmins = "On",
+    ///             Email = "chen@contoso.com",
+    ///             SecurityContactName = "default2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SecurityContact : Pulumi.CustomResource
     {

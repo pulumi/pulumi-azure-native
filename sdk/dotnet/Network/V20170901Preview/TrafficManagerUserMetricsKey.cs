@@ -11,6 +11,25 @@ namespace Pulumi.AzureRM.Network.V20170901Preview
 {
     /// <summary>
     /// Class representing a Traffic Manager Real User Metrics key response.
+    /// 
+    /// ## Example Usage
+    /// ### TrafficManagerUserMetricsKeys-PUT
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var trafficManagerUserMetricsKey = new AzureRM.Network.V20170901Preview.TrafficManagerUserMetricsKey("trafficManagerUserMetricsKey", new AzureRM.Network.V20170901Preview.TrafficManagerUserMetricsKeyArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class TrafficManagerUserMetricsKey : Pulumi.CustomResource
     {

@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.Resources.V20190601Preview
 {
     /// <summary>
     /// Template Spec Version object.
+    /// 
+    /// ## Example Usage
+    /// ### TemplateSpecVersionsCreateUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var templateSpecVersion = new AzureRM.Resources.V20190601Preview.TemplateSpecVersion("templateSpecVersion", new AzureRM.Resources.V20190601Preview.TemplateSpecVersionArgs
+    ///         {
+    ///             Description = "This is version v1.0 of our template content",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "templateSpecRG",
+    ///             Template = 
+    ///             {
+    ///                 { "$schema", "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#" },
+    ///                 { "contentVersion", "1.0.0.0" },
+    ///                 { "parameters",  },
+    ///                 { "resources", {} },
+    ///             },
+    ///             TemplateSpecName = "simpleTemplateSpec",
+    ///             TemplateSpecVersion = "v1.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class TemplateSpecVersion : Pulumi.CustomResource
     {

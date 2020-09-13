@@ -11,6 +11,47 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
 {
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
+    /// 
+    /// ## Example Usage
+    /// ### SharePut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var share = new AzureRM.DataBoxEdge.V20200501Preview.Share("share", new AzureRM.DataBoxEdge.V20200501Preview.ShareArgs
+    ///         {
+    ///             AccessProtocol = "SMB",
+    ///             AzureContainerInfo = new AzureRM.DataBoxEdge.V20200501Preview.Inputs.AzureContainerInfoArgs
+    ///             {
+    ///                 ContainerName = "testContainerSMB",
+    ///                 DataFormat = "BlockBlob",
+    ///                 StorageAccountCredentialId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
+    ///             },
+    ///             DataPolicy = "Cloud",
+    ///             Description = "",
+    ///             DeviceName = "testedgedevice",
+    ///             MonitoringStatus = "Enabled",
+    ///             Name = "smbshare",
+    ///             ResourceGroupName = "GroupForEdgeAutomation",
+    ///             ShareStatus = "Online",
+    ///             UserAccessRights = 
+    ///             {
+    ///                 new AzureRM.DataBoxEdge.V20200501Preview.Inputs.UserAccessRightArgs
+    ///                 {
+    ///                     AccessType = "Change",
+    ///                     UserId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Share : Pulumi.CustomResource
     {

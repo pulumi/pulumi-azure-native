@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 {
     /// <summary>
     /// An object that represents a private endpoint connection for a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnectionCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.ContainerRegistry.V20191201Preview.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.ContainerRegistry.V20191201Preview.PrivateEndpointConnectionArgs
+    ///         {
+    ///             PrivateEndpointConnectionName = "myConnection",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.ContainerRegistry.V20191201Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Auto-Approved",
+    ///                 Status = "Approved",
+    ///             },
+    ///             RegistryName = "myRegistry",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Maintenance.V20180601Preview
 {
     /// <summary>
     /// Maintenance configuration record type
+    /// 
+    /// ## Example Usage
+    /// ### MaintenanceConfigurations_CreateOrUpdateForResource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var maintenanceConfiguration = new AzureRM.Maintenance.V20180601Preview.MaintenanceConfiguration("maintenanceConfiguration", new AzureRM.Maintenance.V20180601Preview.MaintenanceConfigurationArgs
+    ///         {
+    ///             Location = "westus2",
+    ///             Namespace = "Microsoft.Maintenance",
+    ///             ResourceGroupName = "examplerg",
+    ///             ResourceName = "configuration1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class MaintenanceConfiguration : Pulumi.CustomResource
     {

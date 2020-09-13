@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
 {
     /// <summary>
     /// This type describes a volume resource.
+    /// 
+    /// ## Example Usage
+    /// ### VolumeCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var volume = new AzureRM.ServiceFabricMesh.V20180701Preview.Volume("volume", new AzureRM.ServiceFabricMesh.V20180701Preview.VolumeArgs
+    ///         {
+    ///             AzureFileParameters = new AzureRM.ServiceFabricMesh.V20180701Preview.Inputs.VolumeProviderParametersAzureFileArgs
+    ///             {
+    ///                 AccountKey = "provide-account-key-here",
+    ///                 AccountName = "sbzdemoaccount",
+    ///                 ShareName = "sharel",
+    ///             },
+    ///             Description = "File share backed by Azure Files storage.",
+    ///             Location = "eastus",
+    ///             Provider = "SFAzureFile",
+    ///             ResourceGroupName = "sbz_demo",
+    ///             VolumeName = "sbzDemoVolume",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {

@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190924Preview
 {
     /// <summary>
     /// Represents a Workspace definition.
+    /// 
+    /// ## Example Usage
+    /// ### Workspace_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspace = new AzureRM.DesktopVirtualization.V20190924Preview.Workspace("workspace", new AzureRM.DesktopVirtualization.V20190924Preview.WorkspaceArgs
+    ///         {
+    ///             Description = "des1",
+    ///             FriendlyName = "friendly",
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///             WorkspaceName = "workspace1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

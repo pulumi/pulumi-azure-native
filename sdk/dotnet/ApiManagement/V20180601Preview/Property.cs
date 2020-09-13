@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Property details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateProperty
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var property = new AzureRM.ApiManagement.V20180601Preview.Property("property", new AzureRM.ApiManagement.V20180601Preview.PropertyArgs
+    ///         {
+    ///             DisplayName = "prop3name",
+    ///             PropId = "testprop2",
+    ///             ResourceGroupName = "rg1",
+    ///             Secret = true,
+    ///             ServiceName = "apimService1",
+    ///             Tags = 
+    ///             {
+    ///                 "foo",
+    ///                 "bar",
+    ///             },
+    ///             Value = "propValue",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Property : Pulumi.CustomResource
     {

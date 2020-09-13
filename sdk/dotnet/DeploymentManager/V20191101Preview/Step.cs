@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
 {
     /// <summary>
     /// The resource representation of a rollout step.
+    /// 
+    /// ## Example Usage
+    /// ### Create health check step
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var step = new AzureRM.DeploymentManager.V20191101Preview.Step("step", new AzureRM.DeploymentManager.V20191101Preview.StepArgs
+    ///         {
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StepName = "healthCheckStep",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create wait step
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var step = new AzureRM.DeploymentManager.V20191101Preview.Step("step", new AzureRM.DeploymentManager.V20191101Preview.StepArgs
+    ///         {
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StepName = "waitStep",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Step : Pulumi.CustomResource
     {

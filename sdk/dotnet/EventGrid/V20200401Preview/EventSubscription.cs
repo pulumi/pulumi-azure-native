@@ -11,6 +11,250 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 {
     /// <summary>
     /// Event Subscription
+    /// 
+    /// ## Example Usage
+    /// ### EventSubscriptions_CreateOrUpdateForCustomTopic_EventHubDestination
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventSubscription = new AzureRM.EventGrid.V20200401Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20200401Preview.EventSubscriptionArgs
+    ///         {
+    ///             DeadLetterDestination = new AzureRM.EventGrid.V20200401Preview.Inputs.DeadLetterDestinationArgs
+    ///             {
+    ///                 EndpointType = "StorageBlob",
+    ///             },
+    ///             Destination = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             {
+    ///                 EndpointType = "EventHub",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "resourceId", "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1" },
+    ///                 },
+    ///             },
+    ///             EventSubscriptionName = "examplesubscription1",
+    ///             Filter = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionFilterArgs
+    ///             {
+    ///                 IsSubjectCaseSensitive = false,
+    ///                 SubjectBeginsWith = "ExamplePrefix",
+    ///                 SubjectEndsWith = "ExampleSuffix",
+    ///             },
+    ///             Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### EventSubscriptions_CreateOrUpdateForCustomTopic_HybridConnectionDestination
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventSubscription = new AzureRM.EventGrid.V20200401Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20200401Preview.EventSubscriptionArgs
+    ///         {
+    ///             DeadLetterDestination = new AzureRM.EventGrid.V20200401Preview.Inputs.DeadLetterDestinationArgs
+    ///             {
+    ///                 EndpointType = "StorageBlob",
+    ///             },
+    ///             Destination = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             {
+    ///                 EndpointType = "HybridConnection",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "resourceId", "/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Relay/namespaces/ContosoNamespace/hybridConnections/HC1" },
+    ///                 },
+    ///             },
+    ///             EventSubscriptionName = "examplesubscription1",
+    ///             Filter = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionFilterArgs
+    ///             {
+    ///                 IsSubjectCaseSensitive = false,
+    ///                 SubjectBeginsWith = "ExamplePrefix",
+    ///                 SubjectEndsWith = "ExampleSuffix",
+    ///             },
+    ///             Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### EventSubscriptions_CreateOrUpdateForCustomTopic_StorageQueueDestination
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventSubscription = new AzureRM.EventGrid.V20200401Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20200401Preview.EventSubscriptionArgs
+    ///         {
+    ///             DeadLetterDestination = new AzureRM.EventGrid.V20200401Preview.Inputs.DeadLetterDestinationArgs
+    ///             {
+    ///                 EndpointType = "StorageBlob",
+    ///             },
+    ///             Destination = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             {
+    ///                 EndpointType = "StorageQueue",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "queueName", "queue1" },
+    ///                     { "resourceId", "/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg" },
+    ///                 },
+    ///             },
+    ///             EventSubscriptionName = "examplesubscription1",
+    ///             Filter = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionFilterArgs
+    ///             {
+    ///                 IsSubjectCaseSensitive = false,
+    ///                 SubjectBeginsWith = "ExamplePrefix",
+    ///                 SubjectEndsWith = "ExampleSuffix",
+    ///             },
+    ///             Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### EventSubscriptions_CreateOrUpdateForCustomTopic_WebhookDestination
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventSubscription = new AzureRM.EventGrid.V20200401Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20200401Preview.EventSubscriptionArgs
+    ///         {
+    ///             Destination = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             {
+    ///                 EndpointType = "EventHub",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "resourceId", "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1" },
+    ///                 },
+    ///             },
+    ///             EventSubscriptionName = "examplesubscription1",
+    ///             Filter = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionFilterArgs
+    ///             {
+    ///                 IsSubjectCaseSensitive = false,
+    ///                 SubjectBeginsWith = "ExamplePrefix",
+    ///                 SubjectEndsWith = "ExampleSuffix",
+    ///             },
+    ///             Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### EventSubscriptions_CreateOrUpdateForResource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventSubscription = new AzureRM.EventGrid.V20200401Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20200401Preview.EventSubscriptionArgs
+    ///         {
+    ///             Destination = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             {
+    ///                 EndpointType = "WebHook",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
+    ///                 },
+    ///             },
+    ///             EventSubscriptionName = "examplesubscription10",
+    ///             Filter = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionFilterArgs
+    ///             {
+    ///                 IsSubjectCaseSensitive = false,
+    ///                 SubjectBeginsWith = "ExamplePrefix",
+    ///                 SubjectEndsWith = "ExampleSuffix",
+    ///             },
+    ///             Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### EventSubscriptions_CreateOrUpdateForResourceGroup
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventSubscription = new AzureRM.EventGrid.V20200401Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20200401Preview.EventSubscriptionArgs
+    ///         {
+    ///             Destination = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             {
+    ///                 EndpointType = "WebHook",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
+    ///                 },
+    ///             },
+    ///             EventSubscriptionName = "examplesubscription2",
+    ///             Filter = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionFilterArgs
+    ///             {
+    ///                 IsSubjectCaseSensitive = false,
+    ///                 SubjectBeginsWith = "ExamplePrefix",
+    ///                 SubjectEndsWith = "ExampleSuffix",
+    ///             },
+    ///             Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### EventSubscriptions_CreateOrUpdateForSubscription
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventSubscription = new AzureRM.EventGrid.V20200401Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20200401Preview.EventSubscriptionArgs
+    ///         {
+    ///             Destination = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             {
+    ///                 EndpointType = "WebHook",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
+    ///                 },
+    ///             },
+    ///             EventSubscriptionName = "examplesubscription3",
+    ///             Filter = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionFilterArgs
+    ///             {
+    ///                 IsSubjectCaseSensitive = false,
+    ///             },
+    ///             Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class EventSubscription : Pulumi.CustomResource
     {

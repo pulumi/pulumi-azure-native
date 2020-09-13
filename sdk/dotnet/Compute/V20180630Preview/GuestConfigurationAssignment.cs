@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Compute.V20180630Preview
 {
     /// <summary>
     /// Guest configuration assignment is an association between a VM and guest configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update guest configuration assignment
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var guestConfigurationAssignment = new AzureRM.Compute.V20180630Preview.GuestConfigurationAssignment("guestConfigurationAssignment", new AzureRM.Compute.V20180630Preview.GuestConfigurationAssignmentArgs
+    ///         {
+    ///             GuestConfigurationAssignmentName = "SecureProtocol",
+    ///             Location = "westcentralus",
+    ///             Name = "multiconfigassignment2",
+    ///             ResourceGroupName = "myResourceGroupName",
+    ///             VmName = "myVMName",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class GuestConfigurationAssignment : Pulumi.CustomResource
     {

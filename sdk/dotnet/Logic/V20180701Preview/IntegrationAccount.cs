@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.Logic.V20180701Preview
 {
     /// <summary>
     /// The integration account.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an integration account
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var integrationAccount = new AzureRM.Logic.V20180701Preview.IntegrationAccount("integrationAccount", new AzureRM.Logic.V20180701Preview.IntegrationAccountArgs
+    ///         {
+    ///             IntegrationAccountName = "testIntegrationAccount",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "testResourceGroup",
+    ///             Sku = new AzureRM.Logic.V20180701Preview.Inputs.IntegrationAccountSkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IntegrationAccount : Pulumi.CustomResource
     {

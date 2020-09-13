@@ -11,6 +11,76 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBDatabaseAccountCreateMax
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var databaseAccount = new AzureRM.DocumentDB.V20200601Preview.DatabaseAccount("databaseAccount", new AzureRM.DocumentDB.V20200601Preview.DatabaseAccountArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             Identity = new AzureRM.DocumentDB.V20200601Preview.Inputs.ManagedServiceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned,UserAssigned",
+    ///             },
+    ///             Kind = "MongoDB",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### CosmosDBDatabaseAccountCreateMin
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var databaseAccount = new AzureRM.DocumentDB.V20200601Preview.DatabaseAccount("databaseAccount", new AzureRM.DocumentDB.V20200601Preview.DatabaseAccountArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### CosmosDBRestoreDatabaseAccountCreateUpdate.json
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var databaseAccount = new AzureRM.DocumentDB.V20200601Preview.DatabaseAccount("databaseAccount", new AzureRM.DocumentDB.V20200601Preview.DatabaseAccountArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             Kind = "GlobalDocumentDB",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DatabaseAccount : Pulumi.CustomResource
     {

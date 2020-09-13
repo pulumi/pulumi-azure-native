@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Customer subscription which can use a sku.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates preview subscription of vendor sku sub resource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vendorSkuPreview = new AzureRM.HybridNetwork.V20200101Preview.VendorSkuPreview("vendorSkuPreview", new AzureRM.HybridNetwork.V20200101Preview.VendorSkuPreviewArgs
+    ///         {
+    ///             PreviewSubscription = "previewSub",
+    ///             SkuName = "TestSku",
+    ///             VendorName = "TestVendor",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VendorSkuPreview : Pulumi.CustomResource
     {

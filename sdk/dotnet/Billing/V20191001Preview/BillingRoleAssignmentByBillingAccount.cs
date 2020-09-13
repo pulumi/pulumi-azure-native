@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Billing.V20191001Preview
 {
     /// <summary>
     /// The role assignment
+    /// 
+    /// ## Example Usage
+    /// ### PutEnrollmentAdministratorRoleAssignment
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var billingRoleAssignmentByBillingAccount = new AzureRM.Billing.V20191001Preview.BillingRoleAssignmentByBillingAccount("billingRoleAssignmentByBillingAccount", new AzureRM.Billing.V20191001Preview.BillingRoleAssignmentByBillingAccountArgs
+    ///         {
+    ///             BillingAccountName = "{billingAccountName}",
+    ///             BillingRoleAssignmentName = "{billingRoleAssignmentName}",
+    ///             PrincipalId = "99a1a759-30dd-42c2-828c-db398826bb67",
+    ///             PrincipalTenantId = "7ca289b9-c32d-4f01-8566-7ff93261d76f",
+    ///             RoleDefinitionId = "/providers/Microsoft.Billing/billingAccounts/7898901/billingRoleDefinitions/9f1983cb-2574-400c-87e9-34cf8e2280db",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BillingRoleAssignmentByBillingAccount : Pulumi.CustomResource
     {

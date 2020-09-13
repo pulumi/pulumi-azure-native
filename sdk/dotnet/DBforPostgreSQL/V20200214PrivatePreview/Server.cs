@@ -11,6 +11,74 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
 {
     /// <summary>
     /// Represents a server.
+    /// 
+    /// ## Example Usage
+    /// ### Create a database as a point in time restore
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.DBForPostgreSql.V20200214privatePreview.Server("server", new AzureRM.DBForPostgreSql.V20200214privatePreview.ServerArgs
+    ///         {
+    ///             CreateMode = "PointInTimeRestore",
+    ///             Location = "westus",
+    ///             PointInTimeUTC = "2020-06-30T23:41:49.000Z",
+    ///             ResourceGroupName = "TestGroup",
+    ///             ServerName = "pgtestsvc4",
+    ///             SourceServerName = "sourcePgServerName",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a new server
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.DBForPostgreSql.V20200214privatePreview.Server("server", new AzureRM.DBForPostgreSql.V20200214privatePreview.ServerArgs
+    ///         {
+    ///             AdministratorLogin = "cloudsa",
+    ///             AdministratorLoginPassword = "password",
+    ///             AvailabilityZone = "1",
+    ///             DelegatedSubnetArguments = 
+    ///             {
+    ///                 { "subnetArmResourceId", "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet" },
+    ///             },
+    ///             HaEnabled = "Enabled",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "testrg",
+    ///             ServerName = "pgtestsvc4",
+    ///             Sku = new AzureRM.DBForPostgreSql.V20200214privatePreview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard_D4s_v3",
+    ///                 Tier = "GeneralPurpose",
+    ///             },
+    ///             StorageProfile = new AzureRM.DBForPostgreSql.V20200214privatePreview.Inputs.StorageProfileArgs
+    ///             {
+    ///                 BackupRetentionDays = 7,
+    ///                 StorageMB = 524288,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "ElasticServer", "1" },
+    ///             },
+    ///             Version = "12",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

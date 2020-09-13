@@ -11,6 +11,203 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
 {
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### Create AKS Compute
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a AML Compute
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             Properties = new AzureRM.MachineLearningServices.V20200218Preview.Inputs.ComputeArgs
+    ///             {
+    ///                 RemoteLoginPortPublicAccess = "NotSpecified",
+    ///                 ScaleSettings = 
+    ///                 {
+    ///                     { "maxNodeCount", 1 },
+    ///                     { "minNodeCount", 0 },
+    ///                     { "nodeIdleTimeBeforeScaleDown", "PT5M" },
+    ///                 },
+    ///                 VmPriority = "Dedicated",
+    ///                 VmSize = "STANDARD_NC6",
+    ///             },
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a ComputeInstance Compute
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             Properties = new AzureRM.MachineLearningServices.V20200218Preview.Inputs.ComputeArgs
+    ///             {
+    ///                 ApplicationSharingPolicy = "Personal",
+    ///                 ComputeInstanceAuthorizationType = "personal",
+    ///                 PersonalComputeInstanceSettings = 
+    ///                 {
+    ///                     { "assignedUser", 
+    ///                     {
+    ///                         { "objectId", "00000000-0000-0000-0000-000000000000" },
+    ///                         { "tenantId", "00000000-0000-0000-0000-000000000000" },
+    ///                     } },
+    ///                 },
+    ///                 SshSettings = 
+    ///                 {
+    ///                     { "sshPublicAccess", "Disabled" },
+    ///                 },
+    ///                 Subnet = "test-subnet-resource-id",
+    ///                 VmSize = "STANDARD_NC6",
+    ///             },
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a ComputeInstance Compute with minimal inputs
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             Properties = new AzureRM.MachineLearningServices.V20200218Preview.Inputs.ComputeArgs
+    ///             {
+    ///                 VmSize = "STANDARD_NC6",
+    ///             },
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a DataFactory Compute
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Update a AKS Compute
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             Properties = new AzureRM.MachineLearningServices.V20200218Preview.Inputs.ComputeArgs
+    ///             {
+    ///                 AgentCount = 4,
+    ///             },
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Update a AML Compute
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200218Preview.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             Properties = new AzureRM.MachineLearningServices.V20200218Preview.Inputs.ComputeArgs
+    ///             {
+    ///                 ScaleSettings = 
+    ///                 {
+    ///                     { "maxNodeCount", 1 },
+    ///                     { "minNodeCount", 0 },
+    ///                     { "nodeIdleTimeBeforeScaleDown", "PT5M" },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class MachineLearningCompute : Pulumi.CustomResource
     {

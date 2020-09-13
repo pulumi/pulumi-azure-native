@@ -11,6 +11,42 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20180815Preview
 {
     /// <summary>
     /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+    /// 
+    /// ## Example Usage
+    /// ### ReferenceDataSetsCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var referenceDataSet = new AzureRM.TimeSeriesInsights.V20180815Preview.ReferenceDataSet("referenceDataSet", new AzureRM.TimeSeriesInsights.V20180815Preview.ReferenceDataSetArgs
+    ///         {
+    ///             EnvironmentName = "env1",
+    ///             KeyProperties = 
+    ///             {
+    ///                 new AzureRM.TimeSeriesInsights.V20180815Preview.Inputs.ReferenceDataSetKeyPropertyArgs
+    ///                 {
+    ///                     Name = "DeviceId1",
+    ///                     Type = "String",
+    ///                 },
+    ///                 new AzureRM.TimeSeriesInsights.V20180815Preview.Inputs.ReferenceDataSetKeyPropertyArgs
+    ///                 {
+    ///                     Name = "DeviceFloor",
+    ///                     Type = "Double",
+    ///                 },
+    ///             },
+    ///             Location = "West US",
+    ///             ReferenceDataSetName = "rds1",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ReferenceDataSet : Pulumi.CustomResource
     {

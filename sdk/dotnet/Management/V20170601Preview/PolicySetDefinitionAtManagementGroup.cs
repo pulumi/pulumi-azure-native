@@ -11,6 +11,51 @@ namespace Pulumi.AzureRM.Management.V20170601Preview
 {
     /// <summary>
     /// The policy set definition.
+    /// 
+    /// ## Example Usage
+    /// ### Put a policy set definition
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policySetDefinitionAtManagementGroup = new AzureRM.Management.V20170601Preview.PolicySetDefinitionAtManagementGroup("policySetDefinitionAtManagementGroup", new AzureRM.Management.V20170601Preview.PolicySetDefinitionAtManagementGroupArgs
+    ///         {
+    ///             Description = "Policies required to minimize the risk of accidental cost overruns",
+    ///             DisplayName = "VM and Storage Cost Management",
+    ///             ManagementGroupId = "mgid",
+    ///             Metadata = 
+    ///             {
+    ///                 { "category", "Cost Management" },
+    ///             },
+    ///             PolicyDefinitions = 
+    ///             {
+    ///                 new AzureRM.Management.V20170601Preview.Inputs.PolicyDefinitionReferenceArgs
+    ///                 {
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "listOfAllowedSKUs", 
+    ///                         {
+    ///                             { "value", 
+    ///                             {
+    ///                                 "Standard_GRS",
+    ///                                 "Standard_LRS",
+    ///                             } },
+    ///                         } },
+    ///                     },
+    ///                     PolicyDefinitionId = "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus",
+    ///                 },
+    ///             },
+    ///             PolicySetDefinitionName = "costManagement",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PolicySetDefinitionAtManagementGroup : Pulumi.CustomResource
     {

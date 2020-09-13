@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.Automanage.V20200630Preview
 {
     /// <summary>
     /// Definition of the Automanage account.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update Automanage account
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new AzureRM.Automanage.V20200630Preview.Account("account", new AzureRM.Automanage.V20200630Preview.AccountArgs
+    ///         {
+    ///             AccountName = "account",
+    ///             Identity = new AzureRM.Automanage.V20200630Preview.Inputs.AccountIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Location = "East US",
+    ///             ResourceGroupName = "resourceGroup",
+    ///             Tags = 
+    ///             {
+    ///                 { "Organization", "Administration" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

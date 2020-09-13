@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
 {
     /// <summary>
     /// The resource representation of a rollout step.
+    /// 
+    /// ## Example Usage
+    /// ### Create deployment step
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var step = new AzureRM.DeploymentManager.V20180901Preview.Step("step", new AzureRM.DeploymentManager.V20180901Preview.StepArgs
+    ///         {
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StepName = "deploymentStep1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Step : Pulumi.CustomResource
     {

@@ -11,6 +11,69 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
 {
     /// <summary>
     /// Api Operation details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiOperation
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiOperation = new AzureRM.ApiManagement.V20191201Preview.ApiOperation("apiOperation", new AzureRM.ApiManagement.V20191201Preview.ApiOperationArgs
+    ///         {
+    ///             ApiId = "PetStoreTemplate2",
+    ///             Description = "This can only be done by the logged in user.",
+    ///             DisplayName = "createUser2",
+    ///             Method = "POST",
+    ///             OperationId = "newoperations",
+    ///             Request = new AzureRM.ApiManagement.V20191201Preview.Inputs.RequestContractArgs
+    ///             {
+    ///                 Description = "Created user object",
+    ///                 Headers = {},
+    ///                 QueryParameters = {},
+    ///                 Representations = 
+    ///                 {
+    ///                     new AzureRM.ApiManagement.V20191201Preview.Inputs.RepresentationContractArgs
+    ///                     {
+    ///                         ContentType = "application/json",
+    ///                         SchemaId = "592f6c1d0af5840ca8897f0c",
+    ///                         TypeName = "User",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Responses = 
+    ///             {
+    ///                 new AzureRM.ApiManagement.V20191201Preview.Inputs.ResponseContractArgs
+    ///                 {
+    ///                     Description = "successful operation",
+    ///                     Headers = {},
+    ///                     Representations = 
+    ///                     {
+    ///                         new AzureRM.ApiManagement.V20191201Preview.Inputs.RepresentationContractArgs
+    ///                         {
+    ///                             ContentType = "application/xml",
+    ///                         },
+    ///                         new AzureRM.ApiManagement.V20191201Preview.Inputs.RepresentationContractArgs
+    ///                         {
+    ///                             ContentType = "application/json",
+    ///                         },
+    ///                     },
+    ///                     StatusCode = 200,
+    ///                 },
+    ///             },
+    ///             ServiceName = "apimService1",
+    ///             TemplateParameters = {},
+    ///             UrlTemplate = "/user1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApiOperation : Pulumi.CustomResource
     {

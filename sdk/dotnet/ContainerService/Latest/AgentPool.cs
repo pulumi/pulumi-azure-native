@@ -13,6 +13,32 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     /// Agent Pool.
     /// 
     /// ## Example Usage
+    /// ### Create Agent Pool with Ephemeral OS Disk
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var agentPool = new AzureRM.ContainerService.Latest.AgentPool("agentPool", new AzureRM.ContainerService.Latest.AgentPoolArgs
+    ///         {
+    ///             AgentPoolName = "agentpool1",
+    ///             Count = 3,
+    ///             OrchestratorVersion = "",
+    ///             OsDiskSizeGB = 64,
+    ///             OsDiskType = "Ephemeral",
+    ///             OsType = "Linux",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///             VmSize = "Standard_DS2_v2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// ### Create Agent Pool with PPG
     /// ```csharp
     /// using Pulumi;

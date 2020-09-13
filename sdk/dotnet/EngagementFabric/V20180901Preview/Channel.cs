@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.EngagementFabric.V20180901Preview
 {
     /// <summary>
     /// The EngagementFabric channel
+    /// 
+    /// ## Example Usage
+    /// ### ChannelsCreateOrUpdateExample
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var channel = new AzureRM.EngagementFabric.V20180901Preview.Channel("channel", new AzureRM.EngagementFabric.V20180901Preview.ChannelArgs
+    ///         {
+    ///             AccountName = "ExampleAccount",
+    ///             ChannelFunctions = 
+    ///             {
+    ///                 "MockFunction1",
+    ///                 "MockFunction2",
+    ///             },
+    ///             ChannelName = "ExampleChannel",
+    ///             ChannelType = "MockChannel",
+    ///             Credentials = 
+    ///             {
+    ///                 { "AppId", "exampleApp" },
+    ///                 { "AppKey", "exampleAppKey" },
+    ///             },
+    ///             ResourceGroupName = "ExampleRg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Channel : Pulumi.CustomResource
     {

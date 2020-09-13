@@ -11,6 +11,151 @@ namespace Pulumi.AzureRM.Sql.V20180601Preview
 {
     /// <summary>
     /// A managed database resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a new managed database by restoring from an external backup
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedDatabase = new AzureRM.Sql.V20180601Preview.ManagedDatabase("managedDatabase", new AzureRM.Sql.V20180601Preview.ManagedDatabaseArgs
+    ///         {
+    ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///             CreateMode = "RestoreExternalBackup",
+    ///             DatabaseName = "managedDatabase",
+    ///             Location = "southeastasia",
+    ///             ManagedInstanceName = "managedInstance",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             StorageContainerSasToken = "sv=2015-12-11&amp;sr=c&amp;sp=rl&amp;sig=1234",
+    ///             StorageContainerUri = "https://myaccountname.blob.core.windows.net/backups",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a new managed database from restoring a geo-replicated backup
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedDatabase = new AzureRM.Sql.V20180601Preview.ManagedDatabase("managedDatabase", new AzureRM.Sql.V20180601Preview.ManagedDatabaseArgs
+    ///         {
+    ///             CreateMode = "Recovery",
+    ///             DatabaseName = "testdb_recovered",
+    ///             Location = "southeastasia",
+    ///             ManagedInstanceName = "server1",
+    ///             RecoverableDatabaseId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-WestEurope/providers/Microsoft.Sql/managedInstances/testsvr/recoverableDatabases/testdb",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a new managed database from restoring a long term retention backup
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedDatabase = new AzureRM.Sql.V20180601Preview.ManagedDatabase("managedDatabase", new AzureRM.Sql.V20180601Preview.ManagedDatabaseArgs
+    ///         {
+    ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///             CreateMode = "RestoreExternalBackup",
+    ///             DatabaseName = "managedDatabase",
+    ///             Location = "southeastasia",
+    ///             ManagedInstanceName = "managedInstance",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             StorageContainerSasToken = "sv=2015-12-11&amp;sr=c&amp;sp=rl&amp;sig=1234",
+    ///             StorageContainerUri = "https://myaccountname.blob.core.windows.net/backups",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a new managed database using point in time restore
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedDatabase = new AzureRM.Sql.V20180601Preview.ManagedDatabase("managedDatabase", new AzureRM.Sql.V20180601Preview.ManagedDatabaseArgs
+    ///         {
+    ///             CreateMode = "PointInTimeRestore",
+    ///             DatabaseName = "managedDatabase",
+    ///             Location = "southeastasia",
+    ///             ManagedInstanceName = "managedInstance",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             RestorePointInTime = "2017-07-14T05:35:31.503Z",
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a new managed database with maximal properties
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedDatabase = new AzureRM.Sql.V20180601Preview.ManagedDatabase("managedDatabase", new AzureRM.Sql.V20180601Preview.ManagedDatabaseArgs
+    ///         {
+    ///             DatabaseName = "managedDatabase",
+    ///             Location = "southeastasia",
+    ///             ManagedInstanceName = "managedInstance",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             Tags = 
+    ///             {
+    ///                 { "tagKey1", "TagValue1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a new managed database with minimal properties
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedDatabase = new AzureRM.Sql.V20180601Preview.ManagedDatabase("managedDatabase", new AzureRM.Sql.V20180601Preview.ManagedDatabaseArgs
+    ///         {
+    ///             DatabaseName = "managedDatabase",
+    ///             Location = "southeastasia",
+    ///             ManagedInstanceName = "managedInstance",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagedDatabase : Pulumi.CustomResource
     {

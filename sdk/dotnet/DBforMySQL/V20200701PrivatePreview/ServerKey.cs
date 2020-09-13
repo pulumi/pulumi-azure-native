@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
 {
     /// <summary>
     /// A MySQL Server key.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a MySQL Server key
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class ServerKey : Pulumi.CustomResource
     {

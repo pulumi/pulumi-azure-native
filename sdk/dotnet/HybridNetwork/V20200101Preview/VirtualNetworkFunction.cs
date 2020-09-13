@@ -11,6 +11,80 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Hybrid network virtual network function resource response.
+    /// 
+    /// ## Example Usage
+    /// ### Create hybrid network virtual network function resource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualNetworkFunction = new AzureRM.HybridNetwork.V20200101Preview.VirtualNetworkFunction("virtualNetworkFunction", new AzureRM.HybridNetwork.V20200101Preview.VirtualNetworkFunctionArgs
+    ///         {
+    ///             Device = new AzureRM.HybridNetwork.V20200101Preview.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/devices/testDevice",
+    ///             },
+    ///             Location = "eastus",
+    ///             ManagedApplicationParameters = ,
+    ///             ResourceGroupName = "rg",
+    ///             SkuName = "testSku",
+    ///             VendorName = "testVendor",
+    ///             VirtualNetworkFunctionName = "testVnf",
+    ///             VirtualNetworkFunctionUserConfigurations = 
+    ///             {
+    ///                 new AzureRM.HybridNetwork.V20200101Preview.Inputs.VirtualNetworkFunctionUserConfigurationArgs
+    ///                 {
+    ///                     NetworkInterfaces = 
+    ///                     {
+    ///                         new AzureRM.HybridNetwork.V20200101Preview.Inputs.NetworkInterfaceArgs
+    ///                         {
+    ///                             IpConfigurations = 
+    ///                             {
+    ///                                 new AzureRM.HybridNetwork.V20200101Preview.Inputs.NetworkInterfaceIPConfigurationArgs
+    ///                                 {
+    ///                                     Gateway = "",
+    ///                                     IpAddress = "",
+    ///                                     IpAllocationMethod = "Dynamic",
+    ///                                     IpVersion = "IPv4",
+    ///                                     Subnet = "",
+    ///                                 },
+    ///                             },
+    ///                             MacAddress = "",
+    ///                             NetworkInterfaceName = "nic1",
+    ///                             VmSwitchType = "Management",
+    ///                         },
+    ///                         new AzureRM.HybridNetwork.V20200101Preview.Inputs.NetworkInterfaceArgs
+    ///                         {
+    ///                             IpConfigurations = 
+    ///                             {
+    ///                                 new AzureRM.HybridNetwork.V20200101Preview.Inputs.NetworkInterfaceIPConfigurationArgs
+    ///                                 {
+    ///                                     Gateway = "",
+    ///                                     IpAddress = "",
+    ///                                     IpAllocationMethod = "Dynamic",
+    ///                                     IpVersion = "IPv4",
+    ///                                     Subnet = "",
+    ///                                 },
+    ///                             },
+    ///                             MacAddress = "DC-97-F8-79-16-7D",
+    ///                             NetworkInterfaceName = "nic2",
+    ///                             VmSwitchType = "Wan",
+    ///                         },
+    ///                     },
+    ///                     RoleName = "testRole",
+    ///                     UserDataParameters = ,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualNetworkFunction : Pulumi.CustomResource
     {

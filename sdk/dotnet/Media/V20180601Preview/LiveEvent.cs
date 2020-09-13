@@ -11,6 +11,57 @@ namespace Pulumi.AzureRM.Media.V20180601Preview
 {
     /// <summary>
     /// The Live Event.
+    /// 
+    /// ## Example Usage
+    /// ### Create a LiveEvent
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var liveEvent = new AzureRM.Media.V20180601Preview.LiveEvent("liveEvent", new AzureRM.Media.V20180601Preview.LiveEventArgs
+    ///         {
+    ///             AccountName = "slitestmedia10",
+    ///             Description = "test event 1",
+    ///             Input = new AzureRM.Media.V20180601Preview.Inputs.LiveEventInputArgs
+    ///             {
+    ///                 KeyFrameIntervalDuration = "PT2S",
+    ///                 StreamingProtocol = "RTMP",
+    ///             },
+    ///             LiveEventName = "myLiveEvent1",
+    ///             Location = "West US",
+    ///             Preview = new AzureRM.Media.V20180601Preview.Inputs.LiveEventPreviewArgs
+    ///             {
+    ///                 AccessControl = new AzureRM.Media.V20180601Preview.Inputs.LiveEventPreviewAccessControlArgs
+    ///                 {
+    ///                     Ip = new AzureRM.Media.V20180601Preview.Inputs.IPAccessControlArgs
+    ///                     {
+    ///                         Allow = 
+    ///                         {
+    ///                             new AzureRM.Media.V20180601Preview.Inputs.IPRangeArgs
+    ///                             {
+    ///                                 Address = "0.0.0.0",
+    ///                                 Name = "AllowAll",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "mediaresources",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class LiveEvent : Pulumi.CustomResource
     {

@@ -11,6 +11,45 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
 {
     /// <summary>
     /// HANA instance info on Azure (ARM properties and HANA properties)
+    /// 
+    /// ## Example Usage
+    /// ### Get properties of a HANA instance
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hanaInstance = new AzureRM.HanaOnAzure.V20171103Preview.HanaInstance("hanaInstance", new AzureRM.HanaOnAzure.V20171103Preview.HanaInstanceArgs
+    ///         {
+    ///             HanaInstanceName = "myHanaInstance",
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.HanaOnAzure.V20171103Preview.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.HanaOnAzure.V20171103Preview.Inputs.IpAddressArgs
+    ///                     {
+    ///                         IpAddress = "100.100.100.100",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.HanaOnAzure.V20171103Preview.Inputs.OSProfileArgs
+    ///             {
+    ///                 ComputerName = "myComputerName",
+    ///                 SshPublicKey = "AAAAB3NzaC1yc2EAAAABJQAAAQB/nAmOjTmezNUDKYvEeIRf2YnwM9/uUG1d0BYsc8/tRtx+RGi7N2lUbp728MXGwdnL9od4cItzky/zVdLZE2cycOa18xBK9cOWmcKS0A8FYBxEQWJ/q9YVUgZbFKfYGaGQxsER+A0w/fX8ALuk78ktP31K69LcQgxIsl7rNzxsoOQKJ/CIxOGMMxczYTiEoLvQhapFQMs3FL96didKr/QbrfB1WT6s3838SEaXfgZvLef1YB2xmfhbT9OXFE3FXvh2UPBfN+ffE7iiayQf/2XR+8j4N4bW30DiPtOQLGUrH1y5X/rpNZNlWW2+jGIxqZtgWg7lTy3mXy5x836Sj/6L",
+    ///             },
+    ///             PartnerNodeId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance2",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class HanaInstance : Pulumi.CustomResource
     {

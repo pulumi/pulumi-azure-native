@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.Devices.V20200901Preview
 {
     /// <summary>
     /// The description of the provisioning service.
+    /// 
+    /// ## Example Usage
+    /// ### DPSCreate
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class IotDpsResource : Pulumi.CustomResource
     {

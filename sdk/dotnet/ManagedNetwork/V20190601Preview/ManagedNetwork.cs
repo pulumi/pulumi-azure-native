@@ -11,6 +11,76 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
 {
     /// <summary>
     /// The Managed Network resource
+    /// 
+    /// ## Example Usage
+    /// ### ManagedNetworksPut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedNetwork = new AzureRM.ManagedNetwork.V20190601Preview.ManagedNetwork("managedNetwork", new AzureRM.ManagedNetwork.V20190601Preview.ManagedNetworkArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ManagedNetworkName = "myManagedNetwork",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Scope = new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ScopeArgs
+    ///             {
+    ///                 ManagementGroups = 
+    ///                 {
+    ///                     new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                     {
+    ///                         Id = "/providers/Microsoft.Management/managementGroups/20000000-0001-0000-0000-000000000000",
+    ///                     },
+    ///                     new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                     {
+    ///                         Id = "/providers/Microsoft.Management/managementGroups/20000000-0002-0000-0000-000000000000",
+    ///                     },
+    ///                 },
+    ///                 Subnets = 
+    ///                 {
+    ///                     new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetC/subnets/subnetA",
+    ///                     },
+    ///                     new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetC/subnets/subnetB",
+    ///                     },
+    ///                 },
+    ///                 Subscriptions = 
+    ///                 {
+    ///                     new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                     {
+    ///                         Id = "subscriptionA",
+    ///                     },
+    ///                     new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                     {
+    ///                         Id = "subscriptionB",
+    ///                     },
+    ///                 },
+    ///                 VirtualNetworks = 
+    ///                 {
+    ///                     new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+    ///                     },
+    ///                     new AzureRM.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagedNetwork : Pulumi.CustomResource
     {

@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 {
     /// <summary>
     /// Workspace active directory administrator
+    /// 
+    /// ## Example Usage
+    /// ### Create or update workspace active directory admin
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspaceAadAdmin = new AzureRM.Synapse.V20190601Preview.WorkspaceAadAdmin("workspaceAadAdmin", new AzureRM.Synapse.V20190601Preview.WorkspaceAadAdminArgs
+    ///         {
+    ///             AdministratorType = "ActiveDirectory",
+    ///             Login = "bob@contoso.com",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///             TenantId = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///             WorkspaceName = "workspace1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class WorkspaceAadAdmin : Pulumi.CustomResource
     {

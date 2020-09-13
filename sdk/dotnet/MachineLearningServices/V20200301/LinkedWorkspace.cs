@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200301
 {
     /// <summary>
     /// Linked workspace.
+    /// 
+    /// ## Example Usage
+    /// ### CreateLinkedWorkspace
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var linkedWorkspace = new AzureRM.MachineLearningServices.V20200301.LinkedWorkspace("linkedWorkspace", new AzureRM.MachineLearningServices.V20200301.LinkedWorkspaceArgs
+    ///         {
+    ///             LinkName = "link-1",
+    ///             Name = "link-1",
+    ///             ResourceGroupName = "resourceGroup-1",
+    ///             WorkspaceName = "workspace-1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class LinkedWorkspace : Pulumi.CustomResource
     {

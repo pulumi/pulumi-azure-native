@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Certificate details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateCertificate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var certificate = new AzureRM.ApiManagement.V20180601Preview.Certificate("certificate", new AzureRM.ApiManagement.V20180601Preview.CertificateArgs
+    ///         {
+    ///             CertificateId = "tempcert",
+    ///             Data = "****************Base 64 Encoded Certificate *******************************",
+    ///             Password = "****Certificate Password******",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

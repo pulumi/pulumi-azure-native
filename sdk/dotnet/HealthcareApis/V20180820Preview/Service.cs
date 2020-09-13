@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.HealthcareApis.V20180820Preview
 {
     /// <summary>
     /// The description of the service.
+    /// 
+    /// ## Example Usage
+    /// ### ServicePut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.HealthcareApis.V20180820Preview.Service("service", new AzureRM.HealthcareApis.V20180820Preview.ServiceArgs
+    ///         {
+    ///             Kind = "fhir",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "service1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

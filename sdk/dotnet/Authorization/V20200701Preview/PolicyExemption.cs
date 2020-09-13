@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.Authorization.V20200701Preview
 {
     /// <summary>
     /// The policy exemption.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy exemption
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class PolicyExemption : Pulumi.CustomResource
     {

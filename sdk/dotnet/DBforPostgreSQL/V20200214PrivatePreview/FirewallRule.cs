@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
 {
     /// <summary>
     /// Represents a server firewall rule.
+    /// 
+    /// ## Example Usage
+    /// ### FirewallRuleCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallRule = new AzureRM.DBForPostgreSql.V20200214privatePreview.FirewallRule("firewallRule", new AzureRM.DBForPostgreSql.V20200214privatePreview.FirewallRuleArgs
+    ///         {
+    ///             EndIpAddress = "255.255.255.255",
+    ///             FirewallRuleName = "rule1",
+    ///             ResourceGroupName = "TestGroup",
+    ///             ServerName = "testserver",
+    ///             StartIpAddress = "0.0.0.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

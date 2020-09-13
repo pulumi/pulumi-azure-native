@@ -11,6 +11,306 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
 {
     /// <summary>
     /// A database resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a VCore database by specifying service objective name.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             DatabaseName = "testdb",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.V20190601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Family = "Gen4",
+    ///                 Name = "BC",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a VCore database by specifying sku name and capacity.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             DatabaseName = "testdb",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.V20190601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Name = "BC_Gen4",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a data warehouse by specifying service objective name.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             DatabaseName = "testdw",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.V20190601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "DW1000c",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a database as a copy.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             CreateMode = "Copy",
+    ///             DatabaseName = "dbcopy",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.V20190601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a database as an on-line secondary.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             CreateMode = "Secondary",
+    ///             DatabaseName = "testdb",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.V20190601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a database from PointInTimeRestore.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             CreateMode = "PointInTimeRestore",
+    ///             DatabaseName = "dbpitr",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             RestorePointInTime = "2017-07-14T05:35:31.503Z",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.V20190601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a database from recoverableDatabaseId.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             CreateMode = "Restore",
+    ///             DatabaseName = "dbrestore",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             RestorableDroppedDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/restorableDroppedDatabases/testdb2,131444841315030000",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.V20190601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a database from restore with database deletion time.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             CreateMode = "Restore",
+    ///             DatabaseName = "dbrestore",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.V20190601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             SourceDatabaseDeletionDate = "2017-07-14T06:41:06.613Z",
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a database from restore with restorableDroppedDatabaseId.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             CreateMode = "Copy",
+    ///             DatabaseName = "dbcopy",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.V20190601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a database with default mode.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///             CreateMode = "Default",
+    ///             DatabaseName = "testdb",
+    ///             Location = "southeastasia",
+    ///             MaxSizeBytes = 1073741824,
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.V20190601Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a database with minimum number of parameters.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.V20190601Preview.Database("database", new AzureRM.Sql.V20190601Preview.DatabaseArgs
+    ///         {
+    ///             DatabaseName = "testdb",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Database : Pulumi.CustomResource
     {

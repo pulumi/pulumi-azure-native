@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Authorization.V20171001Preview
 {
     /// <summary>
     /// Role Assignments
+    /// 
+    /// ## Example Usage
+    /// ### GetConfigurations
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var roleAssignment = new AzureRM.Authorization.V20171001Preview.RoleAssignment("roleAssignment", new AzureRM.Authorization.V20171001Preview.RoleAssignmentArgs
+    ///         {
+    ///             CanDelegate = false,
+    ///             PrincipalId = "d93a38bc-d029-4160-bfb0-fbda779ac214",
+    ///             RoleAssignmentName = "roleAssignmentName",
+    ///             RoleDefinitionId = "/subscriptions/4004a9fd-d58e-48dc-aeb2-4a4aec58606f/providers/Microsoft.Authorization/roleDefinitions/de139f84-1756-47ae-9be6-808fbbe84772",
+    ///             Scope = "scope",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RoleAssignment : Pulumi.CustomResource
     {

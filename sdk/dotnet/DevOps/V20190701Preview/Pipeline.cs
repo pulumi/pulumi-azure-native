@@ -11,6 +11,54 @@ namespace Pulumi.AzureRM.DevOps.V20190701Preview
 {
     /// <summary>
     /// Azure DevOps Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
+    /// 
+    /// ## Example Usage
+    /// ### Create an Azure pipeline to deploy a sample ASP.Net application to Azure web-app
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pipeline = new AzureRM.DevOps.V20190701Preview.Pipeline("pipeline", new AzureRM.DevOps.V20190701Preview.PipelineArgs
+    ///         {
+    ///             BootstrapConfiguration = new AzureRM.DevOps.V20190701Preview.Inputs.BootstrapConfigurationArgs
+    ///             {
+    ///                 Template = new AzureRM.DevOps.V20190701Preview.Inputs.PipelineTemplateArgs
+    ///                 {
+    ///                     Id = "ms.vss-continuous-delivery-pipeline-templates.aspnet-windowswebapp",
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "appInsightLocation", "South India" },
+    ///                         { "appServicePlan", "S1 Standard" },
+    ///                         { "azureAuth", "{\"scheme\":\"ServicePrincipal\",\"parameters\":{\"tenantid\":\"{subscriptionTenantId}\",\"objectid\":\"{appObjectId}\",\"serviceprincipalid\":\"{appId}\",\"serviceprincipalkey\":\"{appSecret}\"}}" },
+    ///                         { "location", "South India" },
+    ///                         { "resourceGroup", "myAspNetWebAppPipeline-rg" },
+    ///                         { "subscriptionId", "{subscriptionId}" },
+    ///                         { "webAppName", "myAspNetWebApp" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Location = "South India",
+    ///             Organization = new AzureRM.DevOps.V20190701Preview.Inputs.OrganizationReferenceArgs
+    ///             {
+    ///                 Name = "myAspNetWebAppPipeline-org",
+    ///             },
+    ///             PipelineName = "myAspNetWebAppPipeline",
+    ///             Project = new AzureRM.DevOps.V20190701Preview.Inputs.ProjectReferenceArgs
+    ///             {
+    ///                 Name = "myAspNetWebAppPipeline-project",
+    ///             },
+    ///             ResourceGroupName = "myAspNetWebAppPipeline-rg",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Pipeline : Pulumi.CustomResource
     {

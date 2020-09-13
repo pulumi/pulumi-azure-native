@@ -11,6 +11,67 @@ namespace Pulumi.AzureRM.Management.V20171111Preview
 {
     /// <summary>
     /// Represents a Blueprint definition.
+    /// 
+    /// ## Example Usage
+    /// ### Blueprint
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var blueprint = new AzureRM.Management.V20171111Preview.Blueprint("blueprint", new AzureRM.Management.V20171111Preview.BlueprintArgs
+    ///         {
+    ///             BlueprintName = "simpleBlueprint",
+    ///             Description = "blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+    ///             ManagementGroupName = "ContosoOnlineGroup",
+    ///             Parameters = 
+    ///             {
+    ///                 { "costCenter", new AzureRM.Management.V20171111Preview.Inputs.ParameterDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "displayName", "force cost center tag for all resources under given subscription." },
+    ///                     },
+    ///                     Type = "string",
+    ///                 } },
+    ///                 { "owners", new AzureRM.Management.V20171111Preview.Inputs.ParameterDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "displayName", "assign owners to subscription along with blueprint assignment." },
+    ///                     },
+    ///                     Type = "array",
+    ///                 } },
+    ///                 { "storageAccountType", new AzureRM.Management.V20171111Preview.Inputs.ParameterDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "displayName", "storage account type." },
+    ///                     },
+    ///                     Type = "string",
+    ///                 } },
+    ///             },
+    ///             ResourceGroups = 
+    ///             {
+    ///                 { "storageRG", new AzureRM.Management.V20171111Preview.Inputs.ResourceGroupDefinitionArgs
+    ///                 {
+    ///                     Metadata = 
+    ///                     {
+    ///                         { "description", "Contains storageAccounts that collect all shoebox logs." },
+    ///                         { "displayName", "storage resource group" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             TargetScope = "subscription",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Blueprint : Pulumi.CustomResource
     {

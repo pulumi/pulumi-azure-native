@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190123Preview
 {
     /// <summary>
     /// Represents a ApplicationGroup definition.
+    /// 
+    /// ## Example Usage
+    /// ### ApplicationGroup_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var applicationGroup = new AzureRM.DesktopVirtualization.V20190123Preview.ApplicationGroup("applicationGroup", new AzureRM.DesktopVirtualization.V20190123Preview.ApplicationGroupArgs
+    ///         {
+    ///             ApplicationGroupName = "applicationGroup1",
+    ///             ApplicationGroupType = "RemoteApp",
+    ///             Description = "des1",
+    ///             FriendlyName = "friendly",
+    ///             HostPoolArmPath = "/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApplicationGroup : Pulumi.CustomResource
     {

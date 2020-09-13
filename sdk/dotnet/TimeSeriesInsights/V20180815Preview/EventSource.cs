@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20180815Preview
 {
     /// <summary>
     /// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+    /// 
+    /// ## Example Usage
+    /// ### CreateEventHubEventSource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventSource = new AzureRM.TimeSeriesInsights.V20180815Preview.EventSource("eventSource", new AzureRM.TimeSeriesInsights.V20180815Preview.EventSourceArgs
+    ///         {
+    ///             EnvironmentName = "env1",
+    ///             EventSourceName = "es1",
+    ///             Kind = "Microsoft.EventHub",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class EventSource : Pulumi.CustomResource
     {

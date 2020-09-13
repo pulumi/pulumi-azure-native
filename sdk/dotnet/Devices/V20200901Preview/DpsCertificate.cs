@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.Devices.V20200901Preview
 {
     /// <summary>
     /// The X509 Certificate.
+    /// 
+    /// ## Example Usage
+    /// ### DPSCreateOrUpdateCertificate
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class DpsCertificate : Pulumi.CustomResource
     {

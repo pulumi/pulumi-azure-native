@@ -11,6 +11,99 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301Preview
 {
     /// <summary>
     /// The application resource.
+    /// 
+    /// ## Example Usage
+    /// ### Put an application with maximum parameters
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var application = new AzureRM.ServiceFabric.V20190301Preview.Application("application", new AzureRM.ServiceFabric.V20190301Preview.ApplicationArgs
+    ///         {
+    ///             ApplicationName = "myApp",
+    ///             ClusterName = "myCluster",
+    ///             Location = "eastus",
+    ///             MaximumNodes = 3,
+    ///             Metrics = 
+    ///             {
+    ///                 new AzureRM.ServiceFabric.V20190301Preview.Inputs.ApplicationMetricDescriptionArgs
+    ///                 {
+    ///                     MaximumCapacity = 3,
+    ///                     Name = "metric1",
+    ///                     ReservationCapacity = 1,
+    ///                     TotalApplicationCapacity = 5,
+    ///                 },
+    ///             },
+    ///             MinimumNodes = 1,
+    ///             Parameters = 
+    ///             {
+    ///                 { "param1", "value1" },
+    ///             },
+    ///             RemoveApplicationCapacity = false,
+    ///             ResourceGroupName = "resRg",
+    ///             Tags = ,
+    ///             TypeName = "myAppType",
+    ///             TypeVersion = "1.0",
+    ///             UpgradePolicy = new AzureRM.ServiceFabric.V20190301Preview.Inputs.ApplicationUpgradePolicyArgs
+    ///             {
+    ///                 ApplicationHealthPolicy = new AzureRM.ServiceFabric.V20190301Preview.Inputs.ArmApplicationHealthPolicyArgs
+    ///                 {
+    ///                     ConsiderWarningAsError = true,
+    ///                     DefaultServiceTypeHealthPolicy = new AzureRM.ServiceFabric.V20190301Preview.Inputs.ArmServiceTypeHealthPolicyArgs
+    ///                     {
+    ///                         MaxPercentUnhealthyPartitionsPerService = 0,
+    ///                         MaxPercentUnhealthyReplicasPerPartition = 0,
+    ///                         MaxPercentUnhealthyServices = 0,
+    ///                     },
+    ///                     MaxPercentUnhealthyDeployedApplications = 0,
+    ///                 },
+    ///                 ForceRestart = false,
+    ///                 RollingUpgradeMonitoringPolicy = new AzureRM.ServiceFabric.V20190301Preview.Inputs.ArmRollingUpgradeMonitoringPolicyArgs
+    ///                 {
+    ///                     FailureAction = "Rollback",
+    ///                     HealthCheckRetryTimeout = "00:10:00",
+    ///                     HealthCheckStableDuration = "00:05:00",
+    ///                     HealthCheckWaitDuration = "00:02:00",
+    ///                     UpgradeDomainTimeout = "1.06:00:00",
+    ///                     UpgradeTimeout = "01:00:00",
+    ///                 },
+    ///                 UpgradeReplicaSetCheckTimeout = "01:00:00",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Put an application with minimum parameters
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var application = new AzureRM.ServiceFabric.V20190301Preview.Application("application", new AzureRM.ServiceFabric.V20190301Preview.ApplicationArgs
+    ///         {
+    ///             ApplicationName = "myApp",
+    ///             ClusterName = "myCluster",
+    ///             Location = "eastus",
+    ///             RemoveApplicationCapacity = false,
+    ///             ResourceGroupName = "resRg",
+    ///             Tags = ,
+    ///             TypeName = "myAppType",
+    ///             TypeVersion = "1.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

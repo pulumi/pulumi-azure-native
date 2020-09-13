@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.Security.V20200806Preview
 {
     /// <summary>
     /// IoT sensor
+    /// 
+    /// ## Example Usage
+    /// ### Create or update IoT sensor
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iotSensor = new AzureRM.Security.V20200806Preview.IotSensor("iotSensor", new AzureRM.Security.V20200806Preview.IotSensorArgs
+    ///         {
+    ///             IotSensorName = "mySensor",
+    ///             Scope = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IotSensor : Pulumi.CustomResource
     {

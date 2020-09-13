@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.IoTSpaces.V20171001Preview
 {
     /// <summary>
     /// The description of the IoTSpaces service.
+    /// 
+    /// ## Example Usage
+    /// ### Put an IoT spaces service
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ioTSpace = new AzureRM.IoTSpaces.V20171001Preview.IoTSpace("ioTSpace", new AzureRM.IoTSpaces.V20171001Preview.IoTSpaceArgs
+    ///         {
+    ///             Location = "string",
+    ///             ResourceGroupName = "resRg",
+    ///             ResourceName = "myIoTSpacesService",
+    ///             Sku = new AzureRM.IoTSpaces.V20171001Preview.Inputs.IoTSpacesSkuInfoArgs
+    ///             {
+    ///                 Name = "F1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IoTSpace : Pulumi.CustomResource
     {

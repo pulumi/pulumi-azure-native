@@ -11,6 +11,44 @@ namespace Pulumi.AzureRM.ChangeAnalysis.V20200401Preview
 {
     /// <summary>
     /// A profile object that contains change analysis configuration, such as notification settings, for this subscription
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationProfile_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var configurationProfile = new AzureRM.ChangeAnalysis.V20200401Preview.ConfigurationProfile("configurationProfile", new AzureRM.ChangeAnalysis.V20200401Preview.ConfigurationProfileArgs
+    ///         {
+    ///             ProfileName = "default",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### ConfigurationProfile_CreateWithIdentity
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var configurationProfile = new AzureRM.ChangeAnalysis.V20200401Preview.ConfigurationProfile("configurationProfile", new AzureRM.ChangeAnalysis.V20200401Preview.ConfigurationProfileArgs
+    ///         {
+    ///             ProfileName = "default",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ConfigurationProfile : Pulumi.CustomResource
     {

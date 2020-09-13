@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190123Preview
 {
     /// <summary>
     /// Schema for Application properties.
+    /// 
+    /// ## Example Usage
+    /// ### Application_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var application = new AzureRM.DesktopVirtualization.V20190123Preview.Application("application", new AzureRM.DesktopVirtualization.V20190123Preview.ApplicationArgs
+    ///         {
+    ///             ApplicationGroupName = "applicationGroup1",
+    ///             ApplicationName = "application1",
+    ///             CommandLineArguments = "arguments",
+    ///             CommandLineSetting = "Allow",
+    ///             Description = "des1",
+    ///             FilePath = "path",
+    ///             FriendlyName = "friendly",
+    ///             IconIndex = 1,
+    ///             IconPath = "icon",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             ShowInPortal = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

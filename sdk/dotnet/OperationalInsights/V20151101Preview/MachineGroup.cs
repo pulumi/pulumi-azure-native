@@ -11,6 +11,40 @@ namespace Pulumi.AzureRM.OperationalInsights.V20151101Preview
 {
     /// <summary>
     /// A user-defined logical grouping of machines.
+    /// 
+    /// ## Example Usage
+    /// ### SMMachineGroupsUpdatePut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineGroup = new AzureRM.OperationalInsights.V20151101Preview.MachineGroup("machineGroup", new AzureRM.OperationalInsights.V20151101Preview.MachineGroupArgs
+    ///         {
+    ///             Count = 1,
+    ///             DisplayName = "Foo",
+    ///             Etag = "8cd3a8a1-4b1f-43fc-ae3c-b2c092561444",
+    ///             Kind = "machineGroup",
+    ///             MachineGroupName = "ccfbf4bf-dc08-4371-9e9b-00a8d875d45a",
+    ///             Machines = 
+    ///             {
+    ///                 new AzureRM.OperationalInsights.V20151101Preview.Inputs.MachineReferenceWithHintsArgs
+    ///                 {
+    ///                     Id = "/subscriptions/63BE4E24-FDF0-4E9C-9342-6A5D5A359722/resourceGroups/rg-sm/providers/Microsoft.OperationalInsights/workspaces/D6F79F14-E563-469B-84B5-9286D2803B2F/machines/m-0fe4b501-7ac9-41d7-a4e1-1591a0789519",
+    ///                     Kind = "ref:machinewithhints",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg-sm",
+    ///             WorkspaceName = "D6F79F14-E563-469B-84B5-9286D2803B2F",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class MachineGroup : Pulumi.CustomResource
     {

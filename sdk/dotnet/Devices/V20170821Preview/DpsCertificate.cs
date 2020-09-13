@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Devices.V20170821Preview
 {
     /// <summary>
     /// The X509 Certificate.
+    /// 
+    /// ## Example Usage
+    /// ### DPSCreateOrUpdateCertificate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dpsCertificate = new AzureRM.Devices.V20170821Preview.DpsCertificate("dpsCertificate", new AzureRM.Devices.V20170821Preview.DpsCertificateArgs
+    ///         {
+    ///             Certificate = "############################################",
+    ///             CertificateName = "cert",
+    ///             ProvisioningServiceName = "myFirstProvisioningService",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DpsCertificate : Pulumi.CustomResource
     {

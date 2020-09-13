@@ -11,6 +11,46 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20191210Preview
 {
     /// <summary>
     /// Represents a HostPool definition.
+    /// 
+    /// ## Example Usage
+    /// ### HostPool_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hostPool = new AzureRM.DesktopVirtualization.V20191210Preview.HostPool("hostPool", new AzureRM.DesktopVirtualization.V20191210Preview.HostPoolArgs
+    ///         {
+    ///             Description = "des1",
+    ///             FriendlyName = "friendly",
+    ///             HostPoolName = "hostPool1",
+    ///             HostPoolType = "Pooled",
+    ///             LoadBalancerType = "BreadthFirst",
+    ///             Location = "centralus",
+    ///             MaxSessionLimit = 999999,
+    ///             PersonalDesktopAssignmentType = "Automatic",
+    ///             PreferredAppGroupType = "Desktop",
+    ///             RegistrationInfo = new AzureRM.DesktopVirtualization.V20191210Preview.Inputs.RegistrationInfoArgs
+    ///             {
+    ///                 ExpirationTime = "2020-10-01T14:01:54.9571247Z",
+    ///                 RegistrationTokenOperation = "Update",
+    ///             },
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             SsoContext = "KeyVaultPath",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class HostPool : Pulumi.CustomResource
     {

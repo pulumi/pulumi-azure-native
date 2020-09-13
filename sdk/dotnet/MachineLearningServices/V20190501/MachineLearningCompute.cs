@@ -47,7 +47,17 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190501
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.MachineLearningServices.V20190501.Inputs.ComputeArgs
+    ///             {
+    ///                 ScaleSettings = 
+    ///                 {
+    ///                     { "maxNodeCount", 1 },
+    ///                     { "minNodeCount", 0 },
+    ///                     { "nodeIdleTimeBeforeScaleDown", "PT5M" },
+    ///                 },
+    ///                 VmPriority = "Dedicated",
+    ///                 VmSize = "STANDARD_NC6",
+    ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
     ///         });
@@ -90,7 +100,10 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190501
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.MachineLearningServices.V20190501.Inputs.ComputeArgs
+    ///             {
+    ///                 AgentCount = 4,
+    ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
     ///         });
@@ -112,7 +125,15 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190501
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = ,
+    ///             Properties = new AzureRM.MachineLearningServices.V20190501.Inputs.ComputeArgs
+    ///             {
+    ///                 ScaleSettings = 
+    ///                 {
+    ///                     { "maxNodeCount", 1 },
+    ///                     { "minNodeCount", 0 },
+    ///                     { "nodeIdleTimeBeforeScaleDown", "PT5M" },
+    ///                 },
+    ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
     ///         });

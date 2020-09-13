@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
 {
     /// <summary>
     /// Fabric definition.
-    /// 
-    /// ## Example Usage
-    /// ### Creates an Azure Site Recovery fabric.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var replicationFabric = new AzureRM.RecoveryServices.V20180110.ReplicationFabric("replicationFabric", new AzureRM.RecoveryServices.V20180110.ReplicationFabricArgs
-    ///         {
-    ///             FabricName = "cloud1",
-    ///             ResourceGroupName = "resourceGroupPS1",
-    ///             ResourceName = "vault1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ReplicationFabric : Pulumi.CustomResource
     {

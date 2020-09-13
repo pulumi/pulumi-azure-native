@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
 {
     /// <summary>
     /// The container for solution.
+    /// 
+    /// ## Example Usage
+    /// ### SolutionCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var solution = new AzureRM.OperationsManagement.V20151101Preview.Solution("solution", new AzureRM.OperationsManagement.V20151101Preview.SolutionArgs
+    ///         {
+    ///             Location = "East US",
+    ///             Plan = new AzureRM.OperationsManagement.V20151101Preview.Inputs.SolutionPlanArgs
+    ///             {
+    ///                 Name = "name1",
+    ///                 Product = "product1",
+    ///                 PromotionCode = "promocode1",
+    ///                 Publisher = "publisher1",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             SolutionName = "solution1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Solution : Pulumi.CustomResource
     {

@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Media.V20180601Preview
 {
     /// <summary>
     /// An Asset.
+    /// 
+    /// ## Example Usage
+    /// ### Create an Asset
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var asset = new AzureRM.Media.V20180601Preview.Asset("asset", new AzureRM.Media.V20180601Preview.AssetArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             AssetName = "ClimbingMountLogan",
+    ///             Description = "A documentary showing the ascent of Mount Logan",
+    ///             ResourceGroupName = "contoso",
+    ///             StorageAccountName = "storage0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Asset : Pulumi.CustomResource
     {

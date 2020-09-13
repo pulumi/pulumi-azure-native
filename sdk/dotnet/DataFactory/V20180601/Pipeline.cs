@@ -30,6 +30,65 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     ///                 {
     ///                     Name = "ExampleForeachActivity",
     ///                     Type = "ForEach",
+    ///                     TypeProperties = 
+    ///                     {
+    ///                         { "activities", 
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "inputs", 
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "parameters", 
+    ///                                         {
+    ///                                             { "MyFileName", "examplecontainer.csv" },
+    ///                                             { "MyFolderPath", "examplecontainer" },
+    ///                                         } },
+    ///                                         { "referenceName", "exampleDataset" },
+    ///                                         { "type", "DatasetReference" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "name", "ExampleCopyActivity" },
+    ///                                 { "outputs", 
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "parameters", 
+    ///                                         {
+    ///                                             { "MyFileName", 
+    ///                                             {
+    ///                                                 { "type", "Expression" },
+    ///                                                 { "value", "@item()" },
+    ///                                             } },
+    ///                                             { "MyFolderPath", "examplecontainer" },
+    ///                                         } },
+    ///                                         { "referenceName", "exampleDataset" },
+    ///                                         { "type", "DatasetReference" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "type", "Copy" },
+    ///                                 { "typeProperties", 
+    ///                                 {
+    ///                                     { "dataIntegrationUnits", 32 },
+    ///                                     { "sink", 
+    ///                                     {
+    ///                                         { "type", "BlobSink" },
+    ///                                     } },
+    ///                                     { "source", 
+    ///                                     {
+    ///                                         { "type", "BlobSource" },
+    ///                                     } },
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                         { "isSequential", true },
+    ///                         { "items", 
+    ///                         {
+    ///                             { "type", "Expression" },
+    ///                             { "value", "@pipeline().parameters.OutputBlobNameList" },
+    ///                         } },
+    ///                     },
     ///                 },
     ///             },
     ///             FactoryName = "exampleFactoryName",
@@ -84,6 +143,65 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     ///                 {
     ///                     Name = "ExampleForeachActivity",
     ///                     Type = "ForEach",
+    ///                     TypeProperties = 
+    ///                     {
+    ///                         { "activities", 
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "inputs", 
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "parameters", 
+    ///                                         {
+    ///                                             { "MyFileName", "examplecontainer.csv" },
+    ///                                             { "MyFolderPath", "examplecontainer" },
+    ///                                         } },
+    ///                                         { "referenceName", "exampleDataset" },
+    ///                                         { "type", "DatasetReference" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "name", "ExampleCopyActivity" },
+    ///                                 { "outputs", 
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "parameters", 
+    ///                                         {
+    ///                                             { "MyFileName", 
+    ///                                             {
+    ///                                                 { "type", "Expression" },
+    ///                                                 { "value", "@item()" },
+    ///                                             } },
+    ///                                             { "MyFolderPath", "examplecontainer" },
+    ///                                         } },
+    ///                                         { "referenceName", "exampleDataset" },
+    ///                                         { "type", "DatasetReference" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "type", "Copy" },
+    ///                                 { "typeProperties", 
+    ///                                 {
+    ///                                     { "dataIntegrationUnits", 32 },
+    ///                                     { "sink", 
+    ///                                     {
+    ///                                         { "type", "BlobSink" },
+    ///                                     } },
+    ///                                     { "source", 
+    ///                                     {
+    ///                                         { "type", "BlobSource" },
+    ///                                     } },
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                         { "isSequential", true },
+    ///                         { "items", 
+    ///                         {
+    ///                             { "type", "Expression" },
+    ///                             { "value", "@pipeline().parameters.OutputBlobNameList" },
+    ///                         } },
+    ///                     },
     ///                 },
     ///             },
     ///             Description = "Example description",

@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents a relation between two resources
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an incident relation.
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class IncidentRelation : Pulumi.CustomResource
     {

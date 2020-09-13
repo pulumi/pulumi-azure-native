@@ -11,6 +11,83 @@ namespace Pulumi.AzureRM.ServiceFabric.V20191101Preview
 {
     /// <summary>
     /// The service resource.
+    /// 
+    /// ## Example Usage
+    /// ### Put a service with maximum parameters
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.ServiceFabric.V20191101Preview.Service("service", new AzureRM.ServiceFabric.V20191101Preview.ServiceArgs
+    ///         {
+    ///             ApplicationName = "myApp",
+    ///             ClusterName = "myCluster",
+    ///             CorrelationScheme = 
+    ///             {
+    ///                 new AzureRM.ServiceFabric.V20191101Preview.Inputs.ServiceCorrelationDescriptionArgs
+    ///                 {
+    ///                     Scheme = "Affinity",
+    ///                     ServiceName = "fabric:/app1/app1~svc1",
+    ///                 },
+    ///             },
+    ///             DefaultMoveCost = "Medium",
+    ///             PartitionDescription = new AzureRM.ServiceFabric.V20191101Preview.Inputs.PartitionSchemeDescriptionArgs
+    ///             {
+    ///                 PartitionScheme = "Singleton",
+    ///             },
+    ///             PlacementConstraints = "NodeType==frontend",
+    ///             ResourceGroupName = "resRg",
+    ///             ServiceDnsName = "my.service.dns",
+    ///             ServiceKind = "Stateless",
+    ///             ServiceLoadMetrics = 
+    ///             {
+    ///                 new AzureRM.ServiceFabric.V20191101Preview.Inputs.ServiceLoadMetricDescriptionArgs
+    ///                 {
+    ///                     Name = "metric1",
+    ///                     Weight = "Low",
+    ///                 },
+    ///             },
+    ///             ServiceName = "myService",
+    ///             ServicePackageActivationMode = "SharedProcess",
+    ///             ServicePlacementPolicies = {},
+    ///             ServiceTypeName = "myServiceType",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Put a service with minimum parameters
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.ServiceFabric.V20191101Preview.Service("service", new AzureRM.ServiceFabric.V20191101Preview.ServiceArgs
+    ///         {
+    ///             ApplicationName = "myApp",
+    ///             ClusterName = "myCluster",
+    ///             PartitionDescription = new AzureRM.ServiceFabric.V20191101Preview.Inputs.PartitionSchemeDescriptionArgs
+    ///             {
+    ///                 PartitionScheme = "Singleton",
+    ///             },
+    ///             ResourceGroupName = "resRg",
+    ///             ServiceKind = "Stateless",
+    ///             ServiceName = "myService",
+    ///             ServiceTypeName = "myServiceType",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

@@ -11,6 +11,26 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Vendor resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update Vendor resource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vendor = new AzureRM.HybridNetwork.V20200101Preview.Vendor("vendor", new AzureRM.HybridNetwork.V20200101Preview.VendorArgs
+    ///         {
+    ///             VendorName = "TestVendor",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Vendor : Pulumi.CustomResource
     {

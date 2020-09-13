@@ -11,6 +11,134 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
 {
     /// <summary>
     /// Represents a blueprint artifact.
+    /// 
+    /// ## Example Usage
+    /// ### MG-ARMTemplateArtifact
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var artifact = new AzureRM.Blueprint.V20181101Preview.Artifact("artifact", new AzureRM.Blueprint.V20181101Preview.ArtifactArgs
+    ///         {
+    ///             ArtifactName = "storageTemplate",
+    ///             BlueprintName = "simpleBlueprint",
+    ///             Kind = "template",
+    ///             ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### MG-PolicyAssignmentArtifact
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var artifact = new AzureRM.Blueprint.V20181101Preview.Artifact("artifact", new AzureRM.Blueprint.V20181101Preview.ArtifactArgs
+    ///         {
+    ///             ArtifactName = "costCenterPolicy",
+    ///             BlueprintName = "simpleBlueprint",
+    ///             Kind = "policyAssignment",
+    ///             ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### MG-RoleAssignmentArtifact
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var artifact = new AzureRM.Blueprint.V20181101Preview.Artifact("artifact", new AzureRM.Blueprint.V20181101Preview.ArtifactArgs
+    ///         {
+    ///             ArtifactName = "ownerAssignment",
+    ///             BlueprintName = "simpleBlueprint",
+    ///             Kind = "roleAssignment",
+    ///             ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Sub-ARMTemplateArtifact
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var artifact = new AzureRM.Blueprint.V20181101Preview.Artifact("artifact", new AzureRM.Blueprint.V20181101Preview.ArtifactArgs
+    ///         {
+    ///             ArtifactName = "storageTemplate",
+    ///             BlueprintName = "simpleBlueprint",
+    ///             Kind = "template",
+    ///             ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Sub-PolicyAssignmentArtifact
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var artifact = new AzureRM.Blueprint.V20181101Preview.Artifact("artifact", new AzureRM.Blueprint.V20181101Preview.ArtifactArgs
+    ///         {
+    ///             ArtifactName = "costCenterPolicy",
+    ///             BlueprintName = "simpleBlueprint",
+    ///             Kind = "policyAssignment",
+    ///             ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Sub-RoleAssignmentArtifact
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var artifact = new AzureRM.Blueprint.V20181101Preview.Artifact("artifact", new AzureRM.Blueprint.V20181101Preview.ArtifactArgs
+    ///         {
+    ///             ArtifactName = "ownerAssignment",
+    ///             BlueprintName = "simpleBlueprint",
+    ///             Kind = "roleAssignment",
+    ///             ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Artifact : Pulumi.CustomResource
     {

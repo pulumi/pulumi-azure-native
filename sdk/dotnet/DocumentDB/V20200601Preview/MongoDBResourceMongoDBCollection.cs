@@ -11,6 +11,59 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB collection.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBMongoDBCollectionCreateUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mongoDBResourceMongoDBCollection = new AzureRM.DocumentDB.V20200601Preview.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection", new AzureRM.DocumentDB.V20200601Preview.MongoDBResourceMongoDBCollectionArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             CollectionName = "collectionName",
+    ///             DatabaseName = "databaseName",
+    ///             Location = "West US",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.V20200601Preview.Inputs.MongoDBCollectionResourceArgs
+    ///             {
+    ///                 AnalyticalStorageTtl = 500,
+    ///                 Id = "collectionName",
+    ///                 Indexes = 
+    ///                 {
+    ///                     new AzureRM.DocumentDB.V20200601Preview.Inputs.MongoIndexArgs
+    ///                     {
+    ///                         Key = new AzureRM.DocumentDB.V20200601Preview.Inputs.MongoIndexKeysArgs
+    ///                         {
+    ///                             Keys = 
+    ///                             {
+    ///                                 "testKey",
+    ///                             },
+    ///                         },
+    ///                         Options = new AzureRM.DocumentDB.V20200601Preview.Inputs.MongoIndexOptionsArgs
+    ///                         {
+    ///                             ExpireAfterSeconds = 100,
+    ///                             Unique = true,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ShardKey = 
+    ///                 {
+    ///                     { "testKey", "Hash" },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class MongoDBResourceMongoDBCollection : Pulumi.CustomResource
     {

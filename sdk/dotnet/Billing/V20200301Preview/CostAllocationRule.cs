@@ -11,6 +11,46 @@ namespace Pulumi.AzureRM.Billing.V20200301Preview
 {
     /// <summary>
     /// The cost allocation rule model definition
+    /// 
+    /// ## Example Usage
+    /// ### CostAllocationRulesCreateResourceGroup
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var costAllocationRule = new AzureRM.Billing.V20200301Preview.CostAllocationRule("costAllocationRule", new AzureRM.Billing.V20200301Preview.CostAllocationRuleArgs
+    ///         {
+    ///             BillingAccountId = "100",
+    ///             RuleName = "testRule",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### CostAllocationRulesCreateTag
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var costAllocationRule = new AzureRM.Billing.V20200301Preview.CostAllocationRule("costAllocationRule", new AzureRM.Billing.V20200301Preview.CostAllocationRuleArgs
+    ///         {
+    ///             BillingAccountId = "100",
+    ///             RuleName = "testRule",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class CostAllocationRule : Pulumi.CustomResource
     {

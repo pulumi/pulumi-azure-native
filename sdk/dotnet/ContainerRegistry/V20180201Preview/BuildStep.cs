@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
 {
     /// <summary>
     /// Build step resource properties
+    /// 
+    /// ## Example Usage
+    /// ### BuildSteps_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var buildStep = new AzureRM.ContainerRegistry.V20180201Preview.BuildStep("buildStep", new AzureRM.ContainerRegistry.V20180201Preview.BuildStepArgs
+    ///         {
+    ///             BuildTaskName = "myBuildTask",
+    ///             RegistryName = "myRegistry",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StepName = "myStep",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BuildStep : Pulumi.CustomResource
     {

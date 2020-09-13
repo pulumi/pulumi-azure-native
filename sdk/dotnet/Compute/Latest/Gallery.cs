@@ -13,6 +13,31 @@ namespace Pulumi.AzureRM.Compute.Latest
     /// Specifies information about the Shared Image Gallery that you want to create or update.
     /// 
     /// ## Example Usage
+    /// ### Create or update a simple gallery with sharing profile.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var gallery = new AzureRM.Compute.Latest.Gallery("gallery", new AzureRM.Compute.Latest.GalleryArgs
+    ///         {
+    ///             Description = "This is the gallery description.",
+    ///             GalleryName = "myGalleryName",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             SharingProfile = 
+    ///             {
+    ///                 { "permissions", "Groups" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// ### Create or update a simple gallery.
     /// ```csharp
     /// using Pulumi;

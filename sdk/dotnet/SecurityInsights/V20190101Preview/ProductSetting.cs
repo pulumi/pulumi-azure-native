@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// The Setting.
+    /// 
+    /// ## Example Usage
+    /// ### Update EyesOn settings.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var productSetting = new AzureRM.SecurityInsights.V20190101Preview.ProductSetting("productSetting", new AzureRM.SecurityInsights.V20190101Preview.ProductSettingArgs
+    ///         {
+    ///             Etag = "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+    ///             Kind = "EyesOn",
+    ///             OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
+    ///             ResourceGroupName = "myRg",
+    ///             SettingsName = "EyesOn",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ProductSetting : Pulumi.CustomResource
     {

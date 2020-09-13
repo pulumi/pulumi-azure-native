@@ -11,27 +11,6 @@ namespace Pulumi.AzureRM.Resources.V20190801
 {
     /// <summary>
     /// Deployment information.
-    /// 
-    /// ## Example Usage
-    /// ### Create deployment at tenant scope.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var deploymentAtTenantScope = new AzureRM.Resources.V20190801.DeploymentAtTenantScope("deploymentAtTenantScope", new AzureRM.Resources.V20190801.DeploymentAtTenantScopeArgs
-    ///         {
-    ///             DeploymentName = "tenant-dep01",
-    ///             Location = "eastus",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DeploymentAtTenantScope : Pulumi.CustomResource
     {

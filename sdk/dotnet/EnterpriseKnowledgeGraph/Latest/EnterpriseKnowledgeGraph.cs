@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.EnterpriseKnowledgeGraph.Latest
 {
     /// <summary>
     /// EnterpriseKnowledgeGraph resource definition
+    /// 
+    /// ## Example Usage
+    /// ### Create EnterpriseKnowledgeGraph
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var enterpriseKnowledgeGraph = new AzureRM.EnterpriseKnowledgeGraph.Latest.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph", new AzureRM.EnterpriseKnowledgeGraph.Latest.EnterpriseKnowledgeGraphArgs
+    ///         {
+    ///             Location = "West US",
+    ///             ResourceGroupName = "OneResourceGroupName",
+    ///             ResourceName = "sampleekgname",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class EnterpriseKnowledgeGraph : Pulumi.CustomResource
     {

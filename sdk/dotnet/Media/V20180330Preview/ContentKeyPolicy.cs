@@ -11,6 +11,154 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
 {
     /// <summary>
     /// A Content Key Policy resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a Content Key Policy with ClearKey option and Token Restriction
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contentKeyPolicy = new AzureRM.Media.V20180330Preview.ContentKeyPolicy("contentKeyPolicy", new AzureRM.Media.V20180330Preview.ContentKeyPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             ContentKeyPolicyName = "PolicyWithClearKeyOptionAndSwtTokenRestriction",
+    ///             Description = "ArmPolicyDescription",
+    ///             Options = 
+    ///             {
+    ///                 new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyOptionArgs
+    ///                 {
+    ///                     Configuration = new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     {
+    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         Name = "ClearKeyOption",
+    ///                         Restriction = new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                         {
+    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         },
+    ///                     },
+    ///                     ResourceGroupName = "contoso",
+    ///                 });
+    ///             }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a Content Key Policy with PlayReady option and Open Restriction
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contentKeyPolicy = new AzureRM.Media.V20180330Preview.ContentKeyPolicy("contentKeyPolicy", new AzureRM.Media.V20180330Preview.ContentKeyPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             ContentKeyPolicyName = "PolicyWithPlayReadyOptionAndOpenRestriction",
+    ///             Description = "ArmPolicyDescription",
+    ///             Options = 
+    ///             {
+    ///                 new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyOptionArgs
+    ///                 {
+    ///                     Configuration = new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     {
+    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         Name = "ArmPolicyOptionName",
+    ///                         Restriction = new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                         {
+    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         },
+    ///                     },
+    ///                     ResourceGroupName = "contoso",
+    ///                 });
+    ///             }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a Content Key Policy with Widevine option and Token Restriction
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contentKeyPolicy = new AzureRM.Media.V20180330Preview.ContentKeyPolicy("contentKeyPolicy", new AzureRM.Media.V20180330Preview.ContentKeyPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             ContentKeyPolicyName = "PolicyWithWidevineOptionAndJwtTokenRestriction",
+    ///             Description = "ArmPolicyDescription",
+    ///             Options = 
+    ///             {
+    ///                 new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyOptionArgs
+    ///                 {
+    ///                     Configuration = new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     {
+    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         Name = "widevineoption",
+    ///                         Restriction = new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                         {
+    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         },
+    ///                     },
+    ///                     ResourceGroupName = "contoso",
+    ///                 });
+    ///             }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a Content Key Policy with multiple options
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contentKeyPolicy = new AzureRM.Media.V20180330Preview.ContentKeyPolicy("contentKeyPolicy", new AzureRM.Media.V20180330Preview.ContentKeyPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             ContentKeyPolicyName = "PolicyCreatedWithMultipleOptions",
+    ///             Description = "ArmPolicyDescription",
+    ///             Options = 
+    ///             {
+    ///                 new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyOptionArgs
+    ///                 {
+    ///                     Configuration = new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     {
+    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         Name = "ClearKeyOption",
+    ///                         Restriction = new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                         {
+    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         },
+    ///                         new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyOptionArgs
+    ///                         {
+    ///                             Configuration = new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                             {
+    ///                                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                                 Name = "widevineoption",
+    ///                                 Restriction = new AzureRM.Media.V20180330Preview.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                                 {
+    ///                                     %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                                 },
+    ///                             },
+    ///                             ResourceGroupName = "contoso",
+    ///                         });
+    ///                     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ContentKeyPolicy : Pulumi.CustomResource
     {

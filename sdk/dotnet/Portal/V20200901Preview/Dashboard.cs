@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.Portal.V20200901Preview
 {
     /// <summary>
     /// The shared dashboard resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Dashboard
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class Dashboard : Pulumi.CustomResource
     {

@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
 {
     /// <summary>
     /// A SqlServerInstance.
+    /// 
+    /// ## Example Usage
+    /// ### Updates a SQL Server Instance tags.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sqlServerInstance = new AzureRM.AzureData.V20190724Preview.SqlServerInstance("sqlServerInstance", new AzureRM.AzureData.V20190724Preview.SqlServerInstanceArgs
+    ///         {
+    ///             ContainerResourceId = "Arc Machine Name",
+    ///             Edition = "Developer",
+    ///             Location = "northeurope",
+    ///             ResourceGroupName = "testrg",
+    ///             SqlServerInstanceName = "testsqlServerInstance",
+    ///             Status = "Connected",
+    ///             Tags = 
+    ///             {
+    ///                 { "mytag", "myval" },
+    ///             },
+    ///             VCore = "4",
+    ///             Version = "SQL Server 2017",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SqlServerInstance : Pulumi.CustomResource
     {

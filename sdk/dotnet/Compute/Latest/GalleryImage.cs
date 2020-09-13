@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Compute.Latest
 {
     /// <summary>
-<<<<<<< HEAD
-    /// Specifies information about the gallery Image Definition that you want to create or update.
+    /// Specifies information about the gallery image definition that you want to create or update.
     /// 
     /// ## Example Usage
     /// ### Create or update a simple gallery image.
@@ -44,9 +43,6 @@ namespace Pulumi.AzureRM.Compute.Latest
     /// }
     /// 
     /// ```
-=======
-    /// Specifies information about the gallery image definition that you want to create or update.
->>>>>>> origin/master
     /// </summary>
     public partial class GalleryImage : Pulumi.CustomResource
     {

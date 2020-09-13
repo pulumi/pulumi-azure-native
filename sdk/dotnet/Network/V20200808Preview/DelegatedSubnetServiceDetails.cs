@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Network.V20200808Preview
 {
     /// <summary>
     /// Delegated subnet details
+    /// 
+    /// ## Example Usage
+    /// ### put delegated subnet
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var delegatedSubnetServiceDetails = new AzureRM.Network.V20200808Preview.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails", new AzureRM.Network.V20200808Preview.DelegatedSubnetServiceDetailsArgs
+    ///         {
+    ///             ControllerID = "a182cbcf-e8ea-4175-ac2b-ad36a73f9801",
+    ///             ResourceGroupName = "TestRG",
+    ///             ResourceName = "delegated1",
+    ///             SubnetName = "testsubnet",
+    ///             VnetName = "testvnet",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DelegatedSubnetServiceDetails : Pulumi.CustomResource
     {

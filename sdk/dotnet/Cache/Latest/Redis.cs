@@ -32,6 +32,7 @@ namespace Pulumi.AzureRM.Cache.Latest
     ///             {
     ///                 { "maxmemory-policy", "allkeys-lru" },
     ///             },
+    ///             ReplicasPerMaster = 2,
     ///             ResourceGroupName = "rg1",
     ///             ShardCount = 2,
     ///             Sku = new AzureRM.Cache.Latest.Inputs.SkuArgs

@@ -32,8 +32,36 @@ namespace Pulumi.AzureRM.Network.V20200501
     ///             {
     ///                 new AzureRM.Network.V20200501.Inputs.FirewallPolicyRuleCollectionArgs
     ///                 {
+    ///                     Action = 
+    ///                     {
+    ///                         { "type", "Deny" },
+    ///                     },
     ///                     Name = "Example-Filter-Rule-Collection",
     ///                     RuleCollectionType = "FirewallPolicyFilterRuleCollection",
+    ///                     Rules = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "destinationAddresses", 
+    ///                             {
+    ///                                 "*",
+    ///                             } },
+    ///                             { "destinationPorts", 
+    ///                             {
+    ///                                 "*",
+    ///                             } },
+    ///                             { "ipProtocols", 
+    ///                             {
+    ///                                 "TCP",
+    ///                             } },
+    ///                             { "name", "network-rule1" },
+    ///                             { "ruleType", "NetworkRule" },
+    ///                             { "sourceAddresses", 
+    ///                             {
+    ///                                 "10.1.25.0/24",
+    ///                             } },
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         });
@@ -61,8 +89,36 @@ namespace Pulumi.AzureRM.Network.V20200501
     ///             {
     ///                 new AzureRM.Network.V20200501.Inputs.FirewallPolicyRuleCollectionArgs
     ///                 {
+    ///                     Action = 
+    ///                     {
+    ///                         { "type", "Deny" },
+    ///                     },
     ///                     Name = "Example-Filter-Rule-Collection",
     ///                     RuleCollectionType = "FirewallPolicyFilterRuleCollection",
+    ///                     Rules = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "destinationIpGroups", 
+    ///                             {
+    ///                                 "/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2",
+    ///                             } },
+    ///                             { "destinationPorts", 
+    ///                             {
+    ///                                 "*",
+    ///                             } },
+    ///                             { "ipProtocols", 
+    ///                             {
+    ///                                 "TCP",
+    ///                             } },
+    ///                             { "name", "network-1" },
+    ///                             { "ruleType", "NetworkRule" },
+    ///                             { "sourceIpGroups", 
+    ///                             {
+    ///                                 "/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1",
+    ///                             } },
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         });

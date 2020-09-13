@@ -11,6 +11,53 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Threat intelligence resource.
+    /// 
+    /// ## Example Usage
+    /// ### Upsert the Threat Intelligence
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var threatIntelligenceIndicator = new AzureRM.SecurityInsights.V20190101Preview.ThreatIntelligenceIndicator("threatIntelligenceIndicator", new AzureRM.SecurityInsights.V20190101Preview.ThreatIntelligenceIndicatorArgs
+    ///         {
+    ///             Confidence = 78,
+    ///             CreatedByRef = "contoso@contoso.com",
+    ///             Description = "debugging indicators",
+    ///             DisplayName = "new schema",
+    ///             ExternalReferences = {},
+    ///             GranularMarkings = {},
+    ///             KillChainPhases = {},
+    ///             Kind = "indicator",
+    ///             Labels = {},
+    ///             Modified = "",
+    ///             Name = "d9cd6f0b-96b9-3984-17cd-a779d1e15a93",
+    ///             OperationalInsightsResourceProvider = "Microsoft.OperationalIinsights",
+    ///             Pattern = "[url:value = 'https://www.contoso.com']",
+    ///             PatternType = "url",
+    ///             ResourceGroupName = "myRg",
+    ///             Revoked = false,
+    ///             Source = "Azure Sentinel",
+    ///             ThreatIntelligenceTags = 
+    ///             {
+    ///                 "new schema",
+    ///             },
+    ///             ThreatTypes = 
+    ///             {
+    ///                 "compromised",
+    ///             },
+    ///             ValidFrom = "2020-04-15T17:44:00.114052Z",
+    ///             ValidUntil = "",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ThreatIntelligenceIndicator : Pulumi.CustomResource
     {

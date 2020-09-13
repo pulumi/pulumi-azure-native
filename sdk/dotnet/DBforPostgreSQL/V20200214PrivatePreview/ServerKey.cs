@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
 {
     /// <summary>
     /// A PostgreSQL Server key.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a PostgreSQL Server key
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class ServerKey : Pulumi.CustomResource
     {

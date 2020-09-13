@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.CostManagement.V20180801Preview
 {
     /// <summary>
     /// The Connector model definition
+    /// 
+    /// ## Example Usage
+    /// ### Connector_Put
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var connector = new AzureRM.CostManagement.V20180801Preview.Connector("connector", new AzureRM.CostManagement.V20180801Preview.ConnectorArgs
+    ///         {
+    ///             ConnectorName = "AWSBillingAccount",
+    ///             CredentialsKey = "arn:aws:iam::123456789012:role/AzureCostManagementRole",
+    ///             CredentialsSecret = "external-id",
+    ///             DisplayName = "AWS-Consolidated-1",
+    ///             Location = "westus",
+    ///             ReportId = "HourlyWithResources",
+    ///             ResourceGroupName = "rg1",
+    ///             Status = "active",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Connector : Pulumi.CustomResource
     {

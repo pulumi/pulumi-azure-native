@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Devices.V20200710Preview
 {
     /// <summary>
     /// The private endpoint connection of an IotHub
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_Update
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.Devices.V20200710Preview.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.Devices.V20200710Preview.PrivateEndpointConnectionArgs
+    ///         {
+    ///             PrivateEndpointConnectionName = "myPrivateEndpointConnection",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ResourceName = "testHub",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

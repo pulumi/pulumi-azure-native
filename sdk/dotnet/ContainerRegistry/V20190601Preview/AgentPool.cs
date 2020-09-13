@@ -12,6 +12,36 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
     /// <summary>
     /// The agentpool that has the ARM resource and properties.
     /// The agentpool will have all information to create an agent pool.
+    /// 
+    /// ## Example Usage
+    /// ### AgentPools_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var agentPool = new AzureRM.ContainerRegistry.V20190601Preview.AgentPool("agentPool", new AzureRM.ContainerRegistry.V20190601Preview.AgentPoolArgs
+    ///         {
+    ///             AgentPoolName = "myAgentPool",
+    ///             Count = 1,
+    ///             Location = "WESTUS",
+    ///             Os = "Linux",
+    ///             RegistryName = "myRegistry",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Tags = 
+    ///             {
+    ///                 { "key", "value" },
+    ///             },
+    ///             Tier = "S1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AgentPool : Pulumi.CustomResource
     {

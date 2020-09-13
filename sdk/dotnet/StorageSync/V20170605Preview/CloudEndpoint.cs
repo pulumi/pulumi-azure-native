@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.StorageSync.V20170605Preview
 {
     /// <summary>
     /// Cloud Endpoint object.
+    /// 
+    /// ## Example Usage
+    /// ### CloudEndpoints_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cloudEndpoint = new AzureRM.StorageSync.V20170605Preview.CloudEndpoint("cloudEndpoint", new AzureRM.StorageSync.V20170605Preview.CloudEndpointArgs
+    ///         {
+    ///             CloudEndpointName = "SampleCloudEndpoint_1",
+    ///             ProvisioningState = "Created",
+    ///             ResourceGroupName = "SampleResourceGroup_1",
+    ///             StorageAccount = "https://storageaccounturl/SampleCloudEndpoint",
+    ///             StorageAccountKey = "storageaccountkeyvalue",
+    ///             StorageAccountResourceId = "",
+    ///             StorageAccountShareName = "",
+    ///             StorageAccountTenantId = "\"a4d1b191-c1af-4cef-a14b-f670e0beea52\"",
+    ///             StorageSyncServiceName = "SampleStorageSyncService_1",
+    ///             SyncGroupName = "SampleSyncGroup_1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class CloudEndpoint : Pulumi.CustomResource
     {

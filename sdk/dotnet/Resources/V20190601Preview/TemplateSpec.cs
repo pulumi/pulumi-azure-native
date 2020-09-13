@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Resources.V20190601Preview
 {
     /// <summary>
     /// Template Spec object.
+    /// 
+    /// ## Example Usage
+    /// ### TemplateSpecsCreateUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var templateSpec = new AzureRM.Resources.V20190601Preview.TemplateSpec("templateSpec", new AzureRM.Resources.V20190601Preview.TemplateSpecArgs
+    ///         {
+    ///             Description = "A very simple Template Spec",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "templateSpecRG",
+    ///             TemplateSpecName = "simpleTemplateSpec",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class TemplateSpec : Pulumi.CustomResource
     {

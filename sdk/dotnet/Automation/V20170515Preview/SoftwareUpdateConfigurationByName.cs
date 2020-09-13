@@ -11,6 +11,122 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
 {
     /// <summary>
     /// Software update configuration properties.
+    /// 
+    /// ## Example Usage
+    /// ### Create software update configuration
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var softwareUpdateConfigurationByName = new AzureRM.Automation.V20170515Preview.SoftwareUpdateConfigurationByName("softwareUpdateConfigurationByName", new AzureRM.Automation.V20170515Preview.SoftwareUpdateConfigurationByNameArgs
+    ///         {
+    ///             AutomationAccountName = "myaccount",
+    ///             ResourceGroupName = "mygroup",
+    ///             ScheduleInfo = new AzureRM.Automation.V20170515Preview.Inputs.SchedulePropertiesArgs
+    ///             {
+    ///                 AdvancedSchedule = new AzureRM.Automation.V20170515Preview.Inputs.AdvancedScheduleArgs
+    ///                 {
+    ///                     WeekDays = 
+    ///                     {
+    ///                         "Monday",
+    ///                         "Thursday",
+    ///                     },
+    ///                 },
+    ///                 ExpiryTime = "2018-11-09T11:22:57+00:00",
+    ///                 Frequency = "Hour",
+    ///                 Interval = 1,
+    ///                 StartTime = "2017-10-19T12:22:57+00:00",
+    ///                 TimeZone = "America/Los_Angeles",
+    ///             },
+    ///             SoftwareUpdateConfigurationName = "testpatch",
+    ///             Tasks = new AzureRM.Automation.V20170515Preview.Inputs.SoftwareUpdateConfigurationTasksArgs
+    ///             {
+    ///                 PostTask = new AzureRM.Automation.V20170515Preview.Inputs.TaskPropertiesArgs
+    ///                 {
+    ///                     Source = "GetCache",
+    ///                 },
+    ///                 PreTask = new AzureRM.Automation.V20170515Preview.Inputs.TaskPropertiesArgs
+    ///                 {
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "COMPUTERNAME", "Computer1" },
+    ///                     },
+    ///                     Source = "HelloWorld",
+    ///                 },
+    ///             },
+    ///             UpdateConfiguration = new AzureRM.Automation.V20170515Preview.Inputs.UpdateConfigurationArgs
+    ///             {
+    ///                 AzureVirtualMachines = 
+    ///                 {
+    ///                     "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+    ///                     "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+    ///                     "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03",
+    ///                 },
+    ///                 Duration = "PT2H0M",
+    ///                 NonAzureComputerNames = 
+    ///                 {
+    ///                     "box1.contoso.com",
+    ///                     "box2.contoso.com",
+    ///                 },
+    ///                 OperatingSystem = "Windows",
+    ///                 Targets = new AzureRM.Automation.V20170515Preview.Inputs.TargetPropertiesArgs
+    ///                 {
+    ///                     AzureQueries = 
+    ///                     {
+    ///                         new AzureRM.Automation.V20170515Preview.Inputs.AzureQueryPropertiesArgs
+    ///                         {
+    ///                             Locations = 
+    ///                             {
+    ///                                 "Japan East",
+    ///                                 "UK South",
+    ///                             },
+    ///                             Scope = 
+    ///                             {
+    ///                                 "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
+    ///                                 "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067",
+    ///                             },
+    ///                             TagSettings = new AzureRM.Automation.V20170515Preview.Inputs.TagSettingsPropertiesArgs
+    ///                             {
+    ///                                 FilterOperator = "All",
+    ///                                 Tags = {},
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     NonAzureQueries = 
+    ///                     {
+    ///                         new AzureRM.Automation.V20170515Preview.Inputs.NonAzureQueryPropertiesArgs
+    ///                         {
+    ///                             FunctionAlias = "SavedSearch1",
+    ///                             WorkspaceId = "WorkspaceId1",
+    ///                         },
+    ///                         new AzureRM.Automation.V20170515Preview.Inputs.NonAzureQueryPropertiesArgs
+    ///                         {
+    ///                             FunctionAlias = "SavedSearch2",
+    ///                             WorkspaceId = "WorkspaceId2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Windows = new AzureRM.Automation.V20170515Preview.Inputs.WindowsPropertiesArgs
+    ///                 {
+    ///                     ExcludedKbNumbers = 
+    ///                     {
+    ///                         "168934",
+    ///                         "168973",
+    ///                     },
+    ///                     IncludedUpdateClassifications = "Critical",
+    ///                     RebootSetting = "IfRequired",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SoftwareUpdateConfigurationByName : Pulumi.CustomResource
     {

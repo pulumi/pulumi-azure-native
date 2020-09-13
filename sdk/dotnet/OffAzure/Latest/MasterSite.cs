@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.OffAzure.Latest
 {
     /// <summary>
     /// Site REST Resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create Master site
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class MasterSite : Pulumi.CustomResource
     {

@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.BotService.V20180712
 {
     /// <summary>
     /// Enterprise Channel resource definition
+    /// 
+    /// ## Example Usage
+    /// ### Create Enterprise Channel
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var enterpriseChannel = new AzureRM.BotService.V20180712.EnterpriseChannel("enterpriseChannel", new AzureRM.BotService.V20180712.EnterpriseChannelArgs
+    ///         {
+    ///             Etag = "etag1",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "OneResourceGroupName",
+    ///             ResourceName = "contoso-dl",
+    ///             Sku = new AzureRM.BotService.V20180712.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S1",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class EnterpriseChannel : Pulumi.CustomResource
     {

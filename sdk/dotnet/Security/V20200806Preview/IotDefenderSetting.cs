@@ -11,6 +11,25 @@ namespace Pulumi.AzureRM.Security.V20200806Preview
 {
     /// <summary>
     /// IoT Defender settings
+    /// 
+    /// ## Example Usage
+    /// ### Create or update IoT Defender settings
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iotDefenderSetting = new AzureRM.Security.V20200806Preview.IotDefenderSetting("iotDefenderSetting", new AzureRM.Security.V20200806Preview.IotDefenderSettingArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IotDefenderSetting : Pulumi.CustomResource
     {

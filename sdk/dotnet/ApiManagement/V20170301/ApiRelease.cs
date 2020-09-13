@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     ///     {
     ///         var apiRelease = new AzureRM.ApiManagement.V20170301.ApiRelease("apiRelease", new AzureRM.ApiManagement.V20170301.ApiReleaseArgs
     ///         {
-    ///             ApiId = "a1",
+    ///             ApiId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1",
     ///             Notes = "yahooagain",
     ///             ReleaseId = "testrev",
     ///             ResourceGroupName = "rg1",

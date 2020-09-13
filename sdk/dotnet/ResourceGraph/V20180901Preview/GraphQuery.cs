@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.ResourceGraph.V20180901Preview
 {
     /// <summary>
     /// Graph Query entity definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create Graph Query
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var graphQuery = new AzureRM.ResourceGraph.V20180901Preview.GraphQuery("graphQuery", new AzureRM.ResourceGraph.V20180901Preview.GraphQueryArgs
+    ///         {
+    ///             Description = "Docker VMs in PROD",
+    ///             Query = "where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
+    ///             ResourceGroupName = "my-resource-group",
+    ///             ResourceName = "MyDockerVMs",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class GraphQuery : Pulumi.CustomResource
     {

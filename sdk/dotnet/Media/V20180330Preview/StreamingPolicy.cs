@@ -11,6 +11,295 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
 {
     /// <summary>
     /// A Streaming Policy resource
+    /// 
+    /// ## Example Usage
+    /// ### Creates a Streaming Policy with clear streaming
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingPolicy = new AzureRM.Media.V20180330Preview.StreamingPolicy("streamingPolicy", new AzureRM.Media.V20180330Preview.StreamingPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             NoEncryption = new AzureRM.Media.V20180330Preview.Inputs.NoEncryptionArgs
+    ///             {
+    ///                 EnabledProtocols = new AzureRM.Media.V20180330Preview.Inputs.EnabledProtocolsArgs
+    ///                 {
+    ///                     Dash = true,
+    ///                     Download = true,
+    ///                     Hls = true,
+    ///                     SmoothStreaming = true,
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///             StreamingPolicyName = "UserCreatedClearStreamingPolicy",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a Streaming Policy with commonEncryptionCbcs only
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingPolicy = new AzureRM.Media.V20180330Preview.StreamingPolicy("streamingPolicy", new AzureRM.Media.V20180330Preview.StreamingPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             CommonEncryptionCbcs = new AzureRM.Media.V20180330Preview.Inputs.CommonEncryptionCbcsArgs
+    ///             {
+    ///                 ContentKeys = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyContentKeysArgs
+    ///                 {
+    ///                     DefaultKey = new AzureRM.Media.V20180330Preview.Inputs.DefaultKeyArgs
+    ///                     {
+    ///                         Label = "cbcsDefaultKey",
+    ///                     },
+    ///                 },
+    ///                 Drm = new AzureRM.Media.V20180330Preview.Inputs.CbcsDrmConfigurationArgs
+    ///                 {
+    ///                     FairPlay = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyFairPlayConfigurationArgs
+    ///                     {
+    ///                         AllowPersistentLicense = true,
+    ///                         CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+    ///                     },
+    ///                 },
+    ///                 EnabledProtocols = new AzureRM.Media.V20180330Preview.Inputs.EnabledProtocolsArgs
+    ///                 {
+    ///                     Dash = false,
+    ///                     Download = false,
+    ///                     Hls = true,
+    ///                     SmoothStreaming = false,
+    ///                 },
+    ///             },
+    ///             DefaultContentKeyPolicyName = "PolicyWithMultipleOptions",
+    ///             ResourceGroupName = "contoso",
+    ///             StreamingPolicyName = "UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a Streaming Policy with commonEncryptionCenc only
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingPolicy = new AzureRM.Media.V20180330Preview.StreamingPolicy("streamingPolicy", new AzureRM.Media.V20180330Preview.StreamingPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             CommonEncryptionCenc = new AzureRM.Media.V20180330Preview.Inputs.CommonEncryptionCencArgs
+    ///             {
+    ///                 ClearTracks = 
+    ///                 {
+    ///                     new AzureRM.Media.V20180330Preview.Inputs.TrackSelectionArgs
+    ///                     {
+    ///                         TrackSelections = 
+    ///                         {
+    ///                             new AzureRM.Media.V20180330Preview.Inputs.TrackPropertyConditionArgs
+    ///                             {
+    ///                                 Operation = "Equal",
+    ///                                 Property = "FourCC",
+    ///                                 Value = "hev1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ContentKeys = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyContentKeysArgs
+    ///                 {
+    ///                     DefaultKey = new AzureRM.Media.V20180330Preview.Inputs.DefaultKeyArgs
+    ///                     {
+    ///                         Label = "cencDefaultKey",
+    ///                     },
+    ///                 },
+    ///                 Drm = new AzureRM.Media.V20180330Preview.Inputs.CencDrmConfigurationArgs
+    ///                 {
+    ///                     PlayReady = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyPlayReadyConfigurationArgs
+    ///                     {
+    ///                         CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+    ///                         PlayReadyCustomAttributes = "PlayReady CustomAttributes",
+    ///                     },
+    ///                     Widevine = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyWidevineConfigurationArgs
+    ///                     {
+    ///                         CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+    ///                     },
+    ///                 },
+    ///                 EnabledProtocols = new AzureRM.Media.V20180330Preview.Inputs.EnabledProtocolsArgs
+    ///                 {
+    ///                     Dash = true,
+    ///                     Download = false,
+    ///                     Hls = false,
+    ///                     SmoothStreaming = true,
+    ///                 },
+    ///             },
+    ///             DefaultContentKeyPolicyName = "PolicyWithPlayReadyOptionAndOpenRestriction",
+    ///             ResourceGroupName = "contoso",
+    ///             StreamingPolicyName = "UserCreatedSecureStreamingPolicyWithCommonEncryptionCencOnly",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a Streaming Policy with envelopeEncryption only
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingPolicy = new AzureRM.Media.V20180330Preview.StreamingPolicy("streamingPolicy", new AzureRM.Media.V20180330Preview.StreamingPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             DefaultContentKeyPolicyName = "PolicyWithClearKeyOptionAndTokenRestriction",
+    ///             EnvelopeEncryption = new AzureRM.Media.V20180330Preview.Inputs.EnvelopeEncryptionArgs
+    ///             {
+    ///                 ContentKeys = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyContentKeysArgs
+    ///                 {
+    ///                     DefaultKey = new AzureRM.Media.V20180330Preview.Inputs.DefaultKeyArgs
+    ///                     {
+    ///                         Label = "aesDefaultKey",
+    ///                     },
+    ///                 },
+    ///                 CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+    ///                 EnabledProtocols = new AzureRM.Media.V20180330Preview.Inputs.EnabledProtocolsArgs
+    ///                 {
+    ///                     Dash = true,
+    ///                     Hls = true,
+    ///                     SmoothStreaming = true,
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///             StreamingPolicyName = "UserCreatedSecureStreamingPolicyWithEnvelopeEncryptionOnly",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a Streaming Policy with secure streaming
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingPolicy = new AzureRM.Media.V20180330Preview.StreamingPolicy("streamingPolicy", new AzureRM.Media.V20180330Preview.StreamingPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             CommonEncryptionCbcs = new AzureRM.Media.V20180330Preview.Inputs.CommonEncryptionCbcsArgs
+    ///             {
+    ///                 ContentKeys = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyContentKeysArgs
+    ///                 {
+    ///                     DefaultKey = new AzureRM.Media.V20180330Preview.Inputs.DefaultKeyArgs
+    ///                     {
+    ///                         Label = "cbcsDefaultKey",
+    ///                     },
+    ///                 },
+    ///                 Drm = new AzureRM.Media.V20180330Preview.Inputs.CbcsDrmConfigurationArgs
+    ///                 {
+    ///                     FairPlay = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyFairPlayConfigurationArgs
+    ///                     {
+    ///                         AllowPersistentLicense = true,
+    ///                         CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+    ///                     },
+    ///                 },
+    ///                 EnabledProtocols = new AzureRM.Media.V20180330Preview.Inputs.EnabledProtocolsArgs
+    ///                 {
+    ///                     Dash = false,
+    ///                     Download = false,
+    ///                     Hls = true,
+    ///                     SmoothStreaming = false,
+    ///                 },
+    ///             },
+    ///             CommonEncryptionCenc = new AzureRM.Media.V20180330Preview.Inputs.CommonEncryptionCencArgs
+    ///             {
+    ///                 ClearTracks = 
+    ///                 {
+    ///                     new AzureRM.Media.V20180330Preview.Inputs.TrackSelectionArgs
+    ///                     {
+    ///                         TrackSelections = 
+    ///                         {
+    ///                             new AzureRM.Media.V20180330Preview.Inputs.TrackPropertyConditionArgs
+    ///                             {
+    ///                                 Operation = "Equal",
+    ///                                 Property = "FourCC",
+    ///                                 Value = "hev1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ContentKeys = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyContentKeysArgs
+    ///                 {
+    ///                     DefaultKey = new AzureRM.Media.V20180330Preview.Inputs.DefaultKeyArgs
+    ///                     {
+    ///                         Label = "cencDefaultKey",
+    ///                     },
+    ///                 },
+    ///                 Drm = new AzureRM.Media.V20180330Preview.Inputs.CencDrmConfigurationArgs
+    ///                 {
+    ///                     PlayReady = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyPlayReadyConfigurationArgs
+    ///                     {
+    ///                         CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+    ///                         PlayReadyCustomAttributes = "PlayReady CustomAttributes",
+    ///                     },
+    ///                     Widevine = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyWidevineConfigurationArgs
+    ///                     {
+    ///                         CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+    ///                     },
+    ///                 },
+    ///                 EnabledProtocols = new AzureRM.Media.V20180330Preview.Inputs.EnabledProtocolsArgs
+    ///                 {
+    ///                     Dash = true,
+    ///                     Download = false,
+    ///                     Hls = false,
+    ///                     SmoothStreaming = true,
+    ///                 },
+    ///             },
+    ///             DefaultContentKeyPolicyName = "PolicyWithMultipleOptions",
+    ///             EnvelopeEncryption = new AzureRM.Media.V20180330Preview.Inputs.EnvelopeEncryptionArgs
+    ///             {
+    ///                 ContentKeys = new AzureRM.Media.V20180330Preview.Inputs.StreamingPolicyContentKeysArgs
+    ///                 {
+    ///                     DefaultKey = new AzureRM.Media.V20180330Preview.Inputs.DefaultKeyArgs
+    ///                     {
+    ///                         Label = "aesDefaultKey",
+    ///                     },
+    ///                 },
+    ///                 CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+    ///                 EnabledProtocols = new AzureRM.Media.V20180330Preview.Inputs.EnabledProtocolsArgs
+    ///                 {
+    ///                     Dash = true,
+    ///                     Download = false,
+    ///                     Hls = true,
+    ///                     SmoothStreaming = true,
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///             StreamingPolicyName = "UserCreatedSecureStreamingPolicy",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StreamingPolicy : Pulumi.CustomResource
     {

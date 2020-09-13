@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.DataMigration.V20180715Preview
 {
     /// <summary>
     /// A Database Migration Service resource
+    /// 
+    /// ## Example Usage
+    /// ### Services_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.DataMigration.V20180715Preview.Service("service", new AzureRM.DataMigration.V20180715Preview.ServiceArgs
+    ///         {
+    ///             GroupName = "DmsSdkRg",
+    ///             Location = "southcentralus",
+    ///             ServiceName = "DmsSdkService",
+    ///             Sku = new AzureRM.DataMigration.V20180715Preview.Inputs.ServiceSkuArgs
+    ///             {
+    ///                 Name = "Basic_1vCore",
+    ///             },
+    ///             VirtualSubnetId = "/subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkTestNetwork/providers/Microsoft.Network/virtualNetworks/DmsSdkTestNetwork/subnets/default",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

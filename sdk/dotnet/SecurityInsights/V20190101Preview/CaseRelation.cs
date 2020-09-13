@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents a case relation
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a case relation.
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class CaseRelation : Pulumi.CustomResource
     {

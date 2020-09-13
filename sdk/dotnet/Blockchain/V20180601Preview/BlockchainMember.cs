@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
 {
     /// <summary>
     /// Payload of the blockchain member which is exposed in the request/response of the resource provider.
+    /// 
+    /// ## Example Usage
+    /// ### BlockchainMembers_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var blockchainMember = new AzureRM.Blockchain.V20180601Preview.BlockchainMember("blockchainMember", new AzureRM.Blockchain.V20180601Preview.BlockchainMemberArgs
+    ///         {
+    ///             BlockchainMemberName = "contosemember1",
+    ///             Consortium = "ContoseConsortium",
+    ///             ConsortiumManagementAccountPassword = "1234abcdEFG1",
+    ///             Location = "southeastasia",
+    ///             Password = "1234abcdEFG1",
+    ///             Protocol = "Quorum",
+    ///             ResourceGroupName = "mygroup",
+    ///             ValidatorNodesSku = new AzureRM.Blockchain.V20180601Preview.Inputs.BlockchainMemberNodesSkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BlockchainMember : Pulumi.CustomResource
     {

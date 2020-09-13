@@ -11,6 +11,48 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
 {
     /// <summary>
     /// A SQL Server availability group listener.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an availability group listener.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var availabilityGroupListener = new AzureRM.SqlVirtualMachine.V20170301Preview.AvailabilityGroupListener("availabilityGroupListener", new AzureRM.SqlVirtualMachine.V20170301Preview.AvailabilityGroupListenerArgs
+    ///         {
+    ///             AvailabilityGroupListenerName = "agl-test",
+    ///             AvailabilityGroupName = "ag-test",
+    ///             LoadBalancerConfigurations = 
+    ///             {
+    ///                 new AzureRM.SqlVirtualMachine.V20170301Preview.Inputs.LoadBalancerConfigurationArgs
+    ///                 {
+    ///                     LoadBalancerResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb-test",
+    ///                     PrivateIpAddress = new AzureRM.SqlVirtualMachine.V20170301Preview.Inputs.PrivateIPAddressArgs
+    ///                     {
+    ///                         IpAddress = "10.1.0.112",
+    ///                         SubnetResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+    ///                     },
+    ///                     ProbePort = 59983,
+    ///                     SqlVirtualMachineInstances = 
+    ///                     {
+    ///                         "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm2",
+    ///                         "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm3",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Port = 1433,
+    ///             ResourceGroupName = "testrg",
+    ///             SqlVirtualMachineGroupName = "testvmgroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AvailabilityGroupListener : Pulumi.CustomResource
     {

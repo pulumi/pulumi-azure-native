@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 {
     /// <summary>
     /// A privateLinkHub
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a privateLinkHub
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateLinkHub = new AzureRM.Synapse.V20190601Preview.PrivateLinkHub("privateLinkHub", new AzureRM.Synapse.V20190601Preview.PrivateLinkHubArgs
+    ///         {
+    ///             Location = "East US",
+    ///             PrivateLinkHubName = "privateLinkHub1",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key", "value" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateLinkHub : Pulumi.CustomResource
     {

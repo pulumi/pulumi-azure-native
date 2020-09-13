@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
 {
     /// <summary>
     /// Protection container mapping object.
-    /// 
-    /// ## Example Usage
-    /// ### Create protection container mapping.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var replicationProtectionContainerMapping = new AzureRM.RecoveryServices.V20180110.ReplicationProtectionContainerMapping("replicationProtectionContainerMapping", new AzureRM.RecoveryServices.V20180110.ReplicationProtectionContainerMappingArgs
-    ///         {
-    ///             FabricName = "cloud1",
-    ///             MappingName = "cloud1protectionprofile1",
-    ///             ProtectionContainerName = "cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
-    ///             ResourceGroupName = "resourceGroupPS1",
-    ///             ResourceName = "vault1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ReplicationProtectionContainerMapping : Pulumi.CustomResource
     {

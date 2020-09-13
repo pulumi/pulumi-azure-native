@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
 {
     /// <summary>
     /// The Managed Network Peering Policy resource
+    /// 
+    /// ## Example Usage
+    /// ### ManagedNetworkPeeringPoliciesPut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedNetworkPeeringPolicy = new AzureRM.ManagedNetwork.V20190601Preview.ManagedNetworkPeeringPolicy("managedNetworkPeeringPolicy", new AzureRM.ManagedNetwork.V20190601Preview.ManagedNetworkPeeringPolicyArgs
+    ///         {
+    ///             ManagedNetworkName = "myManagedNetwork",
+    ///             ManagedNetworkPeeringPolicyName = "myHubAndSpoke",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagedNetworkPeeringPolicy : Pulumi.CustomResource
     {

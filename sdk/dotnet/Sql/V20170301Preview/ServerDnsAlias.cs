@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
 {
     /// <summary>
     /// A server DNS alias.
+    /// 
+    /// ## Example Usage
+    /// ### Create server DNS alias
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serverDnsAlias = new AzureRM.Sql.V20170301Preview.ServerDnsAlias("serverDnsAlias", new AzureRM.Sql.V20170301Preview.ServerDnsAliasArgs
+    ///         {
+    ///             DnsAliasName = "dns-alias-name-1",
+    ///             ResourceGroupName = "Default",
+    ///             ServerName = "dns-alias-server",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ServerDnsAlias : Pulumi.CustomResource
     {

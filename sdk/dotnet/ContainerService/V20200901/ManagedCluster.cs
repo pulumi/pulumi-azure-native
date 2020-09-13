@@ -11,6 +11,24 @@ namespace Pulumi.AzureRM.ContainerService.V20200901
 {
     /// <summary>
     /// Managed cluster.
+    /// 
+    /// ## Example Usage
+    /// ### Create Managed Cluster with PPG
+    /// ```csharp
+    /// 
+    /// ```
+    /// ### Create/Update AAD Managed Cluster with EnableAzureRBAC
+    /// ```csharp
+    /// 
+    /// ```
+    /// ### Create/Update Managed Cluster
+    /// ```csharp
+    /// 
+    /// ```
+    /// ### Create/Update Managed Cluster with EnableAHUB
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagedCluster : Pulumi.CustomResource
     {

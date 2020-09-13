@@ -11,6 +11,16 @@ namespace Pulumi.AzureRM.Compute.V20200930
 {
     /// <summary>
     /// Specifies information about the Shared Image Gallery that you want to create or update.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery with sharing profile.
+    /// ```csharp
+    /// 
+    /// ```
+    /// ### Create or update a simple gallery.
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class Gallery : Pulumi.CustomResource
     {

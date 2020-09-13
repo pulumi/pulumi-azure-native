@@ -11,6 +11,54 @@ namespace Pulumi.AzureRM.Consumption.V20171230Preview
 {
     /// <summary>
     /// A budget resource.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateBudget
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var budget = new AzureRM.Consumption.V20171230Preview.Budget("budget", new AzureRM.Consumption.V20171230Preview.BudgetArgs
+    ///         {
+    ///             Amount = 100.65,
+    ///             Category = "Cost",
+    ///             ETag = "\"1d34d016a593709\"",
+    ///             Name = "TestBudget",
+    ///             Notifications = 
+    ///             {
+    ///                 { "Actual_GreaterThan_80_Percent", new AzureRM.Consumption.V20171230Preview.Inputs.NotificationArgs
+    ///                 {
+    ///                     ContactEmails = 
+    ///                     {
+    ///                         "johndoe@contoso.com",
+    ///                         "janesmith@contoso.com",
+    ///                     },
+    ///                     ContactRoles = 
+    ///                     {
+    ///                         "Contributor",
+    ///                         "Reader",
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Operator = "GreaterThan",
+    ///                     Threshold = 80,
+    ///                 } },
+    ///             },
+    ///             TimeGrain = "Monthly",
+    ///             TimePeriod = new AzureRM.Consumption.V20171230Preview.Inputs.BudgetTimePeriodArgs
+    ///             {
+    ///                 EndDate = "2018-10-31T00:00:00Z",
+    ///                 StartDate = "2017-10-01T00:00:00Z",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Budget : Pulumi.CustomResource
     {

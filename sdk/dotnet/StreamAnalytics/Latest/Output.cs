@@ -26,6 +26,15 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             Datasource = new AzureRM.StreamAnalytics.Latest.Inputs.OutputDataSourceArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "accountId", "someAccountId" },
+    ///                     { "accountKey", "accountKey==" },
+    ///                     { "collectionNamePattern", "collection" },
+    ///                     { "database", "db01" },
+    ///                     { "documentId", "documentId" },
+    ///                     { "partitionKey", "key" },
+    ///                 },
     ///                 Type = "Microsoft.Storage/DocumentDB",
     ///             },
     ///             JobName = "sj2331",
@@ -50,6 +59,16 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             Datasource = new AzureRM.StreamAnalytics.Latest.Inputs.OutputDataSourceArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "dataset", "someDataset" },
+    ///                     { "groupId", "ac40305e-3e8d-43ac-8161-c33799f43e95" },
+    ///                     { "groupName", "MyPowerBIGroup" },
+    ///                     { "refreshToken", "someRefreshToken==" },
+    ///                     { "table", "someTable" },
+    ///                     { "tokenUserDisplayName", "Bob Smith" },
+    ///                     { "tokenUserPrincipalName", "bobsmith@contoso.com" },
+    ///                 },
     ///                 Type = "PowerBI",
     ///             },
     ///             JobName = "sj2331",
@@ -74,6 +93,18 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             Datasource = new AzureRM.StreamAnalytics.Latest.Inputs.OutputDataSourceArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "propertyColumns", 
+    ///                     {
+    ///                         "column1",
+    ///                         "column2",
+    ///                     } },
+    ///                     { "queueName", "sdkqueue" },
+    ///                     { "serviceBusNamespace", "sdktest" },
+    ///                     { "sharedAccessPolicyKey", "sharedAccessPolicyKey=" },
+    ///                     { "sharedAccessPolicyName", "RootManageSharedAccessKey" },
+    ///                 },
     ///                 Type = "Microsoft.ServiceBus/Queue",
     ///             },
     ///             JobName = "sj5095",
@@ -102,6 +133,18 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             Datasource = new AzureRM.StreamAnalytics.Latest.Inputs.OutputDataSourceArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "propertyColumns", 
+    ///                     {
+    ///                         "column1",
+    ///                         "column2",
+    ///                     } },
+    ///                     { "serviceBusNamespace", "sdktest" },
+    ///                     { "sharedAccessPolicyKey", "sharedAccessPolicyKey=" },
+    ///                     { "sharedAccessPolicyName", "RootManageSharedAccessKey" },
+    ///                     { "topicName", "sdktopic" },
+    ///                 },
     ///                 Type = "Microsoft.ServiceBus/Topic",
     ///             },
     ///             JobName = "sj7094",
@@ -109,6 +152,11 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///             ResourceGroupName = "sjrg6450",
     ///             Serialization = new AzureRM.StreamAnalytics.Latest.Inputs.SerializationArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "encoding", "UTF8" },
+    ///                     { "fieldDelimiter", "," },
+    ///                 },
     ///                 Type = "Csv",
     ///             },
     ///         });
@@ -130,6 +178,21 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             Datasource = new AzureRM.StreamAnalytics.Latest.Inputs.OutputDataSourceArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "container", "state" },
+    ///                     { "dateFormat", "yyyy/MM/dd" },
+    ///                     { "pathPattern", "{date}/{time}" },
+    ///                     { "storageAccounts", 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "accountKey", "accountKey==" },
+    ///                             { "accountName", "someAccountName" },
+    ///                         },
+    ///                     } },
+    ///                     { "timeFormat", "HH" },
+    ///                 },
     ///                 Type = "Microsoft.Storage/Blob",
     ///             },
     ///             JobName = "sj900",
@@ -137,6 +200,11 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///             ResourceGroupName = "sjrg5023",
     ///             Serialization = new AzureRM.StreamAnalytics.Latest.Inputs.SerializationArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "encoding", "UTF8" },
+    ///                     { "fieldDelimiter", "," },
+    ///                 },
     ///                 Type = "Csv",
     ///             },
     ///         });
@@ -158,6 +226,17 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             Datasource = new AzureRM.StreamAnalytics.Latest.Inputs.OutputDataSourceArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "accountName", "someaccount" },
+    ///                     { "dateFormat", "yyyy/MM/dd" },
+    ///                     { "filePathPrefix", "{date}/{time}" },
+    ///                     { "refreshToken", "someRefreshToken==" },
+    ///                     { "tenantId", "cea4e98b-c798-49e7-8c40-4a2b3beb47dd" },
+    ///                     { "timeFormat", "HH" },
+    ///                     { "tokenUserDisplayName", "Bob Smith" },
+    ///                     { "tokenUserPrincipalName", "bobsmith@contoso.com" },
+    ///                 },
     ///                 Type = "Microsoft.DataLake/Accounts",
     ///             },
     ///             JobName = "sj3310",
@@ -165,6 +244,11 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///             ResourceGroupName = "sjrg6912",
     ///             Serialization = new AzureRM.StreamAnalytics.Latest.Inputs.SerializationArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "encoding", "UTF8" },
+    ///                     { "format", "Array" },
+    ///                 },
     ///                 Type = "Json",
     ///             },
     ///         });
@@ -186,6 +270,14 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             Datasource = new AzureRM.StreamAnalytics.Latest.Inputs.OutputDataSourceArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "database", "someDatabase" },
+    ///                     { "password", "somePassword" },
+    ///                     { "server", "someServer" },
+    ///                     { "table", "someTable" },
+    ///                     { "user", "someUser" },
+    ///                 },
     ///                 Type = "Microsoft.Sql/Server/Database",
     ///             },
     ///             JobName = "sj6458",
@@ -210,6 +302,20 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             Datasource = new AzureRM.StreamAnalytics.Latest.Inputs.OutputDataSourceArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "accountKey", "accountKey==" },
+    ///                     { "accountName", "someAccountName" },
+    ///                     { "batchSize", 25 },
+    ///                     { "columnsToRemove", 
+    ///                     {
+    ///                         "column1",
+    ///                         "column2",
+    ///                     } },
+    ///                     { "partitionKey", "partitionKey" },
+    ///                     { "rowKey", "rowKey" },
+    ///                     { "table", "samples" },
+    ///                 },
     ///                 Type = "Microsoft.Storage/Table",
     ///             },
     ///             JobName = "sj2790",
@@ -234,6 +340,14 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             Datasource = new AzureRM.StreamAnalytics.Latest.Inputs.OutputDataSourceArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "eventHubName", "sdkeventhub" },
+    ///                     { "partitionKey", "partitionKey" },
+    ///                     { "serviceBusNamespace", "sdktest" },
+    ///                     { "sharedAccessPolicyKey", "sharedAccessPolicyKey=" },
+    ///                     { "sharedAccessPolicyName", "RootManageSharedAccessKey" },
+    ///                 },
     ///                 Type = "Microsoft.ServiceBus/EventHub",
     ///             },
     ///             JobName = "sj3310",
@@ -241,6 +355,11 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///             ResourceGroupName = "sjrg6912",
     ///             Serialization = new AzureRM.StreamAnalytics.Latest.Inputs.SerializationArgs
     ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "encoding", "UTF8" },
+    ///                     { "format", "Array" },
+    ///                 },
     ///                 Type = "Json",
     ///             },
     ///         });

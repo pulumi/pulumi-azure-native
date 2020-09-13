@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.AzureActiveDirectory.V20200501Preview
 {
     /// <summary>
     /// Guest Usages Resource
+    /// 
+    /// ## Example Usage
+    /// ### GuestUsages_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var guestUsage = new AzureRM.AzureActiveDirectory.V20200501Preview.GuestUsage("guestUsage", new AzureRM.AzureActiveDirectory.V20200501Preview.GuestUsageArgs
+    ///         {
+    ///             ResourceGroupName = "contosoResourceGroup",
+    ///             ResourceName = "contoso.onmicrosoft.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class GuestUsage : Pulumi.CustomResource
     {

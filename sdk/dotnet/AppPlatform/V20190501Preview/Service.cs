@@ -11,6 +11,66 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
 {
     /// <summary>
     /// Service resource
+    /// 
+    /// ## Example Usage
+    /// ### Services_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.AppPlatform.V20190501Preview.Service("service", new AzureRM.AppPlatform.V20190501Preview.ServiceArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceName = "myservice",
+    ///             Sku = new AzureRM.AppPlatform.V20190501Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Services_CreateOrUpdate_VNetInjection
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.AppPlatform.V20190501Preview.Service("service", new AzureRM.AppPlatform.V20190501Preview.ServiceArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceName = "myservice",
+    ///             Sku = new AzureRM.AppPlatform.V20190501Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

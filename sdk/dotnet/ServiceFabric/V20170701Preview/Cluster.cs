@@ -11,6 +11,207 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
 {
     /// <summary>
     /// The cluster resource
+    /// 
+    /// ## Example Usage
+    /// ### Put a cluster with max parameter
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cluster = new AzureRM.ServiceFabric.V20170701Preview.Cluster("cluster", new AzureRM.ServiceFabric.V20170701Preview.ClusterArgs
+    ///         {
+    ///             AddOnFeatures = 
+    ///             {
+    ///                 "RepairManager",
+    ///                 "DnsService",
+    ///             },
+    ///             AzureActiveDirectory = new AzureRM.ServiceFabric.V20170701Preview.Inputs.AzureActiveDirectoryArgs
+    ///             {
+    ///                 ClientApplication = "d151ad89-4bce-4ae8-b3d1-1dc79679fa75",
+    ///                 ClusterApplication = "5886372e-7bf4-4878-a497-8098aba608ae",
+    ///                 TenantId = "6abcc6a0-8666-43f1-87b8-172cf86a9f9c",
+    ///             },
+    ///             Certificate = new AzureRM.ServiceFabric.V20170701Preview.Inputs.CertificateDescriptionArgs
+    ///             {
+    ///                 Thumbprint = "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+    ///                 ThumbprintSecondary = "361A93445450CC8F2FF747F74500E8044942DAFD",
+    ///                 X509StoreName = "My",
+    ///             },
+    ///             ClientCertificateCommonNames = 
+    ///             {
+    ///                 new AzureRM.ServiceFabric.V20170701Preview.Inputs.ClientCertificateCommonNameArgs
+    ///                 {
+    ///                     CertificateCommonName = "abc.com",
+    ///                     CertificateIssuerThumbprint = "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+    ///                     IsAdmin = true,
+    ///                 },
+    ///             },
+    ///             ClientCertificateThumbprints = 
+    ///             {
+    ///                 new AzureRM.ServiceFabric.V20170701Preview.Inputs.ClientCertificateThumbprintArgs
+    ///                 {
+    ///                     CertificateThumbprint = "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+    ///                     IsAdmin = false,
+    ///                 },
+    ///             },
+    ///             ClusterCodeVersion = "6.0.219.9494",
+    ///             ClusterName = "myCluster",
+    ///             DiagnosticsStorageAccountConfig = new AzureRM.ServiceFabric.V20170701Preview.Inputs.DiagnosticsStorageAccountConfigArgs
+    ///             {
+    ///                 BlobEndpoint = "https://diag.blob.core.windows.net/",
+    ///                 ProtectedAccountKeyName = "StorageAccountKey1",
+    ///                 QueueEndpoint = "https://diag.queue.core.windows.net/",
+    ///                 StorageAccountName = "diag",
+    ///                 TableEndpoint = "https://diag.table.core.windows.net/",
+    ///             },
+    ///             FabricSettings = 
+    ///             {
+    ///                 new AzureRM.ServiceFabric.V20170701Preview.Inputs.SettingsSectionDescriptionArgs
+    ///                 {
+    ///                     Name = "UpgradeService",
+    ///                     Parameters = 
+    ///                     {
+    ///                         new AzureRM.ServiceFabric.V20170701Preview.Inputs.SettingsParameterDescriptionArgs
+    ///                         {
+    ///                             Name = "AppPollIntervalInSeconds",
+    ///                             Value = "60",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Location = "eastus",
+    ///             ManagementEndpoint = "https://myCluster.eastus.cloudapp.azure.com:19080",
+    ///             NodeTypes = 
+    ///             {
+    ///                 new AzureRM.ServiceFabric.V20170701Preview.Inputs.NodeTypeDescriptionArgs
+    ///                 {
+    ///                     ApplicationPorts = new AzureRM.ServiceFabric.V20170701Preview.Inputs.EndpointRangeDescriptionArgs
+    ///                     {
+    ///                         EndPort = 30000,
+    ///                         StartPort = 20000,
+    ///                     },
+    ///                     ClientConnectionEndpointPort = 19000,
+    ///                     DurabilityLevel = "Bronze",
+    ///                     EphemeralPorts = new AzureRM.ServiceFabric.V20170701Preview.Inputs.EndpointRangeDescriptionArgs
+    ///                     {
+    ///                         EndPort = 64000,
+    ///                         StartPort = 49000,
+    ///                     },
+    ///                     HttpGatewayEndpointPort = 19007,
+    ///                     IsPrimary = true,
+    ///                     Name = "nt1vm",
+    ///                     VmInstanceCount = 5,
+    ///                 },
+    ///             },
+    ///             ReliabilityLevel = "Silver",
+    ///             ResourceGroupName = "resRg",
+    ///             ReverseProxyCertificate = new AzureRM.ServiceFabric.V20170701Preview.Inputs.CertificateDescriptionArgs
+    ///             {
+    ///                 Thumbprint = "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+    ///                 ThumbprintSecondary = "361A93445450CC8F2FF747F74500E8044942DAFD",
+    ///                 X509StoreName = "My",
+    ///             },
+    ///             UpgradeDescription = new AzureRM.ServiceFabric.V20170701Preview.Inputs.ClusterUpgradePolicyArgs
+    ///             {
+    ///                 DeltaHealthPolicy = new AzureRM.ServiceFabric.V20170701Preview.Inputs.ClusterUpgradeDeltaHealthPolicyArgs
+    ///                 {
+    ///                     MaxPercentDeltaUnhealthyApplications = 0,
+    ///                     MaxPercentDeltaUnhealthyNodes = 0,
+    ///                     MaxPercentUpgradeDomainDeltaUnhealthyNodes = 0,
+    ///                 },
+    ///                 ForceRestart = true,
+    ///                 HealthCheckRetryTimeout = "00:05:00",
+    ///                 HealthCheckStableDuration = "00:00:30",
+    ///                 HealthCheckWaitDuration = "00:00:30",
+    ///                 HealthPolicy = new AzureRM.ServiceFabric.V20170701Preview.Inputs.ClusterHealthPolicyArgs
+    ///                 {
+    ///                     MaxPercentUnhealthyApplications = 100,
+    ///                     MaxPercentUnhealthyNodes = 100,
+    ///                 },
+    ///                 UpgradeDomainTimeout = "00:15:00",
+    ///                 UpgradeReplicaSetCheckTimeout = "00:10:00",
+    ///                 UpgradeTimeout = "00:15:00",
+    ///             },
+    ///             UpgradeMode = "Manual",
+    ///             VmImage = "Windows",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Put a cluster with min parameter
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cluster = new AzureRM.ServiceFabric.V20170701Preview.Cluster("cluster", new AzureRM.ServiceFabric.V20170701Preview.ClusterArgs
+    ///         {
+    ///             ClusterName = "myCluster",
+    ///             DiagnosticsStorageAccountConfig = new AzureRM.ServiceFabric.V20170701Preview.Inputs.DiagnosticsStorageAccountConfigArgs
+    ///             {
+    ///                 BlobEndpoint = "https://diag.blob.core.windows.net/",
+    ///                 ProtectedAccountKeyName = "StorageAccountKey1",
+    ///                 QueueEndpoint = "https://diag.queue.core.windows.net/",
+    ///                 StorageAccountName = "diag",
+    ///                 TableEndpoint = "https://diag.table.core.windows.net/",
+    ///             },
+    ///             FabricSettings = 
+    ///             {
+    ///                 new AzureRM.ServiceFabric.V20170701Preview.Inputs.SettingsSectionDescriptionArgs
+    ///                 {
+    ///                     Name = "UpgradeService",
+    ///                     Parameters = 
+    ///                     {
+    ///                         new AzureRM.ServiceFabric.V20170701Preview.Inputs.SettingsParameterDescriptionArgs
+    ///                         {
+    ///                             Name = "AppPollIntervalInSeconds",
+    ///                             Value = "60",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Location = "eastus",
+    ///             ManagementEndpoint = "http://myCluster.eastus.cloudapp.azure.com:19080",
+    ///             NodeTypes = 
+    ///             {
+    ///                 new AzureRM.ServiceFabric.V20170701Preview.Inputs.NodeTypeDescriptionArgs
+    ///                 {
+    ///                     ApplicationPorts = new AzureRM.ServiceFabric.V20170701Preview.Inputs.EndpointRangeDescriptionArgs
+    ///                     {
+    ///                         EndPort = 30000,
+    ///                         StartPort = 20000,
+    ///                     },
+    ///                     ClientConnectionEndpointPort = 19000,
+    ///                     DurabilityLevel = "Bronze",
+    ///                     EphemeralPorts = new AzureRM.ServiceFabric.V20170701Preview.Inputs.EndpointRangeDescriptionArgs
+    ///                     {
+    ///                         EndPort = 64000,
+    ///                         StartPort = 49000,
+    ///                     },
+    ///                     HttpGatewayEndpointPort = 19007,
+    ///                     IsPrimary = true,
+    ///                     Name = "nt1vm",
+    ///                     VmInstanceCount = 5,
+    ///                 },
+    ///             },
+    ///             ReliabilityLevel = "Silver",
+    ///             ResourceGroupName = "resRg",
+    ///             UpgradeMode = "Automatic",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

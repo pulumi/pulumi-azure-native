@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
 {
     /// <summary>
     /// A SqlManagedInstance.
+    /// 
+    /// ## Example Usage
+    /// ### Updates a SQL Managed Instance tags.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sqlManagedInstance = new AzureRM.AzureData.V20190724Preview.SqlManagedInstance("sqlManagedInstance", new AzureRM.AzureData.V20190724Preview.SqlManagedInstanceArgs
+    ///         {
+    ///             Admin = "Admin user",
+    ///             EndTime = "Instance end time",
+    ///             InstanceEndpoint = "The on premise instance endpoint",
+    ///             Location = "northeurope",
+    ///             ResourceGroupName = "testrg",
+    ///             SqlManagedInstanceName = "testsqlManagedInstance",
+    ///             StartTime = "Instance start time",
+    ///             Tags = 
+    ///             {
+    ///                 { "mytag", "myval" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SqlManagedInstance : Pulumi.CustomResource
     {

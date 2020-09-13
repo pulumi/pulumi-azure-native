@@ -11,6 +11,78 @@ namespace Pulumi.AzureRM.Portal.V20181001Preview
 {
     /// <summary>
     /// The shared dashboard resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Dashboard
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dashboard = new AzureRM.Portal.V20181001Preview.Dashboard("dashboard", new AzureRM.Portal.V20181001Preview.DashboardArgs
+    ///         {
+    ///             DashboardName = "testDashboard",
+    ///             Lenses = 
+    ///             {
+    ///                 { "aLens", new AzureRM.Portal.V20181001Preview.Inputs.DashboardLensArgs
+    ///                 {
+    ///                     Order = 1,
+    ///                     Parts = 
+    ///                     {
+    ///                         { "aPart", new AzureRM.Portal.V20181001Preview.Inputs.DashboardPartsArgs
+    ///                         {
+    ///                             Position = new AzureRM.Portal.V20181001Preview.Inputs.DashboardPartsPositionArgs
+    ///                             {
+    ///                                 ColSpan = 3,
+    ///                                 RowSpan = 4,
+    ///                                 X = 1,
+    ///                                 Y = 2,
+    ///                             },
+    ///                         } },
+    ///                         { "bPart", new AzureRM.Portal.V20181001Preview.Inputs.DashboardPartsArgs
+    ///                         {
+    ///                             Position = new AzureRM.Portal.V20181001Preview.Inputs.DashboardPartsPositionArgs
+    ///                             {
+    ///                                 ColSpan = 6,
+    ///                                 RowSpan = 6,
+    ///                                 X = 5,
+    ///                                 Y = 5,
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///                 { "bLens", new AzureRM.Portal.V20181001Preview.Inputs.DashboardLensArgs
+    ///                 {
+    ///                     Order = 2,
+    ///                     Parts = ,
+    ///                 } },
+    ///             },
+    ///             Location = "eastus",
+    ///             Metadata = 
+    ///             {
+    ///                 { "metadata", 
+    ///                 {
+    ///                     { "ColSpan", 2 },
+    ///                     { "RowSpan", 1 },
+    ///                     { "X", 4 },
+    ///                     { "Y", 3 },
+    ///                 } },
+    ///             },
+    ///             ResourceGroupName = "testRG",
+    ///             Tags = 
+    ///             {
+    ///                 { "aKey", "aValue" },
+    ///                 { "anotherKey", "anotherValue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Dashboard : Pulumi.CustomResource
     {

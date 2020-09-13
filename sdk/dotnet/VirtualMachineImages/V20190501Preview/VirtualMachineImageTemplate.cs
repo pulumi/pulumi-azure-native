@@ -11,6 +11,126 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
 {
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+    /// 
+    /// ## Example Usage
+    /// ### Create an Image Template with a user assigned identity configured
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineImageTemplate = new AzureRM.VirtualMachineImages.V20190501Preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", new AzureRM.VirtualMachineImages.V20190501Preview.VirtualMachineImageTemplateArgs
+    ///         {
+    ///             Customize = 
+    ///             {
+    ///                 new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateCustomizerArgs
+    ///                 {
+    ///                     Name = "Shell Customizer Example",
+    ///                     ScriptUri = "https://example.com/path/to/script.sh",
+    ///                     Type = "Shell",
+    ///                 },
+    ///             },
+    ///             Distribute = 
+    ///             {
+    ///                 new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateDistributorArgs
+    ///                 {
+    ///                     ArtifactTags = 
+    ///                     {
+    ///                         { "tagName", "value" },
+    ///                     },
+    ///                     ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+    ///                     Location = "1_location",
+    ///                     RunOutputName = "image_it_pir_1",
+    ///                     Type = "ManagedImage",
+    ///                 },
+    ///             },
+    ///             Identity = new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateIdentityArgs
+    ///             {
+    ///                 Type = "UserAssigned",
+    ///             },
+    ///             ImageTemplateName = "myImageTemplate",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Source = new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateSourceArgs
+    ///             {
+    ///                 ImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+    ///                 Type = "ManagedImage",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "imagetemplate_tag1", "IT_T1" },
+    ///                 { "imagetemplate_tag2", "IT_T2" },
+    ///             },
+    ///             VmProfile = new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateVmProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D2s_v3",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create an Image Template.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineImageTemplate = new AzureRM.VirtualMachineImages.V20190501Preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", new AzureRM.VirtualMachineImages.V20190501Preview.VirtualMachineImageTemplateArgs
+    ///         {
+    ///             Customize = 
+    ///             {
+    ///                 new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateCustomizerArgs
+    ///                 {
+    ///                     Name = "Shell Customizer Example",
+    ///                     ScriptUri = "https://example.com/path/to/script.sh",
+    ///                     Type = "Shell",
+    ///                 },
+    ///             },
+    ///             Distribute = 
+    ///             {
+    ///                 new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateDistributorArgs
+    ///                 {
+    ///                     ArtifactTags = 
+    ///                     {
+    ///                         { "tagName", "value" },
+    ///                     },
+    ///                     ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+    ///                     Location = "1_location",
+    ///                     RunOutputName = "image_it_pir_1",
+    ///                     Type = "ManagedImage",
+    ///                 },
+    ///             },
+    ///             ImageTemplateName = "myImageTemplate",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Source = new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateSourceArgs
+    ///             {
+    ///                 ImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+    ///                 Type = "ManagedImage",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "imagetemplate_tag1", "IT_T1" },
+    ///                 { "imagetemplate_tag2", "IT_T2" },
+    ///             },
+    ///             VmProfile = new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateVmProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D2s_v3",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {

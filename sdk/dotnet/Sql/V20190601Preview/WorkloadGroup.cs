@@ -11,6 +11,59 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
 {
     /// <summary>
     /// Workload group operations for a data warehouse
+    /// 
+    /// ## Example Usage
+    /// ### Create a workload group with all properties specified.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workloadGroup = new AzureRM.Sql.V20190601Preview.WorkloadGroup("workloadGroup", new AzureRM.Sql.V20190601Preview.WorkloadGroupArgs
+    ///         {
+    ///             DatabaseName = "testdb",
+    ///             Importance = "normal",
+    ///             MaxResourcePercent = 100,
+    ///             MaxResourcePercentPerRequest = 3,
+    ///             MinResourcePercent = 0,
+    ///             MinResourcePercentPerRequest = 3,
+    ///             QueryExecutionTimeout = 0,
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             WorkloadGroupName = "smallrc",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a workload group with the required properties specified.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workloadGroup = new AzureRM.Sql.V20190601Preview.WorkloadGroup("workloadGroup", new AzureRM.Sql.V20190601Preview.WorkloadGroupArgs
+    ///         {
+    ///             DatabaseName = "testdb",
+    ///             MaxResourcePercent = 100,
+    ///             MinResourcePercent = 0,
+    ///             MinResourcePercentPerRequest = 3,
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             WorkloadGroupName = "smallrc",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class WorkloadGroup : Pulumi.CustomResource
     {

@@ -9,6 +9,63 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create an Image Template.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineImageTemplate = new AzureRM.VirtualMachineImages.V20180201Preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", new AzureRM.VirtualMachineImages.V20180201Preview.VirtualMachineImageTemplateArgs
+    ///         {
+    ///             Customize = 
+    ///             {
+    ///                 new AzureRM.VirtualMachineImages.V20180201Preview.Inputs.ImageTemplateCustomizerArgs
+    ///                 {
+    ///                     Name = "Shell Customizer Example",
+    ///                     Script = "https://example.com/path/to/script.sh",
+    ///                     Type = "shell",
+    ///                 },
+    ///             },
+    ///             Distribute = 
+    ///             {
+    ///                 new AzureRM.VirtualMachineImages.V20180201Preview.Inputs.ImageTemplateDistributorArgs
+    ///                 {
+    ///                     ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+    ///                     Location = "1_location",
+    ///                     RunOutputName = "image_it_pir_1",
+    ///                     Tags = 
+    ///                     {
+    ///                         { "tagName", "value" },
+    ///                     },
+    ///                     Type = "managedImage",
+    ///                 },
+    ///             },
+    ///             ImageTemplateName = "myImageTemplate",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Source = new AzureRM.VirtualMachineImages.V20180201Preview.Inputs.ImageTemplateSourceArgs
+    ///             {
+    ///                 Sha256Checksum = "120acbca7b3d55465eb9f8ef53ad7365f2997d42d4f83d7cc285bf5c71e1131f",
+    ///                 SourceURI = "http://redhat.com/path/to/installation.iso",
+    ///                 Type = "ISO",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "imagetemplate_tag1", "IT_T1" },
+    ///                 { "imagetemplate_tag2", "IT_T2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// </summary>
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {
         /// <summary>

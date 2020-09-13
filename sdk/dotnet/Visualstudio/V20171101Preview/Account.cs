@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.Visualstudio.V20171101Preview
 {
     /// <summary>
     /// The response to an account resource GET request.
+    /// 
+    /// ## Example Usage
+    /// ### Create an account resource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new AzureRM.Visualstudio.V20171101Preview.Account("account", new AzureRM.Visualstudio.V20171101Preview.AccountArgs
+    ///         {
+    ///             AccountName = "Example",
+    ///             Location = "Central US",
+    ///             OperationType = "create",
+    ///             ResourceGroupName = "VS-Example-Group",
+    ///             ResourceName = "Example",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

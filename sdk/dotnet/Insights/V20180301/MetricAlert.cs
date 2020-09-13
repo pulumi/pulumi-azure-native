@@ -39,26 +39,44 @@ namespace Pulumi.AzureRM.Insights.V20180301
     ///             AutoMitigate = false,
     ///             Criteria = new AzureRM.Insights.V20180301.Inputs.MetricAlertCriteriaArgs
     ///             {
-    ///                 OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
-    ///             },
-    ///             Description = "This is the description of the rule1",
-    ///             Enabled = true,
-    ///             EvaluationFrequency = "PT1M",
-    ///             Location = "global",
-    ///             ResourceGroupName = "gigtest",
-    ///             RuleName = "MetricAlertOnMultipleResources",
-    ///             Scopes = 
-    ///             {
-    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
-    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
-    ///             },
-    ///             Severity = 3,
-    ///             Tags = ,
-    ///             TargetResourceRegion = "southcentralus",
-    ///             TargetResourceType = "Microsoft.Compute/virtualMachines",
-    ///             WindowSize = "PT15M",
-    ///         });
-    ///     }
+    ///                 AllOf = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "alertSensitivity", "Medium" },
+    ///                         { "criterionType", "DynamicThresholdCriterion" },
+    ///                         { "dimensions", {} },
+    ///                         { "failingPeriods", 
+    ///                         {
+    ///                             { "minFailingPeriodsToAlert", 4 },
+    ///                             { "numberOfEvaluationPeriods", 4 },
+    ///                         } },
+    ///                         { "metricName", "Percentage CPU" },
+    ///                         { "metricNamespace", "microsoft.compute/virtualmachines" },
+    ///                         { "name", "High_CPU_80" },
+    ///                         { "operator", "GreaterOrLessThan" },
+    ///                         { "timeAggregation", "Average" },
+    ///                     },
+    ///                 },
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 Description = "This is the description of the rule1",
+    ///                 Enabled = true,
+    ///                 EvaluationFrequency = "PT1M",
+    ///                 Location = "global",
+    ///                 ResourceGroupName = "gigtest",
+    ///                 RuleName = "MetricAlertOnMultipleResources",
+    ///                 Scopes = 
+    ///                 {
+    ///                     "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+    ///                     "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+    ///                 },
+    ///                 Severity = 3,
+    ///                 Tags = ,
+    ///                 TargetResourceRegion = "southcentralus",
+    ///                 TargetResourceType = "Microsoft.Compute/virtualMachines",
+    ///                 WindowSize = "PT15M",
+    ///             });
+    ///         }
     /// 
     /// }
     /// 
@@ -89,25 +107,44 @@ namespace Pulumi.AzureRM.Insights.V20180301
     ///             AutoMitigate = false,
     ///             Criteria = new AzureRM.Insights.V20180301.Inputs.MetricAlertCriteriaArgs
     ///             {
-    ///                 OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
-    ///             },
-    ///             Description = "This is the description of the rule1",
-    ///             Enabled = true,
-    ///             EvaluationFrequency = "PT1M",
-    ///             Location = "global",
-    ///             ResourceGroupName = "gigtest",
-    ///             RuleName = "chiricutin",
-    ///             Scopes = 
-    ///             {
-    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme",
-    ///             },
-    ///             Severity = 3,
-    ///             Tags = ,
-    ///             TargetResourceRegion = "southcentralus",
-    ///             TargetResourceType = "Microsoft.Compute/virtualMachines",
-    ///             WindowSize = "PT15M",
-    ///         });
-    ///     }
+    ///                 AllOf = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "alertSensitivity", "Medium" },
+    ///                         { "criterionType", "DynamicThresholdCriterion" },
+    ///                         { "dimensions", {} },
+    ///                         { "failingPeriods", 
+    ///                         {
+    ///                             { "minFailingPeriodsToAlert", 4 },
+    ///                             { "numberOfEvaluationPeriods", 4 },
+    ///                         } },
+    ///                         { "ignoreDataBefore", "2019-04-04T21:00:00.000Z" },
+    ///                         { "metricName", "Percentage CPU" },
+    ///                         { "metricNamespace", "microsoft.compute/virtualmachines" },
+    ///                         { "name", "High_CPU_80" },
+    ///                         { "operator", "GreaterOrLessThan" },
+    ///                         { "timeAggregation", "Average" },
+    ///                     },
+    ///                 },
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 Description = "This is the description of the rule1",
+    ///                 Enabled = true,
+    ///                 EvaluationFrequency = "PT1M",
+    ///                 Location = "global",
+    ///                 ResourceGroupName = "gigtest",
+    ///                 RuleName = "chiricutin",
+    ///                 Scopes = 
+    ///                 {
+    ///                     "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme",
+    ///                 },
+    ///                 Severity = 3,
+    ///                 Tags = ,
+    ///                 TargetResourceRegion = "southcentralus",
+    ///                 TargetResourceType = "Microsoft.Compute/virtualMachines",
+    ///                 WindowSize = "PT15M",
+    ///             });
+    ///         }
     /// 
     /// }
     /// 
@@ -126,28 +163,29 @@ namespace Pulumi.AzureRM.Insights.V20180301
     ///             Actions = {},
     ///             Criteria = new AzureRM.Insights.V20180301.Inputs.MetricAlertCriteriaArgs
     ///             {
-    ///                 OdataType = "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
-    ///             },
-    ///             Description = "Automatically created alert rule for availability test \"component-example\" a",
-    ///             Enabled = true,
-    ///             EvaluationFrequency = "PT1M",
-    ///             Location = "global",
-    ///             ResourceGroupName = "rg-example",
-    ///             RuleName = "webtest-name-example",
-    ///             Scopes = 
-    ///             {
-    ///                 "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
-    ///                 "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
-    ///             },
-    ///             Severity = 4,
-    ///             Tags = 
-    ///             {
-    ///                 { "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example", "Resource" },
-    ///                 { "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example", "Resource" },
-    ///             },
-    ///             WindowSize = "PT15M",
-    ///         });
-    ///     }
+    ///                 ComponentId = "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+    ///                 FailedLocationCount = 2,
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 Description = "Automatically created alert rule for availability test \"component-example\" a",
+    ///                 Enabled = true,
+    ///                 EvaluationFrequency = "PT1M",
+    ///                 Location = "global",
+    ///                 ResourceGroupName = "rg-example",
+    ///                 RuleName = "webtest-name-example",
+    ///                 Scopes = 
+    ///                 {
+    ///                     "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+    ///                     "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+    ///                 },
+    ///                 Severity = 4,
+    ///                 Tags = 
+    ///                 {
+    ///                     { "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example", "Resource" },
+    ///                     { "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example", "Resource" },
+    ///                 },
+    ///                 WindowSize = "PT15M",
+    ///             });
+    ///         }
     /// 
     /// }
     /// 
@@ -178,26 +216,39 @@ namespace Pulumi.AzureRM.Insights.V20180301
     ///             AutoMitigate = false,
     ///             Criteria = new AzureRM.Insights.V20180301.Inputs.MetricAlertCriteriaArgs
     ///             {
-    ///                 OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
-    ///             },
-    ///             Description = "This is the description of the rule1",
-    ///             Enabled = true,
-    ///             EvaluationFrequency = "PT1M",
-    ///             Location = "global",
-    ///             ResourceGroupName = "gigtest",
-    ///             RuleName = "MetricAlertOnMultipleResources",
-    ///             Scopes = 
-    ///             {
-    ///                 "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
-    ///                 "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
-    ///             },
-    ///             Severity = 3,
-    ///             Tags = ,
-    ///             TargetResourceRegion = "southcentralus",
-    ///             TargetResourceType = "Microsoft.Compute/virtualMachines",
-    ///             WindowSize = "PT15M",
-    ///         });
-    ///     }
+    ///                 AllOf = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "criterionType", "StaticThresholdCriterion" },
+    ///                         { "dimensions", {} },
+    ///                         { "metricName", "Percentage CPU" },
+    ///                         { "metricNamespace", "microsoft.compute/virtualmachines" },
+    ///                         { "name", "High_CPU_80" },
+    ///                         { "operator", "GreaterThan" },
+    ///                         { "threshold", 80.5 },
+    ///                         { "timeAggregation", "Average" },
+    ///                     },
+    ///                 },
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 Description = "This is the description of the rule1",
+    ///                 Enabled = true,
+    ///                 EvaluationFrequency = "PT1M",
+    ///                 Location = "global",
+    ///                 ResourceGroupName = "gigtest",
+    ///                 RuleName = "MetricAlertOnMultipleResources",
+    ///                 Scopes = 
+    ///                 {
+    ///                     "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+    ///                     "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+    ///                 },
+    ///                 Severity = 3,
+    ///                 Tags = ,
+    ///                 TargetResourceRegion = "southcentralus",
+    ///                 TargetResourceType = "Microsoft.Compute/virtualMachines",
+    ///                 WindowSize = "PT15M",
+    ///             });
+    ///         }
     /// 
     /// }
     /// 
@@ -228,23 +279,35 @@ namespace Pulumi.AzureRM.Insights.V20180301
     ///             AutoMitigate = false,
     ///             Criteria = new AzureRM.Insights.V20180301.Inputs.MetricAlertCriteriaArgs
     ///             {
-    ///                 OdataType = "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
-    ///             },
-    ///             Description = "This is the description of the rule1",
-    ///             Enabled = true,
-    ///             EvaluationFrequency = "Pt1m",
-    ///             Location = "global",
-    ///             ResourceGroupName = "gigtest",
-    ///             RuleName = "chiricutin",
-    ///             Scopes = 
-    ///             {
-    ///                 "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme",
-    ///             },
-    ///             Severity = 3,
-    ///             Tags = ,
-    ///             WindowSize = "Pt15m",
-    ///         });
-    ///     }
+    ///                 AllOf = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "criterionType", "StaticThresholdCriterion" },
+    ///                         { "dimensions", {} },
+    ///                         { "metricName", "\\Processor(_Total)\\% Processor Time" },
+    ///                         { "name", "High_CPU_80" },
+    ///                         { "operator", "GreaterThan" },
+    ///                         { "threshold", 80.5 },
+    ///                         { "timeAggregation", "Average" },
+    ///                     },
+    ///                 },
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 Description = "This is the description of the rule1",
+    ///                 Enabled = true,
+    ///                 EvaluationFrequency = "Pt1m",
+    ///                 Location = "global",
+    ///                 ResourceGroupName = "gigtest",
+    ///                 RuleName = "chiricutin",
+    ///                 Scopes = 
+    ///                 {
+    ///                     "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme",
+    ///                 },
+    ///                 Severity = 3,
+    ///                 Tags = ,
+    ///                 WindowSize = "Pt15m",
+    ///             });
+    ///         }
     /// 
     /// }
     /// 
@@ -275,26 +338,39 @@ namespace Pulumi.AzureRM.Insights.V20180301
     ///             AutoMitigate = false,
     ///             Criteria = new AzureRM.Insights.V20180301.Inputs.MetricAlertCriteriaArgs
     ///             {
-    ///                 OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
-    ///             },
-    ///             Description = "This is the description of the rule1",
-    ///             Enabled = true,
-    ///             EvaluationFrequency = "PT1M",
-    ///             Location = "global",
-    ///             ResourceGroupName = "gigtest1",
-    ///             RuleName = "MetricAlertAtResourceGroupLevel",
-    ///             Scopes = 
-    ///             {
-    ///                 "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest1",
-    ///                 "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest2",
-    ///             },
-    ///             Severity = 3,
-    ///             Tags = ,
-    ///             TargetResourceRegion = "southcentralus",
-    ///             TargetResourceType = "Microsoft.Compute/virtualMachines",
-    ///             WindowSize = "PT15M",
-    ///         });
-    ///     }
+    ///                 AllOf = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "criterionType", "StaticThresholdCriterion" },
+    ///                         { "dimensions", {} },
+    ///                         { "metricName", "Percentage CPU" },
+    ///                         { "metricNamespace", "microsoft.compute/virtualmachines" },
+    ///                         { "name", "High_CPU_80" },
+    ///                         { "operator", "GreaterThan" },
+    ///                         { "threshold", 80.5 },
+    ///                         { "timeAggregation", "Average" },
+    ///                     },
+    ///                 },
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 Description = "This is the description of the rule1",
+    ///                 Enabled = true,
+    ///                 EvaluationFrequency = "PT1M",
+    ///                 Location = "global",
+    ///                 ResourceGroupName = "gigtest1",
+    ///                 RuleName = "MetricAlertAtResourceGroupLevel",
+    ///                 Scopes = 
+    ///                 {
+    ///                     "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest1",
+    ///                     "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest2",
+    ///                 },
+    ///                 Severity = 3,
+    ///                 Tags = ,
+    ///                 TargetResourceRegion = "southcentralus",
+    ///                 TargetResourceType = "Microsoft.Compute/virtualMachines",
+    ///                 WindowSize = "PT15M",
+    ///             });
+    ///         }
     /// 
     /// }
     /// 
@@ -325,25 +401,38 @@ namespace Pulumi.AzureRM.Insights.V20180301
     ///             AutoMitigate = false,
     ///             Criteria = new AzureRM.Insights.V20180301.Inputs.MetricAlertCriteriaArgs
     ///             {
-    ///                 OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
-    ///             },
-    ///             Description = "This is the description of the rule1",
-    ///             Enabled = true,
-    ///             EvaluationFrequency = "PT1M",
-    ///             Location = "global",
-    ///             ResourceGroupName = "gigtest",
-    ///             RuleName = "MetricAlertAtSubscriptionLevel",
-    ///             Scopes = 
-    ///             {
-    ///                 "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7",
-    ///             },
-    ///             Severity = 3,
-    ///             Tags = ,
-    ///             TargetResourceRegion = "southcentralus",
-    ///             TargetResourceType = "Microsoft.Compute/virtualMachines",
-    ///             WindowSize = "PT15M",
-    ///         });
-    ///     }
+    ///                 AllOf = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "criterionType", "StaticThresholdCriterion" },
+    ///                         { "dimensions", {} },
+    ///                         { "metricName", "Percentage CPU" },
+    ///                         { "metricNamespace", "microsoft.compute/virtualmachines" },
+    ///                         { "name", "High_CPU_80" },
+    ///                         { "operator", "GreaterThan" },
+    ///                         { "threshold", 80.5 },
+    ///                         { "timeAggregation", "Average" },
+    ///                     },
+    ///                 },
+    ///                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                 Description = "This is the description of the rule1",
+    ///                 Enabled = true,
+    ///                 EvaluationFrequency = "PT1M",
+    ///                 Location = "global",
+    ///                 ResourceGroupName = "gigtest",
+    ///                 RuleName = "MetricAlertAtSubscriptionLevel",
+    ///                 Scopes = 
+    ///                 {
+    ///                     "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7",
+    ///                 },
+    ///                 Severity = 3,
+    ///                 Tags = ,
+    ///                 TargetResourceRegion = "southcentralus",
+    ///                 TargetResourceType = "Microsoft.Compute/virtualMachines",
+    ///                 WindowSize = "PT15M",
+    ///             });
+    ///         }
     /// 
     /// }
     /// 

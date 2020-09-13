@@ -11,6 +11,12 @@ namespace Pulumi.AzureRM.Portal.V20200901Preview
 {
     /// <summary>
     /// Tenant configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update Tenant configuration
+    /// ```csharp
+    /// 
+    /// ```
     /// </summary>
     public partial class TenantConfiguration : Pulumi.CustomResource
     {

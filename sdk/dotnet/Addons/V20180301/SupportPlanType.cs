@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.Addons.V20180301
 {
     /// <summary>
     /// The status of the Canonical support plan.
+    /// 
+    /// ## Example Usage
+    /// ### SupportPlanTypes_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var supportPlanType = new AzureRM.Addons.V20180301.SupportPlanType("supportPlanType", new AzureRM.Addons.V20180301.SupportPlanTypeArgs
+    ///         {
+    ///             PlanTypeName = "Standard",
+    ///             ProviderName = "Canonical",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SupportPlanType : Pulumi.CustomResource
     {

@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
 {
     /// <summary>
     /// An Azure SQL Database server.
+    /// 
+    /// ## Example Usage
+    /// ### Create server
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.Sql.V20190601Preview.Server("server", new AzureRM.Sql.V20190601Preview.ServerArgs
+    ///         {
+    ///             AdministratorLogin = "dummylogin",
+    ///             AdministratorLoginPassword = "Un53cuRE!",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-7398",
+    ///             ServerName = "sqlcrudtest-4645",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

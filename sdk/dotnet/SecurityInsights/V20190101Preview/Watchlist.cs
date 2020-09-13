@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents a Watchlist in Azure Security Insights.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a watchlist.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var watchlist = new AzureRM.SecurityInsights.V20190101Preview.Watchlist("watchlist", new AzureRM.SecurityInsights.V20190101Preview.WatchlistArgs
+    ///         {
+    ///             CreatedBy = new AzureRM.SecurityInsights.V20190101Preview.Inputs.UserInfoArgs
+    ///             {
+    ///                 ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
+    ///             },
+    ///             CreatedTimeUtc = "2019-01-01T13:15:30Z",
+    ///             DefaultDuration = "P1D2H3M4S",
+    ///             Description = "Watchlist Description",
+    ///             DisplayName = "High Value Assets Watchlist",
+    ///             Etag = "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+    ///             Labels = 
+    ///             {
+    ///                 "Tag1",
+    ///                 "Tag2",
+    ///             },
+    ///             LastUpdatedTimeUtc = "2019-01-01T13:15:30Z",
+    ///             Notes = "A note for the watchlist",
+    ///             OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
+    ///             Provider = "Azure Sentinel",
+    ///             ResourceGroupName = "myRg",
+    ///             Source = "Local file",
+    ///             UpdatedBy = new AzureRM.SecurityInsights.V20190101Preview.Inputs.UserInfoArgs
+    ///             {
+    ///                 ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
+    ///             },
+    ///             WatchlistAlias = "highValueAsset",
+    ///             WatchlistType = "watchlist",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Watchlist : Pulumi.CustomResource
     {

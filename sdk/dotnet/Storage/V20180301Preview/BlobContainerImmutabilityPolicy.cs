@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Storage.V20180301Preview
 {
     /// <summary>
     /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateImmutabilityPolicy
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var blobContainerImmutabilityPolicy = new AzureRM.Storage.V20180301Preview.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", new AzureRM.Storage.V20180301Preview.BlobContainerImmutabilityPolicyArgs
+    ///         {
+    ///             AccountName = "sto7069",
+    ///             ContainerName = "container6397",
+    ///             ImmutabilityPeriodSinceCreationInDays = 3,
+    ///             ImmutabilityPolicyName = "default",
+    ///             ResourceGroupName = "res1782",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BlobContainerImmutabilityPolicy : Pulumi.CustomResource
     {

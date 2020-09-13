@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
 {
     /// <summary>
     /// Security assessment on a resource
+    /// 
+    /// ## Example Usage
+    /// ### Create security recommendation task on a resource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var assessment = new AzureRM.Security.V20190101Preview.Assessment("assessment", new AzureRM.Security.V20190101Preview.AssessmentArgs
+    ///         {
+    ///             AssessmentName = "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+    ///             ResourceDetails = new AzureRM.Security.V20190101Preview.Inputs.ResourceDetailsArgs
+    ///             {
+    ///                 Source = "Azure",
+    ///             },
+    ///             ResourceId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
+    ///             Status = new AzureRM.Security.V20190101Preview.Inputs.AssessmentStatusArgs
+    ///             {
+    ///                 Code = "Healthy",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Assessment : Pulumi.CustomResource
     {

@@ -11,6 +11,195 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
 {
     /// <summary>
     /// Pipeline resource type.
+    /// 
+    /// ## Example Usage
+    /// ### Pipelines_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pipeline = new AzureRM.DataFactory.V20170901Preview.Pipeline("pipeline", new AzureRM.DataFactory.V20170901Preview.PipelineArgs
+    ///         {
+    ///             Activities = 
+    ///             {
+    ///                 new AzureRM.DataFactory.V20170901Preview.Inputs.ActivityArgs
+    ///                 {
+    ///                     Name = "ExampleForeachActivity",
+    ///                     Type = "ForEach",
+    ///                     TypeProperties = 
+    ///                     {
+    ///                         { "activities", 
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "inputs", 
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "parameters", 
+    ///                                         {
+    ///                                             { "MyFileName", "examplecontainer.csv" },
+    ///                                             { "MyFolderPath", "examplecontainer" },
+    ///                                         } },
+    ///                                         { "referenceName", "exampleDataset" },
+    ///                                         { "type", "DatasetReference" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "name", "ExampleCopyActivity" },
+    ///                                 { "outputs", 
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "parameters", 
+    ///                                         {
+    ///                                             { "MyFileName", 
+    ///                                             {
+    ///                                                 { "type", "Expression" },
+    ///                                                 { "value", "@item()" },
+    ///                                             } },
+    ///                                             { "MyFolderPath", "examplecontainer" },
+    ///                                         } },
+    ///                                         { "referenceName", "exampleDataset" },
+    ///                                         { "type", "DatasetReference" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "type", "Copy" },
+    ///                                 { "typeProperties", 
+    ///                                 {
+    ///                                     { "sink", 
+    ///                                     {
+    ///                                         { "type", "BlobSink" },
+    ///                                     } },
+    ///                                     { "source", 
+    ///                                     {
+    ///                                         { "type", "BlobSource" },
+    ///                                     } },
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                         { "isSequential", true },
+    ///                         { "items", 
+    ///                         {
+    ///                             { "type", "Expression" },
+    ///                             { "value", "@pipeline().parameters.OutputBlobNameList" },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             FactoryName = "exampleFactoryName",
+    ///             Parameters = 
+    ///             {
+    ///                 { "OutputBlobNameList", new AzureRM.DataFactory.V20170901Preview.Inputs.ParameterSpecificationArgs
+    ///                 {
+    ///                     Type = "Array",
+    ///                 } },
+    ///             },
+    ///             PipelineName = "examplePipeline",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Pipelines_Update
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pipeline = new AzureRM.DataFactory.V20170901Preview.Pipeline("pipeline", new AzureRM.DataFactory.V20170901Preview.PipelineArgs
+    ///         {
+    ///             Activities = 
+    ///             {
+    ///                 new AzureRM.DataFactory.V20170901Preview.Inputs.ActivityArgs
+    ///                 {
+    ///                     Name = "ExampleForeachActivity",
+    ///                     Type = "ForEach",
+    ///                     TypeProperties = 
+    ///                     {
+    ///                         { "activities", 
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "inputs", 
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "parameters", 
+    ///                                         {
+    ///                                             { "MyFileName", "examplecontainer.csv" },
+    ///                                             { "MyFolderPath", "examplecontainer" },
+    ///                                         } },
+    ///                                         { "referenceName", "exampleDataset" },
+    ///                                         { "type", "DatasetReference" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "name", "ExampleCopyActivity" },
+    ///                                 { "outputs", 
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "parameters", 
+    ///                                         {
+    ///                                             { "MyFileName", 
+    ///                                             {
+    ///                                                 { "type", "Expression" },
+    ///                                                 { "value", "@item()" },
+    ///                                             } },
+    ///                                             { "MyFolderPath", "examplecontainer" },
+    ///                                         } },
+    ///                                         { "referenceName", "exampleDataset" },
+    ///                                         { "type", "DatasetReference" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "type", "Copy" },
+    ///                                 { "typeProperties", 
+    ///                                 {
+    ///                                     { "sink", 
+    ///                                     {
+    ///                                         { "type", "BlobSink" },
+    ///                                     } },
+    ///                                     { "source", 
+    ///                                     {
+    ///                                         { "type", "BlobSource" },
+    ///                                     } },
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                         { "isSequential", true },
+    ///                         { "items", 
+    ///                         {
+    ///                             { "type", "Expression" },
+    ///                             { "value", "@pipeline().parameters.OutputBlobNameList" },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Description = "Example description",
+    ///             FactoryName = "exampleFactoryName",
+    ///             Parameters = 
+    ///             {
+    ///                 { "OutputBlobNameList", new AzureRM.DataFactory.V20170901Preview.Inputs.ParameterSpecificationArgs
+    ///                 {
+    ///                     Type = "Array",
+    ///                 } },
+    ///             },
+    ///             PipelineName = "examplePipeline",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Pipeline : Pulumi.CustomResource
     {

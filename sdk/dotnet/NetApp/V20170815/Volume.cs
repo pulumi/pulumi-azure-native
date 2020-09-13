@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.NetApp.V20170815
 {
     /// <summary>
     /// Volume resource
+    /// 
+    /// ## Example Usage
+    /// ### Volumes_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var volume = new AzureRM.NetApp.V20170815.Volume("volume", new AzureRM.NetApp.V20170815.VolumeArgs
+    ///         {
+    ///             AccountName = "accountName",
+    ///             PoolName = "poolName",
+    ///             ResourceGroupName = "resourceGroup",
+    ///             VolumeName = "volumeName",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {

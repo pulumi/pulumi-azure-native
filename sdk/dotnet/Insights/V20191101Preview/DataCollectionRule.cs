@@ -11,6 +11,161 @@ namespace Pulumi.AzureRM.Insights.V20191101Preview
 {
     /// <summary>
     /// Definition of ARM tracked top level resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update data collection rule
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataCollectionRule = new AzureRM.Insights.V20191101Preview.DataCollectionRule("dataCollectionRule", new AzureRM.Insights.V20191101Preview.DataCollectionRuleArgs
+    ///         {
+    ///             DataCollectionRuleName = "myCollectionRule",
+    ///             DataFlows = 
+    ///             {
+    ///                 new AzureRM.Insights.V20191101Preview.Inputs.DataFlowArgs
+    ///                 {
+    ///                     Destinations = 
+    ///                     {
+    ///                         "centralWorkspace",
+    ///                     },
+    ///                     Streams = 
+    ///                     {
+    ///                         "Microsoft-Perf",
+    ///                         "Microsoft-Syslog",
+    ///                         "Microsoft-WindowsEvent",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             DataSources = new AzureRM.Insights.V20191101Preview.Inputs.DataCollectionRuleDataSourcesArgs
+    ///             {
+    ///                 PerformanceCounters = 
+    ///                 {
+    ///                     new AzureRM.Insights.V20191101Preview.Inputs.PerfCounterDataSourceArgs
+    ///                     {
+    ///                         CounterSpecifiers = 
+    ///                         {
+    ///                             "\\Processor(_Total)\\% Processor Time",
+    ///                             "\\Memory\\Committed Bytes",
+    ///                             "\\LogicalDisk(_Total)\\Free Megabytes",
+    ///                             "\\PhysicalDisk(_Total)\\Avg. Disk Queue Length",
+    ///                         },
+    ///                         Name = "cloudTeamCoreCounters",
+    ///                         SamplingFrequencyInSeconds = 15,
+    ///                         ScheduledTransferPeriod = "PT1M",
+    ///                         Streams = 
+    ///                         {
+    ///                             "Microsoft-Perf",
+    ///                         },
+    ///                     },
+    ///                     new AzureRM.Insights.V20191101Preview.Inputs.PerfCounterDataSourceArgs
+    ///                     {
+    ///                         CounterSpecifiers = 
+    ///                         {
+    ///                             "\\Process(_Total)\\Thread Count",
+    ///                         },
+    ///                         Name = "appTeamExtraCounters",
+    ///                         SamplingFrequencyInSeconds = 30,
+    ///                         ScheduledTransferPeriod = "PT5M",
+    ///                         Streams = 
+    ///                         {
+    ///                             "Microsoft-Perf",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Syslog = 
+    ///                 {
+    ///                     new AzureRM.Insights.V20191101Preview.Inputs.SyslogDataSourceArgs
+    ///                     {
+    ///                         FacilityNames = 
+    ///                         {
+    ///                             "cron",
+    ///                         },
+    ///                         LogLevels = 
+    ///                         {
+    ///                             "Debug",
+    ///                             "Critical",
+    ///                             "Emergency",
+    ///                         },
+    ///                         Name = "cronSyslog",
+    ///                         Streams = 
+    ///                         {
+    ///                             "Microsoft-Syslog",
+    ///                         },
+    ///                     },
+    ///                     new AzureRM.Insights.V20191101Preview.Inputs.SyslogDataSourceArgs
+    ///                     {
+    ///                         FacilityNames = 
+    ///                         {
+    ///                             "syslog",
+    ///                         },
+    ///                         LogLevels = 
+    ///                         {
+    ///                             "Alert",
+    ///                             "Critical",
+    ///                             "Emergency",
+    ///                         },
+    ///                         Name = "syslogBase",
+    ///                         Streams = 
+    ///                         {
+    ///                             "Microsoft-Syslog",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 WindowsEventLogs = 
+    ///                 {
+    ///                     new AzureRM.Insights.V20191101Preview.Inputs.WindowsEventLogDataSourceArgs
+    ///                     {
+    ///                         Name = "cloudSecurityTeamEvents",
+    ///                         ScheduledTransferPeriod = "PT1M",
+    ///                         Streams = 
+    ///                         {
+    ///                             "Microsoft-WindowsEvent",
+    ///                         },
+    ///                         XPathQueries = 
+    ///                         {
+    ///                             "Security!",
+    ///                         },
+    ///                     },
+    ///                     new AzureRM.Insights.V20191101Preview.Inputs.WindowsEventLogDataSourceArgs
+    ///                     {
+    ///                         Name = "appTeam1AppEvents",
+    ///                         ScheduledTransferPeriod = "PT5M",
+    ///                         Streams = 
+    ///                         {
+    ///                             "Microsoft-WindowsEvent",
+    ///                         },
+    ///                         XPathQueries = 
+    ///                         {
+    ///                             "System![System[(Level = 1 or Level = 2 or Level = 3)]]",
+    ///                             "Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Destinations = new AzureRM.Insights.V20191101Preview.Inputs.DataCollectionRuleDestinationsArgs
+    ///             {
+    ///                 LogAnalytics = 
+    ///                 {
+    ///                     new AzureRM.Insights.V20191101Preview.Inputs.LogAnalyticsDestinationArgs
+    ///                     {
+    ///                         Name = "centralWorkspace",
+    ///                         WorkspaceResourceId = "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DataCollectionRule : Pulumi.CustomResource
     {

@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
 {
     /// <summary>
     /// Payload of the transaction node which is the request/response of the resource provider.
+    /// 
+    /// ## Example Usage
+    /// ### TransactionNodes_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var transactionNode = new AzureRM.Blockchain.V20180601Preview.TransactionNode("transactionNode", new AzureRM.Blockchain.V20180601Preview.TransactionNodeArgs
+    ///         {
+    ///             BlockchainMemberName = "contosemember1",
+    ///             Location = "southeastasia",
+    ///             Password = "1234abcdEFG1",
+    ///             ResourceGroupName = "mygroup",
+    ///             TransactionNodeName = "txnode2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class TransactionNode : Pulumi.CustomResource
     {

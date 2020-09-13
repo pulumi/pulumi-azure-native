@@ -11,6 +11,74 @@ namespace Pulumi.AzureRM.Search.V20191001Preview
 {
     /// <summary>
     /// Describes an Azure Cognitive Search service and its current state.
+    /// 
+    /// ## Example Usage
+    /// ### SearchCreateOrUpdateService
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.Search.V20191001Preview.Service("service", new AzureRM.Search.V20191001Preview.ServiceArgs
+    ///         {
+    ///             HostingMode = "default",
+    ///             Location = "westus",
+    ///             PartitionCount = 1,
+    ///             ReplicaCount = 3,
+    ///             ResourceGroupName = "rg1",
+    ///             SearchServiceName = "mysearchservice",
+    ///             Sku = new AzureRM.Search.V20191001Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "app-name", "My e-commerce app" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### SearchCreateOrUpdateServiceWithIdentity
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.Search.V20191001Preview.Service("service", new AzureRM.Search.V20191001Preview.ServiceArgs
+    ///         {
+    ///             HostingMode = "default",
+    ///             Identity = new AzureRM.Search.V20191001Preview.Inputs.IdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Location = "westus",
+    ///             PartitionCount = 1,
+    ///             ReplicaCount = 3,
+    ///             ResourceGroupName = "rg1",
+    ///             SearchServiceName = "mysearchservice",
+    ///             Sku = new AzureRM.Search.V20191001Preview.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "app-name", "My e-commerce app" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

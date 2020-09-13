@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Visualstudio.V20171101Preview
 {
     /// <summary>
     /// The response to an extension resource GET request.
+    /// 
+    /// ## Example Usage
+    /// ### Create an extension resource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var extension = new AzureRM.Visualstudio.V20171101Preview.Extension("extension", new AzureRM.Visualstudio.V20171101Preview.ExtensionArgs
+    ///         {
+    ///             AccountResourceName = "ExampleAccount",
+    ///             ExtensionResourceName = "ms.example",
+    ///             Location = "Central US",
+    ///             Plan = new AzureRM.Visualstudio.V20171101Preview.Inputs.ExtensionResourcePlanArgs
+    ///             {
+    ///                 Name = "ExamplePlan",
+    ///                 Product = "ExampleExtensionName",
+    ///                 PromotionCode = "",
+    ///                 Publisher = "ExampleExtensionPublisher",
+    ///                 Version = "1.0",
+    ///             },
+    ///             ResourceGroupName = "VS-Example-Group",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Extension : Pulumi.CustomResource
     {
