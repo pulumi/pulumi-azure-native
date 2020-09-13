@@ -34,43 +34,6 @@ class OperationalizationCluster(pulumi.CustomResource):
         """
         Instance of an Azure ML Operationalization Cluster resource.
 
-        ## Example Usage
-        ### PUT Operationalization Cluster
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        operationalization_cluster = azurerm.machinelearningcompute.v20170801preview.OperationalizationCluster("operationalizationCluster",
-            cluster_name="myCluster",
-            cluster_type="ACS",
-            container_service={
-                "orchestratorProperties": {
-                    "servicePrincipal": {
-                        "clientId": "abcdefghijklmnopqrt",
-                        "secret": "uiuiwueiwuewiue",
-                    },
-                },
-                "orchestratorType": "Kubernetes",
-            },
-            description="My Operationalization Cluster",
-            global_service_configuration={
-                "ssl": {
-                    "cert": "afjdklq2131casfakld=",
-                    "cname": "foo.bar.com",
-                    "key": "flksdafkldsajf=",
-                    "status": "Enabled",
-                },
-            },
-            location="West US",
-            resource_group_name="myResourceGroup",
-            tags={
-                "key1": "alpha",
-                "key2": "beta",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AppInsightsPropertiesArgs']] app_insights: AppInsights configuration.

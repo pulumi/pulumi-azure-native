@@ -26,21 +26,7 @@ class HyperVCollector(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## Example Usage
-        ### HyperVCollectors_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        hyper_v_collector = azurerm.migrate.v20191001.HyperVCollector("hyperVCollector",
-            e_tag="\"00000981-0000-0300-0000-5d74cd5f0000\"",
-            hyper_v_collector_name="migrateprojectce73collector",
-            project_name="migrateprojectce73project",
-            resource_group_name="contosoithyperv")
-
-        ```
-
+        Create a HyperVCollector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hyper_v_collector_name: Unique name of a Hyper-V collector within a project.

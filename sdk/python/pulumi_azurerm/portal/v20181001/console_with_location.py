@@ -24,19 +24,6 @@ class ConsoleWithLocation(pulumi.CustomResource):
         """
         Cloud shell console
 
-        ## Example Usage
-        ### PutConsole
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        console_with_location = azurerm.portal.v20181001.ConsoleWithLocation("consoleWithLocation",
-            console_name="default",
-            location="eastus")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] console_name: The name of the console

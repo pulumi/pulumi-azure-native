@@ -28,21 +28,6 @@ class Secret(pulumi.CustomResource):
         """
         This type describes a secret resource.
 
-        ## Example Usage
-        ### CreateOrUpdateSecret
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        secret = azurerm.servicefabricmesh.v20180901preview.Secret("secret",
-            location="EastUS",
-            resource_group_name="sbz_demo",
-            secret_resource_name="dbConnectionString",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives

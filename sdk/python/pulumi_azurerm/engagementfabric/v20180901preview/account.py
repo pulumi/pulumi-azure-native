@@ -28,23 +28,6 @@ class Account(pulumi.CustomResource):
         """
         The EngagementFabric account
 
-        ## Example Usage
-        ### AccountsCreateOrUpdateExample
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        account = azurerm.engagementfabric.v20180901preview.Account("account",
-            account_name="ExampleAccount",
-            location="WestUS",
-            resource_group_name="ExampleRg",
-            sku={
-                "name": "B1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account Name

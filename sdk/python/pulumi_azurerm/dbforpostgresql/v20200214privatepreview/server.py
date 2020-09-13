@@ -41,54 +41,6 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
-        ## Example Usage
-        ### Create a database as a point in time restore
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        server = azurerm.dbforpostgresql.v20200214privatepreview.Server("server",
-            create_mode="PointInTimeRestore",
-            location="westus",
-            point_in_time_utc="2020-06-30T23:41:49.000Z",
-            resource_group_name="TestGroup",
-            server_name="pgtestsvc4",
-            source_server_name="sourcePgServerName")
-
-        ```
-        ### Create a new server
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        server = azurerm.dbforpostgresql.v20200214privatepreview.Server("server",
-            administrator_login="cloudsa",
-            administrator_login_password="password",
-            availability_zone="1",
-            delegated_subnet_arguments={
-                "subnetArmResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
-            },
-            ha_enabled="Enabled",
-            location="westus",
-            resource_group_name="testrg",
-            server_name="pgtestsvc4",
-            sku={
-                "name": "Standard_D4s_v3",
-                "tier": "GeneralPurpose",
-            },
-            storage_profile={
-                "backupRetentionDays": 7,
-                "storageMB": 524288,
-            },
-            tags={
-                "ElasticServer": "1",
-            },
-            version="12")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).

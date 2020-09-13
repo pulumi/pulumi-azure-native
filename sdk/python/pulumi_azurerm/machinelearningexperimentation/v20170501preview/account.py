@@ -33,29 +33,6 @@ class Account(pulumi.CustomResource):
         """
         An object that represents a machine learning team account.
 
-        ## Example Usage
-        ### AccountCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        account = azurerm.machinelearningexperimentation.v20170501preview.Account("account",
-            account_name="accountcrud5678",
-            key_vault_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.KeyVault/vaults/testkv",
-            location="East US",
-            resource_group_name="accountcrud-1234",
-            storage_account={
-                "accessKey": "key",
-                "storageAccountId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
-            },
-            tags={
-                "tagKey1": "TagValue1",
-            },
-            vso_account_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/microsoft.visualstudio/account/vsotest")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the machine learning team account.

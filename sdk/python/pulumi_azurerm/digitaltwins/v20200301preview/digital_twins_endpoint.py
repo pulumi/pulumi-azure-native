@@ -27,20 +27,6 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
         """
         DigitalTwinsInstance endpoint resource.
 
-        ## Example Usage
-        ### Put a DigitalTwinsInstance resource
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        digital_twins_endpoint = azurerm.digitaltwins.v20200301preview.DigitalTwinsEndpoint("digitalTwinsEndpoint",
-            endpoint_name="myServiceBus",
-            resource_group_name="resRg",
-            resource_name="myDigitalTwinsService")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of Endpoint Resource.

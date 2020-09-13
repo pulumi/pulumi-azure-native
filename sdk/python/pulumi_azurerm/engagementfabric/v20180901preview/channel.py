@@ -27,29 +27,6 @@ class Channel(pulumi.CustomResource):
         """
         The EngagementFabric channel
 
-        ## Example Usage
-        ### ChannelsCreateOrUpdateExample
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        channel = azurerm.engagementfabric.v20180901preview.Channel("channel",
-            account_name="ExampleAccount",
-            channel_functions=[
-                "MockFunction1",
-                "MockFunction2",
-            ],
-            channel_name="ExampleChannel",
-            channel_type="MockChannel",
-            credentials={
-                "AppId": "exampleApp",
-                "AppKey": "exampleAppKey",
-            },
-            resource_group_name="ExampleRg")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account Name

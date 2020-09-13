@@ -31,25 +31,6 @@ class Application(pulumi.CustomResource):
         """
         This type describes an application resource.
 
-        ## Example Usage
-        ### CreateOrUpdateApplication
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        application = azurerm.servicefabricmesh.v20180901preview.Application("application",
-            application_resource_name="sampleApplication",
-            description="Service Fabric Mesh sample application.",
-            location="EastUS",
-            resource_group_name="sbz_demo",
-            services=[{
-                "name": "helloWorldService",
-            }],
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_resource_name: The identity of the application.

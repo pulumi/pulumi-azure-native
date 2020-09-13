@@ -29,26 +29,6 @@ class Solution(pulumi.CustomResource):
         """
         The container for solution.
 
-        ## Example Usage
-        ### SolutionCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        solution = azurerm.operationsmanagement.v20151101preview.Solution("solution",
-            location="East US",
-            plan={
-                "name": "name1",
-                "product": "product1",
-                "promotionCode": "promocode1",
-                "publisher": "publisher1",
-            },
-            resource_group_name="rg1",
-            solution_name="solution1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location

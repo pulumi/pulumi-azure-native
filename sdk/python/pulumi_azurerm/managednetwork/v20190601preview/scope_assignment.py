@@ -25,20 +25,6 @@ class ScopeAssignment(pulumi.CustomResource):
         """
         The Managed Network resource
 
-        ## Example Usage
-        ### ScopeAssignmentsPut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        scope_assignment = azurerm.managednetwork.v20190601preview.ScopeAssignment("scopeAssignment",
-            assigned_managed_network="/subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork",
-            scope="subscriptions/subscriptionC",
-            scope_assignment_name="subscriptionCAssignment")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assigned_managed_network: The managed network ID with scope will be assigned to.

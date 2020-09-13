@@ -31,29 +31,6 @@ class StorageInsightConfig(pulumi.CustomResource):
         """
         The top level storage insight resource container.
 
-        ## Example Usage
-        ### StorageInsightsCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        storage_insight_config = azurerm.operationalinsights.v20200801.StorageInsightConfig("storageInsightConfig",
-            containers=["wad-iis-logfiles"],
-            resource_group_name="OIAutoRest5123",
-            storage_account={
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
-                "key": "1234",
-            },
-            storage_insight_name="AzTestSI1110",
-            tables=[
-                "WADWindowsEventLogsTable",
-                "LinuxSyslogVer2v0",
-            ],
-            workspace_name="aztest5048")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] containers: The names of the blob containers that the workspace should read

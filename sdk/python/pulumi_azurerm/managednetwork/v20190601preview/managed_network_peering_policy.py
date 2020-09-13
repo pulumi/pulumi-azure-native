@@ -28,20 +28,6 @@ class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
         """
         The Managed Network Peering Policy resource
 
-        ## Example Usage
-        ### ManagedNetworkPeeringPoliciesPut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        managed_network_peering_policy = azurerm.managednetwork.v20190601preview.ManagedNetworkPeeringPolicy("managedNetworkPeeringPolicy",
-            managed_network_name="myManagedNetwork",
-            managed_network_peering_policy_name="myHubAndSpoke",
-            resource_group_name="myResourceGroup")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives

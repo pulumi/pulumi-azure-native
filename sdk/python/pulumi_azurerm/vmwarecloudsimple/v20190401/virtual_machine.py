@@ -39,41 +39,6 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Virtual machine model
 
-        ## Example Usage
-        ### CreateVirtualMachine
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        virtual_machine = azurerm.vmwarecloudsimple.v20190401.VirtualMachine("virtualMachine",
-            amount_of_ram=4096,
-            disks=[{
-                "controllerId": "1000",
-                "independenceMode": "persistent",
-                "totalSize": 10485760,
-                "virtualDiskId": "2000",
-            }],
-            location="westus2",
-            nics=[{
-                "network": {
-                    "id": "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualNetworks/dvportgroup-19",
-                },
-                "nicType": "E1000",
-                "powerOnBoot": True,
-                "virtualNicId": "4000",
-            }],
-            number_of_cores=2,
-            private_cloud_id="/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud",
-            resource_group_name="myResourceGroup",
-            resource_pool={
-                "id": "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/resourcePools/resgroup-26",
-            },
-            template_id="/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualMachineTemplates/vm-34",
-            virtual_machine_name="myVirtualMachine")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount_of_ram: The amount of memory

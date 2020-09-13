@@ -29,24 +29,6 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
         """
         EnterpriseKnowledgeGraph resource definition
 
-        ## Example Usage
-        ### Create EnterpriseKnowledgeGraph
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        enterprise_knowledge_graph = azurerm.enterpriseknowledgegraph.v20181203.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph",
-            location="West US",
-            resource_group_name="OneResourceGroupName",
-            resource_name="sampleekgname",
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.

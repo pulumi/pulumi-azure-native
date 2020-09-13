@@ -23,19 +23,6 @@ class SupportPlanType(pulumi.CustomResource):
         """
         The status of the Canonical support plan.
 
-        ## Example Usage
-        ### SupportPlanTypes_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        support_plan_type = azurerm.addons.v20180301.SupportPlanType("supportPlanType",
-            plan_type_name="Standard",
-            provider_name="Canonical")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] plan_type_name: The Canonical support plan type.

@@ -25,17 +25,6 @@ class Alias(pulumi.CustomResource):
         """
         Subscription Information with the alias.
 
-        ## Example Usage
-        ### CreateAlias
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        alias = azurerm.subscription.v20200901.Alias("alias", alias_name="aliasForNewSub")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias_name: Alias Name

@@ -30,64 +30,6 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         """
         Rule Collection Group resource.
 
-        ## Example Usage
-        ### Create FirewallPolicyRuleCollectionGroup
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        firewall_policy_rule_collection_group = azurerm.network.v20200601.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup",
-            firewall_policy_name="firewallPolicy",
-            priority=110,
-            resource_group_name="rg1",
-            rule_collection_group_name="ruleCollectionGroup1",
-            rule_collections=[{
-                "action": {
-                    "type": "Deny",
-                },
-                "name": "Example-Filter-Rule-Collection",
-                "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
-                "rules": [{
-                    "destinationAddresses": ["*"],
-                    "destinationPorts": ["*"],
-                    "ipProtocols": ["TCP"],
-                    "name": "network-rule1",
-                    "ruleType": "NetworkRule",
-                    "sourceAddresses": ["10.1.25.0/24"],
-                }],
-            }])
-
-        ```
-        ### Create FirewallPolicyRuleCollectionGroup With IpGroups
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        firewall_policy_rule_collection_group = azurerm.network.v20200601.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup",
-            firewall_policy_name="firewallPolicy",
-            priority=110,
-            resource_group_name="rg1",
-            rule_collection_group_name="ruleCollectionGroup1",
-            rule_collections=[{
-                "action": {
-                    "type": "Deny",
-                },
-                "name": "Example-Filter-Rule-Collection",
-                "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
-                "rules": [{
-                    "destinationIpGroups": ["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2"],
-                    "destinationPorts": ["*"],
-                    "ipProtocols": ["TCP"],
-                    "name": "network-1",
-                    "ruleType": "NetworkRule",
-                    "sourceIpGroups": ["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1"],
-                }],
-            }])
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.

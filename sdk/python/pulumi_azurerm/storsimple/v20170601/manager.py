@@ -31,26 +31,6 @@ class Manager(pulumi.CustomResource):
         """
         The StorSimple Manager.
 
-        ## Example Usage
-        ### ManagersCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        manager = azurerm.storsimple.v20170601.Manager("manager",
-            cis_intrinsic_settings={
-                "type": "GardaV1",
-            },
-            location="westus",
-            manager_name="ManagerForSDKTest2",
-            resource_group_name="ResourceGroupForSDKTest",
-            sku={
-                "name": "Standard",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']] cis_intrinsic_settings: Represents the type of StorSimple Manager.

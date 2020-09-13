@@ -27,23 +27,6 @@ class ServerAdministrator(pulumi.CustomResource):
         """
         Represents a and external administrator to be created.
 
-        ## Example Usage
-        ### ServerAdministratorCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        server_administrator = azurerm.dbforpostgresql.v20171201.ServerAdministrator("serverAdministrator",
-            administrator_type="ActiveDirectory",
-            login="bob@contoso.com",
-            resource_group_name="testrg",
-            server_name="pgtestsvc4",
-            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_type: The type of administrator.

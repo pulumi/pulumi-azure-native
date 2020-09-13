@@ -28,56 +28,6 @@ class Input(pulumi.CustomResource):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 
-        ## Example Usage
-        ### Create a reference blob input with CSV serialization
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        input = azurerm.streamanalytics.v20160301.Input("input",
-            input_name="input7225",
-            job_name="sj9597",
-            resource_group_name="sjrg8440")
-
-        ```
-        ### Create a stream Event Hub input with JSON serialization
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        input = azurerm.streamanalytics.v20160301.Input("input",
-            input_name="input7425",
-            job_name="sj197",
-            resource_group_name="sjrg3139")
-
-        ```
-        ### Create a stream IoT Hub input with Avro serialization
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        input = azurerm.streamanalytics.v20160301.Input("input",
-            input_name="input7970",
-            job_name="sj9742",
-            resource_group_name="sjrg3467")
-
-        ```
-        ### Create a stream blob input with CSV serialization
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        input = azurerm.streamanalytics.v20160301.Input("input",
-            input_name="input8899",
-            job_name="sj6695",
-            resource_group_name="sjrg8161")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] input_name: The name of the input.

@@ -29,24 +29,6 @@ class Device(pulumi.CustomResource):
         """
         Hybrid network device resource.
 
-        ## Example Usage
-        ### Create or update hybrid network device
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        device = azurerm.hybridnetwork.v20200101preview.Device("device",
-            azure_stack_edge={
-                "id": "/subscriptions/subid1/resourcegroups/rg2/providers/Microsoft.DataboxEdge/DataboxEdgeDevices/TestDataboxEdgeDeviceName",
-            },
-            device_name="TestDevice",
-            device_type="AzureStackEdge",
-            location="eastus",
-            resource_group_name="rg1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] azure_stack_edge: The reference to the azure stack edge device.

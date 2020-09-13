@@ -28,20 +28,6 @@ class DigitalTwin(pulumi.CustomResource):
         """
         The description of the DigitalTwins service.
 
-        ## Example Usage
-        ### Put a DigitalTwinsInstance resource
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        digital_twin = azurerm.digitaltwins.v20200301preview.DigitalTwin("digitalTwin",
-            location="WestUS",
-            resource_group_name="resRg",
-            resource_name="myDigitalTwinsService")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The resource location.

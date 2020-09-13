@@ -26,26 +26,6 @@ class ControllerDetails(pulumi.CustomResource):
         """
         Represents an instance of a DNC controller.
 
-        ## Example Usage
-        ### Create controller
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        controller_details = azurerm.delegatednetwork.v20200808preview.ControllerDetails("controllerDetails",
-            controller_type="Kubernetes",
-            kubernetes_properties=[{
-                "apiServerEndpoint": "https://testk8s.cloudapp.net",
-                "clusterRootCA": "ddsadsad344mfdsfdl",
-                "serverAppID": "546192d7-503f-477a-9cfe-4efc3ee2b6e1",
-                "serverTenantID": "da6192d7-503f-477a-9cfe-4efc3ee2b6c3",
-            }],
-            resource_group_name="TestRG",
-            resource_name="dnctestcontroller")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] controller_type: Type of Delegated controller.

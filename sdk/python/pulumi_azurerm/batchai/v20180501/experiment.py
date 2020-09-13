@@ -24,20 +24,6 @@ class Experiment(pulumi.CustomResource):
         """
         Experiment information.
 
-        ## Example Usage
-        ### Create an experiment
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        experiment = azurerm.batchai.v20180501.Experiment("experiment",
-            experiment_name="demo_experiment",
-            resource_group_name="demo_resource_group",
-            workspace_name="demo_workspace")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] experiment_name: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.

@@ -29,25 +29,6 @@ class WorkspaceConnection(pulumi.CustomResource):
         """
         Workspace connection.
 
-        ## Example Usage
-        ### CreateWorkspaceConnection
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        workspace_connection = azurerm.machinelearningservices.v20200601.WorkspaceConnection("workspaceConnection",
-            auth_type="PAT",
-            category="ACR",
-            connection_name="connection-1",
-            name="connection-1",
-            resource_group_name="resourceGroup-1",
-            target="www.facebook.com",
-            value="secrets",
-            workspace_name="workspace-1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_type: Authorization type of the workspace connection.

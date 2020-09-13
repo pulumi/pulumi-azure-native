@@ -28,37 +28,6 @@ class PeerAsn(pulumi.CustomResource):
         """
         The essential information related to the peer's ASN.
 
-        ## Example Usage
-        ### Create a peer ASN
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        peer_asn = azurerm.peering.v20200401.PeerAsn("peerAsn",
-            peer_asn=65000,
-            peer_asn_name="peerAsnName",
-            peer_contact_detail=[
-                {
-                    "email": "noc@contoso.com",
-                    "phone": "+1 (234) 567-8999",
-                    "role": "Noc",
-                },
-                {
-                    "email": "abc@contoso.com",
-                    "phone": "+1 (234) 567-8900",
-                    "role": "Policy",
-                },
-                {
-                    "email": "xyz@contoso.com",
-                    "phone": "+1 (234) 567-8900",
-                    "role": "Technical",
-                },
-            ],
-            peer_name="Contoso")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] peer_asn: The Autonomous System Number (ASN) of the peer.

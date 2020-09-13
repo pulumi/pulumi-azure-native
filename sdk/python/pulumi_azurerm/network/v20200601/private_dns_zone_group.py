@@ -29,21 +29,6 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         """
         Private dns zone group resource.
 
-        ## Example Usage
-        ### Create private dns zone group
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        private_dns_zone_group = azurerm.network.v20200601.PrivateDnsZoneGroup("privateDnsZoneGroup",
-            private_dns_zone_configs=[{}],
-            private_dns_zone_group_name="testPdnsgroup",
-            private_endpoint_name="testPe",
-            resource_group_name="rg1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.

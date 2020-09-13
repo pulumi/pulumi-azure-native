@@ -38,21 +38,6 @@ class NotificationHub(pulumi.CustomResource):
         """
         Description of a NotificationHub Resource.
 
-        ## Example Usage
-        ### NotificationHubCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        notification_hub = azurerm.notificationhubs.v20170401.NotificationHub("notificationHub",
-            location="eastus",
-            namespace_name="nh-sdk-ns",
-            notification_hub_name="nh-sdk-hub",
-            resource_group_name="5ktrial")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdmCredentialArgs']] adm_credential: The AdmCredential of the created NotificationHub

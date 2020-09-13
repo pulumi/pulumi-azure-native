@@ -26,22 +26,6 @@ class HybridUseBenefit(pulumi.CustomResource):
         """
         Response on GET of a hybrid use benefit
 
-        ## Example Usage
-        ### HybridUseBenefit
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        hybrid_use_benefit = azurerm.softwareplan.v20191201.HybridUseBenefit("hybridUseBenefit",
-            plan_id="94f46eda-45f8-493a-8425-251921463a89",
-            scope="subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
-            sku={
-                "name": "SQL_Server_Perpetual",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] plan_id: This is a unique identifier for a plan. Should be a guid.

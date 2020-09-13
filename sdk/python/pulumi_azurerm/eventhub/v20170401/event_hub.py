@@ -30,32 +30,6 @@ class EventHub(pulumi.CustomResource):
         """
         Single item in List or Get Event Hub operation
 
-        ## Example Usage
-        ### EventHubCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        event_hub = azurerm.eventhub.v20170401.EventHub("eventHub",
-            capture_description={
-                "destination": {
-                    "name": "EventHubArchive.AzureBlockBlob",
-                },
-                "enabled": True,
-                "encoding": "Avro",
-                "intervalInSeconds": 120,
-                "sizeLimitInBytes": 10485763,
-            },
-            event_hub_name="sdk-EventHub-6547",
-            message_retention_in_days=4,
-            namespace_name="sdk-Namespace-5357",
-            partition_count=4,
-            resource_group_name="Default-NotificationHubs-AustraliaEast",
-            status="Active")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']] capture_description: Properties of capture description

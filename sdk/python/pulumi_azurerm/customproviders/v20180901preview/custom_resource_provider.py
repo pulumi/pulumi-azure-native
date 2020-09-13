@@ -30,30 +30,6 @@ class CustomResourceProvider(pulumi.CustomResource):
         """
         A manifest file that defines the custom resource provider resources.
 
-        ## Example Usage
-        ### Create or update the custom resource provider
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        custom_resource_provider = azurerm.customproviders.v20180901preview.CustomResourceProvider("customResourceProvider",
-            actions=[{
-                "endpoint": "https://mytestendpoint/",
-                "name": "TestAction",
-                "routingType": "Proxy",
-            }],
-            location="eastus",
-            resource_group_name="testRG",
-            resource_provider_name="newrp",
-            resource_types=[{
-                "endpoint": "https://mytestendpoint2/",
-                "name": "TestResource",
-                "routingType": "Proxy,Cache",
-            }])
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomRPActionRouteDefinitionArgs']]]] actions: A list of actions that the custom resource provider implements.

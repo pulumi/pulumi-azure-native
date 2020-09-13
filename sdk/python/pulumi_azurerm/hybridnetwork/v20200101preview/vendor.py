@@ -25,17 +25,6 @@ class Vendor(pulumi.CustomResource):
         """
         Vendor resource.
 
-        ## Example Usage
-        ### Create or update Vendor resource
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        vendor = azurerm.hybridnetwork.v20200101preview.Vendor("vendor", vendor_name="TestVendor")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location.

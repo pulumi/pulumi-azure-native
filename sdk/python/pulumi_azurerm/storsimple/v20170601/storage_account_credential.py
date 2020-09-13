@@ -30,27 +30,6 @@ class StorageAccountCredential(pulumi.CustomResource):
         """
         The storage account credential.
 
-        ## Example Usage
-        ### StorageAccountCredentialsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        storage_account_credential = azurerm.storsimple.v20170601.StorageAccountCredential("storageAccountCredential",
-            access_key={
-                "encryptionAlgorithm": "RSAES_PKCS1_v_1_5",
-                "encryptionCertThumbprint": "A872A2DF196AC7682EE24791E7DE2E2A360F5926",
-                "value": "ATuJSkmrFk4h8r1jrZ4nd3nthLSddcguEO5QLO/NECUtTuB9kL4dNv3/jC4WOvFkeVr3x1UvfhlIeMmJBF1SMr6hR1JzD0xNU/TtQqUeXN7V3jk7I+2l67P9StuHWR6OMd3XOLwvznxOEQtEWpweDiobZU1ZiY03WafcGZFpV5j6tEoHeopoZ1J/GhPtkYmx+TqxzUN6qnir5rP3NSYiZciImP/qu8U9yUV/xpVRv39KvFc2Yr5SpKpMMRUj55XW10UnPer63M6KovF8X9Wi/fNnrZAs1Esl5XddZETGrW/e5B++VMJ6w0Q/uvPR+UBwrOU0804l0SzwdIe3qVVd0Q==",
-            },
-            end_point="blob.core.windows.net",
-            manager_name="ManagerForSDKTest1",
-            resource_group_name="ResourceGroupForSDKTest",
-            ssl_status="Enabled",
-            storage_account_credential_name="SACForTest")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] access_key: The details of the storage account password.

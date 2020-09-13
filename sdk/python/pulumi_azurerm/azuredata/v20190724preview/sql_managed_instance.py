@@ -32,27 +32,6 @@ class SqlManagedInstance(pulumi.CustomResource):
         """
         A SqlManagedInstance.
 
-        ## Example Usage
-        ### Updates a SQL Managed Instance tags.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        sql_managed_instance = azurerm.azuredata.v20190724preview.SqlManagedInstance("sqlManagedInstance",
-            admin="Admin user",
-            end_time="Instance end time",
-            instance_endpoint="The on premise instance endpoint",
-            location="northeurope",
-            resource_group_name="testrg",
-            sql_managed_instance_name="testsqlManagedInstance",
-            start_time="Instance start time",
-            tags={
-                "mytag": "myval",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin: The instance admin user

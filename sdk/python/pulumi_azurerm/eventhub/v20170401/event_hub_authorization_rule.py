@@ -26,25 +26,6 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
 
-        ## Example Usage
-        ### EventHubAuthorizationRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        event_hub_authorization_rule = azurerm.eventhub.v20170401.EventHubAuthorizationRule("eventHubAuthorizationRule",
-            authorization_rule_name="sdk-Authrules-2513",
-            event_hub_name="sdk-EventHub-532",
-            namespace_name="sdk-Namespace-960",
-            resource_group_name="ArunMonocle",
-            rights=[
-                "Listen",
-                "Send",
-            ])
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.

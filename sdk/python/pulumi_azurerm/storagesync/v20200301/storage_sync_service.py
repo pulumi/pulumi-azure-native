@@ -27,22 +27,6 @@ class StorageSyncService(pulumi.CustomResource):
         """
         Storage Sync Service object.
 
-        ## Example Usage
-        ### StorageSyncServices_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        storage_sync_service = azurerm.storagesync.v20200301.StorageSyncService("storageSyncService",
-            incoming_traffic_policy="AllowAllTraffic",
-            location="WestUS",
-            resource_group_name="SampleResourceGroup_1",
-            storage_sync_service_name="SampleStorageSyncService_1",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] incoming_traffic_policy: Incoming Traffic Policy

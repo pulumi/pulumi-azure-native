@@ -32,24 +32,6 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         A virtual network.
 
-        ## Example Usage
-        ### VirtualNetworks_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        virtual_network = azurerm.devtestlab.v20180915.VirtualNetwork("virtualNetwork",
-            lab_name="{devtestlab-name}",
-            location="{azure-location}",
-            name="{virtualnetwork-name}",
-            resource_group_name="myResourceGroup",
-            tags={
-                "MyTag": "MyValue",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]] allowed_subnets: The allowed subnets of the virtual network.

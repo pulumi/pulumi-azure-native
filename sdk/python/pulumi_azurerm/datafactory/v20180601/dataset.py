@@ -27,32 +27,6 @@ class Dataset(pulumi.CustomResource):
         """
         Dataset resource type.
 
-        ## Example Usage
-        ### Datasets_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        dataset = azurerm.datafactory.v20180601.Dataset("dataset",
-            dataset_name="exampleDataset",
-            factory_name="exampleFactoryName",
-            resource_group_name="exampleResourceGroup")
-
-        ```
-        ### Datasets_Update
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        dataset = azurerm.datafactory.v20180601.Dataset("dataset",
-            dataset_name="exampleDataset",
-            factory_name="exampleFactoryName",
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dataset_name: The dataset name.

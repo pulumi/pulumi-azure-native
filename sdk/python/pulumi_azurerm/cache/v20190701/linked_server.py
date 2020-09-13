@@ -27,23 +27,6 @@ class LinkedServer(pulumi.CustomResource):
         """
         Response to put/get linked server (with properties) for Redis cache.
 
-        ## Example Usage
-        ### LinkedServer_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        linked_server = azurerm.cache.v20190701.LinkedServer("linkedServer",
-            linked_redis_cache_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
-            linked_redis_cache_location="West US",
-            linked_server_name="cache2",
-            name="cache1",
-            resource_group_name="rg1",
-            server_role="Secondary")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.

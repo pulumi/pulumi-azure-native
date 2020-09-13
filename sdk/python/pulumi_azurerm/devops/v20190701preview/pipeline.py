@@ -30,41 +30,6 @@ class Pipeline(pulumi.CustomResource):
         """
         Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
 
-        ## Example Usage
-        ### Create an Azure pipeline to deploy a sample ASP.Net application to Azure web-app
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        pipeline = azurerm.devops.v20190701preview.Pipeline("pipeline",
-            bootstrap_configuration={
-                "template": {
-                    "id": "ms.vss-continuous-delivery-pipeline-templates.aspnet-windowswebapp",
-                    "parameters": {
-                        "appInsightLocation": "South India",
-                        "appServicePlan": "S1 Standard",
-                        "azureAuth": "{\"scheme\":\"ServicePrincipal\",\"parameters\":{\"tenantid\":\"{subscriptionTenantId}\",\"objectid\":\"{appObjectId}\",\"serviceprincipalid\":\"{appId}\",\"serviceprincipalkey\":\"{appSecret}\"}}",
-                        "location": "South India",
-                        "resourceGroup": "myAspNetWebAppPipeline-rg",
-                        "subscriptionId": "{subscriptionId}",
-                        "webAppName": "myAspNetWebApp",
-                    },
-                },
-            },
-            location="South India",
-            organization={
-                "name": "myAspNetWebAppPipeline-org",
-            },
-            pipeline_name="myAspNetWebAppPipeline",
-            project={
-                "name": "myAspNetWebAppPipeline-project",
-            },
-            resource_group_name="myAspNetWebAppPipeline-rg",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BootstrapConfigurationArgs']] bootstrap_configuration: Configuration used to bootstrap the Pipeline.

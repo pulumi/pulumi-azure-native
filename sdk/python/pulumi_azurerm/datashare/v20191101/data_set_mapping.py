@@ -26,64 +26,6 @@ class DataSetMapping(pulumi.CustomResource):
         """
         A data set mapping data transfer object.
 
-        ## Example Usage
-        ### DataSetMappings_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        data_set_mapping = azurerm.datashare.v20191101.DataSetMapping("dataSetMapping",
-            account_name="Account1",
-            data_set_mapping_name="DatasetMapping1",
-            kind="Blob",
-            resource_group_name="SampleResourceGroup",
-            share_subscription_name="ShareSubscription1")
-
-        ```
-        ### DataSetMappings_SqlDB_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        data_set_mapping = azurerm.datashare.v20191101.DataSetMapping("dataSetMapping",
-            account_name="Account1",
-            data_set_mapping_name="DatasetMapping1",
-            kind="SqlDBTable",
-            resource_group_name="SampleResourceGroup",
-            share_subscription_name="ShareSubscription1")
-
-        ```
-        ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        data_set_mapping = azurerm.datashare.v20191101.DataSetMapping("dataSetMapping",
-            account_name="Account1",
-            data_set_mapping_name="DatasetMapping1",
-            kind="AdlsGen2File",
-            resource_group_name="SampleResourceGroup",
-            share_subscription_name="ShareSubscription1")
-
-        ```
-        ### DataSetMappings_SqlDW_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        data_set_mapping = azurerm.datashare.v20191101.DataSetMapping("dataSetMapping",
-            account_name="Account1",
-            data_set_mapping_name="DatasetMapping1",
-            kind="SqlDWTable",
-            resource_group_name="SampleResourceGroup",
-            share_subscription_name="ShareSubscription1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.

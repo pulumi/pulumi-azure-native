@@ -24,19 +24,6 @@ class PostgresInstance(pulumi.CustomResource):
         """
         A Postgres Instance.
 
-        ## Example Usage
-        ### Creates or updates a postgres Instance.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        postgres_instance = azurerm.azuredata.v20190724preview.PostgresInstance("postgresInstance",
-            postgres_instance_name="testpostgresInstance",
-            resource_group_name="testrg")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] postgres_instance_name: Name of PostgresInstance

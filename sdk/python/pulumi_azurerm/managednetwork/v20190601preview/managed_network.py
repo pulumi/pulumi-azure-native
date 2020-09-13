@@ -28,55 +28,6 @@ class ManagedNetwork(pulumi.CustomResource):
         """
         The Managed Network resource
 
-        ## Example Usage
-        ### ManagedNetworksPut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        managed_network = azurerm.managednetwork.v20190601preview.ManagedNetwork("managedNetwork",
-            location="eastus",
-            managed_network_name="myManagedNetwork",
-            resource_group_name="myResourceGroup",
-            scope={
-                "managementGroups": [
-                    {
-                        "id": "/providers/Microsoft.Management/managementGroups/20000000-0001-0000-0000-000000000000",
-                    },
-                    {
-                        "id": "/providers/Microsoft.Management/managementGroups/20000000-0002-0000-0000-000000000000",
-                    },
-                ],
-                "subnets": [
-                    {
-                        "id": "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetC/subnets/subnetA",
-                    },
-                    {
-                        "id": "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetC/subnets/subnetB",
-                    },
-                ],
-                "subscriptions": [
-                    {
-                        "id": "subscriptionA",
-                    },
-                    {
-                        "id": "subscriptionB",
-                    },
-                ],
-                "virtualNetworks": [
-                    {
-                        "id": "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
-                    },
-                    {
-                        "id": "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
-                    },
-                ],
-            },
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives

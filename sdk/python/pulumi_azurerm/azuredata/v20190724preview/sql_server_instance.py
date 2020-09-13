@@ -31,28 +31,6 @@ class SqlServerInstance(pulumi.CustomResource):
         """
         A SqlServerInstance.
 
-        ## Example Usage
-        ### Updates a SQL Server Instance tags.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        sql_server_instance = azurerm.azuredata.v20190724preview.SqlServerInstance("sqlServerInstance",
-            container_resource_id="Arc Machine Name",
-            edition="Developer",
-            location="northeurope",
-            resource_group_name="testrg",
-            sql_server_instance_name="testsqlServerInstance",
-            status="Connected",
-            tags={
-                "mytag": "myval",
-            },
-            v_core="4",
-            version="SQL Server 2017")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_resource_id: ARM Resource id of the container resource (Azure Arc for Servers)

@@ -28,21 +28,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         """
         Maintenance configuration record type
 
-        ## Example Usage
-        ### MaintenanceConfigurations_CreateOrUpdateForResource
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        maintenance_configuration = azurerm.maintenance.v20200401.MaintenanceConfiguration("maintenanceConfiguration",
-            location="westus2",
-            namespace="Microsoft.Maintenance",
-            resource_group_name="examplerg",
-            resource_name="configuration1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.

@@ -32,27 +32,6 @@ class Volume(pulumi.CustomResource):
         """
         The volume.
 
-        ## Example Usage
-        ### VolumesCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        volume = azurerm.storsimple.v20170601.Volume("volume",
-            access_control_record_ids=["/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACR2"],
-            device_name="Device05ForSDKTest",
-            manager_name="ManagerForSDKTest1",
-            monitoring_status="Enabled",
-            resource_group_name="ResourceGroupForSDKTest",
-            size_in_bytes=5368709120,
-            volume_container_name="VolumeContainerForSDKTest",
-            volume_name="Volume1ForSDKTest",
-            volume_status="Offline",
-            volume_type="Tiered")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] access_control_record_ids: The IDs of the access control records, associated with the volume.

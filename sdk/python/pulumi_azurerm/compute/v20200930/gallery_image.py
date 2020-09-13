@@ -41,29 +41,6 @@ class GalleryImage(pulumi.CustomResource):
         """
         Specifies information about the gallery image definition that you want to create or update.
 
-        ## Example Usage
-        ### Create or update a simple gallery image.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        gallery_image = azurerm.compute.v20200930.GalleryImage("galleryImage",
-            gallery_image_name="myGalleryImageName",
-            gallery_name="myGalleryName",
-            hyper_v_generation="V1",
-            identifier={
-                "offer": "myOfferName",
-                "publisher": "myPublisherName",
-                "sku": "mySkuName",
-            },
-            location="West US",
-            os_state="Generalized",
-            os_type="Windows",
-            resource_group_name="myResourceGroup")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this gallery image definition resource. This property is updatable.

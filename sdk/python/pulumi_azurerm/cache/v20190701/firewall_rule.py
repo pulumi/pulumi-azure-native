@@ -26,22 +26,6 @@ class FirewallRule(pulumi.CustomResource):
         """
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 
-        ## Example Usage
-        ### RedisCacheFirewallRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        firewall_rule = azurerm.cache.v20190701.FirewallRule("firewallRule",
-            cache_name="cache1",
-            end_ip="192.168.1.4",
-            resource_group_name="rg1",
-            rule_name="rule1",
-            start_ip="192.168.1.1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name of the Redis cache.

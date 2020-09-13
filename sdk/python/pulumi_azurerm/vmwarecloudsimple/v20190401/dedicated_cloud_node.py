@@ -34,27 +34,6 @@ class DedicatedCloudNode(pulumi.CustomResource):
         """
         Dedicated cloud node model
 
-        ## Example Usage
-        ### CreateDedicatedCloudNode
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        dedicated_cloud_node = azurerm.vmwarecloudsimple.v20190401.DedicatedCloudNode("dedicatedCloudNode",
-            availability_zone_id="az1",
-            dedicated_cloud_node_name="myNode",
-            location="westus",
-            nodes_count=1,
-            placement_group_id="n1",
-            purchase_id="56acbd46-3d36-4bbf-9b08-57c30fdf6932",
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": "VMware_CloudSimple_CS28",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone_id: Availability Zone id, e.g. "az1"

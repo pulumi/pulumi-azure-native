@@ -32,33 +32,6 @@ class ManagedNetworkGroup(pulumi.CustomResource):
         """
         The Managed Network Group resource
 
-        ## Example Usage
-        ### ManagementNetworkGroupsPut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        managed_network_group = azurerm.managednetwork.v20190601preview.ManagedNetworkGroup("managedNetworkGroup",
-            managed_network_group_name="myManagedNetworkGroup1",
-            managed_network_name="myManagedNetwork",
-            management_groups=[],
-            resource_group_name="myResourceGroup",
-            subnets=[{
-                "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA",
-            }],
-            subscriptions=[],
-            virtual_networks=[
-                {
-                    "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
-                },
-                {
-                    "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
-                },
-            ])
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Responsibility role under which this Managed Network Group will be created

@@ -29,23 +29,6 @@ class IoTSpace(pulumi.CustomResource):
         """
         The description of the IoTSpaces service.
 
-        ## Example Usage
-        ### Put an IoT spaces service
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        io_t_space = azurerm.iotspaces.v20171001preview.IoTSpace("ioTSpace",
-            location="string",
-            resource_group_name="resRg",
-            resource_name="myIoTSpacesService",
-            sku={
-                "name": "F1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The resource location.

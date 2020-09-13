@@ -30,27 +30,6 @@ class Project(pulumi.CustomResource):
         """
         An object that represents a machine learning project.
 
-        ## Example Usage
-        ### CreateProject
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        project = azurerm.machinelearningexperimentation.v20170501preview.Project("project",
-            account_name="testaccount",
-            friendly_name="testName",
-            gitrepo="https://github/abc",
-            location="East US",
-            project_name="testProject",
-            resource_group_name="myResourceGroup",
-            tags={
-                "tagKey1": "TagValue1",
-            },
-            workspace_name="testworkspace")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the machine learning team account.

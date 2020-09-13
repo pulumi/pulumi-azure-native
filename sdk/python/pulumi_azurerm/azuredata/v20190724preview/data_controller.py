@@ -28,27 +28,6 @@ class DataController(pulumi.CustomResource):
         """
         Data controller resource
 
-        ## Example Usage
-        ### Updates a dataControllers tags.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        data_controller = azurerm.azuredata.v20190724preview.DataController("dataController",
-            data_controller_name="testdataController",
-            location="northeurope",
-            on_premise_property={
-                "id": "12345678-1234-1234-ab12-1a2b3c4d5e6f",
-                "publicSigningKey": "publicOnPremSigningKey",
-            },
-            resource_group_name="testrg",
-            tags={
-                "mytag": "myval",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives

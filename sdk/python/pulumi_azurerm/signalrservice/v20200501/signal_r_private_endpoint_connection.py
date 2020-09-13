@@ -28,27 +28,6 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection to SignalR resource
 
-        ## Example Usage
-        ### SignalRPrivateEndpointConnections_Update
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        signal_r_private_endpoint_connection = azurerm.signalrservice.v20200501.SignalRPrivateEndpointConnection("signalRPrivateEndpointConnection",
-            private_endpoint={
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
-            },
-            private_endpoint_connection_name="mySignalRService.1fa229cd-bf3f-47f0-8c49-afb36723997e",
-            private_link_service_connection_state={
-                "actionsRequired": "None",
-                "status": "Approved",
-            },
-            resource_group_name="myResourceGroup",
-            resource_name="mySignalRService")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: Private endpoint associated with the private endpoint connection

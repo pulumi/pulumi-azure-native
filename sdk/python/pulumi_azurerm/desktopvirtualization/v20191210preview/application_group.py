@@ -29,28 +29,6 @@ class ApplicationGroup(pulumi.CustomResource):
         """
         Represents a ApplicationGroup definition.
 
-        ## Example Usage
-        ### ApplicationGroup_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        application_group = azurerm.desktopvirtualization.v20191210preview.ApplicationGroup("applicationGroup",
-            application_group_name="applicationGroup1",
-            application_group_type="RemoteApp",
-            description="des1",
-            friendly_name="friendly",
-            host_pool_arm_path="/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
-            location="centralus",
-            resource_group_name="resourceGroup1",
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_group_name: The name of the application group

@@ -26,22 +26,6 @@ class ShareSubscription(pulumi.CustomResource):
         """
         A share subscription data transfer object.
 
-        ## Example Usage
-        ### ShareSubscriptions_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        share_subscription = azurerm.datashare.v20191101.ShareSubscription("shareSubscription",
-            account_name="Account1",
-            invitation_id="12345678-1234-1234-12345678abd",
-            resource_group_name="SampleResourceGroup",
-            share_subscription_name="ShareSubscription1",
-            source_share_location="eastus2")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.

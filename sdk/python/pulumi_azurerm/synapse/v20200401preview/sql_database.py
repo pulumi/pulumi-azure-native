@@ -29,24 +29,6 @@ class SqlDatabase(pulumi.CustomResource):
         """
         A sql database resource.
 
-        ## Example Usage
-        ### Creates a sqldatabase.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        sql_database = azurerm.synapse.v20200401preview.SqlDatabase("sqlDatabase",
-            location="westus",
-            resource_group_name="rg_88eed28c-5243-4f02-8251-bfa1e69e7057",
-            sql_database_name="73164535-f22d-4daa-b014-1f23bbe361b7",
-            tags={
-                "tag1": "val1",
-            },
-            workspace_name="srv_85d31a1e-718b-4bda-9e53-a91230dd4ce5")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: The collation of the database.

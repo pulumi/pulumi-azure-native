@@ -30,23 +30,6 @@ class ManagementAssociation(pulumi.CustomResource):
         """
         The container for solution.
 
-        ## Example Usage
-        ### SolutionCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        management_association = azurerm.operationsmanagement.v20151101preview.ManagementAssociation("managementAssociation",
-            location="East US",
-            management_association_name="managementAssociation1",
-            provider_name="providerName",
-            resource_group_name="rg1",
-            resource_name="resourceName",
-            resource_type="resourceType")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location

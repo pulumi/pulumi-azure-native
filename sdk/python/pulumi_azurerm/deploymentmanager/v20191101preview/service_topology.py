@@ -26,35 +26,6 @@ class ServiceTopology(pulumi.CustomResource):
         """
         The resource representation of a service topology.
 
-        ## Example Usage
-        ### Create a topology with Artifact Source
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        service_topology = azurerm.deploymentmanager.v20191101preview.ServiceTopology("serviceTopology",
-            artifact_source_id="Microsoft.DeploymentManager/artifactSources/myArtifactSource",
-            location="centralus",
-            resource_group_name="myResourceGroup",
-            service_topology_name="myTopology",
-            tags={})
-
-        ```
-        ### Create a topology without Artifact Source
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        service_topology = azurerm.deploymentmanager.v20191101preview.ServiceTopology("serviceTopology",
-            location="centralus",
-            resource_group_name="myResourceGroup",
-            service_topology_name="myTopology",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_source_id: The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.

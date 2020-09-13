@@ -32,32 +32,6 @@ class PublishedBlueprint(pulumi.CustomResource):
         """
         Represents a published blueprint.
 
-        ## Example Usage
-        ### PublishedManagementGroupBlueprint_Publish
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        published_blueprint = azurerm.blueprint.v20181101preview.PublishedBlueprint("publishedBlueprint",
-            blueprint_name="simpleBlueprint",
-            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
-            version_id="v2")
-
-        ```
-        ### PublishedSubscriptionBlueprint_Publish
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        published_blueprint = azurerm.blueprint.v20181101preview.PublishedBlueprint("publishedBlueprint",
-            blueprint_name="simpleBlueprint",
-            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000",
-            version_id="v2")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blueprint_name: Name of the published blueprint definition.
