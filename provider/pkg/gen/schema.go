@@ -848,8 +848,9 @@ func (m *moduleGenerator) getEnumValues(property *spec.Schema) (enum []string) {
 		return
 	}
 
-	restrictive := true
-	// If x-ms-enum is present and modelAsString is set to false, the enum is not strict, so we don't want to enforce it.
+	restrictive := false
+	// If x-ms-enum is present and modelAsString is set to false, the enum is strict, so we want to enforce it.
+	// Otherwise, treat the enum as a string.
 	if extension, ok := property.Extensions[extensionEnum]; ok {
 		if modelAsString, ok := extension.(map[string]interface{})["modelAsString"]; ok {
 			if v, ok := modelAsString.(bool); ok {
