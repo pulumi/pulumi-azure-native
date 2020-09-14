@@ -58,7 +58,6 @@ type AzureAPIResource struct {
 	Path          string                      `json:"path"`
 	GetParameters []AzureAPIParameter         `json:"GET"`
 	PutParameters []AzureAPIParameter         `json:"PUT"`
-	Examples      []AzureAPIExample           `json:"examples,omitempty"`
 	Response      map[string]AzureAPIProperty `json:"response"`
 }
 

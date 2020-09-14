@@ -21,7 +21,6 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
-	"regexp"
 	"sort"
 	"strings"
 
@@ -35,8 +34,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 )
 
+// Note - this needs to be kept in sync with the layout in the SDK package
+const goBasePath = "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
+
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureAPIMetadata, error) {
+func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureAPIMetadata, map[string][]provider.AzureAPIExample, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azurerm",
 		Description: "A Pulumi package for creating and managing Azure resources.",
@@ -230,6 +232,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		"azurerm": "AzureRM",
 	}
 	pythonModuleNames := map[string]string{}
+	golangImportAliases := map[string]string{}
 
 	var providers []string
 	for prov := range providerMap {
@@ -237,6 +240,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 	}
 	sort.Strings(providers)
 
+	exampleMap := make(map[string][]provider.AzureAPIExample)
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
 		var versions []string
@@ -246,13 +250,19 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		sort.Strings(versions)
 
 		for _, version := range versions {
-			gen := packageGenerator{pkg: &pkg, metadata: &metadata, apiVersion: version}
+			gen := packageGenerator{
+				pkg:        &pkg,
+				metadata:   &metadata,
+				apiVersion: version,
+				examples:   exampleMap,
+			}
 
-			// Populate C# and Python module mapping.
+			// Populate C#, Python and Go module mapping.
 			module := gen.providerToModule(providerName)
 			csVersion := strings.Title(csharpVersionReplacer.Replace(version))
 			csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
 			pythonModuleNames[module] = module
+			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)
 
 			// Populate resources and get invokes.
 			items := versionMap[version]
@@ -279,26 +289,6 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 				gen.genListFunctions(providerName, typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
 			}
 		}
-	}
-
-	const goBasePath = "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
-	golangImportAliases := map[string]string{}
-
-	re := regexp.MustCompile(`(?P<pkgName>.*):(?P<module>.*)/(?P<version>.*):(?P<type>.*)`)
-	for resName := range pkg.Resources {
-		subMatches := re.FindStringSubmatch(resName)
-		subMatchMap := map[string]string{}
-
-		if len(subMatches) != len(re.SubexpNames()) {
-			return nil, nil, fmt.Errorf("unexpected resource format: %s", resName)
-		}
-		for i, name := range re.SubexpNames() {
-			if i != 0 {
-				subMatchMap[name] = subMatches[i]
-			}
-		}
-		packageImport := filepath.Join(goBasePath, subMatchMap["module"], subMatchMap["version"])
-		golangImportAliases[packageImport] = subMatchMap["module"]
 	}
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
@@ -336,7 +326,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		"namespaces": csharpNamespaces,
 	})
 
-	return &pkg, &metadata, nil
+	return &pkg, &metadata, exampleMap, nil
 }
 
 // Microsoft-specific API extension constants.
@@ -353,6 +343,7 @@ const (
 type packageGenerator struct {
 	pkg        *pschema.PackageSpec
 	metadata   *provider.AzureAPIMetadata
+	examples   map[string][]provider.AzureAPIExample
 	apiVersion string
 }
 
@@ -447,7 +438,6 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 		Path:          key,
 		GetParameters: requestFunction.parameters,
 		PutParameters: resourceRequest.parameters,
-		Examples:      g.generateExampleReferences(prov, key, path, swagger),
 		Response:      resourceResponse.properties,
 	}
 	g.metadata.Resources[resourceTok] = r
@@ -459,9 +449,12 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 		Response:      responseFunction.properties,
 	}
 	g.metadata.Invokes[functionTok] = f
+
+	g.generateExampleReferences(resourceTok, path, swagger)
+
 }
 
-func (g *packageGenerator) generateExampleReferences(providerName, key string, path *spec.PathItem, swagger *openapi.Spec) []provider.AzureAPIExample {
+func (g *packageGenerator) generateExampleReferences(resourceTok string, path *spec.PathItem, swagger *openapi.Spec) error {
 	raw, ok := path.Put.Extensions["x-ms-examples"]
 	if !ok {
 		return nil
@@ -479,24 +472,24 @@ func (g *packageGenerator) generateExampleReferences(providerName, key string, p
 		relativePath := resolved["$ref"].(string)
 		relativeURL, err := url.Parse(relativePath)
 		if err != nil {
-			panic(err)
+			return err
 		}
 		cwd, err := os.Getwd()
 		if err != nil {
-			panic(err)
+			return err
 		}
 
 		url, err := swagger.ResolveReference(relativeURL.String())
 		if err != nil {
-			panic(err)
+			return err
 		}
 
 		url, err = filepath.Rel(cwd, url)
 		if err != nil {
-			panic(err)
+			return err
 		}
 		if _, err := os.Stat(url); err != nil {
-			panic(err)
+			return err
 		}
 		result = append(result, provider.AzureAPIExample{
 			Description: k,
@@ -509,7 +502,8 @@ func (g *packageGenerator) generateExampleReferences(providerName, key string, p
 		return result[i].Description < result[j].Description
 	})
 
-	return result
+	g.examples[resourceTok] = result
+	return nil
 }
 
 // genListFunctions defines functions for list* (listKeys, listSecrets, etc.) POST endpoints.
