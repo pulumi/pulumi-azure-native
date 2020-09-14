@@ -4,7 +4,7 @@ archives:
 before:
   hooks:
     - make codegen
-    - make schema
+    - make generate_schema
 blobs:
   - bucket: get.pulumi.com
     folder: releases/plugins/
