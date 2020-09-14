@@ -20,7 +20,10 @@ class GetSqlResourceSqlStoredProcedureResult:
     """
     An Azure Cosmos DB storedProcedure.
     """
-    def __init__(__self__, location=None, name=None, resource=None, tags=None, type=None):
+    def __init__(__self__, identity=None, location=None, name=None, resource=None, tags=None, type=None):
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -36,6 +39,14 @@ class GetSqlResourceSqlStoredProcedureResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -81,6 +92,7 @@ class AwaitableGetSqlResourceSqlStoredProcedureResult(GetSqlResourceSqlStoredPro
         if False:
             yield self
         return GetSqlResourceSqlStoredProcedureResult(
+            identity=self.identity,
             location=self.location,
             name=self.name,
             resource=self.resource,
@@ -116,6 +128,7 @@ def get_sql_resource_sql_stored_procedure(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb/latest:getSqlResourceSqlStoredProcedure', __args__, opts=opts, typ=GetSqlResourceSqlStoredProcedureResult).value
 
     return AwaitableGetSqlResourceSqlStoredProcedureResult(
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         resource=__ret__.resource,

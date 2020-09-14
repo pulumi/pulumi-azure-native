@@ -62,6 +62,9 @@ class Workspace(pulumi.CustomResource):
             },
             friendly_name="HelloName",
             hbi_workspace=False,
+            identity={
+                "type": "SystemAssigned",
+            },
             key_vault="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
             location="eastus2euap",
             resource_group_name="workspace-1234",
@@ -139,7 +142,6 @@ class Workspace(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['creation_time'] = None
             __props__['name'] = None
-            __props__['notebook_info'] = None
             __props__['private_endpoint_connections'] = None
             __props__['private_link_count'] = None
             __props__['provisioning_state'] = None
@@ -283,14 +285,6 @@ class Workspace(pulumi.CustomResource):
         Specifies the name of the resource.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="notebookInfo")
-    def notebook_info(self) -> pulumi.Output['outputs.NotebookResourceInfoResponse']:
-        """
-        The notebook info of Azure ML workspace.
-        """
-        return pulumi.get(self, "notebook_info")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")

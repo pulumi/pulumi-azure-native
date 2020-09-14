@@ -66,6 +66,8 @@ class ManagedHsm(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:keyvault/latest:ManagedHsm")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedHsm, __self__).__init__(
             'azurerm:keyvault/v20200401preview:ManagedHsm',
             resource_name,

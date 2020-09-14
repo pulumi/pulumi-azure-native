@@ -17,11 +17,13 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SBSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -52,11 +54,13 @@ class Namespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Properties of BYOK Encryption description
         :param pulumi.Input[str] location: The Geo-location where the resource lives
         :param pulumi.Input[str] namespace_name: The namespace name.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[pulumi.InputType['SBSkuArgs']] sku: Properties of Sku
+        :param pulumi.Input[pulumi.InputType['SBSkuArgs']] sku: Properties of SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[bool] zone_redundant: Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,6 +79,7 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['encryption'] = encryption
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -86,6 +91,7 @@ class Namespace(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['zone_redundant'] = zone_redundant
             __props__['created_at'] = None
             __props__['metric_id'] = None
             __props__['name'] = None
@@ -123,9 +129,17 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         """
-        The time the namespace was created.
+        The time the namespace was created
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionResponse']]:
+        """
+        Properties of BYOK Encryption description
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter
@@ -171,7 +185,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SBSkuResponse']]:
         """
-        Properties of Sku
+        Properties of SKU
         """
         return pulumi.get(self, "sku")
 
@@ -198,6 +212,14 @@ class Namespace(pulumi.CustomResource):
         The time the namespace was updated.
         """
         return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        """
+        return pulumi.get(self, "zone_redundant")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

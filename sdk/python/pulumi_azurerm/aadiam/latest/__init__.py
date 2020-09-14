@@ -3,7 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .azure_ad_metric import *
 from .diagnostic_setting import *
 from .get_diagnostic_setting import *
+from .getazure_ad_metric import *
+from .getprivate_link_for_azure_ad import *
+from .private_link_for_azure_ad import *
 from ._inputs import *
 from . import outputs

@@ -73,6 +73,8 @@ class CustomResourceProvider(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:customproviders/latest:CustomResourceProvider")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomResourceProvider, __self__).__init__(
             'azurerm:customproviders/v20180901preview:CustomResourceProvider',
             resource_name,

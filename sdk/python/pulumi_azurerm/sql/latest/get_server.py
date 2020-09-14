@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetServerResult',
@@ -17,33 +18,39 @@ __all__ = [
 @pulumi.output_type
 class GetServerResult:
     """
-    Represents a server.
+    An Azure SQL Database server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, external_administrator_login=None, external_administrator_sid=None, fully_qualified_domain_name=None, kind=None, location=None, name=None, state=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, fully_qualified_domain_name=None, identity=None, kind=None, location=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password and not isinstance(administrator_login_password, str):
             raise TypeError("Expected argument 'administrator_login_password' to be a str")
         pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        if external_administrator_login and not isinstance(external_administrator_login, str):
-            raise TypeError("Expected argument 'external_administrator_login' to be a str")
-        pulumi.set(__self__, "external_administrator_login", external_administrator_login)
-        if external_administrator_sid and not isinstance(external_administrator_sid, str):
-            raise TypeError("Expected argument 'external_administrator_sid' to be a str")
-        pulumi.set(__self__, "external_administrator_sid", external_administrator_sid)
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if minimal_tls_version and not isinstance(minimal_tls_version, str):
+            raise TypeError("Expected argument 'minimal_tls_version' to be a str")
+        pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -61,7 +68,7 @@ class GetServerResult:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> Optional[str]:
         """
-        Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        Administrator username for the server. Once created it cannot be changed.
         """
         return pulumi.get(self, "administrator_login")
 
@@ -74,22 +81,6 @@ class GetServerResult:
         return pulumi.get(self, "administrator_login_password")
 
     @property
-    @pulumi.getter(name="externalAdministratorLogin")
-    def external_administrator_login(self) -> str:
-        """
-        The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-        """
-        return pulumi.get(self, "external_administrator_login")
-
-    @property
-    @pulumi.getter(name="externalAdministratorSid")
-    def external_administrator_sid(self) -> str:
-        """
-        The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-        """
-        return pulumi.get(self, "external_administrator_sid")
-
-    @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> str:
         """
@@ -99,9 +90,17 @@ class GetServerResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+        """
+        The Azure Active Directory identity of the server.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def kind(self) -> str:
         """
-        Kind of sql server.  This is metadata used for the Azure portal experience.
+        Kind of sql server. This is metadata used for the Azure portal experience.
         """
         return pulumi.get(self, "kind")
 
@@ -114,12 +113,36 @@ class GetServerResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> Optional[str]:
+        """
+        Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        """
+        return pulumi.get(self, "minimal_tls_version")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> List['outputs.ServerPrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections on a server
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -162,12 +185,14 @@ class AwaitableGetServerResult(GetServerResult):
         return GetServerResult(
             administrator_login=self.administrator_login,
             administrator_login_password=self.administrator_login_password,
-            external_administrator_login=self.external_administrator_login,
-            external_administrator_sid=self.external_administrator_sid,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
+            identity=self.identity,
             kind=self.kind,
             location=self.location,
+            minimal_tls_version=self.minimal_tls_version,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
+            public_network_access=self.public_network_access,
             state=self.state,
             tags=self.tags,
             type=self.type,
@@ -195,12 +220,14 @@ def get_server(resource_group_name: Optional[str] = None,
     return AwaitableGetServerResult(
         administrator_login=__ret__.administrator_login,
         administrator_login_password=__ret__.administrator_login_password,
-        external_administrator_login=__ret__.external_administrator_login,
-        external_administrator_sid=__ret__.external_administrator_sid,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
+        identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
+        minimal_tls_version=__ret__.minimal_tls_version,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
+        public_network_access=__ret__.public_network_access,
         state=__ret__.state,
         tags=__ret__.tags,
         type=__ret__.type,

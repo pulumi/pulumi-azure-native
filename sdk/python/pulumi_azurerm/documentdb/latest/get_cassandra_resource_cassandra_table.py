@@ -20,7 +20,10 @@ class GetCassandraResourceCassandraTableResult:
     """
     An Azure Cosmos DB Cassandra table.
     """
-    def __init__(__self__, location=None, name=None, options=None, resource=None, tags=None, type=None):
+    def __init__(__self__, identity=None, location=None, name=None, options=None, resource=None, tags=None, type=None):
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -39,6 +42,14 @@ class GetCassandraResourceCassandraTableResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -89,6 +100,7 @@ class AwaitableGetCassandraResourceCassandraTableResult(GetCassandraResourceCass
         if False:
             yield self
         return GetCassandraResourceCassandraTableResult(
+            identity=self.identity,
             location=self.location,
             name=self.name,
             options=self.options,
@@ -122,6 +134,7 @@ def get_cassandra_resource_cassandra_table(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb/latest:getCassandraResourceCassandraTable', __args__, opts=opts, typ=GetCassandraResourceCassandraTableResult).value
 
     return AwaitableGetCassandraResourceCassandraTableResult(
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         options=__ret__.options,

@@ -21,9 +21,11 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
                  auth_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  master_pool_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']]] = None,
+                 monitor_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMonitorProfileArgs']]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  open_shift_version: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
+                 refresh_cluster: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  router_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]]] = None,
@@ -44,7 +46,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         open_shift_managed_cluster = azurerm.containerservice.latest.OpenShiftManagedCluster("openShiftManagedCluster",
             agent_pool_profiles=[
                 {
-                    "count": 2,
+                    "count": 3,
                     "name": "infra",
                     "osType": "Linux",
                     "role": "infra",
@@ -74,11 +76,16 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
             },
             location="location1",
             master_pool_profile={
+                "apiProperties": {
+                    "privateApiServer": False,
+                },
                 "count": 3,
-                "name": "master",
-                "osType": "Linux",
                 "subnetCidr": "10.0.0.0/24",
                 "vmSize": "Standard_D4s_v3",
+            },
+            monitor_profile={
+                "enabled": True,
+                "workspaceResourceID": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
             },
             network_profile={
                 "vnetCidr": "10.0.0.0/8",
@@ -95,6 +102,73 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
             })
 
         ```
+        ### Create/Update Private OpenShift Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        open_shift_managed_cluster = azurerm.containerservice.latest.OpenShiftManagedCluster("openShiftManagedCluster",
+            agent_pool_profiles=[
+                {
+                    "count": 3,
+                    "name": "infra",
+                    "osType": "Linux",
+                    "role": "infra",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+                {
+                    "count": 4,
+                    "name": "compute",
+                    "osType": "Linux",
+                    "role": "compute",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+            ],
+            auth_profile={
+                "identityProviders": [{
+                    "name": "Azure AD",
+                    "provider": {
+                        "clientId": "clientId",
+                        "customerAdminGroupId": "customerAdminGroupId",
+                        "kind": "AADIdentityProvider",
+                        "secret": "secret",
+                        "tenantId": "tenantId",
+                    },
+                }],
+            },
+            location="location1",
+            master_pool_profile={
+                "apiProperties": {
+                    "privateApiServer": True,
+                },
+                "count": 3,
+                "subnetCidr": "10.0.0.0/24",
+                "vmSize": "Standard_D4s_v3",
+            },
+            monitor_profile={
+                "enabled": True,
+                "workspaceResourceID": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+            },
+            network_profile={
+                "managementSubnetCidr": "10.0.1.0/24",
+                "vnetCidr": "10.0.0.0/8",
+            },
+            open_shift_version="v3.11",
+            refresh_cluster=True,
+            resource_group_name="rg1",
+            resource_name="privateclustername1",
+            router_profiles=[{
+                "name": "default",
+            }],
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,9 +176,11 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']] auth_profile: Configures OpenShift authentication.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']] master_pool_profile: Configuration for OpenShift master VMs.
+        :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMonitorProfileArgs']] monitor_profile: Configures Log Analytics integration.
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Configuration for OpenShift networking.
         :param pulumi.Input[str] open_shift_version: Version of OpenShift specified when creating the cluster.
         :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] plan: Define the resource plan as required by ARM for billing purposes
+        :param pulumi.Input[bool] refresh_cluster: Allows node rotation
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_name_: The name of the OpenShift managed cluster resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]] router_profiles: Configuration for OpenShift router(s).
@@ -133,11 +209,13 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['master_pool_profile'] = master_pool_profile
+            __props__['monitor_profile'] = monitor_profile
             __props__['network_profile'] = network_profile
             if open_shift_version is None:
                 raise TypeError("Missing required property 'open_shift_version'")
             __props__['open_shift_version'] = open_shift_version
             __props__['plan'] = plan
+            __props__['refresh_cluster'] = refresh_cluster
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -227,6 +305,14 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         return pulumi.get(self, "master_pool_profile")
 
     @property
+    @pulumi.getter(name="monitorProfile")
+    def monitor_profile(self) -> pulumi.Output[Optional['outputs.OpenShiftManagedClusterMonitorProfileResponse']]:
+        """
+        Configures Log Analytics integration.
+        """
+        return pulumi.get(self, "monitor_profile")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -270,9 +356,17 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="publicHostname")
     def public_hostname(self) -> pulumi.Output[str]:
         """
-        Service generated FQDN for OpenShift API server.
+        Service generated FQDN or private IP for OpenShift API server.
         """
         return pulumi.get(self, "public_hostname")
+
+    @property
+    @pulumi.getter(name="refreshCluster")
+    def refresh_cluster(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Allows node rotation
+        """
+        return pulumi.get(self, "refresh_cluster")
 
     @property
     @pulumi.getter(name="routerProfiles")

@@ -7,8 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
-from . import outputs
-from ._inputs import *
 
 __all__ = ['RoleAssignment']
 
@@ -17,8 +15,14 @@ class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']]] = None,
+                 can_delegate: Optional[pulumi.Input[bool]] = None,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
                  role_assignment_name: Optional[pulumi.Input[str]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -34,15 +38,28 @@ class RoleAssignment(pulumi.CustomResource):
         import pulumi_azurerm as azurerm
 
         role_assignment = azurerm.authorization.latest.RoleAssignment("roleAssignment",
+            can_delegate=False,
+            condition="@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+            condition_version="1.0",
+            description="Grants UserFoo role assignment bar in scope baz",
+            principal_id="d93a38bc-d029-4160-bfb0-fbda779ac214",
+            principal_type="User",
             role_assignment_name="roleAssignmentName",
+            role_definition_id="/subscriptions/4004a9fd-d58e-48dc-aeb2-4a4aec58606f/providers/Microsoft.Authorization/roleDefinitions/de139f84-1756-47ae-9be6-808fbbe84772",
             scope="scope")
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']] properties: Role assignment properties.
+        :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
+        :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        :param pulumi.Input[str] condition_version: Version of the condition. Currently accepted value is '2.0'
+        :param pulumi.Input[str] description: Description of role assignment
+        :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+        :param pulumi.Input[str] principal_type: The principal type of the assigned principal ID.
         :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
+        :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
         """
         if __name__ is not None:
@@ -62,12 +79,20 @@ class RoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['can_delegate'] = can_delegate
+            __props__['condition'] = condition
+            __props__['condition_version'] = condition_version
+            __props__['description'] = description
+            if principal_id is None:
+                raise TypeError("Missing required property 'principal_id'")
+            __props__['principal_id'] = principal_id
+            __props__['principal_type'] = principal_type
             if role_assignment_name is None:
                 raise TypeError("Missing required property 'role_assignment_name'")
             __props__['role_assignment_name'] = role_assignment_name
+            if role_definition_id is None:
+                raise TypeError("Missing required property 'role_definition_id'")
+            __props__['role_definition_id'] = role_definition_id
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
@@ -100,6 +125,38 @@ class RoleAssignment(pulumi.CustomResource):
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="canDelegate")
+    def can_delegate(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The Delegation flag for the role assignment
+        """
+        return pulumi.get(self, "can_delegate")
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Output[Optional[str]]:
+        """
+        The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Version of the condition. Currently accepted value is '2.0'
+        """
+        return pulumi.get(self, "condition_version")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description of role assignment
+        """
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -108,12 +165,36 @@ class RoleAssignment(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The principal ID.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The principal type of the assigned principal ID.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The role definition ID.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.RoleAssignmentPropertiesWithScopeResponse']:
+    def scope(self) -> pulumi.Output[Optional[str]]:
         """
-        Role assignment properties.
+        The role assignment scope.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter

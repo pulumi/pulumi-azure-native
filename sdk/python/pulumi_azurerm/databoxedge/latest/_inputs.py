@@ -16,7 +16,6 @@ __all__ = [
     'ContactDetailsArgs',
     'OrderStatusArgs',
     'RefreshDetailsArgs',
-    'ShareAccessRightArgs',
     'SkuArgs',
     'UserAccessRightArgs',
 ]
@@ -458,44 +457,6 @@ class RefreshDetailsArgs:
     @last_job.setter
     def last_job(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_job", value)
-
-
-@pulumi.input_type
-class ShareAccessRightArgs:
-    def __init__(__self__, *,
-                 access_type: pulumi.Input[str],
-                 share_id: pulumi.Input[str]):
-        """
-        Specifies the mapping between this particular user and the type of access he has on shares on this device.
-        :param pulumi.Input[str] access_type: Type of access to be allowed on the share for this user.
-        :param pulumi.Input[str] share_id: The share ID.
-        """
-        pulumi.set(__self__, "access_type", access_type)
-        pulumi.set(__self__, "share_id", share_id)
-
-    @property
-    @pulumi.getter(name="accessType")
-    def access_type(self) -> pulumi.Input[str]:
-        """
-        Type of access to be allowed on the share for this user.
-        """
-        return pulumi.get(self, "access_type")
-
-    @access_type.setter
-    def access_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "access_type", value)
-
-    @property
-    @pulumi.getter(name="shareId")
-    def share_id(self) -> pulumi.Input[str]:
-        """
-        The share ID.
-        """
-        return pulumi.get(self, "share_id")
-
-    @share_id.setter
-    def share_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "share_id", value)
 
 
 @pulumi.input_type

@@ -110,7 +110,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location the resource resides in.
         :param pulumi.Input[Union[pulumi.InputType['ServerPropertiesForDefaultCreateArgs'], pulumi.InputType['ServerPropertiesForGeoRestoreArgs'], pulumi.InputType['ServerPropertiesForReplicaArgs'], pulumi.InputType['ServerPropertiesForRestoreArgs']]] properties: Properties of the server.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (pricing tier) of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata in the form of key-value pairs.
@@ -149,10 +149,9 @@ class Server(pulumi.CustomResource):
             __props__['administrator_login'] = None
             __props__['earliest_restore_date'] = None
             __props__['fully_qualified_domain_name'] = None
+            __props__['identity'] = None
             __props__['master_server_id'] = None
             __props__['name'] = None
-            __props__['private_endpoint_connections'] = None
-            __props__['public_network_access'] = None
             __props__['replica_capacity'] = None
             __props__['replication_role'] = None
             __props__['ssl_enforcement'] = None
@@ -212,6 +211,14 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+        """
+        The Azure Active Directory identity of the server.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
@@ -233,22 +240,6 @@ class Server(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[List['outputs.ServerPrivateEndpointConnectionResponse']]:
-        """
-        List of private endpoint connections on a server
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[Optional[str]]:
-        """
-        Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        """
-        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="replicaCapacity")

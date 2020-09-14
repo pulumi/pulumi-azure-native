@@ -18,14 +18,17 @@ class Task(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_configuration: Optional[pulumi.Input[pulumi.InputType['AgentPropertiesArgs']]] = None,
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['CredentialsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
+                 is_system_task: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_template: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 step: Optional[pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']]] = None,
+                 step: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[float]] = None,
@@ -51,7 +54,9 @@ class Task(pulumi.CustomResource):
             identity={
                 "type": "SystemAssigned",
             },
+            is_system_task=False,
             location="eastus",
+            log_template="acr/tasks:{{.Run.OS}}",
             platform={
                 "architecture": "amd64",
                 "os": "Linux",
@@ -60,7 +65,24 @@ class Task(pulumi.CustomResource):
             resource_group_name="myResourceGroup",
             status="Enabled",
             step={
+                "arguments": [
+                    {
+                        "isSecret": False,
+                        "name": "mytestargument",
+                        "value": "mytestvalue",
+                    },
+                    {
+                        "isSecret": True,
+                        "name": "mysecrettestargument",
+                        "value": "mysecrettestvalue",
+                    },
+                ],
                 "contextPath": "src",
+                "dockerFilePath": "src/DockerFile",
+                "imageNames": ["azurerest:testtag"],
+                "isPushEnabled": True,
+                "noCache": False,
+                "type": "Docker",
             },
             tags={
                 "testkey": "value",
@@ -70,6 +92,8 @@ class Task(pulumi.CustomResource):
                 "baseImageTrigger": {
                     "baseImageTriggerType": "Runtime",
                     "name": "myBaseImageTrigger",
+                    "updateTriggerEndpoint": "https://user:pass@mycicd.webhook.com?token=foo",
+                    "updateTriggerPayloadType": "Token",
                 },
                 "sourceTriggers": [{
                     "name": "mySourceTrigger",
@@ -91,6 +115,25 @@ class Task(pulumi.CustomResource):
             })
 
         ```
+        ### Tasks_Create_QuickTask
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        task = azurerm.containerregistry.latest.Task("task",
+            is_system_task=True,
+            location="eastus",
+            log_template="acr/tasks:{{.Run.OS}}",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            status="Enabled",
+            tags={
+                "testkey": "value",
+            },
+            task_name="quicktask")
+
+        ```
         ### Tasks_Create_WithSystemAndUserIdentities
 
         ```python
@@ -107,6 +150,7 @@ class Task(pulumi.CustomResource):
                     "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
                 },
             },
+            is_system_task=False,
             location="eastus",
             platform={
                 "architecture": "amd64",
@@ -116,7 +160,24 @@ class Task(pulumi.CustomResource):
             resource_group_name="myResourceGroup",
             status="Enabled",
             step={
+                "arguments": [
+                    {
+                        "isSecret": False,
+                        "name": "mytestargument",
+                        "value": "mytestvalue",
+                    },
+                    {
+                        "isSecret": True,
+                        "name": "mysecrettestargument",
+                        "value": "mysecrettestvalue",
+                    },
+                ],
                 "contextPath": "src",
+                "dockerFilePath": "src/DockerFile",
+                "imageNames": ["azurerest:testtag"],
+                "isPushEnabled": True,
+                "noCache": False,
+                "type": "Docker",
             },
             tags={
                 "testkey": "value",
@@ -126,6 +187,8 @@ class Task(pulumi.CustomResource):
                 "baseImageTrigger": {
                     "baseImageTriggerType": "Runtime",
                     "name": "myBaseImageTrigger",
+                    "updateTriggerEndpoint": "https://user:pass@mycicd.webhook.com?token=foo",
+                    "updateTriggerPayloadType": "Default",
                 },
                 "sourceTriggers": [{
                     "name": "mySourceTrigger",
@@ -164,6 +227,7 @@ class Task(pulumi.CustomResource):
                     "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
                 },
             },
+            is_system_task=False,
             location="eastus",
             platform={
                 "architecture": "amd64",
@@ -173,7 +237,24 @@ class Task(pulumi.CustomResource):
             resource_group_name="myResourceGroup",
             status="Enabled",
             step={
+                "arguments": [
+                    {
+                        "isSecret": False,
+                        "name": "mytestargument",
+                        "value": "mytestvalue",
+                    },
+                    {
+                        "isSecret": True,
+                        "name": "mysecrettestargument",
+                        "value": "mysecrettestvalue",
+                    },
+                ],
                 "contextPath": "src",
+                "dockerFilePath": "src/DockerFile",
+                "imageNames": ["azurerest:testtag"],
+                "isPushEnabled": True,
+                "noCache": False,
+                "type": "Docker",
             },
             tags={
                 "testkey": "value",
@@ -183,6 +264,8 @@ class Task(pulumi.CustomResource):
                 "baseImageTrigger": {
                     "baseImageTriggerType": "Runtime",
                     "name": "myBaseImageTrigger",
+                    "updateTriggerEndpoint": "https://user:pass@mycicd.webhook.com?token=foo",
+                    "updateTriggerPayloadType": "Default",
                 },
                 "sourceTriggers": [{
                     "name": "mySourceTrigger",
@@ -217,6 +300,7 @@ class Task(pulumi.CustomResource):
             identity={
                 "type": "SystemAssigned",
             },
+            is_system_task=False,
             location="eastus",
             platform={
                 "architecture": "amd64",
@@ -226,7 +310,24 @@ class Task(pulumi.CustomResource):
             resource_group_name="myResourceGroup",
             status="Enabled",
             step={
+                "arguments": [
+                    {
+                        "isSecret": False,
+                        "name": "mytestargument",
+                        "value": "mytestvalue",
+                    },
+                    {
+                        "isSecret": True,
+                        "name": "mysecrettestargument",
+                        "value": "mysecrettestvalue",
+                    },
+                ],
                 "contextPath": "src",
+                "dockerFilePath": "src/DockerFile",
+                "imageNames": ["azurerest:testtag"],
+                "isPushEnabled": True,
+                "noCache": False,
+                "type": "Docker",
             },
             tags={
                 "testkey": "value",
@@ -261,14 +362,17 @@ class Task(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AgentPropertiesArgs']] agent_configuration: The machine configuration of the run agent.
+        :param pulumi.Input[str] agent_pool_name: The dedicated agent pool for the task.
         :param pulumi.Input[pulumi.InputType['CredentialsArgs']] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: Identity for the resource.
+        :param pulumi.Input[bool] is_system_task: The value of this property indicates whether the task resource is system task or not.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input[str] log_template: The template that describes the repository and tag information for run log artifact.
         :param pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']] platform: The platform properties against which the run has to happen.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[str] status: The current status of task.
-        :param pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']] step: The properties of a task step.
+        :param pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]] step: The properties of a task step.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] task_name: The name of the container registry task.
         :param pulumi.Input[float] timeout: Run timeout in seconds.
@@ -292,13 +396,14 @@ class Task(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['agent_configuration'] = agent_configuration
+            __props__['agent_pool_name'] = agent_pool_name
             __props__['credentials'] = credentials
             __props__['identity'] = identity
+            __props__['is_system_task'] = is_system_task
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if platform is None:
-                raise TypeError("Missing required property 'platform'")
+            __props__['log_template'] = log_template
             __props__['platform'] = platform
             if registry_name is None:
                 raise TypeError("Missing required property 'registry_name'")
@@ -307,8 +412,6 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
-            if step is None:
-                raise TypeError("Missing required property 'step'")
             __props__['step'] = step
             __props__['tags'] = tags
             if task_name is None:
@@ -355,6 +458,14 @@ class Task(pulumi.CustomResource):
         return pulumi.get(self, "agent_configuration")
 
     @property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The dedicated agent pool for the task.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[str]:
         """
@@ -379,12 +490,28 @@ class Task(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter(name="isSystemTask")
+    def is_system_task(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The value of this property indicates whether the task resource is system task or not.
+        """
+        return pulumi.get(self, "is_system_task")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
 
     @property
     @pulumi.getter
@@ -396,7 +523,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Output['outputs.PlatformPropertiesResponse']:
+    def platform(self) -> pulumi.Output[Optional['outputs.PlatformPropertiesResponse']]:
         """
         The platform properties against which the run has to happen.
         """
@@ -420,7 +547,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def step(self) -> pulumi.Output[Any]:
+    def step(self) -> pulumi.Output[Optional[Any]]:
         """
         The properties of a task step.
         """

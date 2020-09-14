@@ -22,10 +22,10 @@ class Project(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 source_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
+                 source_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MongoDbConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['OracleConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
                  source_platform: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
+                 target_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MongoDbConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['OracleConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
                  target_platform: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -57,10 +57,10 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] project_name: Name of the project
         :param pulumi.Input[str] service_name: Name of the service
-        :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] source_connection_info: Information for connecting to source
+        :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MongoDbConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['OracleConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] source_connection_info: Information for connecting to source
         :param pulumi.Input[str] source_platform: Source platform for the project
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] target_connection_info: Information for connecting to target
+        :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MongoDbConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['OracleConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] target_connection_info: Information for connecting to target
         :param pulumi.Input[str] target_platform: Target platform for the project
         """
         if __name__ is not None:

@@ -21,7 +21,6 @@ class User(pulumi.CustomResource):
                  encrypted_password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 share_access_rights: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]]] = None,
                  user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -45,7 +44,6 @@ class User(pulumi.CustomResource):
             },
             name="user1",
             resource_group_name="GroupForEdgeAutomation",
-            share_access_rights=[],
             user_type="Share")
 
         ```
@@ -56,7 +54,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encrypted_password: The password details.
         :param pulumi.Input[str] name: The user name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
         :param pulumi.Input[str] user_type: Type of the user.
         """
         if __name__ is not None:
@@ -86,10 +83,10 @@ class User(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['share_access_rights'] = share_access_rights
             if user_type is None:
                 raise TypeError("Missing required property 'user_type'")
             __props__['user_type'] = user_type
+            __props__['share_access_rights'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databoxedge/v20190301:User"), pulumi.Alias(type_="azurerm:databoxedge/v20190701:User"), pulumi.Alias(type_="azurerm:databoxedge/v20190801:User"), pulumi.Alias(type_="azurerm:databoxedge/v20200501preview:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -135,7 +132,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> pulumi.Output[Optional[List['outputs.ShareAccessRightResponse']]]:
+    def share_access_rights(self) -> pulumi.Output[List['outputs.ShareAccessRightResponse']]:
         """
         List of shares that the user has rights on. This field should not be specified during user creation.
         """

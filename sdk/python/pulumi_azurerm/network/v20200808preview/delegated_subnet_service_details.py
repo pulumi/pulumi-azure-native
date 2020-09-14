@@ -68,6 +68,8 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
             __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:DelegatedSubnetServiceDetails")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DelegatedSubnetServiceDetails, __self__).__init__(
             'azurerm:network/v20200808preview:DelegatedSubnetServiceDetails',
             resource_name,

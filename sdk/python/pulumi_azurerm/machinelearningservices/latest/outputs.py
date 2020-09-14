@@ -10,53 +10,593 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'ACIServiceResponseResponse',
+    'ACIServiceResponseResponseDataCollection',
+    'ACIServiceResponseResponseEncryptionProperties',
+    'ACIServiceResponseResponseEnvironmentImageRequest',
+    'ACIServiceResponseResponseVnetConfiguration',
     'AKSResponse',
     'AKSResponseProperties',
+    'AKSVariantResponseResponse',
     'AksNetworkingConfigurationResponse',
     'AmlComputeNodeInformationResponseResult',
     'AmlComputeResponse',
     'AmlComputeResponseProperties',
+    'AssignedUserResponse',
     'ComputeInstanceApplicationResponse',
     'ComputeInstanceConnectivityEndpointsResponse',
     'ComputeInstanceCreatedByResponse',
+    'ComputeInstanceLastOperationResponse',
     'ComputeInstanceResponse',
     'ComputeInstanceResponseProperties',
     'ComputeInstanceSshSettingsResponse',
+    'ContainerResourceRequirementsResponse',
     'DataFactoryResponse',
     'DataLakeAnalyticsResponse',
     'DataLakeAnalyticsResponseProperties',
     'DatabricksResponse',
     'DatabricksResponseProperties',
+    'DatasetReferenceResponse',
     'EncryptionPropertyResponse',
+    'EnvironmentImageResponseResponseEnvironment',
+    'EnvironmentImageResponseResponseEnvironmentReference',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
     'HDInsightResponse',
     'HDInsightResponseProperties',
     'IdentityResponse',
-    'IdentityResponseUserAssignedIdentities',
+    'ImageAssetResponse',
     'KeyVaultPropertiesResponse',
+    'LinkedServicePropsResponse',
     'LinkedWorkspacePropsResponse',
     'MachineLearningServiceErrorResponse',
+    'ModelDockerSectionResponseResponseBaseImageRegistry',
+    'ModelEnvironmentDefinitionResponseResponseDocker',
+    'ModelEnvironmentDefinitionResponseResponsePython',
+    'ModelEnvironmentDefinitionResponseResponseR',
+    'ModelEnvironmentDefinitionResponseResponseSpark',
+    'ModelResponse',
     'NodeStateCountsResponse',
-    'NotebookListCredentialsResultResponseResult',
-    'NotebookPreparationErrorResponse',
-    'NotebookResourceInfoResponse',
     'PasswordResponseResult',
+    'PersonalComputeInstanceSettingsResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'RCranPackageResponse',
+    'RGitHubPackageResponseResponse',
     'RegistryListCredentialsResultResponseResult',
     'ResourceIdResponse',
     'ScaleSettingsResponse',
+    'ServiceResponseBaseResponseError',
     'SharedPrivateLinkResourceResponse',
     'SkuResponse',
+    'SparkMavenPackageResponse',
     'SslConfigurationResponse',
     'SystemServiceResponse',
     'UserAccountCredentialsResponse',
+    'UserAssignedIdentityResponse',
+    'VirtualMachineImageResponse',
     'VirtualMachineResponse',
     'VirtualMachineResponseProperties',
     'VirtualMachineSshCredentialsResponse',
 ]
+
+@pulumi.output_type
+class ACIServiceResponseResponse(dict):
+    """
+    The response for an ACI service.
+    """
+    def __init__(__self__, *,
+                 compute_type: str,
+                 error: 'outputs.ServiceResponseBaseResponseError',
+                 model_config_map: Mapping[str, Mapping[str, Any]],
+                 scoring_uri: str,
+                 state: str,
+                 swagger_uri: str,
+                 app_insights_enabled: Optional[bool] = None,
+                 auth_enabled: Optional[bool] = None,
+                 cname: Optional[str] = None,
+                 container_resource_requirements: Optional['outputs.ContainerResourceRequirementsResponse'] = None,
+                 data_collection: Optional['outputs.ACIServiceResponseResponseDataCollection'] = None,
+                 deployment_type: Optional[str] = None,
+                 description: Optional[str] = None,
+                 encryption_properties: Optional['outputs.ACIServiceResponseResponseEncryptionProperties'] = None,
+                 environment_image_request: Optional['outputs.ACIServiceResponseResponseEnvironmentImageRequest'] = None,
+                 kv_tags: Optional[Mapping[str, str]] = None,
+                 location: Optional[str] = None,
+                 models: Optional[List['outputs.ModelResponse']] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 public_fqdn: Optional[str] = None,
+                 public_ip: Optional[str] = None,
+                 ssl_certificate: Optional[str] = None,
+                 ssl_enabled: Optional[bool] = None,
+                 ssl_key: Optional[str] = None,
+                 vnet_configuration: Optional['outputs.ACIServiceResponseResponseVnetConfiguration'] = None):
+        """
+        The response for an ACI service.
+        :param str compute_type: The compute environment type for the service.
+        :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
+        :param Mapping[str, Mapping[str, Any]] model_config_map: Details on the models and configurations.
+        :param str scoring_uri: The Uri for sending scoring requests.
+        :param str state: The current state of the service.
+        :param str swagger_uri: The Uri for sending swagger requests.
+        :param bool app_insights_enabled: Whether or not Application Insights is enabled.
+        :param bool auth_enabled: Whether or not authentication is enabled on the service.
+        :param str cname: The CName for the service.
+        :param 'ContainerResourceRequirementsResponseArgs' container_resource_requirements: The container resource requirements.
+        :param 'ACIServiceResponseResponseDataCollectionArgs' data_collection: Details of the data collection options specified.
+        :param str deployment_type: The deployment type for the service.
+        :param str description: The service description.
+        :param 'ACIServiceResponseResponseEncryptionPropertiesArgs' encryption_properties: The encryption properties.
+        :param 'ACIServiceResponseResponseEnvironmentImageRequestArgs' environment_image_request: The Environment, models and assets used for inferencing.
+        :param Mapping[str, str] kv_tags: The service tag dictionary. Tags are mutable.
+        :param str location: The name of the Azure location/region.
+        :param List['ModelResponseArgs'] models: The list of models.
+        :param Mapping[str, str] properties: The service property dictionary. Properties are immutable.
+        :param str public_fqdn: The public Fqdn for the service.
+        :param str public_ip: The public IP address for the service.
+        :param str ssl_certificate: The public SSL certificate in PEM format to use if SSL is enabled.
+        :param bool ssl_enabled: Whether or not SSL is enabled.
+        :param str ssl_key: The public SSL key in PEM format for the certificate.
+        :param 'ACIServiceResponseResponseVnetConfigurationArgs' vnet_configuration: The virtual network configuration.
+        """
+        pulumi.set(__self__, "compute_type", 'ACI')
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "model_config_map", model_config_map)
+        pulumi.set(__self__, "scoring_uri", scoring_uri)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "swagger_uri", swagger_uri)
+        if app_insights_enabled is not None:
+            pulumi.set(__self__, "app_insights_enabled", app_insights_enabled)
+        if auth_enabled is not None:
+            pulumi.set(__self__, "auth_enabled", auth_enabled)
+        if cname is not None:
+            pulumi.set(__self__, "cname", cname)
+        if container_resource_requirements is not None:
+            pulumi.set(__self__, "container_resource_requirements", container_resource_requirements)
+        if data_collection is not None:
+            pulumi.set(__self__, "data_collection", data_collection)
+        if deployment_type is not None:
+            pulumi.set(__self__, "deployment_type", deployment_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encryption_properties is not None:
+            pulumi.set(__self__, "encryption_properties", encryption_properties)
+        if environment_image_request is not None:
+            pulumi.set(__self__, "environment_image_request", environment_image_request)
+        if kv_tags is not None:
+            pulumi.set(__self__, "kv_tags", kv_tags)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if models is not None:
+            pulumi.set(__self__, "models", models)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if public_fqdn is not None:
+            pulumi.set(__self__, "public_fqdn", public_fqdn)
+        if public_ip is not None:
+            pulumi.set(__self__, "public_ip", public_ip)
+        if ssl_certificate is not None:
+            pulumi.set(__self__, "ssl_certificate", ssl_certificate)
+        if ssl_enabled is not None:
+            pulumi.set(__self__, "ssl_enabled", ssl_enabled)
+        if ssl_key is not None:
+            pulumi.set(__self__, "ssl_key", ssl_key)
+        if vnet_configuration is not None:
+            pulumi.set(__self__, "vnet_configuration", vnet_configuration)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
+        """
+        The compute environment type for the service.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ServiceResponseBaseResponseError':
+        """
+        The error details.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="modelConfigMap")
+    def model_config_map(self) -> Mapping[str, Mapping[str, Any]]:
+        """
+        Details on the models and configurations.
+        """
+        return pulumi.get(self, "model_config_map")
+
+    @property
+    @pulumi.getter(name="scoringUri")
+    def scoring_uri(self) -> str:
+        """
+        The Uri for sending scoring requests.
+        """
+        return pulumi.get(self, "scoring_uri")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The current state of the service.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="swaggerUri")
+    def swagger_uri(self) -> str:
+        """
+        The Uri for sending swagger requests.
+        """
+        return pulumi.get(self, "swagger_uri")
+
+    @property
+    @pulumi.getter(name="appInsightsEnabled")
+    def app_insights_enabled(self) -> Optional[bool]:
+        """
+        Whether or not Application Insights is enabled.
+        """
+        return pulumi.get(self, "app_insights_enabled")
+
+    @property
+    @pulumi.getter(name="authEnabled")
+    def auth_enabled(self) -> Optional[bool]:
+        """
+        Whether or not authentication is enabled on the service.
+        """
+        return pulumi.get(self, "auth_enabled")
+
+    @property
+    @pulumi.getter
+    def cname(self) -> Optional[str]:
+        """
+        The CName for the service.
+        """
+        return pulumi.get(self, "cname")
+
+    @property
+    @pulumi.getter(name="containerResourceRequirements")
+    def container_resource_requirements(self) -> Optional['outputs.ContainerResourceRequirementsResponse']:
+        """
+        The container resource requirements.
+        """
+        return pulumi.get(self, "container_resource_requirements")
+
+    @property
+    @pulumi.getter(name="dataCollection")
+    def data_collection(self) -> Optional['outputs.ACIServiceResponseResponseDataCollection']:
+        """
+        Details of the data collection options specified.
+        """
+        return pulumi.get(self, "data_collection")
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> Optional[str]:
+        """
+        The deployment type for the service.
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptionProperties")
+    def encryption_properties(self) -> Optional['outputs.ACIServiceResponseResponseEncryptionProperties']:
+        """
+        The encryption properties.
+        """
+        return pulumi.get(self, "encryption_properties")
+
+    @property
+    @pulumi.getter(name="environmentImageRequest")
+    def environment_image_request(self) -> Optional['outputs.ACIServiceResponseResponseEnvironmentImageRequest']:
+        """
+        The Environment, models and assets used for inferencing.
+        """
+        return pulumi.get(self, "environment_image_request")
+
+    @property
+    @pulumi.getter(name="kvTags")
+    def kv_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The service tag dictionary. Tags are mutable.
+        """
+        return pulumi.get(self, "kv_tags")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The name of the Azure location/region.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def models(self) -> Optional[List['outputs.ModelResponse']]:
+        """
+        The list of models.
+        """
+        return pulumi.get(self, "models")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The service property dictionary. Properties are immutable.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="publicFqdn")
+    def public_fqdn(self) -> Optional[str]:
+        """
+        The public Fqdn for the service.
+        """
+        return pulumi.get(self, "public_fqdn")
+
+    @property
+    @pulumi.getter(name="publicIp")
+    def public_ip(self) -> Optional[str]:
+        """
+        The public IP address for the service.
+        """
+        return pulumi.get(self, "public_ip")
+
+    @property
+    @pulumi.getter(name="sslCertificate")
+    def ssl_certificate(self) -> Optional[str]:
+        """
+        The public SSL certificate in PEM format to use if SSL is enabled.
+        """
+        return pulumi.get(self, "ssl_certificate")
+
+    @property
+    @pulumi.getter(name="sslEnabled")
+    def ssl_enabled(self) -> Optional[bool]:
+        """
+        Whether or not SSL is enabled.
+        """
+        return pulumi.get(self, "ssl_enabled")
+
+    @property
+    @pulumi.getter(name="sslKey")
+    def ssl_key(self) -> Optional[str]:
+        """
+        The public SSL key in PEM format for the certificate.
+        """
+        return pulumi.get(self, "ssl_key")
+
+    @property
+    @pulumi.getter(name="vnetConfiguration")
+    def vnet_configuration(self) -> Optional['outputs.ACIServiceResponseResponseVnetConfiguration']:
+        """
+        The virtual network configuration.
+        """
+        return pulumi.get(self, "vnet_configuration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ACIServiceResponseResponseDataCollection(dict):
+    """
+    Details of the data collection options specified.
+    """
+    def __init__(__self__, *,
+                 event_hub_enabled: Optional[bool] = None,
+                 storage_enabled: Optional[bool] = None):
+        """
+        Details of the data collection options specified.
+        :param bool event_hub_enabled: Option for enabling/disabling Event Hub.
+        :param bool storage_enabled: Option for enabling/disabling storage.
+        """
+        if event_hub_enabled is not None:
+            pulumi.set(__self__, "event_hub_enabled", event_hub_enabled)
+        if storage_enabled is not None:
+            pulumi.set(__self__, "storage_enabled", storage_enabled)
+
+    @property
+    @pulumi.getter(name="eventHubEnabled")
+    def event_hub_enabled(self) -> Optional[bool]:
+        """
+        Option for enabling/disabling Event Hub.
+        """
+        return pulumi.get(self, "event_hub_enabled")
+
+    @property
+    @pulumi.getter(name="storageEnabled")
+    def storage_enabled(self) -> Optional[bool]:
+        """
+        Option for enabling/disabling storage.
+        """
+        return pulumi.get(self, "storage_enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ACIServiceResponseResponseEncryptionProperties(dict):
+    """
+    The encryption properties.
+    """
+    def __init__(__self__, *,
+                 key_name: str,
+                 key_version: str,
+                 vault_base_url: str):
+        """
+        The encryption properties.
+        :param str key_name: Encryption Key name
+        :param str key_version: Encryption Key Version
+        :param str vault_base_url: vault base Url
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_version", key_version)
+        pulumi.set(__self__, "vault_base_url", vault_base_url)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        Encryption Key name
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> str:
+        """
+        Encryption Key Version
+        """
+        return pulumi.get(self, "key_version")
+
+    @property
+    @pulumi.getter(name="vaultBaseUrl")
+    def vault_base_url(self) -> str:
+        """
+        vault base Url
+        """
+        return pulumi.get(self, "vault_base_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ACIServiceResponseResponseEnvironmentImageRequest(dict):
+    """
+    The Environment, models and assets used for inferencing.
+    """
+    def __init__(__self__, *,
+                 assets: Optional[List['outputs.ImageAssetResponse']] = None,
+                 driver_program: Optional[str] = None,
+                 environment: Optional['outputs.EnvironmentImageResponseResponseEnvironment'] = None,
+                 environment_reference: Optional['outputs.EnvironmentImageResponseResponseEnvironmentReference'] = None,
+                 model_ids: Optional[List[str]] = None,
+                 models: Optional[List['outputs.ModelResponse']] = None):
+        """
+        The Environment, models and assets used for inferencing.
+        :param List['ImageAssetResponseArgs'] assets: The list of assets.
+        :param str driver_program: The name of the driver file.
+        :param 'EnvironmentImageResponseResponseEnvironmentArgs' environment: The details of the AZURE ML environment.
+        :param 'EnvironmentImageResponseResponseEnvironmentReferenceArgs' environment_reference: The unique identifying details of the AZURE ML environment.
+        :param List[str] model_ids: The list of model Ids.
+        :param List['ModelResponseArgs'] models: The list of models.
+        """
+        if assets is not None:
+            pulumi.set(__self__, "assets", assets)
+        if driver_program is not None:
+            pulumi.set(__self__, "driver_program", driver_program)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if environment_reference is not None:
+            pulumi.set(__self__, "environment_reference", environment_reference)
+        if model_ids is not None:
+            pulumi.set(__self__, "model_ids", model_ids)
+        if models is not None:
+            pulumi.set(__self__, "models", models)
+
+    @property
+    @pulumi.getter
+    def assets(self) -> Optional[List['outputs.ImageAssetResponse']]:
+        """
+        The list of assets.
+        """
+        return pulumi.get(self, "assets")
+
+    @property
+    @pulumi.getter(name="driverProgram")
+    def driver_program(self) -> Optional[str]:
+        """
+        The name of the driver file.
+        """
+        return pulumi.get(self, "driver_program")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional['outputs.EnvironmentImageResponseResponseEnvironment']:
+        """
+        The details of the AZURE ML environment.
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="environmentReference")
+    def environment_reference(self) -> Optional['outputs.EnvironmentImageResponseResponseEnvironmentReference']:
+        """
+        The unique identifying details of the AZURE ML environment.
+        """
+        return pulumi.get(self, "environment_reference")
+
+    @property
+    @pulumi.getter(name="modelIds")
+    def model_ids(self) -> Optional[List[str]]:
+        """
+        The list of model Ids.
+        """
+        return pulumi.get(self, "model_ids")
+
+    @property
+    @pulumi.getter
+    def models(self) -> Optional[List['outputs.ModelResponse']]:
+        """
+        The list of models.
+        """
+        return pulumi.get(self, "models")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ACIServiceResponseResponseVnetConfiguration(dict):
+    """
+    The virtual network configuration.
+    """
+    def __init__(__self__, *,
+                 subnet_name: Optional[str] = None,
+                 vnet_name: Optional[str] = None):
+        """
+        The virtual network configuration.
+        :param str subnet_name: The name of the virtual network subnet.
+        :param str vnet_name: The name of the virtual network.
+        """
+        if subnet_name is not None:
+            pulumi.set(__self__, "subnet_name", subnet_name)
+        if vnet_name is not None:
+            pulumi.set(__self__, "vnet_name", vnet_name)
+
+    @property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> Optional[str]:
+        """
+        The name of the virtual network subnet.
+        """
+        return pulumi.get(self, "subnet_name")
+
+    @property
+    @pulumi.getter(name="vnetName")
+    def vnet_name(self) -> Optional[str]:
+        """
+        The name of the virtual network.
+        """
+        return pulumi.get(self, "vnet_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class AKSResponse(dict):
@@ -266,6 +806,137 @@ class AKSResponseProperties(dict):
         SSL configuration
         """
         return pulumi.get(self, "ssl_configuration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AKSVariantResponseResponse(dict):
+    """
+    The response for an AKS variant.
+    """
+    def __init__(__self__, *,
+                 compute_type: str,
+                 error: 'outputs.ServiceResponseBaseResponseError',
+                 state: str,
+                 deployment_type: Optional[str] = None,
+                 description: Optional[str] = None,
+                 is_default: Optional[bool] = None,
+                 kv_tags: Optional[Mapping[str, str]] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 traffic_percentile: Optional[float] = None,
+                 type: Optional[str] = None):
+        """
+        The response for an AKS variant.
+        :param str compute_type: The compute environment type for the service.
+        :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
+        :param str state: The current state of the service.
+        :param str deployment_type: The deployment type for the service.
+        :param str description: The service description.
+        :param bool is_default: Is this the default variant.
+        :param Mapping[str, str] kv_tags: The service tag dictionary. Tags are mutable.
+        :param Mapping[str, str] properties: The service property dictionary. Properties are immutable.
+        :param float traffic_percentile: The amount of traffic variant receives.
+        :param str type: The type of the variant.
+        """
+        pulumi.set(__self__, "compute_type", 'Custom')
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "state", state)
+        if deployment_type is not None:
+            pulumi.set(__self__, "deployment_type", deployment_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if kv_tags is not None:
+            pulumi.set(__self__, "kv_tags", kv_tags)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if traffic_percentile is not None:
+            pulumi.set(__self__, "traffic_percentile", traffic_percentile)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
+        """
+        The compute environment type for the service.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ServiceResponseBaseResponseError':
+        """
+        The error details.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The current state of the service.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> Optional[str]:
+        """
+        The deployment type for the service.
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[bool]:
+        """
+        Is this the default variant.
+        """
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="kvTags")
+    def kv_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The service tag dictionary. Tags are mutable.
+        """
+        return pulumi.get(self, "kv_tags")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The service property dictionary. Properties are immutable.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="trafficPercentile")
+    def traffic_percentile(self) -> Optional[float]:
+        """
+        The amount of traffic variant receives.
+        """
+        return pulumi.get(self, "traffic_percentile")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the variant.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -550,10 +1221,14 @@ class AmlComputeResponseProperties(dict):
                  errors: List['outputs.MachineLearningServiceErrorResponse'],
                  node_state_counts: 'outputs.NodeStateCountsResponse',
                  target_node_count: float,
+                 enable_node_public_ip: Optional[bool] = None,
+                 isolated_network: Optional[bool] = None,
+                 os_type: Optional[str] = None,
                  remote_login_port_public_access: Optional[str] = None,
                  scale_settings: Optional['outputs.ScaleSettingsResponse'] = None,
                  subnet: Optional['outputs.ResourceIdResponse'] = None,
                  user_account_credentials: Optional['outputs.UserAccountCredentialsResponse'] = None,
+                 virtual_machine_image: Optional['outputs.VirtualMachineImageResponse'] = None,
                  vm_priority: Optional[str] = None,
                  vm_size: Optional[str] = None):
         """
@@ -564,10 +1239,14 @@ class AmlComputeResponseProperties(dict):
         :param List['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered by various compute nodes during node setup.
         :param 'NodeStateCountsResponseArgs' node_state_counts: Counts of various node states on the compute.
         :param float target_node_count: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
+        :param bool enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        :param bool isolated_network: Network is isolated or not
+        :param str os_type: Compute OS Type
         :param str remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         :param 'ScaleSettingsResponseArgs' scale_settings: Scale settings for AML Compute
         :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param 'UserAccountCredentialsResponseArgs' user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
+        :param 'VirtualMachineImageResponseArgs' virtual_machine_image: Virtual Machine image for AML Compute - windows only
         :param str vm_priority: Virtual Machine priority
         :param str vm_size: Virtual Machine Size
         """
@@ -577,6 +1256,12 @@ class AmlComputeResponseProperties(dict):
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "node_state_counts", node_state_counts)
         pulumi.set(__self__, "target_node_count", target_node_count)
+        if enable_node_public_ip is not None:
+            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if isolated_network is not None:
+            pulumi.set(__self__, "isolated_network", isolated_network)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
         if remote_login_port_public_access is not None:
             pulumi.set(__self__, "remote_login_port_public_access", remote_login_port_public_access)
         if scale_settings is not None:
@@ -585,6 +1270,8 @@ class AmlComputeResponseProperties(dict):
             pulumi.set(__self__, "subnet", subnet)
         if user_account_credentials is not None:
             pulumi.set(__self__, "user_account_credentials", user_account_credentials)
+        if virtual_machine_image is not None:
+            pulumi.set(__self__, "virtual_machine_image", virtual_machine_image)
         if vm_priority is not None:
             pulumi.set(__self__, "vm_priority", vm_priority)
         if vm_size is not None:
@@ -639,6 +1326,30 @@ class AmlComputeResponseProperties(dict):
         return pulumi.get(self, "target_node_count")
 
     @property
+    @pulumi.getter(name="enableNodePublicIp")
+    def enable_node_public_ip(self) -> Optional[bool]:
+        """
+        Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        """
+        return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="isolatedNetwork")
+    def isolated_network(self) -> Optional[bool]:
+        """
+        Network is isolated or not
+        """
+        return pulumi.get(self, "isolated_network")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        Compute OS Type
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
     @pulumi.getter(name="remoteLoginPortPublicAccess")
     def remote_login_port_public_access(self) -> Optional[str]:
         """
@@ -671,6 +1382,14 @@ class AmlComputeResponseProperties(dict):
         return pulumi.get(self, "user_account_credentials")
 
     @property
+    @pulumi.getter(name="virtualMachineImage")
+    def virtual_machine_image(self) -> Optional['outputs.VirtualMachineImageResponse']:
+        """
+        Virtual Machine image for AML Compute - windows only
+        """
+        return pulumi.get(self, "virtual_machine_image")
+
+    @property
     @pulumi.getter(name="vmPriority")
     def vm_priority(self) -> Optional[str]:
         """
@@ -685,6 +1404,42 @@ class AmlComputeResponseProperties(dict):
         Virtual Machine Size
         """
         return pulumi.get(self, "vm_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AssignedUserResponse(dict):
+    """
+    A user that can be assigned to a compute instance.
+    """
+    def __init__(__self__, *,
+                 object_id: str,
+                 tenant_id: str):
+        """
+        A user that can be assigned to a compute instance.
+        :param str object_id: User’s AAD Object Id.
+        :param str tenant_id: User’s AAD Tenant Id.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        User’s AAD Object Id.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        User’s AAD Tenant Id.
+        """
+        return pulumi.get(self, "tenant_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -731,13 +1486,13 @@ class ComputeInstanceApplicationResponse(dict):
 @pulumi.output_type
 class ComputeInstanceConnectivityEndpointsResponse(dict):
     """
-    Defines all connectivity endpoints and properties for a ComputeInstance.
+    Defines all connectivity endpoints and properties for an ComputeInstance.
     """
     def __init__(__self__, *,
                  private_ip_address: str,
                  public_ip_address: str):
         """
-        Defines all connectivity endpoints and properties for a ComputeInstance.
+        Defines all connectivity endpoints and properties for an ComputeInstance.
         :param str private_ip_address: Private IP Address of this ComputeInstance (local to the VNET in which the compute instance is deployed).
         :param str public_ip_address: Public IP Address of this ComputeInstance.
         """
@@ -806,6 +1561,56 @@ class ComputeInstanceCreatedByResponse(dict):
         Uniquely identifies user' Azure Active Directory organization.
         """
         return pulumi.get(self, "user_org_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ComputeInstanceLastOperationResponse(dict):
+    """
+    The last operation on ComputeInstance.
+    """
+    def __init__(__self__, *,
+                 operation_name: Optional[str] = None,
+                 operation_status: Optional[str] = None,
+                 operation_time: Optional[str] = None):
+        """
+        The last operation on ComputeInstance.
+        :param str operation_name: Name of the last operation.
+        :param str operation_status: Operation status.
+        :param str operation_time: Time of the last operation.
+        """
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if operation_status is not None:
+            pulumi.set(__self__, "operation_status", operation_status)
+        if operation_time is not None:
+            pulumi.set(__self__, "operation_time", operation_time)
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[str]:
+        """
+        Name of the last operation.
+        """
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="operationStatus")
+    def operation_status(self) -> Optional[str]:
+        """
+        Operation status.
+        """
+        return pulumi.get(self, "operation_status")
+
+    @property
+    @pulumi.getter(name="operationTime")
+    def operation_time(self) -> Optional[str]:
+        """
+        Time of the last operation.
+        """
+        return pulumi.get(self, "operation_time")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -949,8 +1754,11 @@ class ComputeInstanceResponseProperties(dict):
                  connectivity_endpoints: 'outputs.ComputeInstanceConnectivityEndpointsResponse',
                  created_by: 'outputs.ComputeInstanceCreatedByResponse',
                  errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 last_operation: 'outputs.ComputeInstanceLastOperationResponse',
                  state: str,
                  application_sharing_policy: Optional[str] = None,
+                 compute_instance_authorization_type: Optional[str] = None,
+                 personal_compute_instance_settings: Optional['outputs.PersonalComputeInstanceSettingsResponse'] = None,
                  ssh_settings: Optional['outputs.ComputeInstanceSshSettingsResponse'] = None,
                  subnet: Optional['outputs.ResourceIdResponse'] = None,
                  vm_size: Optional[str] = None):
@@ -960,8 +1768,11 @@ class ComputeInstanceResponseProperties(dict):
         :param 'ComputeInstanceConnectivityEndpointsResponseArgs' connectivity_endpoints: Describes all connectivity endpoints available for this ComputeInstance.
         :param 'ComputeInstanceCreatedByResponseArgs' created_by: Describes information on user who created this ComputeInstance.
         :param List['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered on this ComputeInstance.
+        :param 'ComputeInstanceLastOperationResponseArgs' last_operation: The last operation on ComputeInstance.
         :param str state: The current state of this ComputeInstance.
         :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        :param str compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param 'PersonalComputeInstanceSettingsResponseArgs' personal_compute_instance_settings: Settings for a personal compute instance.
         :param 'ComputeInstanceSshSettingsResponseArgs' ssh_settings: Specifies policy and settings for SSH access.
         :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param str vm_size: Virtual Machine Size
@@ -970,9 +1781,14 @@ class ComputeInstanceResponseProperties(dict):
         pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
         pulumi.set(__self__, "created_by", created_by)
         pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "last_operation", last_operation)
         pulumi.set(__self__, "state", state)
         if application_sharing_policy is not None:
             pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
+        if compute_instance_authorization_type is not None:
+            pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+        if personal_compute_instance_settings is not None:
+            pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
         if ssh_settings is not None:
             pulumi.set(__self__, "ssh_settings", ssh_settings)
         if subnet is not None:
@@ -1013,6 +1829,14 @@ class ComputeInstanceResponseProperties(dict):
         return pulumi.get(self, "errors")
 
     @property
+    @pulumi.getter(name="lastOperation")
+    def last_operation(self) -> 'outputs.ComputeInstanceLastOperationResponse':
+        """
+        The last operation on ComputeInstance.
+        """
+        return pulumi.get(self, "last_operation")
+
+    @property
     @pulumi.getter
     def state(self) -> str:
         """
@@ -1027,6 +1851,22 @@ class ComputeInstanceResponseProperties(dict):
         Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         """
         return pulumi.get(self, "application_sharing_policy")
+
+    @property
+    @pulumi.getter(name="computeInstanceAuthorizationType")
+    def compute_instance_authorization_type(self) -> Optional[str]:
+        """
+        The Compute Instance Authorization type. Available values are personal (default).
+        """
+        return pulumi.get(self, "compute_instance_authorization_type")
+
+    @property
+    @pulumi.getter(name="personalComputeInstanceSettings")
+    def personal_compute_instance_settings(self) -> Optional['outputs.PersonalComputeInstanceSettingsResponse']:
+        """
+        Settings for a personal compute instance.
+        """
+        return pulumi.get(self, "personal_compute_instance_settings")
 
     @property
     @pulumi.getter(name="sshSettings")
@@ -1111,6 +1951,68 @@ class ComputeInstanceSshSettingsResponse(dict):
         State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
         """
         return pulumi.get(self, "ssh_public_access")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContainerResourceRequirementsResponse(dict):
+    """
+    The resource requirements for the container (cpu and memory).
+    """
+    def __init__(__self__, *,
+                 cpu: Optional[float] = None,
+                 fpga: Optional[float] = None,
+                 gpu: Optional[float] = None,
+                 memory_in_gb: Optional[float] = None):
+        """
+        The resource requirements for the container (cpu and memory).
+        :param float cpu: The number of CPU cores on the container.
+        :param float fpga: The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
+        :param float gpu: The number of GPU cores in the container.
+        :param float memory_in_gb: The amount of memory on the container in GB.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if fpga is not None:
+            pulumi.set(__self__, "fpga", fpga)
+        if gpu is not None:
+            pulumi.set(__self__, "gpu", gpu)
+        if memory_in_gb is not None:
+            pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[float]:
+        """
+        The number of CPU cores on the container.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def fpga(self) -> Optional[float]:
+        """
+        The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
+        """
+        return pulumi.get(self, "fpga")
+
+    @property
+    @pulumi.getter
+    def gpu(self) -> Optional[float]:
+        """
+        The number of GPU cores in the container.
+        """
+        return pulumi.get(self, "gpu")
+
+    @property
+    @pulumi.getter(name="memoryInGB")
+    def memory_in_gb(self) -> Optional[float]:
+        """
+        The amount of memory on the container in GB.
+        """
+        return pulumi.get(self, "memory_in_gb")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1525,6 +2427,44 @@ class DatabricksResponseProperties(dict):
 
 
 @pulumi.output_type
+class DatasetReferenceResponse(dict):
+    """
+    The dataset reference object.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        The dataset reference object.
+        :param str id: The id of the dataset reference.
+        :param str name: The name of the dataset reference.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The id of the dataset reference.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the dataset reference.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class EncryptionPropertyResponse(dict):
     def __init__(__self__, *,
                  key_vault_properties: 'outputs.KeyVaultPropertiesResponse',
@@ -1551,6 +2491,154 @@ class EncryptionPropertyResponse(dict):
         Indicates whether or not the encryption is enabled for the workspace.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EnvironmentImageResponseResponseEnvironment(dict):
+    """
+    The details of the AZURE ML environment.
+    """
+    def __init__(__self__, *,
+                 docker: Optional['outputs.ModelEnvironmentDefinitionResponseResponseDocker'] = None,
+                 environment_variables: Optional[Mapping[str, str]] = None,
+                 inferencing_stack_version: Optional[str] = None,
+                 name: Optional[str] = None,
+                 python: Optional['outputs.ModelEnvironmentDefinitionResponseResponsePython'] = None,
+                 r: Optional['outputs.ModelEnvironmentDefinitionResponseResponseR'] = None,
+                 spark: Optional['outputs.ModelEnvironmentDefinitionResponseResponseSpark'] = None,
+                 version: Optional[str] = None):
+        """
+        The details of the AZURE ML environment.
+        :param 'ModelEnvironmentDefinitionResponseResponseDockerArgs' docker: The definition of a Docker container.
+        :param Mapping[str, str] environment_variables: Definition of environment variables to be defined in the environment.
+        :param str inferencing_stack_version: The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
+        :param str name: The name of the environment.
+        :param 'ModelEnvironmentDefinitionResponseResponsePythonArgs' python: Settings for a Python environment.
+        :param 'ModelEnvironmentDefinitionResponseResponseRArgs' r: Settings for a R environment.
+        :param 'ModelEnvironmentDefinitionResponseResponseSparkArgs' spark: The configuration for a Spark environment.
+        :param str version: The environment version.
+        """
+        if docker is not None:
+            pulumi.set(__self__, "docker", docker)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if inferencing_stack_version is not None:
+            pulumi.set(__self__, "inferencing_stack_version", inferencing_stack_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if python is not None:
+            pulumi.set(__self__, "python", python)
+        if r is not None:
+            pulumi.set(__self__, "r", r)
+        if spark is not None:
+            pulumi.set(__self__, "spark", spark)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def docker(self) -> Optional['outputs.ModelEnvironmentDefinitionResponseResponseDocker']:
+        """
+        The definition of a Docker container.
+        """
+        return pulumi.get(self, "docker")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Mapping[str, str]]:
+        """
+        Definition of environment variables to be defined in the environment.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="inferencingStackVersion")
+    def inferencing_stack_version(self) -> Optional[str]:
+        """
+        The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
+        """
+        return pulumi.get(self, "inferencing_stack_version")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the environment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def python(self) -> Optional['outputs.ModelEnvironmentDefinitionResponseResponsePython']:
+        """
+        Settings for a Python environment.
+        """
+        return pulumi.get(self, "python")
+
+    @property
+    @pulumi.getter
+    def r(self) -> Optional['outputs.ModelEnvironmentDefinitionResponseResponseR']:
+        """
+        Settings for a R environment.
+        """
+        return pulumi.get(self, "r")
+
+    @property
+    @pulumi.getter
+    def spark(self) -> Optional['outputs.ModelEnvironmentDefinitionResponseResponseSpark']:
+        """
+        The configuration for a Spark environment.
+        """
+        return pulumi.get(self, "spark")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The environment version.
+        """
+        return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EnvironmentImageResponseResponseEnvironmentReference(dict):
+    """
+    The unique identifying details of the AZURE ML environment.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        The unique identifying details of the AZURE ML environment.
+        :param str name: Name of the environment.
+        :param str version: Version of the environment.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the environment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the environment.
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1817,18 +2905,19 @@ class IdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: str,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None):
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the resource.
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'IdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentityResponseArgs'] user_assigned_identities: The user assigned identities associated with the resource.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
@@ -1850,7 +2939,7 @@ class IdentityResponse(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> Optional[str]:
         """
         The identity type.
         """
@@ -1858,9 +2947,9 @@ class IdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
         """
-        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        The user assigned identities associated with the resource.
         """
         return pulumi.get(self, "user_assigned_identities")
 
@@ -1869,32 +2958,62 @@ class IdentityResponse(dict):
 
 
 @pulumi.output_type
-class IdentityResponseUserAssignedIdentities(dict):
+class ImageAssetResponse(dict):
+    """
+    An Image asset.
+    """
     def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
+                 id: Optional[str] = None,
+                 mime_type: Optional[str] = None,
+                 unpack: Optional[bool] = None,
+                 url: Optional[str] = None):
         """
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
+        An Image asset.
+        :param str id: The Asset Id.
+        :param str mime_type: The mime type.
+        :param bool unpack: Whether the Asset is unpacked.
+        :param str url: The Url of the Asset.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if mime_type is not None:
+            pulumi.set(__self__, "mime_type", mime_type)
+        if unpack is not None:
+            pulumi.set(__self__, "unpack", unpack)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    @pulumi.getter
+    def id(self) -> Optional[str]:
         """
-        The client id of user assigned identity.
+        The Asset Id.
         """
-        return pulumi.get(self, "client_id")
+        return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    @pulumi.getter(name="mimeType")
+    def mime_type(self) -> Optional[str]:
         """
-        The principal id of user assigned identity.
+        The mime type.
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "mime_type")
+
+    @property
+    @pulumi.getter
+    def unpack(self) -> Optional[bool]:
+        """
+        Whether the Asset is unpacked.
+        """
+        return pulumi.get(self, "unpack")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The Url of the Asset.
+        """
+        return pulumi.get(self, "url")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1939,6 +3058,67 @@ class KeyVaultPropertiesResponse(dict):
         For future use - The client id of the identity which will be used to access key vault.
         """
         return pulumi.get(self, "identity_client_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LinkedServicePropsResponse(dict):
+    """
+    LinkedService specific properties.
+    """
+    def __init__(__self__, *,
+                 linked_service_resource_id: str,
+                 created_time: Optional[str] = None,
+                 link_type: Optional[str] = None,
+                 modified_time: Optional[str] = None):
+        """
+        LinkedService specific properties.
+        :param str linked_service_resource_id: ResourceId of the link target of the linked service.
+        :param str created_time: The creation time of the linked service.
+        :param str link_type: Type of the link target.
+        :param str modified_time: The last modified time of the linked service.
+        """
+        pulumi.set(__self__, "linked_service_resource_id", linked_service_resource_id)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if link_type is not None:
+            pulumi.set(__self__, "link_type", link_type)
+        if modified_time is not None:
+            pulumi.set(__self__, "modified_time", modified_time)
+
+    @property
+    @pulumi.getter(name="linkedServiceResourceId")
+    def linked_service_resource_id(self) -> str:
+        """
+        ResourceId of the link target of the linked service.
+        """
+        return pulumi.get(self, "linked_service_resource_id")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        """
+        The creation time of the linked service.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="linkType")
+    def link_type(self) -> Optional[str]:
+        """
+        Type of the link target.
+        """
+        return pulumi.get(self, "link_type")
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> Optional[str]:
+        """
+        The last modified time of the linked service.
+        """
+        return pulumi.get(self, "modified_time")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2002,6 +3182,561 @@ class MachineLearningServiceErrorResponse(dict):
         The error response.
         """
         return pulumi.get(self, "error")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ModelDockerSectionResponseResponseBaseImageRegistry(dict):
+    """
+    Image registry that contains the base image.
+    """
+    def __init__(__self__, *,
+                 address: Optional[str] = None):
+        """
+        Image registry that contains the base image.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        return pulumi.get(self, "address")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ModelEnvironmentDefinitionResponseResponseDocker(dict):
+    """
+    The definition of a Docker container.
+    """
+    def __init__(__self__, *,
+                 base_dockerfile: Optional[str] = None,
+                 base_image: Optional[str] = None,
+                 base_image_registry: Optional['outputs.ModelDockerSectionResponseResponseBaseImageRegistry'] = None):
+        """
+        The definition of a Docker container.
+        :param str base_dockerfile: Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
+        :param str base_image: Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
+        :param 'ModelDockerSectionResponseResponseBaseImageRegistryArgs' base_image_registry: Image registry that contains the base image.
+        """
+        if base_dockerfile is not None:
+            pulumi.set(__self__, "base_dockerfile", base_dockerfile)
+        if base_image is not None:
+            pulumi.set(__self__, "base_image", base_image)
+        if base_image_registry is not None:
+            pulumi.set(__self__, "base_image_registry", base_image_registry)
+
+    @property
+    @pulumi.getter(name="baseDockerfile")
+    def base_dockerfile(self) -> Optional[str]:
+        """
+        Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
+        """
+        return pulumi.get(self, "base_dockerfile")
+
+    @property
+    @pulumi.getter(name="baseImage")
+    def base_image(self) -> Optional[str]:
+        """
+        Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
+        """
+        return pulumi.get(self, "base_image")
+
+    @property
+    @pulumi.getter(name="baseImageRegistry")
+    def base_image_registry(self) -> Optional['outputs.ModelDockerSectionResponseResponseBaseImageRegistry']:
+        """
+        Image registry that contains the base image.
+        """
+        return pulumi.get(self, "base_image_registry")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ModelEnvironmentDefinitionResponseResponsePython(dict):
+    """
+    Settings for a Python environment.
+    """
+    def __init__(__self__, *,
+                 base_conda_environment: Optional[str] = None,
+                 conda_dependencies: Optional[Mapping[str, Any]] = None,
+                 interpreter_path: Optional[str] = None,
+                 user_managed_dependencies: Optional[bool] = None):
+        """
+        Settings for a Python environment.
+        :param Mapping[str, Any] conda_dependencies: A JObject containing Conda dependencies.
+        :param str interpreter_path: The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
+        :param bool user_managed_dependencies: True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
+        """
+        if base_conda_environment is not None:
+            pulumi.set(__self__, "base_conda_environment", base_conda_environment)
+        if conda_dependencies is not None:
+            pulumi.set(__self__, "conda_dependencies", conda_dependencies)
+        if interpreter_path is not None:
+            pulumi.set(__self__, "interpreter_path", interpreter_path)
+        if user_managed_dependencies is not None:
+            pulumi.set(__self__, "user_managed_dependencies", user_managed_dependencies)
+
+    @property
+    @pulumi.getter(name="baseCondaEnvironment")
+    def base_conda_environment(self) -> Optional[str]:
+        return pulumi.get(self, "base_conda_environment")
+
+    @property
+    @pulumi.getter(name="condaDependencies")
+    def conda_dependencies(self) -> Optional[Mapping[str, Any]]:
+        """
+        A JObject containing Conda dependencies.
+        """
+        return pulumi.get(self, "conda_dependencies")
+
+    @property
+    @pulumi.getter(name="interpreterPath")
+    def interpreter_path(self) -> Optional[str]:
+        """
+        The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
+        """
+        return pulumi.get(self, "interpreter_path")
+
+    @property
+    @pulumi.getter(name="userManagedDependencies")
+    def user_managed_dependencies(self) -> Optional[bool]:
+        """
+        True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
+        """
+        return pulumi.get(self, "user_managed_dependencies")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ModelEnvironmentDefinitionResponseResponseR(dict):
+    """
+    Settings for a R environment.
+    """
+    def __init__(__self__, *,
+                 bio_conductor_packages: Optional[List[str]] = None,
+                 cran_packages: Optional[List['outputs.RCranPackageResponse']] = None,
+                 custom_url_packages: Optional[List[str]] = None,
+                 git_hub_packages: Optional[List['outputs.RGitHubPackageResponseResponse']] = None,
+                 r_version: Optional[str] = None,
+                 rscript_path: Optional[str] = None,
+                 snapshot_date: Optional[str] = None,
+                 user_managed: Optional[bool] = None):
+        """
+        Settings for a R environment.
+        :param List[str] bio_conductor_packages: The packages from Bioconductor.
+        :param List['RCranPackageResponseArgs'] cran_packages: The CRAN packages to use.
+        :param List[str] custom_url_packages: The packages from custom urls.
+        :param List['RGitHubPackageResponseResponseArgs'] git_hub_packages: The packages directly from GitHub.
+        :param str r_version: The version of R to be installed
+        :param str rscript_path: The Rscript path to use if an environment build is not required.
+               The path specified gets used to call the user script.
+        :param str snapshot_date: Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
+        :param bool user_managed: Indicates whether the environment is managed by user or by AzureML.
+        """
+        if bio_conductor_packages is not None:
+            pulumi.set(__self__, "bio_conductor_packages", bio_conductor_packages)
+        if cran_packages is not None:
+            pulumi.set(__self__, "cran_packages", cran_packages)
+        if custom_url_packages is not None:
+            pulumi.set(__self__, "custom_url_packages", custom_url_packages)
+        if git_hub_packages is not None:
+            pulumi.set(__self__, "git_hub_packages", git_hub_packages)
+        if r_version is not None:
+            pulumi.set(__self__, "r_version", r_version)
+        if rscript_path is not None:
+            pulumi.set(__self__, "rscript_path", rscript_path)
+        if snapshot_date is not None:
+            pulumi.set(__self__, "snapshot_date", snapshot_date)
+        if user_managed is not None:
+            pulumi.set(__self__, "user_managed", user_managed)
+
+    @property
+    @pulumi.getter(name="bioConductorPackages")
+    def bio_conductor_packages(self) -> Optional[List[str]]:
+        """
+        The packages from Bioconductor.
+        """
+        return pulumi.get(self, "bio_conductor_packages")
+
+    @property
+    @pulumi.getter(name="cranPackages")
+    def cran_packages(self) -> Optional[List['outputs.RCranPackageResponse']]:
+        """
+        The CRAN packages to use.
+        """
+        return pulumi.get(self, "cran_packages")
+
+    @property
+    @pulumi.getter(name="customUrlPackages")
+    def custom_url_packages(self) -> Optional[List[str]]:
+        """
+        The packages from custom urls.
+        """
+        return pulumi.get(self, "custom_url_packages")
+
+    @property
+    @pulumi.getter(name="gitHubPackages")
+    def git_hub_packages(self) -> Optional[List['outputs.RGitHubPackageResponseResponse']]:
+        """
+        The packages directly from GitHub.
+        """
+        return pulumi.get(self, "git_hub_packages")
+
+    @property
+    @pulumi.getter(name="rVersion")
+    def r_version(self) -> Optional[str]:
+        """
+        The version of R to be installed
+        """
+        return pulumi.get(self, "r_version")
+
+    @property
+    @pulumi.getter(name="rscriptPath")
+    def rscript_path(self) -> Optional[str]:
+        """
+        The Rscript path to use if an environment build is not required.
+        The path specified gets used to call the user script.
+        """
+        return pulumi.get(self, "rscript_path")
+
+    @property
+    @pulumi.getter(name="snapshotDate")
+    def snapshot_date(self) -> Optional[str]:
+        """
+        Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
+        """
+        return pulumi.get(self, "snapshot_date")
+
+    @property
+    @pulumi.getter(name="userManaged")
+    def user_managed(self) -> Optional[bool]:
+        """
+        Indicates whether the environment is managed by user or by AzureML.
+        """
+        return pulumi.get(self, "user_managed")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ModelEnvironmentDefinitionResponseResponseSpark(dict):
+    """
+    The configuration for a Spark environment.
+    """
+    def __init__(__self__, *,
+                 packages: Optional[List['outputs.SparkMavenPackageResponse']] = None,
+                 precache_packages: Optional[bool] = None,
+                 repositories: Optional[List[str]] = None):
+        """
+        The configuration for a Spark environment.
+        :param List['SparkMavenPackageResponseArgs'] packages: The Spark packages to use.
+        :param bool precache_packages: Whether to precache the packages.
+        :param List[str] repositories: The list of spark repositories.
+        """
+        if packages is not None:
+            pulumi.set(__self__, "packages", packages)
+        if precache_packages is not None:
+            pulumi.set(__self__, "precache_packages", precache_packages)
+        if repositories is not None:
+            pulumi.set(__self__, "repositories", repositories)
+
+    @property
+    @pulumi.getter
+    def packages(self) -> Optional[List['outputs.SparkMavenPackageResponse']]:
+        """
+        The Spark packages to use.
+        """
+        return pulumi.get(self, "packages")
+
+    @property
+    @pulumi.getter(name="precachePackages")
+    def precache_packages(self) -> Optional[bool]:
+        """
+        Whether to precache the packages.
+        """
+        return pulumi.get(self, "precache_packages")
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Optional[List[str]]:
+        """
+        The list of spark repositories.
+        """
+        return pulumi.get(self, "repositories")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ModelResponse(dict):
+    """
+    An Azure Machine Learning Model.
+    """
+    def __init__(__self__, *,
+                 mime_type: str,
+                 name: str,
+                 url: str,
+                 created_time: Optional[str] = None,
+                 datasets: Optional[List['outputs.DatasetReferenceResponse']] = None,
+                 derived_model_ids: Optional[List[str]] = None,
+                 description: Optional[str] = None,
+                 experiment_name: Optional[str] = None,
+                 framework: Optional[str] = None,
+                 framework_version: Optional[str] = None,
+                 id: Optional[str] = None,
+                 kv_tags: Optional[Mapping[str, str]] = None,
+                 modified_time: Optional[str] = None,
+                 parent_model_id: Optional[str] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 resource_requirements: Optional['outputs.ContainerResourceRequirementsResponse'] = None,
+                 run_id: Optional[str] = None,
+                 sample_input_data: Optional[str] = None,
+                 sample_output_data: Optional[str] = None,
+                 unpack: Optional[bool] = None,
+                 version: Optional[float] = None):
+        """
+        An Azure Machine Learning Model.
+        :param str mime_type: The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
+        :param str name: The Model name.
+        :param str url: The URL of the Model. Usually a SAS URL.
+        :param str created_time: The Model creation time (UTC).
+        :param List['DatasetReferenceResponseArgs'] datasets: The list of datasets associated with the model.
+        :param List[str] derived_model_ids: Models derived from this model
+        :param str description: The Model description text.
+        :param str experiment_name: The name of the experiment where this model was created.
+        :param str framework: The Model framework.
+        :param str framework_version: The Model framework version.
+        :param str id: The Model Id.
+        :param Mapping[str, str] kv_tags: The Model tag dictionary. Items are mutable.
+        :param str modified_time: The Model last modified time (UTC).
+        :param str parent_model_id: The Parent Model Id.
+        :param Mapping[str, str] properties: The Model property dictionary. Properties are immutable.
+        :param 'ContainerResourceRequirementsResponseArgs' resource_requirements: Resource requirements for the model
+        :param str run_id: The RunId that created this model.
+        :param str sample_input_data: Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        :param str sample_output_data: Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        :param bool unpack: Indicates whether we need to unpack the Model during docker Image creation.
+        :param float version: The Model version assigned by Model Management Service.
+        """
+        pulumi.set(__self__, "mime_type", mime_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
+        if derived_model_ids is not None:
+            pulumi.set(__self__, "derived_model_ids", derived_model_ids)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if framework is not None:
+            pulumi.set(__self__, "framework", framework)
+        if framework_version is not None:
+            pulumi.set(__self__, "framework_version", framework_version)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kv_tags is not None:
+            pulumi.set(__self__, "kv_tags", kv_tags)
+        if modified_time is not None:
+            pulumi.set(__self__, "modified_time", modified_time)
+        if parent_model_id is not None:
+            pulumi.set(__self__, "parent_model_id", parent_model_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_requirements is not None:
+            pulumi.set(__self__, "resource_requirements", resource_requirements)
+        if run_id is not None:
+            pulumi.set(__self__, "run_id", run_id)
+        if sample_input_data is not None:
+            pulumi.set(__self__, "sample_input_data", sample_input_data)
+        if sample_output_data is not None:
+            pulumi.set(__self__, "sample_output_data", sample_output_data)
+        if unpack is not None:
+            pulumi.set(__self__, "unpack", unpack)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="mimeType")
+    def mime_type(self) -> str:
+        """
+        The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
+        """
+        return pulumi.get(self, "mime_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Model name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The URL of the Model. Usually a SAS URL.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        """
+        The Model creation time (UTC).
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def datasets(self) -> Optional[List['outputs.DatasetReferenceResponse']]:
+        """
+        The list of datasets associated with the model.
+        """
+        return pulumi.get(self, "datasets")
+
+    @property
+    @pulumi.getter(name="derivedModelIds")
+    def derived_model_ids(self) -> Optional[List[str]]:
+        """
+        Models derived from this model
+        """
+        return pulumi.get(self, "derived_model_ids")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The Model description text.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[str]:
+        """
+        The name of the experiment where this model was created.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @property
+    @pulumi.getter
+    def framework(self) -> Optional[str]:
+        """
+        The Model framework.
+        """
+        return pulumi.get(self, "framework")
+
+    @property
+    @pulumi.getter(name="frameworkVersion")
+    def framework_version(self) -> Optional[str]:
+        """
+        The Model framework version.
+        """
+        return pulumi.get(self, "framework_version")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The Model Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="kvTags")
+    def kv_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The Model tag dictionary. Items are mutable.
+        """
+        return pulumi.get(self, "kv_tags")
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> Optional[str]:
+        """
+        The Model last modified time (UTC).
+        """
+        return pulumi.get(self, "modified_time")
+
+    @property
+    @pulumi.getter(name="parentModelId")
+    def parent_model_id(self) -> Optional[str]:
+        """
+        The Parent Model Id.
+        """
+        return pulumi.get(self, "parent_model_id")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The Model property dictionary. Properties are immutable.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="resourceRequirements")
+    def resource_requirements(self) -> Optional['outputs.ContainerResourceRequirementsResponse']:
+        """
+        Resource requirements for the model
+        """
+        return pulumi.get(self, "resource_requirements")
+
+    @property
+    @pulumi.getter(name="runId")
+    def run_id(self) -> Optional[str]:
+        """
+        The RunId that created this model.
+        """
+        return pulumi.get(self, "run_id")
+
+    @property
+    @pulumi.getter(name="sampleInputData")
+    def sample_input_data(self) -> Optional[str]:
+        """
+        Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        """
+        return pulumi.get(self, "sample_input_data")
+
+    @property
+    @pulumi.getter(name="sampleOutputData")
+    def sample_output_data(self) -> Optional[str]:
+        """
+        Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        """
+        return pulumi.get(self, "sample_output_data")
+
+    @property
+    @pulumi.getter
+    def unpack(self) -> Optional[bool]:
+        """
+        Indicates whether we need to unpack the Model during docker Image creation.
+        """
+        return pulumi.get(self, "unpack")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[float]:
+        """
+        The Model version assigned by Model Management Service.
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2088,93 +3823,6 @@ class NodeStateCountsResponse(dict):
 
 
 @pulumi.output_type
-class NotebookListCredentialsResultResponseResult(dict):
-    def __init__(__self__, *,
-                 primary_access_key: Optional[str] = None,
-                 secondary_access_key: Optional[str] = None):
-        if primary_access_key is not None:
-            pulumi.set(__self__, "primary_access_key", primary_access_key)
-        if secondary_access_key is not None:
-            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
-
-    @property
-    @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> Optional[str]:
-        return pulumi.get(self, "primary_access_key")
-
-    @property
-    @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> Optional[str]:
-        return pulumi.get(self, "secondary_access_key")
-
-
-@pulumi.output_type
-class NotebookPreparationErrorResponse(dict):
-    def __init__(__self__, *,
-                 error_message: Optional[str] = None,
-                 status_code: Optional[float] = None):
-        if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
-        if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
-
-    @property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> Optional[str]:
-        return pulumi.get(self, "error_message")
-
-    @property
-    @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional[float]:
-        return pulumi.get(self, "status_code")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class NotebookResourceInfoResponse(dict):
-    def __init__(__self__, *,
-                 fqdn: Optional[str] = None,
-                 notebook_preparation_error: Optional['outputs.NotebookPreparationErrorResponse'] = None,
-                 resource_id: Optional[str] = None):
-        """
-        :param 'NotebookPreparationErrorResponseArgs' notebook_preparation_error: The error that occurs when preparing notebook.
-        :param str resource_id: the data plane resourceId that used to initialize notebook component
-        """
-        if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
-        if notebook_preparation_error is not None:
-            pulumi.set(__self__, "notebook_preparation_error", notebook_preparation_error)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter
-    def fqdn(self) -> Optional[str]:
-        return pulumi.get(self, "fqdn")
-
-    @property
-    @pulumi.getter(name="notebookPreparationError")
-    def notebook_preparation_error(self) -> Optional['outputs.NotebookPreparationErrorResponse']:
-        """
-        The error that occurs when preparing notebook.
-        """
-        return pulumi.get(self, "notebook_preparation_error")
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
-        """
-        the data plane resourceId that used to initialize notebook component
-        """
-        return pulumi.get(self, "resource_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class PasswordResponseResult(dict):
     def __init__(__self__, *,
                  name: str,
@@ -2194,6 +3842,32 @@ class PasswordResponseResult(dict):
 
 
 @pulumi.output_type
+class PersonalComputeInstanceSettingsResponse(dict):
+    """
+    Settings for a personal compute instance.
+    """
+    def __init__(__self__, *,
+                 assigned_user: Optional['outputs.AssignedUserResponse'] = None):
+        """
+        Settings for a personal compute instance.
+        :param 'AssignedUserResponseArgs' assigned_user: A user explicitly assigned to a personal compute instance.
+        """
+        if assigned_user is not None:
+            pulumi.set(__self__, "assigned_user", assigned_user)
+
+    @property
+    @pulumi.getter(name="assignedUser")
+    def assigned_user(self) -> Optional['outputs.AssignedUserResponse']:
+        """
+        A user explicitly assigned to a personal compute instance.
+        """
+        return pulumi.get(self, "assigned_user")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The Private Endpoint Connection resource.
@@ -2203,31 +3877,47 @@ class PrivateEndpointConnectionResponse(dict):
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  type: str,
+                 identity: Optional['outputs.IdentityResponse'] = None,
+                 location: Optional[str] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
-                 provisioning_state: Optional[str] = None):
+                 provisioning_state: Optional[str] = None,
+                 sku: Optional['outputs.SkuResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None):
         """
         The Private Endpoint Connection resource.
-        :param str id: ResourceId of the private endpoint connection.
-        :param str name: Friendly name of the private endpoint connection.
+        :param str id: Specifies the resource ID.
+        :param str name: Specifies the name of the resource.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param str type: Resource type of private endpoint connection.
+        :param str type: Specifies the type of the resource.
+        :param 'IdentityResponseArgs' identity: The identity of the resource.
+        :param str location: Specifies the location of the resource.
         :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SkuResponseArgs' sku: The sku of the workspace.
+        :param Mapping[str, str] tags: Contains resource tags defined as key/value pairs.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "type", type)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        ResourceId of the private endpoint connection.
+        Specifies the resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -2235,7 +3925,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Friendly name of the private endpoint connection.
+        Specifies the name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -2251,9 +3941,25 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type of private endpoint connection.
+        Specifies the type of the resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -2270,6 +3976,22 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The sku of the workspace.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Contains resource tags defined as key/value pairs.
+        """
+        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2351,6 +4073,62 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class RCranPackageResponse(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 repository: Optional[str] = None):
+        """
+        :param str name: The package name.
+        :param str repository: The repository name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The package name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[str]:
+        """
+        The repository name.
+        """
+        return pulumi.get(self, "repository")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RGitHubPackageResponseResponse(dict):
+    def __init__(__self__, *,
+                 repository: Optional[str] = None):
+        """
+        :param str repository: Repository address in the format username/repo[/subdir][@ref|#pull].
+        """
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[str]:
+        """
+        Repository address in the format username/repo[/subdir][@ref|#pull].
+        """
+        return pulumi.get(self, "repository")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RegistryListCredentialsResultResponseResult(dict):
     def __init__(__self__, *,
                  location: str,
@@ -2415,7 +4193,7 @@ class ScaleSettingsResponse(dict):
         scale settings for AML Compute
         :param float max_node_count: Max number of nodes to use
         :param float min_node_count: Min number of nodes to use
-        :param str node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute
+        :param str node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
         if min_node_count is not None:
@@ -2443,9 +4221,56 @@ class ScaleSettingsResponse(dict):
     @pulumi.getter(name="nodeIdleTimeBeforeScaleDown")
     def node_idle_time_before_scale_down(self) -> Optional[str]:
         """
-        Node Idle Time before scaling down amlCompute
+        Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
         return pulumi.get(self, "node_idle_time_before_scale_down")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceResponseBaseResponseError(dict):
+    """
+    The error details.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 details: List['outputs.ErrorDetailResponse'],
+                 message: str):
+        """
+        The error details.
+        :param str code: Error code.
+        :param List['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param str message: Error message.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> List['outputs.ErrorDetailResponse']:
+        """
+        An array of error detail objects.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Error message.
+        """
+        return pulumi.get(self, "message")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2554,6 +4379,38 @@ class SkuResponse(dict):
         Tier of the sku like Basic or Enterprise
         """
         return pulumi.get(self, "tier")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SparkMavenPackageResponse(dict):
+    def __init__(__self__, *,
+                 artifact: Optional[str] = None,
+                 group: Optional[str] = None,
+                 version: Optional[str] = None):
+        if artifact is not None:
+            pulumi.set(__self__, "artifact", artifact)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def artifact(self) -> Optional[str]:
+        return pulumi.get(self, "artifact")
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[str]:
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2712,6 +4569,78 @@ class UserAccountCredentialsResponse(dict):
         SSH public key of the administrator user account.
         """
         return pulumi.get(self, "admin_user_ssh_public_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User Assigned Identity
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str,
+                 tenant_id: str):
+        """
+        User Assigned Identity
+        :param str client_id: The clientId(aka appId) of the user assigned identity.
+        :param str principal_id: The principal ID of the user assigned identity.
+        :param str tenant_id: The tenant ID of the user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The clientId(aka appId) of the user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineImageResponse(dict):
+    """
+    Virtual Machine image for Windows AML Compute
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Virtual Machine image for Windows AML Compute
+        :param str id: Virtual Machine image path
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Virtual Machine image path
+        """
+        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

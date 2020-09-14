@@ -50,7 +50,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']] private_endpoint: Private endpoint which the connection belongs to.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStatePropertyArgs']] private_link_service_connection_state: Connection state of the private endpoint connection.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         """
         if __name__ is not None:

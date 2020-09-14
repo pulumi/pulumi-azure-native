@@ -3,7 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .action_rule_by_name import *
+from .get_action_rule_by_name import *
+from .get_health_alert import *
 from .get_smart_detector_alert_rule import *
+from .health_alert import *
 from .smart_detector_alert_rule import *
 from ._inputs import *
 from . import outputs

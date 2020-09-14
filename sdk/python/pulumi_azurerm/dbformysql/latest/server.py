@@ -17,13 +17,26 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 delegated_subnet_arguments: Optional[pulumi.Input[pulumi.InputType['DelegatedSubnetArgumentsArgs']]] = None,
+                 ha_enabled: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
+                 infrastructure_encryption: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ServerPropertiesForDefaultCreateArgs'], pulumi.InputType['ServerPropertiesForGeoRestoreArgs'], pulumi.InputType['ServerPropertiesForReplicaArgs'], pulumi.InputType['ServerPropertiesForRestoreArgs']]]] = None,
+                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
+                 replication_role: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 source_server_id: Optional[pulumi.Input[str]] = None,
+                 ssl_enforcement: Optional[pulumi.Input[str]] = None,
+                 storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -31,27 +44,6 @@ class Server(pulumi.CustomResource):
         Represents a server.
 
         ## Example Usage
-        ### Create a database as a point in time restore
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        server = azurerm.dbformysql.latest.Server("server",
-            location="brazilsouth",
-            resource_group_name="TargetResourceGroup",
-            server_name="targetserver",
-            sku={
-                "capacity": 2,
-                "family": "Gen5",
-                "name": "GP_Gen5_2",
-                "tier": "GeneralPurpose",
-            },
-            tags={
-                "ElasticServer": "1",
-            })
-
-        ```
         ### Create a new server
 
         ```python
@@ -59,14 +51,21 @@ class Server(pulumi.CustomResource):
         import pulumi_azurerm as azurerm
 
         server = azurerm.dbformysql.latest.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="pass$w0rd",
+            create_mode="Default",
             location="westus",
             resource_group_name="testrg",
             server_name="mysqltestsvc4",
             sku={
-                "capacity": 2,
-                "family": "Gen5",
-                "name": "GP_Gen5_2",
+                "name": "Standard_D14_v2",
                 "tier": "GeneralPurpose",
+            },
+            ssl_enforcement="Enabled",
+            storage_profile={
+                "backupRetentionDays": 7,
+                "storageIops": 200,
+                "storageMB": 128000,
             },
             tags={
                 "ElasticServer": "1",
@@ -80,27 +79,30 @@ class Server(pulumi.CustomResource):
         import pulumi_azurerm as azurerm
 
         server = azurerm.dbformysql.latest.Server("server",
+            create_mode="Replica",
             location="westus",
             resource_group_name="TargetResourceGroup",
-            server_name="targetserver")
+            server_name="targetserver",
+            source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/PrimaryResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/primaryserver")
 
         ```
-        ### Create a server as a geo restore
+        ### Create a server as a point in time restore
 
         ```python
         import pulumi
         import pulumi_azurerm as azurerm
 
         server = azurerm.dbformysql.latest.Server("server",
-            location="westus",
+            create_mode="PointInTimeRestore",
+            location="brazilsouth",
             resource_group_name="TargetResourceGroup",
+            restore_point_in_time="2017-12-14T00:00:37.467Z",
             server_name="targetserver",
             sku={
-                "capacity": 2,
-                "family": "Gen5",
-                "name": "GP_Gen5_2",
+                "name": "Standard_D14_v2",
                 "tier": "GeneralPurpose",
             },
+            source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
             tags={
                 "ElasticServer": "1",
             })
@@ -109,13 +111,26 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the server.
-        :param pulumi.Input[str] location: The location the resource resides in.
-        :param pulumi.Input[Union[pulumi.InputType['ServerPropertiesForDefaultCreateArgs'], pulumi.InputType['ServerPropertiesForGeoRestoreArgs'], pulumi.InputType['ServerPropertiesForReplicaArgs'], pulumi.InputType['ServerPropertiesForRestoreArgs']]] properties: Properties of the server.
+        :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        :param pulumi.Input[str] administrator_login_password: The password of the administrator login (required for server creation).
+        :param pulumi.Input[str] availability_zone: availability Zone information of the server.
+        :param pulumi.Input[str] create_mode: The mode to create a new MySQL server.
+        :param pulumi.Input[pulumi.InputType['DelegatedSubnetArgumentsArgs']] delegated_subnet_arguments: Delegated subnet arguments.
+        :param pulumi.Input[str] ha_enabled: Enable HA or not for a server.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The Azure Active Directory identity of the server.
+        :param pulumi.Input[str] infrastructure_encryption: Status showing whether the server enabled infrastructure encryption.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a server.
+        :param pulumi.Input[str] replication_role: The replication role.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] restore_point_in_time: Restore point creation time (ISO8601 format), specifying the time to restore from.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (pricing tier) of the server.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata in the form of key-value pairs.
+        :param pulumi.Input[str] source_server_id: The source MySQL server id.
+        :param pulumi.Input[str] ssl_enforcement: Enable ssl enforcement or not when connect to server.
+        :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Storage profile of a server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] version: Server version.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -134,39 +149,43 @@ class Server(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['administrator_login'] = administrator_login
+            __props__['administrator_login_password'] = administrator_login_password
+            __props__['availability_zone'] = availability_zone
+            __props__['create_mode'] = create_mode
+            __props__['delegated_subnet_arguments'] = delegated_subnet_arguments
+            __props__['ha_enabled'] = ha_enabled
             __props__['identity'] = identity
+            __props__['infrastructure_encryption'] = infrastructure_encryption
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['maintenance_window'] = maintenance_window
+            __props__['replication_role'] = replication_role
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['restore_point_in_time'] = restore_point_in_time
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['sku'] = sku
+            __props__['source_server_id'] = source_server_id
+            __props__['ssl_enforcement'] = ssl_enforcement
+            __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
-            __props__['administrator_login'] = None
+            __props__['version'] = version
             __props__['byok_enforcement'] = None
             __props__['earliest_restore_date'] = None
             __props__['fully_qualified_domain_name'] = None
-            __props__['infrastructure_encryption'] = None
-            __props__['master_server_id'] = None
-            __props__['minimal_tls_version'] = None
+            __props__['ha_state'] = None
             __props__['name'] = None
-            __props__['private_endpoint_connections'] = None
             __props__['public_network_access'] = None
             __props__['replica_capacity'] = None
-            __props__['replication_role'] = None
-            __props__['ssl_enforcement'] = None
-            __props__['storage_profile'] = None
+            __props__['standby_availability_zone'] = None
+            __props__['state'] = None
             __props__['type'] = None
-            __props__['user_visible_state'] = None
-            __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformysql/v20171201:Server"), pulumi.Alias(type_="azurerm:dbformysql/v20171201preview:Server")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformysql/v20200701privatepreview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azurerm:dbformysql/latest:Server',
@@ -201,16 +220,48 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "administrator_login")
 
     @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password of the administrator login (required for server creation).
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        availability Zone information of the server.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
     @pulumi.getter(name="byokEnforcement")
     def byok_enforcement(self) -> pulumi.Output[str]:
         """
-        Status showing whether the server data encryption is enabled with customer-managed keys.
+        Status showing whether the data encryption is enabled with customer-managed keys.
         """
         return pulumi.get(self, "byok_enforcement")
 
     @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The mode to create a new MySQL server.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
+    @pulumi.getter(name="delegatedSubnetArguments")
+    def delegated_subnet_arguments(self) -> pulumi.Output[Optional['outputs.DelegatedSubnetArgumentsResponse']]:
+        """
+        Delegated subnet arguments.
+        """
+        return pulumi.get(self, "delegated_subnet_arguments")
+
+    @property
     @pulumi.getter(name="earliestRestoreDate")
-    def earliest_restore_date(self) -> pulumi.Output[Optional[str]]:
+    def earliest_restore_date(self) -> pulumi.Output[str]:
         """
         Earliest restore point creation time (ISO8601 format)
         """
@@ -218,15 +269,31 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
-    def fully_qualified_domain_name(self) -> pulumi.Output[Optional[str]]:
+    def fully_qualified_domain_name(self) -> pulumi.Output[str]:
         """
         The fully qualified domain name of a server.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
 
     @property
+    @pulumi.getter(name="haEnabled")
+    def ha_enabled(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable HA or not for a server.
+        """
+        return pulumi.get(self, "ha_enabled")
+
+    @property
+    @pulumi.getter(name="haState")
+    def ha_state(self) -> pulumi.Output[str]:
+        """
+        The state of a HA server.
+        """
+        return pulumi.get(self, "ha_state")
+
+    @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The Azure Active Directory identity of the server.
         """
@@ -249,20 +316,12 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="masterServerId")
-    def master_server_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> pulumi.Output[Optional['outputs.MaintenanceWindowResponse']]:
         """
-        The master server id of a replica server.
+        Maintenance window of a server.
         """
-        return pulumi.get(self, "master_server_id")
-
-    @property
-    @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> pulumi.Output[Optional[str]]:
-        """
-        Enforce a minimal Tls version for the server.
-        """
-        return pulumi.get(self, "minimal_tls_version")
+        return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter
@@ -273,16 +332,8 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[List['outputs.ServerPrivateEndpointConnectionResponse']]:
-        """
-        List of private endpoint connections on a server
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+    def public_network_access(self) -> pulumi.Output[str]:
         """
         Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
@@ -290,9 +341,9 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicaCapacity")
-    def replica_capacity(self) -> pulumi.Output[Optional[float]]:
+    def replica_capacity(self) -> pulumi.Output[float]:
         """
-        The maximum number of replicas that a master server can have.
+        The maximum number of replicas that a primary server can have.
         """
         return pulumi.get(self, "replica_capacity")
 
@@ -300,9 +351,17 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="replicationRole")
     def replication_role(self) -> pulumi.Output[Optional[str]]:
         """
-        The replication role of the server.
+        The replication role.
         """
         return pulumi.get(self, "replication_role")
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        Restore point creation time (ISO8601 format), specifying the time to restore from.
+        """
+        return pulumi.get(self, "restore_point_in_time")
 
     @property
     @pulumi.getter
@@ -313,12 +372,36 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="sourceServerId")
+    def source_server_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The source MySQL server id.
+        """
+        return pulumi.get(self, "source_server_id")
+
+    @property
     @pulumi.getter(name="sslEnforcement")
     def ssl_enforcement(self) -> pulumi.Output[Optional[str]]:
         """
         Enable ssl enforcement or not when connect to server.
         """
         return pulumi.get(self, "ssl_enforcement")
+
+    @property
+    @pulumi.getter(name="standbyAvailabilityZone")
+    def standby_availability_zone(self) -> pulumi.Output[str]:
+        """
+        availability Zone information of the server.
+        """
+        return pulumi.get(self, "standby_availability_zone")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
+        """
+        The state of a server.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="storageProfile")
@@ -343,14 +426,6 @@ class Server(pulumi.CustomResource):
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userVisibleState")
-    def user_visible_state(self) -> pulumi.Output[Optional[str]]:
-        """
-        A state of a server that is visible to user.
-        """
-        return pulumi.get(self, "user_visible_state")
 
     @property
     @pulumi.getter

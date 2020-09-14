@@ -20,7 +20,7 @@ class GetReplicationResult:
     """
     An object that represents a replication for a container registry.
     """
-    def __init__(__self__, location=None, name=None, provisioning_state=None, status=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, provisioning_state=None, region_endpoint_enabled=None, status=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -30,6 +30,9 @@ class GetReplicationResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if region_endpoint_enabled and not isinstance(region_endpoint_enabled, bool):
+            raise TypeError("Expected argument 'region_endpoint_enabled' to be a bool")
+        pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
         if status and not isinstance(status, dict):
             raise TypeError("Expected argument 'status' to be a dict")
         pulumi.set(__self__, "status", status)
@@ -65,6 +68,14 @@ class GetReplicationResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @property
     @pulumi.getter
     def status(self) -> 'outputs.StatusResponse':
         """
@@ -98,6 +109,7 @@ class AwaitableGetReplicationResult(GetReplicationResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            region_endpoint_enabled=self.region_endpoint_enabled,
             status=self.status,
             tags=self.tags,
             type=self.type)
@@ -128,6 +140,7 @@ def get_replication(registry_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        region_endpoint_enabled=__ret__.region_endpoint_enabled,
         status=__ret__.status,
         tags=__ret__.tags,
         type=__ret__.type)

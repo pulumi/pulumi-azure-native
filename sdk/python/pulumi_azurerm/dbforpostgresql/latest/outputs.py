@@ -7,18 +7,126 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = [
+    'IdentityResponse',
+    'MaintenanceWindowResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
-    'ResourceIdentityResponse',
-    'ServerPrivateEndpointConnectionPropertiesResponse',
-    'ServerPrivateEndpointConnectionResponse',
-    'ServerPrivateLinkServiceConnectionStatePropertyResponse',
+    'ServerPropertiesResponseDelegatedSubnetArguments',
     'SkuResponse',
     'StorageProfileResponse',
 ]
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MaintenanceWindowResponse(dict):
+    """
+    Maintenance window of a server.
+    """
+    def __init__(__self__, *,
+                 custom_window: Optional[str] = None,
+                 day_of_week: Optional[float] = None,
+                 start_hour: Optional[float] = None,
+                 start_minute: Optional[float] = None):
+        """
+        Maintenance window of a server.
+        :param str custom_window: indicates whether custom window is enabled or disabled
+        :param float day_of_week: day of week for maintenance window
+        :param float start_hour: start hour for maintenance window
+        :param float start_minute: start minute for maintenance window
+        """
+        if custom_window is not None:
+            pulumi.set(__self__, "custom_window", custom_window)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is not None:
+            pulumi.set(__self__, "start_minute", start_minute)
+
+    @property
+    @pulumi.getter(name="customWindow")
+    def custom_window(self) -> Optional[str]:
+        """
+        indicates whether custom window is enabled or disabled
+        """
+        return pulumi.get(self, "custom_window")
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[float]:
+        """
+        day of week for maintenance window
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> Optional[float]:
+        """
+        start hour for maintenance window
+        """
+        return pulumi.get(self, "start_hour")
+
+    @property
+    @pulumi.getter(name="startMinute")
+    def start_minute(self) -> Optional[float]:
+        """
+        start minute for maintenance window
+        """
+        return pulumi.get(self, "start_minute")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class PrivateEndpointPropertyResponse(dict):
@@ -86,176 +194,22 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
 
 
 @pulumi.output_type
-class ResourceIdentityResponse(dict):
-    """
-    Azure Active Directory identity configuration for a resource.
-    """
+class ServerPropertiesResponseDelegatedSubnetArguments(dict):
     def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: Optional[str] = None):
+                 subnet_arm_resource_id: Optional[str] = None):
         """
-        Azure Active Directory identity configuration for a resource.
-        :param str principal_id: The Azure Active Directory principal id.
-        :param str tenant_id: The Azure Active Directory tenant id.
-        :param str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        :param str subnet_arm_resource_id: delegated subnet arm resource id.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        if subnet_arm_resource_id is not None:
+            pulumi.set(__self__, "subnet_arm_resource_id", subnet_arm_resource_id)
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    @pulumi.getter(name="subnetArmResourceId")
+    def subnet_arm_resource_id(self) -> Optional[str]:
         """
-        The Azure Active Directory principal id.
+        delegated subnet arm resource id.
         """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The Azure Active Directory tenant id.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-        """
-        return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ServerPrivateEndpointConnectionPropertiesResponse(dict):
-    """
-    Properties of a private endpoint connection.
-    """
-    def __init__(__self__, *,
-                 provisioning_state: str,
-                 private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
-                 private_link_service_connection_state: Optional['outputs.ServerPrivateLinkServiceConnectionStatePropertyResponse'] = None):
-        """
-        Properties of a private endpoint connection.
-        :param str provisioning_state: State of the private endpoint connection.
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'ServerPrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the private endpoint connection.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
-        """
-        Private endpoint which the connection belongs to.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.ServerPrivateLinkServiceConnectionStatePropertyResponse']:
-        """
-        Connection state of the private endpoint connection.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ServerPrivateEndpointConnectionResponse(dict):
-    """
-    A private endpoint connection under a server
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 properties: 'outputs.ServerPrivateEndpointConnectionPropertiesResponse'):
-        """
-        A private endpoint connection under a server
-        :param str id: Resource ID of the Private Endpoint Connection.
-        :param 'ServerPrivateEndpointConnectionPropertiesResponseArgs' properties: Private endpoint connection properties
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource ID of the Private Endpoint Connection.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.ServerPrivateEndpointConnectionPropertiesResponse':
-        """
-        Private endpoint connection properties
-        """
-        return pulumi.get(self, "properties")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ServerPrivateLinkServiceConnectionStatePropertyResponse(dict):
-    def __init__(__self__, *,
-                 actions_required: str,
-                 description: str,
-                 status: str):
-        """
-        :param str actions_required: The actions required for private link service connection.
-        :param str description: The private link service connection description.
-        :param str status: The private link service connection status.
-        """
-        pulumi.set(__self__, "actions_required", actions_required)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> str:
-        """
-        The actions required for private link service connection.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @property
-    @pulumi.getter
-    def description(self) -> str:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "subnet_arm_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -264,69 +218,32 @@ class ServerPrivateLinkServiceConnectionStatePropertyResponse(dict):
 @pulumi.output_type
 class SkuResponse(dict):
     """
-    Billing information related properties of a server.
+    Sku information related properties of a server.
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
-                 family: Optional[str] = None,
-                 size: Optional[str] = None,
-                 tier: Optional[str] = None):
+                 tier: str):
         """
-        Billing information related properties of a server.
-        :param str name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-        :param float capacity: The scale up/out capacity, representing server's compute units.
-        :param str family: The family of hardware.
-        :param str size: The size code, to be interpreted by resource as appropriate.
-        :param str tier: The tier of the particular SKU, e.g. Basic.
+        Sku information related properties of a server.
+        :param str name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+        :param str tier: The tier of the particular SKU, e.g. Burstable.
         """
         pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+        pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+        The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def tier(self) -> str:
         """
-        The scale up/out capacity, representing server's compute units.
-        """
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[str]:
-        """
-        The family of hardware.
-        """
-        return pulumi.get(self, "family")
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[str]:
-        """
-        The size code, to be interpreted by resource as appropriate.
-        """
-        return pulumi.get(self, "size")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[str]:
-        """
-        The tier of the particular SKU, e.g. Basic.
+        The tier of the particular SKU, e.g. Burstable.
         """
         return pulumi.get(self, "tier")
 
@@ -341,22 +258,14 @@ class StorageProfileResponse(dict):
     """
     def __init__(__self__, *,
                  backup_retention_days: Optional[float] = None,
-                 geo_redundant_backup: Optional[str] = None,
-                 storage_autogrow: Optional[str] = None,
                  storage_mb: Optional[float] = None):
         """
         Storage Profile properties of a server
         :param float backup_retention_days: Backup retention days for the server.
-        :param str geo_redundant_backup: Enable Geo-redundant or not for server backup.
-        :param str storage_autogrow: Enable Storage Auto Grow.
         :param float storage_mb: Max storage allowed for a server.
         """
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
-        if geo_redundant_backup is not None:
-            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
-        if storage_autogrow is not None:
-            pulumi.set(__self__, "storage_autogrow", storage_autogrow)
         if storage_mb is not None:
             pulumi.set(__self__, "storage_mb", storage_mb)
 
@@ -367,22 +276,6 @@ class StorageProfileResponse(dict):
         Backup retention days for the server.
         """
         return pulumi.get(self, "backup_retention_days")
-
-    @property
-    @pulumi.getter(name="geoRedundantBackup")
-    def geo_redundant_backup(self) -> Optional[str]:
-        """
-        Enable Geo-redundant or not for server backup.
-        """
-        return pulumi.get(self, "geo_redundant_backup")
-
-    @property
-    @pulumi.getter(name="storageAutogrow")
-    def storage_autogrow(self) -> Optional[str]:
-        """
-        Enable Storage Auto Grow.
-        """
-        return pulumi.get(self, "storage_autogrow")
 
     @property
     @pulumi.getter(name="storageMB")

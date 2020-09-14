@@ -12,6 +12,7 @@ from . import outputs
 __all__ = [
     'CertificatePropertiesResponse',
     'CloudToDevicePropertiesResponse',
+    'EncryptionPropertiesDescriptionResponse',
     'EnrichmentPropertiesResponse',
     'EventHubPropertiesResponse',
     'FallbackRoutePropertiesResponse',
@@ -23,6 +24,7 @@ __all__ = [
     'IotHubPropertiesResponse',
     'IotHubSkuInfoResponse',
     'IpFilterRuleResponse',
+    'KeyVaultKeyPropertiesResponse',
     'MessagingEndpointPropertiesResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
@@ -165,6 +167,44 @@ class CloudToDevicePropertiesResponse(dict):
         The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         return pulumi.get(self, "max_delivery_count")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionPropertiesDescriptionResponse(dict):
+    """
+    The encryption properties for the IoT DPS instance.
+    """
+    def __init__(__self__, *,
+                 key_source: Optional[str] = None,
+                 key_vault_properties: Optional[List['outputs.KeyVaultKeyPropertiesResponse']] = None):
+        """
+        The encryption properties for the IoT DPS instance.
+        :param str key_source: The source of the key.
+        :param List['KeyVaultKeyPropertiesResponseArgs'] key_vault_properties: The properties of the KeyVault key.
+        """
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[str]:
+        """
+        The source of the key.
+        """
+        return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[List['outputs.KeyVaultKeyPropertiesResponse']]:
+        """
+        The properties of the KeyVault key.
+        """
+        return pulumi.get(self, "key_vault_properties")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -420,6 +460,7 @@ class IotDpsPropertiesDescriptionResponse(dict):
                  service_operations_host_name: str,
                  allocation_policy: Optional[str] = None,
                  authorization_policies: Optional[List['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']] = None,
+                 encryption: Optional['outputs.EncryptionPropertiesDescriptionResponse'] = None,
                  iot_hubs: Optional[List['outputs.IotHubDefinitionDescriptionResponse']] = None,
                  ip_filter_rules: Optional[List['outputs.IpFilterRuleResponse']] = None,
                  private_endpoint_connections: Optional[List['outputs.PrivateEndpointConnectionResponse']] = None,
@@ -433,6 +474,7 @@ class IotDpsPropertiesDescriptionResponse(dict):
         :param str service_operations_host_name: Service endpoint for provisioning service.
         :param str allocation_policy: Allocation policy to be used by this provisioning service.
         :param List['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
+        :param 'EncryptionPropertiesDescriptionResponseArgs' encryption: The encryption properties for the IoT DPS instance.
         :param List['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
         :param List['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
         :param List['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: Private endpoint connections created on this IotHub
@@ -447,6 +489,8 @@ class IotDpsPropertiesDescriptionResponse(dict):
             pulumi.set(__self__, "allocation_policy", allocation_policy)
         if authorization_policies is not None:
             pulumi.set(__self__, "authorization_policies", authorization_policies)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if iot_hubs is not None:
             pulumi.set(__self__, "iot_hubs", iot_hubs)
         if ip_filter_rules is not None:
@@ -499,6 +543,14 @@ class IotDpsPropertiesDescriptionResponse(dict):
         List of authorization keys for a provisioning service.
         """
         return pulumi.get(self, "authorization_policies")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionPropertiesDescriptionResponse']:
+        """
+        The encryption properties for the IoT DPS instance.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="iotHubs")
@@ -1014,6 +1066,32 @@ class IpFilterRuleResponse(dict):
         A string that contains the IP address range in CIDR notation for the rule.
         """
         return pulumi.get(self, "ip_mask")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyVaultKeyPropertiesResponse(dict):
+    """
+    The properties of the KeyVault key.
+    """
+    def __init__(__self__, *,
+                 key_identifier: Optional[str] = None):
+        """
+        The properties of the KeyVault key.
+        :param str key_identifier: The identifier of the key.
+        """
+        if key_identifier is not None:
+            pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> Optional[str]:
+        """
+        The identifier of the key.
+        """
+        return pulumi.get(self, "key_identifier")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

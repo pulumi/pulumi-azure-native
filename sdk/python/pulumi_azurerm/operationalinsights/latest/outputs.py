@@ -15,6 +15,7 @@ __all__ = [
     'IncidentInfoResponse',
     'IncidentLabelResponse',
     'IncidentOwnerInfoResponse',
+    'MachineReferenceWithHintsResponse',
     'PrivateLinkScopedResourceResponse',
     'StorageAccountResponse',
     'StorageInsightStatusResponse',
@@ -330,6 +331,86 @@ class IncidentOwnerInfoResponse(dict):
         The user principal name of the user the incident is assigned to.
         """
         return pulumi.get(self, "user_principal_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MachineReferenceWithHintsResponse(dict):
+    """
+    A machine reference with a hint of the machine's name and operating system.
+    """
+    def __init__(__self__, *,
+                 display_name_hint: str,
+                 id: str,
+                 kind: str,
+                 name: str,
+                 os_family_hint: str,
+                 type: str):
+        """
+        A machine reference with a hint of the machine's name and operating system.
+        :param str display_name_hint: Last known display name.
+        :param str id: Resource URI.
+        :param str kind: Specifies the sub-class of the reference.
+        :param str name: Resource name.
+        :param str os_family_hint: Last known operating system family.
+        :param str type: Resource type qualifier.
+        """
+        pulumi.set(__self__, "display_name_hint", display_name_hint)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "kind", 'ref:machinewithhints')
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "os_family_hint", os_family_hint)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayNameHint")
+    def display_name_hint(self) -> str:
+        """
+        Last known display name.
+        """
+        return pulumi.get(self, "display_name_hint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource URI.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Specifies the sub-class of the reference.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osFamilyHint")
+    def os_family_hint(self) -> str:
+        """
+        Last known operating system family.
+        """
+        return pulumi.get(self, "os_family_hint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type qualifier.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -3,12 +3,22 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .budget import *
+from .cloud_connector import *
+from .connector import *
 from .export import *
+from .get_budget import *
+from .get_cloud_connector import *
+from .get_connector import *
 from .get_export import *
+from .get_report import *
+from .get_report_by_resource_group_name import *
 from .get_report_config import *
 from .get_report_config_by_resource_group_name import *
 from .get_view import *
 from .get_view_by_scope import *
+from .report import *
+from .report_by_resource_group_name import *
 from .report_config import *
 from .report_config_by_resource_group_name import *
 from .view import *

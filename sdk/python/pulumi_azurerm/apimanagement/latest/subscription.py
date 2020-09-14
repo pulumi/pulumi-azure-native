@@ -16,7 +16,6 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_tracing: Optional[pulumi.Input[bool]] = None,
-                 app_type: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  notify: Optional[pulumi.Input[bool]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
@@ -53,7 +52,6 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled
-        :param pulumi.Input[str] app_type: Determines the type of application which send the create user request. Default is legacy publisher portal.
         :param pulumi.Input[str] display_name: Subscription name.
         :param pulumi.Input[bool] notify: Notify change in Subscription State. 
                 - If false, do not send any email notification for change of state of subscription 
@@ -85,7 +83,6 @@ class Subscription(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['allow_tracing'] = allow_tracing
-            __props__['app_type'] = app_type
             if display_name is None:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
@@ -248,7 +245,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="stateComment")
     def state_comment(self) -> pulumi.Output[Optional[str]]:
         """
-        Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+        Optional subscription comment added by an administrator.
         """
         return pulumi.get(self, "state_comment")
 

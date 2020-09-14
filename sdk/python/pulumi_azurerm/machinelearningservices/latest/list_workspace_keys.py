@@ -17,16 +17,13 @@ __all__ = [
 
 @pulumi.output_type
 class ListWorkspaceKeysResult:
-    def __init__(__self__, app_insights_instrumentation_key=None, container_registry_credentials=None, notebook_access_keys=None, user_storage_key=None, user_storage_resource_id=None):
+    def __init__(__self__, app_insights_instrumentation_key=None, container_registry_credentials=None, user_storage_key=None, user_storage_resource_id=None):
         if app_insights_instrumentation_key and not isinstance(app_insights_instrumentation_key, str):
             raise TypeError("Expected argument 'app_insights_instrumentation_key' to be a str")
         pulumi.set(__self__, "app_insights_instrumentation_key", app_insights_instrumentation_key)
         if container_registry_credentials and not isinstance(container_registry_credentials, dict):
             raise TypeError("Expected argument 'container_registry_credentials' to be a dict")
         pulumi.set(__self__, "container_registry_credentials", container_registry_credentials)
-        if notebook_access_keys and not isinstance(notebook_access_keys, dict):
-            raise TypeError("Expected argument 'notebook_access_keys' to be a dict")
-        pulumi.set(__self__, "notebook_access_keys", notebook_access_keys)
         if user_storage_key and not isinstance(user_storage_key, str):
             raise TypeError("Expected argument 'user_storage_key' to be a str")
         pulumi.set(__self__, "user_storage_key", user_storage_key)
@@ -43,11 +40,6 @@ class ListWorkspaceKeysResult:
     @pulumi.getter(name="containerRegistryCredentials")
     def container_registry_credentials(self) -> 'outputs.RegistryListCredentialsResultResponseResult':
         return pulumi.get(self, "container_registry_credentials")
-
-    @property
-    @pulumi.getter(name="notebookAccessKeys")
-    def notebook_access_keys(self) -> Optional['outputs.NotebookListCredentialsResultResponseResult']:
-        return pulumi.get(self, "notebook_access_keys")
 
     @property
     @pulumi.getter(name="userStorageKey")
@@ -68,7 +60,6 @@ class AwaitableListWorkspaceKeysResult(ListWorkspaceKeysResult):
         return ListWorkspaceKeysResult(
             app_insights_instrumentation_key=self.app_insights_instrumentation_key,
             container_registry_credentials=self.container_registry_credentials,
-            notebook_access_keys=self.notebook_access_keys,
             user_storage_key=self.user_storage_key,
             user_storage_resource_id=self.user_storage_resource_id)
 
@@ -94,6 +85,5 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
     return AwaitableListWorkspaceKeysResult(
         app_insights_instrumentation_key=__ret__.app_insights_instrumentation_key,
         container_registry_credentials=__ret__.container_registry_credentials,
-        notebook_access_keys=__ret__.notebook_access_keys,
         user_storage_key=__ret__.user_storage_key,
         user_storage_resource_id=__ret__.user_storage_resource_id)

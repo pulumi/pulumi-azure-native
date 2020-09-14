@@ -53,55 +53,21 @@ class MachineLearningCompute(pulumi.CustomResource):
 
         machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
             compute_name="compute123",
-            identity={
-                "type": "SystemAssigned,UserAssigned",
-            },
             location="eastus",
             properties={
+                "enableNodePublicIp": True,
+                "isolatedNetwork": False,
+                "osType": "Windows",
                 "remoteLoginPortPublicAccess": "NotSpecified",
                 "scaleSettings": {
                     "maxNodeCount": 1,
                     "minNodeCount": 0,
                     "nodeIdleTimeBeforeScaleDown": "PT5M",
                 },
-                "vmPriority": "Dedicated",
-                "vmSize": "STANDARD_NC6",
-            },
-            resource_group_name="testrg123",
-            workspace_name="workspaces123")
-
-        ```
-        ### Create a ComputeInstance Compute
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
-            compute_name="compute123",
-            location="eastus",
-            properties={
-                "applicationSharingPolicy": "Personal",
-                "sshSettings": {
-                    "sshPublicAccess": "Disabled",
+                "virtualMachineImage": {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition/versions/0.0.1",
                 },
-                "subnet": "test-subnet-resource-id",
-                "vmSize": "STANDARD_NC6",
-            },
-            resource_group_name="testrg123",
-            workspace_name="workspaces123")
-
-        ```
-        ### Create a ComputeInstance Compute with minimal inputs
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
-            compute_name="compute123",
-            location="eastus",
-            properties={
+                "vmPriority": "Dedicated",
                 "vmSize": "STANDARD_NC6",
             },
             resource_group_name="testrg123",
@@ -117,6 +83,50 @@ class MachineLearningCompute(pulumi.CustomResource):
         machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
             compute_name="compute123",
             location="eastus",
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create an ComputeInstance Compute
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "applicationSharingPolicy": "Personal",
+                "computeInstanceAuthorizationType": "personal",
+                "personalComputeInstanceSettings": {
+                    "assignedUser": {
+                        "objectId": "00000000-0000-0000-0000-000000000000",
+                        "tenantId": "00000000-0000-0000-0000-000000000000",
+                    },
+                },
+                "sshSettings": {
+                    "sshPublicAccess": "Disabled",
+                },
+                "subnet": "test-subnet-resource-id",
+                "vmSize": "STANDARD_NC6",
+            },
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create an ComputeInstance Compute with minimal inputs
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            location="eastus",
+            properties={
+                "vmSize": "STANDARD_NC6",
+            },
             resource_group_name="testrg123",
             workspace_name="workspaces123")
 
@@ -145,14 +155,11 @@ class MachineLearningCompute(pulumi.CustomResource):
 
         machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
             compute_name="compute123",
-            identity={
-                "type": "SystemAssigned,UserAssigned",
-            },
             location="eastus",
             properties={
                 "scaleSettings": {
-                    "maxNodeCount": 1,
-                    "minNodeCount": 0,
+                    "maxNodeCount": 4,
+                    "minNodeCount": 4,
                     "nodeIdleTimeBeforeScaleDown": "PT5M",
                 },
             },

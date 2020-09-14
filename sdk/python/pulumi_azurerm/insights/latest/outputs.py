@@ -10,29 +10,40 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'ActionResponse',
     'ActivityLogAlertActionGroupResponse',
     'ActivityLogAlertActionListResponse',
     'ActivityLogAlertAllOfConditionResponse',
     'ActivityLogAlertLeafConditionResponse',
-    'AlertingActionResponse',
     'ApplicationInsightsComponentAnalyticsItemPropertiesResponse',
     'ArmRoleReceiverResponse',
     'AutomationRunbookReceiverResponse',
     'AutoscaleNotificationResponse',
     'AutoscaleProfileResponse',
-    'AzNsActionGroupResponse',
     'AzureAppPushReceiverResponse',
     'AzureFunctionReceiverResponse',
-    'CriteriaResponse',
+    'ConditionResponse',
+    'ConditionResponseFailingPeriods',
+    'DataCollectionRuleResponseDataSources',
+    'DataCollectionRuleResponseDestinations',
+    'DataFlowResponse',
+    'DataSourceConfigurationResponse',
+    'DataSourceResponse',
+    'DestinationsSpecResponseAzureMonitorMetrics',
     'DimensionResponse',
     'DynamicMetricCriteriaResponse',
     'DynamicThresholdFailingPeriodsResponse',
     'EmailNotificationResponse',
     'EmailReceiverResponse',
+    'EtwEventConfigurationResponse',
+    'EtwProviderConfigurationResponse',
+    'EventLogConfigurationResponse',
+    'ExtensionDataSourceResponse',
     'ItsmReceiverResponse',
     'LocationThresholdRuleConditionResponse',
-    'LogMetricTriggerResponse',
-    'LogToMetricActionResponse',
+    'LogAnalyticsDestinationResponse',
+    'LogAnalyticsQueryPackQueryPropertiesResponseRelated',
+    'LogSettingsResponse',
     'LogicAppReceiverResponse',
     'ManagementEventAggregationConditionResponse',
     'ManagementEventRuleConditionResponse',
@@ -41,8 +52,14 @@ __all__ = [
     'MetricAlertSingleResourceMultipleMetricCriteriaResponse',
     'MetricCriteriaResponse',
     'MetricDimensionResponse',
+    'MetricSettingsResponse',
     'MetricTriggerResponse',
+    'PerfCounterDataSourceResponse',
+    'PerformanceCounterConfigurationResponse',
+    'PrivateEndpointConnectionResponse',
+    'PrivateEndpointPropertyResponse',
     'PrivateLinkScopedResourceResponse',
+    'PrivateLinkServiceConnectionStatePropertyResponse',
     'RecurrenceResponse',
     'RecurrentScheduleResponse',
     'RetentionPolicyResponse',
@@ -55,19 +72,62 @@ __all__ = [
     'ScaleCapacityResponse',
     'ScaleRuleMetricDimensionResponse',
     'ScaleRuleResponse',
-    'ScheduleResponse',
+    'ScheduledQueryRuleCriteriaResponse',
+    'SinkConfigurationResponse',
     'SmsReceiverResponse',
-    'SourceResponse',
+    'SubscriptionLogSettingsResponse',
+    'SyslogDataSourceResponse',
+    'SystemDataResponse',
     'ThresholdRuleConditionResponse',
     'TimeWindowResponse',
-    'TriggerConditionResponse',
     'VoiceReceiverResponse',
     'WebTestGeolocationResponse',
     'WebTestPropertiesResponseConfiguration',
     'WebhookNotificationResponse',
     'WebhookReceiverResponse',
     'WebtestLocationAvailabilityCriteriaResponse',
+    'WindowsEventLogDataSourceResponse',
+    'WorkbookTemplateGalleryResponse',
+    'WorkbookTemplateLocalizedGalleryResponse',
 ]
+
+@pulumi.output_type
+class ActionResponse(dict):
+    """
+    Actions to invoke when the alert fires.
+    """
+    def __init__(__self__, *,
+                 action_group_id: Optional[str] = None,
+                 web_hook_properties: Optional[Mapping[str, str]] = None):
+        """
+        Actions to invoke when the alert fires.
+        :param str action_group_id: Action Group resource Id to invoke when the alert fires.
+        :param Mapping[str, str] web_hook_properties: The properties of a webhook object.
+        """
+        if action_group_id is not None:
+            pulumi.set(__self__, "action_group_id", action_group_id)
+        if web_hook_properties is not None:
+            pulumi.set(__self__, "web_hook_properties", web_hook_properties)
+
+    @property
+    @pulumi.getter(name="actionGroupId")
+    def action_group_id(self) -> Optional[str]:
+        """
+        Action Group resource Id to invoke when the alert fires.
+        """
+        return pulumi.get(self, "action_group_id")
+
+    @property
+    @pulumi.getter(name="webHookProperties")
+    def web_hook_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The properties of a webhook object.
+        """
+        return pulumi.get(self, "web_hook_properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class ActivityLogAlertActionGroupResponse(dict):
@@ -188,77 +248,6 @@ class ActivityLogAlertLeafConditionResponse(dict):
         The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
         """
         return pulumi.get(self, "field")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class AlertingActionResponse(dict):
-    """
-    Specify action need to be taken when rule type is Alert
-    """
-    def __init__(__self__, *,
-                 odata_type: str,
-                 severity: str,
-                 trigger: 'outputs.TriggerConditionResponse',
-                 azns_action: Optional['outputs.AzNsActionGroupResponse'] = None,
-                 throttling_in_min: Optional[float] = None):
-        """
-        Specify action need to be taken when rule type is Alert
-        :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
-        :param str severity: Severity of the alert
-        :param 'TriggerConditionResponseArgs' trigger: The trigger condition that results in the alert rule being.
-        :param 'AzNsActionGroupResponseArgs' azns_action: Azure action group reference.
-        :param float throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
-        """
-        pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "trigger", trigger)
-        if azns_action is not None:
-            pulumi.set(__self__, "azns_action", azns_action)
-        if throttling_in_min is not None:
-            pulumi.set(__self__, "throttling_in_min", throttling_in_min)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        Specifies the action. Supported values - AlertingAction, LogToMetricAction
-        """
-        return pulumi.get(self, "odata_type")
-
-    @property
-    @pulumi.getter
-    def severity(self) -> str:
-        """
-        Severity of the alert
-        """
-        return pulumi.get(self, "severity")
-
-    @property
-    @pulumi.getter
-    def trigger(self) -> 'outputs.TriggerConditionResponse':
-        """
-        The trigger condition that results in the alert rule being.
-        """
-        return pulumi.get(self, "trigger")
-
-    @property
-    @pulumi.getter(name="aznsAction")
-    def azns_action(self) -> Optional['outputs.AzNsActionGroupResponse']:
-        """
-        Azure action group reference.
-        """
-        return pulumi.get(self, "azns_action")
-
-    @property
-    @pulumi.getter(name="throttlingInMin")
-    def throttling_in_min(self) -> Optional[float]:
-        """
-        time (in minutes) for which Alerts should be throttled or suppressed.
-        """
-        return pulumi.get(self, "throttling_in_min")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -551,56 +540,6 @@ class AutoscaleProfileResponse(dict):
 
 
 @pulumi.output_type
-class AzNsActionGroupResponse(dict):
-    """
-    Azure action group
-    """
-    def __init__(__self__, *,
-                 action_group: Optional[List[str]] = None,
-                 custom_webhook_payload: Optional[str] = None,
-                 email_subject: Optional[str] = None):
-        """
-        Azure action group
-        :param List[str] action_group: Azure Action Group reference.
-        :param str custom_webhook_payload: Custom payload to be sent for all webhook URI in Azure action group
-        :param str email_subject: Custom subject override for all email ids in Azure action group
-        """
-        if action_group is not None:
-            pulumi.set(__self__, "action_group", action_group)
-        if custom_webhook_payload is not None:
-            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
-        if email_subject is not None:
-            pulumi.set(__self__, "email_subject", email_subject)
-
-    @property
-    @pulumi.getter(name="actionGroup")
-    def action_group(self) -> Optional[List[str]]:
-        """
-        Azure Action Group reference.
-        """
-        return pulumi.get(self, "action_group")
-
-    @property
-    @pulumi.getter(name="customWebhookPayload")
-    def custom_webhook_payload(self) -> Optional[str]:
-        """
-        Custom payload to be sent for all webhook URI in Azure action group
-        """
-        return pulumi.get(self, "custom_webhook_payload")
-
-    @property
-    @pulumi.getter(name="emailSubject")
-    def email_subject(self) -> Optional[str]:
-        """
-        Custom subject override for all email ids in Azure action group
-        """
-        return pulumi.get(self, "email_subject")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class AzureAppPushReceiverResponse(dict):
     """
     The Azure mobile App push notification receiver.
@@ -706,37 +645,395 @@ class AzureFunctionReceiverResponse(dict):
 
 
 @pulumi.output_type
-class CriteriaResponse(dict):
+class ConditionResponse(dict):
     """
-    Specifies the criteria for converting log to metric.
+    A condition of the scheduled query rule.
     """
     def __init__(__self__, *,
-                 metric_name: str,
-                 dimensions: Optional[List['outputs.DimensionResponse']] = None):
+                 operator: str,
+                 threshold: float,
+                 time_aggregation: str,
+                 dimensions: Optional[List['outputs.DimensionResponse']] = None,
+                 failing_periods: Optional['outputs.ConditionResponseFailingPeriods'] = None,
+                 metric_measure_column: Optional[str] = None,
+                 query: Optional[str] = None,
+                 resource_id_column: Optional[str] = None):
         """
-        Specifies the criteria for converting log to metric.
-        :param str metric_name: Name of the metric
-        :param List['DimensionResponseArgs'] dimensions: List of Dimensions for creating metric
+        A condition of the scheduled query rule.
+        :param str operator: The criteria operator.
+        :param float threshold: the criteria threshold value that activates the alert.
+        :param str time_aggregation: Aggregation type
+        :param List['DimensionResponseArgs'] dimensions: List of Dimensions conditions
+        :param 'ConditionResponseFailingPeriodsArgs' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
+        :param str metric_measure_column: The column containing the metric measure number.
+        :param str query: Log query alert
+        :param str resource_id_column: The column containing the resource id. The content of the column must be a uri formatted as resource id
         """
-        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "time_aggregation", time_aggregation)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if failing_periods is not None:
+            pulumi.set(__self__, "failing_periods", failing_periods)
+        if metric_measure_column is not None:
+            pulumi.set(__self__, "metric_measure_column", metric_measure_column)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if resource_id_column is not None:
+            pulumi.set(__self__, "resource_id_column", resource_id_column)
 
     @property
-    @pulumi.getter(name="metricName")
-    def metric_name(self) -> str:
+    @pulumi.getter
+    def operator(self) -> str:
         """
-        Name of the metric
+        The criteria operator.
         """
-        return pulumi.get(self, "metric_name")
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> float:
+        """
+        the criteria threshold value that activates the alert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> str:
+        """
+        Aggregation type
+        """
+        return pulumi.get(self, "time_aggregation")
 
     @property
     @pulumi.getter
     def dimensions(self) -> Optional[List['outputs.DimensionResponse']]:
         """
-        List of Dimensions for creating metric
+        List of Dimensions conditions
         """
         return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="failingPeriods")
+    def failing_periods(self) -> Optional['outputs.ConditionResponseFailingPeriods']:
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        """
+        return pulumi.get(self, "failing_periods")
+
+    @property
+    @pulumi.getter(name="metricMeasureColumn")
+    def metric_measure_column(self) -> Optional[str]:
+        """
+        The column containing the metric measure number.
+        """
+        return pulumi.get(self, "metric_measure_column")
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[str]:
+        """
+        Log query alert
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="resourceIdColumn")
+    def resource_id_column(self) -> Optional[str]:
+        """
+        The column containing the resource id. The content of the column must be a uri formatted as resource id
+        """
+        return pulumi.get(self, "resource_id_column")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConditionResponseFailingPeriods(dict):
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert.
+    """
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: Optional[float] = None,
+                 number_of_evaluation_periods: Optional[float] = None):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        :param float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        :param float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        if min_failing_periods_to_alert is not None:
+            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        if number_of_evaluation_periods is not None:
+            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> Optional[float]:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> Optional[float]:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataCollectionRuleResponseDataSources(dict):
+    """
+    The specification of data sources. 
+    This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+    """
+    def __init__(__self__, *,
+                 extensions: Optional[List['outputs.ExtensionDataSourceResponse']] = None,
+                 performance_counters: Optional[List['outputs.PerfCounterDataSourceResponse']] = None,
+                 syslog: Optional[List['outputs.SyslogDataSourceResponse']] = None,
+                 windows_event_logs: Optional[List['outputs.WindowsEventLogDataSourceResponse']] = None):
+        """
+        The specification of data sources. 
+        This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+        :param List['ExtensionDataSourceResponseArgs'] extensions: The list of Azure VM extension data source configurations.
+        :param List['PerfCounterDataSourceResponseArgs'] performance_counters: The list of performance counter data source configurations.
+        :param List['SyslogDataSourceResponseArgs'] syslog: The list of Syslog data source configurations.
+        :param List['WindowsEventLogDataSourceResponseArgs'] windows_event_logs: The list of Windows Event Log data source configurations.
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if performance_counters is not None:
+            pulumi.set(__self__, "performance_counters", performance_counters)
+        if syslog is not None:
+            pulumi.set(__self__, "syslog", syslog)
+        if windows_event_logs is not None:
+            pulumi.set(__self__, "windows_event_logs", windows_event_logs)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[List['outputs.ExtensionDataSourceResponse']]:
+        """
+        The list of Azure VM extension data source configurations.
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter(name="performanceCounters")
+    def performance_counters(self) -> Optional[List['outputs.PerfCounterDataSourceResponse']]:
+        """
+        The list of performance counter data source configurations.
+        """
+        return pulumi.get(self, "performance_counters")
+
+    @property
+    @pulumi.getter
+    def syslog(self) -> Optional[List['outputs.SyslogDataSourceResponse']]:
+        """
+        The list of Syslog data source configurations.
+        """
+        return pulumi.get(self, "syslog")
+
+    @property
+    @pulumi.getter(name="windowsEventLogs")
+    def windows_event_logs(self) -> Optional[List['outputs.WindowsEventLogDataSourceResponse']]:
+        """
+        The list of Windows Event Log data source configurations.
+        """
+        return pulumi.get(self, "windows_event_logs")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataCollectionRuleResponseDestinations(dict):
+    """
+    The specification of destinations.
+    """
+    def __init__(__self__, *,
+                 azure_monitor_metrics: Optional['outputs.DestinationsSpecResponseAzureMonitorMetrics'] = None,
+                 log_analytics: Optional[List['outputs.LogAnalyticsDestinationResponse']] = None):
+        """
+        The specification of destinations.
+        :param 'DestinationsSpecResponseAzureMonitorMetricsArgs' azure_monitor_metrics: Azure Monitor Metrics destination.
+        :param List['LogAnalyticsDestinationResponseArgs'] log_analytics: List of Log Analytics destinations.
+        """
+        if azure_monitor_metrics is not None:
+            pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
+        if log_analytics is not None:
+            pulumi.set(__self__, "log_analytics", log_analytics)
+
+    @property
+    @pulumi.getter(name="azureMonitorMetrics")
+    def azure_monitor_metrics(self) -> Optional['outputs.DestinationsSpecResponseAzureMonitorMetrics']:
+        """
+        Azure Monitor Metrics destination.
+        """
+        return pulumi.get(self, "azure_monitor_metrics")
+
+    @property
+    @pulumi.getter(name="logAnalytics")
+    def log_analytics(self) -> Optional[List['outputs.LogAnalyticsDestinationResponse']]:
+        """
+        List of Log Analytics destinations.
+        """
+        return pulumi.get(self, "log_analytics")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataFlowResponse(dict):
+    """
+    Definition of which streams are sent to which destinations.
+    """
+    def __init__(__self__, *,
+                 destinations: List[str],
+                 streams: List[str]):
+        """
+        Definition of which streams are sent to which destinations.
+        :param List[str] destinations: List of destinations for this data flow.
+        :param List[str] streams: List of streams for this data flow.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> List[str]:
+        """
+        List of destinations for this data flow.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> List[str]:
+        """
+        List of streams for this data flow.
+        """
+        return pulumi.get(self, "streams")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataSourceConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 event_logs: Optional[List['outputs.EventLogConfigurationResponse']] = None,
+                 perf_counters: Optional[List['outputs.PerformanceCounterConfigurationResponse']] = None,
+                 providers: Optional[List['outputs.EtwProviderConfigurationResponse']] = None):
+        """
+        :param List['EventLogConfigurationResponseArgs'] event_logs: Windows event logs configuration.
+        :param List['PerformanceCounterConfigurationResponseArgs'] perf_counters: Performance counter configuration
+        :param List['EtwProviderConfigurationResponseArgs'] providers: ETW providers configuration
+        """
+        if event_logs is not None:
+            pulumi.set(__self__, "event_logs", event_logs)
+        if perf_counters is not None:
+            pulumi.set(__self__, "perf_counters", perf_counters)
+        if providers is not None:
+            pulumi.set(__self__, "providers", providers)
+
+    @property
+    @pulumi.getter(name="eventLogs")
+    def event_logs(self) -> Optional[List['outputs.EventLogConfigurationResponse']]:
+        """
+        Windows event logs configuration.
+        """
+        return pulumi.get(self, "event_logs")
+
+    @property
+    @pulumi.getter(name="perfCounters")
+    def perf_counters(self) -> Optional[List['outputs.PerformanceCounterConfigurationResponse']]:
+        """
+        Performance counter configuration
+        """
+        return pulumi.get(self, "perf_counters")
+
+    @property
+    @pulumi.getter
+    def providers(self) -> Optional[List['outputs.EtwProviderConfigurationResponse']]:
+        """
+        ETW providers configuration
+        """
+        return pulumi.get(self, "providers")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataSourceResponse(dict):
+    """
+    Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+    """
+    def __init__(__self__, *,
+                 configuration: 'outputs.DataSourceConfigurationResponse',
+                 kind: str,
+                 sinks: List['outputs.SinkConfigurationResponse']):
+        """
+        Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+        :param str kind: Datasource kind
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "sinks", sinks)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> 'outputs.DataSourceConfigurationResponse':
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Datasource kind
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def sinks(self) -> List['outputs.SinkConfigurationResponse']:
+        return pulumi.get(self, "sinks")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DestinationsSpecResponseAzureMonitorMetrics(dict):
+    """
+    Azure Monitor Metrics destination.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        Azure Monitor Metrics destination.
+        :param str name: A friendly name for the destination. 
+               This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -745,14 +1042,14 @@ class CriteriaResponse(dict):
 @pulumi.output_type
 class DimensionResponse(dict):
     """
-    Specifies the criteria for converting log to metric.
+    Dimension splitting and filtering definition
     """
     def __init__(__self__, *,
                  name: str,
                  operator: str,
                  values: List[str]):
         """
-        Specifies the criteria for converting log to metric.
+        Dimension splitting and filtering definition
         :param str name: Name of the dimension
         :param str operator: Operator for dimension values
         :param List[str] values: List of dimension values
@@ -1073,6 +1370,146 @@ class EmailReceiverResponse(dict):
 
 
 @pulumi.output_type
+class EtwEventConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 id: float,
+                 name: str,
+                 filter: Optional[str] = None):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def id(self) -> float:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[str]:
+        return pulumi.get(self, "filter")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EtwProviderConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 events: List['outputs.EtwEventConfigurationResponse'],
+                 id: str):
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def events(self) -> List['outputs.EtwEventConfigurationResponse']:
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EventLogConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 log_name: str,
+                 filter: Optional[str] = None):
+        pulumi.set(__self__, "log_name", log_name)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter(name="logName")
+    def log_name(self) -> str:
+        return pulumi.get(self, "log_name")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[str]:
+        return pulumi.get(self, "filter")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ExtensionDataSourceResponse(dict):
+    """
+    Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
+    Collected from either Windows and Linux machines, depending on which extension is defined.
+    """
+    def __init__(__self__, *,
+                 extension_name: str,
+                 name: str,
+                 streams: List[str],
+                 extension_settings: Optional[Mapping[str, Any]] = None):
+        """
+        Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
+        Collected from either Windows and Linux machines, depending on which extension is defined.
+        :param str extension_name: The name of the VM extension.
+        :param str name: A friendly name for the data source. 
+               This name should be unique across all data sources (regardless of type) within the data collection rule.
+        :param List[str] streams: List of streams that this data source will be sent to.
+               A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        :param Mapping[str, Any] extension_settings: The extension settings. The format is specific for particular extension.
+        """
+        pulumi.set(__self__, "extension_name", extension_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        if extension_settings is not None:
+            pulumi.set(__self__, "extension_settings", extension_settings)
+
+    @property
+    @pulumi.getter(name="extensionName")
+    def extension_name(self) -> str:
+        """
+        The name of the VM extension.
+        """
+        return pulumi.get(self, "extension_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> List[str]:
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="extensionSettings")
+    def extension_settings(self) -> Optional[Mapping[str, Any]]:
+        """
+        The extension settings. The format is specific for particular extension.
+        """
+        return pulumi.get(self, "extension_settings")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ItsmReceiverResponse(dict):
     """
     An Itsm receiver.
@@ -1202,98 +1639,137 @@ class LocationThresholdRuleConditionResponse(dict):
 
 
 @pulumi.output_type
-class LogMetricTriggerResponse(dict):
+class LogAnalyticsDestinationResponse(dict):
     """
-    A log metrics trigger descriptor.
+    Log Analytics destination.
     """
     def __init__(__self__, *,
-                 metric_column: Optional[str] = None,
-                 metric_trigger_type: Optional[str] = None,
-                 threshold: Optional[float] = None,
-                 threshold_operator: Optional[str] = None):
+                 name: str,
+                 workspace_resource_id: str):
         """
-        A log metrics trigger descriptor.
-        :param str metric_column: Evaluation of metric on a particular column
-        :param str metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'
-        :param float threshold: The threshold of the metric trigger.
-        :param str threshold_operator: Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+        Log Analytics destination.
+        :param str name: A friendly name for the destination. 
+               This name should be unique across all destinations (regardless of type) within the data collection rule.
+        :param str workspace_resource_id: The resource ID of the Log Analytics workspace.
         """
-        if metric_column is not None:
-            pulumi.set(__self__, "metric_column", metric_column)
-        if metric_trigger_type is not None:
-            pulumi.set(__self__, "metric_trigger_type", metric_trigger_type)
-        if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
-        if threshold_operator is not None:
-            pulumi.set(__self__, "threshold_operator", threshold_operator)
-
-    @property
-    @pulumi.getter(name="metricColumn")
-    def metric_column(self) -> Optional[str]:
-        """
-        Evaluation of metric on a particular column
-        """
-        return pulumi.get(self, "metric_column")
-
-    @property
-    @pulumi.getter(name="metricTriggerType")
-    def metric_trigger_type(self) -> Optional[str]:
-        """
-        Metric Trigger Type - 'Consecutive' or 'Total'
-        """
-        return pulumi.get(self, "metric_trigger_type")
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter
-    def threshold(self) -> Optional[float]:
+    def name(self) -> str:
         """
-        The threshold of the metric trigger.
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
-        return pulumi.get(self, "threshold")
+        return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="thresholdOperator")
-    def threshold_operator(self) -> Optional[str]:
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> str:
         """
-        Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+        The resource ID of the Log Analytics workspace.
         """
-        return pulumi.get(self, "threshold_operator")
+        return pulumi.get(self, "workspace_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
-class LogToMetricActionResponse(dict):
+class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):
     """
-    Specify action need to be taken when rule type is converting log to metric
+    The related metadata items for the function.
     """
     def __init__(__self__, *,
-                 criteria: List['outputs.CriteriaResponse'],
-                 odata_type: str):
+                 categories: Optional[List[str]] = None,
+                 resource_types: Optional[List[str]] = None,
+                 solutions: Optional[List[str]] = None):
         """
-        Specify action need to be taken when rule type is converting log to metric
-        :param List['CriteriaResponseArgs'] criteria: Criteria of Metric
-        :param str odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        The related metadata items for the function.
+        :param List[str] categories: The related categories for the function.
+        :param List[str] resource_types: The related resource types for the function.
+        :param List[str] solutions: The related Log Analytics solutions for the function.
         """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction')
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if solutions is not None:
+            pulumi.set(__self__, "solutions", solutions)
 
     @property
     @pulumi.getter
-    def criteria(self) -> List['outputs.CriteriaResponse']:
+    def categories(self) -> Optional[List[str]]:
         """
-        Criteria of Metric
+        The related categories for the function.
         """
-        return pulumi.get(self, "criteria")
+        return pulumi.get(self, "categories")
 
     @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[List[str]]:
         """
-        Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        The related resource types for the function.
         """
-        return pulumi.get(self, "odata_type")
+        return pulumi.get(self, "resource_types")
+
+    @property
+    @pulumi.getter
+    def solutions(self) -> Optional[List[str]]:
+        """
+        The related Log Analytics solutions for the function.
+        """
+        return pulumi.get(self, "solutions")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LogSettingsResponse(dict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+    """
+    def __init__(__self__, *,
+                 enabled: bool,
+                 category: Optional[str] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+        :param bool enabled: a value indicating whether this log is enabled.
+        :param str category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        :param 'RetentionPolicyResponseArgs' retention_policy: the retention policy for this log.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
+        """
+        the retention policy for this log.
+        """
+        return pulumi.get(self, "retention_policy")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1732,6 +2208,67 @@ class MetricDimensionResponse(dict):
 
 
 @pulumi.output_type
+class MetricSettingsResponse(dict):
+    """
+    Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+    """
+    def __init__(__self__, *,
+                 enabled: bool,
+                 category: Optional[str] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
+                 time_grain: Optional[str] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+        :param bool enabled: a value indicating whether this category is enabled.
+        :param str category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        :param 'RetentionPolicyResponseArgs' retention_policy: the retention policy for this category.
+        :param str time_grain: the timegrain of the metric in ISO8601 format.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if time_grain is not None:
+            pulumi.set(__self__, "time_grain", time_grain)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this category is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyResponse']:
+        """
+        the retention policy for this category.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> Optional[str]:
+        """
+        the timegrain of the metric in ISO8601 format.
+        """
+        return pulumi.get(self, "time_grain")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class MetricTriggerResponse(dict):
     """
     The trigger that results in a scaling action.
@@ -1858,6 +2395,223 @@ class MetricTriggerResponse(dict):
 
 
 @pulumi.output_type
+class PerfCounterDataSourceResponse(dict):
+    """
+    Definition of which performance counters will be collected and how they will be collected by this data collection rule.
+    Collected from both Windows and Linux machines where the counter is present.
+    """
+    def __init__(__self__, *,
+                 counter_specifiers: List[str],
+                 name: str,
+                 sampling_frequency_in_seconds: float,
+                 scheduled_transfer_period: str,
+                 streams: List[str]):
+        """
+        Definition of which performance counters will be collected and how they will be collected by this data collection rule.
+        Collected from both Windows and Linux machines where the counter is present.
+        :param List[str] counter_specifiers: A list of specifier names of the performance counters you want to collect.
+               Use a wildcard (*) to collect a counter for all instances.
+               To get a list of performance counters on Windows, run the command 'typeperf'.
+        :param str name: A friendly name for the data source. 
+               This name should be unique across all data sources (regardless of type) within the data collection rule.
+        :param float sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples).
+        :param str scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
+        :param List[str] streams: List of streams that this data source will be sent to.
+               A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        pulumi.set(__self__, "counter_specifiers", counter_specifiers)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sampling_frequency_in_seconds", sampling_frequency_in_seconds)
+        pulumi.set(__self__, "scheduled_transfer_period", scheduled_transfer_period)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter(name="counterSpecifiers")
+    def counter_specifiers(self) -> List[str]:
+        """
+        A list of specifier names of the performance counters you want to collect.
+        Use a wildcard (*) to collect a counter for all instances.
+        To get a list of performance counters on Windows, run the command 'typeperf'.
+        """
+        return pulumi.get(self, "counter_specifiers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="samplingFrequencyInSeconds")
+    def sampling_frequency_in_seconds(self) -> float:
+        """
+        The number of seconds between consecutive counter measurements (samples).
+        """
+        return pulumi.get(self, "sampling_frequency_in_seconds")
+
+    @property
+    @pulumi.getter(name="scheduledTransferPeriod")
+    def scheduled_transfer_period(self) -> str:
+        """
+        The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
+        """
+        return pulumi.get(self, "scheduled_transfer_period")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> List[str]:
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PerformanceCounterConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 sampling_period: str,
+                 instance: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sampling_period", sampling_period)
+        if instance is not None:
+            pulumi.set(__self__, "instance", instance)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="samplingPeriod")
+    def sampling_period(self) -> str:
+        return pulumi.get(self, "sampling_period")
+
+    @property
+    @pulumi.getter
+    def instance(self) -> Optional[str]:
+        return pulumi.get(self, "instance")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    A private endpoint connection
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 provisioning_state: str,
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None):
+        """
+        A private endpoint connection
+        :param str id: Azure resource Id
+        :param str name: Azure resource name
+        :param str provisioning_state: State of the private endpoint connection.
+        :param str type: Azure resource type
+        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
+        """
+        Private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse']:
+        """
+        Connection state of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointPropertyResponse(dict):
+    """
+    Private endpoint which the connection belongs to.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Private endpoint which the connection belongs to.
+        :param str id: Resource id of the private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource id of the private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PrivateLinkScopedResourceResponse(dict):
     """
     The private link scope resource reference.
@@ -1890,6 +2644,53 @@ class PrivateLinkScopedResourceResponse(dict):
         The private link scope unique Identifier.
         """
         return pulumi.get(self, "scope_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStatePropertyResponse(dict):
+    """
+    State of the private endpoint connection.
+    """
+    def __init__(__self__, *,
+                 actions_required: str,
+                 description: str,
+                 status: str):
+        """
+        State of the private endpoint connection.
+        :param str actions_required: The actions required for private link service connection.
+        :param str description: The private link service connection description.
+        :param str status: The private link service connection status.
+        """
+        pulumi.set(__self__, "actions_required", actions_required)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> str:
+        """
+        The actions required for private link service connection.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2533,36 +3334,41 @@ class ScaleRuleResponse(dict):
 
 
 @pulumi.output_type
-class ScheduleResponse(dict):
+class ScheduledQueryRuleCriteriaResponse(dict):
     """
-    Defines how often to run the search and the time interval.
+    The rule criteria that defines the conditions of the scheduled query rule.
     """
     def __init__(__self__, *,
-                 frequency_in_minutes: float,
-                 time_window_in_minutes: float):
+                 all_of: Optional[List['outputs.ConditionResponse']] = None):
         """
-        Defines how often to run the search and the time interval.
-        :param float frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
-        :param float time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+        The rule criteria that defines the conditions of the scheduled query rule.
+        :param List['ConditionResponseArgs'] all_of: A list of conditions to evaluate against the specified scopes
         """
-        pulumi.set(__self__, "frequency_in_minutes", frequency_in_minutes)
-        pulumi.set(__self__, "time_window_in_minutes", time_window_in_minutes)
+        if all_of is not None:
+            pulumi.set(__self__, "all_of", all_of)
 
     @property
-    @pulumi.getter(name="frequencyInMinutes")
-    def frequency_in_minutes(self) -> float:
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> Optional[List['outputs.ConditionResponse']]:
         """
-        frequency (in minutes) at which rule condition should be evaluated.
+        A list of conditions to evaluate against the specified scopes
         """
-        return pulumi.get(self, "frequency_in_minutes")
+        return pulumi.get(self, "all_of")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SinkConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 kind: str):
+        pulumi.set(__self__, "kind", kind)
 
     @property
-    @pulumi.getter(name="timeWindowInMinutes")
-    def time_window_in_minutes(self) -> float:
-        """
-        Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
-        """
-        return pulumi.get(self, "time_window_in_minutes")
+    @pulumi.getter
+    def kind(self) -> str:
+        return pulumi.get(self, "kind")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2627,61 +3433,188 @@ class SmsReceiverResponse(dict):
 
 
 @pulumi.output_type
-class SourceResponse(dict):
+class SubscriptionLogSettingsResponse(dict):
     """
-    Specifies the log search query.
+    Part of Subscription diagnostic setting. Specifies the settings for a particular log.
     """
     def __init__(__self__, *,
-                 data_source_id: str,
-                 authorized_resources: Optional[List[str]] = None,
-                 query: Optional[str] = None,
-                 query_type: Optional[str] = None):
+                 enabled: bool,
+                 category: Optional[str] = None):
         """
-        Specifies the log search query.
-        :param str data_source_id: The resource uri over which log search query is to be run.
-        :param List[str] authorized_resources: List of  Resource referred into query
-        :param str query: Log search query. Required for action type - AlertingAction
-        :param str query_type: Set value to 'ResultCount' .
+        Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+        :param bool enabled: a value indicating whether this log is enabled.
+        :param str category: Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
         """
-        pulumi.set(__self__, "data_source_id", data_source_id)
-        if authorized_resources is not None:
-            pulumi.set(__self__, "authorized_resources", authorized_resources)
-        if query is not None:
-            pulumi.set(__self__, "query", query)
-        if query_type is not None:
-            pulumi.set(__self__, "query_type", query_type)
-
-    @property
-    @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> str:
-        """
-        The resource uri over which log search query is to be run.
-        """
-        return pulumi.get(self, "data_source_id")
-
-    @property
-    @pulumi.getter(name="authorizedResources")
-    def authorized_resources(self) -> Optional[List[str]]:
-        """
-        List of  Resource referred into query
-        """
-        return pulumi.get(self, "authorized_resources")
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
 
     @property
     @pulumi.getter
-    def query(self) -> Optional[str]:
+    def enabled(self) -> bool:
         """
-        Log search query. Required for action type - AlertingAction
+        a value indicating whether this log is enabled.
         """
-        return pulumi.get(self, "query")
+        return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="queryType")
-    def query_type(self) -> Optional[str]:
+    @pulumi.getter
+    def category(self) -> Optional[str]:
         """
-        Set value to 'ResultCount' .
+        Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
         """
-        return pulumi.get(self, "query_type")
+        return pulumi.get(self, "category")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SyslogDataSourceResponse(dict):
+    """
+    Definition of which syslog data will be collected and how it will be collected.
+    Only collected from Linux machines.
+    """
+    def __init__(__self__, *,
+                 facility_names: List[str],
+                 name: str,
+                 streams: List[str],
+                 log_levels: Optional[List[str]] = None):
+        """
+        Definition of which syslog data will be collected and how it will be collected.
+        Only collected from Linux machines.
+        :param List[str] facility_names: The list of facility names.
+        :param str name: A friendly name for the data source. 
+               This name should be unique across all data sources (regardless of type) within the data collection rule.
+        :param List[str] streams: List of streams that this data source will be sent to.
+               A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        :param List[str] log_levels: The log levels to collect.
+        """
+        pulumi.set(__self__, "facility_names", facility_names)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+
+    @property
+    @pulumi.getter(name="facilityNames")
+    def facility_names(self) -> List[str]:
+        """
+        The list of facility names.
+        """
+        return pulumi.get(self, "facility_names")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> List[str]:
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[List[str]]:
+        """
+        The log levels to collect.
+        """
+        return pulumi.get(self, "log_levels")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Read only system data
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Read only system data
+        :param str created_at: The timestamp of resource creation (UTC)
+        :param str created_by: An identifier for the identity that created the resource
+        :param str created_by_type: The type of identity that created the resource
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: An identifier for the identity that last modified the resource
+        :param str last_modified_by_type: The type of identity that last modified the resource
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC)
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        An identifier for the identity that created the resource
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        An identifier for the identity that last modified the resource
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2813,54 +3746,6 @@ class TimeWindowResponse(dict):
         the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
         return pulumi.get(self, "time_zone")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class TriggerConditionResponse(dict):
-    """
-    The condition that results in the Log Search rule.
-    """
-    def __init__(__self__, *,
-                 threshold: float,
-                 threshold_operator: str,
-                 metric_trigger: Optional['outputs.LogMetricTriggerResponse'] = None):
-        """
-        The condition that results in the Log Search rule.
-        :param float threshold: Result or count threshold based on which rule should be triggered.
-        :param str threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-        :param 'LogMetricTriggerResponseArgs' metric_trigger: Trigger condition for metric query rule
-        """
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "threshold_operator", threshold_operator)
-        if metric_trigger is not None:
-            pulumi.set(__self__, "metric_trigger", metric_trigger)
-
-    @property
-    @pulumi.getter
-    def threshold(self) -> float:
-        """
-        Result or count threshold based on which rule should be triggered.
-        """
-        return pulumi.get(self, "threshold")
-
-    @property
-    @pulumi.getter(name="thresholdOperator")
-    def threshold_operator(self) -> str:
-        """
-        Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-        """
-        return pulumi.get(self, "threshold_operator")
-
-    @property
-    @pulumi.getter(name="metricTrigger")
-    def metric_trigger(self) -> Optional['outputs.LogMetricTriggerResponse']:
-        """
-        Trigger condition for metric query rule
-        """
-        return pulumi.get(self, "metric_trigger")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3151,6 +4036,182 @@ class WebtestLocationAvailabilityCriteriaResponse(dict):
         The Application Insights web test Id.
         """
         return pulumi.get(self, "web_test_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WindowsEventLogDataSourceResponse(dict):
+    """
+    Definition of which Windows Event Log events will be collected and how they will be collected.
+    Only collected from Windows machines.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 scheduled_transfer_period: str,
+                 streams: List[str],
+                 x_path_queries: List[str]):
+        """
+        Definition of which Windows Event Log events will be collected and how they will be collected.
+        Only collected from Windows machines.
+        :param str name: A friendly name for the data source. 
+               This name should be unique across all data sources (regardless of type) within the data collection rule.
+        :param str scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
+        :param List[str] streams: List of streams that this data source will be sent to.
+               A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        :param List[str] x_path_queries: A list of Windows Event Log queries in XPATH format.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "scheduled_transfer_period", scheduled_transfer_period)
+        pulumi.set(__self__, "streams", streams)
+        pulumi.set(__self__, "x_path_queries", x_path_queries)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scheduledTransferPeriod")
+    def scheduled_transfer_period(self) -> str:
+        """
+        The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
+        """
+        return pulumi.get(self, "scheduled_transfer_period")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> List[str]:
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="xPathQueries")
+    def x_path_queries(self) -> List[str]:
+        """
+        A list of Windows Event Log queries in XPATH format.
+        """
+        return pulumi.get(self, "x_path_queries")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WorkbookTemplateGalleryResponse(dict):
+    """
+    Gallery information for a workbook template.
+    """
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 name: Optional[str] = None,
+                 order: Optional[float] = None,
+                 resource_type: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Gallery information for a workbook template.
+        :param str category: Category for the gallery.
+        :param str name: Name of the workbook template in the gallery.
+        :param float order: Order of the template within the gallery.
+        :param str resource_type: Azure resource type supported by the gallery.
+        :param str type: Type of workbook supported by the workbook template.
+        """
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category for the gallery.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the workbook template in the gallery.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[float]:
+        """
+        Order of the template within the gallery.
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        """
+        Azure resource type supported by the gallery.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of workbook supported by the workbook template.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WorkbookTemplateLocalizedGalleryResponse(dict):
+    """
+    Localized template data and gallery information.
+    """
+    def __init__(__self__, *,
+                 galleries: Optional[List['outputs.WorkbookTemplateGalleryResponse']] = None,
+                 template_data: Optional[Mapping[str, Any]] = None):
+        """
+        Localized template data and gallery information.
+        :param List['WorkbookTemplateGalleryResponseArgs'] galleries: Workbook galleries supported by the template.
+        :param Mapping[str, Any] template_data: Valid JSON object containing workbook template payload.
+        """
+        if galleries is not None:
+            pulumi.set(__self__, "galleries", galleries)
+        if template_data is not None:
+            pulumi.set(__self__, "template_data", template_data)
+
+    @property
+    @pulumi.getter
+    def galleries(self) -> Optional[List['outputs.WorkbookTemplateGalleryResponse']]:
+        """
+        Workbook galleries supported by the template.
+        """
+        return pulumi.get(self, "galleries")
+
+    @property
+    @pulumi.getter(name="templateData")
+    def template_data(self) -> Optional[Mapping[str, Any]]:
+        """
+        Valid JSON object containing workbook template payload.
+        """
+        return pulumi.get(self, "template_data")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -45,7 +45,7 @@ class ServerKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of the MySQL Server key to be operated on (updated or created).
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_key_type: The key type like 'AzureKeyVault'.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] uri: The URI of the key.
@@ -122,7 +122,7 @@ class ServerKey(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        Kind of encryption protector used to protect the key.
+        Kind of encryption protector. This is metadata used for the Azure portal experience.
         """
         return pulumi.get(self, "kind")
 

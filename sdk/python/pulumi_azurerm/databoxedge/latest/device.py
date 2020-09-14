@@ -42,7 +42,7 @@ class Device(pulumi.CustomResource):
 
         device = azurerm.databoxedge.latest.Device("device",
             device_name="testedgedevice",
-            location="eastus",
+            location="WUS",
             resource_group_name="GroupForEdgeAutomation",
             sku={
                 "name": "Edge",

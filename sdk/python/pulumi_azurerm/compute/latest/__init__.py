@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .availability_set import *
+from .configuration_profile_assignment import *
 from .dedicated_host import *
 from .dedicated_host_group import *
 from .disk import *
@@ -15,6 +16,7 @@ from .gallery_application_version import *
 from .gallery_image import *
 from .gallery_image_version import *
 from .get_availability_set import *
+from .get_configuration_profile_assignment import *
 from .get_dedicated_host import *
 from .get_dedicated_host_group import *
 from .get_disk import *

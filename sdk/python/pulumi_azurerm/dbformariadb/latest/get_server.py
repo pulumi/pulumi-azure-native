@@ -20,7 +20,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, earliest_restore_date=None, fully_qualified_domain_name=None, location=None, master_server_id=None, name=None, private_endpoint_connections=None, public_network_access=None, replica_capacity=None, replication_role=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, type=None, user_visible_state=None, version=None):
+    def __init__(__self__, administrator_login=None, earliest_restore_date=None, fully_qualified_domain_name=None, identity=None, location=None, master_server_id=None, name=None, replica_capacity=None, replication_role=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, type=None, user_visible_state=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -30,6 +30,9 @@ class GetServerResult:
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -39,12 +42,6 @@ class GetServerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
-            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        if public_network_access and not isinstance(public_network_access, str):
-            raise TypeError("Expected argument 'public_network_access' to be a str")
-        pulumi.set(__self__, "public_network_access", public_network_access)
         if replica_capacity and not isinstance(replica_capacity, float):
             raise TypeError("Expected argument 'replica_capacity' to be a float")
         pulumi.set(__self__, "replica_capacity", replica_capacity)
@@ -99,6 +96,14 @@ class GetServerResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+        """
+        The Azure Active Directory identity of the server.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         The geo-location where the resource lives
@@ -120,22 +125,6 @@ class GetServerResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.ServerPrivateEndpointConnectionResponse']:
-        """
-        List of private endpoint connections on a server
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
-        """
-        Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        """
-        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="replicaCapacity")
@@ -219,11 +208,10 @@ class AwaitableGetServerResult(GetServerResult):
             administrator_login=self.administrator_login,
             earliest_restore_date=self.earliest_restore_date,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
+            identity=self.identity,
             location=self.location,
             master_server_id=self.master_server_id,
             name=self.name,
-            private_endpoint_connections=self.private_endpoint_connections,
-            public_network_access=self.public_network_access,
             replica_capacity=self.replica_capacity,
             replication_role=self.replication_role,
             sku=self.sku,
@@ -241,7 +229,7 @@ def get_server(resource_group_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
     __args__ = dict()
@@ -257,11 +245,10 @@ def get_server(resource_group_name: Optional[str] = None,
         administrator_login=__ret__.administrator_login,
         earliest_restore_date=__ret__.earliest_restore_date,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
+        identity=__ret__.identity,
         location=__ret__.location,
         master_server_id=__ret__.master_server_id,
         name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        public_network_access=__ret__.public_network_access,
         replica_capacity=__ret__.replica_capacity,
         replication_role=__ret__.replication_role,
         sku=__ret__.sku,

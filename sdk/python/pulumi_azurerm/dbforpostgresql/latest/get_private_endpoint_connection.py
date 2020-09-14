@@ -99,7 +99,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     Use this data source to access information about an existing resource.
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
-    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
     __args__ = dict()

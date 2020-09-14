@@ -17,6 +17,7 @@ class Replication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  replication_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -48,6 +49,7 @@ class Replication(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input[bool] region_endpoint_enabled: Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] replication_name: The name of the replication.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
@@ -73,6 +75,7 @@ class Replication(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['region_endpoint_enabled'] = region_endpoint_enabled
             if registry_name is None:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
@@ -136,6 +139,14 @@ class Replication(pulumi.CustomResource):
         The provisioning state of the replication at the time the operation was called.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
 
     @property
     @pulumi.getter

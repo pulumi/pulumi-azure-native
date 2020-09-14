@@ -14,8 +14,19 @@ __all__ = [
     'AllowlistCustomAlertRuleResponse',
     'AssessmentLinksResponse',
     'AssessmentStatusResponse',
+    'AutomationActionEventHubResponse',
+    'AutomationActionLogicAppResponse',
+    'AutomationActionWorkspaceResponse',
+    'AutomationRuleSetResponse',
+    'AutomationScopeResponse',
+    'AutomationSourceResponse',
+    'AutomationTriggeringRuleResponse',
+    'AwAssumeRoleAuthenticationDetailsPropertiesResponse',
+    'AwsCredsAuthenticationDetailsPropertiesResponse',
     'AzureResourceDetailsResponse',
     'DenylistCustomAlertRuleResponse',
+    'GcpCredentialsDetailsPropertiesResponse',
+    'HybridComputeSettingsPropertiesResponse',
     'JitNetworkAccessPolicyVirtualMachineResponse',
     'JitNetworkAccessPortRuleResponse',
     'JitNetworkAccessRequestPortResponse',
@@ -24,11 +35,17 @@ __all__ = [
     'OnPremiseResourceDetailsResponse',
     'PathRecommendationResponse',
     'ProtectionModeResponse',
+    'ProxyServerPropertiesResponse',
     'PublisherInfoResponse',
     'RecommendationConfigurationPropertiesResponse',
+    'ScopeElementResponse',
     'SecurityAssessmentMetadataPartnerDataResponse',
     'SecurityAssessmentMetadataPropertiesResponse',
     'SecurityAssessmentPartnerDataResponse',
+    'SecurityContactPropertiesResponseAlertNotifications',
+    'SecurityContactPropertiesResponseNotificationsByRole',
+    'ServicePrincipalPropertiesResponse',
+    'SuppressionAlertsScopeResponse',
     'ThresholdCustomAlertRuleResponse',
     'TimeWindowCustomAlertRuleResponse',
     'UserDefinedResourcesPropertiesResponse',
@@ -229,6 +246,472 @@ class AssessmentStatusResponse(dict):
 
 
 @pulumi.output_type
+class AutomationActionEventHubResponse(dict):
+    """
+    The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+    """
+    def __init__(__self__, *,
+                 action_type: str,
+                 sas_policy_name: str,
+                 connection_string: Optional[str] = None,
+                 event_hub_resource_id: Optional[str] = None):
+        """
+        The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        :param str action_type: The type of the action that will be triggered by the Automation
+        :param str sas_policy_name: The target Event Hub SAS policy name.
+        :param str connection_string: The target Event Hub connection string (it will not be included in any response).
+        :param str event_hub_resource_id: The target Event Hub Azure Resource ID.
+        """
+        pulumi.set(__self__, "action_type", 'EventHub')
+        pulumi.set(__self__, "sas_policy_name", sas_policy_name)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if event_hub_resource_id is not None:
+            pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        The type of the action that will be triggered by the Automation
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="sasPolicyName")
+    def sas_policy_name(self) -> str:
+        """
+        The target Event Hub SAS policy name.
+        """
+        return pulumi.get(self, "sas_policy_name")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[str]:
+        """
+        The target Event Hub connection string (it will not be included in any response).
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="eventHubResourceId")
+    def event_hub_resource_id(self) -> Optional[str]:
+        """
+        The target Event Hub Azure Resource ID.
+        """
+        return pulumi.get(self, "event_hub_resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationActionLogicAppResponse(dict):
+    """
+    The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+    """
+    def __init__(__self__, *,
+                 action_type: str,
+                 logic_app_resource_id: Optional[str] = None,
+                 uri: Optional[str] = None):
+        """
+        The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+        :param str action_type: The type of the action that will be triggered by the Automation
+        :param str logic_app_resource_id: The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+        :param str uri: The Logic App trigger URI endpoint (it will not be included in any response).
+        """
+        pulumi.set(__self__, "action_type", 'LogicApp')
+        if logic_app_resource_id is not None:
+            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        The type of the action that will be triggered by the Automation
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="logicAppResourceId")
+    def logic_app_resource_id(self) -> Optional[str]:
+        """
+        The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+        """
+        return pulumi.get(self, "logic_app_resource_id")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        The Logic App trigger URI endpoint (it will not be included in any response).
+        """
+        return pulumi.get(self, "uri")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationActionWorkspaceResponse(dict):
+    """
+    The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+    """
+    def __init__(__self__, *,
+                 action_type: str,
+                 workspace_resource_id: Optional[str] = None):
+        """
+        The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        :param str action_type: The type of the action that will be triggered by the Automation
+        :param str workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.
+        """
+        pulumi.set(__self__, "action_type", 'Workspace')
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        The type of the action that will be triggered by the Automation
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[str]:
+        """
+        The fully qualified Log Analytics Workspace Azure Resource ID.
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationRuleSetResponse(dict):
+    """
+    A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+    """
+    def __init__(__self__, *,
+                 rules: Optional[List['outputs.AutomationTriggeringRuleResponse']] = None):
+        """
+        A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[List['outputs.AutomationTriggeringRuleResponse']]:
+        return pulumi.get(self, "rules")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationScopeResponse(dict):
+    """
+    A single automation scope.
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 scope_path: Optional[str] = None):
+        """
+        A single automation scope.
+        :param str description: The resources scope description.
+        :param str scope_path: The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if scope_path is not None:
+            pulumi.set(__self__, "scope_path", scope_path)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The resources scope description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="scopePath")
+    def scope_path(self) -> Optional[str]:
+        """
+        The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+        """
+        return pulumi.get(self, "scope_path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationSourceResponse(dict):
+    """
+    The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+    """
+    def __init__(__self__, *,
+                 event_source: Optional[str] = None,
+                 rule_sets: Optional[List['outputs.AutomationRuleSetResponse']] = None):
+        """
+        The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+        :param str event_source: A valid event source type.
+        :param List['AutomationRuleSetResponseArgs'] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+        """
+        if event_source is not None:
+            pulumi.set(__self__, "event_source", event_source)
+        if rule_sets is not None:
+            pulumi.set(__self__, "rule_sets", rule_sets)
+
+    @property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> Optional[str]:
+        """
+        A valid event source type.
+        """
+        return pulumi.get(self, "event_source")
+
+    @property
+    @pulumi.getter(name="ruleSets")
+    def rule_sets(self) -> Optional[List['outputs.AutomationRuleSetResponse']]:
+        """
+        A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+        """
+        return pulumi.get(self, "rule_sets")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationTriggeringRuleResponse(dict):
+    """
+    A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+    """
+    def __init__(__self__, *,
+                 expected_value: Optional[str] = None,
+                 operator: Optional[str] = None,
+                 property_j_path: Optional[str] = None,
+                 property_type: Optional[str] = None):
+        """
+        A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+        :param str expected_value: The expected value.
+        :param str operator: A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+        :param str property_j_path: The JPath of the entity model property that should be checked.
+        :param str property_type: The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+        """
+        if expected_value is not None:
+            pulumi.set(__self__, "expected_value", expected_value)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if property_j_path is not None:
+            pulumi.set(__self__, "property_j_path", property_j_path)
+        if property_type is not None:
+            pulumi.set(__self__, "property_type", property_type)
+
+    @property
+    @pulumi.getter(name="expectedValue")
+    def expected_value(self) -> Optional[str]:
+        """
+        The expected value.
+        """
+        return pulumi.get(self, "expected_value")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="propertyJPath")
+    def property_j_path(self) -> Optional[str]:
+        """
+        The JPath of the entity model property that should be checked.
+        """
+        return pulumi.get(self, "property_j_path")
+
+    @property
+    @pulumi.getter(name="propertyType")
+    def property_type(self) -> Optional[str]:
+        """
+        The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+        """
+        return pulumi.get(self, "property_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
+    """
+    AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+    """
+    def __init__(__self__, *,
+                 account_id: str,
+                 authentication_provisioning_state: str,
+                 authentication_type: str,
+                 aws_assume_role_arn: str,
+                 aws_external_id: str,
+                 granted_permissions: List[str]):
+        """
+        AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+        :param str account_id: The ID of the cloud account
+        :param str authentication_provisioning_state: State of the multi-cloud connector
+        :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        :param str aws_assume_role_arn: Assumed role ID is an identifier that you can use to create temporary security credentials.
+        :param str aws_external_id: A unique identifier that is required when you assume a role in another account.
+        :param List[str] granted_permissions: The permissions detected in the cloud account.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "authentication_provisioning_state", authentication_provisioning_state)
+        pulumi.set(__self__, "authentication_type", 'awsAssumeRole')
+        pulumi.set(__self__, "aws_assume_role_arn", aws_assume_role_arn)
+        pulumi.set(__self__, "aws_external_id", aws_external_id)
+        pulumi.set(__self__, "granted_permissions", granted_permissions)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        The ID of the cloud account
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="authenticationProvisioningState")
+    def authentication_provisioning_state(self) -> str:
+        """
+        State of the multi-cloud connector
+        """
+        return pulumi.get(self, "authentication_provisioning_state")
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> str:
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="awsAssumeRoleArn")
+    def aws_assume_role_arn(self) -> str:
+        """
+        Assumed role ID is an identifier that you can use to create temporary security credentials.
+        """
+        return pulumi.get(self, "aws_assume_role_arn")
+
+    @property
+    @pulumi.getter(name="awsExternalId")
+    def aws_external_id(self) -> str:
+        """
+        A unique identifier that is required when you assume a role in another account.
+        """
+        return pulumi.get(self, "aws_external_id")
+
+    @property
+    @pulumi.getter(name="grantedPermissions")
+    def granted_permissions(self) -> List[str]:
+        """
+        The permissions detected in the cloud account.
+        """
+        return pulumi.get(self, "granted_permissions")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
+    """
+    AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+    """
+    def __init__(__self__, *,
+                 account_id: str,
+                 authentication_provisioning_state: str,
+                 authentication_type: str,
+                 aws_access_key_id: str,
+                 aws_secret_access_key: str,
+                 granted_permissions: List[str]):
+        """
+        AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+        :param str account_id: The ID of the cloud account
+        :param str authentication_provisioning_state: State of the multi-cloud connector
+        :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        :param str aws_access_key_id: Public key element of the AWS credential object (write only)
+        :param str aws_secret_access_key: Secret key element of the AWS credential object (write only)
+        :param List[str] granted_permissions: The permissions detected in the cloud account.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "authentication_provisioning_state", authentication_provisioning_state)
+        pulumi.set(__self__, "authentication_type", 'awsCreds')
+        pulumi.set(__self__, "aws_access_key_id", aws_access_key_id)
+        pulumi.set(__self__, "aws_secret_access_key", aws_secret_access_key)
+        pulumi.set(__self__, "granted_permissions", granted_permissions)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        The ID of the cloud account
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="authenticationProvisioningState")
+    def authentication_provisioning_state(self) -> str:
+        """
+        State of the multi-cloud connector
+        """
+        return pulumi.get(self, "authentication_provisioning_state")
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> str:
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="awsAccessKeyId")
+    def aws_access_key_id(self) -> str:
+        """
+        Public key element of the AWS credential object (write only)
+        """
+        return pulumi.get(self, "aws_access_key_id")
+
+    @property
+    @pulumi.getter(name="awsSecretAccessKey")
+    def aws_secret_access_key(self) -> str:
+        """
+        Secret key element of the AWS credential object (write only)
+        """
+        return pulumi.get(self, "aws_secret_access_key")
+
+    @property
+    @pulumi.getter(name="grantedPermissions")
+    def granted_permissions(self) -> List[str]:
+        """
+        The permissions detected in the cloud account.
+        """
+        return pulumi.get(self, "granted_permissions")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class AzureResourceDetailsResponse(dict):
     """
     Details of the Azure resource that was assessed
@@ -339,6 +822,258 @@ class DenylistCustomAlertRuleResponse(dict):
         The value type of the items in the list.
         """
         return pulumi.get(self, "value_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GcpCredentialsDetailsPropertiesResponse(dict):
+    """
+    GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+    """
+    def __init__(__self__, *,
+                 auth_provider_x509_cert_url: str,
+                 auth_uri: str,
+                 authentication_provisioning_state: str,
+                 authentication_type: str,
+                 client_email: str,
+                 client_id: str,
+                 client_x509_cert_url: str,
+                 granted_permissions: List[str],
+                 organization_id: str,
+                 private_key: str,
+                 private_key_id: str,
+                 project_id: str,
+                 token_uri: str,
+                 type: str):
+        """
+        GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+        :param str auth_provider_x509_cert_url: Auth provider x509 certificate url field of the API key (write only)
+        :param str auth_uri: Auth Uri field of the API key (write only)
+        :param str authentication_provisioning_state: State of the multi-cloud connector
+        :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        :param str client_email: Client email field of the API key (write only)
+        :param str client_id: Client Id field of the API key (write only)
+        :param str client_x509_cert_url: Client x509 certificate url field of the API key (write only)
+        :param List[str] granted_permissions: The permissions detected in the cloud account.
+        :param str organization_id: The Organization ID of the GCP cloud account
+        :param str private_key: Private key field of the API key (write only)
+        :param str private_key_id: Private key Id field of the API key (write only)
+        :param str project_id: Project Id field of the API key (write only)
+        :param str token_uri: Token Uri field of the API key (write only)
+        :param str type: Type field of the API key (write only)
+        """
+        pulumi.set(__self__, "auth_provider_x509_cert_url", auth_provider_x509_cert_url)
+        pulumi.set(__self__, "auth_uri", auth_uri)
+        pulumi.set(__self__, "authentication_provisioning_state", authentication_provisioning_state)
+        pulumi.set(__self__, "authentication_type", 'gcpCredentials')
+        pulumi.set(__self__, "client_email", client_email)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_x509_cert_url", client_x509_cert_url)
+        pulumi.set(__self__, "granted_permissions", granted_permissions)
+        pulumi.set(__self__, "organization_id", organization_id)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "private_key_id", private_key_id)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "token_uri", token_uri)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="authProviderX509CertUrl")
+    def auth_provider_x509_cert_url(self) -> str:
+        """
+        Auth provider x509 certificate url field of the API key (write only)
+        """
+        return pulumi.get(self, "auth_provider_x509_cert_url")
+
+    @property
+    @pulumi.getter(name="authUri")
+    def auth_uri(self) -> str:
+        """
+        Auth Uri field of the API key (write only)
+        """
+        return pulumi.get(self, "auth_uri")
+
+    @property
+    @pulumi.getter(name="authenticationProvisioningState")
+    def authentication_provisioning_state(self) -> str:
+        """
+        State of the multi-cloud connector
+        """
+        return pulumi.get(self, "authentication_provisioning_state")
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> str:
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> str:
+        """
+        Client email field of the API key (write only)
+        """
+        return pulumi.get(self, "client_email")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client Id field of the API key (write only)
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientX509CertUrl")
+    def client_x509_cert_url(self) -> str:
+        """
+        Client x509 certificate url field of the API key (write only)
+        """
+        return pulumi.get(self, "client_x509_cert_url")
+
+    @property
+    @pulumi.getter(name="grantedPermissions")
+    def granted_permissions(self) -> List[str]:
+        """
+        The permissions detected in the cloud account.
+        """
+        return pulumi.get(self, "granted_permissions")
+
+    @property
+    @pulumi.getter(name="organizationId")
+    def organization_id(self) -> str:
+        """
+        The Organization ID of the GCP cloud account
+        """
+        return pulumi.get(self, "organization_id")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        Private key field of the API key (write only)
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="privateKeyId")
+    def private_key_id(self) -> str:
+        """
+        Private key Id field of the API key (write only)
+        """
+        return pulumi.get(self, "private_key_id")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        Project Id field of the API key (write only)
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="tokenUri")
+    def token_uri(self) -> str:
+        """
+        Token Uri field of the API key (write only)
+        """
+        return pulumi.get(self, "token_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type field of the API key (write only)
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HybridComputeSettingsPropertiesResponse(dict):
+    """
+    Settings for hybrid compute management
+    """
+    def __init__(__self__, *,
+                 auto_provision: str,
+                 hybrid_compute_provisioning_state: str,
+                 proxy_server: Optional['outputs.ProxyServerPropertiesResponse'] = None,
+                 region: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 service_principal: Optional['outputs.ServicePrincipalPropertiesResponse'] = None):
+        """
+        Settings for hybrid compute management
+        :param str auto_provision: Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+        :param str hybrid_compute_provisioning_state: State of the service principal and its secret
+        :param 'ProxyServerPropertiesResponseArgs' proxy_server: For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+        :param str region: The location where the meta data of machines will be stored
+        :param str resource_group_name: The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+        :param 'ServicePrincipalPropertiesResponseArgs' service_principal: An object to access resources that are secured by an Azure AD tenant.
+        """
+        pulumi.set(__self__, "auto_provision", auto_provision)
+        pulumi.set(__self__, "hybrid_compute_provisioning_state", hybrid_compute_provisioning_state)
+        if proxy_server is not None:
+            pulumi.set(__self__, "proxy_server", proxy_server)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if service_principal is not None:
+            pulumi.set(__self__, "service_principal", service_principal)
+
+    @property
+    @pulumi.getter(name="autoProvision")
+    def auto_provision(self) -> str:
+        """
+        Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+        """
+        return pulumi.get(self, "auto_provision")
+
+    @property
+    @pulumi.getter(name="hybridComputeProvisioningState")
+    def hybrid_compute_provisioning_state(self) -> str:
+        """
+        State of the service principal and its secret
+        """
+        return pulumi.get(self, "hybrid_compute_provisioning_state")
+
+    @property
+    @pulumi.getter(name="proxyServer")
+    def proxy_server(self) -> Optional['outputs.ProxyServerPropertiesResponse']:
+        """
+        For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+        """
+        return pulumi.get(self, "proxy_server")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        The location where the meta data of machines will be stored
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[str]:
+        """
+        The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> Optional['outputs.ServicePrincipalPropertiesResponse']:
+        """
+        An object to access resources that are secured by an Azure AD tenant.
+        """
+        return pulumi.get(self, "service_principal")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -862,6 +1597,44 @@ class ProtectionModeResponse(dict):
 
 
 @pulumi.output_type
+class ProxyServerPropertiesResponse(dict):
+    """
+    For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+    """
+    def __init__(__self__, *,
+                 ip: Optional[str] = None,
+                 port: Optional[str] = None):
+        """
+        For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+        :param str ip: Proxy server IP
+        :param str port: Proxy server port
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[str]:
+        """
+        Proxy server IP
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[str]:
+        """
+        Proxy server port
+        """
+        return pulumi.get(self, "port")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PublisherInfoResponse(dict):
     """
     Represents the publisher information of a process/rule
@@ -961,6 +1734,32 @@ class RecommendationConfigurationPropertiesResponse(dict):
         Recommendation status. When the recommendation status is disabled recommendations are not generated.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ScopeElementResponse(dict):
+    """
+    A more specific scope used to identify the alerts to suppress.
+    """
+    def __init__(__self__, *,
+                 field: Optional[str] = None):
+        """
+        A more specific scope used to identify the alerts to suppress.
+        :param str field: The alert entity type to suppress by.
+        """
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[str]:
+        """
+        The alert entity type to suppress by.
+        """
+        return pulumi.get(self, "field")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1191,6 +1990,141 @@ class SecurityAssessmentPartnerDataResponse(dict):
         secret to authenticate the partner - write only
         """
         return pulumi.get(self, "secret")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecurityContactPropertiesResponseAlertNotifications(dict):
+    """
+    Defines whether to send email notifications about new security alerts
+    """
+    def __init__(__self__, *,
+                 minimal_severity: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        Defines whether to send email notifications about new security alerts
+        :param str minimal_severity: Defines the minimal alert severity which will be sent as email notifications
+        :param str state: Defines if email notifications will be sent about new security alerts
+        """
+        if minimal_severity is not None:
+            pulumi.set(__self__, "minimal_severity", minimal_severity)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="minimalSeverity")
+    def minimal_severity(self) -> Optional[str]:
+        """
+        Defines the minimal alert severity which will be sent as email notifications
+        """
+        return pulumi.get(self, "minimal_severity")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Defines if email notifications will be sent about new security alerts
+        """
+        return pulumi.get(self, "state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecurityContactPropertiesResponseNotificationsByRole(dict):
+    """
+    Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+    """
+    def __init__(__self__, *,
+                 roles: Optional[List[str]] = None,
+                 state: Optional[str] = None):
+        """
+        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        :param List[str] roles: Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
+        :param str state: Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        """
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[List[str]]:
+        """
+        Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        """
+        return pulumi.get(self, "state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServicePrincipalPropertiesResponse(dict):
+    """
+    Details of the service principal.
+    """
+    def __init__(__self__, *,
+                 application_id: Optional[str] = None,
+                 secret: Optional[str] = None):
+        """
+        Details of the service principal.
+        :param str application_id: Application id of service principal.
+        :param str secret: A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+        """
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[str]:
+        """
+        Application id of service principal.
+        """
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+        """
+        return pulumi.get(self, "secret")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SuppressionAlertsScopeResponse(dict):
+    def __init__(__self__, *,
+                 all_of: List['outputs.ScopeElementResponse']):
+        """
+        :param List['ScopeElementResponseArgs'] all_of: All the conditions inside need to be true in order to suppress the alert
+        """
+        pulumi.set(__self__, "all_of", all_of)
+
+    @property
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> List['outputs.ScopeElementResponse']:
+        """
+        All the conditions inside need to be true in order to suppress the alert
+        """
+        return pulumi.get(self, "all_of")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

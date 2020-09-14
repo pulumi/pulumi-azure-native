@@ -47,7 +47,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] charset: The charset of the database.
         :param pulumi.Input[str] collation: The collation of the database.
         :param pulumi.Input[str] database_name: The name of the database.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         """
         if __name__ is not None:

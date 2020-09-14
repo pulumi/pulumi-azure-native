@@ -18,28 +18,12 @@ class DatabaseAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 api_properties: Optional[pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]] = None,
-                 capabilities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
-                 connector_offer: Optional[pulumi.Input[str]] = None,
-                 consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
-                 cors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]]] = None,
-                 database_account_offer_type: Optional[pulumi.Input[str]] = None,
-                 disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
-                 enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
-                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-                 enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
-                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
-                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]]] = None,
-                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
-                 key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LocationArgs']]]]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs'], pulumi.InputType['RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -55,50 +39,13 @@ class DatabaseAccount(pulumi.CustomResource):
 
         database_account = azurerm.documentdb.latest.DatabaseAccount("databaseAccount",
             account_name="ddb1",
-            api_properties={
-                "serverVersion": "3.2",
+            identity={
+                "type": "SystemAssigned,UserAssigned",
             },
-            consistency_policy={
-                "defaultConsistencyLevel": "BoundedStaleness",
-                "maxIntervalInSeconds": 10,
-                "maxStalenessPrefix": 200,
-            },
-            cors=[{
-                "allowedOrigins": "https://test",
-            }],
-            database_account_offer_type="Standard",
-            enable_analytical_storage=True,
-            enable_free_tier=False,
-            ip_rules=[
-                {
-                    "ipAddressOrRange": "23.43.230.120",
-                },
-                {
-                    "ipAddressOrRange": "110.12.240.0/12",
-                },
-            ],
-            is_virtual_network_filter_enabled=True,
-            key_vault_key_uri="https://myKeyVault.vault.azure.net",
             kind="MongoDB",
             location="westus",
-            locations=[
-                {
-                    "failoverPriority": 0,
-                    "isZoneRedundant": False,
-                    "locationName": "southcentralus",
-                },
-                {
-                    "failoverPriority": 1,
-                    "isZoneRedundant": False,
-                    "locationName": "eastus",
-                },
-            ],
             resource_group_name="rg1",
-            tags={},
-            virtual_network_rules=[{
-                "id": "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
-                "ignoreMissingVNetServiceEndpoint": False,
-            }])
+            tags={})
 
         ```
         ### CosmosDBDatabaseAccountCreateMin
@@ -109,42 +56,34 @@ class DatabaseAccount(pulumi.CustomResource):
 
         database_account = azurerm.documentdb.latest.DatabaseAccount("databaseAccount",
             account_name="ddb1",
-            database_account_offer_type="Standard",
             location="westus",
-            locations=[{
-                "failoverPriority": 0,
-                "isZoneRedundant": False,
-                "locationName": "southcentralus",
-            }],
             resource_group_name="rg1")
+
+        ```
+        ### CosmosDBRestoreDatabaseAccountCreateUpdate.json
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database_account = azurerm.documentdb.latest.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            kind="GlobalDocumentDB",
+            location="westus",
+            resource_group_name="rg1",
+            tags={})
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[pulumi.InputType['ApiPropertiesArgs']] api_properties: API specific properties. Currently, supported only for MongoDB API.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CapabilityArgs']]]] capabilities: List of Cosmos DB capabilities for the account
-        :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
-        :param pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']] consistency_policy: The consistency policy for the Cosmos DB account.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]] cors: The CORS policy for the Cosmos DB database account.
-        :param pulumi.Input[str] database_account_offer_type: The offer type for the database
-        :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
-        :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
-        :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-        :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
-        :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
-        :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]] ip_rules: List of IpRules.
-        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
-        :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] kind: Indicates the type of database account. This can only be set at database account creation.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LocationArgs']]]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
-        :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
+        :param pulumi.Input[Union[pulumi.InputType['DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs'], pulumi.InputType['RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs']]] properties: Properties to create and update Azure Cosmos DB database accounts.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -166,41 +105,46 @@ class DatabaseAccount(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            __props__['api_properties'] = api_properties
-            __props__['capabilities'] = capabilities
-            __props__['connector_offer'] = connector_offer
-            __props__['consistency_policy'] = consistency_policy
-            __props__['cors'] = cors
-            if database_account_offer_type is None:
-                raise TypeError("Missing required property 'database_account_offer_type'")
-            __props__['database_account_offer_type'] = database_account_offer_type
-            __props__['disable_key_based_metadata_write_access'] = disable_key_based_metadata_write_access
-            __props__['enable_analytical_storage'] = enable_analytical_storage
-            __props__['enable_automatic_failover'] = enable_automatic_failover
-            __props__['enable_cassandra_connector'] = enable_cassandra_connector
-            __props__['enable_free_tier'] = enable_free_tier
-            __props__['enable_multiple_write_locations'] = enable_multiple_write_locations
-            __props__['ip_rules'] = ip_rules
-            __props__['is_virtual_network_filter_enabled'] = is_virtual_network_filter_enabled
-            __props__['key_vault_key_uri'] = key_vault_key_uri
+            __props__['identity'] = identity
             __props__['kind'] = kind
             __props__['location'] = location
-            if locations is None:
-                raise TypeError("Missing required property 'locations'")
-            __props__['locations'] = locations
-            __props__['public_network_access'] = public_network_access
+            if properties is None:
+                raise TypeError("Missing required property 'properties'")
+            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['virtual_network_rules'] = virtual_network_rules
+            __props__['api_properties'] = None
+            __props__['backup_policy'] = None
+            __props__['capabilities'] = None
+            __props__['connector_offer'] = None
+            __props__['consistency_policy'] = None
+            __props__['cors'] = None
+            __props__['create_mode'] = None
+            __props__['database_account_offer_type'] = None
+            __props__['disable_key_based_metadata_write_access'] = None
             __props__['document_endpoint'] = None
+            __props__['enable_analytical_storage'] = None
+            __props__['enable_automatic_failover'] = None
+            __props__['enable_cassandra_connector'] = None
+            __props__['enable_free_tier'] = None
+            __props__['enable_multiple_write_locations'] = None
             __props__['failover_policies'] = None
+            __props__['instance_id'] = None
+            __props__['ip_rules'] = None
+            __props__['is_virtual_network_filter_enabled'] = None
+            __props__['key_vault_key_uri'] = None
+            __props__['locations'] = None
             __props__['name'] = None
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
+            __props__['public_network_access'] = None
             __props__['read_locations'] = None
+            __props__['restore_parameters'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
+            __props__['virtual_network_rules'] = None
             __props__['write_locations'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azurerm:documentdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azurerm:documentdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azurerm:documentdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azurerm:documentdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azurerm:documentdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azurerm:documentdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azurerm:documentdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azurerm:documentdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azurerm:documentdb/v20200601preview:DatabaseAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -237,6 +181,14 @@ class DatabaseAccount(pulumi.CustomResource):
         return pulumi.get(self, "api_properties")
 
     @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The object representing the policy for taking backups on an account.
+        """
+        return pulumi.get(self, "backup_policy")
+
+    @property
     @pulumi.getter
     def capabilities(self) -> pulumi.Output[Optional[List['outputs.CapabilityResponse']]]:
         """
@@ -267,6 +219,14 @@ class DatabaseAccount(pulumi.CustomResource):
         The CORS policy for the Cosmos DB database account.
         """
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enum to indicate the mode of account creation.
+        """
+        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="databaseAccountOfferType")
@@ -339,6 +299,22 @@ class DatabaseAccount(pulumi.CustomResource):
         An array that contains the regions ordered by their failover priorities.
         """
         return pulumi.get(self, "failover_policies")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Output[str]:
+        """
+        A unique identifier assigned to the database account
+        """
+        return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="ipRules")
@@ -427,6 +403,22 @@ class DatabaseAccount(pulumi.CustomResource):
         An array that contains of the read locations enabled for the Cosmos DB account.
         """
         return pulumi.get(self, "read_locations")
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> pulumi.Output[Optional['outputs.RestoreParametersResponse']]:
+        """
+        Parameters to indicate the information about the restore.
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

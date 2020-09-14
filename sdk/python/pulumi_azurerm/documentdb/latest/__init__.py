@@ -32,6 +32,7 @@ from .get_gremlin_resource_gremlin_graph import *
 from .get_mongo_db_resource_mongo_db_collection import *
 from .get_mongo_db_resource_mongo_db_database import *
 from .get_notebook_workspace import *
+from .get_private_endpoint_connection import *
 from .get_sql_resource_sql_container import *
 from .get_sql_resource_sql_database import *
 from .get_sql_resource_sql_stored_procedure import *
@@ -46,6 +47,7 @@ from .list_notebook_workspace_connection_info import *
 from .mongo_db_resource_mongo_db_collection import *
 from .mongo_db_resource_mongo_db_database import *
 from .notebook_workspace import *
+from .private_endpoint_connection import *
 from .sql_resource_sql_container import *
 from .sql_resource_sql_database import *
 from .sql_resource_sql_stored_procedure import *

@@ -70,6 +70,8 @@ class AttestationProvider(pulumi.CustomResource):
             __props__['status'] = None
             __props__['trust_model'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:attestation/latest:AttestationProvider")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttestationProvider, __self__).__init__(
             'azurerm:attestation/v20180901preview:AttestationProvider',
             resource_name,

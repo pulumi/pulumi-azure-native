@@ -10,6 +10,8 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'ManagedIdentityResponse',
+    'ManagedIdentitySettingsResponse',
     'NetworkACLResponse',
     'PrivateEndpointACLResponse',
     'PrivateEndpointConnectionResponse',
@@ -20,8 +22,103 @@ __all__ = [
     'SignalRCorsSettingsResponse',
     'SignalRFeatureResponse',
     'SignalRNetworkACLsResponse',
+    'SignalRTlsSettingsResponse',
+    'UpstreamAuthSettingsResponse',
     'UpstreamTemplateResponse',
+    'UserAssignedIdentityPropertyResponse',
 ]
+
+@pulumi.output_type
+class ManagedIdentityResponse(dict):
+    """
+    A class represent managed identities used for request and response
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityPropertyResponse']] = None):
+        """
+        A class represent managed identities used for request and response
+        :param str principal_id: Get the principal id for the system assigned identity.
+               Only be used in response.
+        :param str tenant_id: Get the tenant id for the system assigned identity.
+               Only be used in response
+        :param str type: Represent the identity type: systemAssigned, userAssigned, None
+        :param Mapping[str, 'UserAssignedIdentityPropertyResponseArgs'] user_assigned_identities: Get or set the user assigned identities
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Get the principal id for the system assigned identity.
+        Only be used in response.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Get the tenant id for the system assigned identity.
+        Only be used in response
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Represent the identity type: systemAssigned, userAssigned, None
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityPropertyResponse']]:
+        """
+        Get or set the user assigned identities
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedIdentitySettingsResponse(dict):
+    """
+    Managed identity settings for upstream.
+    """
+    def __init__(__self__, *,
+                 resource: Optional[str] = None):
+        """
+        Managed identity settings for upstream.
+        :param str resource: The Resource indicating the App ID URI of the target resource.
+               It also appears in the aud (audience) claim of the issued token.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[str]:
+        """
+        The Resource indicating the App ID URI of the target resource.
+        It also appears in the aud (audience) claim of the issued token.
+        """
+        return pulumi.get(self, "resource")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class NetworkACLResponse(dict):
@@ -512,6 +609,70 @@ class SignalRNetworkACLsResponse(dict):
 
 
 @pulumi.output_type
+class SignalRTlsSettingsResponse(dict):
+    """
+    TLS settings for SignalR
+    """
+    def __init__(__self__, *,
+                 client_cert_enabled: Optional[bool] = None):
+        """
+        TLS settings for SignalR
+        :param bool client_cert_enabled: Request client certificate during TLS handshake if enabled
+        """
+        if client_cert_enabled is not None:
+            pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
+
+    @property
+    @pulumi.getter(name="clientCertEnabled")
+    def client_cert_enabled(self) -> Optional[bool]:
+        """
+        Request client certificate during TLS handshake if enabled
+        """
+        return pulumi.get(self, "client_cert_enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UpstreamAuthSettingsResponse(dict):
+    """
+    Upstream auth settings.
+    """
+    def __init__(__self__, *,
+                 managed_identity: Optional['outputs.ManagedIdentitySettingsResponse'] = None,
+                 type: Optional[str] = None):
+        """
+        Upstream auth settings.
+        :param 'ManagedIdentitySettingsResponseArgs' managed_identity: Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        :param str type: Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        """
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional['outputs.ManagedIdentitySettingsResponse']:
+        """
+        Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class UpstreamTemplateResponse(dict):
     """
     Upstream template item settings. It defines the Upstream URL of the incoming requests.
@@ -519,6 +680,7 @@ class UpstreamTemplateResponse(dict):
     """
     def __init__(__self__, *,
                  url_template: str,
+                 auth: Optional['outputs.UpstreamAuthSettingsResponse'] = None,
                  category_pattern: Optional[str] = None,
                  event_pattern: Optional[str] = None,
                  hub_pattern: Optional[str] = None):
@@ -527,6 +689,7 @@ class UpstreamTemplateResponse(dict):
         The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
         :param str url_template: Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
                For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+        :param 'UpstreamAuthSettingsResponseArgs' auth: Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
         :param str category_pattern: Gets or sets the matching pattern for category names. If not set, it matches any category.
                There are 3 kind of patterns supported:
                    1. "*", it to matches any category name
@@ -544,6 +707,8 @@ class UpstreamTemplateResponse(dict):
                    3. The single hub name, for example, "hub1", it matches "hub1"
         """
         pulumi.set(__self__, "url_template", url_template)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
         if category_pattern is not None:
             pulumi.set(__self__, "category_pattern", category_pattern)
         if event_pattern is not None:
@@ -559,6 +724,14 @@ class UpstreamTemplateResponse(dict):
         For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
         """
         return pulumi.get(self, "url_template")
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional['outputs.UpstreamAuthSettingsResponse']:
+        """
+        Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+        """
+        return pulumi.get(self, "auth")
 
     @property
     @pulumi.getter(name="categoryPattern")
@@ -595,6 +768,42 @@ class UpstreamTemplateResponse(dict):
             3. The single hub name, for example, "hub1", it matches "hub1"
         """
         return pulumi.get(self, "hub_pattern")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserAssignedIdentityPropertyResponse(dict):
+    """
+    Properties of user assigned identity.
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        Properties of user assigned identity.
+        :param str client_id: Get the client id for the user assigned identity
+        :param str principal_id: Get the principal id for the user assigned identity
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Get the client id for the user assigned identity
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Get the principal id for the user assigned identity
+        """
+        return pulumi.get(self, "principal_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

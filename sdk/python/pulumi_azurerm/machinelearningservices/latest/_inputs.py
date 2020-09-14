@@ -14,28 +14,48 @@ __all__ = [
     'AksNetworkingConfigurationArgs',
     'AmlComputeArgs',
     'AmlComputePropertiesArgs',
+    'AssignedUserArgs',
     'ComputeInstanceArgs',
     'ComputeInstancePropertiesArgs',
     'ComputeInstanceSshSettingsArgs',
+    'ContainerResourceRequirementsArgs',
+    'CreateServiceRequestEnvironmentImageRequestArgs',
+    'CreateServiceRequestKeysArgs',
     'DataFactoryArgs',
     'DataLakeAnalyticsArgs',
     'DataLakeAnalyticsPropertiesArgs',
     'DatabricksArgs',
     'DatabricksPropertiesArgs',
+    'DatasetReferenceArgs',
     'EncryptionPropertyArgs',
+    'EnvironmentImageRequestEnvironmentArgs',
+    'EnvironmentImageRequestEnvironmentReferenceArgs',
     'HDInsightArgs',
     'HDInsightPropertiesArgs',
     'IdentityArgs',
+    'ImageAssetArgs',
     'KeyVaultPropertiesArgs',
+    'LinkedServicePropsArgs',
     'LinkedWorkspacePropsArgs',
+    'ModelArgs',
+    'ModelDockerSectionBaseImageRegistryArgs',
+    'ModelEnvironmentDefinitionDockerArgs',
+    'ModelEnvironmentDefinitionPythonArgs',
+    'ModelEnvironmentDefinitionRArgs',
+    'ModelEnvironmentDefinitionSparkArgs',
+    'PersonalComputeInstanceSettingsArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'RCranPackageArgs',
+    'RGitHubPackageArgs',
     'ResourceIdArgs',
     'ScaleSettingsArgs',
     'SharedPrivateLinkResourceArgs',
     'SkuArgs',
+    'SparkMavenPackageArgs',
     'SslConfigurationArgs',
     'UserAccountCredentialsArgs',
     'VirtualMachineArgs',
+    'VirtualMachineImageArgs',
     'VirtualMachinePropertiesArgs',
     'VirtualMachineSshCredentialsArgs',
 ]
@@ -377,21 +397,35 @@ class AmlComputeArgs:
 @pulumi.input_type
 class AmlComputePropertiesArgs:
     def __init__(__self__, *,
+                 enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 isolated_network: Optional[pulumi.Input[bool]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
                  remote_login_port_public_access: Optional[pulumi.Input[str]] = None,
                  scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
                  subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
                  user_account_credentials: Optional[pulumi.Input['UserAccountCredentialsArgs']] = None,
+                 virtual_machine_image: Optional[pulumi.Input['VirtualMachineImageArgs']] = None,
                  vm_priority: Optional[pulumi.Input[str]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         AML Compute properties
+        :param pulumi.Input[bool] enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        :param pulumi.Input[bool] isolated_network: Network is isolated or not
+        :param pulumi.Input[str] os_type: Compute OS Type
         :param pulumi.Input[str] remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Scale settings for AML Compute
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param pulumi.Input['UserAccountCredentialsArgs'] user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
+        :param pulumi.Input['VirtualMachineImageArgs'] virtual_machine_image: Virtual Machine image for AML Compute - windows only
         :param pulumi.Input[str] vm_priority: Virtual Machine priority
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
+        if enable_node_public_ip is not None:
+            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if isolated_network is not None:
+            pulumi.set(__self__, "isolated_network", isolated_network)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
         if remote_login_port_public_access is not None:
             pulumi.set(__self__, "remote_login_port_public_access", remote_login_port_public_access)
         if scale_settings is not None:
@@ -400,10 +434,48 @@ class AmlComputePropertiesArgs:
             pulumi.set(__self__, "subnet", subnet)
         if user_account_credentials is not None:
             pulumi.set(__self__, "user_account_credentials", user_account_credentials)
+        if virtual_machine_image is not None:
+            pulumi.set(__self__, "virtual_machine_image", virtual_machine_image)
         if vm_priority is not None:
             pulumi.set(__self__, "vm_priority", vm_priority)
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="enableNodePublicIp")
+    def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        """
+        return pulumi.get(self, "enable_node_public_ip")
+
+    @enable_node_public_ip.setter
+    def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_node_public_ip", value)
+
+    @property
+    @pulumi.getter(name="isolatedNetwork")
+    def isolated_network(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Network is isolated or not
+        """
+        return pulumi.get(self, "isolated_network")
+
+    @isolated_network.setter
+    def isolated_network(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "isolated_network", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Compute OS Type
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_type", value)
 
     @property
     @pulumi.getter(name="remoteLoginPortPublicAccess")
@@ -454,6 +526,18 @@ class AmlComputePropertiesArgs:
         pulumi.set(self, "user_account_credentials", value)
 
     @property
+    @pulumi.getter(name="virtualMachineImage")
+    def virtual_machine_image(self) -> Optional[pulumi.Input['VirtualMachineImageArgs']]:
+        """
+        Virtual Machine image for AML Compute - windows only
+        """
+        return pulumi.get(self, "virtual_machine_image")
+
+    @virtual_machine_image.setter
+    def virtual_machine_image(self, value: Optional[pulumi.Input['VirtualMachineImageArgs']]):
+        pulumi.set(self, "virtual_machine_image", value)
+
+    @property
     @pulumi.getter(name="vmPriority")
     def vm_priority(self) -> Optional[pulumi.Input[str]]:
         """
@@ -476,6 +560,44 @@ class AmlComputePropertiesArgs:
     @vm_size.setter
     def vm_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vm_size", value)
+
+
+@pulumi.input_type
+class AssignedUserArgs:
+    def __init__(__self__, *,
+                 object_id: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str]):
+        """
+        A user that can be assigned to a compute instance.
+        :param pulumi.Input[str] object_id: User’s AAD Object Id.
+        :param pulumi.Input[str] tenant_id: User’s AAD Tenant Id.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[str]:
+        """
+        User’s AAD Object Id.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        """
+        User’s AAD Tenant Id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
@@ -569,18 +691,26 @@ class ComputeInstanceArgs:
 class ComputeInstancePropertiesArgs:
     def __init__(__self__, *,
                  application_sharing_policy: Optional[pulumi.Input[str]] = None,
+                 compute_instance_authorization_type: Optional[pulumi.Input[str]] = None,
+                 personal_compute_instance_settings: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']] = None,
                  ssh_settings: Optional[pulumi.Input['ComputeInstanceSshSettingsArgs']] = None,
                  subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         Compute Instance properties
         :param pulumi.Input[str] application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        :param pulumi.Input[str] compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param pulumi.Input['PersonalComputeInstanceSettingsArgs'] personal_compute_instance_settings: Settings for a personal compute instance.
         :param pulumi.Input['ComputeInstanceSshSettingsArgs'] ssh_settings: Specifies policy and settings for SSH access.
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
         if application_sharing_policy is not None:
             pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
+        if compute_instance_authorization_type is not None:
+            pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+        if personal_compute_instance_settings is not None:
+            pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
         if ssh_settings is not None:
             pulumi.set(__self__, "ssh_settings", ssh_settings)
         if subnet is not None:
@@ -599,6 +729,30 @@ class ComputeInstancePropertiesArgs:
     @application_sharing_policy.setter
     def application_sharing_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "application_sharing_policy", value)
+
+    @property
+    @pulumi.getter(name="computeInstanceAuthorizationType")
+    def compute_instance_authorization_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Compute Instance Authorization type. Available values are personal (default).
+        """
+        return pulumi.get(self, "compute_instance_authorization_type")
+
+    @compute_instance_authorization_type.setter
+    def compute_instance_authorization_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_instance_authorization_type", value)
+
+    @property
+    @pulumi.getter(name="personalComputeInstanceSettings")
+    def personal_compute_instance_settings(self) -> Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']]:
+        """
+        Settings for a personal compute instance.
+        """
+        return pulumi.get(self, "personal_compute_instance_settings")
+
+    @personal_compute_instance_settings.setter
+    def personal_compute_instance_settings(self, value: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']]):
+        pulumi.set(self, "personal_compute_instance_settings", value)
 
     @property
     @pulumi.getter(name="sshSettings")
@@ -675,6 +829,222 @@ class ComputeInstanceSshSettingsArgs:
     @ssh_public_access.setter
     def ssh_public_access(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssh_public_access", value)
+
+
+@pulumi.input_type
+class ContainerResourceRequirementsArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input[float]] = None,
+                 fpga: Optional[pulumi.Input[float]] = None,
+                 gpu: Optional[pulumi.Input[float]] = None,
+                 memory_in_gb: Optional[pulumi.Input[float]] = None):
+        """
+        The resource requirements for the container (cpu and memory).
+        :param pulumi.Input[float] cpu: The number of CPU cores on the container.
+        :param pulumi.Input[float] fpga: The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
+        :param pulumi.Input[float] gpu: The number of GPU cores in the container.
+        :param pulumi.Input[float] memory_in_gb: The amount of memory on the container in GB.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if fpga is not None:
+            pulumi.set(__self__, "fpga", fpga)
+        if gpu is not None:
+            pulumi.set(__self__, "gpu", gpu)
+        if memory_in_gb is not None:
+            pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of CPU cores on the container.
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def fpga(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
+        """
+        return pulumi.get(self, "fpga")
+
+    @fpga.setter
+    def fpga(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "fpga", value)
+
+    @property
+    @pulumi.getter
+    def gpu(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of GPU cores in the container.
+        """
+        return pulumi.get(self, "gpu")
+
+    @gpu.setter
+    def gpu(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "gpu", value)
+
+    @property
+    @pulumi.getter(name="memoryInGB")
+    def memory_in_gb(self) -> Optional[pulumi.Input[float]]:
+        """
+        The amount of memory on the container in GB.
+        """
+        return pulumi.get(self, "memory_in_gb")
+
+    @memory_in_gb.setter
+    def memory_in_gb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "memory_in_gb", value)
+
+
+@pulumi.input_type
+class CreateServiceRequestEnvironmentImageRequestArgs:
+    def __init__(__self__, *,
+                 assets: Optional[pulumi.Input[List[pulumi.Input['ImageAssetArgs']]]] = None,
+                 driver_program: Optional[pulumi.Input[str]] = None,
+                 environment: Optional[pulumi.Input['EnvironmentImageRequestEnvironmentArgs']] = None,
+                 environment_reference: Optional[pulumi.Input['EnvironmentImageRequestEnvironmentReferenceArgs']] = None,
+                 model_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 models: Optional[pulumi.Input[List[pulumi.Input['ModelArgs']]]] = None):
+        """
+        The Environment, models and assets needed for inferencing.
+        :param pulumi.Input[List[pulumi.Input['ImageAssetArgs']]] assets: The list of assets.
+        :param pulumi.Input[str] driver_program: The name of the driver file.
+        :param pulumi.Input['EnvironmentImageRequestEnvironmentArgs'] environment: The details of the AZURE ML environment.
+        :param pulumi.Input['EnvironmentImageRequestEnvironmentReferenceArgs'] environment_reference: The unique identifying details of the AZURE ML environment.
+        :param pulumi.Input[List[pulumi.Input[str]]] model_ids: The list of model Ids.
+        :param pulumi.Input[List[pulumi.Input['ModelArgs']]] models: The list of models.
+        """
+        if assets is not None:
+            pulumi.set(__self__, "assets", assets)
+        if driver_program is not None:
+            pulumi.set(__self__, "driver_program", driver_program)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if environment_reference is not None:
+            pulumi.set(__self__, "environment_reference", environment_reference)
+        if model_ids is not None:
+            pulumi.set(__self__, "model_ids", model_ids)
+        if models is not None:
+            pulumi.set(__self__, "models", models)
+
+    @property
+    @pulumi.getter
+    def assets(self) -> Optional[pulumi.Input[List[pulumi.Input['ImageAssetArgs']]]]:
+        """
+        The list of assets.
+        """
+        return pulumi.get(self, "assets")
+
+    @assets.setter
+    def assets(self, value: Optional[pulumi.Input[List[pulumi.Input['ImageAssetArgs']]]]):
+        pulumi.set(self, "assets", value)
+
+    @property
+    @pulumi.getter(name="driverProgram")
+    def driver_program(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the driver file.
+        """
+        return pulumi.get(self, "driver_program")
+
+    @driver_program.setter
+    def driver_program(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "driver_program", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input['EnvironmentImageRequestEnvironmentArgs']]:
+        """
+        The details of the AZURE ML environment.
+        """
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input['EnvironmentImageRequestEnvironmentArgs']]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="environmentReference")
+    def environment_reference(self) -> Optional[pulumi.Input['EnvironmentImageRequestEnvironmentReferenceArgs']]:
+        """
+        The unique identifying details of the AZURE ML environment.
+        """
+        return pulumi.get(self, "environment_reference")
+
+    @environment_reference.setter
+    def environment_reference(self, value: Optional[pulumi.Input['EnvironmentImageRequestEnvironmentReferenceArgs']]):
+        pulumi.set(self, "environment_reference", value)
+
+    @property
+    @pulumi.getter(name="modelIds")
+    def model_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The list of model Ids.
+        """
+        return pulumi.get(self, "model_ids")
+
+    @model_ids.setter
+    def model_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "model_ids", value)
+
+    @property
+    @pulumi.getter
+    def models(self) -> Optional[pulumi.Input[List[pulumi.Input['ModelArgs']]]]:
+        """
+        The list of models.
+        """
+        return pulumi.get(self, "models")
+
+    @models.setter
+    def models(self, value: Optional[pulumi.Input[List[pulumi.Input['ModelArgs']]]]):
+        pulumi.set(self, "models", value)
+
+
+@pulumi.input_type
+class CreateServiceRequestKeysArgs:
+    def __init__(__self__, *,
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None):
+        """
+        The authentication keys.
+        :param pulumi.Input[str] primary_key: The primary key.
+        :param pulumi.Input[str] secondary_key: The secondary key.
+        """
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary key.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary key.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
 
 
 @pulumi.input_type
@@ -961,6 +1331,46 @@ class DatabricksPropertiesArgs:
 
 
 @pulumi.input_type
+class DatasetReferenceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The dataset reference object.
+        :param pulumi.Input[str] id: The id of the dataset reference.
+        :param pulumi.Input[str] name: The name of the dataset reference.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the dataset reference.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the dataset reference.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class EncryptionPropertyArgs:
     def __init__(__self__, *,
                  key_vault_properties: pulumi.Input['KeyVaultPropertiesArgs'],
@@ -995,6 +1405,182 @@ class EncryptionPropertyArgs:
     @status.setter
     def status(self, value: pulumi.Input[str]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class EnvironmentImageRequestEnvironmentArgs:
+    def __init__(__self__, *,
+                 docker: Optional[pulumi.Input['ModelEnvironmentDefinitionDockerArgs']] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 inferencing_stack_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 python: Optional[pulumi.Input['ModelEnvironmentDefinitionPythonArgs']] = None,
+                 r: Optional[pulumi.Input['ModelEnvironmentDefinitionRArgs']] = None,
+                 spark: Optional[pulumi.Input['ModelEnvironmentDefinitionSparkArgs']] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        The details of the AZURE ML environment.
+        :param pulumi.Input['ModelEnvironmentDefinitionDockerArgs'] docker: The definition of a Docker container.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Definition of environment variables to be defined in the environment.
+        :param pulumi.Input[str] inferencing_stack_version: The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
+        :param pulumi.Input[str] name: The name of the environment.
+        :param pulumi.Input['ModelEnvironmentDefinitionPythonArgs'] python: Settings for a Python environment.
+        :param pulumi.Input['ModelEnvironmentDefinitionRArgs'] r: Settings for a R environment.
+        :param pulumi.Input['ModelEnvironmentDefinitionSparkArgs'] spark: The configuration for a Spark environment.
+        :param pulumi.Input[str] version: The environment version.
+        """
+        if docker is not None:
+            pulumi.set(__self__, "docker", docker)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if inferencing_stack_version is not None:
+            pulumi.set(__self__, "inferencing_stack_version", inferencing_stack_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if python is not None:
+            pulumi.set(__self__, "python", python)
+        if r is not None:
+            pulumi.set(__self__, "r", r)
+        if spark is not None:
+            pulumi.set(__self__, "spark", spark)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def docker(self) -> Optional[pulumi.Input['ModelEnvironmentDefinitionDockerArgs']]:
+        """
+        The definition of a Docker container.
+        """
+        return pulumi.get(self, "docker")
+
+    @docker.setter
+    def docker(self, value: Optional[pulumi.Input['ModelEnvironmentDefinitionDockerArgs']]):
+        pulumi.set(self, "docker", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Definition of environment variables to be defined in the environment.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="inferencingStackVersion")
+    def inferencing_stack_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
+        """
+        return pulumi.get(self, "inferencing_stack_version")
+
+    @inferencing_stack_version.setter
+    def inferencing_stack_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inferencing_stack_version", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the environment.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def python(self) -> Optional[pulumi.Input['ModelEnvironmentDefinitionPythonArgs']]:
+        """
+        Settings for a Python environment.
+        """
+        return pulumi.get(self, "python")
+
+    @python.setter
+    def python(self, value: Optional[pulumi.Input['ModelEnvironmentDefinitionPythonArgs']]):
+        pulumi.set(self, "python", value)
+
+    @property
+    @pulumi.getter
+    def r(self) -> Optional[pulumi.Input['ModelEnvironmentDefinitionRArgs']]:
+        """
+        Settings for a R environment.
+        """
+        return pulumi.get(self, "r")
+
+    @r.setter
+    def r(self, value: Optional[pulumi.Input['ModelEnvironmentDefinitionRArgs']]):
+        pulumi.set(self, "r", value)
+
+    @property
+    @pulumi.getter
+    def spark(self) -> Optional[pulumi.Input['ModelEnvironmentDefinitionSparkArgs']]:
+        """
+        The configuration for a Spark environment.
+        """
+        return pulumi.get(self, "spark")
+
+    @spark.setter
+    def spark(self, value: Optional[pulumi.Input['ModelEnvironmentDefinitionSparkArgs']]):
+        pulumi.set(self, "spark", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The environment version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class EnvironmentImageRequestEnvironmentReferenceArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        The unique identifying details of the AZURE ML environment.
+        :param pulumi.Input[str] name: Name of the environment.
+        :param pulumi.Input[str] version: Version of the environment.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the environment.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the environment.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -1138,24 +1724,97 @@ class HDInsightPropertiesArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: Optional[pulumi.Input[str]] = None):
         """
         Identity for the resource.
         :param pulumi.Input[str] type: The identity type.
         """
-        pulumi.set(__self__, "type", type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> Optional[pulumi.Input[str]]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ImageAssetArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 mime_type: Optional[pulumi.Input[str]] = None,
+                 unpack: Optional[pulumi.Input[bool]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        An Image asset.
+        :param pulumi.Input[str] id: The Asset Id.
+        :param pulumi.Input[str] mime_type: The mime type.
+        :param pulumi.Input[bool] unpack: Whether the Asset is unpacked.
+        :param pulumi.Input[str] url: The Url of the Asset.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if mime_type is not None:
+            pulumi.set(__self__, "mime_type", mime_type)
+        if unpack is not None:
+            pulumi.set(__self__, "unpack", unpack)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Asset Id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="mimeType")
+    def mime_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mime type.
+        """
+        return pulumi.get(self, "mime_type")
+
+    @mime_type.setter
+    def mime_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mime_type", value)
+
+    @property
+    @pulumi.getter
+    def unpack(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the Asset is unpacked.
+        """
+        return pulumi.get(self, "unpack")
+
+    @unpack.setter
+    def unpack(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "unpack", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Url of the Asset.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type
@@ -1212,6 +1871,77 @@ class KeyVaultPropertiesArgs:
 
 
 @pulumi.input_type
+class LinkedServicePropsArgs:
+    def __init__(__self__, *,
+                 linked_service_resource_id: pulumi.Input[str],
+                 created_time: Optional[pulumi.Input[str]] = None,
+                 link_type: Optional[pulumi.Input[str]] = None,
+                 modified_time: Optional[pulumi.Input[str]] = None):
+        """
+        LinkedService specific properties.
+        :param pulumi.Input[str] linked_service_resource_id: ResourceId of the link target of the linked service.
+        :param pulumi.Input[str] created_time: The creation time of the linked service.
+        :param pulumi.Input[str] link_type: Type of the link target.
+        :param pulumi.Input[str] modified_time: The last modified time of the linked service.
+        """
+        pulumi.set(__self__, "linked_service_resource_id", linked_service_resource_id)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if link_type is not None:
+            pulumi.set(__self__, "link_type", link_type)
+        if modified_time is not None:
+            pulumi.set(__self__, "modified_time", modified_time)
+
+    @property
+    @pulumi.getter(name="linkedServiceResourceId")
+    def linked_service_resource_id(self) -> pulumi.Input[str]:
+        """
+        ResourceId of the link target of the linked service.
+        """
+        return pulumi.get(self, "linked_service_resource_id")
+
+    @linked_service_resource_id.setter
+    def linked_service_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "linked_service_resource_id", value)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation time of the linked service.
+        """
+        return pulumi.get(self, "created_time")
+
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_time", value)
+
+    @property
+    @pulumi.getter(name="linkType")
+    def link_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the link target.
+        """
+        return pulumi.get(self, "link_type")
+
+    @link_type.setter
+    def link_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link_type", value)
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last modified time of the linked service.
+        """
+        return pulumi.get(self, "modified_time")
+
+    @modified_time.setter
+    def modified_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "modified_time", value)
+
+
+@pulumi.input_type
 class LinkedWorkspacePropsArgs:
     def __init__(__self__, *,
                  linked_workspace_resource_id: Optional[pulumi.Input[str]] = None,
@@ -1249,6 +1979,733 @@ class LinkedWorkspacePropsArgs:
     @user_assigned_identity_resource_id.setter
     def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity_resource_id", value)
+
+
+@pulumi.input_type
+class ModelArgs:
+    def __init__(__self__, *,
+                 mime_type: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 created_time: Optional[pulumi.Input[str]] = None,
+                 datasets: Optional[pulumi.Input[List[pulumi.Input['DatasetReferenceArgs']]]] = None,
+                 derived_model_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 experiment_name: Optional[pulumi.Input[str]] = None,
+                 framework: Optional[pulumi.Input[str]] = None,
+                 framework_version: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 modified_time: Optional[pulumi.Input[str]] = None,
+                 parent_model_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_requirements: Optional[pulumi.Input['ContainerResourceRequirementsArgs']] = None,
+                 run_id: Optional[pulumi.Input[str]] = None,
+                 sample_input_data: Optional[pulumi.Input[str]] = None,
+                 sample_output_data: Optional[pulumi.Input[str]] = None,
+                 unpack: Optional[pulumi.Input[bool]] = None,
+                 version: Optional[pulumi.Input[float]] = None):
+        """
+        An Azure Machine Learning Model.
+        :param pulumi.Input[str] mime_type: The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
+        :param pulumi.Input[str] name: The Model name.
+        :param pulumi.Input[str] url: The URL of the Model. Usually a SAS URL.
+        :param pulumi.Input[str] created_time: The Model creation time (UTC).
+        :param pulumi.Input[List[pulumi.Input['DatasetReferenceArgs']]] datasets: The list of datasets associated with the model.
+        :param pulumi.Input[List[pulumi.Input[str]]] derived_model_ids: Models derived from this model
+        :param pulumi.Input[str] description: The Model description text.
+        :param pulumi.Input[str] experiment_name: The name of the experiment where this model was created.
+        :param pulumi.Input[str] framework: The Model framework.
+        :param pulumi.Input[str] framework_version: The Model framework version.
+        :param pulumi.Input[str] id: The Model Id.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] kv_tags: The Model tag dictionary. Items are mutable.
+        :param pulumi.Input[str] modified_time: The Model last modified time (UTC).
+        :param pulumi.Input[str] parent_model_id: The Parent Model Id.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The Model property dictionary. Properties are immutable.
+        :param pulumi.Input['ContainerResourceRequirementsArgs'] resource_requirements: Resource requirements for the model
+        :param pulumi.Input[str] run_id: The RunId that created this model.
+        :param pulumi.Input[str] sample_input_data: Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        :param pulumi.Input[str] sample_output_data: Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        :param pulumi.Input[bool] unpack: Indicates whether we need to unpack the Model during docker Image creation.
+        :param pulumi.Input[float] version: The Model version assigned by Model Management Service.
+        """
+        pulumi.set(__self__, "mime_type", mime_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
+        if derived_model_ids is not None:
+            pulumi.set(__self__, "derived_model_ids", derived_model_ids)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if framework is not None:
+            pulumi.set(__self__, "framework", framework)
+        if framework_version is not None:
+            pulumi.set(__self__, "framework_version", framework_version)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kv_tags is not None:
+            pulumi.set(__self__, "kv_tags", kv_tags)
+        if modified_time is not None:
+            pulumi.set(__self__, "modified_time", modified_time)
+        if parent_model_id is not None:
+            pulumi.set(__self__, "parent_model_id", parent_model_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_requirements is not None:
+            pulumi.set(__self__, "resource_requirements", resource_requirements)
+        if run_id is not None:
+            pulumi.set(__self__, "run_id", run_id)
+        if sample_input_data is not None:
+            pulumi.set(__self__, "sample_input_data", sample_input_data)
+        if sample_output_data is not None:
+            pulumi.set(__self__, "sample_output_data", sample_output_data)
+        if unpack is not None:
+            pulumi.set(__self__, "unpack", unpack)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="mimeType")
+    def mime_type(self) -> pulumi.Input[str]:
+        """
+        The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
+        """
+        return pulumi.get(self, "mime_type")
+
+    @mime_type.setter
+    def mime_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mime_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The Model name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The URL of the Model. Usually a SAS URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model creation time (UTC).
+        """
+        return pulumi.get(self, "created_time")
+
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_time", value)
+
+    @property
+    @pulumi.getter
+    def datasets(self) -> Optional[pulumi.Input[List[pulumi.Input['DatasetReferenceArgs']]]]:
+        """
+        The list of datasets associated with the model.
+        """
+        return pulumi.get(self, "datasets")
+
+    @datasets.setter
+    def datasets(self, value: Optional[pulumi.Input[List[pulumi.Input['DatasetReferenceArgs']]]]):
+        pulumi.set(self, "datasets", value)
+
+    @property
+    @pulumi.getter(name="derivedModelIds")
+    def derived_model_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        Models derived from this model
+        """
+        return pulumi.get(self, "derived_model_ids")
+
+    @derived_model_ids.setter
+    def derived_model_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "derived_model_ids", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the experiment where this model was created.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @experiment_name.setter
+    def experiment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "experiment_name", value)
+
+    @property
+    @pulumi.getter
+    def framework(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model framework.
+        """
+        return pulumi.get(self, "framework")
+
+    @framework.setter
+    def framework(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "framework", value)
+
+    @property
+    @pulumi.getter(name="frameworkVersion")
+    def framework_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model framework version.
+        """
+        return pulumi.get(self, "framework_version")
+
+    @framework_version.setter
+    def framework_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "framework_version", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model Id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="kvTags")
+    def kv_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The Model tag dictionary. Items are mutable.
+        """
+        return pulumi.get(self, "kv_tags")
+
+    @kv_tags.setter
+    def kv_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "kv_tags", value)
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model last modified time (UTC).
+        """
+        return pulumi.get(self, "modified_time")
+
+    @modified_time.setter
+    def modified_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "modified_time", value)
+
+    @property
+    @pulumi.getter(name="parentModelId")
+    def parent_model_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Parent Model Id.
+        """
+        return pulumi.get(self, "parent_model_id")
+
+    @parent_model_id.setter
+    def parent_model_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_model_id", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The Model property dictionary. Properties are immutable.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceRequirements")
+    def resource_requirements(self) -> Optional[pulumi.Input['ContainerResourceRequirementsArgs']]:
+        """
+        Resource requirements for the model
+        """
+        return pulumi.get(self, "resource_requirements")
+
+    @resource_requirements.setter
+    def resource_requirements(self, value: Optional[pulumi.Input['ContainerResourceRequirementsArgs']]):
+        pulumi.set(self, "resource_requirements", value)
+
+    @property
+    @pulumi.getter(name="runId")
+    def run_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RunId that created this model.
+        """
+        return pulumi.get(self, "run_id")
+
+    @run_id.setter
+    def run_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_id", value)
+
+    @property
+    @pulumi.getter(name="sampleInputData")
+    def sample_input_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        """
+        return pulumi.get(self, "sample_input_data")
+
+    @sample_input_data.setter
+    def sample_input_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sample_input_data", value)
+
+    @property
+    @pulumi.getter(name="sampleOutputData")
+    def sample_output_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        """
+        return pulumi.get(self, "sample_output_data")
+
+    @sample_output_data.setter
+    def sample_output_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sample_output_data", value)
+
+    @property
+    @pulumi.getter
+    def unpack(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether we need to unpack the Model during docker Image creation.
+        """
+        return pulumi.get(self, "unpack")
+
+    @unpack.setter
+    def unpack(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "unpack", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[float]]:
+        """
+        The Model version assigned by Model Management Service.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class ModelDockerSectionBaseImageRegistryArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Image registry that contains the base image.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class ModelEnvironmentDefinitionDockerArgs:
+    def __init__(__self__, *,
+                 base_dockerfile: Optional[pulumi.Input[str]] = None,
+                 base_image: Optional[pulumi.Input[str]] = None,
+                 base_image_registry: Optional[pulumi.Input['ModelDockerSectionBaseImageRegistryArgs']] = None):
+        """
+        The definition of a Docker container.
+        :param pulumi.Input[str] base_dockerfile: Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
+        :param pulumi.Input[str] base_image: Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
+        :param pulumi.Input['ModelDockerSectionBaseImageRegistryArgs'] base_image_registry: Image registry that contains the base image.
+        """
+        if base_dockerfile is not None:
+            pulumi.set(__self__, "base_dockerfile", base_dockerfile)
+        if base_image is not None:
+            pulumi.set(__self__, "base_image", base_image)
+        if base_image_registry is not None:
+            pulumi.set(__self__, "base_image_registry", base_image_registry)
+
+    @property
+    @pulumi.getter(name="baseDockerfile")
+    def base_dockerfile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
+        """
+        return pulumi.get(self, "base_dockerfile")
+
+    @base_dockerfile.setter
+    def base_dockerfile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_dockerfile", value)
+
+    @property
+    @pulumi.getter(name="baseImage")
+    def base_image(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
+        """
+        return pulumi.get(self, "base_image")
+
+    @base_image.setter
+    def base_image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_image", value)
+
+    @property
+    @pulumi.getter(name="baseImageRegistry")
+    def base_image_registry(self) -> Optional[pulumi.Input['ModelDockerSectionBaseImageRegistryArgs']]:
+        """
+        Image registry that contains the base image.
+        """
+        return pulumi.get(self, "base_image_registry")
+
+    @base_image_registry.setter
+    def base_image_registry(self, value: Optional[pulumi.Input['ModelDockerSectionBaseImageRegistryArgs']]):
+        pulumi.set(self, "base_image_registry", value)
+
+
+@pulumi.input_type
+class ModelEnvironmentDefinitionPythonArgs:
+    def __init__(__self__, *,
+                 base_conda_environment: Optional[pulumi.Input[str]] = None,
+                 conda_dependencies: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 interpreter_path: Optional[pulumi.Input[str]] = None,
+                 user_managed_dependencies: Optional[pulumi.Input[bool]] = None):
+        """
+        Settings for a Python environment.
+        :param pulumi.Input[Mapping[str, Any]] conda_dependencies: A JObject containing Conda dependencies.
+        :param pulumi.Input[str] interpreter_path: The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
+        :param pulumi.Input[bool] user_managed_dependencies: True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
+        """
+        if base_conda_environment is not None:
+            pulumi.set(__self__, "base_conda_environment", base_conda_environment)
+        if conda_dependencies is not None:
+            pulumi.set(__self__, "conda_dependencies", conda_dependencies)
+        if interpreter_path is not None:
+            pulumi.set(__self__, "interpreter_path", interpreter_path)
+        if user_managed_dependencies is not None:
+            pulumi.set(__self__, "user_managed_dependencies", user_managed_dependencies)
+
+    @property
+    @pulumi.getter(name="baseCondaEnvironment")
+    def base_conda_environment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "base_conda_environment")
+
+    @base_conda_environment.setter
+    def base_conda_environment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_conda_environment", value)
+
+    @property
+    @pulumi.getter(name="condaDependencies")
+    def conda_dependencies(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        A JObject containing Conda dependencies.
+        """
+        return pulumi.get(self, "conda_dependencies")
+
+    @conda_dependencies.setter
+    def conda_dependencies(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "conda_dependencies", value)
+
+    @property
+    @pulumi.getter(name="interpreterPath")
+    def interpreter_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The python interpreter path to use if an environment build is not required. The path specified gets used to call the user script.
+        """
+        return pulumi.get(self, "interpreter_path")
+
+    @interpreter_path.setter
+    def interpreter_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interpreter_path", value)
+
+    @property
+    @pulumi.getter(name="userManagedDependencies")
+    def user_managed_dependencies(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True means that AzureML reuses an existing python environment; False means that AzureML will create a python environment based on the Conda dependencies specification.
+        """
+        return pulumi.get(self, "user_managed_dependencies")
+
+    @user_managed_dependencies.setter
+    def user_managed_dependencies(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "user_managed_dependencies", value)
+
+
+@pulumi.input_type
+class ModelEnvironmentDefinitionRArgs:
+    def __init__(__self__, *,
+                 bio_conductor_packages: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 cran_packages: Optional[pulumi.Input[List[pulumi.Input['RCranPackageArgs']]]] = None,
+                 custom_url_packages: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 git_hub_packages: Optional[pulumi.Input[List[pulumi.Input['RGitHubPackageArgs']]]] = None,
+                 r_version: Optional[pulumi.Input[str]] = None,
+                 rscript_path: Optional[pulumi.Input[str]] = None,
+                 snapshot_date: Optional[pulumi.Input[str]] = None,
+                 user_managed: Optional[pulumi.Input[bool]] = None):
+        """
+        Settings for a R environment.
+        :param pulumi.Input[List[pulumi.Input[str]]] bio_conductor_packages: The packages from Bioconductor.
+        :param pulumi.Input[List[pulumi.Input['RCranPackageArgs']]] cran_packages: The CRAN packages to use.
+        :param pulumi.Input[List[pulumi.Input[str]]] custom_url_packages: The packages from custom urls.
+        :param pulumi.Input[List[pulumi.Input['RGitHubPackageArgs']]] git_hub_packages: The packages directly from GitHub.
+        :param pulumi.Input[str] r_version: The version of R to be installed
+        :param pulumi.Input[str] rscript_path: The Rscript path to use if an environment build is not required.
+               The path specified gets used to call the user script.
+        :param pulumi.Input[str] snapshot_date: Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
+        :param pulumi.Input[bool] user_managed: Indicates whether the environment is managed by user or by AzureML.
+        """
+        if bio_conductor_packages is not None:
+            pulumi.set(__self__, "bio_conductor_packages", bio_conductor_packages)
+        if cran_packages is not None:
+            pulumi.set(__self__, "cran_packages", cran_packages)
+        if custom_url_packages is not None:
+            pulumi.set(__self__, "custom_url_packages", custom_url_packages)
+        if git_hub_packages is not None:
+            pulumi.set(__self__, "git_hub_packages", git_hub_packages)
+        if r_version is not None:
+            pulumi.set(__self__, "r_version", r_version)
+        if rscript_path is not None:
+            pulumi.set(__self__, "rscript_path", rscript_path)
+        if snapshot_date is not None:
+            pulumi.set(__self__, "snapshot_date", snapshot_date)
+        if user_managed is not None:
+            pulumi.set(__self__, "user_managed", user_managed)
+
+    @property
+    @pulumi.getter(name="bioConductorPackages")
+    def bio_conductor_packages(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The packages from Bioconductor.
+        """
+        return pulumi.get(self, "bio_conductor_packages")
+
+    @bio_conductor_packages.setter
+    def bio_conductor_packages(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "bio_conductor_packages", value)
+
+    @property
+    @pulumi.getter(name="cranPackages")
+    def cran_packages(self) -> Optional[pulumi.Input[List[pulumi.Input['RCranPackageArgs']]]]:
+        """
+        The CRAN packages to use.
+        """
+        return pulumi.get(self, "cran_packages")
+
+    @cran_packages.setter
+    def cran_packages(self, value: Optional[pulumi.Input[List[pulumi.Input['RCranPackageArgs']]]]):
+        pulumi.set(self, "cran_packages", value)
+
+    @property
+    @pulumi.getter(name="customUrlPackages")
+    def custom_url_packages(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The packages from custom urls.
+        """
+        return pulumi.get(self, "custom_url_packages")
+
+    @custom_url_packages.setter
+    def custom_url_packages(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_url_packages", value)
+
+    @property
+    @pulumi.getter(name="gitHubPackages")
+    def git_hub_packages(self) -> Optional[pulumi.Input[List[pulumi.Input['RGitHubPackageArgs']]]]:
+        """
+        The packages directly from GitHub.
+        """
+        return pulumi.get(self, "git_hub_packages")
+
+    @git_hub_packages.setter
+    def git_hub_packages(self, value: Optional[pulumi.Input[List[pulumi.Input['RGitHubPackageArgs']]]]):
+        pulumi.set(self, "git_hub_packages", value)
+
+    @property
+    @pulumi.getter(name="rVersion")
+    def r_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of R to be installed
+        """
+        return pulumi.get(self, "r_version")
+
+    @r_version.setter
+    def r_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "r_version", value)
+
+    @property
+    @pulumi.getter(name="rscriptPath")
+    def rscript_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Rscript path to use if an environment build is not required.
+        The path specified gets used to call the user script.
+        """
+        return pulumi.get(self, "rscript_path")
+
+    @rscript_path.setter
+    def rscript_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rscript_path", value)
+
+    @property
+    @pulumi.getter(name="snapshotDate")
+    def snapshot_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date of MRAN snapshot to use in YYYY-MM-DD format, e.g. "2019-04-17"
+        """
+        return pulumi.get(self, "snapshot_date")
+
+    @snapshot_date.setter
+    def snapshot_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_date", value)
+
+    @property
+    @pulumi.getter(name="userManaged")
+    def user_managed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the environment is managed by user or by AzureML.
+        """
+        return pulumi.get(self, "user_managed")
+
+    @user_managed.setter
+    def user_managed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "user_managed", value)
+
+
+@pulumi.input_type
+class ModelEnvironmentDefinitionSparkArgs:
+    def __init__(__self__, *,
+                 packages: Optional[pulumi.Input[List[pulumi.Input['SparkMavenPackageArgs']]]] = None,
+                 precache_packages: Optional[pulumi.Input[bool]] = None,
+                 repositories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        The configuration for a Spark environment.
+        :param pulumi.Input[List[pulumi.Input['SparkMavenPackageArgs']]] packages: The Spark packages to use.
+        :param pulumi.Input[bool] precache_packages: Whether to precache the packages.
+        :param pulumi.Input[List[pulumi.Input[str]]] repositories: The list of spark repositories.
+        """
+        if packages is not None:
+            pulumi.set(__self__, "packages", packages)
+        if precache_packages is not None:
+            pulumi.set(__self__, "precache_packages", precache_packages)
+        if repositories is not None:
+            pulumi.set(__self__, "repositories", repositories)
+
+    @property
+    @pulumi.getter
+    def packages(self) -> Optional[pulumi.Input[List[pulumi.Input['SparkMavenPackageArgs']]]]:
+        """
+        The Spark packages to use.
+        """
+        return pulumi.get(self, "packages")
+
+    @packages.setter
+    def packages(self, value: Optional[pulumi.Input[List[pulumi.Input['SparkMavenPackageArgs']]]]):
+        pulumi.set(self, "packages", value)
+
+    @property
+    @pulumi.getter(name="precachePackages")
+    def precache_packages(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to precache the packages.
+        """
+        return pulumi.get(self, "precache_packages")
+
+    @precache_packages.setter
+    def precache_packages(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "precache_packages", value)
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The list of spark repositories.
+        """
+        return pulumi.get(self, "repositories")
+
+    @repositories.setter
+    def repositories(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "repositories", value)
+
+
+@pulumi.input_type
+class PersonalComputeInstanceSettingsArgs:
+    def __init__(__self__, *,
+                 assigned_user: Optional[pulumi.Input['AssignedUserArgs']] = None):
+        """
+        Settings for a personal compute instance.
+        :param pulumi.Input['AssignedUserArgs'] assigned_user: A user explicitly assigned to a personal compute instance.
+        """
+        if assigned_user is not None:
+            pulumi.set(__self__, "assigned_user", assigned_user)
+
+    @property
+    @pulumi.getter(name="assignedUser")
+    def assigned_user(self) -> Optional[pulumi.Input['AssignedUserArgs']]:
+        """
+        A user explicitly assigned to a personal compute instance.
+        """
+        return pulumi.get(self, "assigned_user")
+
+    @assigned_user.setter
+    def assigned_user(self, value: Optional[pulumi.Input['AssignedUserArgs']]):
+        pulumi.set(self, "assigned_user", value)
 
 
 @pulumi.input_type
@@ -1308,6 +2765,84 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class RCranPackageArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The package name.
+        :param pulumi.Input[str] repository: The repository name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The package name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository name.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+
+@pulumi.input_type
+class RGitHubPackageArgs:
+    def __init__(__self__, *,
+                 auth_token: Optional[pulumi.Input[str]] = None,
+                 repository: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] auth_token: Personal access token to install from a private repo
+        :param pulumi.Input[str] repository: Repository address in the format username/repo[/subdir][@ref|#pull].
+        """
+        if auth_token is not None:
+            pulumi.set(__self__, "auth_token", auth_token)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter(name="authToken")
+    def auth_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Personal access token to install from a private repo
+        """
+        return pulumi.get(self, "auth_token")
+
+    @auth_token.setter
+    def auth_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_token", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository address in the format username/repo[/subdir][@ref|#pull].
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+
+@pulumi.input_type
 class ResourceIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -1340,7 +2875,7 @@ class ScaleSettingsArgs:
         scale settings for AML Compute
         :param pulumi.Input[float] max_node_count: Max number of nodes to use
         :param pulumi.Input[float] min_node_count: Min number of nodes to use
-        :param pulumi.Input[str] node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute
+        :param pulumi.Input[str] node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
         if min_node_count is not None:
@@ -1376,7 +2911,7 @@ class ScaleSettingsArgs:
     @pulumi.getter(name="nodeIdleTimeBeforeScaleDown")
     def node_idle_time_before_scale_down(self) -> Optional[pulumi.Input[str]]:
         """
-        Node Idle Time before scaling down amlCompute
+        Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
         return pulumi.get(self, "node_idle_time_before_scale_down")
 
@@ -1510,6 +3045,47 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SparkMavenPackageArgs:
+    def __init__(__self__, *,
+                 artifact: Optional[pulumi.Input[str]] = None,
+                 group: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        if artifact is not None:
+            pulumi.set(__self__, "artifact", artifact)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def artifact(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "artifact")
+
+    @artifact.setter
+    def artifact(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact", value)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -1720,6 +3296,29 @@ class VirtualMachineArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class VirtualMachineImageArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Virtual Machine image for Windows AML Compute
+        :param pulumi.Input[str] id: Virtual Machine image path
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Virtual Machine image path
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

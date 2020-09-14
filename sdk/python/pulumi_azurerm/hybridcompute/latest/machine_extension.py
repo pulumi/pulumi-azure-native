@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._inputs import *
 
 __all__ = ['MachineExtension']
 
@@ -19,6 +20,7 @@ class MachineExtension(pulumi.CustomResource):
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  extension_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
+                 instance_view: Optional[pulumi.Input[pulumi.InputType['MachineExtensionPropertiesInstanceViewArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -39,6 +41,7 @@ class MachineExtension(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[str] extension_name: The name of the machine extension.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
+        :param pulumi.Input[pulumi.InputType['MachineExtensionPropertiesInstanceViewArgs']] instance_view: The machine extension instance view.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The name of the machine where the extension should be created or updated.
         :param pulumi.Input[Mapping[str, Any]] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
@@ -71,6 +74,7 @@ class MachineExtension(pulumi.CustomResource):
                 raise TypeError("Missing required property 'extension_name'")
             __props__['extension_name'] = extension_name
             __props__['force_update_tag'] = force_update_tag
+            __props__['instance_view'] = instance_view
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -86,7 +90,6 @@ class MachineExtension(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['type_handler_version'] = type_handler_version
-            __props__['instance_view'] = None
             __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybridcompute/v20190802preview:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20191212:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20200730preview:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20200802:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20200815preview:MachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

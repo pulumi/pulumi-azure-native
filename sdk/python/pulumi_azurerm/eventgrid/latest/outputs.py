@@ -13,8 +13,14 @@ __all__ = [
     'AzureFunctionEventSubscriptionDestinationResponse',
     'BoolEqualsAdvancedFilterResponse',
     'ConnectionStateResponse',
+    'DeadLetterWithResourceIdentityResponse',
+    'DeliveryWithResourceIdentityResponse',
+    'EventChannelDestinationResponse',
+    'EventChannelFilterResponse',
+    'EventChannelSourceResponse',
     'EventHubEventSubscriptionDestinationResponse',
     'EventSubscriptionFilterResponse',
+    'EventSubscriptionIdentityResponse',
     'HybridConnectionEventSubscriptionDestinationResponse',
     'InboundIpRuleResponse',
     'JsonFieldResponse',
@@ -202,6 +208,194 @@ class ConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class DeadLetterWithResourceIdentityResponse(dict):
+    """
+    Information about the deadletter destination with resource identity.
+    """
+    def __init__(__self__, *,
+                 dead_letter_destination: Optional['outputs.StorageBlobDeadLetterDestinationResponse'] = None,
+                 identity: Optional['outputs.EventSubscriptionIdentityResponse'] = None):
+        """
+        Information about the deadletter destination with resource identity.
+        :param 'StorageBlobDeadLetterDestinationResponseArgs' dead_letter_destination: Information about the destination where events have to be delivered for the event subscription.
+               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param 'EventSubscriptionIdentityResponseArgs' identity: The identity to use when dead-lettering events.
+        """
+        if dead_letter_destination is not None:
+            pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter(name="deadLetterDestination")
+    def dead_letter_destination(self) -> Optional['outputs.StorageBlobDeadLetterDestinationResponse']:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "dead_letter_destination")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.EventSubscriptionIdentityResponse']:
+        """
+        The identity to use when dead-lettering events.
+        """
+        return pulumi.get(self, "identity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryWithResourceIdentityResponse(dict):
+    """
+    Information about the delivery for an event subscription with resource identity.
+    """
+    def __init__(__self__, *,
+                 destination: Optional[Any] = None,
+                 identity: Optional['outputs.EventSubscriptionIdentityResponse'] = None):
+        """
+        Information about the delivery for an event subscription with resource identity.
+        :param Union['AzureFunctionEventSubscriptionDestinationResponseArgs', 'EventHubEventSubscriptionDestinationResponseArgs', 'HybridConnectionEventSubscriptionDestinationResponseArgs', 'ServiceBusQueueEventSubscriptionDestinationResponseArgs', 'ServiceBusTopicEventSubscriptionDestinationResponseArgs', 'StorageQueueEventSubscriptionDestinationResponseArgs', 'WebHookEventSubscriptionDestinationResponseArgs'] destination: Information about the destination where events have to be delivered for the event subscription.
+               Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param 'EventSubscriptionIdentityResponseArgs' identity: The identity to use when delivering events.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[Any]:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.EventSubscriptionIdentityResponse']:
+        """
+        The identity to use when delivering events.
+        """
+        return pulumi.get(self, "identity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EventChannelDestinationResponse(dict):
+    """
+    Properties of the destination of an event channel.
+    """
+    def __init__(__self__, *,
+                 azure_subscription_id: Optional[str] = None,
+                 partner_topic_name: Optional[str] = None,
+                 resource_group: Optional[str] = None):
+        """
+        Properties of the destination of an event channel.
+        :param str azure_subscription_id: Azure subscription ID of the customer creating the event channel. The partner topic
+               associated with the event channel will be created under this Azure subscription.
+        :param str partner_topic_name: Name of the partner topic associated with the event channel.
+        :param str resource_group: Azure Resource Group of the customer creating the event channel. The partner topic
+               associated with the event channel will be created under this resource group.
+        """
+        if azure_subscription_id is not None:
+            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
+        if partner_topic_name is not None:
+            pulumi.set(__self__, "partner_topic_name", partner_topic_name)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+
+    @property
+    @pulumi.getter(name="azureSubscriptionId")
+    def azure_subscription_id(self) -> Optional[str]:
+        """
+        Azure subscription ID of the customer creating the event channel. The partner topic
+        associated with the event channel will be created under this Azure subscription.
+        """
+        return pulumi.get(self, "azure_subscription_id")
+
+    @property
+    @pulumi.getter(name="partnerTopicName")
+    def partner_topic_name(self) -> Optional[str]:
+        """
+        Name of the partner topic associated with the event channel.
+        """
+        return pulumi.get(self, "partner_topic_name")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Azure Resource Group of the customer creating the event channel. The partner topic
+        associated with the event channel will be created under this resource group.
+        """
+        return pulumi.get(self, "resource_group")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EventChannelFilterResponse(dict):
+    """
+    Filter for the Event Channel.
+    """
+    def __init__(__self__, *,
+                 advanced_filters: Optional[List[Any]] = None):
+        """
+        Filter for the Event Channel.
+        :param List[Union['BoolEqualsAdvancedFilterResponseArgs', 'NumberGreaterThanAdvancedFilterResponseArgs', 'NumberGreaterThanOrEqualsAdvancedFilterResponseArgs', 'NumberInAdvancedFilterResponseArgs', 'NumberLessThanAdvancedFilterResponseArgs', 'NumberLessThanOrEqualsAdvancedFilterResponseArgs', 'NumberNotInAdvancedFilterResponseArgs', 'StringBeginsWithAdvancedFilterResponseArgs', 'StringContainsAdvancedFilterResponseArgs', 'StringEndsWithAdvancedFilterResponseArgs', 'StringInAdvancedFilterResponseArgs', 'StringNotInAdvancedFilterResponseArgs']] advanced_filters: An array of advanced filters that are used for filtering event channels.
+        """
+        if advanced_filters is not None:
+            pulumi.set(__self__, "advanced_filters", advanced_filters)
+
+    @property
+    @pulumi.getter(name="advancedFilters")
+    def advanced_filters(self) -> Optional[List[Any]]:
+        """
+        An array of advanced filters that are used for filtering event channels.
+        """
+        return pulumi.get(self, "advanced_filters")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EventChannelSourceResponse(dict):
+    """
+    Properties of the source of an event channel.
+    """
+    def __init__(__self__, *,
+                 source: Optional[str] = None):
+        """
+        Properties of the source of an event channel.
+        :param str source: The identifier of the resource that's the source of the events.
+               This represents a unique resource in the partner's resource model.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        The identifier of the resource that's the source of the events.
+        This represents a unique resource in the partner's resource model.
+        """
+        return pulumi.get(self, "source")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class EventHubEventSubscriptionDestinationResponse(dict):
     """
     Information about the event hub destination for an event subscription.
@@ -315,6 +509,44 @@ class EventSubscriptionFilterResponse(dict):
         Wildcard characters are not supported in this path.
         """
         return pulumi.get(self, "subject_ends_with")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EventSubscriptionIdentityResponse(dict):
+    """
+    The identity information with the event subscription.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        The identity information with the event subscription.
+        :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        :param str user_assigned_identity: The user identity associated with the resource.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The user identity associated with the resource.
+        """
+        return pulumi.get(self, "user_assigned_identity")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

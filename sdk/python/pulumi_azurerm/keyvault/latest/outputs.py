@@ -12,6 +12,8 @@ from . import outputs
 __all__ = [
     'AccessPolicyEntryResponse',
     'IPRuleResponse',
+    'ManagedHsmPropertiesResponse',
+    'ManagedHsmSkuResponse',
     'NetworkRuleSetResponse',
     'PermissionsResponse',
     'PrivateEndpointConnectionItemResponse',
@@ -101,6 +103,162 @@ class IPRuleResponse(dict):
         An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
         return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedHsmPropertiesResponse(dict):
+    """
+    Properties of the managed HSM Pool
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 status_message: str,
+                 create_mode: Optional[str] = None,
+                 enable_purge_protection: Optional[bool] = None,
+                 enable_soft_delete: Optional[bool] = None,
+                 hsm_pool_uri: Optional[str] = None,
+                 initial_admin_object_ids: Optional[List[str]] = None,
+                 soft_delete_retention_in_days: Optional[float] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Properties of the managed HSM Pool
+        :param str provisioning_state: Provisioning state.
+        :param str status_message: Resource Status Message.
+        :param str create_mode: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+        :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+        :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+        :param str hsm_pool_uri: The URI of the managed hsm pool for performing operations on keys.
+        :param List[str] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
+        :param float soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
+        :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status_message", status_message)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if enable_purge_protection is not None:
+            pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
+        if enable_soft_delete is not None:
+            pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
+        if hsm_pool_uri is not None:
+            pulumi.set(__self__, "hsm_pool_uri", hsm_pool_uri)
+        if initial_admin_object_ids is not None:
+            pulumi.set(__self__, "initial_admin_object_ids", initial_admin_object_ids)
+        if soft_delete_retention_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Resource Status Message.
+        """
+        return pulumi.get(self, "status_message")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
+    @pulumi.getter(name="enablePurgeProtection")
+    def enable_purge_protection(self) -> Optional[bool]:
+        """
+        Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+        """
+        return pulumi.get(self, "enable_purge_protection")
+
+    @property
+    @pulumi.getter(name="enableSoftDelete")
+    def enable_soft_delete(self) -> Optional[bool]:
+        """
+        Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+        """
+        return pulumi.get(self, "enable_soft_delete")
+
+    @property
+    @pulumi.getter(name="hsmPoolUri")
+    def hsm_pool_uri(self) -> Optional[str]:
+        """
+        The URI of the managed hsm pool for performing operations on keys.
+        """
+        return pulumi.get(self, "hsm_pool_uri")
+
+    @property
+    @pulumi.getter(name="initialAdminObjectIds")
+    def initial_admin_object_ids(self) -> Optional[List[str]]:
+        """
+        Array of initial administrators object ids for this managed hsm pool.
+        """
+        return pulumi.get(self, "initial_admin_object_ids")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionInDays")
+    def soft_delete_retention_in_days(self) -> Optional[float]:
+        """
+        softDelete data retention days. It accepts >=7 and <=90.
+        """
+        return pulumi.get(self, "soft_delete_retention_in_days")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedHsmSkuResponse(dict):
+    """
+    SKU details
+    """
+    def __init__(__self__, *,
+                 family: str,
+                 name: str):
+        """
+        SKU details
+        :param str family: SKU Family of the managed HSM Pool
+        :param str name: SKU of the managed HSM Pool
+        """
+        pulumi.set(__self__, "family", family)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def family(self) -> str:
+        """
+        SKU Family of the managed HSM Pool
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        SKU of the managed HSM Pool
+        """
+        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

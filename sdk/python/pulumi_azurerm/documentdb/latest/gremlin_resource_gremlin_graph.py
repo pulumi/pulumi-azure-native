@@ -20,6 +20,7 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  graph_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['GremlinGraphResourceArgs']]] = None,
@@ -91,6 +92,7 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[str] graph_name: Cosmos DB graph name.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[pulumi.InputType['GremlinGraphResourceArgs']] resource: The standard JSON format of a Gremlin graph
@@ -123,6 +125,7 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
             if graph_name is None:
                 raise TypeError("Missing required property 'graph_name'")
             __props__['graph_name'] = graph_name
+            __props__['identity'] = identity
             __props__['location'] = location
             if options is None:
                 raise TypeError("Missing required property 'options'")
@@ -161,6 +164,14 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
         __props__ = dict()
 
         return GremlinResourceGremlinGraph(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

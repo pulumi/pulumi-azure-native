@@ -20,10 +20,13 @@ class GetNamespaceResult:
     """
     Description of a namespace resource.
     """
-    def __init__(__self__, created_at=None, location=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None):
+    def __init__(__self__, created_at=None, encryption=None, location=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None, zone_redundant=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -51,14 +54,25 @@ class GetNamespaceResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
         """
-        The time the namespace was created.
+        The time the namespace was created
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+        """
+        Properties of BYOK Encryption description
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter
@@ -104,7 +118,7 @@ class GetNamespaceResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.SBSkuResponse']:
         """
-        Properties of Sku
+        Properties of SKU
         """
         return pulumi.get(self, "sku")
 
@@ -132,6 +146,14 @@ class GetNamespaceResult:
         """
         return pulumi.get(self, "updated_at")
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        """
+        Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        """
+        return pulumi.get(self, "zone_redundant")
+
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
@@ -140,6 +162,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             yield self
         return GetNamespaceResult(
             created_at=self.created_at,
+            encryption=self.encryption,
             location=self.location,
             metric_id=self.metric_id,
             name=self.name,
@@ -148,7 +171,8 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             sku=self.sku,
             tags=self.tags,
             type=self.type,
-            updated_at=self.updated_at)
+            updated_at=self.updated_at,
+            zone_redundant=self.zone_redundant)
 
 
 def get_namespace(namespace_name: Optional[str] = None,
@@ -171,6 +195,7 @@ def get_namespace(namespace_name: Optional[str] = None,
 
     return AwaitableGetNamespaceResult(
         created_at=__ret__.created_at,
+        encryption=__ret__.encryption,
         location=__ret__.location,
         metric_id=__ret__.metric_id,
         name=__ret__.name,
@@ -179,4 +204,5 @@ def get_namespace(namespace_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type,
-        updated_at=__ret__.updated_at)
+        updated_at=__ret__.updated_at,
+        zone_redundant=__ret__.zone_redundant)

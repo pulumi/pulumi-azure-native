@@ -36,9 +36,9 @@ class Namespace(pulumi.CustomResource):
         import pulumi_azurerm as azurerm
 
         namespace = azurerm.relay.latest.Namespace("namespace",
-            location="West US",
-            namespace_name="sdk-RelayNamespace-01",
-            resource_group_name="RG-eg",
+            location="South Central US",
+            namespace_name="sdk-Namespace-5849",
+            resource_group_name="ArunMonocle",
             sku={
                 "name": "Standard",
                 "tier": "Standard",

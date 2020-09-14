@@ -20,10 +20,19 @@ class GetNamespaceResult:
     """
     Single Namespace item in List or Get Operation
     """
-    def __init__(__self__, created_at=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None):
+    def __init__(__self__, cluster_arm_id=None, created_at=None, encryption=None, identity=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None, zone_redundant=None):
+        if cluster_arm_id and not isinstance(cluster_arm_id, str):
+            raise TypeError("Expected argument 'cluster_arm_id' to be a str")
+        pulumi.set(__self__, "cluster_arm_id", cluster_arm_id)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if is_auto_inflate_enabled and not isinstance(is_auto_inflate_enabled, bool):
             raise TypeError("Expected argument 'is_auto_inflate_enabled' to be a bool")
         pulumi.set(__self__, "is_auto_inflate_enabled", is_auto_inflate_enabled)
@@ -60,6 +69,17 @@ class GetNamespaceResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="clusterArmId")
+    def cluster_arm_id(self) -> Optional[str]:
+        """
+        Cluster ARM ID of the Namespace.
+        """
+        return pulumi.get(self, "cluster_arm_id")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -68,6 +88,22 @@ class GetNamespaceResult:
         The time the Namespace was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+        """
+        Properties of BYOK Encryption description
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        Properties of BYOK Identity description
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="isAutoInflateEnabled")
@@ -165,6 +201,14 @@ class GetNamespaceResult:
         """
         return pulumi.get(self, "updated_at")
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        """
+        Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        """
+        return pulumi.get(self, "zone_redundant")
+
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
@@ -172,7 +216,10 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
         if False:
             yield self
         return GetNamespaceResult(
+            cluster_arm_id=self.cluster_arm_id,
             created_at=self.created_at,
+            encryption=self.encryption,
+            identity=self.identity,
             is_auto_inflate_enabled=self.is_auto_inflate_enabled,
             kafka_enabled=self.kafka_enabled,
             location=self.location,
@@ -184,7 +231,8 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             sku=self.sku,
             tags=self.tags,
             type=self.type,
-            updated_at=self.updated_at)
+            updated_at=self.updated_at,
+            zone_redundant=self.zone_redundant)
 
 
 def get_namespace(namespace_name: Optional[str] = None,
@@ -206,7 +254,10 @@ def get_namespace(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azurerm:eventhub/latest:getNamespace', __args__, opts=opts, typ=GetNamespaceResult).value
 
     return AwaitableGetNamespaceResult(
+        cluster_arm_id=__ret__.cluster_arm_id,
         created_at=__ret__.created_at,
+        encryption=__ret__.encryption,
+        identity=__ret__.identity,
         is_auto_inflate_enabled=__ret__.is_auto_inflate_enabled,
         kafka_enabled=__ret__.kafka_enabled,
         location=__ret__.location,
@@ -218,4 +269,5 @@ def get_namespace(namespace_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type,
-        updated_at=__ret__.updated_at)
+        updated_at=__ret__.updated_at,
+        zone_redundant=__ret__.zone_redundant)

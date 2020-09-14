@@ -9,6 +9,8 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'ManagedIdentityArgs',
+    'ManagedIdentitySettingsArgs',
     'NetworkACLArgs',
     'PrivateEndpointArgs',
     'PrivateEndpointACLArgs',
@@ -18,8 +20,60 @@ __all__ = [
     'SignalRCorsSettingsArgs',
     'SignalRFeatureArgs',
     'SignalRNetworkACLsArgs',
+    'SignalRTlsSettingsArgs',
+    'UpstreamAuthSettingsArgs',
     'UpstreamTemplateArgs',
 ]
+
+@pulumi.input_type
+class ManagedIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        A class represent managed identities used for request and response
+        :param pulumi.Input[str] type: Represent the identity type: systemAssigned, userAssigned, None
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represent the identity type: systemAssigned, userAssigned, None
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ManagedIdentitySettingsArgs:
+    def __init__(__self__, *,
+                 resource: Optional[pulumi.Input[str]] = None):
+        """
+        Managed identity settings for upstream.
+        :param pulumi.Input[str] resource: The Resource indicating the App ID URI of the target resource.
+               It also appears in the aud (audience) claim of the issued token.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Resource indicating the App ID URI of the target resource.
+        It also appears in the aud (audience) claim of the issued token.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
 
 @pulumi.input_type
 class NetworkACLArgs:
@@ -462,9 +516,74 @@ class SignalRNetworkACLsArgs:
 
 
 @pulumi.input_type
+class SignalRTlsSettingsArgs:
+    def __init__(__self__, *,
+                 client_cert_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        TLS settings for SignalR
+        :param pulumi.Input[bool] client_cert_enabled: Request client certificate during TLS handshake if enabled
+        """
+        if client_cert_enabled is not None:
+            pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
+
+    @property
+    @pulumi.getter(name="clientCertEnabled")
+    def client_cert_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Request client certificate during TLS handshake if enabled
+        """
+        return pulumi.get(self, "client_cert_enabled")
+
+    @client_cert_enabled.setter
+    def client_cert_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_cert_enabled", value)
+
+
+@pulumi.input_type
+class UpstreamAuthSettingsArgs:
+    def __init__(__self__, *,
+                 managed_identity: Optional[pulumi.Input['ManagedIdentitySettingsArgs']] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Upstream auth settings.
+        :param pulumi.Input['ManagedIdentitySettingsArgs'] managed_identity: Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        :param pulumi.Input[str] type: Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        """
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input['ManagedIdentitySettingsArgs']]:
+        """
+        Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input['ManagedIdentitySettingsArgs']]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the type of auth. None or ManagedIdentity is supported now.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class UpstreamTemplateArgs:
     def __init__(__self__, *,
                  url_template: pulumi.Input[str],
+                 auth: Optional[pulumi.Input['UpstreamAuthSettingsArgs']] = None,
                  category_pattern: Optional[pulumi.Input[str]] = None,
                  event_pattern: Optional[pulumi.Input[str]] = None,
                  hub_pattern: Optional[pulumi.Input[str]] = None):
@@ -473,6 +592,7 @@ class UpstreamTemplateArgs:
         The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
         :param pulumi.Input[str] url_template: Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
                For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+        :param pulumi.Input['UpstreamAuthSettingsArgs'] auth: Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
         :param pulumi.Input[str] category_pattern: Gets or sets the matching pattern for category names. If not set, it matches any category.
                There are 3 kind of patterns supported:
                    1. "*", it to matches any category name
@@ -490,6 +610,8 @@ class UpstreamTemplateArgs:
                    3. The single hub name, for example, "hub1", it matches "hub1"
         """
         pulumi.set(__self__, "url_template", url_template)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
         if category_pattern is not None:
             pulumi.set(__self__, "category_pattern", category_pattern)
         if event_pattern is not None:
@@ -509,6 +631,18 @@ class UpstreamTemplateArgs:
     @url_template.setter
     def url_template(self, value: pulumi.Input[str]):
         pulumi.set(self, "url_template", value)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input['UpstreamAuthSettingsArgs']]:
+        """
+        Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input['UpstreamAuthSettingsArgs']]):
+        pulumi.set(self, "auth", value)
 
     @property
     @pulumi.getter(name="categoryPattern")

@@ -65,6 +65,8 @@ class ControllerDetails(pulumi.CustomResource):
             __props__['resource_guid'] = None
             __props__['state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:delegatednetwork/latest:ControllerDetails")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ControllerDetails, __self__).__init__(
             'azurerm:delegatednetwork/v20200808preview:ControllerDetails',
             resource_name,

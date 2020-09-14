@@ -5,10 +5,14 @@
 # Export this package's modules as members:
 from .console import *
 from .console_with_location import *
+from .dashboard import *
 from .get_console import *
 from .get_console_with_location import *
+from .get_dashboard import *
+from .get_tenant_configuration import *
 from .get_user_settings import *
 from .get_user_settings_with_location import *
+from .tenant_configuration import *
 from .user_settings import *
 from .user_settings_with_location import *
 from ._inputs import *

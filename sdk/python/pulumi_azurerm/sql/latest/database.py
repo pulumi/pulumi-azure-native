@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._inputs import *
 
 __all__ = ['Database']
 
@@ -16,33 +17,91 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_pause_delay: Optional[pulumi.Input[float]] = None,
+                 catalog_collation: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 edition: Optional[pulumi.Input[str]] = None,
-                 elastic_pool_name: Optional[pulumi.Input[str]] = None,
+                 elastic_pool_id: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[str]] = None,
+                 long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
+                 max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 min_capacity: Optional[pulumi.Input[float]] = None,
+                 read_replica_count: Optional[pulumi.Input[float]] = None,
                  read_scale: Optional[pulumi.Input[str]] = None,
-                 recovery_services_recovery_point_resource_id: Optional[pulumi.Input[str]] = None,
-                 requested_service_objective_id: Optional[pulumi.Input[str]] = None,
-                 requested_service_objective_name: Optional[pulumi.Input[str]] = None,
+                 recoverable_database_id: Optional[pulumi.Input[str]] = None,
+                 recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restorable_dropped_database_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Represents a database.
+        A database resource.
 
         ## Example Usage
-        ### Create a database as a copy
+        ### Creates a VCore database by specifying service objective name.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.latest.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "capacity": 2,
+                "family": "Gen4",
+                "name": "BC",
+            })
+
+        ```
+        ### Creates a VCore database by specifying sku name and capacity.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.latest.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "capacity": 2,
+                "name": "BC_Gen4",
+            })
+
+        ```
+        ### Creates a data warehouse by specifying service objective name.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.latest.Database("database",
+            database_name="testdw",
+            location="westus",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "DW1000c",
+            })
+
+        ```
+        ### Creates a database as a copy.
 
         ```python
         import pulumi
@@ -50,76 +109,37 @@ class Database(pulumi.CustomResource):
 
         database = azurerm.sql.latest.Database("database",
             create_mode="Copy",
-            database_name="testdb",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-4799",
-            server_name="sqlcrudtest-6440",
-            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb")
+            database_name="dbcopy",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
 
         ```
-        ### Create a database as a dropped database restore to a specific point in time
+        ### Creates a database as an on-line secondary.
 
         ```python
         import pulumi
         import pulumi_azurerm as azurerm
 
         database = azurerm.sql.latest.Database("database",
-            create_mode="Restore",
+            create_mode="Secondary",
             database_name="testdb",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-8412",
-            restore_point_in_time="2017-05-20T21:24:37.467Z",
-            server_name="sqlcrudtest-3584",
-            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/restorableDroppedDatabases/sourcedb,131403269876900000")
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb")
 
         ```
-        ### Create a database as a dropped database restore to deletion time
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        database = azurerm.sql.latest.Database("database",
-            create_mode="Restore",
-            database_name="testdb",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-8412",
-            server_name="sqlcrudtest-3584",
-            source_database_deletion_date="2017-05-27T02:49:47.69Z",
-            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/sourcedb")
-
-        ```
-        ### Create a database as a geo restore
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        database = azurerm.sql.latest.Database("database",
-            create_mode="Recovery",
-            database_name="testdb",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-8412",
-            server_name="sqlcrudtest-3584",
-            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/recoverableDatabases/sourcedb")
-
-        ```
-        ### Create a database as a non-readable secondary
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        database = azurerm.sql.latest.Database("database",
-            create_mode="NonReadableSecondary",
-            database_name="testdb",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-4799",
-            server_name="sqlcrudtest-6440",
-            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb")
-
-        ```
-        ### Create a database as a point in time restore
+        ### Creates a database from PointInTimeRestore.
 
         ```python
         import pulumi
@@ -127,45 +147,77 @@ class Database(pulumi.CustomResource):
 
         database = azurerm.sql.latest.Database("database",
             create_mode="PointInTimeRestore",
-            database_name="testdb",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-8412",
-            restore_point_in_time="2017-02-16T21:24:37.467Z",
-            server_name="sqlcrudtest-3584",
-            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb")
+            database_name="dbpitr",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2017-07-14T05:35:31.503Z",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
 
         ```
-        ### Create a database as an online secondary
+        ### Creates a database from recoverableDatabaseId.
 
         ```python
         import pulumi
         import pulumi_azurerm as azurerm
 
         database = azurerm.sql.latest.Database("database",
-            create_mode="OnlineSecondary",
-            database_name="testdb",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-4799",
-            server_name="sqlcrudtest-6440",
-            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb")
+            create_mode="Restore",
+            database_name="dbrestore",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restorable_dropped_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/restorableDroppedDatabases/testdb2,131444841315030000",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            })
 
         ```
-        ### Create a database from a long term retention backup
+        ### Creates a database from restore with database deletion time.
 
         ```python
         import pulumi
         import pulumi_azurerm as azurerm
 
         database = azurerm.sql.latest.Database("database",
-            create_mode="RestoreLongTermRetentionBackup",
-            database_name="testdb",
-            location="Japan East",
-            recovery_services_recovery_point_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/AzureSqlContainer;Sql;sqlcrudtest-8412;testsvr/protectedItems/AzureSqlDb;dsName;testdb;9dafcc99-7c84-4727-88ee-1a4fdb89afd7/RecoveryPoints/16043455089734",
-            resource_group_name="sqlcrudtest-8412",
-            server_name="sqlcrudtest-3584")
+            create_mode="Restore",
+            database_name="dbrestore",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_deletion_date="2017-07-14T06:41:06.613Z",
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
 
         ```
-        ### Create a database max
+        ### Creates a database from restore with restorableDroppedDatabaseId.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.latest.Database("database",
+            create_mode="Copy",
+            database_name="dbcopy",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
+
+        ```
+        ### Creates a database with default mode.
 
         ```python
         import pulumi
@@ -175,18 +227,17 @@ class Database(pulumi.CustomResource):
             collation="SQL_Latin1_General_CP1_CI_AS",
             create_mode="Default",
             database_name="testdb",
-            edition="Standard",
-            location="Japan East",
-            max_size_bytes="268435456000",
-            read_scale="Disabled",
-            requested_service_objective_id="f1173c43-91bd-4aaa-973c-54e79e15235b",
-            requested_service_objective_name="S0",
-            resource_group_name="sqlcrudtest-4799",
-            sample_name="AdventureWorksLT",
-            server_name="sqlcrudtest-6440")
+            location="southeastasia",
+            max_size_bytes=1073741824,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            })
 
         ```
-        ### Create a database min
+        ### Creates a database with minimum number of parameters.
 
         ```python
         import pulumi
@@ -194,56 +245,24 @@ class Database(pulumi.CustomResource):
 
         database = azurerm.sql.latest.Database("database",
             database_name="testdb",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-4799",
-            server_name="sqlcrudtest-5961")
-
-        ```
-        ### Update a database max
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        database = azurerm.sql.latest.Database("database",
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            create_mode="Default",
-            database_name="testdb",
-            edition="Standard",
-            location="Japan East",
-            max_size_bytes="268435456000",
-            read_scale="Disabled",
-            requested_service_objective_id="f1173c43-91bd-4aaa-973c-54e79e15235b",
-            requested_service_objective_name="S0",
-            resource_group_name="sqlcrudtest-4799",
-            server_name="sqlcrudtest-5961")
-
-        ```
-        ### Update a database's elastic pool'
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        database = azurerm.sql.latest.Database("database",
-            database_name="testdb",
-            elastic_pool_name="7537",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-4799",
-            server_name="sqlcrudtest-6440")
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] collation: The collation of the database. If createMode is not Default, this value is ignored.
+        :param pulumi.Input[float] auto_pause_delay: Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+        :param pulumi.Input[str] catalog_collation: Collation of the metadata catalog.
+        :param pulumi.Input[str] collation: The collation of the database.
         :param pulumi.Input[str] create_mode: Specifies the mode of database creation.
                
                Default: regular database creation.
                
                Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
                
-               OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+               Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
                
                PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
                
@@ -253,28 +272,24 @@ class Database(pulumi.CustomResource):
                
                RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
                
-               Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-        :param pulumi.Input[str] database_name: The name of the database to be operated on (updated or created).
-        :param pulumi.Input[str] edition: The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-               
-               The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-               
-               ```azurecli
-               az sql db list-editions -l <location> -o table
-               ````
-               
-               ```powershell
-               Get-AzSqlServerServiceObjective -Location <location>
-               ````
-        :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
+               Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+        :param pulumi.Input[str] database_name: The name of the database.
+        :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
+        :param pulumi.Input[str] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] max_size_bytes: The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
-        :param pulumi.Input[str] read_scale: Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
-        :param pulumi.Input[str] recovery_services_recovery_point_resource_id: Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-        :param pulumi.Input[str] requested_service_objective_id: The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-               
-               The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
-        :param pulumi.Input[str] requested_service_objective_name: The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+        :param pulumi.Input[str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
+        :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
+        :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
+        :param pulumi.Input[float] read_replica_count: The number of readonly secondary replicas associated with the database.
+        :param pulumi.Input[str] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
+        :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] restorable_dropped_database_id: The resource identifier of the restorable dropped database associated with create operation of this database.
+        :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+        :param pulumi.Input[str] sample_name: The name of the sample schema to apply when creating this database.
+        :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The database SKU.
                
                The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
                
@@ -285,12 +300,9 @@ class Database(pulumi.CustomResource):
                ```powershell
                Get-AzSqlServerServiceObjective -Location <location>
                ````
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] restore_point_in_time: Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-        :param pulumi.Input[str] sample_name: Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-        :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[str] source_database_deletion_date: Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-        :param pulumi.Input[str] source_database_id: Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
+        :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the database was deleted.
+        :param pulumi.Input[str] source_database_id: The resource identifier of the source database associated with create operation of this database.
+        :param pulumi.Input[str] storage_account_type: The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
@@ -311,47 +323,55 @@ class Database(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_pause_delay'] = auto_pause_delay
+            __props__['catalog_collation'] = catalog_collation
             __props__['collation'] = collation
             __props__['create_mode'] = create_mode
             if database_name is None:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
-            __props__['edition'] = edition
-            __props__['elastic_pool_name'] = elastic_pool_name
+            __props__['elastic_pool_id'] = elastic_pool_id
+            __props__['license_type'] = license_type
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['long_term_retention_backup_resource_id'] = long_term_retention_backup_resource_id
             __props__['max_size_bytes'] = max_size_bytes
+            __props__['min_capacity'] = min_capacity
+            __props__['read_replica_count'] = read_replica_count
             __props__['read_scale'] = read_scale
-            __props__['recovery_services_recovery_point_resource_id'] = recovery_services_recovery_point_resource_id
-            __props__['requested_service_objective_id'] = requested_service_objective_id
-            __props__['requested_service_objective_name'] = requested_service_objective_name
+            __props__['recoverable_database_id'] = recoverable_database_id
+            __props__['recovery_services_recovery_point_id'] = recovery_services_recovery_point_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['restorable_dropped_database_id'] = restorable_dropped_database_id
             __props__['restore_point_in_time'] = restore_point_in_time
             __props__['sample_name'] = sample_name
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
+            __props__['sku'] = sku
             __props__['source_database_deletion_date'] = source_database_deletion_date
             __props__['source_database_id'] = source_database_id
+            __props__['storage_account_type'] = storage_account_type
             __props__['tags'] = tags
             __props__['zone_redundant'] = zone_redundant
-            __props__['containment_state'] = None
             __props__['creation_date'] = None
-            __props__['current_service_objective_id'] = None
+            __props__['current_service_objective_name'] = None
+            __props__['current_sku'] = None
             __props__['database_id'] = None
             __props__['default_secondary_location'] = None
             __props__['earliest_restore_date'] = None
             __props__['failover_group_id'] = None
             __props__['kind'] = None
+            __props__['managed_by'] = None
+            __props__['max_log_size_bytes'] = None
             __props__['name'] = None
-            __props__['recommended_index'] = None
-            __props__['service_level_objective'] = None
-            __props__['service_tier_advisors'] = None
+            __props__['paused_date'] = None
+            __props__['requested_service_objective_name'] = None
+            __props__['resumed_date'] = None
             __props__['status'] = None
-            __props__['transparent_data_encryption'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:sql/v20140401:Database"), pulumi.Alias(type_="azurerm:sql/v20170301preview:Database"), pulumi.Alias(type_="azurerm:sql/v20171001preview:Database"), pulumi.Alias(type_="azurerm:sql/v20190601preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -380,42 +400,50 @@ class Database(pulumi.CustomResource):
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="autoPauseDelay")
+    def auto_pause_delay(self) -> pulumi.Output[Optional[float]]:
+        """
+        Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+        """
+        return pulumi.get(self, "auto_pause_delay")
+
+    @property
+    @pulumi.getter(name="catalogCollation")
+    def catalog_collation(self) -> pulumi.Output[Optional[str]]:
+        """
+        Collation of the metadata catalog.
+        """
+        return pulumi.get(self, "catalog_collation")
+
+    @property
     @pulumi.getter
     def collation(self) -> pulumi.Output[Optional[str]]:
         """
-        The collation of the database. If createMode is not Default, this value is ignored.
+        The collation of the database.
         """
         return pulumi.get(self, "collation")
-
-    @property
-    @pulumi.getter(name="containmentState")
-    def containment_state(self) -> pulumi.Output[float]:
-        """
-        The containment state of the database.
-        """
-        return pulumi.get(self, "containment_state")
 
     @property
     @pulumi.getter(name="createMode")
     def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the mode of database creation.
-
+        
         Default: regular database creation.
-
+        
         Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-
-        OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-
+        
+        Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+        
         PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-
+        
         Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-
+        
         Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-
+        
         RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-
-        Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+        
+        Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         """
         return pulumi.get(self, "create_mode")
 
@@ -428,12 +456,20 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter(name="currentServiceObjectiveId")
-    def current_service_objective_id(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="currentServiceObjectiveName")
+    def current_service_objective_name(self) -> pulumi.Output[str]:
         """
-        The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
+        The current service level objective name of the database.
         """
-        return pulumi.get(self, "current_service_objective_id")
+        return pulumi.get(self, "current_service_objective_name")
+
+    @property
+    @pulumi.getter(name="currentSku")
+    def current_sku(self) -> pulumi.Output['outputs.SkuResponse']:
+        """
+        The name and tier of the SKU.
+        """
+        return pulumi.get(self, "current_sku")
 
     @property
     @pulumi.getter(name="databaseId")
@@ -460,36 +496,18 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "earliest_restore_date")
 
     @property
-    @pulumi.getter
-    def edition(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="elasticPoolId")
+    def elastic_pool_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-        
-        The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-        
-        ```azurecli
-        az sql db list-editions -l <location> -o table
-        ````
-        
-        ```powershell
-        Get-AzSqlServerServiceObjective -Location <location>
-        ````
+        The resource identifier of the elastic pool containing this database.
         """
-        return pulumi.get(self, "edition")
-
-    @property
-    @pulumi.getter(name="elasticPoolName")
-    def elastic_pool_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-        """
-        return pulumi.get(self, "elastic_pool_name")
+        return pulumi.get(self, "elastic_pool_id")
 
     @property
     @pulumi.getter(name="failoverGroupId")
     def failover_group_id(self) -> pulumi.Output[str]:
         """
-        The resource identifier of the failover group containing this database.
+        Failover Group resource identifier that this database belongs to.
         """
         return pulumi.get(self, "failover_group_id")
 
@@ -497,9 +515,17 @@ class Database(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        Kind of database.  This is metadata used for the Azure portal experience.
+        Kind of database. This is metadata used for the Azure portal experience.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
+        """
+        return pulumi.get(self, "license_type")
 
     @property
     @pulumi.getter
@@ -510,12 +536,44 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="longTermRetentionBackupResourceId")
+    def long_term_retention_backup_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
+        The resource identifier of the long term retention backup associated with create operation of this database.
+        """
+        return pulumi.get(self, "long_term_retention_backup_resource_id")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[str]:
+        """
+        Resource that manages the database.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
+    @pulumi.getter(name="maxLogSizeBytes")
+    def max_log_size_bytes(self) -> pulumi.Output[float]:
+        """
+        The max log size for this database.
+        """
+        return pulumi.get(self, "max_log_size_bytes")
+
+    @property
+    @pulumi.getter(name="maxSizeBytes")
+    def max_size_bytes(self) -> pulumi.Output[Optional[float]]:
+        """
+        The max size of the database expressed in bytes.
         """
         return pulumi.get(self, "max_size_bytes")
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> pulumi.Output[Optional[float]]:
+        """
+        Minimal capacity that database will always have allocated, if not paused
+        """
+        return pulumi.get(self, "min_capacity")
 
     @property
     @pulumi.getter
@@ -526,44 +584,90 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="pausedDate")
+    def paused_date(self) -> pulumi.Output[str]:
+        """
+        The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
+        """
+        return pulumi.get(self, "paused_date")
+
+    @property
+    @pulumi.getter(name="readReplicaCount")
+    def read_replica_count(self) -> pulumi.Output[Optional[float]]:
+        """
+        The number of readonly secondary replicas associated with the database.
+        """
+        return pulumi.get(self, "read_replica_count")
+
+    @property
     @pulumi.getter(name="readScale")
     def read_scale(self) -> pulumi.Output[Optional[str]]:
         """
-        Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
         """
         return pulumi.get(self, "read_scale")
 
     @property
-    @pulumi.getter(name="recommendedIndex")
-    def recommended_index(self) -> pulumi.Output[List['outputs.RecommendedIndexResponse']]:
+    @pulumi.getter(name="recoverableDatabaseId")
+    def recoverable_database_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The recommended indices for this database.
+        The resource identifier of the recoverable database associated with create operation of this database.
         """
-        return pulumi.get(self, "recommended_index")
+        return pulumi.get(self, "recoverable_database_id")
 
     @property
-    @pulumi.getter(name="recoveryServicesRecoveryPointResourceId")
-    def recovery_services_recovery_point_resource_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="recoveryServicesRecoveryPointId")
+    def recovery_services_recovery_point_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
+        The resource identifier of the recovery point associated with create operation of this database.
         """
-        return pulumi.get(self, "recovery_services_recovery_point_resource_id")
-
-    @property
-    @pulumi.getter(name="requestedServiceObjectiveId")
-    def requested_service_objective_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-        
-        The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
-        """
-        return pulumi.get(self, "requested_service_objective_id")
+        return pulumi.get(self, "recovery_services_recovery_point_id")
 
     @property
     @pulumi.getter(name="requestedServiceObjectiveName")
-    def requested_service_objective_name(self) -> pulumi.Output[Optional[str]]:
+    def requested_service_objective_name(self) -> pulumi.Output[str]:
         """
-        The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+        The requested service level objective name of the database.
+        """
+        return pulumi.get(self, "requested_service_objective_name")
+
+    @property
+    @pulumi.getter(name="restorableDroppedDatabaseId")
+    def restorable_dropped_database_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource identifier of the restorable dropped database associated with create operation of this database.
+        """
+        return pulumi.get(self, "restorable_dropped_database_id")
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @property
+    @pulumi.getter(name="resumedDate")
+    def resumed_date(self) -> pulumi.Output[str]:
+        """
+        The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
+        """
+        return pulumi.get(self, "resumed_date")
+
+    @property
+    @pulumi.getter(name="sampleName")
+    def sample_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the sample schema to apply when creating this database.
+        """
+        return pulumi.get(self, "sample_name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        The database SKU.
         
         The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
         
@@ -575,45 +679,13 @@ class Database(pulumi.CustomResource):
         Get-AzSqlServerServiceObjective -Location <location>
         ````
         """
-        return pulumi.get(self, "requested_service_objective_name")
-
-    @property
-    @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> pulumi.Output[Optional[str]]:
-        """
-        Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-        """
-        return pulumi.get(self, "restore_point_in_time")
-
-    @property
-    @pulumi.getter(name="sampleName")
-    def sample_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-        """
-        return pulumi.get(self, "sample_name")
-
-    @property
-    @pulumi.getter(name="serviceLevelObjective")
-    def service_level_objective(self) -> pulumi.Output[str]:
-        """
-        The current service level objective of the database.
-        """
-        return pulumi.get(self, "service_level_objective")
-
-    @property
-    @pulumi.getter(name="serviceTierAdvisors")
-    def service_tier_advisors(self) -> pulumi.Output[List['outputs.ServiceTierAdvisorResponse']]:
-        """
-        The list of service tier advisors for this database. Expanded property
-        """
-        return pulumi.get(self, "service_tier_advisors")
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="sourceDatabaseDeletionDate")
     def source_database_deletion_date(self) -> pulumi.Output[Optional[str]]:
         """
-        Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
+        Specifies the time that the database was deleted.
         """
         return pulumi.get(self, "source_database_deletion_date")
 
@@ -621,7 +693,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="sourceDatabaseId")
     def source_database_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
+        The resource identifier of the source database associated with create operation of this database.
         """
         return pulumi.get(self, "source_database_id")
 
@@ -634,20 +706,20 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="transparentDataEncryption")
-    def transparent_data_encryption(self) -> pulumi.Output[List['outputs.TransparentDataEncryptionResponse']]:
-        """
-        The transparent data encryption info for this database.
-        """
-        return pulumi.get(self, "transparent_data_encryption")
 
     @property
     @pulumi.getter

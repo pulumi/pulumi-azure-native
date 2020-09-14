@@ -12,12 +12,15 @@ __all__ = [
     'DebugSettingArgs',
     'DeploymentPropertiesArgs',
     'IdentityArgs',
+    'ManagedServiceIdentityArgs',
     'OnErrorDeploymentArgs',
     'ParametersLinkArgs',
     'PlanArgs',
     'SkuArgs',
     'TagsArgs',
     'TemplateLinkArgs',
+    'TemplateSpecTemplateArtifactArgs',
+    'UserAssignedIdentityArgs',
 ]
 
 @pulumi.input_type
@@ -185,6 +188,46 @@ class IdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
+        """
+        Managed identity generic object.
+        :param pulumi.Input[str] type: Type of the managed identity.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the managed identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
+        """
+        The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -548,5 +591,98 @@ class TemplateLinkArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class TemplateSpecTemplateArtifactArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 template: pulumi.Input[Mapping[str, Any]]):
+        """
+        Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+        :param pulumi.Input[str] kind: The kind of artifact.
+        :param pulumi.Input[str] path: A filesystem safe relative path of the artifact.
+        :param pulumi.Input[Mapping[str, Any]] template: The Azure Resource Manager template.
+        """
+        pulumi.set(__self__, "kind", 'template')
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The kind of artifact.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        A filesystem safe relative path of the artifact.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def template(self) -> pulumi.Input[Mapping[str, Any]]:
+        """
+        The Azure Resource Manager template.
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: pulumi.Input[Mapping[str, Any]]):
+        pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class UserAssignedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None):
+        """
+        User-assigned managed identity.
+        :param pulumi.Input[str] client_id: Client App Id associated with this identity.
+        :param pulumi.Input[str] principal_id: Azure Active Directory principal ID associated with this identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client App Id associated with this identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Active Directory principal ID associated with this identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
 
 

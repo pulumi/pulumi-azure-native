@@ -19,6 +19,7 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['MongoDBDatabaseResourceArgs']]] = None,
@@ -54,6 +55,7 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input[pulumi.InputType['CreateUpdateOptionsArgs']] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[pulumi.InputType['MongoDBDatabaseResourceArgs']] resource: The standard JSON format of a MongoDB database
@@ -83,6 +85,7 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
             if database_name is None:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
+            __props__['identity'] = identity
             __props__['location'] = location
             if options is None:
                 raise TypeError("Missing required property 'options'")
@@ -121,6 +124,14 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
         __props__ = dict()
 
         return MongoDBResourceMongoDBDatabase(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

@@ -47,7 +47,6 @@ class Application(pulumi.CustomResource):
             application_definition_id="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
             application_name="myManagedApplication",
             kind="ServiceCatalog",
-            location="East US 2",
             managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
             resource_group_name="rg")
 

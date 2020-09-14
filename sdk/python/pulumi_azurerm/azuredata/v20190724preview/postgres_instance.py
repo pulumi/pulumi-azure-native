@@ -58,6 +58,8 @@ class PostgresInstance(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['tags'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:azuredata/latest:PostgresInstance")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PostgresInstance, __self__).__init__(
             'azurerm:azuredata/v20190724preview:PostgresInstance',
             resource_name,

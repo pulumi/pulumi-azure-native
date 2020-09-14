@@ -20,19 +20,37 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, byok_enforcement=None, earliest_restore_date=None, fully_qualified_domain_name=None, identity=None, infrastructure_encryption=None, location=None, master_server_id=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, replica_capacity=None, replication_role=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, type=None, user_visible_state=None, version=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, byok_enforcement=None, create_mode=None, delegated_subnet_arguments=None, earliest_restore_date=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, identity=None, infrastructure_encryption=None, location=None, maintenance_window=None, name=None, public_network_access=None, replica_capacity=None, replication_role=None, restore_point_in_time=None, sku=None, source_server_id=None, ssl_enforcement=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrator_login_password and not isinstance(administrator_login_password, str):
+            raise TypeError("Expected argument 'administrator_login_password' to be a str")
+        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if availability_zone and not isinstance(availability_zone, str):
+            raise TypeError("Expected argument 'availability_zone' to be a str")
+        pulumi.set(__self__, "availability_zone", availability_zone)
         if byok_enforcement and not isinstance(byok_enforcement, str):
             raise TypeError("Expected argument 'byok_enforcement' to be a str")
         pulumi.set(__self__, "byok_enforcement", byok_enforcement)
+        if create_mode and not isinstance(create_mode, str):
+            raise TypeError("Expected argument 'create_mode' to be a str")
+        pulumi.set(__self__, "create_mode", create_mode)
+        if delegated_subnet_arguments and not isinstance(delegated_subnet_arguments, dict):
+            raise TypeError("Expected argument 'delegated_subnet_arguments' to be a dict")
+        pulumi.set(__self__, "delegated_subnet_arguments", delegated_subnet_arguments)
         if earliest_restore_date and not isinstance(earliest_restore_date, str):
             raise TypeError("Expected argument 'earliest_restore_date' to be a str")
         pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if ha_enabled and not isinstance(ha_enabled, str):
+            raise TypeError("Expected argument 'ha_enabled' to be a str")
+        pulumi.set(__self__, "ha_enabled", ha_enabled)
+        if ha_state and not isinstance(ha_state, str):
+            raise TypeError("Expected argument 'ha_state' to be a str")
+        pulumi.set(__self__, "ha_state", ha_state)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -42,18 +60,12 @@ class GetServerResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if master_server_id and not isinstance(master_server_id, str):
-            raise TypeError("Expected argument 'master_server_id' to be a str")
-        pulumi.set(__self__, "master_server_id", master_server_id)
-        if minimal_tls_version and not isinstance(minimal_tls_version, str):
-            raise TypeError("Expected argument 'minimal_tls_version' to be a str")
-        pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
+        if maintenance_window and not isinstance(maintenance_window, dict):
+            raise TypeError("Expected argument 'maintenance_window' to be a dict")
+        pulumi.set(__self__, "maintenance_window", maintenance_window)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
-            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
@@ -63,12 +75,24 @@ class GetServerResult:
         if replication_role and not isinstance(replication_role, str):
             raise TypeError("Expected argument 'replication_role' to be a str")
         pulumi.set(__self__, "replication_role", replication_role)
+        if restore_point_in_time and not isinstance(restore_point_in_time, str):
+            raise TypeError("Expected argument 'restore_point_in_time' to be a str")
+        pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if source_server_id and not isinstance(source_server_id, str):
+            raise TypeError("Expected argument 'source_server_id' to be a str")
+        pulumi.set(__self__, "source_server_id", source_server_id)
         if ssl_enforcement and not isinstance(ssl_enforcement, str):
             raise TypeError("Expected argument 'ssl_enforcement' to be a str")
         pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
+        if standby_availability_zone and not isinstance(standby_availability_zone, str):
+            raise TypeError("Expected argument 'standby_availability_zone' to be a str")
+        pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if storage_profile and not isinstance(storage_profile, dict):
             raise TypeError("Expected argument 'storage_profile' to be a dict")
         pulumi.set(__self__, "storage_profile", storage_profile)
@@ -78,9 +102,6 @@ class GetServerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if user_visible_state and not isinstance(user_visible_state, str):
-            raise TypeError("Expected argument 'user_visible_state' to be a str")
-        pulumi.set(__self__, "user_visible_state", user_visible_state)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -94,16 +115,48 @@ class GetServerResult:
         return pulumi.get(self, "administrator_login")
 
     @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> Optional[str]:
+        """
+        The password of the administrator login (required for server creation).
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        """
+        availability Zone information of the server.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
     @pulumi.getter(name="byokEnforcement")
     def byok_enforcement(self) -> str:
         """
-        Status showing whether the server data encryption is enabled with customer-managed keys.
+        Status showing whether the data encryption is enabled with customer-managed keys.
         """
         return pulumi.get(self, "byok_enforcement")
 
     @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        The mode to create a new MySQL server.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
+    @pulumi.getter(name="delegatedSubnetArguments")
+    def delegated_subnet_arguments(self) -> Optional['outputs.DelegatedSubnetArgumentsResponse']:
+        """
+        Delegated subnet arguments.
+        """
+        return pulumi.get(self, "delegated_subnet_arguments")
+
+    @property
     @pulumi.getter(name="earliestRestoreDate")
-    def earliest_restore_date(self) -> Optional[str]:
+    def earliest_restore_date(self) -> str:
         """
         Earliest restore point creation time (ISO8601 format)
         """
@@ -111,15 +164,31 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
-    def fully_qualified_domain_name(self) -> Optional[str]:
+    def fully_qualified_domain_name(self) -> str:
         """
         The fully qualified domain name of a server.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
 
     @property
+    @pulumi.getter(name="haEnabled")
+    def ha_enabled(self) -> Optional[str]:
+        """
+        Enable HA or not for a server.
+        """
+        return pulumi.get(self, "ha_enabled")
+
+    @property
+    @pulumi.getter(name="haState")
+    def ha_state(self) -> str:
+        """
+        The state of a HA server.
+        """
+        return pulumi.get(self, "ha_state")
+
+    @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityResponse']:
         """
         The Azure Active Directory identity of the server.
         """
@@ -142,20 +211,12 @@ class GetServerResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="masterServerId")
-    def master_server_id(self) -> Optional[str]:
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional['outputs.MaintenanceWindowResponse']:
         """
-        The master server id of a replica server.
+        Maintenance window of a server.
         """
-        return pulumi.get(self, "master_server_id")
-
-    @property
-    @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> Optional[str]:
-        """
-        Enforce a minimal Tls version for the server.
-        """
-        return pulumi.get(self, "minimal_tls_version")
+        return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter
@@ -166,16 +227,8 @@ class GetServerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.ServerPrivateEndpointConnectionResponse']:
-        """
-        List of private endpoint connections on a server
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
+    def public_network_access(self) -> str:
         """
         Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
@@ -183,9 +236,9 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="replicaCapacity")
-    def replica_capacity(self) -> Optional[float]:
+    def replica_capacity(self) -> float:
         """
-        The maximum number of replicas that a master server can have.
+        The maximum number of replicas that a primary server can have.
         """
         return pulumi.get(self, "replica_capacity")
 
@@ -193,9 +246,17 @@ class GetServerResult:
     @pulumi.getter(name="replicationRole")
     def replication_role(self) -> Optional[str]:
         """
-        The replication role of the server.
+        The replication role.
         """
         return pulumi.get(self, "replication_role")
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> Optional[str]:
+        """
+        Restore point creation time (ISO8601 format), specifying the time to restore from.
+        """
+        return pulumi.get(self, "restore_point_in_time")
 
     @property
     @pulumi.getter
@@ -206,12 +267,36 @@ class GetServerResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="sourceServerId")
+    def source_server_id(self) -> Optional[str]:
+        """
+        The source MySQL server id.
+        """
+        return pulumi.get(self, "source_server_id")
+
+    @property
     @pulumi.getter(name="sslEnforcement")
     def ssl_enforcement(self) -> Optional[str]:
         """
         Enable ssl enforcement or not when connect to server.
         """
         return pulumi.get(self, "ssl_enforcement")
+
+    @property
+    @pulumi.getter(name="standbyAvailabilityZone")
+    def standby_availability_zone(self) -> str:
+        """
+        availability Zone information of the server.
+        """
+        return pulumi.get(self, "standby_availability_zone")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of a server.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="storageProfile")
@@ -238,14 +323,6 @@ class GetServerResult:
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="userVisibleState")
-    def user_visible_state(self) -> Optional[str]:
-        """
-        A state of a server that is visible to user.
-        """
-        return pulumi.get(self, "user_visible_state")
-
-    @property
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
@@ -261,25 +338,32 @@ class AwaitableGetServerResult(GetServerResult):
             yield self
         return GetServerResult(
             administrator_login=self.administrator_login,
+            administrator_login_password=self.administrator_login_password,
+            availability_zone=self.availability_zone,
             byok_enforcement=self.byok_enforcement,
+            create_mode=self.create_mode,
+            delegated_subnet_arguments=self.delegated_subnet_arguments,
             earliest_restore_date=self.earliest_restore_date,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
+            ha_enabled=self.ha_enabled,
+            ha_state=self.ha_state,
             identity=self.identity,
             infrastructure_encryption=self.infrastructure_encryption,
             location=self.location,
-            master_server_id=self.master_server_id,
-            minimal_tls_version=self.minimal_tls_version,
+            maintenance_window=self.maintenance_window,
             name=self.name,
-            private_endpoint_connections=self.private_endpoint_connections,
             public_network_access=self.public_network_access,
             replica_capacity=self.replica_capacity,
             replication_role=self.replication_role,
+            restore_point_in_time=self.restore_point_in_time,
             sku=self.sku,
+            source_server_id=self.source_server_id,
             ssl_enforcement=self.ssl_enforcement,
+            standby_availability_zone=self.standby_availability_zone,
+            state=self.state,
             storage_profile=self.storage_profile,
             tags=self.tags,
             type=self.type,
-            user_visible_state=self.user_visible_state,
             version=self.version)
 
 
@@ -303,23 +387,30 @@ def get_server(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServerResult(
         administrator_login=__ret__.administrator_login,
+        administrator_login_password=__ret__.administrator_login_password,
+        availability_zone=__ret__.availability_zone,
         byok_enforcement=__ret__.byok_enforcement,
+        create_mode=__ret__.create_mode,
+        delegated_subnet_arguments=__ret__.delegated_subnet_arguments,
         earliest_restore_date=__ret__.earliest_restore_date,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
+        ha_enabled=__ret__.ha_enabled,
+        ha_state=__ret__.ha_state,
         identity=__ret__.identity,
         infrastructure_encryption=__ret__.infrastructure_encryption,
         location=__ret__.location,
-        master_server_id=__ret__.master_server_id,
-        minimal_tls_version=__ret__.minimal_tls_version,
+        maintenance_window=__ret__.maintenance_window,
         name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
         public_network_access=__ret__.public_network_access,
         replica_capacity=__ret__.replica_capacity,
         replication_role=__ret__.replication_role,
+        restore_point_in_time=__ret__.restore_point_in_time,
         sku=__ret__.sku,
+        source_server_id=__ret__.source_server_id,
         ssl_enforcement=__ret__.ssl_enforcement,
+        standby_availability_zone=__ret__.standby_availability_zone,
+        state=__ret__.state,
         storage_profile=__ret__.storage_profile,
         tags=__ret__.tags,
         type=__ret__.type,
-        user_visible_state=__ret__.user_visible_state,
         version=__ret__.version)

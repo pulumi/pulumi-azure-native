@@ -80,6 +80,8 @@ class ManagedNetworkGroup(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:managednetwork/latest:ManagedNetworkGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedNetworkGroup, __self__).__init__(
             'azurerm:managednetwork/v20190601preview:ManagedNetworkGroup',
             resource_name,

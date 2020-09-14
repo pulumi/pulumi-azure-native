@@ -92,6 +92,8 @@ class Assignment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['status'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:blueprint/latest:Assignment")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assignment, __self__).__init__(
             'azurerm:blueprint/v20181101preview:Assignment',
             resource_name,

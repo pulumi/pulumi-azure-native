@@ -72,6 +72,8 @@ class Device(pulumi.CustomResource):
             __props__['status'] = None
             __props__['type'] = None
             __props__['virtual_network_functions'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybridnetwork/latest:Device")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Device, __self__).__init__(
             'azurerm:hybridnetwork/v20200101preview:Device',
             resource_name,

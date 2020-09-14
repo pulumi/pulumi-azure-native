@@ -52,9 +52,9 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Maps Account.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] resource_group_name: The name of the Azure Resource Group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of this account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,6 +88,7 @@ class Account(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['properties'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:maps/v20170101preview:Account"), pulumi.Alias(type_="azurerm:maps/v20180501:Account"), pulumi.Alias(type_="azurerm:maps/v20200201preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -119,7 +120,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -127,7 +128,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Maps Account, which is unique within a Resource Group.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -148,10 +149,18 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Mapping[str, str]]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -159,7 +168,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 

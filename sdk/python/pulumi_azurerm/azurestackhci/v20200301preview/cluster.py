@@ -81,6 +81,8 @@ class Cluster(pulumi.CustomResource):
             __props__['status'] = None
             __props__['trial_days_remaining'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:azurestackhci/latest:Cluster")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azurerm:azurestackhci/v20200301preview:Cluster',
             resource_name,

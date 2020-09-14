@@ -57,6 +57,8 @@ class Association(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:customproviders/latest:Association")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Association, __self__).__init__(
             'azurerm:customproviders/v20180901preview:Association',
             resource_name,

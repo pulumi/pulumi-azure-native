@@ -20,6 +20,7 @@ __all__ = [
     'ArmServiceTypeHealthPolicyArgs',
     'AzureActiveDirectoryArgs',
     'CertificateDescriptionArgs',
+    'ClientCertificateArgs',
     'ClientCertificateCommonNameArgs',
     'ClientCertificateThumbprintArgs',
     'ClusterHealthPolicyArgs',
@@ -27,6 +28,7 @@ __all__ = [
     'ClusterUpgradePolicyArgs',
     'DiagnosticsStorageAccountConfigArgs',
     'EndpointRangeDescriptionArgs',
+    'LoadBalancingRuleArgs',
     'ManagedIdentityArgs',
     'NamedPartitionSchemeDescriptionArgs',
     'NodeTypeDescriptionArgs',
@@ -40,7 +42,12 @@ __all__ = [
     'SettingsParameterDescriptionArgs',
     'SettingsSectionDescriptionArgs',
     'SingletonPartitionSchemeDescriptionArgs',
+    'SkuArgs',
+    'SubResourceArgs',
     'UniformInt64RangePartitionSchemeDescriptionArgs',
+    'VMSSExtensionArgs',
+    'VaultCertificateArgs',
+    'VaultSecretGroupArgs',
 ]
 
 @pulumi.input_type
@@ -717,6 +724,77 @@ class CertificateDescriptionArgs:
 
 
 @pulumi.input_type
+class ClientCertificateArgs:
+    def __init__(__self__, *,
+                 is_admin: pulumi.Input[bool],
+                 common_name: Optional[pulumi.Input[str]] = None,
+                 issuer_thumbprint: Optional[pulumi.Input[str]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None):
+        """
+        Client Certificate definition.
+        :param pulumi.Input[bool] is_admin: Whether the certificate is admin or not.
+        :param pulumi.Input[str] common_name: Certificate Common name.
+        :param pulumi.Input[str] issuer_thumbprint: Issuer thumbprint for the certificate. Its only use CommonName is used.
+        :param pulumi.Input[str] thumbprint: Certificate Thumbprint.
+        """
+        pulumi.set(__self__, "is_admin", is_admin)
+        if common_name is not None:
+            pulumi.set(__self__, "common_name", common_name)
+        if issuer_thumbprint is not None:
+            pulumi.set(__self__, "issuer_thumbprint", issuer_thumbprint)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="isAdmin")
+    def is_admin(self) -> pulumi.Input[bool]:
+        """
+        Whether the certificate is admin or not.
+        """
+        return pulumi.get(self, "is_admin")
+
+    @is_admin.setter
+    def is_admin(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_admin", value)
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate Common name.
+        """
+        return pulumi.get(self, "common_name")
+
+    @common_name.setter
+    def common_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "common_name", value)
+
+    @property
+    @pulumi.getter(name="issuerThumbprint")
+    def issuer_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Issuer thumbprint for the certificate. Its only use CommonName is used.
+        """
+        return pulumi.get(self, "issuer_thumbprint")
+
+    @issuer_thumbprint.setter
+    def issuer_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_thumbprint", value)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate Thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thumbprint", value)
+
+
+@pulumi.input_type
 class ClientCertificateCommonNameArgs:
     def __init__(__self__, *,
                  certificate_common_name: pulumi.Input[str],
@@ -1249,6 +1327,90 @@ class EndpointRangeDescriptionArgs:
     @start_port.setter
     def start_port(self, value: pulumi.Input[float]):
         pulumi.set(self, "start_port", value)
+
+
+@pulumi.input_type
+class LoadBalancingRuleArgs:
+    def __init__(__self__, *,
+                 backend_port: pulumi.Input[float],
+                 frontend_port: pulumi.Input[float],
+                 probe_protocol: pulumi.Input[str],
+                 protocol: pulumi.Input[str],
+                 probe_request_path: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a load balancing rule.
+        :param pulumi.Input[float] backend_port: The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+        :param pulumi.Input[float] frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+        :param pulumi.Input[str] probe_protocol: the reference to the load balancer probe used by the load balancing rule.
+        :param pulumi.Input[str] protocol: The reference to the transport protocol used by the load balancing rule.
+        :param pulumi.Input[str] probe_request_path: The probe request path. Only supported for HTTP/HTTPS probes.
+        """
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "probe_protocol", probe_protocol)
+        pulumi.set(__self__, "protocol", protocol)
+        if probe_request_path is not None:
+            pulumi.set(__self__, "probe_request_path", probe_request_path)
+
+    @property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> pulumi.Input[float]:
+        """
+        The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+        """
+        return pulumi.get(self, "backend_port")
+
+    @backend_port.setter
+    def backend_port(self, value: pulumi.Input[float]):
+        pulumi.set(self, "backend_port", value)
+
+    @property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> pulumi.Input[float]:
+        """
+        The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @frontend_port.setter
+    def frontend_port(self, value: pulumi.Input[float]):
+        pulumi.set(self, "frontend_port", value)
+
+    @property
+    @pulumi.getter(name="probeProtocol")
+    def probe_protocol(self) -> pulumi.Input[str]:
+        """
+        the reference to the load balancer probe used by the load balancing rule.
+        """
+        return pulumi.get(self, "probe_protocol")
+
+    @probe_protocol.setter
+    def probe_protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "probe_protocol", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        The reference to the transport protocol used by the load balancing rule.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="probeRequestPath")
+    def probe_request_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The probe request path. Only supported for HTTP/HTTPS probes.
+        """
+        return pulumi.get(self, "probe_request_path")
+
+    @probe_request_path.setter
+    def probe_request_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "probe_request_path", value)
 
 
 @pulumi.input_type
@@ -1895,6 +2057,53 @@ class SingletonPartitionSchemeDescriptionArgs:
 
 
 @pulumi.input_type
+class SkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        Sku definition
+        :param pulumi.Input[str] name: Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class SubResourceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Azure resource identifier.
+        :param pulumi.Input[str] id: Azure resource identifier.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class UniformInt64RangePartitionSchemeDescriptionArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[float],
@@ -1964,5 +2173,229 @@ class UniformInt64RangePartitionSchemeDescriptionArgs:
     @partition_scheme.setter
     def partition_scheme(self, value: pulumi.Input[str]):
         pulumi.set(self, "partition_scheme", value)
+
+
+@pulumi.input_type
+class VMSSExtensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 publisher: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 type_handler_version: pulumi.Input[str],
+                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 force_update_tag: Optional[pulumi.Input[str]] = None,
+                 protected_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 provision_after_extensions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 settings: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Specifies set of extensions that should be installed onto the virtual machines.
+        :param pulumi.Input[str] name: The name of the extension.
+        :param pulumi.Input[str] publisher: The name of the extension handler publisher.
+        :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[str] force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+        :param pulumi.Input[Mapping[str, Any]] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param pulumi.Input[List[pulumi.Input[str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
+        :param pulumi.Input[Mapping[str, Any]] settings: Json formatted public settings for the extension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if auto_upgrade_minor_version is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if provision_after_extensions is not None:
+            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the extension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        The name of the extension handler publisher.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> pulumi.Input[str]:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @type_handler_version.setter
+    def type_handler_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type_handler_version", value)
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @auto_upgrade_minor_version.setter
+    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @force_update_tag.setter
+    def force_update_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "force_update_tag", value)
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @protected_settings.setter
+    def protected_settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "protected_settings", value)
+
+    @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        Collection of extension names after which this extension needs to be provisioned.
+        """
+        return pulumi.get(self, "provision_after_extensions")
+
+    @provision_after_extensions.setter
+    def provision_after_extensions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "provision_after_extensions", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Json formatted public settings for the extension.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "settings", value)
+
+
+@pulumi.input_type
+class VaultCertificateArgs:
+    def __init__(__self__, *,
+                 certificate_store: pulumi.Input[str],
+                 certificate_url: pulumi.Input[str]):
+        """
+        Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+        :param pulumi.Input[str] certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+        :param pulumi.Input[str] certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+        """
+        pulumi.set(__self__, "certificate_store", certificate_store)
+        pulumi.set(__self__, "certificate_url", certificate_url)
+
+    @property
+    @pulumi.getter(name="certificateStore")
+    def certificate_store(self) -> pulumi.Input[str]:
+        """
+        For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+        """
+        return pulumi.get(self, "certificate_store")
+
+    @certificate_store.setter
+    def certificate_store(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_store", value)
+
+    @property
+    @pulumi.getter(name="certificateUrl")
+    def certificate_url(self) -> pulumi.Input[str]:
+        """
+        This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+        """
+        return pulumi.get(self, "certificate_url")
+
+    @certificate_url.setter
+    def certificate_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_url", value)
+
+
+@pulumi.input_type
+class VaultSecretGroupArgs:
+    def __init__(__self__, *,
+                 source_vault: pulumi.Input['SubResourceArgs'],
+                 vault_certificates: pulumi.Input[List[pulumi.Input['VaultCertificateArgs']]]):
+        """
+        Specifies set of certificates that should be installed onto the virtual machines.
+        :param pulumi.Input['SubResourceArgs'] source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        :param pulumi.Input[List[pulumi.Input['VaultCertificateArgs']]] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        """
+        pulumi.set(__self__, "source_vault", source_vault)
+        pulumi.set(__self__, "vault_certificates", vault_certificates)
+
+    @property
+    @pulumi.getter(name="sourceVault")
+    def source_vault(self) -> pulumi.Input['SubResourceArgs']:
+        """
+        The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        """
+        return pulumi.get(self, "source_vault")
+
+    @source_vault.setter
+    def source_vault(self, value: pulumi.Input['SubResourceArgs']):
+        pulumi.set(self, "source_vault", value)
+
+    @property
+    @pulumi.getter(name="vaultCertificates")
+    def vault_certificates(self) -> pulumi.Input[List[pulumi.Input['VaultCertificateArgs']]]:
+        """
+        The list of key vault references in SourceVault which contain certificates.
+        """
+        return pulumi.get(self, "vault_certificates")
+
+    @vault_certificates.setter
+    def vault_certificates(self, value: pulumi.Input[List[pulumi.Input['VaultCertificateArgs']]]):
+        pulumi.set(self, "vault_certificates", value)
 
 

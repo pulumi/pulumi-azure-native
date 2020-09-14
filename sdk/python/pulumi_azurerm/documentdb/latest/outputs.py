@@ -25,8 +25,10 @@ __all__ = [
     'ConflictResolutionPolicyResponse',
     'ConsistencyPolicyResponse',
     'ContainerPartitionKeyResponse',
+    'ContinuousModeBackupPolicyResponse',
     'CorsPolicyResponse',
     'DatabaseAccountConnectionStringResponseResult',
+    'DatabaseRestoreResourceResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
     'GremlinDatabaseGetPropertiesResponseOptions',
@@ -38,6 +40,8 @@ __all__ = [
     'IndexingPolicyResponse',
     'IpAddressOrRangeResponse',
     'LocationResponse',
+    'ManagedServiceIdentityResponse',
+    'ManagedServiceIdentityResponseUserAssignedIdentities',
     'MongoDBCollectionGetPropertiesResponseOptions',
     'MongoDBCollectionGetPropertiesResponseResource',
     'MongoDBDatabaseGetPropertiesResponseOptions',
@@ -45,9 +49,12 @@ __all__ = [
     'MongoIndexKeysResponse',
     'MongoIndexOptionsResponse',
     'MongoIndexResponse',
+    'PeriodicModeBackupPolicyResponse',
+    'PeriodicModePropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
+    'RestoreParametersResponse',
     'SpatialSpecResponse',
     'SqlContainerGetPropertiesResponseOptions',
     'SqlContainerGetPropertiesResponseResource',
@@ -61,6 +68,7 @@ __all__ = [
     'UniqueKeyPolicyResponse',
     'UniqueKeyResponse',
     'VirtualNetworkRuleResponse',
+    'SystemDataResponse',
 ]
 
 @pulumi.output_type
@@ -681,6 +689,31 @@ class ContainerPartitionKeyResponse(dict):
 
 
 @pulumi.output_type
+class ContinuousModeBackupPolicyResponse(dict):
+    """
+    The object representing continuous mode backup policy.
+    """
+    def __init__(__self__, *,
+                 type: str):
+        """
+        The object representing continuous mode backup policy.
+        :param str type: Describes the mode of backups.
+        """
+        pulumi.set(__self__, "type", 'Continuous')
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Describes the mode of backups.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class CorsPolicyResponse(dict):
     """
     The CORS policy for the Cosmos DB database account.
@@ -784,6 +817,44 @@ class DatabaseAccountConnectionStringResponseResult(dict):
         Description of the connection string
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class DatabaseRestoreResourceResponse(dict):
+    """
+    Specific Databases to restore.
+    """
+    def __init__(__self__, *,
+                 collection_names: Optional[List[str]] = None,
+                 database_name: Optional[str] = None):
+        """
+        Specific Databases to restore.
+        :param List[str] collection_names: The names of the collections to restore.
+        :param str database_name: The name of the database to restore.
+        """
+        if collection_names is not None:
+            pulumi.set(__self__, "collection_names", collection_names)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="collectionNames")
+    def collection_names(self) -> Optional[List[str]]:
+        """
+        The names of the collections to restore.
+        """
+        return pulumi.get(self, "collection_names")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The name of the database to restore.
+        """
+        return pulumi.get(self, "database_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1378,6 +1449,98 @@ class LocationResponse(dict):
 
 
 @pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']]:
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class MongoDBCollectionGetPropertiesResponseOptions(dict):
     def __init__(__self__, *,
                  autoscale_settings: Optional['outputs.AutoscaleSettingsResponse'] = None,
@@ -1692,6 +1855,81 @@ class MongoIndexResponse(dict):
 
 
 @pulumi.output_type
+class PeriodicModeBackupPolicyResponse(dict):
+    """
+    The object representing periodic mode backup policy.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 periodic_mode_properties: Optional['outputs.PeriodicModePropertiesResponse'] = None):
+        """
+        The object representing periodic mode backup policy.
+        :param str type: Describes the mode of backups.
+        :param 'PeriodicModePropertiesResponseArgs' periodic_mode_properties: Configuration values for periodic mode backup
+        """
+        pulumi.set(__self__, "type", 'Periodic')
+        if periodic_mode_properties is not None:
+            pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Describes the mode of backups.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="periodicModeProperties")
+    def periodic_mode_properties(self) -> Optional['outputs.PeriodicModePropertiesResponse']:
+        """
+        Configuration values for periodic mode backup
+        """
+        return pulumi.get(self, "periodic_mode_properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PeriodicModePropertiesResponse(dict):
+    """
+    Configuration values for periodic mode backup
+    """
+    def __init__(__self__, *,
+                 backup_interval_in_minutes: Optional[float] = None,
+                 backup_retention_interval_in_hours: Optional[float] = None):
+        """
+        Configuration values for periodic mode backup
+        :param float backup_interval_in_minutes: An integer representing the interval in minutes between two backups
+        :param float backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        """
+        if backup_interval_in_minutes is not None:
+            pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
+        if backup_retention_interval_in_hours is not None:
+            pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+
+    @property
+    @pulumi.getter(name="backupIntervalInMinutes")
+    def backup_interval_in_minutes(self) -> Optional[float]:
+        """
+        An integer representing the interval in minutes between two backups
+        """
+        return pulumi.get(self, "backup_interval_in_minutes")
+
+    @property
+    @pulumi.getter(name="backupRetentionIntervalInHours")
+    def backup_retention_interval_in_hours(self) -> Optional[float]:
+        """
+        An integer representing the time (in hours) that each backup is retained
+        """
+        return pulumi.get(self, "backup_retention_interval_in_hours")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     A private endpoint connection
@@ -1795,13 +2033,17 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
     """
     def __init__(__self__, *,
                  actions_required: str,
+                 description: Optional[str] = None,
                  status: Optional[str] = None):
         """
         Connection State of the Private Endpoint Connection.
         :param str actions_required: Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+        :param str description: The private link service connection description.
         :param str status: The private link service connection status.
         """
         pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -1815,11 +2057,81 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[str]:
         """
         The private link service connection status.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RestoreParametersResponse(dict):
+    """
+    Parameters to indicate the information about the restore.
+    """
+    def __init__(__self__, *,
+                 databases_to_restore: Optional[List['outputs.DatabaseRestoreResourceResponse']] = None,
+                 restore_mode: Optional[str] = None,
+                 restore_source: Optional[str] = None,
+                 restore_timestamp_in_utc: Optional[str] = None):
+        """
+        Parameters to indicate the information about the restore.
+        :param List['DatabaseRestoreResourceResponseArgs'] databases_to_restore: List of specific databases to restore.
+        :param str restore_mode: Describes the mode of the restore.
+        :param str restore_source: Path of the source account from which the restore has to be initiated
+        :param str restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
+        """
+        if databases_to_restore is not None:
+            pulumi.set(__self__, "databases_to_restore", databases_to_restore)
+        if restore_mode is not None:
+            pulumi.set(__self__, "restore_mode", restore_mode)
+        if restore_source is not None:
+            pulumi.set(__self__, "restore_source", restore_source)
+        if restore_timestamp_in_utc is not None:
+            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+
+    @property
+    @pulumi.getter(name="databasesToRestore")
+    def databases_to_restore(self) -> Optional[List['outputs.DatabaseRestoreResourceResponse']]:
+        """
+        List of specific databases to restore.
+        """
+        return pulumi.get(self, "databases_to_restore")
+
+    @property
+    @pulumi.getter(name="restoreMode")
+    def restore_mode(self) -> Optional[str]:
+        """
+        Describes the mode of the restore.
+        """
+        return pulumi.get(self, "restore_mode")
+
+    @property
+    @pulumi.getter(name="restoreSource")
+    def restore_source(self) -> Optional[str]:
+        """
+        Path of the source account from which the restore has to be initiated
+        """
+        return pulumi.get(self, "restore_source")
+
+    @property
+    @pulumi.getter(name="restoreTimestampInUtc")
+    def restore_timestamp_in_utc(self) -> Optional[str]:
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+        return pulumi.get(self, "restore_timestamp_in_utc")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1900,7 +2212,6 @@ class SqlContainerGetPropertiesResponseResource(dict):
                  id: str,
                  rid: str,
                  ts: Mapping[str, Any],
-                 analytical_storage_ttl: Optional[float] = None,
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
                  default_ttl: Optional[float] = None,
                  indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
@@ -1911,7 +2222,6 @@ class SqlContainerGetPropertiesResponseResource(dict):
         :param str id: Name of the Cosmos DB SQL container
         :param str rid: A system generated property. A unique identifier.
         :param Mapping[str, Any] ts: A system generated property that denotes the last updated timestamp of the resource.
-        :param float analytical_storage_ttl: Analytical TTL.
         :param 'ConflictResolutionPolicyResponseArgs' conflict_resolution_policy: The conflict resolution policy for the container.
         :param float default_ttl: Default time to live
         :param 'IndexingPolicyResponseArgs' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
@@ -1922,8 +2232,6 @@ class SqlContainerGetPropertiesResponseResource(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
         pulumi.set(__self__, "ts", ts)
-        if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if default_ttl is not None:
@@ -1966,14 +2274,6 @@ class SqlContainerGetPropertiesResponseResource(dict):
         A system generated property that denotes the last updated timestamp of the resource.
         """
         return pulumi.get(self, "ts")
-
-    @property
-    @pulumi.getter(name="analyticalStorageTtl")
-    def analytical_storage_ttl(self) -> Optional[float]:
-        """
-        Analytical TTL.
-        """
-        return pulumi.get(self, "analytical_storage_ttl")
 
     @property
     @pulumi.getter(name="conflictResolutionPolicy")
@@ -2526,6 +2826,92 @@ class VirtualNetworkRuleResponse(dict):
         Create firewall rule before the virtual network has vnet service endpoint enabled.
         """
         return pulumi.get(self, "ignore_missing_v_net_service_endpoint")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -17,6 +17,9 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_arm_id: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  is_auto_inflate_enabled: Optional[pulumi.Input[bool]] = None,
                  kafka_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -25,6 +28,7 @@ class Namespace(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -55,6 +59,9 @@ class Namespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_arm_id: Cluster ARM ID of the Namespace.
+        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Properties of BYOK Encryption description
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Properties of BYOK Identity description
         :param pulumi.Input[bool] is_auto_inflate_enabled: Value that indicates whether AutoInflate is enabled for eventhub namespace.
         :param pulumi.Input[bool] kafka_enabled: Value that indicates whether Kafka is enabled for eventhub namespace.
         :param pulumi.Input[str] location: Resource location.
@@ -63,6 +70,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Properties of sku resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[bool] zone_redundant: Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,6 +89,9 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['cluster_arm_id'] = cluster_arm_id
+            __props__['encryption'] = encryption
+            __props__['identity'] = identity
             __props__['is_auto_inflate_enabled'] = is_auto_inflate_enabled
             __props__['kafka_enabled'] = kafka_enabled
             __props__['location'] = location
@@ -93,6 +104,7 @@ class Namespace(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['zone_redundant'] = zone_redundant
             __props__['created_at'] = None
             __props__['metric_id'] = None
             __props__['name'] = None
@@ -127,12 +139,36 @@ class Namespace(pulumi.CustomResource):
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="clusterArmId")
+    def cluster_arm_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Cluster ARM ID of the Namespace.
+        """
+        return pulumi.get(self, "cluster_arm_id")
+
+    @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         """
         The time the Namespace was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionResponse']]:
+        """
+        Properties of BYOK Encryption description
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        Properties of BYOK Identity description
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="isAutoInflateEnabled")
@@ -229,6 +265,14 @@ class Namespace(pulumi.CustomResource):
         The time the Namespace was updated.
         """
         return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        """
+        return pulumi.get(self, "zone_redundant")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

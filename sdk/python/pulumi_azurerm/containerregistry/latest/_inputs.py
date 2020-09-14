@@ -9,31 +9,97 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'ActiveDirectoryObjectArgs',
     'AgentPropertiesArgs',
+    'ArgumentArgs',
     'AuthInfoArgs',
     'BaseImageTriggerArgs',
     'CredentialsArgs',
     'CustomRegistryCredentialsArgs',
+    'DockerBuildRequestArgs',
+    'DockerBuildStepArgs',
+    'EncodedTaskRunRequestArgs',
+    'EncodedTaskStepArgs',
+    'EncryptionPropertyArgs',
+    'ExportPipelineTargetPropertiesArgs',
+    'FileTaskRunRequestArgs',
+    'FileTaskStepArgs',
     'IPRuleArgs',
     'IdentityPropertiesArgs',
+    'ImportPipelineSourcePropertiesArgs',
+    'KeyVaultPropertiesArgs',
     'NetworkRuleSetArgs',
+    'OverrideTaskStepPropertiesArgs',
+    'PipelineRunRequestArgs',
+    'PipelineRunSourcePropertiesArgs',
+    'PipelineRunTargetPropertiesArgs',
+    'PipelineSourceTriggerPropertiesArgs',
+    'PipelineTriggerPropertiesArgs',
     'PlatformPropertiesArgs',
     'PoliciesArgs',
+    'PrivateEndpointArgs',
+    'PrivateLinkServiceConnectionStateArgs',
     'QuarantinePolicyArgs',
     'RetentionPolicyArgs',
     'SecretObjectArgs',
+    'SetValueArgs',
     'SkuArgs',
+    'SourceControlAuthInfoArgs',
     'SourcePropertiesArgs',
     'SourceRegistryCredentialsArgs',
+    'SourceRepositoryPropertiesArgs',
     'SourceTriggerArgs',
     'StorageAccountPropertiesArgs',
-    'TaskStepPropertiesArgs',
+    'TaskRunRequestArgs',
     'TimerTriggerArgs',
+    'TokenCertificateArgs',
+    'TokenCredentialsPropertiesArgs',
+    'TokenPasswordArgs',
     'TriggerPropertiesArgs',
     'TrustPolicyArgs',
     'UserIdentityPropertiesArgs',
     'VirtualNetworkRuleArgs',
 ]
+
+@pulumi.input_type
+class ActiveDirectoryObjectArgs:
+    def __init__(__self__, *,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        The Active Directory Object that will be used for authenticating the token of a container registry.
+        :param pulumi.Input[str] object_id: The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+        :param pulumi.Input[str] tenant_id: The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+        """
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
 
 @pulumi.input_type
 class AgentPropertiesArgs:
@@ -57,6 +123,60 @@ class AgentPropertiesArgs:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "cpu", value)
+
+
+@pulumi.input_type
+class ArgumentArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 is_secret: Optional[pulumi.Input[bool]] = None):
+        """
+        The properties of a run argument.
+        :param pulumi.Input[str] name: The name of the argument.
+        :param pulumi.Input[str] value: The value of the argument.
+        :param pulumi.Input[bool] is_secret: Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if is_secret is not None:
+            pulumi.set(__self__, "is_secret", is_secret)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the argument.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the argument.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="isSecret")
+    def is_secret(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+        """
+        return pulumi.get(self, "is_secret")
+
+    @is_secret.setter
+    def is_secret(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_secret", value)
 
 
 @pulumi.input_type
@@ -150,17 +270,25 @@ class BaseImageTriggerArgs:
     def __init__(__self__, *,
                  base_image_trigger_type: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[str]] = None,
+                 update_trigger_endpoint: Optional[pulumi.Input[str]] = None,
+                 update_trigger_payload_type: Optional[pulumi.Input[str]] = None):
         """
         The trigger based on base image dependency.
         :param pulumi.Input[str] base_image_trigger_type: The type of the auto trigger for base image dependency updates.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input[str] status: The current status of trigger.
+        :param pulumi.Input[str] update_trigger_endpoint: The endpoint URL for receiving update triggers.
+        :param pulumi.Input[str] update_trigger_payload_type: Type of Payload body for Base image update triggers.
         """
         pulumi.set(__self__, "base_image_trigger_type", base_image_trigger_type)
         pulumi.set(__self__, "name", name)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if update_trigger_endpoint is not None:
+            pulumi.set(__self__, "update_trigger_endpoint", update_trigger_endpoint)
+        if update_trigger_payload_type is not None:
+            pulumi.set(__self__, "update_trigger_payload_type", update_trigger_payload_type)
 
     @property
     @pulumi.getter(name="baseImageTriggerType")
@@ -197,6 +325,30 @@ class BaseImageTriggerArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="updateTriggerEndpoint")
+    def update_trigger_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for receiving update triggers.
+        """
+        return pulumi.get(self, "update_trigger_endpoint")
+
+    @update_trigger_endpoint.setter
+    def update_trigger_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update_trigger_endpoint", value)
+
+    @property
+    @pulumi.getter(name="updateTriggerPayloadType")
+    def update_trigger_payload_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of Payload body for Base image update triggers.
+        """
+        return pulumi.get(self, "update_trigger_payload_type")
+
+    @update_trigger_payload_type.setter
+    def update_trigger_payload_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update_trigger_payload_type", value)
 
 
 @pulumi.input_type
@@ -307,6 +459,1103 @@ class CustomRegistryCredentialsArgs:
     @user_name.setter
     def user_name(self, value: Optional[pulumi.Input['SecretObjectArgs']]):
         pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class DockerBuildRequestArgs:
+    def __init__(__self__, *,
+                 docker_file_path: pulumi.Input[str],
+                 platform: pulumi.Input['PlatformPropertiesArgs'],
+                 type: pulumi.Input[str],
+                 agent_configuration: Optional[pulumi.Input['AgentPropertiesArgs']] = None,
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 arguments: Optional[pulumi.Input[List[pulumi.Input['ArgumentArgs']]]] = None,
+                 credentials: Optional[pulumi.Input['CredentialsArgs']] = None,
+                 image_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 is_archive_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_push_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_template: Optional[pulumi.Input[str]] = None,
+                 no_cache: Optional[pulumi.Input[bool]] = None,
+                 source_location: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[float]] = None):
+        """
+        The parameters for a docker quick build.
+        :param pulumi.Input[str] docker_file_path: The Docker file path relative to the source location.
+        :param pulumi.Input['PlatformPropertiesArgs'] platform: The platform properties against which the run has to happen.
+        :param pulumi.Input[str] type: The type of the run request.
+        :param pulumi.Input['AgentPropertiesArgs'] agent_configuration: The machine configuration of the run agent.
+        :param pulumi.Input[str] agent_pool_name: The dedicated agent pool for the run.
+        :param pulumi.Input[List[pulumi.Input['ArgumentArgs']]] arguments: The collection of override arguments to be used when executing the run.
+        :param pulumi.Input['CredentialsArgs'] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
+        :param pulumi.Input[List[pulumi.Input[str]]] image_names: The fully qualified image names including the repository and tag.
+        :param pulumi.Input[bool] is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
+        :param pulumi.Input[bool] is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
+        :param pulumi.Input[str] log_template: The template that describes the repository and tag information for run log artifact.
+        :param pulumi.Input[bool] no_cache: The value of this property indicates whether the image cache is enabled or not.
+        :param pulumi.Input[str] source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+               If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+        :param pulumi.Input[str] target: The name of the target build stage for the docker build.
+        :param pulumi.Input[float] timeout: Run timeout in seconds.
+        """
+        pulumi.set(__self__, "docker_file_path", docker_file_path)
+        pulumi.set(__self__, "platform", platform)
+        pulumi.set(__self__, "type", 'DockerBuildRequest')
+        if agent_configuration is not None:
+            pulumi.set(__self__, "agent_configuration", agent_configuration)
+        if agent_pool_name is not None:
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if image_names is not None:
+            pulumi.set(__self__, "image_names", image_names)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if is_push_enabled is not None:
+            pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
+        if no_cache is not None:
+            pulumi.set(__self__, "no_cache", no_cache)
+        if source_location is not None:
+            pulumi.set(__self__, "source_location", source_location)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="dockerFilePath")
+    def docker_file_path(self) -> pulumi.Input[str]:
+        """
+        The Docker file path relative to the source location.
+        """
+        return pulumi.get(self, "docker_file_path")
+
+    @docker_file_path.setter
+    def docker_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "docker_file_path", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> pulumi.Input['PlatformPropertiesArgs']:
+        """
+        The platform properties against which the run has to happen.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: pulumi.Input['PlatformPropertiesArgs']):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the run request.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="agentConfiguration")
+    def agent_configuration(self) -> Optional[pulumi.Input['AgentPropertiesArgs']]:
+        """
+        The machine configuration of the run agent.
+        """
+        return pulumi.get(self, "agent_configuration")
+
+    @agent_configuration.setter
+    def agent_configuration(self, value: Optional[pulumi.Input['AgentPropertiesArgs']]):
+        pulumi.set(self, "agent_configuration", value)
+
+    @property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dedicated agent pool for the run.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @agent_pool_name.setter
+    def agent_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_pool_name", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[List[pulumi.Input['ArgumentArgs']]]]:
+        """
+        The collection of override arguments to be used when executing the run.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[List[pulumi.Input['ArgumentArgs']]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['CredentialsArgs']]:
+        """
+        The properties that describes a set of credentials that will be used when this run is invoked.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['CredentialsArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="imageNames")
+    def image_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The fully qualified image names including the repository and tag.
+        """
+        return pulumi.get(self, "image_names")
+
+    @image_names.setter
+    def image_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "image_names", value)
+
+    @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value that indicates whether archiving is enabled for the run or not.
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @is_archive_enabled.setter
+    def is_archive_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archive_enabled", value)
+
+    @property
+    @pulumi.getter(name="isPushEnabled")
+    def is_push_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value of this property indicates whether the image built should be pushed to the registry or not.
+        """
+        return pulumi.get(self, "is_push_enabled")
+
+    @is_push_enabled.setter
+    def is_push_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_push_enabled", value)
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
+
+    @log_template.setter
+    def log_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_template", value)
+
+    @property
+    @pulumi.getter(name="noCache")
+    def no_cache(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value of this property indicates whether the image cache is enabled or not.
+        """
+        return pulumi.get(self, "no_cache")
+
+    @no_cache.setter
+    def no_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "no_cache", value)
+
+    @property
+    @pulumi.getter(name="sourceLocation")
+    def source_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+        If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+        """
+        return pulumi.get(self, "source_location")
+
+    @source_location.setter
+    def source_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_location", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the target build stage for the docker build.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[float]]:
+        """
+        Run timeout in seconds.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class DockerBuildStepArgs:
+    def __init__(__self__, *,
+                 docker_file_path: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 arguments: Optional[pulumi.Input[List[pulumi.Input['ArgumentArgs']]]] = None,
+                 context_access_token: Optional[pulumi.Input[str]] = None,
+                 context_path: Optional[pulumi.Input[str]] = None,
+                 image_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 is_push_enabled: Optional[pulumi.Input[bool]] = None,
+                 no_cache: Optional[pulumi.Input[bool]] = None,
+                 target: Optional[pulumi.Input[str]] = None):
+        """
+        The Docker build step.
+        :param pulumi.Input[str] docker_file_path: The Docker file path relative to the source context.
+        :param pulumi.Input[str] type: The type of the step.
+        :param pulumi.Input[List[pulumi.Input['ArgumentArgs']]] arguments: The collection of override arguments to be used when executing this build step.
+        :param pulumi.Input[str] context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param pulumi.Input[str] context_path: The URL(absolute or relative) of the source context for the task step.
+        :param pulumi.Input[List[pulumi.Input[str]]] image_names: The fully qualified image names including the repository and tag.
+        :param pulumi.Input[bool] is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
+        :param pulumi.Input[bool] no_cache: The value of this property indicates whether the image cache is enabled or not.
+        :param pulumi.Input[str] target: The name of the target build stage for the docker build.
+        """
+        pulumi.set(__self__, "docker_file_path", docker_file_path)
+        pulumi.set(__self__, "type", 'Docker')
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if image_names is not None:
+            pulumi.set(__self__, "image_names", image_names)
+        if is_push_enabled is not None:
+            pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if no_cache is not None:
+            pulumi.set(__self__, "no_cache", no_cache)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="dockerFilePath")
+    def docker_file_path(self) -> pulumi.Input[str]:
+        """
+        The Docker file path relative to the source context.
+        """
+        return pulumi.get(self, "docker_file_path")
+
+    @docker_file_path.setter
+    def docker_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "docker_file_path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the step.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[List[pulumi.Input['ArgumentArgs']]]]:
+        """
+        The collection of override arguments to be used when executing this build step.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[List[pulumi.Input['ArgumentArgs']]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @context_access_token.setter
+    def context_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_access_token", value)
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @context_path.setter
+    def context_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_path", value)
+
+    @property
+    @pulumi.getter(name="imageNames")
+    def image_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The fully qualified image names including the repository and tag.
+        """
+        return pulumi.get(self, "image_names")
+
+    @image_names.setter
+    def image_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "image_names", value)
+
+    @property
+    @pulumi.getter(name="isPushEnabled")
+    def is_push_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value of this property indicates whether the image built should be pushed to the registry or not.
+        """
+        return pulumi.get(self, "is_push_enabled")
+
+    @is_push_enabled.setter
+    def is_push_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_push_enabled", value)
+
+    @property
+    @pulumi.getter(name="noCache")
+    def no_cache(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value of this property indicates whether the image cache is enabled or not.
+        """
+        return pulumi.get(self, "no_cache")
+
+    @no_cache.setter
+    def no_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "no_cache", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the target build stage for the docker build.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class EncodedTaskRunRequestArgs:
+    def __init__(__self__, *,
+                 encoded_task_content: pulumi.Input[str],
+                 platform: pulumi.Input['PlatformPropertiesArgs'],
+                 type: pulumi.Input[str],
+                 agent_configuration: Optional[pulumi.Input['AgentPropertiesArgs']] = None,
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 credentials: Optional[pulumi.Input['CredentialsArgs']] = None,
+                 encoded_values_content: Optional[pulumi.Input[str]] = None,
+                 is_archive_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_template: Optional[pulumi.Input[str]] = None,
+                 source_location: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[float]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]] = None):
+        """
+        The parameters for a quick task run request.
+        :param pulumi.Input[str] encoded_task_content: Base64 encoded value of the template/definition file content.
+        :param pulumi.Input['PlatformPropertiesArgs'] platform: The platform properties against which the run has to happen.
+        :param pulumi.Input[str] type: The type of the run request.
+        :param pulumi.Input['AgentPropertiesArgs'] agent_configuration: The machine configuration of the run agent.
+        :param pulumi.Input[str] agent_pool_name: The dedicated agent pool for the run.
+        :param pulumi.Input['CredentialsArgs'] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
+        :param pulumi.Input[str] encoded_values_content: Base64 encoded value of the parameters/values file content.
+        :param pulumi.Input[bool] is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
+        :param pulumi.Input[str] log_template: The template that describes the repository and tag information for run log artifact.
+        :param pulumi.Input[str] source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+               If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+        :param pulumi.Input[float] timeout: Run timeout in seconds.
+        :param pulumi.Input[List[pulumi.Input['SetValueArgs']]] values: The collection of overridable values that can be passed when running a task.
+        """
+        pulumi.set(__self__, "encoded_task_content", encoded_task_content)
+        pulumi.set(__self__, "platform", platform)
+        pulumi.set(__self__, "type", 'EncodedTaskRunRequest')
+        if agent_configuration is not None:
+            pulumi.set(__self__, "agent_configuration", agent_configuration)
+        if agent_pool_name is not None:
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if encoded_values_content is not None:
+            pulumi.set(__self__, "encoded_values_content", encoded_values_content)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
+        if source_location is not None:
+            pulumi.set(__self__, "source_location", source_location)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="encodedTaskContent")
+    def encoded_task_content(self) -> pulumi.Input[str]:
+        """
+        Base64 encoded value of the template/definition file content.
+        """
+        return pulumi.get(self, "encoded_task_content")
+
+    @encoded_task_content.setter
+    def encoded_task_content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encoded_task_content", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> pulumi.Input['PlatformPropertiesArgs']:
+        """
+        The platform properties against which the run has to happen.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: pulumi.Input['PlatformPropertiesArgs']):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the run request.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="agentConfiguration")
+    def agent_configuration(self) -> Optional[pulumi.Input['AgentPropertiesArgs']]:
+        """
+        The machine configuration of the run agent.
+        """
+        return pulumi.get(self, "agent_configuration")
+
+    @agent_configuration.setter
+    def agent_configuration(self, value: Optional[pulumi.Input['AgentPropertiesArgs']]):
+        pulumi.set(self, "agent_configuration", value)
+
+    @property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dedicated agent pool for the run.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @agent_pool_name.setter
+    def agent_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_pool_name", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['CredentialsArgs']]:
+        """
+        The properties that describes a set of credentials that will be used when this run is invoked.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['CredentialsArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="encodedValuesContent")
+    def encoded_values_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64 encoded value of the parameters/values file content.
+        """
+        return pulumi.get(self, "encoded_values_content")
+
+    @encoded_values_content.setter
+    def encoded_values_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoded_values_content", value)
+
+    @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value that indicates whether archiving is enabled for the run or not.
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @is_archive_enabled.setter
+    def is_archive_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archive_enabled", value)
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
+
+    @log_template.setter
+    def log_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_template", value)
+
+    @property
+    @pulumi.getter(name="sourceLocation")
+    def source_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+        If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+        """
+        return pulumi.get(self, "source_location")
+
+    @source_location.setter
+    def source_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_location", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[float]]:
+        """
+        Run timeout in seconds.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]]:
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class EncodedTaskStepArgs:
+    def __init__(__self__, *,
+                 encoded_task_content: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 context_access_token: Optional[pulumi.Input[str]] = None,
+                 context_path: Optional[pulumi.Input[str]] = None,
+                 encoded_values_content: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]] = None):
+        """
+        The properties of a encoded task step.
+        :param pulumi.Input[str] encoded_task_content: Base64 encoded value of the template/definition file content.
+        :param pulumi.Input[str] type: The type of the step.
+        :param pulumi.Input[str] context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param pulumi.Input[str] context_path: The URL(absolute or relative) of the source context for the task step.
+        :param pulumi.Input[str] encoded_values_content: Base64 encoded value of the parameters/values file content.
+        :param pulumi.Input[List[pulumi.Input['SetValueArgs']]] values: The collection of overridable values that can be passed when running a task.
+        """
+        pulumi.set(__self__, "encoded_task_content", encoded_task_content)
+        pulumi.set(__self__, "type", 'EncodedTask')
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if encoded_values_content is not None:
+            pulumi.set(__self__, "encoded_values_content", encoded_values_content)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="encodedTaskContent")
+    def encoded_task_content(self) -> pulumi.Input[str]:
+        """
+        Base64 encoded value of the template/definition file content.
+        """
+        return pulumi.get(self, "encoded_task_content")
+
+    @encoded_task_content.setter
+    def encoded_task_content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encoded_task_content", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the step.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @context_access_token.setter
+    def context_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_access_token", value)
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @context_path.setter
+    def context_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_path", value)
+
+    @property
+    @pulumi.getter(name="encodedValuesContent")
+    def encoded_values_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64 encoded value of the parameters/values file content.
+        """
+        return pulumi.get(self, "encoded_values_content")
+
+    @encoded_values_content.setter
+    def encoded_values_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoded_values_content", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]]:
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class EncryptionPropertyArgs:
+    def __init__(__self__, *,
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Key vault properties.
+        :param pulumi.Input[str] status: Indicates whether or not the encryption is enabled for container registry.
+        """
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+        """
+        Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether or not the encryption is enabled for container registry.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class ExportPipelineTargetPropertiesArgs:
+    def __init__(__self__, *,
+                 key_vault_uri: pulumi.Input[str],
+                 type: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the export pipeline target.
+        :param pulumi.Input[str] key_vault_uri: They key vault secret uri to obtain the target storage SAS token.
+        :param pulumi.Input[str] type: The type of target for the export pipeline.
+        :param pulumi.Input[str] uri: The target uri of the export pipeline.
+               When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+               When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+        """
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> pulumi.Input[str]:
+        """
+        They key vault secret uri to obtain the target storage SAS token.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of target for the export pipeline.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target uri of the export pipeline.
+        When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+        When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class FileTaskRunRequestArgs:
+    def __init__(__self__, *,
+                 platform: pulumi.Input['PlatformPropertiesArgs'],
+                 task_file_path: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 agent_configuration: Optional[pulumi.Input['AgentPropertiesArgs']] = None,
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 credentials: Optional[pulumi.Input['CredentialsArgs']] = None,
+                 is_archive_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_template: Optional[pulumi.Input[str]] = None,
+                 source_location: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[float]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]] = None,
+                 values_file_path: Optional[pulumi.Input[str]] = None):
+        """
+        The request parameters for a scheduling run against a task file.
+        :param pulumi.Input['PlatformPropertiesArgs'] platform: The platform properties against which the run has to happen.
+        :param pulumi.Input[str] task_file_path: The template/definition file path relative to the source.
+        :param pulumi.Input[str] type: The type of the run request.
+        :param pulumi.Input['AgentPropertiesArgs'] agent_configuration: The machine configuration of the run agent.
+        :param pulumi.Input[str] agent_pool_name: The dedicated agent pool for the run.
+        :param pulumi.Input['CredentialsArgs'] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
+        :param pulumi.Input[bool] is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
+        :param pulumi.Input[str] log_template: The template that describes the repository and tag information for run log artifact.
+        :param pulumi.Input[str] source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+               If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+        :param pulumi.Input[float] timeout: Run timeout in seconds.
+        :param pulumi.Input[List[pulumi.Input['SetValueArgs']]] values: The collection of overridable values that can be passed when running a task.
+        :param pulumi.Input[str] values_file_path: The values/parameters file path relative to the source.
+        """
+        pulumi.set(__self__, "platform", platform)
+        pulumi.set(__self__, "task_file_path", task_file_path)
+        pulumi.set(__self__, "type", 'FileTaskRunRequest')
+        if agent_configuration is not None:
+            pulumi.set(__self__, "agent_configuration", agent_configuration)
+        if agent_pool_name is not None:
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
+        if source_location is not None:
+            pulumi.set(__self__, "source_location", source_location)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if values_file_path is not None:
+            pulumi.set(__self__, "values_file_path", values_file_path)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> pulumi.Input['PlatformPropertiesArgs']:
+        """
+        The platform properties against which the run has to happen.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: pulumi.Input['PlatformPropertiesArgs']):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter(name="taskFilePath")
+    def task_file_path(self) -> pulumi.Input[str]:
+        """
+        The template/definition file path relative to the source.
+        """
+        return pulumi.get(self, "task_file_path")
+
+    @task_file_path.setter
+    def task_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "task_file_path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the run request.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="agentConfiguration")
+    def agent_configuration(self) -> Optional[pulumi.Input['AgentPropertiesArgs']]:
+        """
+        The machine configuration of the run agent.
+        """
+        return pulumi.get(self, "agent_configuration")
+
+    @agent_configuration.setter
+    def agent_configuration(self, value: Optional[pulumi.Input['AgentPropertiesArgs']]):
+        pulumi.set(self, "agent_configuration", value)
+
+    @property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dedicated agent pool for the run.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @agent_pool_name.setter
+    def agent_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_pool_name", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['CredentialsArgs']]:
+        """
+        The properties that describes a set of credentials that will be used when this run is invoked.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['CredentialsArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value that indicates whether archiving is enabled for the run or not.
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @is_archive_enabled.setter
+    def is_archive_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archive_enabled", value)
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
+
+    @log_template.setter
+    def log_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_template", value)
+
+    @property
+    @pulumi.getter(name="sourceLocation")
+    def source_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+        If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+        """
+        return pulumi.get(self, "source_location")
+
+    @source_location.setter
+    def source_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_location", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[float]]:
+        """
+        Run timeout in seconds.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]]:
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]]):
+        pulumi.set(self, "values", value)
+
+    @property
+    @pulumi.getter(name="valuesFilePath")
+    def values_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The values/parameters file path relative to the source.
+        """
+        return pulumi.get(self, "values_file_path")
+
+    @values_file_path.setter
+    def values_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "values_file_path", value)
+
+
+@pulumi.input_type
+class FileTaskStepArgs:
+    def __init__(__self__, *,
+                 task_file_path: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 context_access_token: Optional[pulumi.Input[str]] = None,
+                 context_path: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]] = None,
+                 values_file_path: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of a task step.
+        :param pulumi.Input[str] task_file_path: The task template/definition file path relative to the source context.
+        :param pulumi.Input[str] type: The type of the step.
+        :param pulumi.Input[str] context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param pulumi.Input[str] context_path: The URL(absolute or relative) of the source context for the task step.
+        :param pulumi.Input[List[pulumi.Input['SetValueArgs']]] values: The collection of overridable values that can be passed when running a task.
+        :param pulumi.Input[str] values_file_path: The task values/parameters file path relative to the source context.
+        """
+        pulumi.set(__self__, "task_file_path", task_file_path)
+        pulumi.set(__self__, "type", 'FileTask')
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if values_file_path is not None:
+            pulumi.set(__self__, "values_file_path", values_file_path)
+
+    @property
+    @pulumi.getter(name="taskFilePath")
+    def task_file_path(self) -> pulumi.Input[str]:
+        """
+        The task template/definition file path relative to the source context.
+        """
+        return pulumi.get(self, "task_file_path")
+
+    @task_file_path.setter
+    def task_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "task_file_path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the step.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @context_access_token.setter
+    def context_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_access_token", value)
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @context_path.setter
+    def context_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_path", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]]:
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]]):
+        pulumi.set(self, "values", value)
+
+    @property
+    @pulumi.getter(name="valuesFilePath")
+    def values_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The task values/parameters file path relative to the source context.
+        """
+        return pulumi.get(self, "values_file_path")
+
+    @values_file_path.setter
+    def values_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "values_file_path", value)
 
 
 @pulumi.input_type
@@ -427,6 +1676,104 @@ class IdentityPropertiesArgs:
 
 
 @pulumi.input_type
+class ImportPipelineSourcePropertiesArgs:
+    def __init__(__self__, *,
+                 key_vault_uri: pulumi.Input[str],
+                 type: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the import pipeline source.
+        :param pulumi.Input[str] key_vault_uri: They key vault secret uri to obtain the source storage SAS token.
+        :param pulumi.Input[str] type: The type of source for the import pipeline.
+        :param pulumi.Input[str] uri: The source uri of the import pipeline.
+               When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+               When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+        """
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> pulumi.Input[str]:
+        """
+        They key vault secret uri to obtain the source storage SAS token.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of source for the import pipeline.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source uri of the import pipeline.
+        When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+        When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[str]] = None,
+                 key_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] identity: The client id of the identity which will be used to access key vault.
+        :param pulumi.Input[str] key_identifier: Key vault uri to access the encryption key.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_identifier is not None:
+            pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client id of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key vault uri to access the encryption key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @key_identifier.setter
+    def key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_identifier", value)
+
+
+@pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
@@ -479,6 +1826,328 @@ class NetworkRuleSetArgs:
     @virtual_network_rules.setter
     def virtual_network_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
+
+
+@pulumi.input_type
+class OverrideTaskStepPropertiesArgs:
+    def __init__(__self__, *,
+                 arguments: Optional[pulumi.Input[List[pulumi.Input['ArgumentArgs']]]] = None,
+                 context_path: Optional[pulumi.Input[str]] = None,
+                 file: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 update_trigger_token: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]] = None):
+        """
+        :param pulumi.Input[List[pulumi.Input['ArgumentArgs']]] arguments: Gets or sets the collection of override arguments to be used when
+               executing a build step.
+        :param pulumi.Input[str] context_path: The source context against which run has to be queued.
+        :param pulumi.Input[str] file: The file against which run has to be queued.
+        :param pulumi.Input[str] target: The name of the target build stage for the docker build.
+        :param pulumi.Input[str] update_trigger_token: Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+        :param pulumi.Input[List[pulumi.Input['SetValueArgs']]] values: The collection of overridable values that can be passed when running a Task.
+        """
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if update_trigger_token is not None:
+            pulumi.set(__self__, "update_trigger_token", update_trigger_token)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[List[pulumi.Input['ArgumentArgs']]]]:
+        """
+        Gets or sets the collection of override arguments to be used when
+        executing a build step.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[List[pulumi.Input['ArgumentArgs']]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source context against which run has to be queued.
+        """
+        return pulumi.get(self, "context_path")
+
+    @context_path.setter
+    def context_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_path", value)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The file against which run has to be queued.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the target build stage for the docker build.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="updateTriggerToken")
+    def update_trigger_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+        """
+        return pulumi.get(self, "update_trigger_token")
+
+    @update_trigger_token.setter
+    def update_trigger_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update_trigger_token", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]]:
+        """
+        The collection of overridable values that can be passed when running a Task.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class PipelineRunRequestArgs:
+    def __init__(__self__, *,
+                 artifacts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 catalog_digest: Optional[pulumi.Input[str]] = None,
+                 pipeline_resource_id: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input['PipelineRunSourcePropertiesArgs']] = None,
+                 target: Optional[pulumi.Input['PipelineRunTargetPropertiesArgs']] = None):
+        """
+        The request properties provided for a pipeline run.
+        :param pulumi.Input[List[pulumi.Input[str]]] artifacts: List of source artifacts to be transferred by the pipeline. 
+               Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+               Specify an image by tag ('hello-world:latest').
+               Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+        :param pulumi.Input[str] catalog_digest: The digest of the tar used to transfer the artifacts.
+        :param pulumi.Input[str] pipeline_resource_id: The resource ID of the pipeline to run.
+        :param pulumi.Input['PipelineRunSourcePropertiesArgs'] source: The source properties of the pipeline run.
+        :param pulumi.Input['PipelineRunTargetPropertiesArgs'] target: The target properties of the pipeline run.
+        """
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if catalog_digest is not None:
+            pulumi.set(__self__, "catalog_digest", catalog_digest)
+        if pipeline_resource_id is not None:
+            pulumi.set(__self__, "pipeline_resource_id", pipeline_resource_id)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        List of source artifacts to be transferred by the pipeline. 
+        Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+        Specify an image by tag ('hello-world:latest').
+        Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+        """
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "artifacts", value)
+
+    @property
+    @pulumi.getter(name="catalogDigest")
+    def catalog_digest(self) -> Optional[pulumi.Input[str]]:
+        """
+        The digest of the tar used to transfer the artifacts.
+        """
+        return pulumi.get(self, "catalog_digest")
+
+    @catalog_digest.setter
+    def catalog_digest(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_digest", value)
+
+    @property
+    @pulumi.getter(name="pipelineResourceId")
+    def pipeline_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the pipeline to run.
+        """
+        return pulumi.get(self, "pipeline_resource_id")
+
+    @pipeline_resource_id.setter
+    def pipeline_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['PipelineRunSourcePropertiesArgs']]:
+        """
+        The source properties of the pipeline run.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['PipelineRunSourcePropertiesArgs']]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input['PipelineRunTargetPropertiesArgs']]:
+        """
+        The target properties of the pipeline run.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input['PipelineRunTargetPropertiesArgs']]):
+        pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class PipelineRunSourcePropertiesArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the source.
+        :param pulumi.Input[str] type: The type of the source.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the source.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the source.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class PipelineRunTargetPropertiesArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the target.
+        :param pulumi.Input[str] type: The type of the target.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the target.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the target.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class PipelineSourceTriggerPropertiesArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] status: The current status of the source trigger.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        """
+        The current status of the source trigger.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class PipelineTriggerPropertiesArgs:
+    def __init__(__self__, *,
+                 source_trigger: Optional[pulumi.Input['PipelineSourceTriggerPropertiesArgs']] = None):
+        """
+        :param pulumi.Input['PipelineSourceTriggerPropertiesArgs'] source_trigger: The source trigger properties of the pipeline.
+        """
+        if source_trigger is not None:
+            pulumi.set(__self__, "source_trigger", source_trigger)
+
+    @property
+    @pulumi.getter(name="sourceTrigger")
+    def source_trigger(self) -> Optional[pulumi.Input['PipelineSourceTriggerPropertiesArgs']]:
+        """
+        The source trigger properties of the pipeline.
+        """
+        return pulumi.get(self, "source_trigger")
+
+    @source_trigger.setter
+    def source_trigger(self, value: Optional[pulumi.Input['PipelineSourceTriggerPropertiesArgs']]):
+        pulumi.set(self, "source_trigger", value)
 
 
 @pulumi.input_type
@@ -593,6 +2262,86 @@ class PoliciesArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The Private Endpoint resource.
+        :param pulumi.Input[str] id: This is private endpoint resource created with Microsoft.Network resource provider.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is private endpoint resource created with Microsoft.Network resource provider.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        The state of a private link service connection.
+        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] description: The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+        :param pulumi.Input[str] status: The private link service connection status.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
 class QuarantinePolicyArgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None):
@@ -703,6 +2452,60 @@ class SecretObjectArgs:
 
 
 @pulumi.input_type
+class SetValueArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 is_secret: Optional[pulumi.Input[bool]] = None):
+        """
+        The properties of a overridable value that can be passed to a task template.
+        :param pulumi.Input[str] name: The name of the overridable value.
+        :param pulumi.Input[str] value: The overridable value.
+        :param pulumi.Input[bool] is_secret: Flag to indicate whether the value represents a secret or not.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if is_secret is not None:
+            pulumi.set(__self__, "is_secret", is_secret)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the overridable value.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The overridable value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="isSecret")
+    def is_secret(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether the value represents a secret or not.
+        """
+        return pulumi.get(self, "is_secret")
+
+    @is_secret.setter
+    def is_secret(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_secret", value)
+
+
+@pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
@@ -723,6 +2526,93 @@ class SkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class SourceControlAuthInfoArgs:
+    def __init__(__self__, *,
+                 token: pulumi.Input[str],
+                 expires_in: Optional[pulumi.Input[float]] = None,
+                 refresh_token: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 token_type: Optional[pulumi.Input[str]] = None):
+        """
+        The authorization properties for accessing the source code repository.
+        :param pulumi.Input[str] token: The access token used to access the source control provider.
+        :param pulumi.Input[float] expires_in: Time in seconds that the token remains valid
+        :param pulumi.Input[str] refresh_token: The refresh token used to refresh the access token.
+        :param pulumi.Input[str] scope: The scope of the access token.
+        :param pulumi.Input[str] token_type: The type of Auth token.
+        """
+        pulumi.set(__self__, "token", token)
+        if expires_in is not None:
+            pulumi.set(__self__, "expires_in", expires_in)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_type is not None:
+            pulumi.set(__self__, "token_type", token_type)
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Input[str]:
+        """
+        The access token used to access the source control provider.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter(name="expiresIn")
+    def expires_in(self) -> Optional[pulumi.Input[float]]:
+        """
+        Time in seconds that the token remains valid
+        """
+        return pulumi.get(self, "expires_in")
+
+    @expires_in.setter
+    def expires_in(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "expires_in", value)
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The refresh token used to refresh the access token.
+        """
+        return pulumi.get(self, "refresh_token")
+
+    @refresh_token.setter
+    def refresh_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_token", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The scope of the access token.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of Auth token.
+        """
+        return pulumi.get(self, "token_type")
+
+    @token_type.setter
+    def token_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_type", value)
 
 
 @pulumi.input_type
@@ -826,6 +2716,76 @@ class SourceRegistryCredentialsArgs:
 
 
 @pulumi.input_type
+class SourceRepositoryPropertiesArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str],
+                 source_control_type: pulumi.Input[str],
+                 is_commit_trigger_enabled: Optional[pulumi.Input[bool]] = None,
+                 source_control_auth_properties: Optional[pulumi.Input['SourceControlAuthInfoArgs']] = None):
+        """
+        The properties of the source code repository.
+        :param pulumi.Input[str] repository_url: The full URL to the source code repository
+        :param pulumi.Input[str] source_control_type: The type of source control service.
+        :param pulumi.Input[bool] is_commit_trigger_enabled: The value of this property indicates whether the source control commit trigger is enabled or not.
+        :param pulumi.Input['SourceControlAuthInfoArgs'] source_control_auth_properties: The authorization properties for accessing the source code repository.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+        pulumi.set(__self__, "source_control_type", source_control_type)
+        if is_commit_trigger_enabled is not None:
+            pulumi.set(__self__, "is_commit_trigger_enabled", is_commit_trigger_enabled)
+        if source_control_auth_properties is not None:
+            pulumi.set(__self__, "source_control_auth_properties", source_control_auth_properties)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        """
+        The full URL to the source code repository
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+    @property
+    @pulumi.getter(name="sourceControlType")
+    def source_control_type(self) -> pulumi.Input[str]:
+        """
+        The type of source control service.
+        """
+        return pulumi.get(self, "source_control_type")
+
+    @source_control_type.setter
+    def source_control_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_control_type", value)
+
+    @property
+    @pulumi.getter(name="isCommitTriggerEnabled")
+    def is_commit_trigger_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value of this property indicates whether the source control commit trigger is enabled or not.
+        """
+        return pulumi.get(self, "is_commit_trigger_enabled")
+
+    @is_commit_trigger_enabled.setter
+    def is_commit_trigger_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_commit_trigger_enabled", value)
+
+    @property
+    @pulumi.getter(name="sourceControlAuthProperties")
+    def source_control_auth_properties(self) -> Optional[pulumi.Input['SourceControlAuthInfoArgs']]:
+        """
+        The authorization properties for accessing the source code repository.
+        """
+        return pulumi.get(self, "source_control_auth_properties")
+
+    @source_control_auth_properties.setter
+    def source_control_auth_properties(self, value: Optional[pulumi.Input['SourceControlAuthInfoArgs']]):
+        pulumi.set(self, "source_control_auth_properties", value)
+
+
+@pulumi.input_type
 class SourceTriggerArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -918,43 +2878,105 @@ class StorageAccountPropertiesArgs:
 
 
 @pulumi.input_type
-class TaskStepPropertiesArgs:
+class TaskRunRequestArgs:
     def __init__(__self__, *,
-                 context_access_token: Optional[pulumi.Input[str]] = None,
-                 context_path: Optional[pulumi.Input[str]] = None):
+                 task_id: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 is_archive_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_template: Optional[pulumi.Input[str]] = None,
+                 override_task_step_properties: Optional[pulumi.Input['OverrideTaskStepPropertiesArgs']] = None):
         """
-        Base properties for any task step.
-        :param pulumi.Input[str] context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-        :param pulumi.Input[str] context_path: The URL(absolute or relative) of the source context for the task step.
+        The parameters for a task run request.
+        :param pulumi.Input[str] task_id: The resource ID of task against which run has to be queued.
+        :param pulumi.Input[str] type: The type of the run request.
+        :param pulumi.Input[str] agent_pool_name: The dedicated agent pool for the run.
+        :param pulumi.Input[bool] is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
+        :param pulumi.Input[str] log_template: The template that describes the repository and tag information for run log artifact.
+        :param pulumi.Input['OverrideTaskStepPropertiesArgs'] override_task_step_properties: Set of overridable parameters that can be passed when running a Task.
         """
-        if context_access_token is not None:
-            pulumi.set(__self__, "context_access_token", context_access_token)
-        if context_path is not None:
-            pulumi.set(__self__, "context_path", context_path)
+        pulumi.set(__self__, "task_id", task_id)
+        pulumi.set(__self__, "type", 'TaskRunRequest')
+        if agent_pool_name is not None:
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
+        if override_task_step_properties is not None:
+            pulumi.set(__self__, "override_task_step_properties", override_task_step_properties)
 
     @property
-    @pulumi.getter(name="contextAccessToken")
-    def context_access_token(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> pulumi.Input[str]:
         """
-        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        The resource ID of task against which run has to be queued.
         """
-        return pulumi.get(self, "context_access_token")
+        return pulumi.get(self, "task_id")
 
-    @context_access_token.setter
-    def context_access_token(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "context_access_token", value)
+    @task_id.setter
+    def task_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "task_id", value)
 
     @property
-    @pulumi.getter(name="contextPath")
-    def context_path(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
         """
-        The URL(absolute or relative) of the source context for the task step.
+        The type of the run request.
         """
-        return pulumi.get(self, "context_path")
+        return pulumi.get(self, "type")
 
-    @context_path.setter
-    def context_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "context_path", value)
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dedicated agent pool for the run.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @agent_pool_name.setter
+    def agent_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_pool_name", value)
+
+    @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value that indicates whether archiving is enabled for the run or not.
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @is_archive_enabled.setter
+    def is_archive_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archive_enabled", value)
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
+
+    @log_template.setter
+    def log_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_template", value)
+
+    @property
+    @pulumi.getter(name="overrideTaskStepProperties")
+    def override_task_step_properties(self) -> Optional[pulumi.Input['OverrideTaskStepPropertiesArgs']]:
+        """
+        Set of overridable parameters that can be passed when running a Task.
+        """
+        return pulumi.get(self, "override_task_step_properties")
+
+    @override_task_step_properties.setter
+    def override_task_step_properties(self, value: Optional[pulumi.Input['OverrideTaskStepPropertiesArgs']]):
+        pulumi.set(self, "override_task_step_properties", value)
 
 
 @pulumi.input_type
@@ -1009,6 +3031,178 @@ class TimerTriggerArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class TokenCertificateArgs:
+    def __init__(__self__, *,
+                 encoded_pem_certificate: Optional[pulumi.Input[str]] = None,
+                 expiry: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of a certificate used for authenticating a token.
+        :param pulumi.Input[str] encoded_pem_certificate: Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+        :param pulumi.Input[str] expiry: The expiry datetime of the certificate.
+        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate.
+        """
+        if encoded_pem_certificate is not None:
+            pulumi.set(__self__, "encoded_pem_certificate", encoded_pem_certificate)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="encodedPemCertificate")
+    def encoded_pem_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+        """
+        return pulumi.get(self, "encoded_pem_certificate")
+
+    @encoded_pem_certificate.setter
+    def encoded_pem_certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoded_pem_certificate", value)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiry datetime of the certificate.
+        """
+        return pulumi.get(self, "expiry")
+
+    @expiry.setter
+    def expiry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thumbprint", value)
+
+
+@pulumi.input_type
+class TokenCredentialsPropertiesArgs:
+    def __init__(__self__, *,
+                 active_directory_object: Optional[pulumi.Input['ActiveDirectoryObjectArgs']] = None,
+                 certificates: Optional[pulumi.Input[List[pulumi.Input['TokenCertificateArgs']]]] = None,
+                 passwords: Optional[pulumi.Input[List[pulumi.Input['TokenPasswordArgs']]]] = None):
+        """
+        The properties of the credentials that can be used for authenticating the token.
+        :param pulumi.Input['ActiveDirectoryObjectArgs'] active_directory_object: The Active Directory Object that will be used for authenticating the token of a container registry.
+        """
+        if active_directory_object is not None:
+            pulumi.set(__self__, "active_directory_object", active_directory_object)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if passwords is not None:
+            pulumi.set(__self__, "passwords", passwords)
+
+    @property
+    @pulumi.getter(name="activeDirectoryObject")
+    def active_directory_object(self) -> Optional[pulumi.Input['ActiveDirectoryObjectArgs']]:
+        """
+        The Active Directory Object that will be used for authenticating the token of a container registry.
+        """
+        return pulumi.get(self, "active_directory_object")
+
+    @active_directory_object.setter
+    def active_directory_object(self, value: Optional[pulumi.Input['ActiveDirectoryObjectArgs']]):
+        pulumi.set(self, "active_directory_object", value)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[List[pulumi.Input['TokenCertificateArgs']]]]:
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[List[pulumi.Input['TokenCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+    @property
+    @pulumi.getter
+    def passwords(self) -> Optional[pulumi.Input[List[pulumi.Input['TokenPasswordArgs']]]]:
+        return pulumi.get(self, "passwords")
+
+    @passwords.setter
+    def passwords(self, value: Optional[pulumi.Input[List[pulumi.Input['TokenPasswordArgs']]]]):
+        pulumi.set(self, "passwords", value)
+
+
+@pulumi.input_type
+class TokenPasswordArgs:
+    def __init__(__self__, *,
+                 creation_time: Optional[pulumi.Input[str]] = None,
+                 expiry: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The password that will be used for authenticating the token of a container registry.
+        :param pulumi.Input[str] creation_time: The creation datetime of the password.
+        :param pulumi.Input[str] expiry: The expiry datetime of the password.
+        :param pulumi.Input[str] name: The password name "password1" or "password2"
+        """
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation datetime of the password.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @creation_time.setter
+    def creation_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_time", value)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiry datetime of the password.
+        """
+        return pulumi.get(self, "expiry")
+
+    @expiry.setter
+    def expiry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password name "password1" or "password2"
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

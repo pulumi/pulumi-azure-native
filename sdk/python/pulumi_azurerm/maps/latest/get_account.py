@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     An Azure resource which represents access to a suite of Maps REST APIs.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -33,6 +33,9 @@ class GetAccountResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -44,7 +47,7 @@ class GetAccountResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -52,7 +55,7 @@ class GetAccountResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Maps Account, which is unique within a Resource Group.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -73,10 +76,18 @@ class GetAccountResult:
         return pulumi.get(self, "sku")
 
     @property
-    @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -84,7 +95,7 @@ class GetAccountResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 
@@ -99,6 +110,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             name=self.name,
             properties=self.properties,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -110,7 +122,7 @@ def get_account(account_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the Maps Account.
-    :param str resource_group_name: The name of the Azure Resource Group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -126,5 +138,6 @@ def get_account(account_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

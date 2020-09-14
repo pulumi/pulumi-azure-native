@@ -42,11 +42,13 @@ __all__ = [
     'ManagedClusterServicePrincipalProfileResponse',
     'ManagedClusterWindowsProfileResponse',
     'NetworkProfileResponse',
+    'OpenShiftAPIPropertiesResponse',
     'OpenShiftManagedClusterAADIdentityProviderResponse',
     'OpenShiftManagedClusterAgentPoolProfileResponse',
     'OpenShiftManagedClusterAuthProfileResponse',
     'OpenShiftManagedClusterIdentityProviderResponse',
     'OpenShiftManagedClusterMasterPoolProfileResponse',
+    'OpenShiftManagedClusterMonitorProfileResponse',
     'OpenShiftRouterProfileResponse',
     'PowerStateResponse',
     'PrivateEndpointResponse',
@@ -1966,29 +1968,29 @@ class NetworkProfileResponse(dict):
     Represents the OpenShift networking configuration
     """
     def __init__(__self__, *,
-                 peer_vnet_id: Optional[str] = None,
+                 management_subnet_cidr: Optional[str] = None,
                  vnet_cidr: Optional[str] = None,
                  vnet_id: Optional[str] = None):
         """
         Represents the OpenShift networking configuration
-        :param str peer_vnet_id: CIDR of the Vnet to peer.
+        :param str management_subnet_cidr: CIDR of subnet used to create PLS needed for management of the cluster
         :param str vnet_cidr: CIDR for the OpenShift Vnet.
         :param str vnet_id: ID of the Vnet created for OSA cluster.
         """
-        if peer_vnet_id is not None:
-            pulumi.set(__self__, "peer_vnet_id", peer_vnet_id)
+        if management_subnet_cidr is not None:
+            pulumi.set(__self__, "management_subnet_cidr", management_subnet_cidr)
         if vnet_cidr is not None:
             pulumi.set(__self__, "vnet_cidr", vnet_cidr)
         if vnet_id is not None:
             pulumi.set(__self__, "vnet_id", vnet_id)
 
     @property
-    @pulumi.getter(name="peerVnetId")
-    def peer_vnet_id(self) -> Optional[str]:
+    @pulumi.getter(name="managementSubnetCidr")
+    def management_subnet_cidr(self) -> Optional[str]:
         """
-        CIDR of the Vnet to peer.
+        CIDR of subnet used to create PLS needed for management of the cluster
         """
-        return pulumi.get(self, "peer_vnet_id")
+        return pulumi.get(self, "management_subnet_cidr")
 
     @property
     @pulumi.getter(name="vnetCidr")
@@ -2005,6 +2007,32 @@ class NetworkProfileResponse(dict):
         ID of the Vnet created for OSA cluster.
         """
         return pulumi.get(self, "vnet_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OpenShiftAPIPropertiesResponse(dict):
+    """
+    Defines further properties on the API.
+    """
+    def __init__(__self__, *,
+                 private_api_server: Optional[bool] = None):
+        """
+        Defines further properties on the API.
+        :param bool private_api_server: Specifies if API server is public or private.
+        """
+        if private_api_server is not None:
+            pulumi.set(__self__, "private_api_server", private_api_server)
+
+    @property
+    @pulumi.getter(name="privateApiServer")
+    def private_api_server(self) -> Optional[bool]:
+        """
+        Specifies if API server is public or private.
+        """
+        return pulumi.get(self, "private_api_server")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2238,23 +2266,19 @@ class OpenShiftManagedClusterMasterPoolProfileResponse(dict):
     def __init__(__self__, *,
                  count: float,
                  vm_size: str,
-                 name: Optional[str] = None,
-                 os_type: Optional[str] = None,
+                 api_properties: Optional['outputs.OpenShiftAPIPropertiesResponse'] = None,
                  subnet_cidr: Optional[str] = None):
         """
         OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
         :param float count: Number of masters (VMs) to host docker containers. The default value is 3.
         :param str vm_size: Size of agent VMs.
-        :param str name: Unique name of the master pool profile in the context of the subscription and resource group.
-        :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param 'OpenShiftAPIPropertiesResponseArgs' api_properties: Defines further properties on the API.
         :param str subnet_cidr: Subnet CIDR for the peering.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "vm_size", vm_size)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+        if api_properties is not None:
+            pulumi.set(__self__, "api_properties", api_properties)
         if subnet_cidr is not None:
             pulumi.set(__self__, "subnet_cidr", subnet_cidr)
 
@@ -2275,20 +2299,12 @@ class OpenShiftManagedClusterMasterPoolProfileResponse(dict):
         return pulumi.get(self, "vm_size")
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
+    @pulumi.getter(name="apiProperties")
+    def api_properties(self) -> Optional['outputs.OpenShiftAPIPropertiesResponse']:
         """
-        Unique name of the master pool profile in the context of the subscription and resource group.
+        Defines further properties on the API.
         """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
-        """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        """
-        return pulumi.get(self, "os_type")
+        return pulumi.get(self, "api_properties")
 
     @property
     @pulumi.getter(name="subnetCidr")
@@ -2297,6 +2313,44 @@ class OpenShiftManagedClusterMasterPoolProfileResponse(dict):
         Subnet CIDR for the peering.
         """
         return pulumi.get(self, "subnet_cidr")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OpenShiftManagedClusterMonitorProfileResponse(dict):
+    """
+    Defines the configuration for Log Analytics integration.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 workspace_resource_id: Optional[str] = None):
+        """
+        Defines the configuration for Log Analytics integration.
+        :param bool enabled: If the Log analytics integration should be turned on or off
+        :param str workspace_resource_id: Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        If the Log analytics integration should be turned on or off
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="workspaceResourceID")
+    def workspace_resource_id(self) -> Optional[str]:
+        """
+        Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+        """
+        return pulumi.get(self, "workspace_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

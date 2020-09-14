@@ -73,7 +73,7 @@ class SqlServer(pulumi.CustomResource):
             __props__['version'] = version
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:azuredata/v20170301preview:SqlServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:azuredata/latest:SqlServer"), pulumi.Alias(type_="azurerm:azuredata/v20170301preview:SqlServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServer, __self__).__init__(
             'azurerm:azuredata/v20190724preview:SqlServer',

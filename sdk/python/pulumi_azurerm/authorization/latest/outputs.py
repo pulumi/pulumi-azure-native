@@ -19,7 +19,7 @@ __all__ = [
     'PolicyDefinitionGroupResponse',
     'PolicyDefinitionReferenceResponse',
     'PolicySkuResponse',
-    'RoleAssignmentPropertiesWithScopeResponse',
+    'SystemDataResponse',
 ]
 
 @pulumi.output_type
@@ -229,16 +229,24 @@ class PermissionResponse(dict):
     """
     def __init__(__self__, *,
                  actions: Optional[List[str]] = None,
-                 not_actions: Optional[List[str]] = None):
+                 data_actions: Optional[List[str]] = None,
+                 not_actions: Optional[List[str]] = None,
+                 not_data_actions: Optional[List[str]] = None):
         """
         Role definition permissions.
         :param List[str] actions: Allowed actions.
+        :param List[str] data_actions: Allowed Data actions.
         :param List[str] not_actions: Denied actions.
+        :param List[str] not_data_actions: Denied Data actions.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if data_actions is not None:
+            pulumi.set(__self__, "data_actions", data_actions)
         if not_actions is not None:
             pulumi.set(__self__, "not_actions", not_actions)
+        if not_data_actions is not None:
+            pulumi.set(__self__, "not_data_actions", not_data_actions)
 
     @property
     @pulumi.getter
@@ -249,12 +257,28 @@ class PermissionResponse(dict):
         return pulumi.get(self, "actions")
 
     @property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Optional[List[str]]:
+        """
+        Allowed Data actions.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @property
     @pulumi.getter(name="notActions")
     def not_actions(self) -> Optional[List[str]]:
         """
         Denied actions.
         """
         return pulumi.get(self, "not_actions")
+
+    @property
+    @pulumi.getter(name="notDataActions")
+    def not_data_actions(self) -> Optional[List[str]]:
+        """
+        Denied Data actions.
+        """
+        return pulumi.get(self, "not_data_actions")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -432,50 +456,86 @@ class PolicySkuResponse(dict):
 
 
 @pulumi.output_type
-class RoleAssignmentPropertiesWithScopeResponse(dict):
+class SystemDataResponse(dict):
     """
-    Role assignment properties with scope.
+    Metadata pertaining to creation and last modification of the resource.
     """
     def __init__(__self__, *,
-                 principal_id: Optional[str] = None,
-                 role_definition_id: Optional[str] = None,
-                 scope: Optional[str] = None):
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
         """
-        Role assignment properties with scope.
-        :param str principal_id: The principal ID.
-        :param str role_definition_id: The role definition ID.
-        :param str scope: The role assignment scope.
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
         """
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
         """
-        The principal ID.
+        The timestamp of resource creation (UTC).
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "created_at")
 
     @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[str]:
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
         """
-        The role definition ID.
+        The identity that created the resource.
         """
-        return pulumi.get(self, "role_definition_id")
+        return pulumi.get(self, "created_by")
 
     @property
-    @pulumi.getter
-    def scope(self) -> Optional[str]:
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
         """
-        The role assignment scope.
+        The type of identity that created the resource.
         """
-        return pulumi.get(self, "scope")
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -36,6 +36,7 @@ class ApplicationDefinition(pulumi.CustomResource):
                  policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -58,7 +59,6 @@ class ApplicationDefinition(pulumi.CustomResource):
             }],
             description="myManagedApplicationDef description",
             display_name="myManagedApplicationDef",
-            location="East US 2",
             lock_level="None",
             package_file_uri="https://path/to/packagezipfile",
             resource_group_name="rg")
@@ -86,6 +86,7 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]] policies: The managed application provider policies.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
+        :param pulumi.Input[str] storage_account_id: The storage account id for bring your own storage scenario.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
@@ -130,6 +131,7 @@ class ApplicationDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
+            __props__['storage_account_id'] = storage_account_id
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
@@ -302,6 +304,14 @@ class ApplicationDefinition(pulumi.CustomResource):
         The SKU of the resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The storage account id for bring your own storage scenario.
+        """
+        return pulumi.get(self, "storage_account_id")
 
     @property
     @pulumi.getter

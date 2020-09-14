@@ -9,29 +9,40 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'ActionArgs',
     'ActivityLogAlertActionGroupArgs',
     'ActivityLogAlertActionListArgs',
     'ActivityLogAlertAllOfConditionArgs',
     'ActivityLogAlertLeafConditionArgs',
-    'AlertingActionArgs',
     'ApplicationInsightsComponentAnalyticsItemPropertiesArgs',
     'ArmRoleReceiverArgs',
     'AutomationRunbookReceiverArgs',
     'AutoscaleNotificationArgs',
     'AutoscaleProfileArgs',
-    'AzNsActionGroupArgs',
     'AzureAppPushReceiverArgs',
     'AzureFunctionReceiverArgs',
-    'CriteriaArgs',
+    'ConditionArgs',
+    'ConditionFailingPeriodsArgs',
+    'DataCollectionRuleDataSourcesArgs',
+    'DataCollectionRuleDestinationsArgs',
+    'DataFlowArgs',
+    'DataSourceArgs',
+    'DataSourceConfigurationArgs',
+    'DestinationsSpecAzureMonitorMetricsArgs',
     'DimensionArgs',
     'DynamicMetricCriteriaArgs',
     'DynamicThresholdFailingPeriodsArgs',
     'EmailNotificationArgs',
     'EmailReceiverArgs',
+    'EtwEventConfigurationArgs',
+    'EtwProviderConfigurationArgs',
+    'EventLogConfigurationArgs',
+    'ExtensionDataSourceArgs',
     'ItsmReceiverArgs',
     'LocationThresholdRuleConditionArgs',
-    'LogMetricTriggerArgs',
-    'LogToMetricActionArgs',
+    'LogAnalyticsDestinationArgs',
+    'LogAnalyticsQueryPackQueryPropertiesRelatedArgs',
+    'LogSettingsArgs',
     'LogicAppReceiverArgs',
     'ManagementEventAggregationConditionArgs',
     'ManagementEventRuleConditionArgs',
@@ -40,7 +51,12 @@ __all__ = [
     'MetricAlertSingleResourceMultipleMetricCriteriaArgs',
     'MetricCriteriaArgs',
     'MetricDimensionArgs',
+    'MetricSettingsArgs',
     'MetricTriggerArgs',
+    'PerfCounterDataSourceArgs',
+    'PerformanceCounterConfigurationArgs',
+    'PrivateEndpointPropertyArgs',
+    'PrivateLinkServiceConnectionStatePropertyArgs',
     'RecurrenceArgs',
     'RecurrentScheduleArgs',
     'RetentionPolicyArgs',
@@ -53,19 +69,63 @@ __all__ = [
     'ScaleCapacityArgs',
     'ScaleRuleArgs',
     'ScaleRuleMetricDimensionArgs',
-    'ScheduleArgs',
+    'ScheduledQueryRuleCriteriaArgs',
+    'SinkConfigurationArgs',
     'SmsReceiverArgs',
-    'SourceArgs',
+    'SubscriptionLogSettingsArgs',
+    'SyslogDataSourceArgs',
     'ThresholdRuleConditionArgs',
     'TimeWindowArgs',
-    'TriggerConditionArgs',
     'VoiceReceiverArgs',
     'WebTestGeolocationArgs',
     'WebTestPropertiesConfigurationArgs',
     'WebhookNotificationArgs',
     'WebhookReceiverArgs',
     'WebtestLocationAvailabilityCriteriaArgs',
+    'WindowsEventLogDataSourceArgs',
+    'WorkbookTemplateGalleryArgs',
+    'WorkbookTemplateLocalizedGalleryArgs',
 ]
+
+@pulumi.input_type
+class ActionArgs:
+    def __init__(__self__, *,
+                 action_group_id: Optional[pulumi.Input[str]] = None,
+                 web_hook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Actions to invoke when the alert fires.
+        :param pulumi.Input[str] action_group_id: Action Group resource Id to invoke when the alert fires.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] web_hook_properties: The properties of a webhook object.
+        """
+        if action_group_id is not None:
+            pulumi.set(__self__, "action_group_id", action_group_id)
+        if web_hook_properties is not None:
+            pulumi.set(__self__, "web_hook_properties", web_hook_properties)
+
+    @property
+    @pulumi.getter(name="actionGroupId")
+    def action_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Action Group resource Id to invoke when the alert fires.
+        """
+        return pulumi.get(self, "action_group_id")
+
+    @action_group_id.setter
+    def action_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action_group_id", value)
+
+    @property
+    @pulumi.getter(name="webHookProperties")
+    def web_hook_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The properties of a webhook object.
+        """
+        return pulumi.get(self, "web_hook_properties")
+
+    @web_hook_properties.setter
+    def web_hook_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "web_hook_properties", value)
+
 
 @pulumi.input_type
 class ActivityLogAlertActionGroupArgs:
@@ -189,91 +249,6 @@ class ActivityLogAlertLeafConditionArgs:
     @field.setter
     def field(self, value: pulumi.Input[str]):
         pulumi.set(self, "field", value)
-
-
-@pulumi.input_type
-class AlertingActionArgs:
-    def __init__(__self__, *,
-                 odata_type: pulumi.Input[str],
-                 severity: pulumi.Input[str],
-                 trigger: pulumi.Input['TriggerConditionArgs'],
-                 azns_action: Optional[pulumi.Input['AzNsActionGroupArgs']] = None,
-                 throttling_in_min: Optional[pulumi.Input[float]] = None):
-        """
-        Specify action need to be taken when rule type is Alert
-        :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
-        :param pulumi.Input[str] severity: Severity of the alert
-        :param pulumi.Input['TriggerConditionArgs'] trigger: The trigger condition that results in the alert rule being.
-        :param pulumi.Input['AzNsActionGroupArgs'] azns_action: Azure action group reference.
-        :param pulumi.Input[float] throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
-        """
-        pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "trigger", trigger)
-        if azns_action is not None:
-            pulumi.set(__self__, "azns_action", azns_action)
-        if throttling_in_min is not None:
-            pulumi.set(__self__, "throttling_in_min", throttling_in_min)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> pulumi.Input[str]:
-        """
-        Specifies the action. Supported values - AlertingAction, LogToMetricAction
-        """
-        return pulumi.get(self, "odata_type")
-
-    @odata_type.setter
-    def odata_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "odata_type", value)
-
-    @property
-    @pulumi.getter
-    def severity(self) -> pulumi.Input[str]:
-        """
-        Severity of the alert
-        """
-        return pulumi.get(self, "severity")
-
-    @severity.setter
-    def severity(self, value: pulumi.Input[str]):
-        pulumi.set(self, "severity", value)
-
-    @property
-    @pulumi.getter
-    def trigger(self) -> pulumi.Input['TriggerConditionArgs']:
-        """
-        The trigger condition that results in the alert rule being.
-        """
-        return pulumi.get(self, "trigger")
-
-    @trigger.setter
-    def trigger(self, value: pulumi.Input['TriggerConditionArgs']):
-        pulumi.set(self, "trigger", value)
-
-    @property
-    @pulumi.getter(name="aznsAction")
-    def azns_action(self) -> Optional[pulumi.Input['AzNsActionGroupArgs']]:
-        """
-        Azure action group reference.
-        """
-        return pulumi.get(self, "azns_action")
-
-    @azns_action.setter
-    def azns_action(self, value: Optional[pulumi.Input['AzNsActionGroupArgs']]):
-        pulumi.set(self, "azns_action", value)
-
-    @property
-    @pulumi.getter(name="throttlingInMin")
-    def throttling_in_min(self) -> Optional[pulumi.Input[float]]:
-        """
-        time (in minutes) for which Alerts should be throttled or suppressed.
-        """
-        return pulumi.get(self, "throttling_in_min")
-
-    @throttling_in_min.setter
-    def throttling_in_min(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "throttling_in_min", value)
 
 
 @pulumi.input_type
@@ -609,62 +584,6 @@ class AutoscaleProfileArgs:
 
 
 @pulumi.input_type
-class AzNsActionGroupArgs:
-    def __init__(__self__, *,
-                 action_group: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 custom_webhook_payload: Optional[pulumi.Input[str]] = None,
-                 email_subject: Optional[pulumi.Input[str]] = None):
-        """
-        Azure action group
-        :param pulumi.Input[List[pulumi.Input[str]]] action_group: Azure Action Group reference.
-        :param pulumi.Input[str] custom_webhook_payload: Custom payload to be sent for all webhook URI in Azure action group
-        :param pulumi.Input[str] email_subject: Custom subject override for all email ids in Azure action group
-        """
-        if action_group is not None:
-            pulumi.set(__self__, "action_group", action_group)
-        if custom_webhook_payload is not None:
-            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
-        if email_subject is not None:
-            pulumi.set(__self__, "email_subject", email_subject)
-
-    @property
-    @pulumi.getter(name="actionGroup")
-    def action_group(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
-        """
-        Azure Action Group reference.
-        """
-        return pulumi.get(self, "action_group")
-
-    @action_group.setter
-    def action_group(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
-        pulumi.set(self, "action_group", value)
-
-    @property
-    @pulumi.getter(name="customWebhookPayload")
-    def custom_webhook_payload(self) -> Optional[pulumi.Input[str]]:
-        """
-        Custom payload to be sent for all webhook URI in Azure action group
-        """
-        return pulumi.get(self, "custom_webhook_payload")
-
-    @custom_webhook_payload.setter
-    def custom_webhook_payload(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_webhook_payload", value)
-
-    @property
-    @pulumi.getter(name="emailSubject")
-    def email_subject(self) -> Optional[pulumi.Input[str]]:
-        """
-        Custom subject override for all email ids in Azure action group
-        """
-        return pulumi.get(self, "email_subject")
-
-    @email_subject.setter
-    def email_subject(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "email_subject", value)
-
-
-@pulumi.input_type
 class AzureAppPushReceiverArgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[str],
@@ -786,42 +705,452 @@ class AzureFunctionReceiverArgs:
 
 
 @pulumi.input_type
-class CriteriaArgs:
+class ConditionArgs:
     def __init__(__self__, *,
-                 metric_name: pulumi.Input[str],
-                 dimensions: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]] = None):
+                 operator: pulumi.Input[str],
+                 threshold: pulumi.Input[float],
+                 time_aggregation: pulumi.Input[str],
+                 dimensions: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]] = None,
+                 failing_periods: Optional[pulumi.Input['ConditionFailingPeriodsArgs']] = None,
+                 metric_measure_column: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[str]] = None,
+                 resource_id_column: Optional[pulumi.Input[str]] = None):
         """
-        Specifies the criteria for converting log to metric.
-        :param pulumi.Input[str] metric_name: Name of the metric
-        :param pulumi.Input[List[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions for creating metric
+        A condition of the scheduled query rule.
+        :param pulumi.Input[str] operator: The criteria operator.
+        :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert.
+        :param pulumi.Input[str] time_aggregation: Aggregation type
+        :param pulumi.Input[List[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions conditions
+        :param pulumi.Input['ConditionFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
+        :param pulumi.Input[str] metric_measure_column: The column containing the metric measure number.
+        :param pulumi.Input[str] query: Log query alert
+        :param pulumi.Input[str] resource_id_column: The column containing the resource id. The content of the column must be a uri formatted as resource id
         """
-        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "time_aggregation", time_aggregation)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if failing_periods is not None:
+            pulumi.set(__self__, "failing_periods", failing_periods)
+        if metric_measure_column is not None:
+            pulumi.set(__self__, "metric_measure_column", metric_measure_column)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if resource_id_column is not None:
+            pulumi.set(__self__, "resource_id_column", resource_id_column)
 
     @property
-    @pulumi.getter(name="metricName")
-    def metric_name(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
         """
-        Name of the metric
+        The criteria operator.
         """
-        return pulumi.get(self, "metric_name")
+        return pulumi.get(self, "operator")
 
-    @metric_name.setter
-    def metric_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "metric_name", value)
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> pulumi.Input[float]:
+        """
+        the criteria threshold value that activates the alert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> pulumi.Input[str]:
+        """
+        Aggregation type
+        """
+        return pulumi.get(self, "time_aggregation")
+
+    @time_aggregation.setter
+    def time_aggregation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_aggregation", value)
 
     @property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]]:
         """
-        List of Dimensions for creating metric
+        List of Dimensions conditions
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="failingPeriods")
+    def failing_periods(self) -> Optional[pulumi.Input['ConditionFailingPeriodsArgs']]:
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        """
+        return pulumi.get(self, "failing_periods")
+
+    @failing_periods.setter
+    def failing_periods(self, value: Optional[pulumi.Input['ConditionFailingPeriodsArgs']]):
+        pulumi.set(self, "failing_periods", value)
+
+    @property
+    @pulumi.getter(name="metricMeasureColumn")
+    def metric_measure_column(self) -> Optional[pulumi.Input[str]]:
+        """
+        The column containing the metric measure number.
+        """
+        return pulumi.get(self, "metric_measure_column")
+
+    @metric_measure_column.setter
+    def metric_measure_column(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_measure_column", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[str]]:
+        """
+        Log query alert
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="resourceIdColumn")
+    def resource_id_column(self) -> Optional[pulumi.Input[str]]:
+        """
+        The column containing the resource id. The content of the column must be a uri formatted as resource id
+        """
+        return pulumi.get(self, "resource_id_column")
+
+    @resource_id_column.setter
+    def resource_id_column(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id_column", value)
+
+
+@pulumi.input_type
+class ConditionFailingPeriodsArgs:
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: Optional[pulumi.Input[float]] = None,
+                 number_of_evaluation_periods: Optional[pulumi.Input[float]] = None):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        :param pulumi.Input[float] min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        :param pulumi.Input[float] number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        if min_failing_periods_to_alert is not None:
+            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        if number_of_evaluation_periods is not None:
+            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @min_failing_periods_to_alert.setter
+    def min_failing_periods_to_alert(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_failing_periods_to_alert", value)
+
+    @property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
+
+    @number_of_evaluation_periods.setter
+    def number_of_evaluation_periods(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "number_of_evaluation_periods", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDataSourcesArgs:
+    def __init__(__self__, *,
+                 extensions: Optional[pulumi.Input[List[pulumi.Input['ExtensionDataSourceArgs']]]] = None,
+                 performance_counters: Optional[pulumi.Input[List[pulumi.Input['PerfCounterDataSourceArgs']]]] = None,
+                 syslog: Optional[pulumi.Input[List[pulumi.Input['SyslogDataSourceArgs']]]] = None,
+                 windows_event_logs: Optional[pulumi.Input[List[pulumi.Input['WindowsEventLogDataSourceArgs']]]] = None):
+        """
+        The specification of data sources. 
+        This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+        :param pulumi.Input[List[pulumi.Input['ExtensionDataSourceArgs']]] extensions: The list of Azure VM extension data source configurations.
+        :param pulumi.Input[List[pulumi.Input['PerfCounterDataSourceArgs']]] performance_counters: The list of performance counter data source configurations.
+        :param pulumi.Input[List[pulumi.Input['SyslogDataSourceArgs']]] syslog: The list of Syslog data source configurations.
+        :param pulumi.Input[List[pulumi.Input['WindowsEventLogDataSourceArgs']]] windows_event_logs: The list of Windows Event Log data source configurations.
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if performance_counters is not None:
+            pulumi.set(__self__, "performance_counters", performance_counters)
+        if syslog is not None:
+            pulumi.set(__self__, "syslog", syslog)
+        if windows_event_logs is not None:
+            pulumi.set(__self__, "windows_event_logs", windows_event_logs)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[List[pulumi.Input['ExtensionDataSourceArgs']]]]:
+        """
+        The list of Azure VM extension data source configurations.
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[List[pulumi.Input['ExtensionDataSourceArgs']]]]):
+        pulumi.set(self, "extensions", value)
+
+    @property
+    @pulumi.getter(name="performanceCounters")
+    def performance_counters(self) -> Optional[pulumi.Input[List[pulumi.Input['PerfCounterDataSourceArgs']]]]:
+        """
+        The list of performance counter data source configurations.
+        """
+        return pulumi.get(self, "performance_counters")
+
+    @performance_counters.setter
+    def performance_counters(self, value: Optional[pulumi.Input[List[pulumi.Input['PerfCounterDataSourceArgs']]]]):
+        pulumi.set(self, "performance_counters", value)
+
+    @property
+    @pulumi.getter
+    def syslog(self) -> Optional[pulumi.Input[List[pulumi.Input['SyslogDataSourceArgs']]]]:
+        """
+        The list of Syslog data source configurations.
+        """
+        return pulumi.get(self, "syslog")
+
+    @syslog.setter
+    def syslog(self, value: Optional[pulumi.Input[List[pulumi.Input['SyslogDataSourceArgs']]]]):
+        pulumi.set(self, "syslog", value)
+
+    @property
+    @pulumi.getter(name="windowsEventLogs")
+    def windows_event_logs(self) -> Optional[pulumi.Input[List[pulumi.Input['WindowsEventLogDataSourceArgs']]]]:
+        """
+        The list of Windows Event Log data source configurations.
+        """
+        return pulumi.get(self, "windows_event_logs")
+
+    @windows_event_logs.setter
+    def windows_event_logs(self, value: Optional[pulumi.Input[List[pulumi.Input['WindowsEventLogDataSourceArgs']]]]):
+        pulumi.set(self, "windows_event_logs", value)
+
+
+@pulumi.input_type
+class DataCollectionRuleDestinationsArgs:
+    def __init__(__self__, *,
+                 azure_monitor_metrics: Optional[pulumi.Input['DestinationsSpecAzureMonitorMetricsArgs']] = None,
+                 log_analytics: Optional[pulumi.Input[List[pulumi.Input['LogAnalyticsDestinationArgs']]]] = None):
+        """
+        The specification of destinations.
+        :param pulumi.Input['DestinationsSpecAzureMonitorMetricsArgs'] azure_monitor_metrics: Azure Monitor Metrics destination.
+        :param pulumi.Input[List[pulumi.Input['LogAnalyticsDestinationArgs']]] log_analytics: List of Log Analytics destinations.
+        """
+        if azure_monitor_metrics is not None:
+            pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
+        if log_analytics is not None:
+            pulumi.set(__self__, "log_analytics", log_analytics)
+
+    @property
+    @pulumi.getter(name="azureMonitorMetrics")
+    def azure_monitor_metrics(self) -> Optional[pulumi.Input['DestinationsSpecAzureMonitorMetricsArgs']]:
+        """
+        Azure Monitor Metrics destination.
+        """
+        return pulumi.get(self, "azure_monitor_metrics")
+
+    @azure_monitor_metrics.setter
+    def azure_monitor_metrics(self, value: Optional[pulumi.Input['DestinationsSpecAzureMonitorMetricsArgs']]):
+        pulumi.set(self, "azure_monitor_metrics", value)
+
+    @property
+    @pulumi.getter(name="logAnalytics")
+    def log_analytics(self) -> Optional[pulumi.Input[List[pulumi.Input['LogAnalyticsDestinationArgs']]]]:
+        """
+        List of Log Analytics destinations.
+        """
+        return pulumi.get(self, "log_analytics")
+
+    @log_analytics.setter
+    def log_analytics(self, value: Optional[pulumi.Input[List[pulumi.Input['LogAnalyticsDestinationArgs']]]]):
+        pulumi.set(self, "log_analytics", value)
+
+
+@pulumi.input_type
+class DataFlowArgs:
+    def __init__(__self__, *,
+                 destinations: pulumi.Input[List[pulumi.Input[str]]],
+                 streams: pulumi.Input[List[pulumi.Input[str]]]):
+        """
+        Definition of which streams are sent to which destinations.
+        :param pulumi.Input[List[pulumi.Input[str]]] destinations: List of destinations for this data flow.
+        :param pulumi.Input[List[pulumi.Input[str]]] streams: List of streams for this data flow.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        List of destinations for this data flow.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter
+    def streams(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        List of streams for this data flow.
+        """
+        return pulumi.get(self, "streams")
+
+    @streams.setter
+    def streams(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "streams", value)
+
+
+@pulumi.input_type
+class DataSourceArgs:
+    def __init__(__self__, *,
+                 configuration: pulumi.Input['DataSourceConfigurationArgs'],
+                 kind: pulumi.Input[str],
+                 sinks: pulumi.Input[List[pulumi.Input['SinkConfigurationArgs']]]):
+        """
+        Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+        :param pulumi.Input[str] kind: Datasource kind
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "sinks", sinks)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input['DataSourceConfigurationArgs']:
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input['DataSourceConfigurationArgs']):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Datasource kind
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def sinks(self) -> pulumi.Input[List[pulumi.Input['SinkConfigurationArgs']]]:
+        return pulumi.get(self, "sinks")
+
+    @sinks.setter
+    def sinks(self, value: pulumi.Input[List[pulumi.Input['SinkConfigurationArgs']]]):
+        pulumi.set(self, "sinks", value)
+
+
+@pulumi.input_type
+class DataSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 event_logs: Optional[pulumi.Input[List[pulumi.Input['EventLogConfigurationArgs']]]] = None,
+                 perf_counters: Optional[pulumi.Input[List[pulumi.Input['PerformanceCounterConfigurationArgs']]]] = None,
+                 providers: Optional[pulumi.Input[List[pulumi.Input['EtwProviderConfigurationArgs']]]] = None):
+        """
+        :param pulumi.Input[List[pulumi.Input['EventLogConfigurationArgs']]] event_logs: Windows event logs configuration.
+        :param pulumi.Input[List[pulumi.Input['PerformanceCounterConfigurationArgs']]] perf_counters: Performance counter configuration
+        :param pulumi.Input[List[pulumi.Input['EtwProviderConfigurationArgs']]] providers: ETW providers configuration
+        """
+        if event_logs is not None:
+            pulumi.set(__self__, "event_logs", event_logs)
+        if perf_counters is not None:
+            pulumi.set(__self__, "perf_counters", perf_counters)
+        if providers is not None:
+            pulumi.set(__self__, "providers", providers)
+
+    @property
+    @pulumi.getter(name="eventLogs")
+    def event_logs(self) -> Optional[pulumi.Input[List[pulumi.Input['EventLogConfigurationArgs']]]]:
+        """
+        Windows event logs configuration.
+        """
+        return pulumi.get(self, "event_logs")
+
+    @event_logs.setter
+    def event_logs(self, value: Optional[pulumi.Input[List[pulumi.Input['EventLogConfigurationArgs']]]]):
+        pulumi.set(self, "event_logs", value)
+
+    @property
+    @pulumi.getter(name="perfCounters")
+    def perf_counters(self) -> Optional[pulumi.Input[List[pulumi.Input['PerformanceCounterConfigurationArgs']]]]:
+        """
+        Performance counter configuration
+        """
+        return pulumi.get(self, "perf_counters")
+
+    @perf_counters.setter
+    def perf_counters(self, value: Optional[pulumi.Input[List[pulumi.Input['PerformanceCounterConfigurationArgs']]]]):
+        pulumi.set(self, "perf_counters", value)
+
+    @property
+    @pulumi.getter
+    def providers(self) -> Optional[pulumi.Input[List[pulumi.Input['EtwProviderConfigurationArgs']]]]:
+        """
+        ETW providers configuration
+        """
+        return pulumi.get(self, "providers")
+
+    @providers.setter
+    def providers(self, value: Optional[pulumi.Input[List[pulumi.Input['EtwProviderConfigurationArgs']]]]):
+        pulumi.set(self, "providers", value)
+
+
+@pulumi.input_type
+class DestinationsSpecAzureMonitorMetricsArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        Azure Monitor Metrics destination.
+        :param pulumi.Input[str] name: A friendly name for the destination. 
+               This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -831,7 +1160,7 @@ class DimensionArgs:
                  operator: pulumi.Input[str],
                  values: pulumi.Input[List[pulumi.Input[str]]]):
         """
-        Specifies the criteria for converting log to metric.
+        Dimension splitting and filtering definition
         :param pulumi.Input[str] name: Name of the dimension
         :param pulumi.Input[str] operator: Operator for dimension values
         :param pulumi.Input[List[pulumi.Input[str]]] values: List of dimension values
@@ -1202,6 +1531,174 @@ class EmailReceiverArgs:
 
 
 @pulumi.input_type
+class EtwEventConfigurationArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[float],
+                 name: pulumi.Input[str],
+                 filter: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[float]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter", value)
+
+
+@pulumi.input_type
+class EtwProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 events: pulumi.Input[List[pulumi.Input['EtwEventConfigurationArgs']]],
+                 id: pulumi.Input[str]):
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def events(self) -> pulumi.Input[List[pulumi.Input['EtwEventConfigurationArgs']]]:
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: pulumi.Input[List[pulumi.Input['EtwEventConfigurationArgs']]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class EventLogConfigurationArgs:
+    def __init__(__self__, *,
+                 log_name: pulumi.Input[str],
+                 filter: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "log_name", log_name)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter(name="logName")
+    def log_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_name")
+
+    @log_name.setter
+    def log_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_name", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter", value)
+
+
+@pulumi.input_type
+class ExtensionDataSourceArgs:
+    def __init__(__self__, *,
+                 extension_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 streams: pulumi.Input[List[pulumi.Input[str]]],
+                 extension_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
+        Collected from either Windows and Linux machines, depending on which extension is defined.
+        :param pulumi.Input[str] extension_name: The name of the VM extension.
+        :param pulumi.Input[str] name: A friendly name for the data source. 
+               This name should be unique across all data sources (regardless of type) within the data collection rule.
+        :param pulumi.Input[List[pulumi.Input[str]]] streams: List of streams that this data source will be sent to.
+               A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        :param pulumi.Input[Mapping[str, Any]] extension_settings: The extension settings. The format is specific for particular extension.
+        """
+        pulumi.set(__self__, "extension_name", extension_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        if extension_settings is not None:
+            pulumi.set(__self__, "extension_settings", extension_settings)
+
+    @property
+    @pulumi.getter(name="extensionName")
+    def extension_name(self) -> pulumi.Input[str]:
+        """
+        The name of the VM extension.
+        """
+        return pulumi.get(self, "extension_name")
+
+    @extension_name.setter
+    def extension_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "extension_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def streams(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+    @streams.setter
+    def streams(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "streams", value)
+
+    @property
+    @pulumi.getter(name="extensionSettings")
+    def extension_settings(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The extension settings. The format is specific for particular extension.
+        """
+        return pulumi.get(self, "extension_settings")
+
+    @extension_settings.setter
+    def extension_settings(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "extension_settings", value)
+
+
+@pulumi.input_type
 class ItsmReceiverArgs:
     def __init__(__self__, *,
                  connection_id: pulumi.Input[str],
@@ -1355,113 +1852,154 @@ class LocationThresholdRuleConditionArgs:
 
 
 @pulumi.input_type
-class LogMetricTriggerArgs:
+class LogAnalyticsDestinationArgs:
     def __init__(__self__, *,
-                 metric_column: Optional[pulumi.Input[str]] = None,
-                 metric_trigger_type: Optional[pulumi.Input[str]] = None,
-                 threshold: Optional[pulumi.Input[float]] = None,
-                 threshold_operator: Optional[pulumi.Input[str]] = None):
+                 name: pulumi.Input[str],
+                 workspace_resource_id: pulumi.Input[str]):
         """
-        A log metrics trigger descriptor.
-        :param pulumi.Input[str] metric_column: Evaluation of metric on a particular column
-        :param pulumi.Input[str] metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'
-        :param pulumi.Input[float] threshold: The threshold of the metric trigger.
-        :param pulumi.Input[str] threshold_operator: Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+        Log Analytics destination.
+        :param pulumi.Input[str] name: A friendly name for the destination. 
+               This name should be unique across all destinations (regardless of type) within the data collection rule.
+        :param pulumi.Input[str] workspace_resource_id: The resource ID of the Log Analytics workspace.
         """
-        if metric_column is not None:
-            pulumi.set(__self__, "metric_column", metric_column)
-        if metric_trigger_type is not None:
-            pulumi.set(__self__, "metric_trigger_type", metric_trigger_type)
-        if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
-        if threshold_operator is not None:
-            pulumi.set(__self__, "threshold_operator", threshold_operator)
-
-    @property
-    @pulumi.getter(name="metricColumn")
-    def metric_column(self) -> Optional[pulumi.Input[str]]:
-        """
-        Evaluation of metric on a particular column
-        """
-        return pulumi.get(self, "metric_column")
-
-    @metric_column.setter
-    def metric_column(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric_column", value)
-
-    @property
-    @pulumi.getter(name="metricTriggerType")
-    def metric_trigger_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Metric Trigger Type - 'Consecutive' or 'Total'
-        """
-        return pulumi.get(self, "metric_trigger_type")
-
-    @metric_trigger_type.setter
-    def metric_trigger_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric_trigger_type", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter
-    def threshold(self) -> Optional[pulumi.Input[float]]:
+    def name(self) -> pulumi.Input[str]:
         """
-        The threshold of the metric trigger.
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
-        return pulumi.get(self, "threshold")
+        return pulumi.get(self, "name")
 
-    @threshold.setter
-    def threshold(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "threshold", value)
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="thresholdOperator")
-    def threshold_operator(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> pulumi.Input[str]:
         """
-        Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+        The resource ID of the Log Analytics workspace.
         """
-        return pulumi.get(self, "threshold_operator")
+        return pulumi.get(self, "workspace_resource_id")
 
-    @threshold_operator.setter
-    def threshold_operator(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "threshold_operator", value)
+    @workspace_resource_id.setter
+    def workspace_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_resource_id", value)
 
 
 @pulumi.input_type
-class LogToMetricActionArgs:
+class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
     def __init__(__self__, *,
-                 criteria: pulumi.Input[List[pulumi.Input['CriteriaArgs']]],
-                 odata_type: pulumi.Input[str]):
+                 categories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 resource_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 solutions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
         """
-        Specify action need to be taken when rule type is converting log to metric
-        :param pulumi.Input[List[pulumi.Input['CriteriaArgs']]] criteria: Criteria of Metric
-        :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        The related metadata items for the function.
+        :param pulumi.Input[List[pulumi.Input[str]]] categories: The related categories for the function.
+        :param pulumi.Input[List[pulumi.Input[str]]] resource_types: The related resource types for the function.
+        :param pulumi.Input[List[pulumi.Input[str]]] solutions: The related Log Analytics solutions for the function.
         """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction')
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if solutions is not None:
+            pulumi.set(__self__, "solutions", solutions)
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Input[List[pulumi.Input['CriteriaArgs']]]:
+    def categories(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
         """
-        Criteria of Metric
+        The related categories for the function.
         """
-        return pulumi.get(self, "criteria")
+        return pulumi.get(self, "categories")
 
-    @criteria.setter
-    def criteria(self, value: pulumi.Input[List[pulumi.Input['CriteriaArgs']]]):
-        pulumi.set(self, "criteria", value)
+    @categories.setter
+    def categories(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "categories", value)
 
     @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
         """
-        Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        The related resource types for the function.
         """
-        return pulumi.get(self, "odata_type")
+        return pulumi.get(self, "resource_types")
 
-    @odata_type.setter
-    def odata_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "odata_type", value)
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @property
+    @pulumi.getter
+    def solutions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The related Log Analytics solutions for the function.
+        """
+        return pulumi.get(self, "solutions")
+
+    @solutions.setter
+    def solutions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "solutions", value)
+
+
+@pulumi.input_type
+class LogSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 category: Optional[pulumi.Input[str]] = None,
+                 retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+        :param pulumi.Input[bool] enabled: a value indicating whether this log is enabled.
+        :param pulumi.Input[str] category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        :param pulumi.Input['RetentionPolicyArgs'] retention_policy: the retention policy for this log.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[pulumi.Input['RetentionPolicyArgs']]:
+        """
+        the retention policy for this log.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: Optional[pulumi.Input['RetentionPolicyArgs']]):
+        pulumi.set(self, "retention_policy", value)
 
 
 @pulumi.input_type
@@ -1961,6 +2499,77 @@ class MetricDimensionArgs:
 
 
 @pulumi.input_type
+class MetricSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 category: Optional[pulumi.Input[str]] = None,
+                 retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None,
+                 time_grain: Optional[pulumi.Input[str]] = None):
+        """
+        Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+        :param pulumi.Input[bool] enabled: a value indicating whether this category is enabled.
+        :param pulumi.Input[str] category: Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        :param pulumi.Input['RetentionPolicyArgs'] retention_policy: the retention policy for this category.
+        :param pulumi.Input[str] time_grain: the timegrain of the metric in ISO8601 format.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if time_grain is not None:
+            pulumi.set(__self__, "time_grain", time_grain)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        a value indicating whether this category is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[pulumi.Input['RetentionPolicyArgs']]:
+        """
+        the retention policy for this category.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: Optional[pulumi.Input['RetentionPolicyArgs']]):
+        pulumi.set(self, "retention_policy", value)
+
+    @property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> Optional[pulumi.Input[str]]:
+        """
+        the timegrain of the metric in ISO8601 format.
+        """
+        return pulumi.get(self, "time_grain")
+
+    @time_grain.setter
+    def time_grain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_grain", value)
+
+
+@pulumi.input_type
 class MetricTriggerArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[str],
@@ -2118,6 +2727,199 @@ class MetricTriggerArgs:
     @metric_namespace.setter
     def metric_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric_namespace", value)
+
+
+@pulumi.input_type
+class PerfCounterDataSourceArgs:
+    def __init__(__self__, *,
+                 counter_specifiers: pulumi.Input[List[pulumi.Input[str]]],
+                 name: pulumi.Input[str],
+                 sampling_frequency_in_seconds: pulumi.Input[float],
+                 scheduled_transfer_period: pulumi.Input[str],
+                 streams: pulumi.Input[List[pulumi.Input[str]]]):
+        """
+        Definition of which performance counters will be collected and how they will be collected by this data collection rule.
+        Collected from both Windows and Linux machines where the counter is present.
+        :param pulumi.Input[List[pulumi.Input[str]]] counter_specifiers: A list of specifier names of the performance counters you want to collect.
+               Use a wildcard (*) to collect a counter for all instances.
+               To get a list of performance counters on Windows, run the command 'typeperf'.
+        :param pulumi.Input[str] name: A friendly name for the data source. 
+               This name should be unique across all data sources (regardless of type) within the data collection rule.
+        :param pulumi.Input[float] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples).
+        :param pulumi.Input[str] scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
+        :param pulumi.Input[List[pulumi.Input[str]]] streams: List of streams that this data source will be sent to.
+               A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        pulumi.set(__self__, "counter_specifiers", counter_specifiers)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sampling_frequency_in_seconds", sampling_frequency_in_seconds)
+        pulumi.set(__self__, "scheduled_transfer_period", scheduled_transfer_period)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter(name="counterSpecifiers")
+    def counter_specifiers(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        A list of specifier names of the performance counters you want to collect.
+        Use a wildcard (*) to collect a counter for all instances.
+        To get a list of performance counters on Windows, run the command 'typeperf'.
+        """
+        return pulumi.get(self, "counter_specifiers")
+
+    @counter_specifiers.setter
+    def counter_specifiers(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "counter_specifiers", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="samplingFrequencyInSeconds")
+    def sampling_frequency_in_seconds(self) -> pulumi.Input[float]:
+        """
+        The number of seconds between consecutive counter measurements (samples).
+        """
+        return pulumi.get(self, "sampling_frequency_in_seconds")
+
+    @sampling_frequency_in_seconds.setter
+    def sampling_frequency_in_seconds(self, value: pulumi.Input[float]):
+        pulumi.set(self, "sampling_frequency_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="scheduledTransferPeriod")
+    def scheduled_transfer_period(self) -> pulumi.Input[str]:
+        """
+        The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
+        """
+        return pulumi.get(self, "scheduled_transfer_period")
+
+    @scheduled_transfer_period.setter
+    def scheduled_transfer_period(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scheduled_transfer_period", value)
+
+    @property
+    @pulumi.getter
+    def streams(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+    @streams.setter
+    def streams(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "streams", value)
+
+
+@pulumi.input_type
+class PerformanceCounterConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 sampling_period: pulumi.Input[str],
+                 instance: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sampling_period", sampling_period)
+        if instance is not None:
+            pulumi.set(__self__, "instance", instance)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="samplingPeriod")
+    def sampling_period(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "sampling_period")
+
+    @sampling_period.setter
+    def sampling_period(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sampling_period", value)
+
+    @property
+    @pulumi.getter
+    def instance(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance")
+
+    @instance.setter
+    def instance(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance", value)
+
+
+@pulumi.input_type
+class PrivateEndpointPropertyArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Private endpoint which the connection belongs to.
+        :param pulumi.Input[str] id: Resource id of the private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource id of the private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStatePropertyArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[str],
+                 status: pulumi.Input[str]):
+        """
+        State of the private endpoint connection.
+        :param pulumi.Input[str] description: The private link service connection description.
+        :param pulumi.Input[str] status: The private link service connection status.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[str]:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[str]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -2850,41 +3652,43 @@ class ScaleRuleMetricDimensionArgs:
 
 
 @pulumi.input_type
-class ScheduleArgs:
+class ScheduledQueryRuleCriteriaArgs:
     def __init__(__self__, *,
-                 frequency_in_minutes: pulumi.Input[float],
-                 time_window_in_minutes: pulumi.Input[float]):
+                 all_of: Optional[pulumi.Input[List[pulumi.Input['ConditionArgs']]]] = None):
         """
-        Defines how often to run the search and the time interval.
-        :param pulumi.Input[float] frequency_in_minutes: frequency (in minutes) at which rule condition should be evaluated.
-        :param pulumi.Input[float] time_window_in_minutes: Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+        The rule criteria that defines the conditions of the scheduled query rule.
+        :param pulumi.Input[List[pulumi.Input['ConditionArgs']]] all_of: A list of conditions to evaluate against the specified scopes
         """
-        pulumi.set(__self__, "frequency_in_minutes", frequency_in_minutes)
-        pulumi.set(__self__, "time_window_in_minutes", time_window_in_minutes)
+        if all_of is not None:
+            pulumi.set(__self__, "all_of", all_of)
 
     @property
-    @pulumi.getter(name="frequencyInMinutes")
-    def frequency_in_minutes(self) -> pulumi.Input[float]:
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> Optional[pulumi.Input[List[pulumi.Input['ConditionArgs']]]]:
         """
-        frequency (in minutes) at which rule condition should be evaluated.
+        A list of conditions to evaluate against the specified scopes
         """
-        return pulumi.get(self, "frequency_in_minutes")
+        return pulumi.get(self, "all_of")
 
-    @frequency_in_minutes.setter
-    def frequency_in_minutes(self, value: pulumi.Input[float]):
-        pulumi.set(self, "frequency_in_minutes", value)
+    @all_of.setter
+    def all_of(self, value: Optional[pulumi.Input[List[pulumi.Input['ConditionArgs']]]]):
+        pulumi.set(self, "all_of", value)
+
+
+@pulumi.input_type
+class SinkConfigurationArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str]):
+        pulumi.set(__self__, "kind", kind)
 
     @property
-    @pulumi.getter(name="timeWindowInMinutes")
-    def time_window_in_minutes(self) -> pulumi.Input[float]:
-        """
-        Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
-        """
-        return pulumi.get(self, "time_window_in_minutes")
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "kind")
 
-    @time_window_in_minutes.setter
-    def time_window_in_minutes(self, value: pulumi.Input[float]):
-        pulumi.set(self, "time_window_in_minutes", value)
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
 
 
 @pulumi.input_type
@@ -2941,74 +3745,116 @@ class SmsReceiverArgs:
 
 
 @pulumi.input_type
-class SourceArgs:
+class SubscriptionLogSettingsArgs:
     def __init__(__self__, *,
-                 data_source_id: pulumi.Input[str],
-                 authorized_resources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 query: Optional[pulumi.Input[str]] = None,
-                 query_type: Optional[pulumi.Input[str]] = None):
+                 enabled: pulumi.Input[bool],
+                 category: Optional[pulumi.Input[str]] = None):
         """
-        Specifies the log search query.
-        :param pulumi.Input[str] data_source_id: The resource uri over which log search query is to be run.
-        :param pulumi.Input[List[pulumi.Input[str]]] authorized_resources: List of  Resource referred into query
-        :param pulumi.Input[str] query: Log search query. Required for action type - AlertingAction
-        :param pulumi.Input[str] query_type: Set value to 'ResultCount' .
+        Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+        :param pulumi.Input[bool] enabled: a value indicating whether this log is enabled.
+        :param pulumi.Input[str] category: Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
         """
-        pulumi.set(__self__, "data_source_id", data_source_id)
-        if authorized_resources is not None:
-            pulumi.set(__self__, "authorized_resources", authorized_resources)
-        if query is not None:
-            pulumi.set(__self__, "query", query)
-        if query_type is not None:
-            pulumi.set(__self__, "query_type", query_type)
-
-    @property
-    @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> pulumi.Input[str]:
-        """
-        The resource uri over which log search query is to be run.
-        """
-        return pulumi.get(self, "data_source_id")
-
-    @data_source_id.setter
-    def data_source_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_source_id", value)
-
-    @property
-    @pulumi.getter(name="authorizedResources")
-    def authorized_resources(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
-        """
-        List of  Resource referred into query
-        """
-        return pulumi.get(self, "authorized_resources")
-
-    @authorized_resources.setter
-    def authorized_resources(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
-        pulumi.set(self, "authorized_resources", value)
+        pulumi.set(__self__, "enabled", enabled)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
 
     @property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[str]]:
+    def enabled(self) -> pulumi.Input[bool]:
         """
-        Log search query. Required for action type - AlertingAction
+        a value indicating whether this log is enabled.
         """
-        return pulumi.get(self, "query")
+        return pulumi.get(self, "enabled")
 
-    @query.setter
-    def query(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "query", value)
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
 
     @property
-    @pulumi.getter(name="queryType")
-    def query_type(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[str]]:
         """
-        Set value to 'ResultCount' .
+        Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
         """
-        return pulumi.get(self, "query_type")
+        return pulumi.get(self, "category")
 
-    @query_type.setter
-    def query_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "query_type", value)
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "category", value)
+
+
+@pulumi.input_type
+class SyslogDataSourceArgs:
+    def __init__(__self__, *,
+                 facility_names: pulumi.Input[List[pulumi.Input[str]]],
+                 name: pulumi.Input[str],
+                 streams: pulumi.Input[List[pulumi.Input[str]]],
+                 log_levels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        Definition of which syslog data will be collected and how it will be collected.
+        Only collected from Linux machines.
+        :param pulumi.Input[List[pulumi.Input[str]]] facility_names: The list of facility names.
+        :param pulumi.Input[str] name: A friendly name for the data source. 
+               This name should be unique across all data sources (regardless of type) within the data collection rule.
+        :param pulumi.Input[List[pulumi.Input[str]]] streams: List of streams that this data source will be sent to.
+               A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        :param pulumi.Input[List[pulumi.Input[str]]] log_levels: The log levels to collect.
+        """
+        pulumi.set(__self__, "facility_names", facility_names)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+
+    @property
+    @pulumi.getter(name="facilityNames")
+    def facility_names(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        The list of facility names.
+        """
+        return pulumi.get(self, "facility_names")
+
+    @facility_names.setter
+    def facility_names(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "facility_names", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def streams(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+    @streams.setter
+    def streams(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "streams", value)
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The log levels to collect.
+        """
+        return pulumi.get(self, "log_levels")
+
+    @log_levels.setter
+    def log_levels(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "log_levels", value)
 
 
 @pulumi.input_type
@@ -3164,60 +4010,6 @@ class TimeWindowArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
-
-
-@pulumi.input_type
-class TriggerConditionArgs:
-    def __init__(__self__, *,
-                 threshold: pulumi.Input[float],
-                 threshold_operator: pulumi.Input[str],
-                 metric_trigger: Optional[pulumi.Input['LogMetricTriggerArgs']] = None):
-        """
-        The condition that results in the Log Search rule.
-        :param pulumi.Input[float] threshold: Result or count threshold based on which rule should be triggered.
-        :param pulumi.Input[str] threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-        :param pulumi.Input['LogMetricTriggerArgs'] metric_trigger: Trigger condition for metric query rule
-        """
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "threshold_operator", threshold_operator)
-        if metric_trigger is not None:
-            pulumi.set(__self__, "metric_trigger", metric_trigger)
-
-    @property
-    @pulumi.getter
-    def threshold(self) -> pulumi.Input[float]:
-        """
-        Result or count threshold based on which rule should be triggered.
-        """
-        return pulumi.get(self, "threshold")
-
-    @threshold.setter
-    def threshold(self, value: pulumi.Input[float]):
-        pulumi.set(self, "threshold", value)
-
-    @property
-    @pulumi.getter(name="thresholdOperator")
-    def threshold_operator(self) -> pulumi.Input[str]:
-        """
-        Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-        """
-        return pulumi.get(self, "threshold_operator")
-
-    @threshold_operator.setter
-    def threshold_operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "threshold_operator", value)
-
-    @property
-    @pulumi.getter(name="metricTrigger")
-    def metric_trigger(self) -> Optional[pulumi.Input['LogMetricTriggerArgs']]:
-        """
-        Trigger condition for metric query rule
-        """
-        return pulumi.get(self, "metric_trigger")
-
-    @metric_trigger.setter
-    def metric_trigger(self, value: Optional[pulumi.Input['LogMetricTriggerArgs']]):
-        pulumi.set(self, "metric_trigger", value)
 
 
 @pulumi.input_type
@@ -3544,5 +4336,206 @@ class WebtestLocationAvailabilityCriteriaArgs:
     @web_test_id.setter
     def web_test_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "web_test_id", value)
+
+
+@pulumi.input_type
+class WindowsEventLogDataSourceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 scheduled_transfer_period: pulumi.Input[str],
+                 streams: pulumi.Input[List[pulumi.Input[str]]],
+                 x_path_queries: pulumi.Input[List[pulumi.Input[str]]]):
+        """
+        Definition of which Windows Event Log events will be collected and how they will be collected.
+        Only collected from Windows machines.
+        :param pulumi.Input[str] name: A friendly name for the data source. 
+               This name should be unique across all data sources (regardless of type) within the data collection rule.
+        :param pulumi.Input[str] scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
+        :param pulumi.Input[List[pulumi.Input[str]]] streams: List of streams that this data source will be sent to.
+               A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        :param pulumi.Input[List[pulumi.Input[str]]] x_path_queries: A list of Windows Event Log queries in XPATH format.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "scheduled_transfer_period", scheduled_transfer_period)
+        pulumi.set(__self__, "streams", streams)
+        pulumi.set(__self__, "x_path_queries", x_path_queries)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="scheduledTransferPeriod")
+    def scheduled_transfer_period(self) -> pulumi.Input[str]:
+        """
+        The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
+        """
+        return pulumi.get(self, "scheduled_transfer_period")
+
+    @scheduled_transfer_period.setter
+    def scheduled_transfer_period(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scheduled_transfer_period", value)
+
+    @property
+    @pulumi.getter
+    def streams(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+    @streams.setter
+    def streams(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "streams", value)
+
+    @property
+    @pulumi.getter(name="xPathQueries")
+    def x_path_queries(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        A list of Windows Event Log queries in XPATH format.
+        """
+        return pulumi.get(self, "x_path_queries")
+
+    @x_path_queries.setter
+    def x_path_queries(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "x_path_queries", value)
+
+
+@pulumi.input_type
+class WorkbookTemplateGalleryArgs:
+    def __init__(__self__, *,
+                 category: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[float]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Gallery information for a workbook template.
+        :param pulumi.Input[str] category: Category for the gallery.
+        :param pulumi.Input[str] name: Name of the workbook template in the gallery.
+        :param pulumi.Input[float] order: Order of the template within the gallery.
+        :param pulumi.Input[str] resource_type: Azure resource type supported by the gallery.
+        :param pulumi.Input[str] type: Type of workbook supported by the workbook template.
+        """
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[str]]:
+        """
+        Category for the gallery.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the workbook template in the gallery.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[float]]:
+        """
+        Order of the template within the gallery.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure resource type supported by the gallery.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of workbook supported by the workbook template.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class WorkbookTemplateLocalizedGalleryArgs:
+    def __init__(__self__, *,
+                 galleries: Optional[pulumi.Input[List[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
+                 template_data: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Localized template data and gallery information.
+        :param pulumi.Input[List[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: Workbook galleries supported by the template.
+        :param pulumi.Input[Mapping[str, Any]] template_data: Valid JSON object containing workbook template payload.
+        """
+        if galleries is not None:
+            pulumi.set(__self__, "galleries", galleries)
+        if template_data is not None:
+            pulumi.set(__self__, "template_data", template_data)
+
+    @property
+    @pulumi.getter
+    def galleries(self) -> Optional[pulumi.Input[List[pulumi.Input['WorkbookTemplateGalleryArgs']]]]:
+        """
+        Workbook galleries supported by the template.
+        """
+        return pulumi.get(self, "galleries")
+
+    @galleries.setter
+    def galleries(self, value: Optional[pulumi.Input[List[pulumi.Input['WorkbookTemplateGalleryArgs']]]]):
+        pulumi.set(self, "galleries", value)
+
+    @property
+    @pulumi.getter(name="templateData")
+    def template_data(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Valid JSON object containing workbook template payload.
+        """
+        return pulumi.get(self, "template_data")
+
+    @template_data.setter
+    def template_data(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "template_data", value)
 
 

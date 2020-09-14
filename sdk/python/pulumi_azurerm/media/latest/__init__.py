@@ -14,6 +14,7 @@ from .get_content_key_policy import *
 from .get_job import *
 from .get_live_event import *
 from .get_live_output import *
+from .get_media_graph import *
 from .get_media_service import *
 from .get_private_endpoint_connection import *
 from .get_streaming_endpoint import *
@@ -29,6 +30,7 @@ from .list_streaming_locator_content_keys import *
 from .list_streaming_locator_paths import *
 from .live_event import *
 from .live_output import *
+from .media_graph import *
 from .media_service import *
 from .private_endpoint_connection import *
 from .streaming_endpoint import *

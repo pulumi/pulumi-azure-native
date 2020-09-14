@@ -18,7 +18,6 @@ __all__ = [
     'PolicyDefinitionGroupArgs',
     'PolicyDefinitionReferenceArgs',
     'PolicySkuArgs',
-    'RoleAssignmentPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -209,16 +208,24 @@ class ParameterValuesValueArgs:
 class PermissionArgs:
     def __init__(__self__, *,
                  actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 not_actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 data_actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 not_actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 not_data_actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
         """
         Role definition permissions.
         :param pulumi.Input[List[pulumi.Input[str]]] actions: Allowed actions.
+        :param pulumi.Input[List[pulumi.Input[str]]] data_actions: Allowed Data actions.
         :param pulumi.Input[List[pulumi.Input[str]]] not_actions: Denied actions.
+        :param pulumi.Input[List[pulumi.Input[str]]] not_data_actions: Denied Data actions.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if data_actions is not None:
+            pulumi.set(__self__, "data_actions", data_actions)
         if not_actions is not None:
             pulumi.set(__self__, "not_actions", not_actions)
+        if not_data_actions is not None:
+            pulumi.set(__self__, "not_data_actions", not_data_actions)
 
     @property
     @pulumi.getter
@@ -233,6 +240,18 @@ class PermissionArgs:
         pulumi.set(self, "actions", value)
 
     @property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        Allowed Data actions.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @data_actions.setter
+    def data_actions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "data_actions", value)
+
+    @property
     @pulumi.getter(name="notActions")
     def not_actions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
         """
@@ -243,6 +262,18 @@ class PermissionArgs:
     @not_actions.setter
     def not_actions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
         pulumi.set(self, "not_actions", value)
+
+    @property
+    @pulumi.getter(name="notDataActions")
+    def not_data_actions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        Denied Data actions.
+        """
+        return pulumi.get(self, "not_data_actions")
+
+    @not_data_actions.setter
+    def not_data_actions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "not_data_actions", value)
 
 
 @pulumi.input_type
@@ -440,43 +471,5 @@ class PolicySkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
-
-
-@pulumi.input_type
-class RoleAssignmentPropertiesArgs:
-    def __init__(__self__, *,
-                 principal_id: pulumi.Input[str],
-                 role_definition_id: pulumi.Input[str]):
-        """
-        Role assignment properties.
-        :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-        :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Input[str]:
-        """
-        The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Input[str]:
-        """
-        The role definition ID used in the role assignment.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    @role_definition_id.setter
-    def role_definition_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_definition_id", value)
 
 

@@ -19,7 +19,7 @@ class SignalR(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']]] = None,
                  features: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]]] = None,
-                 host_name_prefix: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']]] = None,
@@ -27,6 +27,7 @@ class SignalR(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tls: Optional[pulumi.Input[pulumi.InputType['SignalRTlsSettingsArgs']]] = None,
                  upstream: Optional[pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -65,6 +66,9 @@ class SignalR(pulumi.CustomResource):
                     "value": "False",
                 },
             ],
+            identity={
+                "type": "SystemAssigned",
+            },
             kind="SignalR",
             location="eastus",
             network_acls={
@@ -87,8 +91,17 @@ class SignalR(pulumi.CustomResource):
             tags={
                 "key1": "value1",
             },
+            tls={
+                "clientCertEnabled": False,
+            },
             upstream={
                 "templates": [{
+                    "auth": {
+                        "managedIdentity": {
+                            "resource": "api://example",
+                        },
+                        "type": "ManagedIdentity",
+                    },
                     "categoryPattern": "*",
                     "eventPattern": "connect,disconnect",
                     "hubPattern": "*",
@@ -107,8 +120,7 @@ class SignalR(pulumi.CustomResource):
                And the response will only include featureFlags that are explicitly set. 
                When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
                But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        :param pulumi.Input[str] host_name_prefix: Prefix for the hostName of the SignalR service. Retained for future use.
-               The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: The managed identity response
         :param pulumi.Input[str] kind: The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         :param pulumi.Input[str] location: The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
         :param pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']] network_acls: Network ACLs
@@ -116,6 +128,7 @@ class SignalR(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the SignalR resource.
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.(e.g. Free, Standard)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
+        :param pulumi.Input[pulumi.InputType['SignalRTlsSettingsArgs']] tls: TLS settings.
         :param pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']] upstream: Upstream settings when the Azure SignalR is in server-less mode.
         """
         if __name__ is not None:
@@ -137,7 +150,7 @@ class SignalR(pulumi.CustomResource):
 
             __props__['cors'] = cors
             __props__['features'] = features
-            __props__['host_name_prefix'] = host_name_prefix
+            __props__['identity'] = identity
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['network_acls'] = network_acls
@@ -149,6 +162,7 @@ class SignalR(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['tls'] = tls
             __props__['upstream'] = upstream
             __props__['external_ip'] = None
             __props__['host_name'] = None
@@ -223,13 +237,12 @@ class SignalR(pulumi.CustomResource):
         return pulumi.get(self, "host_name")
 
     @property
-    @pulumi.getter(name="hostNamePrefix")
-    def host_name_prefix(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityResponse']]:
         """
-        Prefix for the hostName of the SignalR service. Retained for future use.
-        The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+        The managed identity response
         """
-        return pulumi.get(self, "host_name_prefix")
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -310,6 +323,14 @@ class SignalR(pulumi.CustomResource):
         Tags of the service which is a list of key value pairs that describe the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> pulumi.Output[Optional['outputs.SignalRTlsSettingsResponse']]:
+        """
+        TLS settings.
+        """
+        return pulumi.get(self, "tls")
 
     @property
     @pulumi.getter

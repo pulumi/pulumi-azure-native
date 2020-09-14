@@ -20,7 +20,7 @@ class GetMachineResult:
     """
     Describes a hybrid machine.
     """
-    def __init__(__self__, ad_fqdn=None, agent_version=None, client_public_key=None, display_name=None, dns_fqdn=None, domain_name=None, error_details=None, extensions=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, name=None, os_name=None, os_profile=None, os_sku=None, os_version=None, provisioning_state=None, status=None, tags=None, type=None, vm_id=None, vm_uuid=None):
+    def __init__(__self__, ad_fqdn=None, agent_version=None, client_public_key=None, display_name=None, dns_fqdn=None, domain_name=None, error_details=None, extensions=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, name=None, os_name=None, os_profile=None, os_sku=None, os_version=None, private_link_scoped_resources=None, provisioning_state=None, status=None, tags=None, type=None, vm_id=None, vm_uuid=None):
         if ad_fqdn and not isinstance(ad_fqdn, str):
             raise TypeError("Expected argument 'ad_fqdn' to be a str")
         pulumi.set(__self__, "ad_fqdn", ad_fqdn)
@@ -75,6 +75,9 @@ class GetMachineResult:
         if os_version and not isinstance(os_version, str):
             raise TypeError("Expected argument 'os_version' to be a str")
         pulumi.set(__self__, "os_version", os_version)
+        if private_link_scoped_resources and not isinstance(private_link_scoped_resources, list):
+            raise TypeError("Expected argument 'private_link_scoped_resources' to be a list")
+        pulumi.set(__self__, "private_link_scoped_resources", private_link_scoped_resources)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -152,7 +155,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter
-    def extensions(self) -> List['outputs.MachineExtensionInstanceViewResponse']:
+    def extensions(self) -> Optional[List['outputs.MachineExtensionInstanceViewResponse']]:
         """
         Machine Extensions information
         """
@@ -236,6 +239,14 @@ class GetMachineResult:
         return pulumi.get(self, "os_version")
 
     @property
+    @pulumi.getter(name="privateLinkScopedResources")
+    def private_link_scoped_resources(self) -> List[str]:
+        """
+        List of private link scoped resources associated with this machine.
+        """
+        return pulumi.get(self, "private_link_scoped_resources")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -308,6 +319,7 @@ class AwaitableGetMachineResult(GetMachineResult):
             os_profile=self.os_profile,
             os_sku=self.os_sku,
             os_version=self.os_version,
+            private_link_scoped_resources=self.private_link_scoped_resources,
             provisioning_state=self.provisioning_state,
             status=self.status,
             tags=self.tags,
@@ -356,6 +368,7 @@ def get_machine(expand: Optional[str] = None,
         os_profile=__ret__.os_profile,
         os_sku=__ret__.os_sku,
         os_version=__ret__.os_version,
+        private_link_scoped_resources=__ret__.private_link_scoped_resources,
         provisioning_state=__ret__.provisioning_state,
         status=__ret__.status,
         tags=__ret__.tags,

@@ -7,6 +7,7 @@ from .get_hybrid_connection import *
 from .get_hybrid_connection_authorization_rule import *
 from .get_namespace import *
 from .get_namespace_authorization_rule import *
+from .get_private_endpoint_connection import *
 from .get_wcf_relay import *
 from .get_wcf_relay_authorization_rule import *
 from .hybrid_connection import *
@@ -16,6 +17,7 @@ from .list_namespace_keys import *
 from .list_wcf_relay_keys import *
 from .namespace import *
 from .namespace_authorization_rule import *
+from .private_endpoint_connection import *
 from .wcf_relay import *
 from .wcf_relay_authorization_rule import *
 from ._inputs import *

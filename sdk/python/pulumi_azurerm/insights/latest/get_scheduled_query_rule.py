@@ -18,130 +18,160 @@ __all__ = [
 @pulumi.output_type
 class GetScheduledQueryRuleResult:
     """
-    The Log Search Rule resource.
+    The scheduled query rule resource.
     """
-    def __init__(__self__, action=None, description=None, enabled=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
-        if action and not isinstance(action, dict):
-            raise TypeError("Expected argument 'action' to be a dict")
-        pulumi.set(__self__, "action", action)
+    def __init__(__self__, actions=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, location=None, mute_actions_duration=None, name=None, scopes=None, severity=None, tags=None, target_resource_types=None, type=None, window_size=None):
+        if actions and not isinstance(actions, list):
+            raise TypeError("Expected argument 'actions' to be a list")
+        pulumi.set(__self__, "actions", actions)
+        if criteria and not isinstance(criteria, dict):
+            raise TypeError("Expected argument 'criteria' to be a dict")
+        pulumi.set(__self__, "criteria", criteria)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if enabled and not isinstance(enabled, str):
-            raise TypeError("Expected argument 'enabled' to be a str")
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
-        if last_updated_time and not isinstance(last_updated_time, str):
-            raise TypeError("Expected argument 'last_updated_time' to be a str")
-        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if evaluation_frequency and not isinstance(evaluation_frequency, str):
+            raise TypeError("Expected argument 'evaluation_frequency' to be a str")
+        pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if mute_actions_duration and not isinstance(mute_actions_duration, str):
+            raise TypeError("Expected argument 'mute_actions_duration' to be a str")
+        pulumi.set(__self__, "mute_actions_duration", mute_actions_duration)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if schedule and not isinstance(schedule, dict):
-            raise TypeError("Expected argument 'schedule' to be a dict")
-        pulumi.set(__self__, "schedule", schedule)
-        if source and not isinstance(source, dict):
-            raise TypeError("Expected argument 'source' to be a dict")
-        pulumi.set(__self__, "source", source)
+        if scopes and not isinstance(scopes, list):
+            raise TypeError("Expected argument 'scopes' to be a list")
+        pulumi.set(__self__, "scopes", scopes)
+        if severity and not isinstance(severity, float):
+            raise TypeError("Expected argument 'severity' to be a float")
+        pulumi.set(__self__, "severity", severity)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if target_resource_types and not isinstance(target_resource_types, list):
+            raise TypeError("Expected argument 'target_resource_types' to be a list")
+        pulumi.set(__self__, "target_resource_types", target_resource_types)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if window_size and not isinstance(window_size, str):
+            raise TypeError("Expected argument 'window_size' to be a str")
+        pulumi.set(__self__, "window_size", window_size)
 
     @property
     @pulumi.getter
-    def action(self) -> Any:
+    def actions(self) -> Optional[List['outputs.ActionResponse']]:
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> Optional['outputs.ScheduledQueryRuleCriteriaResponse']:
         """
-        Action needs to be taken on rule execution.
+        The rule criteria that defines the conditions of the scheduled query rule.
         """
-        return pulumi.get(self, "action")
+        return pulumi.get(self, "criteria")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        The description of the Log Search rule.
+        The description of the scheduled query rule.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[str]:
+    def enabled(self) -> Optional[bool]:
         """
-        The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         """
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> str:
+    @pulumi.getter(name="evaluationFrequency")
+    def evaluation_frequency(self) -> Optional[str]:
         """
-        Last time the rule was updated in IS08601 format.
+        How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         """
-        return pulumi.get(self, "last_updated_time")
+        return pulumi.get(self, "evaluation_frequency")
 
     @property
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="muteActionsDuration")
+    def mute_actions_duration(self) -> Optional[str]:
+        """
+        Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+        """
+        return pulumi.get(self, "mute_actions_duration")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def scopes(self) -> Optional[List[str]]:
         """
-        Provisioning state of the scheduled query rule
+        The list of resource id's that this scheduled query rule is scoped to.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ScheduleResponse']:
+    def severity(self) -> Optional[float]:
         """
-        Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         """
-        return pulumi.get(self, "schedule")
-
-    @property
-    @pulumi.getter
-    def source(self) -> 'outputs.SourceResponse':
-        """
-        Data Source against which rule will Query Data
-        """
-        return pulumi.get(self, "source")
+        return pulumi.get(self, "severity")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetResourceTypes")
+    def target_resource_types(self) -> Optional[List[str]]:
+        """
+        List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+        """
+        return pulumi.get(self, "target_resource_types")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> Optional[str]:
+        """
+        The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+        """
+        return pulumi.get(self, "window_size")
 
 
 class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
@@ -150,17 +180,20 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
         if False:
             yield self
         return GetScheduledQueryRuleResult(
-            action=self.action,
+            actions=self.actions,
+            criteria=self.criteria,
             description=self.description,
             enabled=self.enabled,
-            last_updated_time=self.last_updated_time,
+            evaluation_frequency=self.evaluation_frequency,
             location=self.location,
+            mute_actions_duration=self.mute_actions_duration,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            schedule=self.schedule,
-            source=self.source,
+            scopes=self.scopes,
+            severity=self.severity,
             tags=self.tags,
-            type=self.type)
+            target_resource_types=self.target_resource_types,
+            type=self.type,
+            window_size=self.window_size)
 
 
 def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
@@ -182,14 +215,17 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azurerm:insights/latest:getScheduledQueryRule', __args__, opts=opts, typ=GetScheduledQueryRuleResult).value
 
     return AwaitableGetScheduledQueryRuleResult(
-        action=__ret__.action,
+        actions=__ret__.actions,
+        criteria=__ret__.criteria,
         description=__ret__.description,
         enabled=__ret__.enabled,
-        last_updated_time=__ret__.last_updated_time,
+        evaluation_frequency=__ret__.evaluation_frequency,
         location=__ret__.location,
+        mute_actions_duration=__ret__.mute_actions_duration,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        schedule=__ret__.schedule,
-        source=__ret__.source,
+        scopes=__ret__.scopes,
+        severity=__ret__.severity,
         tags=__ret__.tags,
-        type=__ret__.type)
+        target_resource_types=__ret__.target_resource_types,
+        type=__ret__.type,
+        window_size=__ret__.window_size)

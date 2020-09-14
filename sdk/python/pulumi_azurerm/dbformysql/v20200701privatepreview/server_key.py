@@ -68,6 +68,8 @@ class ServerKey(pulumi.CustomResource):
             __props__['kind'] = None
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformysql/latest:ServerKey")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerKey, __self__).__init__(
             'azurerm:dbformysql/v20200701privatepreview:ServerKey',
             resource_name,

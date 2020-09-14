@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetElasticPoolResult',
@@ -17,39 +18,36 @@ __all__ = [
 @pulumi.output_type
 class GetElasticPoolResult:
     """
-    Represents a database elastic pool.
+    An elastic pool.
     """
-    def __init__(__self__, creation_date=None, database_dtu_max=None, database_dtu_min=None, dtu=None, edition=None, kind=None, location=None, name=None, state=None, storage_mb=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, creation_date=None, kind=None, license_type=None, location=None, max_size_bytes=None, name=None, per_database_settings=None, sku=None, state=None, tags=None, type=None, zone_redundant=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
-        if database_dtu_max and not isinstance(database_dtu_max, float):
-            raise TypeError("Expected argument 'database_dtu_max' to be a float")
-        pulumi.set(__self__, "database_dtu_max", database_dtu_max)
-        if database_dtu_min and not isinstance(database_dtu_min, float):
-            raise TypeError("Expected argument 'database_dtu_min' to be a float")
-        pulumi.set(__self__, "database_dtu_min", database_dtu_min)
-        if dtu and not isinstance(dtu, float):
-            raise TypeError("Expected argument 'dtu' to be a float")
-        pulumi.set(__self__, "dtu", dtu)
-        if edition and not isinstance(edition, str):
-            raise TypeError("Expected argument 'edition' to be a str")
-        pulumi.set(__self__, "edition", edition)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if license_type and not isinstance(license_type, str):
+            raise TypeError("Expected argument 'license_type' to be a str")
+        pulumi.set(__self__, "license_type", license_type)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if max_size_bytes and not isinstance(max_size_bytes, float):
+            raise TypeError("Expected argument 'max_size_bytes' to be a float")
+        pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if per_database_settings and not isinstance(per_database_settings, dict):
+            raise TypeError("Expected argument 'per_database_settings' to be a dict")
+        pulumi.set(__self__, "per_database_settings", per_database_settings)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
-        if storage_mb and not isinstance(storage_mb, float):
-            raise TypeError("Expected argument 'storage_mb' to be a float")
-        pulumi.set(__self__, "storage_mb", storage_mb)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -69,44 +67,20 @@ class GetElasticPoolResult:
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter(name="databaseDtuMax")
-    def database_dtu_max(self) -> Optional[float]:
-        """
-        The maximum DTU any one database can consume.
-        """
-        return pulumi.get(self, "database_dtu_max")
-
-    @property
-    @pulumi.getter(name="databaseDtuMin")
-    def database_dtu_min(self) -> Optional[float]:
-        """
-        The minimum DTU all databases are guaranteed.
-        """
-        return pulumi.get(self, "database_dtu_min")
-
-    @property
-    @pulumi.getter
-    def dtu(self) -> Optional[float]:
-        """
-        The total shared DTU for the database elastic pool.
-        """
-        return pulumi.get(self, "dtu")
-
-    @property
-    @pulumi.getter
-    def edition(self) -> Optional[str]:
-        """
-        The edition of the elastic pool.
-        """
-        return pulumi.get(self, "edition")
-
-    @property
     @pulumi.getter
     def kind(self) -> str:
         """
-        Kind of elastic pool.  This is metadata used for the Azure portal experience.
+        Kind of elastic pool. This is metadata used for the Azure portal experience.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[str]:
+        """
+        The license type to apply for this elastic pool.
+        """
+        return pulumi.get(self, "license_type")
 
     @property
     @pulumi.getter
@@ -117,6 +91,14 @@ class GetElasticPoolResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="maxSizeBytes")
+    def max_size_bytes(self) -> Optional[float]:
+        """
+        The storage limit for the database elastic pool in bytes.
+        """
+        return pulumi.get(self, "max_size_bytes")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -125,20 +107,34 @@ class GetElasticPoolResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="perDatabaseSettings")
+    def per_database_settings(self) -> Optional['outputs.ElasticPoolPerDatabaseSettingsResponse']:
+        """
+        The per database settings for the elastic pool.
+        """
+        return pulumi.get(self, "per_database_settings")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The elastic pool SKU.
+        
+        The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+        
+        ```azurecli
+        az sql elastic-pool list-editions -l <location> -o table
+        ````
+        """
+        return pulumi.get(self, "sku")
+
+    @property
     @pulumi.getter
     def state(self) -> str:
         """
         The state of the elastic pool.
         """
         return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter(name="storageMB")
-    def storage_mb(self) -> Optional[float]:
-        """
-        Gets storage limit for the database elastic pool in MB.
-        """
-        return pulumi.get(self, "storage_mb")
 
     @property
     @pulumi.getter
@@ -160,7 +156,7 @@ class GetElasticPoolResult:
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[bool]:
         """
-        Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         """
         return pulumi.get(self, "zone_redundant")
 
@@ -172,15 +168,14 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             yield self
         return GetElasticPoolResult(
             creation_date=self.creation_date,
-            database_dtu_max=self.database_dtu_max,
-            database_dtu_min=self.database_dtu_min,
-            dtu=self.dtu,
-            edition=self.edition,
             kind=self.kind,
+            license_type=self.license_type,
             location=self.location,
+            max_size_bytes=self.max_size_bytes,
             name=self.name,
+            per_database_settings=self.per_database_settings,
+            sku=self.sku,
             state=self.state,
-            storage_mb=self.storage_mb,
             tags=self.tags,
             type=self.type,
             zone_redundant=self.zone_redundant)
@@ -193,7 +188,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str elastic_pool_name: The name of the elastic pool to be retrieved.
+    :param str elastic_pool_name: The name of the elastic pool.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
@@ -209,15 +204,14 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
 
     return AwaitableGetElasticPoolResult(
         creation_date=__ret__.creation_date,
-        database_dtu_max=__ret__.database_dtu_max,
-        database_dtu_min=__ret__.database_dtu_min,
-        dtu=__ret__.dtu,
-        edition=__ret__.edition,
         kind=__ret__.kind,
+        license_type=__ret__.license_type,
         location=__ret__.location,
+        max_size_bytes=__ret__.max_size_bytes,
         name=__ret__.name,
+        per_database_settings=__ret__.per_database_settings,
+        sku=__ret__.sku,
         state=__ret__.state,
-        storage_mb=__ret__.storage_mb,
         tags=__ret__.tags,
         type=__ret__.type,
         zone_redundant=__ret__.zone_redundant)

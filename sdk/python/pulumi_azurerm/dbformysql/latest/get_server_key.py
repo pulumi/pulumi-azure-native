@@ -51,7 +51,7 @@ class GetServerKeyResult:
     @pulumi.getter
     def kind(self) -> str:
         """
-        Kind of encryption protector used to protect the key.
+        Kind of encryption protector. This is metadata used for the Azure portal experience.
         """
         return pulumi.get(self, "kind")
 
@@ -110,7 +110,7 @@ def get_server_key(key_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str key_name: The name of the MySQL Server key to be retrieved.
-    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
     __args__ = dict()

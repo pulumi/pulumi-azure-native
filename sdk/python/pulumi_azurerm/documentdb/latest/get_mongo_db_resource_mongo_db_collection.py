@@ -20,7 +20,10 @@ class GetMongoDBResourceMongoDBCollectionResult:
     """
     An Azure Cosmos DB MongoDB collection.
     """
-    def __init__(__self__, location=None, name=None, options=None, resource=None, tags=None, type=None):
+    def __init__(__self__, identity=None, location=None, name=None, options=None, resource=None, tags=None, type=None):
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -39,6 +42,14 @@ class GetMongoDBResourceMongoDBCollectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -89,6 +100,7 @@ class AwaitableGetMongoDBResourceMongoDBCollectionResult(GetMongoDBResourceMongo
         if False:
             yield self
         return GetMongoDBResourceMongoDBCollectionResult(
+            identity=self.identity,
             location=self.location,
             name=self.name,
             options=self.options,
@@ -122,6 +134,7 @@ def get_mongo_db_resource_mongo_db_collection(account_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb/latest:getMongoDBResourceMongoDBCollection', __args__, opts=opts, typ=GetMongoDBResourceMongoDBCollectionResult).value
 
     return AwaitableGetMongoDBResourceMongoDBCollectionResult(
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         options=__ret__.options,

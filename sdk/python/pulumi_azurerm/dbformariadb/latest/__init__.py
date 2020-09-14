@@ -9,9 +9,11 @@ from .get_database import *
 from .get_firewall_rule import *
 from .get_private_endpoint_connection import *
 from .get_server import *
+from .get_server_key import *
 from .get_virtual_network_rule import *
 from .private_endpoint_connection import *
 from .server import *
+from .server_key import *
 from .virtual_network_rule import *
 from ._inputs import *
 from . import outputs

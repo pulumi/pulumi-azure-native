@@ -18,6 +18,7 @@ class Machine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
+                 extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['MachineIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  location_data: Optional[pulumi.Input[pulumi.InputType['LocationDataArgs']]] = None,
@@ -34,6 +35,7 @@ class Machine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]] extensions: Machine Extensions information
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['LocationDataArgs']] location_data: Metadata pertaining to the geographic location of the resource.
         :param pulumi.Input[str] name: The name of the hybrid machine.
@@ -59,6 +61,7 @@ class Machine(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['client_public_key'] = client_public_key
+            __props__['extensions'] = extensions
             __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -78,13 +81,13 @@ class Machine(pulumi.CustomResource):
             __props__['dns_fqdn'] = None
             __props__['domain_name'] = None
             __props__['error_details'] = None
-            __props__['extensions'] = None
             __props__['last_status_change'] = None
             __props__['machine_fqdn'] = None
             __props__['os_name'] = None
             __props__['os_profile'] = None
             __props__['os_sku'] = None
             __props__['os_version'] = None
+            __props__['private_link_scoped_resources'] = None
             __props__['provisioning_state'] = None
             __props__['status'] = None
             __props__['type'] = None
@@ -173,7 +176,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def extensions(self) -> pulumi.Output[List['outputs.MachineExtensionInstanceViewResponse']]:
+    def extensions(self) -> pulumi.Output[Optional[List['outputs.MachineExtensionInstanceViewResponse']]]:
         """
         Machine Extensions information
         """
@@ -255,6 +258,14 @@ class Machine(pulumi.CustomResource):
         The version of Operating System running on the hybrid machine.
         """
         return pulumi.get(self, "os_version")
+
+    @property
+    @pulumi.getter(name="privateLinkScopedResources")
+    def private_link_scoped_resources(self) -> pulumi.Output[List[str]]:
+        """
+        List of private link scoped resources associated with this machine.
+        """
+        return pulumi.get(self, "private_link_scoped_resources")
 
     @property
     @pulumi.getter(name="provisioningState")

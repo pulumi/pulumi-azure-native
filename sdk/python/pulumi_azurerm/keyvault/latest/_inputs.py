@@ -11,6 +11,8 @@ from ... import _utilities, _tables
 __all__ = [
     'AccessPolicyEntryArgs',
     'IPRuleArgs',
+    'ManagedHsmPropertiesArgs',
+    'ManagedHsmSkuArgs',
     'NetworkRuleSetArgs',
     'PermissionsArgs',
     'PrivateLinkServiceConnectionStateArgs',
@@ -109,6 +111,164 @@ class IPRuleArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ManagedHsmPropertiesArgs:
+    def __init__(__self__, *,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 enable_purge_protection: Optional[pulumi.Input[bool]] = None,
+                 enable_soft_delete: Optional[pulumi.Input[bool]] = None,
+                 hsm_pool_uri: Optional[pulumi.Input[str]] = None,
+                 initial_admin_object_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 soft_delete_retention_in_days: Optional[pulumi.Input[float]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of the managed HSM Pool
+        :param pulumi.Input[str] create_mode: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+        :param pulumi.Input[bool] enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+        :param pulumi.Input[bool] enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+        :param pulumi.Input[str] hsm_pool_uri: The URI of the managed hsm pool for performing operations on keys.
+        :param pulumi.Input[List[pulumi.Input[str]]] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
+        :param pulumi.Input[float] soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
+        :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+        """
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if enable_purge_protection is not None:
+            pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
+        if enable_soft_delete is not None:
+            pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
+        if hsm_pool_uri is not None:
+            pulumi.set(__self__, "hsm_pool_uri", hsm_pool_uri)
+        if initial_admin_object_ids is not None:
+            pulumi.set(__self__, "initial_admin_object_ids", initial_admin_object_ids)
+        if soft_delete_retention_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="enablePurgeProtection")
+    def enable_purge_protection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+        """
+        return pulumi.get(self, "enable_purge_protection")
+
+    @enable_purge_protection.setter
+    def enable_purge_protection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_purge_protection", value)
+
+    @property
+    @pulumi.getter(name="enableSoftDelete")
+    def enable_soft_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+        """
+        return pulumi.get(self, "enable_soft_delete")
+
+    @enable_soft_delete.setter
+    def enable_soft_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_soft_delete", value)
+
+    @property
+    @pulumi.getter(name="hsmPoolUri")
+    def hsm_pool_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the managed hsm pool for performing operations on keys.
+        """
+        return pulumi.get(self, "hsm_pool_uri")
+
+    @hsm_pool_uri.setter
+    def hsm_pool_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hsm_pool_uri", value)
+
+    @property
+    @pulumi.getter(name="initialAdminObjectIds")
+    def initial_admin_object_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        Array of initial administrators object ids for this managed hsm pool.
+        """
+        return pulumi.get(self, "initial_admin_object_ids")
+
+    @initial_admin_object_ids.setter
+    def initial_admin_object_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "initial_admin_object_ids", value)
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionInDays")
+    def soft_delete_retention_in_days(self) -> Optional[pulumi.Input[float]]:
+        """
+        softDelete data retention days. It accepts >=7 and <=90.
+        """
+        return pulumi.get(self, "soft_delete_retention_in_days")
+
+    @soft_delete_retention_in_days.setter
+    def soft_delete_retention_in_days(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "soft_delete_retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class ManagedHsmSkuArgs:
+    def __init__(__self__, *,
+                 family: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        SKU details
+        :param pulumi.Input[str] family: SKU Family of the managed HSM Pool
+        :param pulumi.Input[str] name: SKU of the managed HSM Pool
+        """
+        pulumi.set(__self__, "family", family)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def family(self) -> pulumi.Input[str]:
+        """
+        SKU Family of the managed HSM Pool
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: pulumi.Input[str]):
+        pulumi.set(self, "family", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        SKU of the managed HSM Pool
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

@@ -20,13 +20,25 @@ class GetRegistryResult:
     """
     An object that represents a container registry.
     """
-    def __init__(__self__, admin_user_enabled=None, creation_date=None, location=None, login_server=None, name=None, network_rule_set=None, policies=None, provisioning_state=None, sku=None, status=None, storage_account=None, tags=None, type=None):
+    def __init__(__self__, admin_user_enabled=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, identity=None, location=None, login_server=None, name=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, storage_account=None, tags=None, type=None):
         if admin_user_enabled and not isinstance(admin_user_enabled, bool):
             raise TypeError("Expected argument 'admin_user_enabled' to be a bool")
         pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if data_endpoint_enabled and not isinstance(data_endpoint_enabled, bool):
+            raise TypeError("Expected argument 'data_endpoint_enabled' to be a bool")
+        pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
+        if data_endpoint_host_names and not isinstance(data_endpoint_host_names, list):
+            raise TypeError("Expected argument 'data_endpoint_host_names' to be a list")
+        pulumi.set(__self__, "data_endpoint_host_names", data_endpoint_host_names)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -42,9 +54,15 @@ class GetRegistryResult:
         if policies and not isinstance(policies, dict):
             raise TypeError("Expected argument 'policies' to be a dict")
         pulumi.set(__self__, "policies", policies)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -76,6 +94,38 @@ class GetRegistryResult:
         The creation date of the container registry in ISO8601 format.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="dataEndpointEnabled")
+    def data_endpoint_enabled(self) -> Optional[bool]:
+        """
+        Enable a single data endpoint per region for serving data.
+        """
+        return pulumi.get(self, "data_endpoint_enabled")
+
+    @property
+    @pulumi.getter(name="dataEndpointHostNames")
+    def data_endpoint_host_names(self) -> List[str]:
+        """
+        List of host names that will serve data when dataEndpointEnabled is true.
+        """
+        return pulumi.get(self, "data_endpoint_host_names")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionPropertyResponse']:
+        """
+        The encryption settings of container registry.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
+        """
+        The identity of the container registry.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -118,12 +168,28 @@ class GetRegistryResult:
         return pulumi.get(self, "policies")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections for a container registry.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         The provisioning state of the container registry at the time the operation was called.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public network access is allowed for the container registry.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -174,12 +240,18 @@ class AwaitableGetRegistryResult(GetRegistryResult):
         return GetRegistryResult(
             admin_user_enabled=self.admin_user_enabled,
             creation_date=self.creation_date,
+            data_endpoint_enabled=self.data_endpoint_enabled,
+            data_endpoint_host_names=self.data_endpoint_host_names,
+            encryption=self.encryption,
+            identity=self.identity,
             location=self.location,
             login_server=self.login_server,
             name=self.name,
             network_rule_set=self.network_rule_set,
             policies=self.policies,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             sku=self.sku,
             status=self.status,
             storage_account=self.storage_account,
@@ -208,12 +280,18 @@ def get_registry(registry_name: Optional[str] = None,
     return AwaitableGetRegistryResult(
         admin_user_enabled=__ret__.admin_user_enabled,
         creation_date=__ret__.creation_date,
+        data_endpoint_enabled=__ret__.data_endpoint_enabled,
+        data_endpoint_host_names=__ret__.data_endpoint_host_names,
+        encryption=__ret__.encryption,
+        identity=__ret__.identity,
         location=__ret__.location,
         login_server=__ret__.login_server,
         name=__ret__.name,
         network_rule_set=__ret__.network_rule_set,
         policies=__ret__.policies,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         sku=__ret__.sku,
         status=__ret__.status,
         storage_account=__ret__.storage_account,

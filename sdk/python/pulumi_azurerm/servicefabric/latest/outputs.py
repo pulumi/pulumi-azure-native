@@ -22,6 +22,7 @@ __all__ = [
     'AzureActiveDirectoryResponse',
     'CertificateDescriptionResponse',
     'ClientCertificateCommonNameResponse',
+    'ClientCertificateResponse',
     'ClientCertificateThumbprintResponse',
     'ClusterHealthPolicyResponse',
     'ClusterUpgradeDeltaHealthPolicyResponse',
@@ -29,6 +30,7 @@ __all__ = [
     'ClusterVersionDetailsResponse',
     'DiagnosticsStorageAccountConfigResponse',
     'EndpointRangeDescriptionResponse',
+    'LoadBalancingRuleResponse',
     'ManagedIdentityResponse',
     'NamedPartitionSchemeDescriptionResponse',
     'NodeTypeDescriptionResponse',
@@ -42,8 +44,13 @@ __all__ = [
     'SettingsParameterDescriptionResponse',
     'SettingsSectionDescriptionResponse',
     'SingletonPartitionSchemeDescriptionResponse',
+    'SkuResponse',
+    'SubResourceResponse',
     'UniformInt64RangePartitionSchemeDescriptionResponse',
     'UserAssignedIdentityResponse',
+    'VMSSExtensionResponse',
+    'VaultCertificateResponse',
+    'VaultSecretGroupResponse',
 ]
 
 @pulumi.output_type
@@ -687,6 +694,67 @@ class ClientCertificateCommonNameResponse(dict):
 
 
 @pulumi.output_type
+class ClientCertificateResponse(dict):
+    """
+    Client Certificate definition.
+    """
+    def __init__(__self__, *,
+                 is_admin: bool,
+                 common_name: Optional[str] = None,
+                 issuer_thumbprint: Optional[str] = None,
+                 thumbprint: Optional[str] = None):
+        """
+        Client Certificate definition.
+        :param bool is_admin: Whether the certificate is admin or not.
+        :param str common_name: Certificate Common name.
+        :param str issuer_thumbprint: Issuer thumbprint for the certificate. Its only use CommonName is used.
+        :param str thumbprint: Certificate Thumbprint.
+        """
+        pulumi.set(__self__, "is_admin", is_admin)
+        if common_name is not None:
+            pulumi.set(__self__, "common_name", common_name)
+        if issuer_thumbprint is not None:
+            pulumi.set(__self__, "issuer_thumbprint", issuer_thumbprint)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="isAdmin")
+    def is_admin(self) -> bool:
+        """
+        Whether the certificate is admin or not.
+        """
+        return pulumi.get(self, "is_admin")
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> Optional[str]:
+        """
+        Certificate Common name.
+        """
+        return pulumi.get(self, "common_name")
+
+    @property
+    @pulumi.getter(name="issuerThumbprint")
+    def issuer_thumbprint(self) -> Optional[str]:
+        """
+        Issuer thumbprint for the certificate. Its only use CommonName is used.
+        """
+        return pulumi.get(self, "issuer_thumbprint")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[str]:
+        """
+        Certificate Thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ClientCertificateThumbprintResponse(dict):
     """
     Describes the client certificate details using thumbprint.
@@ -1145,6 +1213,76 @@ class EndpointRangeDescriptionResponse(dict):
         Starting port of a range of ports
         """
         return pulumi.get(self, "start_port")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LoadBalancingRuleResponse(dict):
+    """
+    Describes a load balancing rule.
+    """
+    def __init__(__self__, *,
+                 backend_port: float,
+                 frontend_port: float,
+                 probe_protocol: str,
+                 protocol: str,
+                 probe_request_path: Optional[str] = None):
+        """
+        Describes a load balancing rule.
+        :param float backend_port: The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+        :param float frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+        :param str probe_protocol: the reference to the load balancer probe used by the load balancing rule.
+        :param str protocol: The reference to the transport protocol used by the load balancing rule.
+        :param str probe_request_path: The probe request path. Only supported for HTTP/HTTPS probes.
+        """
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "probe_protocol", probe_protocol)
+        pulumi.set(__self__, "protocol", protocol)
+        if probe_request_path is not None:
+            pulumi.set(__self__, "probe_request_path", probe_request_path)
+
+    @property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> float:
+        """
+        The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+        """
+        return pulumi.get(self, "backend_port")
+
+    @property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> float:
+        """
+        The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @property
+    @pulumi.getter(name="probeProtocol")
+    def probe_protocol(self) -> str:
+        """
+        the reference to the load balancer probe used by the load balancing rule.
+        """
+        return pulumi.get(self, "probe_protocol")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The reference to the transport protocol used by the load balancing rule.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="probeRequestPath")
+    def probe_request_path(self) -> Optional[str]:
+        """
+        The probe request path. Only supported for HTTP/HTTPS probes.
+        """
+        return pulumi.get(self, "probe_request_path")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1772,6 +1910,57 @@ class SingletonPartitionSchemeDescriptionResponse(dict):
 
 
 @pulumi.output_type
+class SkuResponse(dict):
+    """
+    Sku definition
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        Sku definition
+        :param str name: Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SubResourceResponse(dict):
+    """
+    Azure resource identifier.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Azure resource identifier.
+        :param str id: Azure resource identifier.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Azure resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class UniformInt64RangePartitionSchemeDescriptionResponse(dict):
     """
     Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
@@ -1860,6 +2049,207 @@ class UserAssignedIdentityResponse(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VMSSExtensionResponse(dict):
+    """
+    Specifies set of extensions that should be installed onto the virtual machines.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 provisioning_state: str,
+                 publisher: str,
+                 type: str,
+                 type_handler_version: str,
+                 auto_upgrade_minor_version: Optional[bool] = None,
+                 force_update_tag: Optional[str] = None,
+                 protected_settings: Optional[Mapping[str, Any]] = None,
+                 provision_after_extensions: Optional[List[str]] = None,
+                 settings: Optional[Mapping[str, Any]] = None):
+        """
+        Specifies set of extensions that should be installed onto the virtual machines.
+        :param str name: The name of the extension.
+        :param str provisioning_state: The provisioning state, which only appears in the response.
+        :param str publisher: The name of the extension handler publisher.
+        :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
+        :param str type_handler_version: Specifies the version of the script handler.
+        :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param str force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+        :param Mapping[str, Any] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param List[str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
+        :param Mapping[str, Any] settings: Json formatted public settings for the extension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if auto_upgrade_minor_version is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if provision_after_extensions is not None:
+            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the extension.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        The name of the extension handler publisher.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> str:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[bool]:
+        """
+        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[str]:
+        """
+        If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[Mapping[str, Any]]:
+        """
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> Optional[List[str]]:
+        """
+        Collection of extension names after which this extension needs to be provisioned.
+        """
+        return pulumi.get(self, "provision_after_extensions")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[Mapping[str, Any]]:
+        """
+        Json formatted public settings for the extension.
+        """
+        return pulumi.get(self, "settings")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VaultCertificateResponse(dict):
+    """
+    Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+    """
+    def __init__(__self__, *,
+                 certificate_store: str,
+                 certificate_url: str):
+        """
+        Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+        :param str certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+        :param str certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+        """
+        pulumi.set(__self__, "certificate_store", certificate_store)
+        pulumi.set(__self__, "certificate_url", certificate_url)
+
+    @property
+    @pulumi.getter(name="certificateStore")
+    def certificate_store(self) -> str:
+        """
+        For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+        """
+        return pulumi.get(self, "certificate_store")
+
+    @property
+    @pulumi.getter(name="certificateUrl")
+    def certificate_url(self) -> str:
+        """
+        This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+        """
+        return pulumi.get(self, "certificate_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VaultSecretGroupResponse(dict):
+    """
+    Specifies set of certificates that should be installed onto the virtual machines.
+    """
+    def __init__(__self__, *,
+                 source_vault: 'outputs.SubResourceResponse',
+                 vault_certificates: List['outputs.VaultCertificateResponse']):
+        """
+        Specifies set of certificates that should be installed onto the virtual machines.
+        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        :param List['VaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        """
+        pulumi.set(__self__, "source_vault", source_vault)
+        pulumi.set(__self__, "vault_certificates", vault_certificates)
+
+    @property
+    @pulumi.getter(name="sourceVault")
+    def source_vault(self) -> 'outputs.SubResourceResponse':
+        """
+        The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        """
+        return pulumi.get(self, "source_vault")
+
+    @property
+    @pulumi.getter(name="vaultCertificates")
+    def vault_certificates(self) -> List['outputs.VaultCertificateResponse']:
+        """
+        The list of key vault references in SourceVault which contain certificates.
+        """
+        return pulumi.get(self, "vault_certificates")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

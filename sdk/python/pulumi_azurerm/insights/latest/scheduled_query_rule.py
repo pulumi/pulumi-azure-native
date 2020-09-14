@@ -17,142 +17,188 @@ class ScheduledQueryRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union[pulumi.InputType['AlertingActionArgs'], pulumi.InputType['LogToMetricActionArgs']]]] = None,
+                 actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActionArgs']]]]] = None,
+                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 evaluation_frequency: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mute_actions_duration: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ScheduleArgs']]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['SourceArgs']]] = None,
+                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 severity: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 window_size: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        The Log Search Rule resource.
+        The scheduled query rule resource.
 
         ## Example Usage
-        ### Create or Update rule - AlertingAction
+        ### Create or update a scheduled query rule for Single Resource
 
         ```python
         import pulumi
         import pulumi_azurerm as azurerm
 
         scheduled_query_rule = azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule",
-            action={
-                "aznsAction": {
-                    "actionGroup": [],
-                    "customWebhookPayload": "{}",
-                    "emailSubject": "Email Header",
+            actions=[{
+                "actionGroupId": "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+                "webHookProperties": {
+                    "key11": "value11",
+                    "key12": "value12",
                 },
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-                "severity": "1",
-                "trigger": {
-                    "metricTrigger": {
-                        "metricColumn": "Computer",
-                        "metricTriggerType": "Consecutive",
-                        "threshold": 5,
-                        "thresholdOperator": "GreaterThan",
+            }],
+            criteria={
+                "allOf": [{
+                    "dimensions": [
+                        {
+                            "name": "ComputerIp",
+                            "operator": "Exclude",
+                            "values": ["192.168.1.1"],
+                        },
+                        {
+                            "name": "OSType",
+                            "operator": "Include",
+                            "values": ["*"],
+                        },
+                    ],
+                    "failingPeriods": {
+                        "minFailingPeriodsToAlert": 1,
+                        "numberOfEvaluationPeriods": 1,
                     },
-                    "threshold": 3,
-                    "thresholdOperator": "GreaterThan",
-                },
-            },
-            description="log alert description",
-            enabled="true",
-            location="eastus",
-            resource_group_name="Rac46PostSwapRG",
-            rule_name="logalertfoo",
-            schedule={
-                "frequencyInMinutes": 15,
-                "timeWindowInMinutes": 15,
-            },
-            source={
-                "dataSourceId": "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
-                "query": "Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)",
-                "queryType": "ResultCount",
-            },
-            tags={})
-
-        ```
-        ### Create or Update rule - AlertingAction with Cross-Resource
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        scheduled_query_rule = azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule",
-            action={
-                "aznsAction": {
-                    "actionGroup": ["/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/actiongroups/test-ag"],
-                    "emailSubject": "Cross Resource Mail!!",
-                },
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-                "severity": "3",
-                "trigger": {
-                    "threshold": 5000,
-                    "thresholdOperator": "GreaterThan",
-                },
-            },
-            description="Sample Cross Resource alert",
-            enabled="true",
-            location="eastus",
-            resource_group_name="Rac46PostSwapRG",
-            rule_name="SampleCrossResourceAlert",
-            schedule={
-                "frequencyInMinutes": 60,
-                "timeWindowInMinutes": 60,
-            },
-            source={
-                "authorizedResources": [
-                    "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
-                    "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
-                ],
-                "dataSourceId": "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
-                "query": "union requests, workspace(\"sampleWorkspace\").Update",
-                "queryType": "ResultCount",
-            },
-            tags={})
-
-        ```
-        ### Create or Update rule - LogToMetricAction
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        scheduled_query_rule = azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule",
-            action={
-                "criteria": [{
-                    "dimensions": [],
-                    "metricName": "Average_% Idle Time",
+                    "metricMeasureColumn": "% Processor Time",
+                    "operator": "GreaterThan",
+                    "query": "Perf | where ObjectName == \"Processor\"",
+                    "resourceIdColumn": "resourceId",
+                    "threshold": 70,
+                    "timeAggregation": "Average",
                 }],
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
             },
-            description="log to metric description",
-            enabled="true",
-            location="West Europe",
-            resource_group_name="alertsweu",
-            rule_name="logtometricfoo",
-            source={
-                "dataSourceId": "/subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/Microsoft.OperationalInsights/workspaces/alertsweu",
+            description="Performance rule",
+            enabled=True,
+            evaluation_frequency="PT5M",
+            location="eastus",
+            mute_actions_duration="PT30M",
+            resource_group_name="QueryResourceGroupName",
+            rule_name="perf",
+            scopes=["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1/providers/Microsoft.Compute/virtualMachines/vm1"],
+            severity=4,
+            window_size="PT10M")
+
+        ```
+        ### Create or update a scheduled query rule on Resource group(s)
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        scheduled_query_rule = azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule",
+            actions=[{
+                "actionGroupId": "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+                "webHookProperties": {
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            }],
+            criteria={
+                "allOf": [{
+                    "dimensions": [],
+                    "failingPeriods": {
+                        "minFailingPeriodsToAlert": 1,
+                        "numberOfEvaluationPeriods": 1,
+                    },
+                    "operator": "GreaterThan",
+                    "query": "Heartbeat",
+                    "threshold": 360,
+                    "timeAggregation": "Count",
+                }],
             },
-            tags={})
+            description="Health check rule",
+            enabled=True,
+            evaluation_frequency="PT5M",
+            location="eastus",
+            mute_actions_duration="PT30M",
+            resource_group_name="QueryResourceGroupName",
+            rule_name="heartbeat",
+            scopes=["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1"],
+            severity=4,
+            target_resource_types=["Microsoft.Compute/virtualMachines"],
+            window_size="PT10M")
+
+        ```
+        ### Create or update a scheduled query rule on Subscription
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        scheduled_query_rule = azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule",
+            actions=[{
+                "actionGroupId": "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+                "webHookProperties": {
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            }],
+            criteria={
+                "allOf": [{
+                    "dimensions": [
+                        {
+                            "name": "ComputerIp",
+                            "operator": "Exclude",
+                            "values": ["192.168.1.1"],
+                        },
+                        {
+                            "name": "OSType",
+                            "operator": "Include",
+                            "values": ["*"],
+                        },
+                    ],
+                    "failingPeriods": {
+                        "minFailingPeriodsToAlert": 1,
+                        "numberOfEvaluationPeriods": 1,
+                    },
+                    "metricMeasureColumn": "% Processor Time",
+                    "operator": "GreaterThan",
+                    "query": "Perf | where ObjectName == \"Processor\"",
+                    "resourceIdColumn": "resourceId",
+                    "threshold": 70,
+                    "timeAggregation": "Average",
+                }],
+            },
+            description="Performance rule",
+            enabled=True,
+            evaluation_frequency="PT5M",
+            location="eastus",
+            mute_actions_duration="PT30M",
+            resource_group_name="QueryResourceGroupName",
+            rule_name="perf",
+            scopes=["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147"],
+            severity=4,
+            target_resource_types=["Microsoft.Compute/virtualMachines"],
+            window_size="PT10M")
 
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['AlertingActionArgs'], pulumi.InputType['LogToMetricActionArgs']]] action: Action needs to be taken on rule execution.
-        :param pulumi.Input[str] description: The description of the Log Search rule.
-        :param pulumi.Input[str] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']] criteria: The rule criteria that defines the conditions of the scheduled query rule.
+        :param pulumi.Input[str] description: The description of the scheduled query rule.
+        :param pulumi.Input[bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
+        :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_name: The name of the rule.
-        :param pulumi.Input[pulumi.InputType['ScheduleArgs']] schedule: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-        :param pulumi.Input[pulumi.InputType['SourceArgs']] source: Data Source against which rule will Query Data
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[List[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
+        :param pulumi.Input[float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[List[pulumi.Input[str]]] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+        :param pulumi.Input[str] window_size: The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -171,28 +217,27 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action is None:
-                raise TypeError("Missing required property 'action'")
-            __props__['action'] = action
+            __props__['actions'] = actions
+            __props__['criteria'] = criteria
             __props__['description'] = description
             __props__['enabled'] = enabled
+            __props__['evaluation_frequency'] = evaluation_frequency
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['mute_actions_duration'] = mute_actions_duration
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if rule_name is None:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
-            __props__['schedule'] = schedule
-            if source is None:
-                raise TypeError("Missing required property 'source'")
-            __props__['source'] = source
+            __props__['scopes'] = scopes
+            __props__['severity'] = severity
             __props__['tags'] = tags
-            __props__['last_updated_time'] = None
+            __props__['target_resource_types'] = target_resource_types
+            __props__['window_size'] = window_size
             __props__['name'] = None
-            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/v20180416:ScheduledQueryRule"), pulumi.Alias(type_="azurerm:insights/v20200501preview:ScheduledQueryRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -222,91 +267,112 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Output[Any]:
+    def actions(self) -> pulumi.Output[Optional[List['outputs.ActionResponse']]]:
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Output[Optional['outputs.ScheduledQueryRuleCriteriaResponse']]:
         """
-        Action needs to be taken on rule execution.
+        The rule criteria that defines the conditions of the scheduled query rule.
         """
-        return pulumi.get(self, "action")
+        return pulumi.get(self, "criteria")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the Log Search rule.
+        The description of the scheduled query rule.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[str]]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         """
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="evaluationFrequency")
+    def evaluation_frequency(self) -> pulumi.Output[Optional[str]]:
         """
-        Last time the rule was updated in IS08601 format.
+        How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         """
-        return pulumi.get(self, "last_updated_time")
+        return pulumi.get(self, "evaluation_frequency")
 
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="muteActionsDuration")
+    def mute_actions_duration(self) -> pulumi.Output[Optional[str]]:
+        """
+        Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+        """
+        return pulumi.get(self, "mute_actions_duration")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def scopes(self) -> pulumi.Output[Optional[List[str]]]:
         """
-        Provisioning state of the scheduled query rule
+        The list of resource id's that this scheduled query rule is scoped to.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Output[Optional['outputs.ScheduleResponse']]:
+    def severity(self) -> pulumi.Output[Optional[float]]:
         """
-        Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         """
-        return pulumi.get(self, "schedule")
-
-    @property
-    @pulumi.getter
-    def source(self) -> pulumi.Output['outputs.SourceResponse']:
-        """
-        Data Source against which rule will Query Data
-        """
-        return pulumi.get(self, "source")
+        return pulumi.get(self, "severity")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetResourceTypes")
+    def target_resource_types(self) -> pulumi.Output[Optional[List[str]]]:
+        """
+        List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+        """
+        return pulumi.get(self, "target_resource_types")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> pulumi.Output[Optional[str]]:
+        """
+        The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+        """
+        return pulumi.get(self, "window_size")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

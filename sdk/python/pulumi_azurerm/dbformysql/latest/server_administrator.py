@@ -48,7 +48,7 @@ class ServerAdministrator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_type: The type of administrator.
         :param pulumi.Input[str] login: The server administrator login account name.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] sid: The server administrator Sid (Secure ID).
         :param pulumi.Input[str] tenant_id: The server Active Directory Administrator tenant id.

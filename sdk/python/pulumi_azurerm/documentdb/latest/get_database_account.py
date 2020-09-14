@@ -20,10 +20,13 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, api_properties=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, api_properties=None, backup_policy=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, create_mode=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, identity=None, instance_id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, restore_parameters=None, system_data=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
         if api_properties and not isinstance(api_properties, dict):
             raise TypeError("Expected argument 'api_properties' to be a dict")
         pulumi.set(__self__, "api_properties", api_properties)
+        if backup_policy and not isinstance(backup_policy, dict):
+            raise TypeError("Expected argument 'backup_policy' to be a dict")
+        pulumi.set(__self__, "backup_policy", backup_policy)
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
@@ -36,6 +39,9 @@ class GetDatabaseAccountResult:
         if cors and not isinstance(cors, list):
             raise TypeError("Expected argument 'cors' to be a list")
         pulumi.set(__self__, "cors", cors)
+        if create_mode and not isinstance(create_mode, str):
+            raise TypeError("Expected argument 'create_mode' to be a str")
+        pulumi.set(__self__, "create_mode", create_mode)
         if database_account_offer_type and not isinstance(database_account_offer_type, str):
             raise TypeError("Expected argument 'database_account_offer_type' to be a str")
         pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
@@ -63,6 +69,12 @@ class GetDatabaseAccountResult:
         if failover_policies and not isinstance(failover_policies, list):
             raise TypeError("Expected argument 'failover_policies' to be a list")
         pulumi.set(__self__, "failover_policies", failover_policies)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if instance_id and not isinstance(instance_id, str):
+            raise TypeError("Expected argument 'instance_id' to be a str")
+        pulumi.set(__self__, "instance_id", instance_id)
         if ip_rules and not isinstance(ip_rules, list):
             raise TypeError("Expected argument 'ip_rules' to be a list")
         pulumi.set(__self__, "ip_rules", ip_rules)
@@ -96,6 +108,12 @@ class GetDatabaseAccountResult:
         if read_locations and not isinstance(read_locations, list):
             raise TypeError("Expected argument 'read_locations' to be a list")
         pulumi.set(__self__, "read_locations", read_locations)
+        if restore_parameters and not isinstance(restore_parameters, dict):
+            raise TypeError("Expected argument 'restore_parameters' to be a dict")
+        pulumi.set(__self__, "restore_parameters", restore_parameters)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -116,6 +134,14 @@ class GetDatabaseAccountResult:
         API specific properties.
         """
         return pulumi.get(self, "api_properties")
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> Optional[Any]:
+        """
+        The object representing the policy for taking backups on an account.
+        """
+        return pulumi.get(self, "backup_policy")
 
     @property
     @pulumi.getter
@@ -148,6 +174,14 @@ class GetDatabaseAccountResult:
         The CORS policy for the Cosmos DB database account.
         """
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Enum to indicate the mode of account creation.
+        """
+        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="databaseAccountOfferType")
@@ -220,6 +254,22 @@ class GetDatabaseAccountResult:
         An array that contains the regions ordered by their failover priorities.
         """
         return pulumi.get(self, "failover_policies")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Identity for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> str:
+        """
+        A unique identifier assigned to the database account
+        """
+        return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="ipRules")
@@ -310,6 +360,22 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "read_locations")
 
     @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional['outputs.RestoreParametersResponse']:
+        """
+        Parameters to indicate the information about the restore.
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -349,10 +415,12 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             yield self
         return GetDatabaseAccountResult(
             api_properties=self.api_properties,
+            backup_policy=self.backup_policy,
             capabilities=self.capabilities,
             connector_offer=self.connector_offer,
             consistency_policy=self.consistency_policy,
             cors=self.cors,
+            create_mode=self.create_mode,
             database_account_offer_type=self.database_account_offer_type,
             disable_key_based_metadata_write_access=self.disable_key_based_metadata_write_access,
             document_endpoint=self.document_endpoint,
@@ -362,6 +430,8 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             enable_free_tier=self.enable_free_tier,
             enable_multiple_write_locations=self.enable_multiple_write_locations,
             failover_policies=self.failover_policies,
+            identity=self.identity,
+            instance_id=self.instance_id,
             ip_rules=self.ip_rules,
             is_virtual_network_filter_enabled=self.is_virtual_network_filter_enabled,
             key_vault_key_uri=self.key_vault_key_uri,
@@ -373,6 +443,8 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             read_locations=self.read_locations,
+            restore_parameters=self.restore_parameters,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             virtual_network_rules=self.virtual_network_rules,
@@ -399,10 +471,12 @@ def get_database_account(account_name: Optional[str] = None,
 
     return AwaitableGetDatabaseAccountResult(
         api_properties=__ret__.api_properties,
+        backup_policy=__ret__.backup_policy,
         capabilities=__ret__.capabilities,
         connector_offer=__ret__.connector_offer,
         consistency_policy=__ret__.consistency_policy,
         cors=__ret__.cors,
+        create_mode=__ret__.create_mode,
         database_account_offer_type=__ret__.database_account_offer_type,
         disable_key_based_metadata_write_access=__ret__.disable_key_based_metadata_write_access,
         document_endpoint=__ret__.document_endpoint,
@@ -412,6 +486,8 @@ def get_database_account(account_name: Optional[str] = None,
         enable_free_tier=__ret__.enable_free_tier,
         enable_multiple_write_locations=__ret__.enable_multiple_write_locations,
         failover_policies=__ret__.failover_policies,
+        identity=__ret__.identity,
+        instance_id=__ret__.instance_id,
         ip_rules=__ret__.ip_rules,
         is_virtual_network_filter_enabled=__ret__.is_virtual_network_filter_enabled,
         key_vault_key_uri=__ret__.key_vault_key_uri,
@@ -423,6 +499,8 @@ def get_database_account(account_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
         read_locations=__ret__.read_locations,
+        restore_parameters=__ret__.restore_parameters,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_network_rules=__ret__.virtual_network_rules,

@@ -174,7 +174,7 @@ class GetSubscriptionResult:
     @pulumi.getter(name="stateComment")
     def state_comment(self) -> Optional[str]:
         """
-        Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+        Optional subscription comment added by an administrator.
         """
         return pulumi.get(self, "state_comment")
 

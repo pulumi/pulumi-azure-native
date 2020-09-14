@@ -11,6 +11,7 @@ from ... import _utilities, _tables
 __all__ = [
     'CertificatePropertiesArgs',
     'CloudToDevicePropertiesArgs',
+    'EncryptionPropertiesDescriptionArgs',
     'EnrichmentPropertiesArgs',
     'EventHubConsumerGroupNameArgs',
     'EventHubPropertiesArgs',
@@ -22,6 +23,7 @@ __all__ = [
     'IotHubPropertiesArgs',
     'IotHubSkuInfoArgs',
     'IpFilterRuleArgs',
+    'KeyVaultKeyPropertiesArgs',
     'MessagingEndpointPropertiesArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateEndpointConnectionPropertiesArgs',
@@ -116,6 +118,46 @@ class CloudToDevicePropertiesArgs:
     @max_delivery_count.setter
     def max_delivery_count(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_delivery_count", value)
+
+
+@pulumi.input_type
+class EncryptionPropertiesDescriptionArgs:
+    def __init__(__self__, *,
+                 key_source: Optional[pulumi.Input[str]] = None,
+                 key_vault_properties: Optional[pulumi.Input[List[pulumi.Input['KeyVaultKeyPropertiesArgs']]]] = None):
+        """
+        The encryption properties for the IoT DPS instance.
+        :param pulumi.Input[str] key_source: The source of the key.
+        :param pulumi.Input[List[pulumi.Input['KeyVaultKeyPropertiesArgs']]] key_vault_properties: The properties of the KeyVault key.
+        """
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source of the key.
+        """
+        return pulumi.get(self, "key_source")
+
+    @key_source.setter
+    def key_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input[List[pulumi.Input['KeyVaultKeyPropertiesArgs']]]]:
+        """
+        The properties of the KeyVault key.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input[List[pulumi.Input['KeyVaultKeyPropertiesArgs']]]]):
+        pulumi.set(self, "key_vault_properties", value)
 
 
 @pulumi.input_type
@@ -381,6 +423,7 @@ class IotDpsPropertiesDescriptionArgs:
     def __init__(__self__, *,
                  allocation_policy: Optional[pulumi.Input[str]] = None,
                  authorization_policies: Optional[pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]] = None,
+                 encryption: Optional[pulumi.Input['EncryptionPropertiesDescriptionArgs']] = None,
                  iot_hubs: Optional[pulumi.Input[List[pulumi.Input['IotHubDefinitionDescriptionArgs']]]] = None,
                  ip_filter_rules: Optional[pulumi.Input[List[pulumi.Input['IpFilterRuleArgs']]]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[List[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
@@ -391,6 +434,7 @@ class IotDpsPropertiesDescriptionArgs:
         the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
         :param pulumi.Input[str] allocation_policy: Allocation policy to be used by this provisioning service.
         :param pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]] authorization_policies: List of authorization keys for a provisioning service.
+        :param pulumi.Input['EncryptionPropertiesDescriptionArgs'] encryption: The encryption properties for the IoT DPS instance.
         :param pulumi.Input[List[pulumi.Input['IotHubDefinitionDescriptionArgs']]] iot_hubs: List of IoT hubs associated with this provisioning service.
         :param pulumi.Input[List[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
         :param pulumi.Input[List[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: Private endpoint connections created on this IotHub
@@ -402,6 +446,8 @@ class IotDpsPropertiesDescriptionArgs:
             pulumi.set(__self__, "allocation_policy", allocation_policy)
         if authorization_policies is not None:
             pulumi.set(__self__, "authorization_policies", authorization_policies)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if iot_hubs is not None:
             pulumi.set(__self__, "iot_hubs", iot_hubs)
         if ip_filter_rules is not None:
@@ -438,6 +484,18 @@ class IotDpsPropertiesDescriptionArgs:
     @authorization_policies.setter
     def authorization_policies(self, value: Optional[pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]]):
         pulumi.set(self, "authorization_policies", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionPropertiesDescriptionArgs']]:
+        """
+        The encryption properties for the IoT DPS instance.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionPropertiesDescriptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter(name="iotHubs")
@@ -928,6 +986,30 @@ class IpFilterRuleArgs:
     @ip_mask.setter
     def ip_mask(self, value: pulumi.Input[str]):
         pulumi.set(self, "ip_mask", value)
+
+
+@pulumi.input_type
+class KeyVaultKeyPropertiesArgs:
+    def __init__(__self__, *,
+                 key_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the KeyVault key.
+        :param pulumi.Input[str] key_identifier: The identifier of the key.
+        """
+        if key_identifier is not None:
+            pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @key_identifier.setter
+    def key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_identifier", value)
 
 
 @pulumi.input_type

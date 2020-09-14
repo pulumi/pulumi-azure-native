@@ -24,7 +24,6 @@ class User(pulumi.CustomResource):
                  identities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  note: Optional[pulumi.Input[str]] = None,
-                 notify: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -56,14 +55,13 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_type: Determines the type of application which send the create user request. Default is legacy portal.
+        :param pulumi.Input[str] app_type: Determines the type of application which send the create user request. Default is old publisher portal.
         :param pulumi.Input[str] confirmation: Determines the type of confirmation e-mail that will be sent to the newly created user.
         :param pulumi.Input[str] email: Email address. Must not be empty and must be unique within the service instance.
         :param pulumi.Input[str] first_name: First name.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]] identities: Collection of user identities.
         :param pulumi.Input[str] last_name: Last name.
         :param pulumi.Input[str] note: Optional note about a user set by the administrator.
-        :param pulumi.Input[bool] notify: Send an Email notification to the User.
         :param pulumi.Input[str] password: User Password. If no value is provided, a default password is generated.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -100,7 +98,6 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'last_name'")
             __props__['last_name'] = last_name
             __props__['note'] = note
-            __props__['notify'] = notify
             __props__['password'] = password
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

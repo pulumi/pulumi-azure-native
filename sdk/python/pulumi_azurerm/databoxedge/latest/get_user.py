@@ -55,7 +55,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> Optional[List['outputs.ShareAccessRightResponse']]:
+    def share_access_rights(self) -> List['outputs.ShareAccessRightResponse']:
         """
         List of shares that the user has rights on. This field should not be specified during user creation.
         """

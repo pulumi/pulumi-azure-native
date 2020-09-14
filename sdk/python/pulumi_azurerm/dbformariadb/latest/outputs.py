@@ -7,14 +7,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
-    'ServerPrivateEndpointConnectionPropertiesResponse',
-    'ServerPrivateEndpointConnectionResponse',
-    'ServerPrivateLinkServiceConnectionStatePropertyResponse',
+    'ResourceIdentityResponse',
     'SkuResponse',
     'StorageProfileResponse',
 ]
@@ -85,128 +82,48 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
 
 
 @pulumi.output_type
-class ServerPrivateEndpointConnectionPropertiesResponse(dict):
+class ResourceIdentityResponse(dict):
     """
-    Properties of a private endpoint connection.
-    """
-    def __init__(__self__, *,
-                 provisioning_state: str,
-                 private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
-                 private_link_service_connection_state: Optional['outputs.ServerPrivateLinkServiceConnectionStatePropertyResponse'] = None):
-        """
-        Properties of a private endpoint connection.
-        :param str provisioning_state: State of the private endpoint connection.
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'ServerPrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the private endpoint connection.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
-        """
-        Private endpoint which the connection belongs to.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.ServerPrivateLinkServiceConnectionStatePropertyResponse']:
-        """
-        Connection state of the private endpoint connection.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ServerPrivateEndpointConnectionResponse(dict):
-    """
-    A private endpoint connection under a server
+    Azure Active Directory identity configuration for a resource.
     """
     def __init__(__self__, *,
-                 id: str,
-                 properties: 'outputs.ServerPrivateEndpointConnectionPropertiesResponse'):
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
         """
-        A private endpoint connection under a server
-        :param str id: Resource Id of the private endpoint connection.
-        :param 'ServerPrivateEndpointConnectionPropertiesResponseArgs' properties: Private endpoint connection properties
+        Azure Active Directory identity configuration for a resource.
+        :param str principal_id: The Azure Active Directory principal id.
+        :param str tenant_id: The Azure Active Directory tenant id.
+        :param str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Azure Active Directory principal id.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Azure Active Directory tenant id.
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def type(self) -> Optional[str]:
         """
-        Resource Id of the private endpoint connection.
+        The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.ServerPrivateEndpointConnectionPropertiesResponse':
-        """
-        Private endpoint connection properties
-        """
-        return pulumi.get(self, "properties")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ServerPrivateLinkServiceConnectionStatePropertyResponse(dict):
-    def __init__(__self__, *,
-                 actions_required: str,
-                 description: str,
-                 status: str):
-        """
-        :param str actions_required: The actions required for private link service connection.
-        :param str description: The private link service connection description.
-        :param str status: The private link service connection status.
-        """
-        pulumi.set(__self__, "actions_required", actions_required)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> str:
-        """
-        The actions required for private link service connection.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @property
-    @pulumi.getter
-    def description(self) -> str:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

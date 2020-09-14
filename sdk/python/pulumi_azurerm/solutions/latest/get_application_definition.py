@@ -20,7 +20,7 @@ class GetApplicationDefinitionResult:
     """
     Information about managed application definition.
     """
-    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, sku=None, tags=None, type=None):
+    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, sku=None, storage_account_id=None, tags=None, type=None):
         if artifacts and not isinstance(artifacts, list):
             raise TypeError("Expected argument 'artifacts' to be a list")
         pulumi.set(__self__, "artifacts", artifacts)
@@ -75,6 +75,9 @@ class GetApplicationDefinitionResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError("Expected argument 'storage_account_id' to be a str")
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -227,6 +230,14 @@ class GetApplicationDefinitionResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[str]:
+        """
+        The storage account id for bring your own storage scenario.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -267,6 +278,7 @@ class AwaitableGetApplicationDefinitionResult(GetApplicationDefinitionResult):
             package_file_uri=self.package_file_uri,
             policies=self.policies,
             sku=self.sku,
+            storage_account_id=self.storage_account_id,
             tags=self.tags,
             type=self.type)
 
@@ -308,5 +320,6 @@ def get_application_definition(application_definition_name: Optional[str] = None
         package_file_uri=__ret__.package_file_uri,
         policies=__ret__.policies,
         sku=__ret__.sku,
+        storage_account_id=__ret__.storage_account_id,
         tags=__ret__.tags,
         type=__ret__.type)

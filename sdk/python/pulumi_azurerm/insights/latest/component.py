@@ -24,12 +24,14 @@ class Component(pulumi.CustomResource):
                  ingestion_mode: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 public_network_access_for_ingestion: Optional[pulumi.Input[str]] = None,
+                 public_network_access_for_query: Optional[pulumi.Input[str]] = None,
                  request_source: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 retention_in_days: Optional[pulumi.Input[float]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -50,7 +52,8 @@ class Component(pulumi.CustomResource):
             location="South Central US",
             request_source="rest",
             resource_group_name="my-resource-group",
-            resource_name="my-component")
+            resource_name="my-component",
+            workspace_resource_id="/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace")
 
         ```
         ### ComponentUpdate
@@ -81,12 +84,14 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[str] ingestion_mode: Indicates the flow of the ingestion.
         :param pulumi.Input[str] kind: The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] public_network_access_for_ingestion: The network access type for accessing Application Insights ingestion.
+        :param pulumi.Input[str] public_network_access_for_query: The network access type for accessing Application Insights query.
         :param pulumi.Input[str] request_source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
-        :param pulumi.Input[float] retention_in_days: Retention period in days.
         :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] workspace_resource_id: ResourceId of the log analytics workspace which the data will be ingested to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,6 +124,8 @@ class Component(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['public_network_access_for_ingestion'] = public_network_access_for_ingestion
+            __props__['public_network_access_for_query'] = public_network_access_for_query
             __props__['request_source'] = request_source
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -126,18 +133,22 @@ class Component(pulumi.CustomResource):
             if resource_name_ is None:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            __props__['retention_in_days'] = retention_in_days
             __props__['sampling_percentage'] = sampling_percentage
             __props__['tags'] = tags
+            if workspace_resource_id is None:
+                raise TypeError("Missing required property 'workspace_resource_id'")
+            __props__['workspace_resource_id'] = workspace_resource_id
             __props__['app_id'] = None
             __props__['application_id'] = None
             __props__['connection_string'] = None
             __props__['creation_date'] = None
             __props__['hockey_app_token'] = None
             __props__['instrumentation_key'] = None
+            __props__['la_migration_date'] = None
             __props__['name'] = None
             __props__['private_link_scoped_resources'] = None
             __props__['provisioning_state'] = None
+            __props__['retention_in_days'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/v20150501:Component"), pulumi.Alias(type_="azurerm:insights/v20180501preview:Component"), pulumi.Alias(type_="azurerm:insights/v20200202preview:Component")])
@@ -271,6 +282,14 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="laMigrationDate")
+    def la_migration_date(self) -> pulumi.Output[str]:
+        """
+        The date which the component got migrated to LA, in ISO 8601 format.
+        """
+        return pulumi.get(self, "la_migration_date")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -303,6 +322,22 @@ class Component(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkAccessForIngestion")
+    def public_network_access_for_ingestion(self) -> pulumi.Output[Optional[str]]:
+        """
+        The network access type for accessing Application Insights ingestion.
+        """
+        return pulumi.get(self, "public_network_access_for_ingestion")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessForQuery")
+    def public_network_access_for_query(self) -> pulumi.Output[Optional[str]]:
+        """
+        The network access type for accessing Application Insights query.
+        """
+        return pulumi.get(self, "public_network_access_for_query")
+
+    @property
     @pulumi.getter(name="requestSource")
     def request_source(self) -> pulumi.Output[Optional[str]]:
         """
@@ -312,7 +347,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Output[Optional[float]]:
+    def retention_in_days(self) -> pulumi.Output[float]:
         """
         Retention period in days.
         """
@@ -349,6 +384,14 @@ class Component(pulumi.CustomResource):
         Azure resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> pulumi.Output[str]:
+        """
+        ResourceId of the log analytics workspace which the data will be ingested to.
+        """
+        return pulumi.get(self, "workspace_resource_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

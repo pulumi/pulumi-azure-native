@@ -312,17 +312,20 @@ class MountPointMapResponse(dict):
     """
     def __init__(__self__, *,
                  mount_point: str,
+                 mount_type: str,
                  role_id: str,
                  role_type: str,
                  share_id: str):
         """
         The share mount point.
         :param str mount_point: Mount point for the share.
+        :param str mount_type: Mounting type.
         :param str role_id: ID of the role to which share is mounted.
         :param str role_type: Role type.
         :param str share_id: ID of the share mounted to the role VM.
         """
         pulumi.set(__self__, "mount_point", mount_point)
+        pulumi.set(__self__, "mount_type", mount_type)
         pulumi.set(__self__, "role_id", role_id)
         pulumi.set(__self__, "role_type", role_type)
         pulumi.set(__self__, "share_id", share_id)
@@ -334,6 +337,14 @@ class MountPointMapResponse(dict):
         Mount point for the share.
         """
         return pulumi.get(self, "mount_point")
+
+    @property
+    @pulumi.getter(name="mountType")
+    def mount_type(self) -> str:
+        """
+        Mounting type.
+        """
+        return pulumi.get(self, "mount_type")
 
     @property
     @pulumi.getter(name="roleId")
