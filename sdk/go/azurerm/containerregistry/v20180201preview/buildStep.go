@@ -40,6 +40,12 @@ func NewBuildStep(ctx *pulumi.Context,
 	if args == nil {
 		args = &BuildStepArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerregistry/latest:BuildStep"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BuildStep
 	err := ctx.RegisterResource("azurerm:containerregistry/v20180201preview:BuildStep", name, args, &resource, opts...)
 	if err != nil {

@@ -25,8 +25,14 @@ type LookupNamespaceArgs struct {
 
 // Single Namespace item in List or Get Operation
 type LookupNamespaceResult struct {
+	// Cluster ARM ID of the Namespace.
+	ClusterArmId *string `pulumi:"clusterArmId"`
 	// The time the Namespace was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Properties of BYOK Encryption description
+	Encryption *EncryptionResponse `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity *IdentityResponse `pulumi:"identity"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
@@ -51,4 +57,6 @@ type LookupNamespaceResult struct {
 	Type string `pulumi:"type"`
 	// The time the Namespace was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
+	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }

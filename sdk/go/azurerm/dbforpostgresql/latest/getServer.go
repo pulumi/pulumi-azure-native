@@ -27,44 +27,49 @@ type LookupServerArgs struct {
 type LookupServerResult struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// Status showing whether the server data encryption is enabled with customer-managed keys.
+	// The administrator login password (required for server creation).
+	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// availability Zone information of the server.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Status showing whether the data encryption is enabled with customer-managed keys.
 	ByokEnforcement string `pulumi:"byokEnforcement"`
-	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
+	// The mode to create a new PostgreSQL server.
+	CreateMode               *string                                           `pulumi:"createMode"`
+	DelegatedSubnetArguments *ServerPropertiesResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
+	// The display name of a server.
+	DisplayName *string `pulumi:"displayName"`
 	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
+	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
+	// stand by count value can be either enabled or disabled
+	HaEnabled *string `pulumi:"haEnabled"`
+	// A state of a HA server that is visible to user.
+	HaState string `pulumi:"haState"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The master server id of a replica server.
-	MasterServerId *string `pulumi:"masterServerId"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
+	// Maintenance window of a server.
+	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// List of private endpoint connections on a server
-	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The maximum number of replicas that a master server can have.
-	ReplicaCapacity *int `pulumi:"replicaCapacity"`
-	// The replication role of the server.
-	ReplicationRole *string `pulumi:"replicationRole"`
+	// Restore point creation time (ISO8601 format), specifying the time to restore from.
+	PointInTimeUTC *string `pulumi:"pointInTimeUTC"`
+	// public network access is enabled or not
+	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *string `pulumi:"sslEnforcement"`
+	// The source PostgreSQL server name to restore from.
+	SourceServerName *string `pulumi:"sourceServerName"`
+	// availability Zone information of the server.
+	StandbyAvailabilityZone string `pulumi:"standbyAvailabilityZone"`
+	// A state of a server that is visible to user.
+	State string `pulumi:"state"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
-	// A state of a server that is visible to user.
-	UserVisibleState *string `pulumi:"userVisibleState"`
-	// Server version.
+	// PostgreSQL Server version.
 	Version *string `pulumi:"version"`
 }

@@ -27,6 +27,8 @@ type ListRunLogSasUrlArgs struct {
 
 // The result of get log link operation.
 type ListRunLogSasUrlResult struct {
+	// The link to logs in registry for a run on a azure container registry.
+	LogArtifactLink *string `pulumi:"logArtifactLink"`
 	// The link to logs for a run on a azure container registry.
 	LogLink *string `pulumi:"logLink"`
 }

@@ -35,7 +35,6 @@ import (
 // 			},
 // 			Description:       pulumi.String("myManagedApplicationDef description"),
 // 			DisplayName:       pulumi.String("myManagedApplicationDef"),
-// 			Location:          pulumi.String("East US 2"),
 // 			LockLevel:         pulumi.String("None"),
 // 			PackageFileUri:    pulumi.String("https://path/to/packagezipfile"),
 // 			ResourceGroupName: pulumi.String("rg"),
@@ -87,6 +86,8 @@ type ApplicationDefinition struct {
 	Policies ApplicationPolicyResponseArrayOutput `pulumi:"policies"`
 	// The SKU of the resource.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -181,6 +182,8 @@ type applicationDefinitionState struct {
 	Policies []ApplicationPolicyResponse `pulumi:"policies"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -224,6 +227,8 @@ type ApplicationDefinitionState struct {
 	Policies ApplicationPolicyResponseArrayInput
 	// The SKU of the resource.
 	Sku SkuResponsePtrInput
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
@@ -273,6 +278,8 @@ type applicationDefinitionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the resource.
 	Sku *Sku `pulumi:"sku"`
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -317,6 +324,8 @@ type ApplicationDefinitionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the resource.
 	Sku SkuPtrInput
+	// The storage account id for bring your own storage scenario.
+	StorageAccountId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

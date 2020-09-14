@@ -664,6 +664,1542 @@ func (o ConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information about the deadletter destination with resource identity.
+type DeadLetterWithResourceIdentity struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+	DeadLetterDestination *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
+	// The identity to use when dead-lettering events.
+	Identity *EventSubscriptionIdentity `pulumi:"identity"`
+}
+
+// DeadLetterWithResourceIdentityInput is an input type that accepts DeadLetterWithResourceIdentityArgs and DeadLetterWithResourceIdentityOutput values.
+// You can construct a concrete instance of `DeadLetterWithResourceIdentityInput` via:
+//
+//          DeadLetterWithResourceIdentityArgs{...}
+type DeadLetterWithResourceIdentityInput interface {
+	pulumi.Input
+
+	ToDeadLetterWithResourceIdentityOutput() DeadLetterWithResourceIdentityOutput
+	ToDeadLetterWithResourceIdentityOutputWithContext(context.Context) DeadLetterWithResourceIdentityOutput
+}
+
+// Information about the deadletter destination with resource identity.
+type DeadLetterWithResourceIdentityArgs struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+	DeadLetterDestination StorageBlobDeadLetterDestinationPtrInput `pulumi:"deadLetterDestination"`
+	// The identity to use when dead-lettering events.
+	Identity EventSubscriptionIdentityPtrInput `pulumi:"identity"`
+}
+
+func (DeadLetterWithResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeadLetterWithResourceIdentity)(nil)).Elem()
+}
+
+func (i DeadLetterWithResourceIdentityArgs) ToDeadLetterWithResourceIdentityOutput() DeadLetterWithResourceIdentityOutput {
+	return i.ToDeadLetterWithResourceIdentityOutputWithContext(context.Background())
+}
+
+func (i DeadLetterWithResourceIdentityArgs) ToDeadLetterWithResourceIdentityOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityOutput)
+}
+
+func (i DeadLetterWithResourceIdentityArgs) ToDeadLetterWithResourceIdentityPtrOutput() DeadLetterWithResourceIdentityPtrOutput {
+	return i.ToDeadLetterWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i DeadLetterWithResourceIdentityArgs) ToDeadLetterWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityOutput).ToDeadLetterWithResourceIdentityPtrOutputWithContext(ctx)
+}
+
+// DeadLetterWithResourceIdentityPtrInput is an input type that accepts DeadLetterWithResourceIdentityArgs, DeadLetterWithResourceIdentityPtr and DeadLetterWithResourceIdentityPtrOutput values.
+// You can construct a concrete instance of `DeadLetterWithResourceIdentityPtrInput` via:
+//
+//          DeadLetterWithResourceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type DeadLetterWithResourceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToDeadLetterWithResourceIdentityPtrOutput() DeadLetterWithResourceIdentityPtrOutput
+	ToDeadLetterWithResourceIdentityPtrOutputWithContext(context.Context) DeadLetterWithResourceIdentityPtrOutput
+}
+
+type deadLetterWithResourceIdentityPtrType DeadLetterWithResourceIdentityArgs
+
+func DeadLetterWithResourceIdentityPtr(v *DeadLetterWithResourceIdentityArgs) DeadLetterWithResourceIdentityPtrInput {
+	return (*deadLetterWithResourceIdentityPtrType)(v)
+}
+
+func (*deadLetterWithResourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeadLetterWithResourceIdentity)(nil)).Elem()
+}
+
+func (i *deadLetterWithResourceIdentityPtrType) ToDeadLetterWithResourceIdentityPtrOutput() DeadLetterWithResourceIdentityPtrOutput {
+	return i.ToDeadLetterWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *deadLetterWithResourceIdentityPtrType) ToDeadLetterWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityPtrOutput)
+}
+
+// Information about the deadletter destination with resource identity.
+type DeadLetterWithResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (DeadLetterWithResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeadLetterWithResourceIdentity)(nil)).Elem()
+}
+
+func (o DeadLetterWithResourceIdentityOutput) ToDeadLetterWithResourceIdentityOutput() DeadLetterWithResourceIdentityOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityOutput) ToDeadLetterWithResourceIdentityOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityOutput) ToDeadLetterWithResourceIdentityPtrOutput() DeadLetterWithResourceIdentityPtrOutput {
+	return o.ToDeadLetterWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o DeadLetterWithResourceIdentityOutput) ToDeadLetterWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityPtrOutput {
+	return o.ApplyT(func(v DeadLetterWithResourceIdentity) *DeadLetterWithResourceIdentity {
+		return &v
+	}).(DeadLetterWithResourceIdentityPtrOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DeadLetterWithResourceIdentityOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationPtrOutput {
+	return o.ApplyT(func(v DeadLetterWithResourceIdentity) *StorageBlobDeadLetterDestination {
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationPtrOutput)
+}
+
+// The identity to use when dead-lettering events.
+func (o DeadLetterWithResourceIdentityOutput) Identity() EventSubscriptionIdentityPtrOutput {
+	return o.ApplyT(func(v DeadLetterWithResourceIdentity) *EventSubscriptionIdentity { return v.Identity }).(EventSubscriptionIdentityPtrOutput)
+}
+
+type DeadLetterWithResourceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (DeadLetterWithResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeadLetterWithResourceIdentity)(nil)).Elem()
+}
+
+func (o DeadLetterWithResourceIdentityPtrOutput) ToDeadLetterWithResourceIdentityPtrOutput() DeadLetterWithResourceIdentityPtrOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityPtrOutput) ToDeadLetterWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityPtrOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityPtrOutput) Elem() DeadLetterWithResourceIdentityOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentity) DeadLetterWithResourceIdentity { return *v }).(DeadLetterWithResourceIdentityOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DeadLetterWithResourceIdentityPtrOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationPtrOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentity) *StorageBlobDeadLetterDestination {
+		if v == nil {
+			return nil
+		}
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationPtrOutput)
+}
+
+// The identity to use when dead-lettering events.
+func (o DeadLetterWithResourceIdentityPtrOutput) Identity() EventSubscriptionIdentityPtrOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentity) *EventSubscriptionIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EventSubscriptionIdentityPtrOutput)
+}
+
+// Information about the deadletter destination with resource identity.
+type DeadLetterWithResourceIdentityResponse struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	// The identity to use when dead-lettering events.
+	Identity *EventSubscriptionIdentityResponse `pulumi:"identity"`
+}
+
+// DeadLetterWithResourceIdentityResponseInput is an input type that accepts DeadLetterWithResourceIdentityResponseArgs and DeadLetterWithResourceIdentityResponseOutput values.
+// You can construct a concrete instance of `DeadLetterWithResourceIdentityResponseInput` via:
+//
+//          DeadLetterWithResourceIdentityResponseArgs{...}
+type DeadLetterWithResourceIdentityResponseInput interface {
+	pulumi.Input
+
+	ToDeadLetterWithResourceIdentityResponseOutput() DeadLetterWithResourceIdentityResponseOutput
+	ToDeadLetterWithResourceIdentityResponseOutputWithContext(context.Context) DeadLetterWithResourceIdentityResponseOutput
+}
+
+// Information about the deadletter destination with resource identity.
+type DeadLetterWithResourceIdentityResponseArgs struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+	DeadLetterDestination StorageBlobDeadLetterDestinationResponsePtrInput `pulumi:"deadLetterDestination"`
+	// The identity to use when dead-lettering events.
+	Identity EventSubscriptionIdentityResponsePtrInput `pulumi:"identity"`
+}
+
+func (DeadLetterWithResourceIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeadLetterWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i DeadLetterWithResourceIdentityResponseArgs) ToDeadLetterWithResourceIdentityResponseOutput() DeadLetterWithResourceIdentityResponseOutput {
+	return i.ToDeadLetterWithResourceIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i DeadLetterWithResourceIdentityResponseArgs) ToDeadLetterWithResourceIdentityResponseOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityResponseOutput)
+}
+
+func (i DeadLetterWithResourceIdentityResponseArgs) ToDeadLetterWithResourceIdentityResponsePtrOutput() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return i.ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeadLetterWithResourceIdentityResponseArgs) ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityResponseOutput).ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// DeadLetterWithResourceIdentityResponsePtrInput is an input type that accepts DeadLetterWithResourceIdentityResponseArgs, DeadLetterWithResourceIdentityResponsePtr and DeadLetterWithResourceIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `DeadLetterWithResourceIdentityResponsePtrInput` via:
+//
+//          DeadLetterWithResourceIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DeadLetterWithResourceIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeadLetterWithResourceIdentityResponsePtrOutput() DeadLetterWithResourceIdentityResponsePtrOutput
+	ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(context.Context) DeadLetterWithResourceIdentityResponsePtrOutput
+}
+
+type deadLetterWithResourceIdentityResponsePtrType DeadLetterWithResourceIdentityResponseArgs
+
+func DeadLetterWithResourceIdentityResponsePtr(v *DeadLetterWithResourceIdentityResponseArgs) DeadLetterWithResourceIdentityResponsePtrInput {
+	return (*deadLetterWithResourceIdentityResponsePtrType)(v)
+}
+
+func (*deadLetterWithResourceIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeadLetterWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i *deadLetterWithResourceIdentityResponsePtrType) ToDeadLetterWithResourceIdentityResponsePtrOutput() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return i.ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deadLetterWithResourceIdentityResponsePtrType) ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterWithResourceIdentityResponsePtrOutput)
+}
+
+// Information about the deadletter destination with resource identity.
+type DeadLetterWithResourceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (DeadLetterWithResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeadLetterWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o DeadLetterWithResourceIdentityResponseOutput) ToDeadLetterWithResourceIdentityResponseOutput() DeadLetterWithResourceIdentityResponseOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityResponseOutput) ToDeadLetterWithResourceIdentityResponseOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponseOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityResponseOutput) ToDeadLetterWithResourceIdentityResponsePtrOutput() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o.ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeadLetterWithResourceIdentityResponseOutput) ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v DeadLetterWithResourceIdentityResponse) *DeadLetterWithResourceIdentityResponse {
+		return &v
+	}).(DeadLetterWithResourceIdentityResponsePtrOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DeadLetterWithResourceIdentityResponseOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o.ApplyT(func(v DeadLetterWithResourceIdentityResponse) *StorageBlobDeadLetterDestinationResponse {
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
+}
+
+// The identity to use when dead-lettering events.
+func (o DeadLetterWithResourceIdentityResponseOutput) Identity() EventSubscriptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v DeadLetterWithResourceIdentityResponse) *EventSubscriptionIdentityResponse { return v.Identity }).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+type DeadLetterWithResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeadLetterWithResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeadLetterWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o DeadLetterWithResourceIdentityResponsePtrOutput) ToDeadLetterWithResourceIdentityResponsePtrOutput() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityResponsePtrOutput) ToDeadLetterWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o DeadLetterWithResourceIdentityResponsePtrOutput) Elem() DeadLetterWithResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentityResponse) DeadLetterWithResourceIdentityResponse { return *v }).(DeadLetterWithResourceIdentityResponseOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DeadLetterWithResourceIdentityResponsePtrOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentityResponse) *StorageBlobDeadLetterDestinationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
+}
+
+// The identity to use when dead-lettering events.
+func (o DeadLetterWithResourceIdentityResponsePtrOutput) Identity() EventSubscriptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *DeadLetterWithResourceIdentityResponse) *EventSubscriptionIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+// Information about the delivery for an event subscription with resource identity.
+type DeliveryWithResourceIdentity struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+	Destination interface{} `pulumi:"destination"`
+	// The identity to use when delivering events.
+	Identity *EventSubscriptionIdentity `pulumi:"identity"`
+}
+
+// DeliveryWithResourceIdentityInput is an input type that accepts DeliveryWithResourceIdentityArgs and DeliveryWithResourceIdentityOutput values.
+// You can construct a concrete instance of `DeliveryWithResourceIdentityInput` via:
+//
+//          DeliveryWithResourceIdentityArgs{...}
+type DeliveryWithResourceIdentityInput interface {
+	pulumi.Input
+
+	ToDeliveryWithResourceIdentityOutput() DeliveryWithResourceIdentityOutput
+	ToDeliveryWithResourceIdentityOutputWithContext(context.Context) DeliveryWithResourceIdentityOutput
+}
+
+// Information about the delivery for an event subscription with resource identity.
+type DeliveryWithResourceIdentityArgs struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+	Destination pulumi.Input `pulumi:"destination"`
+	// The identity to use when delivering events.
+	Identity EventSubscriptionIdentityPtrInput `pulumi:"identity"`
+}
+
+func (DeliveryWithResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryWithResourceIdentity)(nil)).Elem()
+}
+
+func (i DeliveryWithResourceIdentityArgs) ToDeliveryWithResourceIdentityOutput() DeliveryWithResourceIdentityOutput {
+	return i.ToDeliveryWithResourceIdentityOutputWithContext(context.Background())
+}
+
+func (i DeliveryWithResourceIdentityArgs) ToDeliveryWithResourceIdentityOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityOutput)
+}
+
+func (i DeliveryWithResourceIdentityArgs) ToDeliveryWithResourceIdentityPtrOutput() DeliveryWithResourceIdentityPtrOutput {
+	return i.ToDeliveryWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryWithResourceIdentityArgs) ToDeliveryWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityOutput).ToDeliveryWithResourceIdentityPtrOutputWithContext(ctx)
+}
+
+// DeliveryWithResourceIdentityPtrInput is an input type that accepts DeliveryWithResourceIdentityArgs, DeliveryWithResourceIdentityPtr and DeliveryWithResourceIdentityPtrOutput values.
+// You can construct a concrete instance of `DeliveryWithResourceIdentityPtrInput` via:
+//
+//          DeliveryWithResourceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryWithResourceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryWithResourceIdentityPtrOutput() DeliveryWithResourceIdentityPtrOutput
+	ToDeliveryWithResourceIdentityPtrOutputWithContext(context.Context) DeliveryWithResourceIdentityPtrOutput
+}
+
+type deliveryWithResourceIdentityPtrType DeliveryWithResourceIdentityArgs
+
+func DeliveryWithResourceIdentityPtr(v *DeliveryWithResourceIdentityArgs) DeliveryWithResourceIdentityPtrInput {
+	return (*deliveryWithResourceIdentityPtrType)(v)
+}
+
+func (*deliveryWithResourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryWithResourceIdentity)(nil)).Elem()
+}
+
+func (i *deliveryWithResourceIdentityPtrType) ToDeliveryWithResourceIdentityPtrOutput() DeliveryWithResourceIdentityPtrOutput {
+	return i.ToDeliveryWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryWithResourceIdentityPtrType) ToDeliveryWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityPtrOutput)
+}
+
+// Information about the delivery for an event subscription with resource identity.
+type DeliveryWithResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (DeliveryWithResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryWithResourceIdentity)(nil)).Elem()
+}
+
+func (o DeliveryWithResourceIdentityOutput) ToDeliveryWithResourceIdentityOutput() DeliveryWithResourceIdentityOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityOutput) ToDeliveryWithResourceIdentityOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityOutput) ToDeliveryWithResourceIdentityPtrOutput() DeliveryWithResourceIdentityPtrOutput {
+	return o.ToDeliveryWithResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryWithResourceIdentityOutput) ToDeliveryWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityPtrOutput {
+	return o.ApplyT(func(v DeliveryWithResourceIdentity) *DeliveryWithResourceIdentity {
+		return &v
+	}).(DeliveryWithResourceIdentityPtrOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DeliveryWithResourceIdentityOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeliveryWithResourceIdentity) interface{} { return v.Destination }).(pulumi.AnyOutput)
+}
+
+// The identity to use when delivering events.
+func (o DeliveryWithResourceIdentityOutput) Identity() EventSubscriptionIdentityPtrOutput {
+	return o.ApplyT(func(v DeliveryWithResourceIdentity) *EventSubscriptionIdentity { return v.Identity }).(EventSubscriptionIdentityPtrOutput)
+}
+
+type DeliveryWithResourceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryWithResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryWithResourceIdentity)(nil)).Elem()
+}
+
+func (o DeliveryWithResourceIdentityPtrOutput) ToDeliveryWithResourceIdentityPtrOutput() DeliveryWithResourceIdentityPtrOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityPtrOutput) ToDeliveryWithResourceIdentityPtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityPtrOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityPtrOutput) Elem() DeliveryWithResourceIdentityOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentity) DeliveryWithResourceIdentity { return *v }).(DeliveryWithResourceIdentityOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DeliveryWithResourceIdentityPtrOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentity) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(pulumi.AnyOutput)
+}
+
+// The identity to use when delivering events.
+func (o DeliveryWithResourceIdentityPtrOutput) Identity() EventSubscriptionIdentityPtrOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentity) *EventSubscriptionIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EventSubscriptionIdentityPtrOutput)
+}
+
+// Information about the delivery for an event subscription with resource identity.
+type DeliveryWithResourceIdentityResponse struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+	Destination interface{} `pulumi:"destination"`
+	// The identity to use when delivering events.
+	Identity *EventSubscriptionIdentityResponse `pulumi:"identity"`
+}
+
+// DeliveryWithResourceIdentityResponseInput is an input type that accepts DeliveryWithResourceIdentityResponseArgs and DeliveryWithResourceIdentityResponseOutput values.
+// You can construct a concrete instance of `DeliveryWithResourceIdentityResponseInput` via:
+//
+//          DeliveryWithResourceIdentityResponseArgs{...}
+type DeliveryWithResourceIdentityResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryWithResourceIdentityResponseOutput() DeliveryWithResourceIdentityResponseOutput
+	ToDeliveryWithResourceIdentityResponseOutputWithContext(context.Context) DeliveryWithResourceIdentityResponseOutput
+}
+
+// Information about the delivery for an event subscription with resource identity.
+type DeliveryWithResourceIdentityResponseArgs struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+	Destination pulumi.Input `pulumi:"destination"`
+	// The identity to use when delivering events.
+	Identity EventSubscriptionIdentityResponsePtrInput `pulumi:"identity"`
+}
+
+func (DeliveryWithResourceIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i DeliveryWithResourceIdentityResponseArgs) ToDeliveryWithResourceIdentityResponseOutput() DeliveryWithResourceIdentityResponseOutput {
+	return i.ToDeliveryWithResourceIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryWithResourceIdentityResponseArgs) ToDeliveryWithResourceIdentityResponseOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityResponseOutput)
+}
+
+func (i DeliveryWithResourceIdentityResponseArgs) ToDeliveryWithResourceIdentityResponsePtrOutput() DeliveryWithResourceIdentityResponsePtrOutput {
+	return i.ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryWithResourceIdentityResponseArgs) ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityResponseOutput).ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// DeliveryWithResourceIdentityResponsePtrInput is an input type that accepts DeliveryWithResourceIdentityResponseArgs, DeliveryWithResourceIdentityResponsePtr and DeliveryWithResourceIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `DeliveryWithResourceIdentityResponsePtrInput` via:
+//
+//          DeliveryWithResourceIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryWithResourceIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeliveryWithResourceIdentityResponsePtrOutput() DeliveryWithResourceIdentityResponsePtrOutput
+	ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(context.Context) DeliveryWithResourceIdentityResponsePtrOutput
+}
+
+type deliveryWithResourceIdentityResponsePtrType DeliveryWithResourceIdentityResponseArgs
+
+func DeliveryWithResourceIdentityResponsePtr(v *DeliveryWithResourceIdentityResponseArgs) DeliveryWithResourceIdentityResponsePtrInput {
+	return (*deliveryWithResourceIdentityResponsePtrType)(v)
+}
+
+func (*deliveryWithResourceIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i *deliveryWithResourceIdentityResponsePtrType) ToDeliveryWithResourceIdentityResponsePtrOutput() DeliveryWithResourceIdentityResponsePtrOutput {
+	return i.ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryWithResourceIdentityResponsePtrType) ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryWithResourceIdentityResponsePtrOutput)
+}
+
+// Information about the delivery for an event subscription with resource identity.
+type DeliveryWithResourceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryWithResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o DeliveryWithResourceIdentityResponseOutput) ToDeliveryWithResourceIdentityResponseOutput() DeliveryWithResourceIdentityResponseOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityResponseOutput) ToDeliveryWithResourceIdentityResponseOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponseOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityResponseOutput) ToDeliveryWithResourceIdentityResponsePtrOutput() DeliveryWithResourceIdentityResponsePtrOutput {
+	return o.ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryWithResourceIdentityResponseOutput) ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v DeliveryWithResourceIdentityResponse) *DeliveryWithResourceIdentityResponse {
+		return &v
+	}).(DeliveryWithResourceIdentityResponsePtrOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DeliveryWithResourceIdentityResponseOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeliveryWithResourceIdentityResponse) interface{} { return v.Destination }).(pulumi.AnyOutput)
+}
+
+// The identity to use when delivering events.
+func (o DeliveryWithResourceIdentityResponseOutput) Identity() EventSubscriptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v DeliveryWithResourceIdentityResponse) *EventSubscriptionIdentityResponse { return v.Identity }).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+type DeliveryWithResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryWithResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryWithResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o DeliveryWithResourceIdentityResponsePtrOutput) ToDeliveryWithResourceIdentityResponsePtrOutput() DeliveryWithResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityResponsePtrOutput) ToDeliveryWithResourceIdentityResponsePtrOutputWithContext(ctx context.Context) DeliveryWithResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o DeliveryWithResourceIdentityResponsePtrOutput) Elem() DeliveryWithResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentityResponse) DeliveryWithResourceIdentityResponse { return *v }).(DeliveryWithResourceIdentityResponseOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DeliveryWithResourceIdentityResponsePtrOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentityResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(pulumi.AnyOutput)
+}
+
+// The identity to use when delivering events.
+func (o DeliveryWithResourceIdentityResponsePtrOutput) Identity() EventSubscriptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *DeliveryWithResourceIdentityResponse) *EventSubscriptionIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+// Properties of the destination of an event channel.
+type EventChannelDestination struct {
+	// Azure subscription ID of the customer creating the event channel. The partner topic
+	// associated with the event channel will be created under this Azure subscription.
+	AzureSubscriptionId *string `pulumi:"azureSubscriptionId"`
+	// Name of the partner topic associated with the event channel.
+	PartnerTopicName *string `pulumi:"partnerTopicName"`
+	// Azure Resource Group of the customer creating the event channel. The partner topic
+	// associated with the event channel will be created under this resource group.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+}
+
+// EventChannelDestinationInput is an input type that accepts EventChannelDestinationArgs and EventChannelDestinationOutput values.
+// You can construct a concrete instance of `EventChannelDestinationInput` via:
+//
+//          EventChannelDestinationArgs{...}
+type EventChannelDestinationInput interface {
+	pulumi.Input
+
+	ToEventChannelDestinationOutput() EventChannelDestinationOutput
+	ToEventChannelDestinationOutputWithContext(context.Context) EventChannelDestinationOutput
+}
+
+// Properties of the destination of an event channel.
+type EventChannelDestinationArgs struct {
+	// Azure subscription ID of the customer creating the event channel. The partner topic
+	// associated with the event channel will be created under this Azure subscription.
+	AzureSubscriptionId pulumi.StringPtrInput `pulumi:"azureSubscriptionId"`
+	// Name of the partner topic associated with the event channel.
+	PartnerTopicName pulumi.StringPtrInput `pulumi:"partnerTopicName"`
+	// Azure Resource Group of the customer creating the event channel. The partner topic
+	// associated with the event channel will be created under this resource group.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+}
+
+func (EventChannelDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelDestination)(nil)).Elem()
+}
+
+func (i EventChannelDestinationArgs) ToEventChannelDestinationOutput() EventChannelDestinationOutput {
+	return i.ToEventChannelDestinationOutputWithContext(context.Background())
+}
+
+func (i EventChannelDestinationArgs) ToEventChannelDestinationOutputWithContext(ctx context.Context) EventChannelDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelDestinationOutput)
+}
+
+func (i EventChannelDestinationArgs) ToEventChannelDestinationPtrOutput() EventChannelDestinationPtrOutput {
+	return i.ToEventChannelDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i EventChannelDestinationArgs) ToEventChannelDestinationPtrOutputWithContext(ctx context.Context) EventChannelDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelDestinationOutput).ToEventChannelDestinationPtrOutputWithContext(ctx)
+}
+
+// EventChannelDestinationPtrInput is an input type that accepts EventChannelDestinationArgs, EventChannelDestinationPtr and EventChannelDestinationPtrOutput values.
+// You can construct a concrete instance of `EventChannelDestinationPtrInput` via:
+//
+//          EventChannelDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type EventChannelDestinationPtrInput interface {
+	pulumi.Input
+
+	ToEventChannelDestinationPtrOutput() EventChannelDestinationPtrOutput
+	ToEventChannelDestinationPtrOutputWithContext(context.Context) EventChannelDestinationPtrOutput
+}
+
+type eventChannelDestinationPtrType EventChannelDestinationArgs
+
+func EventChannelDestinationPtr(v *EventChannelDestinationArgs) EventChannelDestinationPtrInput {
+	return (*eventChannelDestinationPtrType)(v)
+}
+
+func (*eventChannelDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelDestination)(nil)).Elem()
+}
+
+func (i *eventChannelDestinationPtrType) ToEventChannelDestinationPtrOutput() EventChannelDestinationPtrOutput {
+	return i.ToEventChannelDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventChannelDestinationPtrType) ToEventChannelDestinationPtrOutputWithContext(ctx context.Context) EventChannelDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelDestinationPtrOutput)
+}
+
+// Properties of the destination of an event channel.
+type EventChannelDestinationOutput struct{ *pulumi.OutputState }
+
+func (EventChannelDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelDestination)(nil)).Elem()
+}
+
+func (o EventChannelDestinationOutput) ToEventChannelDestinationOutput() EventChannelDestinationOutput {
+	return o
+}
+
+func (o EventChannelDestinationOutput) ToEventChannelDestinationOutputWithContext(ctx context.Context) EventChannelDestinationOutput {
+	return o
+}
+
+func (o EventChannelDestinationOutput) ToEventChannelDestinationPtrOutput() EventChannelDestinationPtrOutput {
+	return o.ToEventChannelDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o EventChannelDestinationOutput) ToEventChannelDestinationPtrOutputWithContext(ctx context.Context) EventChannelDestinationPtrOutput {
+	return o.ApplyT(func(v EventChannelDestination) *EventChannelDestination {
+		return &v
+	}).(EventChannelDestinationPtrOutput)
+}
+
+// Azure subscription ID of the customer creating the event channel. The partner topic
+// associated with the event channel will be created under this Azure subscription.
+func (o EventChannelDestinationOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventChannelDestination) *string { return v.AzureSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the partner topic associated with the event channel.
+func (o EventChannelDestinationOutput) PartnerTopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventChannelDestination) *string { return v.PartnerTopicName }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the customer creating the event channel. The partner topic
+// associated with the event channel will be created under this resource group.
+func (o EventChannelDestinationOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventChannelDestination) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+type EventChannelDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventChannelDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelDestination)(nil)).Elem()
+}
+
+func (o EventChannelDestinationPtrOutput) ToEventChannelDestinationPtrOutput() EventChannelDestinationPtrOutput {
+	return o
+}
+
+func (o EventChannelDestinationPtrOutput) ToEventChannelDestinationPtrOutputWithContext(ctx context.Context) EventChannelDestinationPtrOutput {
+	return o
+}
+
+func (o EventChannelDestinationPtrOutput) Elem() EventChannelDestinationOutput {
+	return o.ApplyT(func(v *EventChannelDestination) EventChannelDestination { return *v }).(EventChannelDestinationOutput)
+}
+
+// Azure subscription ID of the customer creating the event channel. The partner topic
+// associated with the event channel will be created under this Azure subscription.
+func (o EventChannelDestinationPtrOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventChannelDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureSubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the partner topic associated with the event channel.
+func (o EventChannelDestinationPtrOutput) PartnerTopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventChannelDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PartnerTopicName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the customer creating the event channel. The partner topic
+// associated with the event channel will be created under this resource group.
+func (o EventChannelDestinationPtrOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventChannelDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the destination of an event channel.
+type EventChannelDestinationResponse struct {
+	// Azure subscription ID of the customer creating the event channel. The partner topic
+	// associated with the event channel will be created under this Azure subscription.
+	AzureSubscriptionId *string `pulumi:"azureSubscriptionId"`
+	// Name of the partner topic associated with the event channel.
+	PartnerTopicName *string `pulumi:"partnerTopicName"`
+	// Azure Resource Group of the customer creating the event channel. The partner topic
+	// associated with the event channel will be created under this resource group.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+}
+
+// EventChannelDestinationResponseInput is an input type that accepts EventChannelDestinationResponseArgs and EventChannelDestinationResponseOutput values.
+// You can construct a concrete instance of `EventChannelDestinationResponseInput` via:
+//
+//          EventChannelDestinationResponseArgs{...}
+type EventChannelDestinationResponseInput interface {
+	pulumi.Input
+
+	ToEventChannelDestinationResponseOutput() EventChannelDestinationResponseOutput
+	ToEventChannelDestinationResponseOutputWithContext(context.Context) EventChannelDestinationResponseOutput
+}
+
+// Properties of the destination of an event channel.
+type EventChannelDestinationResponseArgs struct {
+	// Azure subscription ID of the customer creating the event channel. The partner topic
+	// associated with the event channel will be created under this Azure subscription.
+	AzureSubscriptionId pulumi.StringPtrInput `pulumi:"azureSubscriptionId"`
+	// Name of the partner topic associated with the event channel.
+	PartnerTopicName pulumi.StringPtrInput `pulumi:"partnerTopicName"`
+	// Azure Resource Group of the customer creating the event channel. The partner topic
+	// associated with the event channel will be created under this resource group.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+}
+
+func (EventChannelDestinationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelDestinationResponse)(nil)).Elem()
+}
+
+func (i EventChannelDestinationResponseArgs) ToEventChannelDestinationResponseOutput() EventChannelDestinationResponseOutput {
+	return i.ToEventChannelDestinationResponseOutputWithContext(context.Background())
+}
+
+func (i EventChannelDestinationResponseArgs) ToEventChannelDestinationResponseOutputWithContext(ctx context.Context) EventChannelDestinationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelDestinationResponseOutput)
+}
+
+func (i EventChannelDestinationResponseArgs) ToEventChannelDestinationResponsePtrOutput() EventChannelDestinationResponsePtrOutput {
+	return i.ToEventChannelDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EventChannelDestinationResponseArgs) ToEventChannelDestinationResponsePtrOutputWithContext(ctx context.Context) EventChannelDestinationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelDestinationResponseOutput).ToEventChannelDestinationResponsePtrOutputWithContext(ctx)
+}
+
+// EventChannelDestinationResponsePtrInput is an input type that accepts EventChannelDestinationResponseArgs, EventChannelDestinationResponsePtr and EventChannelDestinationResponsePtrOutput values.
+// You can construct a concrete instance of `EventChannelDestinationResponsePtrInput` via:
+//
+//          EventChannelDestinationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EventChannelDestinationResponsePtrInput interface {
+	pulumi.Input
+
+	ToEventChannelDestinationResponsePtrOutput() EventChannelDestinationResponsePtrOutput
+	ToEventChannelDestinationResponsePtrOutputWithContext(context.Context) EventChannelDestinationResponsePtrOutput
+}
+
+type eventChannelDestinationResponsePtrType EventChannelDestinationResponseArgs
+
+func EventChannelDestinationResponsePtr(v *EventChannelDestinationResponseArgs) EventChannelDestinationResponsePtrInput {
+	return (*eventChannelDestinationResponsePtrType)(v)
+}
+
+func (*eventChannelDestinationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelDestinationResponse)(nil)).Elem()
+}
+
+func (i *eventChannelDestinationResponsePtrType) ToEventChannelDestinationResponsePtrOutput() EventChannelDestinationResponsePtrOutput {
+	return i.ToEventChannelDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *eventChannelDestinationResponsePtrType) ToEventChannelDestinationResponsePtrOutputWithContext(ctx context.Context) EventChannelDestinationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelDestinationResponsePtrOutput)
+}
+
+// Properties of the destination of an event channel.
+type EventChannelDestinationResponseOutput struct{ *pulumi.OutputState }
+
+func (EventChannelDestinationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelDestinationResponse)(nil)).Elem()
+}
+
+func (o EventChannelDestinationResponseOutput) ToEventChannelDestinationResponseOutput() EventChannelDestinationResponseOutput {
+	return o
+}
+
+func (o EventChannelDestinationResponseOutput) ToEventChannelDestinationResponseOutputWithContext(ctx context.Context) EventChannelDestinationResponseOutput {
+	return o
+}
+
+func (o EventChannelDestinationResponseOutput) ToEventChannelDestinationResponsePtrOutput() EventChannelDestinationResponsePtrOutput {
+	return o.ToEventChannelDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EventChannelDestinationResponseOutput) ToEventChannelDestinationResponsePtrOutputWithContext(ctx context.Context) EventChannelDestinationResponsePtrOutput {
+	return o.ApplyT(func(v EventChannelDestinationResponse) *EventChannelDestinationResponse {
+		return &v
+	}).(EventChannelDestinationResponsePtrOutput)
+}
+
+// Azure subscription ID of the customer creating the event channel. The partner topic
+// associated with the event channel will be created under this Azure subscription.
+func (o EventChannelDestinationResponseOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventChannelDestinationResponse) *string { return v.AzureSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the partner topic associated with the event channel.
+func (o EventChannelDestinationResponseOutput) PartnerTopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventChannelDestinationResponse) *string { return v.PartnerTopicName }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the customer creating the event channel. The partner topic
+// associated with the event channel will be created under this resource group.
+func (o EventChannelDestinationResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventChannelDestinationResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+type EventChannelDestinationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EventChannelDestinationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelDestinationResponse)(nil)).Elem()
+}
+
+func (o EventChannelDestinationResponsePtrOutput) ToEventChannelDestinationResponsePtrOutput() EventChannelDestinationResponsePtrOutput {
+	return o
+}
+
+func (o EventChannelDestinationResponsePtrOutput) ToEventChannelDestinationResponsePtrOutputWithContext(ctx context.Context) EventChannelDestinationResponsePtrOutput {
+	return o
+}
+
+func (o EventChannelDestinationResponsePtrOutput) Elem() EventChannelDestinationResponseOutput {
+	return o.ApplyT(func(v *EventChannelDestinationResponse) EventChannelDestinationResponse { return *v }).(EventChannelDestinationResponseOutput)
+}
+
+// Azure subscription ID of the customer creating the event channel. The partner topic
+// associated with the event channel will be created under this Azure subscription.
+func (o EventChannelDestinationResponsePtrOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventChannelDestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureSubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the partner topic associated with the event channel.
+func (o EventChannelDestinationResponsePtrOutput) PartnerTopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventChannelDestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PartnerTopicName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the customer creating the event channel. The partner topic
+// associated with the event channel will be created under this resource group.
+func (o EventChannelDestinationResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventChannelDestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter for the Event Channel.
+type EventChannelFilter struct {
+	// An array of advanced filters that are used for filtering event channels.
+	AdvancedFilters []interface{} `pulumi:"advancedFilters"`
+}
+
+// EventChannelFilterInput is an input type that accepts EventChannelFilterArgs and EventChannelFilterOutput values.
+// You can construct a concrete instance of `EventChannelFilterInput` via:
+//
+//          EventChannelFilterArgs{...}
+type EventChannelFilterInput interface {
+	pulumi.Input
+
+	ToEventChannelFilterOutput() EventChannelFilterOutput
+	ToEventChannelFilterOutputWithContext(context.Context) EventChannelFilterOutput
+}
+
+// Filter for the Event Channel.
+type EventChannelFilterArgs struct {
+	// An array of advanced filters that are used for filtering event channels.
+	AdvancedFilters pulumi.ArrayInput `pulumi:"advancedFilters"`
+}
+
+func (EventChannelFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelFilter)(nil)).Elem()
+}
+
+func (i EventChannelFilterArgs) ToEventChannelFilterOutput() EventChannelFilterOutput {
+	return i.ToEventChannelFilterOutputWithContext(context.Background())
+}
+
+func (i EventChannelFilterArgs) ToEventChannelFilterOutputWithContext(ctx context.Context) EventChannelFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelFilterOutput)
+}
+
+func (i EventChannelFilterArgs) ToEventChannelFilterPtrOutput() EventChannelFilterPtrOutput {
+	return i.ToEventChannelFilterPtrOutputWithContext(context.Background())
+}
+
+func (i EventChannelFilterArgs) ToEventChannelFilterPtrOutputWithContext(ctx context.Context) EventChannelFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelFilterOutput).ToEventChannelFilterPtrOutputWithContext(ctx)
+}
+
+// EventChannelFilterPtrInput is an input type that accepts EventChannelFilterArgs, EventChannelFilterPtr and EventChannelFilterPtrOutput values.
+// You can construct a concrete instance of `EventChannelFilterPtrInput` via:
+//
+//          EventChannelFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type EventChannelFilterPtrInput interface {
+	pulumi.Input
+
+	ToEventChannelFilterPtrOutput() EventChannelFilterPtrOutput
+	ToEventChannelFilterPtrOutputWithContext(context.Context) EventChannelFilterPtrOutput
+}
+
+type eventChannelFilterPtrType EventChannelFilterArgs
+
+func EventChannelFilterPtr(v *EventChannelFilterArgs) EventChannelFilterPtrInput {
+	return (*eventChannelFilterPtrType)(v)
+}
+
+func (*eventChannelFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelFilter)(nil)).Elem()
+}
+
+func (i *eventChannelFilterPtrType) ToEventChannelFilterPtrOutput() EventChannelFilterPtrOutput {
+	return i.ToEventChannelFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *eventChannelFilterPtrType) ToEventChannelFilterPtrOutputWithContext(ctx context.Context) EventChannelFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelFilterPtrOutput)
+}
+
+// Filter for the Event Channel.
+type EventChannelFilterOutput struct{ *pulumi.OutputState }
+
+func (EventChannelFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelFilter)(nil)).Elem()
+}
+
+func (o EventChannelFilterOutput) ToEventChannelFilterOutput() EventChannelFilterOutput {
+	return o
+}
+
+func (o EventChannelFilterOutput) ToEventChannelFilterOutputWithContext(ctx context.Context) EventChannelFilterOutput {
+	return o
+}
+
+func (o EventChannelFilterOutput) ToEventChannelFilterPtrOutput() EventChannelFilterPtrOutput {
+	return o.ToEventChannelFilterPtrOutputWithContext(context.Background())
+}
+
+func (o EventChannelFilterOutput) ToEventChannelFilterPtrOutputWithContext(ctx context.Context) EventChannelFilterPtrOutput {
+	return o.ApplyT(func(v EventChannelFilter) *EventChannelFilter {
+		return &v
+	}).(EventChannelFilterPtrOutput)
+}
+
+// An array of advanced filters that are used for filtering event channels.
+func (o EventChannelFilterOutput) AdvancedFilters() pulumi.ArrayOutput {
+	return o.ApplyT(func(v EventChannelFilter) []interface{} { return v.AdvancedFilters }).(pulumi.ArrayOutput)
+}
+
+type EventChannelFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (EventChannelFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelFilter)(nil)).Elem()
+}
+
+func (o EventChannelFilterPtrOutput) ToEventChannelFilterPtrOutput() EventChannelFilterPtrOutput {
+	return o
+}
+
+func (o EventChannelFilterPtrOutput) ToEventChannelFilterPtrOutputWithContext(ctx context.Context) EventChannelFilterPtrOutput {
+	return o
+}
+
+func (o EventChannelFilterPtrOutput) Elem() EventChannelFilterOutput {
+	return o.ApplyT(func(v *EventChannelFilter) EventChannelFilter { return *v }).(EventChannelFilterOutput)
+}
+
+// An array of advanced filters that are used for filtering event channels.
+func (o EventChannelFilterPtrOutput) AdvancedFilters() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *EventChannelFilter) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedFilters
+	}).(pulumi.ArrayOutput)
+}
+
+// Filter for the Event Channel.
+type EventChannelFilterResponse struct {
+	// An array of advanced filters that are used for filtering event channels.
+	AdvancedFilters []interface{} `pulumi:"advancedFilters"`
+}
+
+// EventChannelFilterResponseInput is an input type that accepts EventChannelFilterResponseArgs and EventChannelFilterResponseOutput values.
+// You can construct a concrete instance of `EventChannelFilterResponseInput` via:
+//
+//          EventChannelFilterResponseArgs{...}
+type EventChannelFilterResponseInput interface {
+	pulumi.Input
+
+	ToEventChannelFilterResponseOutput() EventChannelFilterResponseOutput
+	ToEventChannelFilterResponseOutputWithContext(context.Context) EventChannelFilterResponseOutput
+}
+
+// Filter for the Event Channel.
+type EventChannelFilterResponseArgs struct {
+	// An array of advanced filters that are used for filtering event channels.
+	AdvancedFilters pulumi.ArrayInput `pulumi:"advancedFilters"`
+}
+
+func (EventChannelFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelFilterResponse)(nil)).Elem()
+}
+
+func (i EventChannelFilterResponseArgs) ToEventChannelFilterResponseOutput() EventChannelFilterResponseOutput {
+	return i.ToEventChannelFilterResponseOutputWithContext(context.Background())
+}
+
+func (i EventChannelFilterResponseArgs) ToEventChannelFilterResponseOutputWithContext(ctx context.Context) EventChannelFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelFilterResponseOutput)
+}
+
+func (i EventChannelFilterResponseArgs) ToEventChannelFilterResponsePtrOutput() EventChannelFilterResponsePtrOutput {
+	return i.ToEventChannelFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EventChannelFilterResponseArgs) ToEventChannelFilterResponsePtrOutputWithContext(ctx context.Context) EventChannelFilterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelFilterResponseOutput).ToEventChannelFilterResponsePtrOutputWithContext(ctx)
+}
+
+// EventChannelFilterResponsePtrInput is an input type that accepts EventChannelFilterResponseArgs, EventChannelFilterResponsePtr and EventChannelFilterResponsePtrOutput values.
+// You can construct a concrete instance of `EventChannelFilterResponsePtrInput` via:
+//
+//          EventChannelFilterResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EventChannelFilterResponsePtrInput interface {
+	pulumi.Input
+
+	ToEventChannelFilterResponsePtrOutput() EventChannelFilterResponsePtrOutput
+	ToEventChannelFilterResponsePtrOutputWithContext(context.Context) EventChannelFilterResponsePtrOutput
+}
+
+type eventChannelFilterResponsePtrType EventChannelFilterResponseArgs
+
+func EventChannelFilterResponsePtr(v *EventChannelFilterResponseArgs) EventChannelFilterResponsePtrInput {
+	return (*eventChannelFilterResponsePtrType)(v)
+}
+
+func (*eventChannelFilterResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelFilterResponse)(nil)).Elem()
+}
+
+func (i *eventChannelFilterResponsePtrType) ToEventChannelFilterResponsePtrOutput() EventChannelFilterResponsePtrOutput {
+	return i.ToEventChannelFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *eventChannelFilterResponsePtrType) ToEventChannelFilterResponsePtrOutputWithContext(ctx context.Context) EventChannelFilterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelFilterResponsePtrOutput)
+}
+
+// Filter for the Event Channel.
+type EventChannelFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (EventChannelFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelFilterResponse)(nil)).Elem()
+}
+
+func (o EventChannelFilterResponseOutput) ToEventChannelFilterResponseOutput() EventChannelFilterResponseOutput {
+	return o
+}
+
+func (o EventChannelFilterResponseOutput) ToEventChannelFilterResponseOutputWithContext(ctx context.Context) EventChannelFilterResponseOutput {
+	return o
+}
+
+func (o EventChannelFilterResponseOutput) ToEventChannelFilterResponsePtrOutput() EventChannelFilterResponsePtrOutput {
+	return o.ToEventChannelFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EventChannelFilterResponseOutput) ToEventChannelFilterResponsePtrOutputWithContext(ctx context.Context) EventChannelFilterResponsePtrOutput {
+	return o.ApplyT(func(v EventChannelFilterResponse) *EventChannelFilterResponse {
+		return &v
+	}).(EventChannelFilterResponsePtrOutput)
+}
+
+// An array of advanced filters that are used for filtering event channels.
+func (o EventChannelFilterResponseOutput) AdvancedFilters() pulumi.ArrayOutput {
+	return o.ApplyT(func(v EventChannelFilterResponse) []interface{} { return v.AdvancedFilters }).(pulumi.ArrayOutput)
+}
+
+type EventChannelFilterResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EventChannelFilterResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelFilterResponse)(nil)).Elem()
+}
+
+func (o EventChannelFilterResponsePtrOutput) ToEventChannelFilterResponsePtrOutput() EventChannelFilterResponsePtrOutput {
+	return o
+}
+
+func (o EventChannelFilterResponsePtrOutput) ToEventChannelFilterResponsePtrOutputWithContext(ctx context.Context) EventChannelFilterResponsePtrOutput {
+	return o
+}
+
+func (o EventChannelFilterResponsePtrOutput) Elem() EventChannelFilterResponseOutput {
+	return o.ApplyT(func(v *EventChannelFilterResponse) EventChannelFilterResponse { return *v }).(EventChannelFilterResponseOutput)
+}
+
+// An array of advanced filters that are used for filtering event channels.
+func (o EventChannelFilterResponsePtrOutput) AdvancedFilters() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *EventChannelFilterResponse) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedFilters
+	}).(pulumi.ArrayOutput)
+}
+
+// Properties of the source of an event channel.
+type EventChannelSource struct {
+	// The identifier of the resource that's the source of the events.
+	// This represents a unique resource in the partner's resource model.
+	Source *string `pulumi:"source"`
+}
+
+// EventChannelSourceInput is an input type that accepts EventChannelSourceArgs and EventChannelSourceOutput values.
+// You can construct a concrete instance of `EventChannelSourceInput` via:
+//
+//          EventChannelSourceArgs{...}
+type EventChannelSourceInput interface {
+	pulumi.Input
+
+	ToEventChannelSourceOutput() EventChannelSourceOutput
+	ToEventChannelSourceOutputWithContext(context.Context) EventChannelSourceOutput
+}
+
+// Properties of the source of an event channel.
+type EventChannelSourceArgs struct {
+	// The identifier of the resource that's the source of the events.
+	// This represents a unique resource in the partner's resource model.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (EventChannelSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelSource)(nil)).Elem()
+}
+
+func (i EventChannelSourceArgs) ToEventChannelSourceOutput() EventChannelSourceOutput {
+	return i.ToEventChannelSourceOutputWithContext(context.Background())
+}
+
+func (i EventChannelSourceArgs) ToEventChannelSourceOutputWithContext(ctx context.Context) EventChannelSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelSourceOutput)
+}
+
+func (i EventChannelSourceArgs) ToEventChannelSourcePtrOutput() EventChannelSourcePtrOutput {
+	return i.ToEventChannelSourcePtrOutputWithContext(context.Background())
+}
+
+func (i EventChannelSourceArgs) ToEventChannelSourcePtrOutputWithContext(ctx context.Context) EventChannelSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelSourceOutput).ToEventChannelSourcePtrOutputWithContext(ctx)
+}
+
+// EventChannelSourcePtrInput is an input type that accepts EventChannelSourceArgs, EventChannelSourcePtr and EventChannelSourcePtrOutput values.
+// You can construct a concrete instance of `EventChannelSourcePtrInput` via:
+//
+//          EventChannelSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type EventChannelSourcePtrInput interface {
+	pulumi.Input
+
+	ToEventChannelSourcePtrOutput() EventChannelSourcePtrOutput
+	ToEventChannelSourcePtrOutputWithContext(context.Context) EventChannelSourcePtrOutput
+}
+
+type eventChannelSourcePtrType EventChannelSourceArgs
+
+func EventChannelSourcePtr(v *EventChannelSourceArgs) EventChannelSourcePtrInput {
+	return (*eventChannelSourcePtrType)(v)
+}
+
+func (*eventChannelSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelSource)(nil)).Elem()
+}
+
+func (i *eventChannelSourcePtrType) ToEventChannelSourcePtrOutput() EventChannelSourcePtrOutput {
+	return i.ToEventChannelSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *eventChannelSourcePtrType) ToEventChannelSourcePtrOutputWithContext(ctx context.Context) EventChannelSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelSourcePtrOutput)
+}
+
+// Properties of the source of an event channel.
+type EventChannelSourceOutput struct{ *pulumi.OutputState }
+
+func (EventChannelSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelSource)(nil)).Elem()
+}
+
+func (o EventChannelSourceOutput) ToEventChannelSourceOutput() EventChannelSourceOutput {
+	return o
+}
+
+func (o EventChannelSourceOutput) ToEventChannelSourceOutputWithContext(ctx context.Context) EventChannelSourceOutput {
+	return o
+}
+
+func (o EventChannelSourceOutput) ToEventChannelSourcePtrOutput() EventChannelSourcePtrOutput {
+	return o.ToEventChannelSourcePtrOutputWithContext(context.Background())
+}
+
+func (o EventChannelSourceOutput) ToEventChannelSourcePtrOutputWithContext(ctx context.Context) EventChannelSourcePtrOutput {
+	return o.ApplyT(func(v EventChannelSource) *EventChannelSource {
+		return &v
+	}).(EventChannelSourcePtrOutput)
+}
+
+// The identifier of the resource that's the source of the events.
+// This represents a unique resource in the partner's resource model.
+func (o EventChannelSourceOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventChannelSource) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type EventChannelSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (EventChannelSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelSource)(nil)).Elem()
+}
+
+func (o EventChannelSourcePtrOutput) ToEventChannelSourcePtrOutput() EventChannelSourcePtrOutput {
+	return o
+}
+
+func (o EventChannelSourcePtrOutput) ToEventChannelSourcePtrOutputWithContext(ctx context.Context) EventChannelSourcePtrOutput {
+	return o
+}
+
+func (o EventChannelSourcePtrOutput) Elem() EventChannelSourceOutput {
+	return o.ApplyT(func(v *EventChannelSource) EventChannelSource { return *v }).(EventChannelSourceOutput)
+}
+
+// The identifier of the resource that's the source of the events.
+// This represents a unique resource in the partner's resource model.
+func (o EventChannelSourcePtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventChannelSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the source of an event channel.
+type EventChannelSourceResponse struct {
+	// The identifier of the resource that's the source of the events.
+	// This represents a unique resource in the partner's resource model.
+	Source *string `pulumi:"source"`
+}
+
+// EventChannelSourceResponseInput is an input type that accepts EventChannelSourceResponseArgs and EventChannelSourceResponseOutput values.
+// You can construct a concrete instance of `EventChannelSourceResponseInput` via:
+//
+//          EventChannelSourceResponseArgs{...}
+type EventChannelSourceResponseInput interface {
+	pulumi.Input
+
+	ToEventChannelSourceResponseOutput() EventChannelSourceResponseOutput
+	ToEventChannelSourceResponseOutputWithContext(context.Context) EventChannelSourceResponseOutput
+}
+
+// Properties of the source of an event channel.
+type EventChannelSourceResponseArgs struct {
+	// The identifier of the resource that's the source of the events.
+	// This represents a unique resource in the partner's resource model.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (EventChannelSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelSourceResponse)(nil)).Elem()
+}
+
+func (i EventChannelSourceResponseArgs) ToEventChannelSourceResponseOutput() EventChannelSourceResponseOutput {
+	return i.ToEventChannelSourceResponseOutputWithContext(context.Background())
+}
+
+func (i EventChannelSourceResponseArgs) ToEventChannelSourceResponseOutputWithContext(ctx context.Context) EventChannelSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelSourceResponseOutput)
+}
+
+func (i EventChannelSourceResponseArgs) ToEventChannelSourceResponsePtrOutput() EventChannelSourceResponsePtrOutput {
+	return i.ToEventChannelSourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EventChannelSourceResponseArgs) ToEventChannelSourceResponsePtrOutputWithContext(ctx context.Context) EventChannelSourceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelSourceResponseOutput).ToEventChannelSourceResponsePtrOutputWithContext(ctx)
+}
+
+// EventChannelSourceResponsePtrInput is an input type that accepts EventChannelSourceResponseArgs, EventChannelSourceResponsePtr and EventChannelSourceResponsePtrOutput values.
+// You can construct a concrete instance of `EventChannelSourceResponsePtrInput` via:
+//
+//          EventChannelSourceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EventChannelSourceResponsePtrInput interface {
+	pulumi.Input
+
+	ToEventChannelSourceResponsePtrOutput() EventChannelSourceResponsePtrOutput
+	ToEventChannelSourceResponsePtrOutputWithContext(context.Context) EventChannelSourceResponsePtrOutput
+}
+
+type eventChannelSourceResponsePtrType EventChannelSourceResponseArgs
+
+func EventChannelSourceResponsePtr(v *EventChannelSourceResponseArgs) EventChannelSourceResponsePtrInput {
+	return (*eventChannelSourceResponsePtrType)(v)
+}
+
+func (*eventChannelSourceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelSourceResponse)(nil)).Elem()
+}
+
+func (i *eventChannelSourceResponsePtrType) ToEventChannelSourceResponsePtrOutput() EventChannelSourceResponsePtrOutput {
+	return i.ToEventChannelSourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *eventChannelSourceResponsePtrType) ToEventChannelSourceResponsePtrOutputWithContext(ctx context.Context) EventChannelSourceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventChannelSourceResponsePtrOutput)
+}
+
+// Properties of the source of an event channel.
+type EventChannelSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (EventChannelSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventChannelSourceResponse)(nil)).Elem()
+}
+
+func (o EventChannelSourceResponseOutput) ToEventChannelSourceResponseOutput() EventChannelSourceResponseOutput {
+	return o
+}
+
+func (o EventChannelSourceResponseOutput) ToEventChannelSourceResponseOutputWithContext(ctx context.Context) EventChannelSourceResponseOutput {
+	return o
+}
+
+func (o EventChannelSourceResponseOutput) ToEventChannelSourceResponsePtrOutput() EventChannelSourceResponsePtrOutput {
+	return o.ToEventChannelSourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EventChannelSourceResponseOutput) ToEventChannelSourceResponsePtrOutputWithContext(ctx context.Context) EventChannelSourceResponsePtrOutput {
+	return o.ApplyT(func(v EventChannelSourceResponse) *EventChannelSourceResponse {
+		return &v
+	}).(EventChannelSourceResponsePtrOutput)
+}
+
+// The identifier of the resource that's the source of the events.
+// This represents a unique resource in the partner's resource model.
+func (o EventChannelSourceResponseOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventChannelSourceResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type EventChannelSourceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EventChannelSourceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventChannelSourceResponse)(nil)).Elem()
+}
+
+func (o EventChannelSourceResponsePtrOutput) ToEventChannelSourceResponsePtrOutput() EventChannelSourceResponsePtrOutput {
+	return o
+}
+
+func (o EventChannelSourceResponsePtrOutput) ToEventChannelSourceResponsePtrOutputWithContext(ctx context.Context) EventChannelSourceResponsePtrOutput {
+	return o
+}
+
+func (o EventChannelSourceResponsePtrOutput) Elem() EventChannelSourceResponseOutput {
+	return o.ApplyT(func(v *EventChannelSourceResponse) EventChannelSourceResponse { return *v }).(EventChannelSourceResponseOutput)
+}
+
+// The identifier of the resource that's the source of the events.
+// This represents a unique resource in the partner's resource model.
+func (o EventChannelSourceResponsePtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventChannelSourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
 // Information about the event hub destination for an event subscription.
 type EventHubEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination.
@@ -1241,6 +2777,312 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.Strin
 			return nil
 		}
 		return v.SubjectEndsWith
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity information with the event subscription.
+type EventSubscriptionIdentity struct {
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+	Type *string `pulumi:"type"`
+	// The user identity associated with the resource.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// EventSubscriptionIdentityInput is an input type that accepts EventSubscriptionIdentityArgs and EventSubscriptionIdentityOutput values.
+// You can construct a concrete instance of `EventSubscriptionIdentityInput` via:
+//
+//          EventSubscriptionIdentityArgs{...}
+type EventSubscriptionIdentityInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionIdentityOutput() EventSubscriptionIdentityOutput
+	ToEventSubscriptionIdentityOutputWithContext(context.Context) EventSubscriptionIdentityOutput
+}
+
+// The identity information with the event subscription.
+type EventSubscriptionIdentityArgs struct {
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The user identity associated with the resource.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (EventSubscriptionIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionIdentity)(nil)).Elem()
+}
+
+func (i EventSubscriptionIdentityArgs) ToEventSubscriptionIdentityOutput() EventSubscriptionIdentityOutput {
+	return i.ToEventSubscriptionIdentityOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionIdentityArgs) ToEventSubscriptionIdentityOutputWithContext(ctx context.Context) EventSubscriptionIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityOutput)
+}
+
+func (i EventSubscriptionIdentityArgs) ToEventSubscriptionIdentityPtrOutput() EventSubscriptionIdentityPtrOutput {
+	return i.ToEventSubscriptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionIdentityArgs) ToEventSubscriptionIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityOutput).ToEventSubscriptionIdentityPtrOutputWithContext(ctx)
+}
+
+// EventSubscriptionIdentityPtrInput is an input type that accepts EventSubscriptionIdentityArgs, EventSubscriptionIdentityPtr and EventSubscriptionIdentityPtrOutput values.
+// You can construct a concrete instance of `EventSubscriptionIdentityPtrInput` via:
+//
+//          EventSubscriptionIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type EventSubscriptionIdentityPtrInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionIdentityPtrOutput() EventSubscriptionIdentityPtrOutput
+	ToEventSubscriptionIdentityPtrOutputWithContext(context.Context) EventSubscriptionIdentityPtrOutput
+}
+
+type eventSubscriptionIdentityPtrType EventSubscriptionIdentityArgs
+
+func EventSubscriptionIdentityPtr(v *EventSubscriptionIdentityArgs) EventSubscriptionIdentityPtrInput {
+	return (*eventSubscriptionIdentityPtrType)(v)
+}
+
+func (*eventSubscriptionIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionIdentity)(nil)).Elem()
+}
+
+func (i *eventSubscriptionIdentityPtrType) ToEventSubscriptionIdentityPtrOutput() EventSubscriptionIdentityPtrOutput {
+	return i.ToEventSubscriptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSubscriptionIdentityPtrType) ToEventSubscriptionIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityPtrOutput)
+}
+
+// The identity information with the event subscription.
+type EventSubscriptionIdentityOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionIdentity)(nil)).Elem()
+}
+
+func (o EventSubscriptionIdentityOutput) ToEventSubscriptionIdentityOutput() EventSubscriptionIdentityOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityOutput) ToEventSubscriptionIdentityOutputWithContext(ctx context.Context) EventSubscriptionIdentityOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityOutput) ToEventSubscriptionIdentityPtrOutput() EventSubscriptionIdentityPtrOutput {
+	return o.ToEventSubscriptionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionIdentityOutput) ToEventSubscriptionIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionIdentity) *EventSubscriptionIdentity {
+		return &v
+	}).(EventSubscriptionIdentityPtrOutput)
+}
+
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+func (o EventSubscriptionIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The user identity associated with the resource.
+func (o EventSubscriptionIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type EventSubscriptionIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionIdentity)(nil)).Elem()
+}
+
+func (o EventSubscriptionIdentityPtrOutput) ToEventSubscriptionIdentityPtrOutput() EventSubscriptionIdentityPtrOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityPtrOutput) ToEventSubscriptionIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityPtrOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityPtrOutput) Elem() EventSubscriptionIdentityOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentity) EventSubscriptionIdentity { return *v }).(EventSubscriptionIdentityOutput)
+}
+
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+func (o EventSubscriptionIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user identity associated with the resource.
+func (o EventSubscriptionIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity information with the event subscription.
+type EventSubscriptionIdentityResponse struct {
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+	Type *string `pulumi:"type"`
+	// The user identity associated with the resource.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// EventSubscriptionIdentityResponseInput is an input type that accepts EventSubscriptionIdentityResponseArgs and EventSubscriptionIdentityResponseOutput values.
+// You can construct a concrete instance of `EventSubscriptionIdentityResponseInput` via:
+//
+//          EventSubscriptionIdentityResponseArgs{...}
+type EventSubscriptionIdentityResponseInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionIdentityResponseOutput() EventSubscriptionIdentityResponseOutput
+	ToEventSubscriptionIdentityResponseOutputWithContext(context.Context) EventSubscriptionIdentityResponseOutput
+}
+
+// The identity information with the event subscription.
+type EventSubscriptionIdentityResponseArgs struct {
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The user identity associated with the resource.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (EventSubscriptionIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionIdentityResponse)(nil)).Elem()
+}
+
+func (i EventSubscriptionIdentityResponseArgs) ToEventSubscriptionIdentityResponseOutput() EventSubscriptionIdentityResponseOutput {
+	return i.ToEventSubscriptionIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionIdentityResponseArgs) ToEventSubscriptionIdentityResponseOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityResponseOutput)
+}
+
+func (i EventSubscriptionIdentityResponseArgs) ToEventSubscriptionIdentityResponsePtrOutput() EventSubscriptionIdentityResponsePtrOutput {
+	return i.ToEventSubscriptionIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionIdentityResponseArgs) ToEventSubscriptionIdentityResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityResponseOutput).ToEventSubscriptionIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// EventSubscriptionIdentityResponsePtrInput is an input type that accepts EventSubscriptionIdentityResponseArgs, EventSubscriptionIdentityResponsePtr and EventSubscriptionIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `EventSubscriptionIdentityResponsePtrInput` via:
+//
+//          EventSubscriptionIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EventSubscriptionIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionIdentityResponsePtrOutput() EventSubscriptionIdentityResponsePtrOutput
+	ToEventSubscriptionIdentityResponsePtrOutputWithContext(context.Context) EventSubscriptionIdentityResponsePtrOutput
+}
+
+type eventSubscriptionIdentityResponsePtrType EventSubscriptionIdentityResponseArgs
+
+func EventSubscriptionIdentityResponsePtr(v *EventSubscriptionIdentityResponseArgs) EventSubscriptionIdentityResponsePtrInput {
+	return (*eventSubscriptionIdentityResponsePtrType)(v)
+}
+
+func (*eventSubscriptionIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionIdentityResponse)(nil)).Elem()
+}
+
+func (i *eventSubscriptionIdentityResponsePtrType) ToEventSubscriptionIdentityResponsePtrOutput() EventSubscriptionIdentityResponsePtrOutput {
+	return i.ToEventSubscriptionIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *eventSubscriptionIdentityResponsePtrType) ToEventSubscriptionIdentityResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+// The identity information with the event subscription.
+type EventSubscriptionIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionIdentityResponse)(nil)).Elem()
+}
+
+func (o EventSubscriptionIdentityResponseOutput) ToEventSubscriptionIdentityResponseOutput() EventSubscriptionIdentityResponseOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityResponseOutput) ToEventSubscriptionIdentityResponseOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponseOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityResponseOutput) ToEventSubscriptionIdentityResponsePtrOutput() EventSubscriptionIdentityResponsePtrOutput {
+	return o.ToEventSubscriptionIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionIdentityResponseOutput) ToEventSubscriptionIdentityResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponsePtrOutput {
+	return o.ApplyT(func(v EventSubscriptionIdentityResponse) *EventSubscriptionIdentityResponse {
+		return &v
+	}).(EventSubscriptionIdentityResponsePtrOutput)
+}
+
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+func (o EventSubscriptionIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The user identity associated with the resource.
+func (o EventSubscriptionIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type EventSubscriptionIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionIdentityResponse)(nil)).Elem()
+}
+
+func (o EventSubscriptionIdentityResponsePtrOutput) ToEventSubscriptionIdentityResponsePtrOutput() EventSubscriptionIdentityResponsePtrOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityResponsePtrOutput) ToEventSubscriptionIdentityResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionIdentityResponsePtrOutput {
+	return o
+}
+
+func (o EventSubscriptionIdentityResponsePtrOutput) Elem() EventSubscriptionIdentityResponseOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentityResponse) EventSubscriptionIdentityResponse { return *v }).(EventSubscriptionIdentityResponseOutput)
+}
+
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+func (o EventSubscriptionIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user identity associated with the resource.
+func (o EventSubscriptionIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6095,12 +7937,36 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(DeadLetterWithResourceIdentityOutput{})
+	pulumi.RegisterOutputType(DeadLetterWithResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(DeadLetterWithResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(DeadLetterWithResourceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(DeliveryWithResourceIdentityOutput{})
+	pulumi.RegisterOutputType(DeliveryWithResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryWithResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryWithResourceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventChannelDestinationOutput{})
+	pulumi.RegisterOutputType(EventChannelDestinationPtrOutput{})
+	pulumi.RegisterOutputType(EventChannelDestinationResponseOutput{})
+	pulumi.RegisterOutputType(EventChannelDestinationResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventChannelFilterOutput{})
+	pulumi.RegisterOutputType(EventChannelFilterPtrOutput{})
+	pulumi.RegisterOutputType(EventChannelFilterResponseOutput{})
+	pulumi.RegisterOutputType(EventChannelFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventChannelSourceOutput{})
+	pulumi.RegisterOutputType(EventChannelSourcePtrOutput{})
+	pulumi.RegisterOutputType(EventChannelSourceResponseOutput{})
+	pulumi.RegisterOutputType(EventChannelSourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationOutput{})
 	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionIdentityOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionIdentityPtrOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionIdentityResponseOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(HybridConnectionEventSubscriptionDestinationOutput{})
 	pulumi.RegisterOutputType(HybridConnectionEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(InboundIpRuleOutput{})

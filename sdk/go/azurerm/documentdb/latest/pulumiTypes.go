@@ -4009,6 +4009,116 @@ func (o ContainerPartitionKeyResponsePtrOutput) Version() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicy struct {
+	// Describes the mode of backups.
+	Type string `pulumi:"type"`
+}
+
+// ContinuousModeBackupPolicyInput is an input type that accepts ContinuousModeBackupPolicyArgs and ContinuousModeBackupPolicyOutput values.
+// You can construct a concrete instance of `ContinuousModeBackupPolicyInput` via:
+//
+//          ContinuousModeBackupPolicyArgs{...}
+type ContinuousModeBackupPolicyInput interface {
+	pulumi.Input
+
+	ToContinuousModeBackupPolicyOutput() ContinuousModeBackupPolicyOutput
+	ToContinuousModeBackupPolicyOutputWithContext(context.Context) ContinuousModeBackupPolicyOutput
+}
+
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicyArgs struct {
+	// Describes the mode of backups.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ContinuousModeBackupPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousModeBackupPolicy)(nil)).Elem()
+}
+
+func (i ContinuousModeBackupPolicyArgs) ToContinuousModeBackupPolicyOutput() ContinuousModeBackupPolicyOutput {
+	return i.ToContinuousModeBackupPolicyOutputWithContext(context.Background())
+}
+
+func (i ContinuousModeBackupPolicyArgs) ToContinuousModeBackupPolicyOutputWithContext(ctx context.Context) ContinuousModeBackupPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousModeBackupPolicyOutput)
+}
+
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicyOutput struct{ *pulumi.OutputState }
+
+func (ContinuousModeBackupPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousModeBackupPolicy)(nil)).Elem()
+}
+
+func (o ContinuousModeBackupPolicyOutput) ToContinuousModeBackupPolicyOutput() ContinuousModeBackupPolicyOutput {
+	return o
+}
+
+func (o ContinuousModeBackupPolicyOutput) ToContinuousModeBackupPolicyOutputWithContext(ctx context.Context) ContinuousModeBackupPolicyOutput {
+	return o
+}
+
+// Describes the mode of backups.
+func (o ContinuousModeBackupPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ContinuousModeBackupPolicy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicyResponse struct {
+	// Describes the mode of backups.
+	Type string `pulumi:"type"`
+}
+
+// ContinuousModeBackupPolicyResponseInput is an input type that accepts ContinuousModeBackupPolicyResponseArgs and ContinuousModeBackupPolicyResponseOutput values.
+// You can construct a concrete instance of `ContinuousModeBackupPolicyResponseInput` via:
+//
+//          ContinuousModeBackupPolicyResponseArgs{...}
+type ContinuousModeBackupPolicyResponseInput interface {
+	pulumi.Input
+
+	ToContinuousModeBackupPolicyResponseOutput() ContinuousModeBackupPolicyResponseOutput
+	ToContinuousModeBackupPolicyResponseOutputWithContext(context.Context) ContinuousModeBackupPolicyResponseOutput
+}
+
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicyResponseArgs struct {
+	// Describes the mode of backups.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ContinuousModeBackupPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousModeBackupPolicyResponse)(nil)).Elem()
+}
+
+func (i ContinuousModeBackupPolicyResponseArgs) ToContinuousModeBackupPolicyResponseOutput() ContinuousModeBackupPolicyResponseOutput {
+	return i.ToContinuousModeBackupPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i ContinuousModeBackupPolicyResponseArgs) ToContinuousModeBackupPolicyResponseOutputWithContext(ctx context.Context) ContinuousModeBackupPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousModeBackupPolicyResponseOutput)
+}
+
+// The object representing continuous mode backup policy.
+type ContinuousModeBackupPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ContinuousModeBackupPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousModeBackupPolicyResponse)(nil)).Elem()
+}
+
+func (o ContinuousModeBackupPolicyResponseOutput) ToContinuousModeBackupPolicyResponseOutput() ContinuousModeBackupPolicyResponseOutput {
+	return o
+}
+
+func (o ContinuousModeBackupPolicyResponseOutput) ToContinuousModeBackupPolicyResponseOutputWithContext(ctx context.Context) ContinuousModeBackupPolicyResponseOutput {
+	return o
+}
+
+// Describes the mode of backups.
+func (o ContinuousModeBackupPolicyResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ContinuousModeBackupPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The CORS policy for the Cosmos DB database account.
 type CorsPolicy struct {
 	// The request headers that the origin domain may specify on the CORS request.
@@ -4541,6 +4651,460 @@ func (o DatabaseAccountConnectionStringResponseArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseAccountConnectionStringResponse {
 		return vs[0].([]DatabaseAccountConnectionStringResponse)[vs[1].(int)]
 	}).(DatabaseAccountConnectionStringResponseOutput)
+}
+
+// Specific Databases to restore.
+type DatabaseRestoreResource struct {
+	// The names of the collections to restore.
+	CollectionNames []string `pulumi:"collectionNames"`
+	// The name of the database to restore.
+	DatabaseName *string `pulumi:"databaseName"`
+}
+
+// DatabaseRestoreResourceInput is an input type that accepts DatabaseRestoreResourceArgs and DatabaseRestoreResourceOutput values.
+// You can construct a concrete instance of `DatabaseRestoreResourceInput` via:
+//
+//          DatabaseRestoreResourceArgs{...}
+type DatabaseRestoreResourceInput interface {
+	pulumi.Input
+
+	ToDatabaseRestoreResourceOutput() DatabaseRestoreResourceOutput
+	ToDatabaseRestoreResourceOutputWithContext(context.Context) DatabaseRestoreResourceOutput
+}
+
+// Specific Databases to restore.
+type DatabaseRestoreResourceArgs struct {
+	// The names of the collections to restore.
+	CollectionNames pulumi.StringArrayInput `pulumi:"collectionNames"`
+	// The name of the database to restore.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+}
+
+func (DatabaseRestoreResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseRestoreResource)(nil)).Elem()
+}
+
+func (i DatabaseRestoreResourceArgs) ToDatabaseRestoreResourceOutput() DatabaseRestoreResourceOutput {
+	return i.ToDatabaseRestoreResourceOutputWithContext(context.Background())
+}
+
+func (i DatabaseRestoreResourceArgs) ToDatabaseRestoreResourceOutputWithContext(ctx context.Context) DatabaseRestoreResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRestoreResourceOutput)
+}
+
+// DatabaseRestoreResourceArrayInput is an input type that accepts DatabaseRestoreResourceArray and DatabaseRestoreResourceArrayOutput values.
+// You can construct a concrete instance of `DatabaseRestoreResourceArrayInput` via:
+//
+//          DatabaseRestoreResourceArray{ DatabaseRestoreResourceArgs{...} }
+type DatabaseRestoreResourceArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseRestoreResourceArrayOutput() DatabaseRestoreResourceArrayOutput
+	ToDatabaseRestoreResourceArrayOutputWithContext(context.Context) DatabaseRestoreResourceArrayOutput
+}
+
+type DatabaseRestoreResourceArray []DatabaseRestoreResourceInput
+
+func (DatabaseRestoreResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseRestoreResource)(nil)).Elem()
+}
+
+func (i DatabaseRestoreResourceArray) ToDatabaseRestoreResourceArrayOutput() DatabaseRestoreResourceArrayOutput {
+	return i.ToDatabaseRestoreResourceArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseRestoreResourceArray) ToDatabaseRestoreResourceArrayOutputWithContext(ctx context.Context) DatabaseRestoreResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRestoreResourceArrayOutput)
+}
+
+// Specific Databases to restore.
+type DatabaseRestoreResourceOutput struct{ *pulumi.OutputState }
+
+func (DatabaseRestoreResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseRestoreResource)(nil)).Elem()
+}
+
+func (o DatabaseRestoreResourceOutput) ToDatabaseRestoreResourceOutput() DatabaseRestoreResourceOutput {
+	return o
+}
+
+func (o DatabaseRestoreResourceOutput) ToDatabaseRestoreResourceOutputWithContext(ctx context.Context) DatabaseRestoreResourceOutput {
+	return o
+}
+
+// The names of the collections to restore.
+func (o DatabaseRestoreResourceOutput) CollectionNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseRestoreResource) []string { return v.CollectionNames }).(pulumi.StringArrayOutput)
+}
+
+// The name of the database to restore.
+func (o DatabaseRestoreResourceOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseRestoreResource) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseRestoreResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseRestoreResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseRestoreResource)(nil)).Elem()
+}
+
+func (o DatabaseRestoreResourceArrayOutput) ToDatabaseRestoreResourceArrayOutput() DatabaseRestoreResourceArrayOutput {
+	return o
+}
+
+func (o DatabaseRestoreResourceArrayOutput) ToDatabaseRestoreResourceArrayOutputWithContext(ctx context.Context) DatabaseRestoreResourceArrayOutput {
+	return o
+}
+
+func (o DatabaseRestoreResourceArrayOutput) Index(i pulumi.IntInput) DatabaseRestoreResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseRestoreResource {
+		return vs[0].([]DatabaseRestoreResource)[vs[1].(int)]
+	}).(DatabaseRestoreResourceOutput)
+}
+
+// Specific Databases to restore.
+type DatabaseRestoreResourceResponse struct {
+	// The names of the collections to restore.
+	CollectionNames []string `pulumi:"collectionNames"`
+	// The name of the database to restore.
+	DatabaseName *string `pulumi:"databaseName"`
+}
+
+// DatabaseRestoreResourceResponseInput is an input type that accepts DatabaseRestoreResourceResponseArgs and DatabaseRestoreResourceResponseOutput values.
+// You can construct a concrete instance of `DatabaseRestoreResourceResponseInput` via:
+//
+//          DatabaseRestoreResourceResponseArgs{...}
+type DatabaseRestoreResourceResponseInput interface {
+	pulumi.Input
+
+	ToDatabaseRestoreResourceResponseOutput() DatabaseRestoreResourceResponseOutput
+	ToDatabaseRestoreResourceResponseOutputWithContext(context.Context) DatabaseRestoreResourceResponseOutput
+}
+
+// Specific Databases to restore.
+type DatabaseRestoreResourceResponseArgs struct {
+	// The names of the collections to restore.
+	CollectionNames pulumi.StringArrayInput `pulumi:"collectionNames"`
+	// The name of the database to restore.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+}
+
+func (DatabaseRestoreResourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseRestoreResourceResponse)(nil)).Elem()
+}
+
+func (i DatabaseRestoreResourceResponseArgs) ToDatabaseRestoreResourceResponseOutput() DatabaseRestoreResourceResponseOutput {
+	return i.ToDatabaseRestoreResourceResponseOutputWithContext(context.Background())
+}
+
+func (i DatabaseRestoreResourceResponseArgs) ToDatabaseRestoreResourceResponseOutputWithContext(ctx context.Context) DatabaseRestoreResourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRestoreResourceResponseOutput)
+}
+
+// DatabaseRestoreResourceResponseArrayInput is an input type that accepts DatabaseRestoreResourceResponseArray and DatabaseRestoreResourceResponseArrayOutput values.
+// You can construct a concrete instance of `DatabaseRestoreResourceResponseArrayInput` via:
+//
+//          DatabaseRestoreResourceResponseArray{ DatabaseRestoreResourceResponseArgs{...} }
+type DatabaseRestoreResourceResponseArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseRestoreResourceResponseArrayOutput() DatabaseRestoreResourceResponseArrayOutput
+	ToDatabaseRestoreResourceResponseArrayOutputWithContext(context.Context) DatabaseRestoreResourceResponseArrayOutput
+}
+
+type DatabaseRestoreResourceResponseArray []DatabaseRestoreResourceResponseInput
+
+func (DatabaseRestoreResourceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseRestoreResourceResponse)(nil)).Elem()
+}
+
+func (i DatabaseRestoreResourceResponseArray) ToDatabaseRestoreResourceResponseArrayOutput() DatabaseRestoreResourceResponseArrayOutput {
+	return i.ToDatabaseRestoreResourceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseRestoreResourceResponseArray) ToDatabaseRestoreResourceResponseArrayOutputWithContext(ctx context.Context) DatabaseRestoreResourceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRestoreResourceResponseArrayOutput)
+}
+
+// Specific Databases to restore.
+type DatabaseRestoreResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseRestoreResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseRestoreResourceResponse)(nil)).Elem()
+}
+
+func (o DatabaseRestoreResourceResponseOutput) ToDatabaseRestoreResourceResponseOutput() DatabaseRestoreResourceResponseOutput {
+	return o
+}
+
+func (o DatabaseRestoreResourceResponseOutput) ToDatabaseRestoreResourceResponseOutputWithContext(ctx context.Context) DatabaseRestoreResourceResponseOutput {
+	return o
+}
+
+// The names of the collections to restore.
+func (o DatabaseRestoreResourceResponseOutput) CollectionNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseRestoreResourceResponse) []string { return v.CollectionNames }).(pulumi.StringArrayOutput)
+}
+
+// The name of the database to restore.
+func (o DatabaseRestoreResourceResponseOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseRestoreResourceResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseRestoreResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseRestoreResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseRestoreResourceResponse)(nil)).Elem()
+}
+
+func (o DatabaseRestoreResourceResponseArrayOutput) ToDatabaseRestoreResourceResponseArrayOutput() DatabaseRestoreResourceResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseRestoreResourceResponseArrayOutput) ToDatabaseRestoreResourceResponseArrayOutputWithContext(ctx context.Context) DatabaseRestoreResourceResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseRestoreResourceResponseArrayOutput) Index(i pulumi.IntInput) DatabaseRestoreResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseRestoreResourceResponse {
+		return vs[0].([]DatabaseRestoreResourceResponse)[vs[1].(int)]
+	}).(DatabaseRestoreResourceResponseOutput)
+}
+
+// Properties for non-restore Azure Cosmos DB database account requests.
+type DefaultRequestDatabaseAccountCreateUpdateProperties struct {
+	// API specific properties. Currently, supported only for MongoDB API.
+	ApiProperties *ApiProperties `pulumi:"apiProperties"`
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy interface{} `pulumi:"backupPolicy"`
+	// List of Cosmos DB capabilities for the account
+	Capabilities []Capability `pulumi:"capabilities"`
+	// The cassandra connector offer type for the Cosmos DB database C* account.
+	ConnectorOffer *string `pulumi:"connectorOffer"`
+	// The consistency policy for the Cosmos DB account.
+	ConsistencyPolicy *ConsistencyPolicy `pulumi:"consistencyPolicy"`
+	// The CORS policy for the Cosmos DB database account.
+	Cors []CorsPolicy `pulumi:"cors"`
+	// Enum to indicate the mode of account creation.
+	CreateMode string `pulumi:"createMode"`
+	// The offer type for the database
+	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
+	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
+	DisableKeyBasedMetadataWriteAccess *bool `pulumi:"disableKeyBasedMetadataWriteAccess"`
+	// Flag to indicate whether to enable storage analytics.
+	EnableAnalyticalStorage *bool `pulumi:"enableAnalyticalStorage"`
+	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
+	// Enables the cassandra connector on the Cosmos DB C* account
+	EnableCassandraConnector *bool `pulumi:"enableCassandraConnector"`
+	// Flag to indicate whether Free Tier is enabled.
+	EnableFreeTier *bool `pulumi:"enableFreeTier"`
+	// Enables the account to write in multiple locations
+	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
+	// List of IpRules.
+	IpRules []IpAddressOrRange `pulumi:"ipRules"`
+	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
+	IsVirtualNetworkFilterEnabled *bool `pulumi:"isVirtualNetworkFilterEnabled"`
+	// The URI of the key vault
+	KeyVaultKeyUri *string `pulumi:"keyVaultKeyUri"`
+	// An array that contains the georeplication locations enabled for the Cosmos DB account.
+	Locations []Location `pulumi:"locations"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// List of Virtual Network ACL rules configured for the Cosmos DB account.
+	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
+}
+
+// DefaultRequestDatabaseAccountCreateUpdatePropertiesInput is an input type that accepts DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs and DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput values.
+// You can construct a concrete instance of `DefaultRequestDatabaseAccountCreateUpdatePropertiesInput` via:
+//
+//          DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs{...}
+type DefaultRequestDatabaseAccountCreateUpdatePropertiesInput interface {
+	pulumi.Input
+
+	ToDefaultRequestDatabaseAccountCreateUpdatePropertiesOutput() DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput
+	ToDefaultRequestDatabaseAccountCreateUpdatePropertiesOutputWithContext(context.Context) DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput
+}
+
+// Properties for non-restore Azure Cosmos DB database account requests.
+type DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs struct {
+	// API specific properties. Currently, supported only for MongoDB API.
+	ApiProperties ApiPropertiesPtrInput `pulumi:"apiProperties"`
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy pulumi.Input `pulumi:"backupPolicy"`
+	// List of Cosmos DB capabilities for the account
+	Capabilities CapabilityArrayInput `pulumi:"capabilities"`
+	// The cassandra connector offer type for the Cosmos DB database C* account.
+	ConnectorOffer pulumi.StringPtrInput `pulumi:"connectorOffer"`
+	// The consistency policy for the Cosmos DB account.
+	ConsistencyPolicy ConsistencyPolicyPtrInput `pulumi:"consistencyPolicy"`
+	// The CORS policy for the Cosmos DB database account.
+	Cors CorsPolicyArrayInput `pulumi:"cors"`
+	// Enum to indicate the mode of account creation.
+	CreateMode pulumi.StringInput `pulumi:"createMode"`
+	// The offer type for the database
+	DatabaseAccountOfferType pulumi.StringInput `pulumi:"databaseAccountOfferType"`
+	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
+	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrInput `pulumi:"disableKeyBasedMetadataWriteAccess"`
+	// Flag to indicate whether to enable storage analytics.
+	EnableAnalyticalStorage pulumi.BoolPtrInput `pulumi:"enableAnalyticalStorage"`
+	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+	EnableAutomaticFailover pulumi.BoolPtrInput `pulumi:"enableAutomaticFailover"`
+	// Enables the cassandra connector on the Cosmos DB C* account
+	EnableCassandraConnector pulumi.BoolPtrInput `pulumi:"enableCassandraConnector"`
+	// Flag to indicate whether Free Tier is enabled.
+	EnableFreeTier pulumi.BoolPtrInput `pulumi:"enableFreeTier"`
+	// Enables the account to write in multiple locations
+	EnableMultipleWriteLocations pulumi.BoolPtrInput `pulumi:"enableMultipleWriteLocations"`
+	// List of IpRules.
+	IpRules IpAddressOrRangeArrayInput `pulumi:"ipRules"`
+	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
+	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput `pulumi:"isVirtualNetworkFilterEnabled"`
+	// The URI of the key vault
+	KeyVaultKeyUri pulumi.StringPtrInput `pulumi:"keyVaultKeyUri"`
+	// An array that contains the georeplication locations enabled for the Cosmos DB account.
+	Locations LocationArrayInput `pulumi:"locations"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+	// List of Virtual Network ACL rules configured for the Cosmos DB account.
+	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
+}
+
+func (DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRequestDatabaseAccountCreateUpdateProperties)(nil)).Elem()
+}
+
+func (i DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs) ToDefaultRequestDatabaseAccountCreateUpdatePropertiesOutput() DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput {
+	return i.ToDefaultRequestDatabaseAccountCreateUpdatePropertiesOutputWithContext(context.Background())
+}
+
+func (i DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs) ToDefaultRequestDatabaseAccountCreateUpdatePropertiesOutputWithContext(ctx context.Context) DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput)
+}
+
+// Properties for non-restore Azure Cosmos DB database account requests.
+type DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRequestDatabaseAccountCreateUpdateProperties)(nil)).Elem()
+}
+
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) ToDefaultRequestDatabaseAccountCreateUpdatePropertiesOutput() DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput {
+	return o
+}
+
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) ToDefaultRequestDatabaseAccountCreateUpdatePropertiesOutputWithContext(ctx context.Context) DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput {
+	return o
+}
+
+// API specific properties. Currently, supported only for MongoDB API.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) ApiProperties() ApiPropertiesPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *ApiProperties { return v.ApiProperties }).(ApiPropertiesPtrOutput)
+}
+
+// The object representing the policy for taking backups on an account.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) BackupPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) interface{} { return v.BackupPolicy }).(pulumi.AnyOutput)
+}
+
+// List of Cosmos DB capabilities for the account
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) Capabilities() CapabilityArrayOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) []Capability { return v.Capabilities }).(CapabilityArrayOutput)
+}
+
+// The cassandra connector offer type for the Cosmos DB database C* account.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) ConnectorOffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *string { return v.ConnectorOffer }).(pulumi.StringPtrOutput)
+}
+
+// The consistency policy for the Cosmos DB account.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) ConsistencyPolicy() ConsistencyPolicyPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *ConsistencyPolicy {
+		return v.ConsistencyPolicy
+	}).(ConsistencyPolicyPtrOutput)
+}
+
+// The CORS policy for the Cosmos DB database account.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) Cors() CorsPolicyArrayOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) []CorsPolicy { return v.Cors }).(CorsPolicyArrayOutput)
+}
+
+// Enum to indicate the mode of account creation.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) CreateMode() pulumi.StringOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) string { return v.CreateMode }).(pulumi.StringOutput)
+}
+
+// The offer type for the database
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) DatabaseAccountOfferType() pulumi.StringOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) string { return v.DatabaseAccountOfferType }).(pulumi.StringOutput)
+}
+
+// Disable write operations on metadata resources (databases, containers, throughput) via account keys
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) DisableKeyBasedMetadataWriteAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *bool {
+		return v.DisableKeyBasedMetadataWriteAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag to indicate whether to enable storage analytics.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) EnableAnalyticalStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *bool { return v.EnableAnalyticalStorage }).(pulumi.BoolPtrOutput)
+}
+
+// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) EnableAutomaticFailover() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *bool { return v.EnableAutomaticFailover }).(pulumi.BoolPtrOutput)
+}
+
+// Enables the cassandra connector on the Cosmos DB C* account
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) EnableCassandraConnector() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *bool { return v.EnableCassandraConnector }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to indicate whether Free Tier is enabled.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) EnableFreeTier() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *bool { return v.EnableFreeTier }).(pulumi.BoolPtrOutput)
+}
+
+// Enables the account to write in multiple locations
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) EnableMultipleWriteLocations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *bool {
+		return v.EnableMultipleWriteLocations
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of IpRules.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) IpRules() IpAddressOrRangeArrayOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) []IpAddressOrRange { return v.IpRules }).(IpAddressOrRangeArrayOutput)
+}
+
+// Flag to indicate whether to enable/disable Virtual Network ACL rules.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) IsVirtualNetworkFilterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *bool {
+		return v.IsVirtualNetworkFilterEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the key vault
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) KeyVaultKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *string { return v.KeyVaultKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// An array that contains the georeplication locations enabled for the Cosmos DB account.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) Locations() LocationArrayOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) []Location { return v.Locations }).(LocationArrayOutput)
+}
+
+// Whether requests from Public Network are allowed
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// List of Virtual Network ACL rules configured for the Cosmos DB account.
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) []VirtualNetworkRule {
+		return v.VirtualNetworkRules
+	}).(VirtualNetworkRuleArrayOutput)
 }
 
 type ExcludedPath struct {
@@ -7387,6 +7951,439 @@ func (o LocationResponseArrayOutput) Index(i pulumi.IntInput) LocationResponseOu
 	}).(LocationResponseOutput)
 }
 
+// Identity for the resource.
+type ManagedServiceIdentity struct {
+	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+	Type *string `pulumi:"type"`
+}
+
+// ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityInput` via:
+//
+//          ManagedServiceIdentityArgs{...}
+type ManagedServiceIdentityInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput
+	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
+}
+
+// Identity for the resource.
+type ManagedServiceIdentityArgs struct {
+	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return i.ToManagedServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput)
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityArgs) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityOutput).ToManagedServiceIdentityPtrOutputWithContext(ctx)
+}
+
+// ManagedServiceIdentityPtrInput is an input type that accepts ManagedServiceIdentityArgs, ManagedServiceIdentityPtr and ManagedServiceIdentityPtrOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityPtrInput` via:
+//
+//          ManagedServiceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput
+	ToManagedServiceIdentityPtrOutputWithContext(context.Context) ManagedServiceIdentityPtrOutput
+}
+
+type managedServiceIdentityPtrType ManagedServiceIdentityArgs
+
+func ManagedServiceIdentityPtr(v *ManagedServiceIdentityArgs) ManagedServiceIdentityPtrInput {
+	return (*managedServiceIdentityPtrType)(v)
+}
+
+func (*managedServiceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return i.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
+}
+
+// Identity for the resource.
+type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutput() ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityOutputWithContext(ctx context.Context) ManagedServiceIdentityOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o.ToManagedServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
+		return &v
+	}).(ManagedServiceIdentityPtrOutput)
+}
+
+// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentity)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutput() ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
+}
+
+// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
+type ManagedServiceIdentityResponse struct {
+	// The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+	Type *string `pulumi:"type"`
+	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]ManagedServiceIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
+}
+
+// ManagedServiceIdentityResponseInput is an input type that accepts ManagedServiceIdentityResponseArgs and ManagedServiceIdentityResponseOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityResponseInput` via:
+//
+//          ManagedServiceIdentityResponseArgs{...}
+type ManagedServiceIdentityResponseInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput
+	ToManagedServiceIdentityResponseOutputWithContext(context.Context) ManagedServiceIdentityResponseOutput
+}
+
+// Identity for the resource.
+type ManagedServiceIdentityResponseArgs struct {
+	// The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities ManagedServiceIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ManagedServiceIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
+	return i.ToManagedServiceIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponseOutput)
+}
+
+func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return i.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponseOutput).ToManagedServiceIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedServiceIdentityResponsePtrInput is an input type that accepts ManagedServiceIdentityResponseArgs, ManagedServiceIdentityResponsePtr and ManagedServiceIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityResponsePtrInput` via:
+//
+//          ManagedServiceIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedServiceIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput
+	ToManagedServiceIdentityResponsePtrOutputWithContext(context.Context) ManagedServiceIdentityResponsePtrOutput
+}
+
+type managedServiceIdentityResponsePtrType ManagedServiceIdentityResponseArgs
+
+func ManagedServiceIdentityResponsePtr(v *ManagedServiceIdentityResponseArgs) ManagedServiceIdentityResponsePtrInput {
+	return (*managedServiceIdentityResponsePtrType)(v)
+}
+
+func (*managedServiceIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return i.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Identity for the resource.
+type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return o.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+		return &v
+	}).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]ManagedServiceIdentityResponseUserAssignedIdentities {
+		return v.UserAssignedIdentities
+	}).(ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type ManagedServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
+}
+
+// The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]ManagedServiceIdentityResponseUserAssignedIdentities {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type ManagedServiceIdentityResponseUserAssignedIdentities struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// ManagedServiceIdentityResponseUserAssignedIdentitiesInput is an input type that accepts ManagedServiceIdentityResponseUserAssignedIdentitiesArgs and ManagedServiceIdentityResponseUserAssignedIdentitiesOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityResponseUserAssignedIdentitiesInput` via:
+//
+//          ManagedServiceIdentityResponseUserAssignedIdentitiesArgs{...}
+type ManagedServiceIdentityResponseUserAssignedIdentitiesInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityResponseUserAssignedIdentitiesOutput() ManagedServiceIdentityResponseUserAssignedIdentitiesOutput
+	ToManagedServiceIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Context) ManagedServiceIdentityResponseUserAssignedIdentitiesOutput
+}
+
+type ManagedServiceIdentityResponseUserAssignedIdentitiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (ManagedServiceIdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityResponseUserAssignedIdentitiesArgs) ToManagedServiceIdentityResponseUserAssignedIdentitiesOutput() ManagedServiceIdentityResponseUserAssignedIdentitiesOutput {
+	return i.ToManagedServiceIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityResponseUserAssignedIdentitiesArgs) ToManagedServiceIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponseUserAssignedIdentitiesOutput)
+}
+
+// ManagedServiceIdentityResponseUserAssignedIdentitiesMapInput is an input type that accepts ManagedServiceIdentityResponseUserAssignedIdentitiesMap and ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityResponseUserAssignedIdentitiesMapInput` via:
+//
+//          ManagedServiceIdentityResponseUserAssignedIdentitiesMap{ "key": ManagedServiceIdentityResponseUserAssignedIdentitiesArgs{...} }
+type ManagedServiceIdentityResponseUserAssignedIdentitiesMapInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput
+	ToManagedServiceIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Context) ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput
+}
+
+type ManagedServiceIdentityResponseUserAssignedIdentitiesMap map[string]ManagedServiceIdentityResponseUserAssignedIdentitiesInput
+
+func (ManagedServiceIdentityResponseUserAssignedIdentitiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedServiceIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityResponseUserAssignedIdentitiesMap) ToManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
+	return i.ToManagedServiceIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityResponseUserAssignedIdentitiesMap) ToManagedServiceIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type ManagedServiceIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) ToManagedServiceIdentityResponseUserAssignedIdentitiesOutput() ManagedServiceIdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) ToManagedServiceIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedServiceIdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput) ToManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput) ToManagedServiceIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) ManagedServiceIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedServiceIdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]ManagedServiceIdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(ManagedServiceIdentityResponseUserAssignedIdentitiesOutput)
+}
+
 type MongoDBCollectionGetPropertiesResponseOptions struct {
 	// Specifies the Autoscale settings.
 	AutoscaleSettings *AutoscaleSettingsResponse `pulumi:"autoscaleSettings"`
@@ -9249,6 +10246,442 @@ func (o MongoIndexResponseArrayOutput) Index(i pulumi.IntInput) MongoIndexRespon
 	}).(MongoIndexResponseOutput)
 }
 
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicy struct {
+	// Configuration values for periodic mode backup
+	PeriodicModeProperties *PeriodicModeProperties `pulumi:"periodicModeProperties"`
+	// Describes the mode of backups.
+	Type string `pulumi:"type"`
+}
+
+// PeriodicModeBackupPolicyInput is an input type that accepts PeriodicModeBackupPolicyArgs and PeriodicModeBackupPolicyOutput values.
+// You can construct a concrete instance of `PeriodicModeBackupPolicyInput` via:
+//
+//          PeriodicModeBackupPolicyArgs{...}
+type PeriodicModeBackupPolicyInput interface {
+	pulumi.Input
+
+	ToPeriodicModeBackupPolicyOutput() PeriodicModeBackupPolicyOutput
+	ToPeriodicModeBackupPolicyOutputWithContext(context.Context) PeriodicModeBackupPolicyOutput
+}
+
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicyArgs struct {
+	// Configuration values for periodic mode backup
+	PeriodicModeProperties PeriodicModePropertiesPtrInput `pulumi:"periodicModeProperties"`
+	// Describes the mode of backups.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PeriodicModeBackupPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeBackupPolicy)(nil)).Elem()
+}
+
+func (i PeriodicModeBackupPolicyArgs) ToPeriodicModeBackupPolicyOutput() PeriodicModeBackupPolicyOutput {
+	return i.ToPeriodicModeBackupPolicyOutputWithContext(context.Background())
+}
+
+func (i PeriodicModeBackupPolicyArgs) ToPeriodicModeBackupPolicyOutputWithContext(ctx context.Context) PeriodicModeBackupPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModeBackupPolicyOutput)
+}
+
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicyOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModeBackupPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeBackupPolicy)(nil)).Elem()
+}
+
+func (o PeriodicModeBackupPolicyOutput) ToPeriodicModeBackupPolicyOutput() PeriodicModeBackupPolicyOutput {
+	return o
+}
+
+func (o PeriodicModeBackupPolicyOutput) ToPeriodicModeBackupPolicyOutputWithContext(ctx context.Context) PeriodicModeBackupPolicyOutput {
+	return o
+}
+
+// Configuration values for periodic mode backup
+func (o PeriodicModeBackupPolicyOutput) PeriodicModeProperties() PeriodicModePropertiesPtrOutput {
+	return o.ApplyT(func(v PeriodicModeBackupPolicy) *PeriodicModeProperties { return v.PeriodicModeProperties }).(PeriodicModePropertiesPtrOutput)
+}
+
+// Describes the mode of backups.
+func (o PeriodicModeBackupPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PeriodicModeBackupPolicy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicyResponse struct {
+	// Configuration values for periodic mode backup
+	PeriodicModeProperties *PeriodicModePropertiesResponse `pulumi:"periodicModeProperties"`
+	// Describes the mode of backups.
+	Type string `pulumi:"type"`
+}
+
+// PeriodicModeBackupPolicyResponseInput is an input type that accepts PeriodicModeBackupPolicyResponseArgs and PeriodicModeBackupPolicyResponseOutput values.
+// You can construct a concrete instance of `PeriodicModeBackupPolicyResponseInput` via:
+//
+//          PeriodicModeBackupPolicyResponseArgs{...}
+type PeriodicModeBackupPolicyResponseInput interface {
+	pulumi.Input
+
+	ToPeriodicModeBackupPolicyResponseOutput() PeriodicModeBackupPolicyResponseOutput
+	ToPeriodicModeBackupPolicyResponseOutputWithContext(context.Context) PeriodicModeBackupPolicyResponseOutput
+}
+
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicyResponseArgs struct {
+	// Configuration values for periodic mode backup
+	PeriodicModeProperties PeriodicModePropertiesResponsePtrInput `pulumi:"periodicModeProperties"`
+	// Describes the mode of backups.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PeriodicModeBackupPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeBackupPolicyResponse)(nil)).Elem()
+}
+
+func (i PeriodicModeBackupPolicyResponseArgs) ToPeriodicModeBackupPolicyResponseOutput() PeriodicModeBackupPolicyResponseOutput {
+	return i.ToPeriodicModeBackupPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i PeriodicModeBackupPolicyResponseArgs) ToPeriodicModeBackupPolicyResponseOutputWithContext(ctx context.Context) PeriodicModeBackupPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModeBackupPolicyResponseOutput)
+}
+
+// The object representing periodic mode backup policy.
+type PeriodicModeBackupPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModeBackupPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeBackupPolicyResponse)(nil)).Elem()
+}
+
+func (o PeriodicModeBackupPolicyResponseOutput) ToPeriodicModeBackupPolicyResponseOutput() PeriodicModeBackupPolicyResponseOutput {
+	return o
+}
+
+func (o PeriodicModeBackupPolicyResponseOutput) ToPeriodicModeBackupPolicyResponseOutputWithContext(ctx context.Context) PeriodicModeBackupPolicyResponseOutput {
+	return o
+}
+
+// Configuration values for periodic mode backup
+func (o PeriodicModeBackupPolicyResponseOutput) PeriodicModeProperties() PeriodicModePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PeriodicModeBackupPolicyResponse) *PeriodicModePropertiesResponse {
+		return v.PeriodicModeProperties
+	}).(PeriodicModePropertiesResponsePtrOutput)
+}
+
+// Describes the mode of backups.
+func (o PeriodicModeBackupPolicyResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PeriodicModeBackupPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModeProperties struct {
+	// An integer representing the interval in minutes between two backups
+	BackupIntervalInMinutes *int `pulumi:"backupIntervalInMinutes"`
+	// An integer representing the time (in hours) that each backup is retained
+	BackupRetentionIntervalInHours *int `pulumi:"backupRetentionIntervalInHours"`
+}
+
+// PeriodicModePropertiesInput is an input type that accepts PeriodicModePropertiesArgs and PeriodicModePropertiesOutput values.
+// You can construct a concrete instance of `PeriodicModePropertiesInput` via:
+//
+//          PeriodicModePropertiesArgs{...}
+type PeriodicModePropertiesInput interface {
+	pulumi.Input
+
+	ToPeriodicModePropertiesOutput() PeriodicModePropertiesOutput
+	ToPeriodicModePropertiesOutputWithContext(context.Context) PeriodicModePropertiesOutput
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModePropertiesArgs struct {
+	// An integer representing the interval in minutes between two backups
+	BackupIntervalInMinutes pulumi.IntPtrInput `pulumi:"backupIntervalInMinutes"`
+	// An integer representing the time (in hours) that each backup is retained
+	BackupRetentionIntervalInHours pulumi.IntPtrInput `pulumi:"backupRetentionIntervalInHours"`
+}
+
+func (PeriodicModePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeProperties)(nil)).Elem()
+}
+
+func (i PeriodicModePropertiesArgs) ToPeriodicModePropertiesOutput() PeriodicModePropertiesOutput {
+	return i.ToPeriodicModePropertiesOutputWithContext(context.Background())
+}
+
+func (i PeriodicModePropertiesArgs) ToPeriodicModePropertiesOutputWithContext(ctx context.Context) PeriodicModePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesOutput)
+}
+
+func (i PeriodicModePropertiesArgs) ToPeriodicModePropertiesPtrOutput() PeriodicModePropertiesPtrOutput {
+	return i.ToPeriodicModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PeriodicModePropertiesArgs) ToPeriodicModePropertiesPtrOutputWithContext(ctx context.Context) PeriodicModePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesOutput).ToPeriodicModePropertiesPtrOutputWithContext(ctx)
+}
+
+// PeriodicModePropertiesPtrInput is an input type that accepts PeriodicModePropertiesArgs, PeriodicModePropertiesPtr and PeriodicModePropertiesPtrOutput values.
+// You can construct a concrete instance of `PeriodicModePropertiesPtrInput` via:
+//
+//          PeriodicModePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PeriodicModePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPeriodicModePropertiesPtrOutput() PeriodicModePropertiesPtrOutput
+	ToPeriodicModePropertiesPtrOutputWithContext(context.Context) PeriodicModePropertiesPtrOutput
+}
+
+type periodicModePropertiesPtrType PeriodicModePropertiesArgs
+
+func PeriodicModePropertiesPtr(v *PeriodicModePropertiesArgs) PeriodicModePropertiesPtrInput {
+	return (*periodicModePropertiesPtrType)(v)
+}
+
+func (*periodicModePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeriodicModeProperties)(nil)).Elem()
+}
+
+func (i *periodicModePropertiesPtrType) ToPeriodicModePropertiesPtrOutput() PeriodicModePropertiesPtrOutput {
+	return i.ToPeriodicModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *periodicModePropertiesPtrType) ToPeriodicModePropertiesPtrOutputWithContext(ctx context.Context) PeriodicModePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesPtrOutput)
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModePropertiesOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModeProperties)(nil)).Elem()
+}
+
+func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesOutput() PeriodicModePropertiesOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesOutputWithContext(ctx context.Context) PeriodicModePropertiesOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesPtrOutput() PeriodicModePropertiesPtrOutput {
+	return o.ToPeriodicModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesPtrOutputWithContext(ctx context.Context) PeriodicModePropertiesPtrOutput {
+	return o.ApplyT(func(v PeriodicModeProperties) *PeriodicModeProperties {
+		return &v
+	}).(PeriodicModePropertiesPtrOutput)
+}
+
+// An integer representing the interval in minutes between two backups
+func (o PeriodicModePropertiesOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PeriodicModeProperties) *int { return v.BackupIntervalInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// An integer representing the time (in hours) that each backup is retained
+func (o PeriodicModePropertiesOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PeriodicModeProperties) *int { return v.BackupRetentionIntervalInHours }).(pulumi.IntPtrOutput)
+}
+
+type PeriodicModePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeriodicModeProperties)(nil)).Elem()
+}
+
+func (o PeriodicModePropertiesPtrOutput) ToPeriodicModePropertiesPtrOutput() PeriodicModePropertiesPtrOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesPtrOutput) ToPeriodicModePropertiesPtrOutputWithContext(ctx context.Context) PeriodicModePropertiesPtrOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesPtrOutput) Elem() PeriodicModePropertiesOutput {
+	return o.ApplyT(func(v *PeriodicModeProperties) PeriodicModeProperties { return *v }).(PeriodicModePropertiesOutput)
+}
+
+// An integer representing the interval in minutes between two backups
+func (o PeriodicModePropertiesPtrOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PeriodicModeProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupIntervalInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// An integer representing the time (in hours) that each backup is retained
+func (o PeriodicModePropertiesPtrOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PeriodicModeProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupRetentionIntervalInHours
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModePropertiesResponse struct {
+	// An integer representing the interval in minutes between two backups
+	BackupIntervalInMinutes *int `pulumi:"backupIntervalInMinutes"`
+	// An integer representing the time (in hours) that each backup is retained
+	BackupRetentionIntervalInHours *int `pulumi:"backupRetentionIntervalInHours"`
+}
+
+// PeriodicModePropertiesResponseInput is an input type that accepts PeriodicModePropertiesResponseArgs and PeriodicModePropertiesResponseOutput values.
+// You can construct a concrete instance of `PeriodicModePropertiesResponseInput` via:
+//
+//          PeriodicModePropertiesResponseArgs{...}
+type PeriodicModePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPeriodicModePropertiesResponseOutput() PeriodicModePropertiesResponseOutput
+	ToPeriodicModePropertiesResponseOutputWithContext(context.Context) PeriodicModePropertiesResponseOutput
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModePropertiesResponseArgs struct {
+	// An integer representing the interval in minutes between two backups
+	BackupIntervalInMinutes pulumi.IntPtrInput `pulumi:"backupIntervalInMinutes"`
+	// An integer representing the time (in hours) that each backup is retained
+	BackupRetentionIntervalInHours pulumi.IntPtrInput `pulumi:"backupRetentionIntervalInHours"`
+}
+
+func (PeriodicModePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModePropertiesResponse)(nil)).Elem()
+}
+
+func (i PeriodicModePropertiesResponseArgs) ToPeriodicModePropertiesResponseOutput() PeriodicModePropertiesResponseOutput {
+	return i.ToPeriodicModePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PeriodicModePropertiesResponseArgs) ToPeriodicModePropertiesResponseOutputWithContext(ctx context.Context) PeriodicModePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesResponseOutput)
+}
+
+func (i PeriodicModePropertiesResponseArgs) ToPeriodicModePropertiesResponsePtrOutput() PeriodicModePropertiesResponsePtrOutput {
+	return i.ToPeriodicModePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PeriodicModePropertiesResponseArgs) ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx context.Context) PeriodicModePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesResponseOutput).ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// PeriodicModePropertiesResponsePtrInput is an input type that accepts PeriodicModePropertiesResponseArgs, PeriodicModePropertiesResponsePtr and PeriodicModePropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `PeriodicModePropertiesResponsePtrInput` via:
+//
+//          PeriodicModePropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PeriodicModePropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToPeriodicModePropertiesResponsePtrOutput() PeriodicModePropertiesResponsePtrOutput
+	ToPeriodicModePropertiesResponsePtrOutputWithContext(context.Context) PeriodicModePropertiesResponsePtrOutput
+}
+
+type periodicModePropertiesResponsePtrType PeriodicModePropertiesResponseArgs
+
+func PeriodicModePropertiesResponsePtr(v *PeriodicModePropertiesResponseArgs) PeriodicModePropertiesResponsePtrInput {
+	return (*periodicModePropertiesResponsePtrType)(v)
+}
+
+func (*periodicModePropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeriodicModePropertiesResponse)(nil)).Elem()
+}
+
+func (i *periodicModePropertiesResponsePtrType) ToPeriodicModePropertiesResponsePtrOutput() PeriodicModePropertiesResponsePtrOutput {
+	return i.ToPeriodicModePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *periodicModePropertiesResponsePtrType) ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx context.Context) PeriodicModePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeriodicModePropertiesResponsePtrOutput)
+}
+
+// Configuration values for periodic mode backup
+type PeriodicModePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeriodicModePropertiesResponse)(nil)).Elem()
+}
+
+func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponseOutput() PeriodicModePropertiesResponseOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponseOutputWithContext(ctx context.Context) PeriodicModePropertiesResponseOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponsePtrOutput() PeriodicModePropertiesResponsePtrOutput {
+	return o.ToPeriodicModePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx context.Context) PeriodicModePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PeriodicModePropertiesResponse) *PeriodicModePropertiesResponse {
+		return &v
+	}).(PeriodicModePropertiesResponsePtrOutput)
+}
+
+// An integer representing the interval in minutes between two backups
+func (o PeriodicModePropertiesResponseOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PeriodicModePropertiesResponse) *int { return v.BackupIntervalInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// An integer representing the time (in hours) that each backup is retained
+func (o PeriodicModePropertiesResponseOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PeriodicModePropertiesResponse) *int { return v.BackupRetentionIntervalInHours }).(pulumi.IntPtrOutput)
+}
+
+type PeriodicModePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PeriodicModePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeriodicModePropertiesResponse)(nil)).Elem()
+}
+
+func (o PeriodicModePropertiesResponsePtrOutput) ToPeriodicModePropertiesResponsePtrOutput() PeriodicModePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesResponsePtrOutput) ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx context.Context) PeriodicModePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PeriodicModePropertiesResponsePtrOutput) Elem() PeriodicModePropertiesResponseOutput {
+	return o.ApplyT(func(v *PeriodicModePropertiesResponse) PeriodicModePropertiesResponse { return *v }).(PeriodicModePropertiesResponseOutput)
+}
+
+// An integer representing the interval in minutes between two backups
+func (o PeriodicModePropertiesResponsePtrOutput) BackupIntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PeriodicModePropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupIntervalInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// An integer representing the time (in hours) that each backup is retained
+func (o PeriodicModePropertiesResponsePtrOutput) BackupRetentionIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PeriodicModePropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupRetentionIntervalInHours
+	}).(pulumi.IntPtrOutput)
+}
+
 // A private endpoint connection
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -9388,6 +10821,140 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 // Private endpoint which the connection belongs to.
+type PrivateEndpointProperty struct {
+	// Resource id of the private endpoint.
+	Id *string `pulumi:"id"`
+}
+
+// PrivateEndpointPropertyInput is an input type that accepts PrivateEndpointPropertyArgs and PrivateEndpointPropertyOutput values.
+// You can construct a concrete instance of `PrivateEndpointPropertyInput` via:
+//
+//          PrivateEndpointPropertyArgs{...}
+type PrivateEndpointPropertyInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyOutput() PrivateEndpointPropertyOutput
+	ToPrivateEndpointPropertyOutputWithContext(context.Context) PrivateEndpointPropertyOutput
+}
+
+// Private endpoint which the connection belongs to.
+type PrivateEndpointPropertyArgs struct {
+	// Resource id of the private endpoint.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointProperty)(nil)).Elem()
+}
+
+func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyOutput() PrivateEndpointPropertyOutput {
+	return i.ToPrivateEndpointPropertyOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyOutputWithContext(ctx context.Context) PrivateEndpointPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyOutput)
+}
+
+func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyPtrOutput() PrivateEndpointPropertyPtrOutput {
+	return i.ToPrivateEndpointPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyOutput).ToPrivateEndpointPropertyPtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointPropertyPtrInput is an input type that accepts PrivateEndpointPropertyArgs, PrivateEndpointPropertyPtr and PrivateEndpointPropertyPtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointPropertyPtrInput` via:
+//
+//          PrivateEndpointPropertyArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointPropertyPtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyPtrOutput() PrivateEndpointPropertyPtrOutput
+	ToPrivateEndpointPropertyPtrOutputWithContext(context.Context) PrivateEndpointPropertyPtrOutput
+}
+
+type privateEndpointPropertyPtrType PrivateEndpointPropertyArgs
+
+func PrivateEndpointPropertyPtr(v *PrivateEndpointPropertyArgs) PrivateEndpointPropertyPtrInput {
+	return (*privateEndpointPropertyPtrType)(v)
+}
+
+func (*privateEndpointPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointProperty)(nil)).Elem()
+}
+
+func (i *privateEndpointPropertyPtrType) ToPrivateEndpointPropertyPtrOutput() PrivateEndpointPropertyPtrOutput {
+	return i.ToPrivateEndpointPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointPropertyPtrType) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyPtrOutput)
+}
+
+// Private endpoint which the connection belongs to.
+type PrivateEndpointPropertyOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointProperty)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyOutput() PrivateEndpointPropertyOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyOutputWithContext(ctx context.Context) PrivateEndpointPropertyOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutput() PrivateEndpointPropertyPtrOutput {
+	return o.ToPrivateEndpointPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointProperty) *PrivateEndpointProperty {
+		return &v
+	}).(PrivateEndpointPropertyPtrOutput)
+}
+
+// Resource id of the private endpoint.
+func (o PrivateEndpointPropertyOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointProperty)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyPtrOutput) ToPrivateEndpointPropertyPtrOutput() PrivateEndpointPropertyPtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyPtrOutput) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
+	return o.ApplyT(func(v *PrivateEndpointProperty) PrivateEndpointProperty { return *v }).(PrivateEndpointPropertyOutput)
+}
+
+// Resource id of the private endpoint.
+func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private endpoint which the connection belongs to.
 type PrivateEndpointPropertyResponse struct {
 	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
@@ -9522,9 +11089,166 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Connection State of the Private Endpoint Connection.
+type PrivateLinkServiceConnectionStateProperty struct {
+	// The private link service connection description.
+	Description *string `pulumi:"description"`
+	// The private link service connection status.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStatePropertyInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs and PrivateLinkServiceConnectionStatePropertyOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyInput` via:
+//
+//          PrivateLinkServiceConnectionStatePropertyArgs{...}
+type PrivateLinkServiceConnectionStatePropertyInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyOutput() PrivateLinkServiceConnectionStatePropertyOutput
+	ToPrivateLinkServiceConnectionStatePropertyOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyOutput
+}
+
+// Connection State of the Private Endpoint Connection.
+type PrivateLinkServiceConnectionStatePropertyArgs struct {
+	// The private link service connection description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The private link service connection status.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStatePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateProperty)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConnectionStatePropertyOutput() PrivateLinkServiceConnectionStatePropertyOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConnectionStatePropertyOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyOutput)
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConnectionStatePropertyPtrOutput() PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyOutput).ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStatePropertyPtrInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyArgs, PrivateLinkServiceConnectionStatePropertyPtr and PrivateLinkServiceConnectionStatePropertyPtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyPtrInput` via:
+//
+//          PrivateLinkServiceConnectionStatePropertyArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStatePropertyPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyPtrOutput() PrivateLinkServiceConnectionStatePropertyPtrOutput
+	ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput
+}
+
+type privateLinkServiceConnectionStatePropertyPtrType PrivateLinkServiceConnectionStatePropertyArgs
+
+func PrivateLinkServiceConnectionStatePropertyPtr(v *PrivateLinkServiceConnectionStatePropertyArgs) PrivateLinkServiceConnectionStatePropertyPtrInput {
+	return (*privateLinkServiceConnectionStatePropertyPtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStatePropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateProperty)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStatePropertyPtrType) ToPrivateLinkServiceConnectionStatePropertyPtrOutput() PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStatePropertyPtrType) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
+}
+
+// Connection State of the Private Endpoint Connection.
+type PrivateLinkServiceConnectionStatePropertyOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateProperty)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyOutput() PrivateLinkServiceConnectionStatePropertyOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutput() PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return o.ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *PrivateLinkServiceConnectionStateProperty {
+		return &v
+	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
+}
+
+// The private link service connection description.
+func (o PrivateLinkServiceConnectionStatePropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStatePropertyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateProperty)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutput() PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) PrivateLinkServiceConnectionStateProperty {
+		return *v
+	}).(PrivateLinkServiceConnectionStatePropertyOutput)
+}
+
+// The private link service connection description.
+func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Connection State of the Private Endpoint Connection.
 type PrivateLinkServiceConnectionStatePropertyResponse struct {
 	// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
 	ActionsRequired string `pulumi:"actionsRequired"`
+	// The private link service connection description.
+	Description *string `pulumi:"description"`
 	// The private link service connection status.
 	Status *string `pulumi:"status"`
 }
@@ -9544,6 +11268,8 @@ type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
 type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
 	// Any action that is required beyond basic workflow (approve/ reject/ disconnect)
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	// The private link service connection description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The private link service connection status.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
@@ -9631,6 +11357,11 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
+// The private link service connection description.
+func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
@@ -9666,6 +11397,16 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The private link service connection description.
+func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
 // The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
@@ -9674,6 +11415,635 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 		}
 		return v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to indicate the information about the restore.
+type RestoreParameters struct {
+	// List of specific databases to restore.
+	DatabasesToRestore []DatabaseRestoreResource `pulumi:"databasesToRestore"`
+	// Describes the mode of the restore.
+	RestoreMode *string `pulumi:"restoreMode"`
+	// Path of the source account from which the restore has to be initiated
+	RestoreSource *string `pulumi:"restoreSource"`
+	// Time to which the account has to be restored (ISO-8601 format).
+	RestoreTimestampInUtc *string `pulumi:"restoreTimestampInUtc"`
+}
+
+// RestoreParametersInput is an input type that accepts RestoreParametersArgs and RestoreParametersOutput values.
+// You can construct a concrete instance of `RestoreParametersInput` via:
+//
+//          RestoreParametersArgs{...}
+type RestoreParametersInput interface {
+	pulumi.Input
+
+	ToRestoreParametersOutput() RestoreParametersOutput
+	ToRestoreParametersOutputWithContext(context.Context) RestoreParametersOutput
+}
+
+// Parameters to indicate the information about the restore.
+type RestoreParametersArgs struct {
+	// List of specific databases to restore.
+	DatabasesToRestore DatabaseRestoreResourceArrayInput `pulumi:"databasesToRestore"`
+	// Describes the mode of the restore.
+	RestoreMode pulumi.StringPtrInput `pulumi:"restoreMode"`
+	// Path of the source account from which the restore has to be initiated
+	RestoreSource pulumi.StringPtrInput `pulumi:"restoreSource"`
+	// Time to which the account has to be restored (ISO-8601 format).
+	RestoreTimestampInUtc pulumi.StringPtrInput `pulumi:"restoreTimestampInUtc"`
+}
+
+func (RestoreParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreParameters)(nil)).Elem()
+}
+
+func (i RestoreParametersArgs) ToRestoreParametersOutput() RestoreParametersOutput {
+	return i.ToRestoreParametersOutputWithContext(context.Background())
+}
+
+func (i RestoreParametersArgs) ToRestoreParametersOutputWithContext(ctx context.Context) RestoreParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreParametersOutput)
+}
+
+func (i RestoreParametersArgs) ToRestoreParametersPtrOutput() RestoreParametersPtrOutput {
+	return i.ToRestoreParametersPtrOutputWithContext(context.Background())
+}
+
+func (i RestoreParametersArgs) ToRestoreParametersPtrOutputWithContext(ctx context.Context) RestoreParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreParametersOutput).ToRestoreParametersPtrOutputWithContext(ctx)
+}
+
+// RestoreParametersPtrInput is an input type that accepts RestoreParametersArgs, RestoreParametersPtr and RestoreParametersPtrOutput values.
+// You can construct a concrete instance of `RestoreParametersPtrInput` via:
+//
+//          RestoreParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type RestoreParametersPtrInput interface {
+	pulumi.Input
+
+	ToRestoreParametersPtrOutput() RestoreParametersPtrOutput
+	ToRestoreParametersPtrOutputWithContext(context.Context) RestoreParametersPtrOutput
+}
+
+type restoreParametersPtrType RestoreParametersArgs
+
+func RestoreParametersPtr(v *RestoreParametersArgs) RestoreParametersPtrInput {
+	return (*restoreParametersPtrType)(v)
+}
+
+func (*restoreParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreParameters)(nil)).Elem()
+}
+
+func (i *restoreParametersPtrType) ToRestoreParametersPtrOutput() RestoreParametersPtrOutput {
+	return i.ToRestoreParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *restoreParametersPtrType) ToRestoreParametersPtrOutputWithContext(ctx context.Context) RestoreParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreParametersPtrOutput)
+}
+
+// Parameters to indicate the information about the restore.
+type RestoreParametersOutput struct{ *pulumi.OutputState }
+
+func (RestoreParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreParameters)(nil)).Elem()
+}
+
+func (o RestoreParametersOutput) ToRestoreParametersOutput() RestoreParametersOutput {
+	return o
+}
+
+func (o RestoreParametersOutput) ToRestoreParametersOutputWithContext(ctx context.Context) RestoreParametersOutput {
+	return o
+}
+
+func (o RestoreParametersOutput) ToRestoreParametersPtrOutput() RestoreParametersPtrOutput {
+	return o.ToRestoreParametersPtrOutputWithContext(context.Background())
+}
+
+func (o RestoreParametersOutput) ToRestoreParametersPtrOutputWithContext(ctx context.Context) RestoreParametersPtrOutput {
+	return o.ApplyT(func(v RestoreParameters) *RestoreParameters {
+		return &v
+	}).(RestoreParametersPtrOutput)
+}
+
+// List of specific databases to restore.
+func (o RestoreParametersOutput) DatabasesToRestore() DatabaseRestoreResourceArrayOutput {
+	return o.ApplyT(func(v RestoreParameters) []DatabaseRestoreResource { return v.DatabasesToRestore }).(DatabaseRestoreResourceArrayOutput)
+}
+
+// Describes the mode of the restore.
+func (o RestoreParametersOutput) RestoreMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoreParameters) *string { return v.RestoreMode }).(pulumi.StringPtrOutput)
+}
+
+// Path of the source account from which the restore has to be initiated
+func (o RestoreParametersOutput) RestoreSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoreParameters) *string { return v.RestoreSource }).(pulumi.StringPtrOutput)
+}
+
+// Time to which the account has to be restored (ISO-8601 format).
+func (o RestoreParametersOutput) RestoreTimestampInUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoreParameters) *string { return v.RestoreTimestampInUtc }).(pulumi.StringPtrOutput)
+}
+
+type RestoreParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (RestoreParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreParameters)(nil)).Elem()
+}
+
+func (o RestoreParametersPtrOutput) ToRestoreParametersPtrOutput() RestoreParametersPtrOutput {
+	return o
+}
+
+func (o RestoreParametersPtrOutput) ToRestoreParametersPtrOutputWithContext(ctx context.Context) RestoreParametersPtrOutput {
+	return o
+}
+
+func (o RestoreParametersPtrOutput) Elem() RestoreParametersOutput {
+	return o.ApplyT(func(v *RestoreParameters) RestoreParameters { return *v }).(RestoreParametersOutput)
+}
+
+// List of specific databases to restore.
+func (o RestoreParametersPtrOutput) DatabasesToRestore() DatabaseRestoreResourceArrayOutput {
+	return o.ApplyT(func(v *RestoreParameters) []DatabaseRestoreResource {
+		if v == nil {
+			return nil
+		}
+		return v.DatabasesToRestore
+	}).(DatabaseRestoreResourceArrayOutput)
+}
+
+// Describes the mode of the restore.
+func (o RestoreParametersPtrOutput) RestoreMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoreParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path of the source account from which the restore has to be initiated
+func (o RestoreParametersPtrOutput) RestoreSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoreParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time to which the account has to be restored (ISO-8601 format).
+func (o RestoreParametersPtrOutput) RestoreTimestampInUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoreParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreTimestampInUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters to indicate the information about the restore.
+type RestoreParametersResponse struct {
+	// List of specific databases to restore.
+	DatabasesToRestore []DatabaseRestoreResourceResponse `pulumi:"databasesToRestore"`
+	// Describes the mode of the restore.
+	RestoreMode *string `pulumi:"restoreMode"`
+	// Path of the source account from which the restore has to be initiated
+	RestoreSource *string `pulumi:"restoreSource"`
+	// Time to which the account has to be restored (ISO-8601 format).
+	RestoreTimestampInUtc *string `pulumi:"restoreTimestampInUtc"`
+}
+
+// RestoreParametersResponseInput is an input type that accepts RestoreParametersResponseArgs and RestoreParametersResponseOutput values.
+// You can construct a concrete instance of `RestoreParametersResponseInput` via:
+//
+//          RestoreParametersResponseArgs{...}
+type RestoreParametersResponseInput interface {
+	pulumi.Input
+
+	ToRestoreParametersResponseOutput() RestoreParametersResponseOutput
+	ToRestoreParametersResponseOutputWithContext(context.Context) RestoreParametersResponseOutput
+}
+
+// Parameters to indicate the information about the restore.
+type RestoreParametersResponseArgs struct {
+	// List of specific databases to restore.
+	DatabasesToRestore DatabaseRestoreResourceResponseArrayInput `pulumi:"databasesToRestore"`
+	// Describes the mode of the restore.
+	RestoreMode pulumi.StringPtrInput `pulumi:"restoreMode"`
+	// Path of the source account from which the restore has to be initiated
+	RestoreSource pulumi.StringPtrInput `pulumi:"restoreSource"`
+	// Time to which the account has to be restored (ISO-8601 format).
+	RestoreTimestampInUtc pulumi.StringPtrInput `pulumi:"restoreTimestampInUtc"`
+}
+
+func (RestoreParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreParametersResponse)(nil)).Elem()
+}
+
+func (i RestoreParametersResponseArgs) ToRestoreParametersResponseOutput() RestoreParametersResponseOutput {
+	return i.ToRestoreParametersResponseOutputWithContext(context.Background())
+}
+
+func (i RestoreParametersResponseArgs) ToRestoreParametersResponseOutputWithContext(ctx context.Context) RestoreParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreParametersResponseOutput)
+}
+
+func (i RestoreParametersResponseArgs) ToRestoreParametersResponsePtrOutput() RestoreParametersResponsePtrOutput {
+	return i.ToRestoreParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RestoreParametersResponseArgs) ToRestoreParametersResponsePtrOutputWithContext(ctx context.Context) RestoreParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreParametersResponseOutput).ToRestoreParametersResponsePtrOutputWithContext(ctx)
+}
+
+// RestoreParametersResponsePtrInput is an input type that accepts RestoreParametersResponseArgs, RestoreParametersResponsePtr and RestoreParametersResponsePtrOutput values.
+// You can construct a concrete instance of `RestoreParametersResponsePtrInput` via:
+//
+//          RestoreParametersResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RestoreParametersResponsePtrInput interface {
+	pulumi.Input
+
+	ToRestoreParametersResponsePtrOutput() RestoreParametersResponsePtrOutput
+	ToRestoreParametersResponsePtrOutputWithContext(context.Context) RestoreParametersResponsePtrOutput
+}
+
+type restoreParametersResponsePtrType RestoreParametersResponseArgs
+
+func RestoreParametersResponsePtr(v *RestoreParametersResponseArgs) RestoreParametersResponsePtrInput {
+	return (*restoreParametersResponsePtrType)(v)
+}
+
+func (*restoreParametersResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreParametersResponse)(nil)).Elem()
+}
+
+func (i *restoreParametersResponsePtrType) ToRestoreParametersResponsePtrOutput() RestoreParametersResponsePtrOutput {
+	return i.ToRestoreParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *restoreParametersResponsePtrType) ToRestoreParametersResponsePtrOutputWithContext(ctx context.Context) RestoreParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreParametersResponsePtrOutput)
+}
+
+// Parameters to indicate the information about the restore.
+type RestoreParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (RestoreParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreParametersResponse)(nil)).Elem()
+}
+
+func (o RestoreParametersResponseOutput) ToRestoreParametersResponseOutput() RestoreParametersResponseOutput {
+	return o
+}
+
+func (o RestoreParametersResponseOutput) ToRestoreParametersResponseOutputWithContext(ctx context.Context) RestoreParametersResponseOutput {
+	return o
+}
+
+func (o RestoreParametersResponseOutput) ToRestoreParametersResponsePtrOutput() RestoreParametersResponsePtrOutput {
+	return o.ToRestoreParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RestoreParametersResponseOutput) ToRestoreParametersResponsePtrOutputWithContext(ctx context.Context) RestoreParametersResponsePtrOutput {
+	return o.ApplyT(func(v RestoreParametersResponse) *RestoreParametersResponse {
+		return &v
+	}).(RestoreParametersResponsePtrOutput)
+}
+
+// List of specific databases to restore.
+func (o RestoreParametersResponseOutput) DatabasesToRestore() DatabaseRestoreResourceResponseArrayOutput {
+	return o.ApplyT(func(v RestoreParametersResponse) []DatabaseRestoreResourceResponse { return v.DatabasesToRestore }).(DatabaseRestoreResourceResponseArrayOutput)
+}
+
+// Describes the mode of the restore.
+func (o RestoreParametersResponseOutput) RestoreMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoreParametersResponse) *string { return v.RestoreMode }).(pulumi.StringPtrOutput)
+}
+
+// Path of the source account from which the restore has to be initiated
+func (o RestoreParametersResponseOutput) RestoreSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoreParametersResponse) *string { return v.RestoreSource }).(pulumi.StringPtrOutput)
+}
+
+// Time to which the account has to be restored (ISO-8601 format).
+func (o RestoreParametersResponseOutput) RestoreTimestampInUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoreParametersResponse) *string { return v.RestoreTimestampInUtc }).(pulumi.StringPtrOutput)
+}
+
+type RestoreParametersResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RestoreParametersResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreParametersResponse)(nil)).Elem()
+}
+
+func (o RestoreParametersResponsePtrOutput) ToRestoreParametersResponsePtrOutput() RestoreParametersResponsePtrOutput {
+	return o
+}
+
+func (o RestoreParametersResponsePtrOutput) ToRestoreParametersResponsePtrOutputWithContext(ctx context.Context) RestoreParametersResponsePtrOutput {
+	return o
+}
+
+func (o RestoreParametersResponsePtrOutput) Elem() RestoreParametersResponseOutput {
+	return o.ApplyT(func(v *RestoreParametersResponse) RestoreParametersResponse { return *v }).(RestoreParametersResponseOutput)
+}
+
+// List of specific databases to restore.
+func (o RestoreParametersResponsePtrOutput) DatabasesToRestore() DatabaseRestoreResourceResponseArrayOutput {
+	return o.ApplyT(func(v *RestoreParametersResponse) []DatabaseRestoreResourceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DatabasesToRestore
+	}).(DatabaseRestoreResourceResponseArrayOutput)
+}
+
+// Describes the mode of the restore.
+func (o RestoreParametersResponsePtrOutput) RestoreMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoreParametersResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path of the source account from which the restore has to be initiated
+func (o RestoreParametersResponsePtrOutput) RestoreSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoreParametersResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time to which the account has to be restored (ISO-8601 format).
+func (o RestoreParametersResponsePtrOutput) RestoreTimestampInUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoreParametersResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreTimestampInUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties to restore Azure Cosmos DB database account.
+type RestoreReqeustDatabaseAccountCreateUpdateProperties struct {
+	// API specific properties. Currently, supported only for MongoDB API.
+	ApiProperties *ApiProperties `pulumi:"apiProperties"`
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy interface{} `pulumi:"backupPolicy"`
+	// List of Cosmos DB capabilities for the account
+	Capabilities []Capability `pulumi:"capabilities"`
+	// The cassandra connector offer type for the Cosmos DB database C* account.
+	ConnectorOffer *string `pulumi:"connectorOffer"`
+	// The consistency policy for the Cosmos DB account.
+	ConsistencyPolicy *ConsistencyPolicy `pulumi:"consistencyPolicy"`
+	// The CORS policy for the Cosmos DB database account.
+	Cors []CorsPolicy `pulumi:"cors"`
+	// Enum to indicate the mode of account creation.
+	CreateMode string `pulumi:"createMode"`
+	// The offer type for the database
+	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
+	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
+	DisableKeyBasedMetadataWriteAccess *bool `pulumi:"disableKeyBasedMetadataWriteAccess"`
+	// Flag to indicate whether to enable storage analytics.
+	EnableAnalyticalStorage *bool `pulumi:"enableAnalyticalStorage"`
+	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
+	// Enables the cassandra connector on the Cosmos DB C* account
+	EnableCassandraConnector *bool `pulumi:"enableCassandraConnector"`
+	// Flag to indicate whether Free Tier is enabled.
+	EnableFreeTier *bool `pulumi:"enableFreeTier"`
+	// Enables the account to write in multiple locations
+	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
+	// List of IpRules.
+	IpRules []IpAddressOrRange `pulumi:"ipRules"`
+	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
+	IsVirtualNetworkFilterEnabled *bool `pulumi:"isVirtualNetworkFilterEnabled"`
+	// The URI of the key vault
+	KeyVaultKeyUri *string `pulumi:"keyVaultKeyUri"`
+	// An array that contains the georeplication locations enabled for the Cosmos DB account.
+	Locations []Location `pulumi:"locations"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Parameters to indicate the information about the restore.
+	RestoreParameters *RestoreParameters `pulumi:"restoreParameters"`
+	// List of Virtual Network ACL rules configured for the Cosmos DB account.
+	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
+}
+
+// RestoreReqeustDatabaseAccountCreateUpdatePropertiesInput is an input type that accepts RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs and RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput values.
+// You can construct a concrete instance of `RestoreReqeustDatabaseAccountCreateUpdatePropertiesInput` via:
+//
+//          RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs{...}
+type RestoreReqeustDatabaseAccountCreateUpdatePropertiesInput interface {
+	pulumi.Input
+
+	ToRestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput() RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput
+	ToRestoreReqeustDatabaseAccountCreateUpdatePropertiesOutputWithContext(context.Context) RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput
+}
+
+// Properties to restore Azure Cosmos DB database account.
+type RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs struct {
+	// API specific properties. Currently, supported only for MongoDB API.
+	ApiProperties ApiPropertiesPtrInput `pulumi:"apiProperties"`
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy pulumi.Input `pulumi:"backupPolicy"`
+	// List of Cosmos DB capabilities for the account
+	Capabilities CapabilityArrayInput `pulumi:"capabilities"`
+	// The cassandra connector offer type for the Cosmos DB database C* account.
+	ConnectorOffer pulumi.StringPtrInput `pulumi:"connectorOffer"`
+	// The consistency policy for the Cosmos DB account.
+	ConsistencyPolicy ConsistencyPolicyPtrInput `pulumi:"consistencyPolicy"`
+	// The CORS policy for the Cosmos DB database account.
+	Cors CorsPolicyArrayInput `pulumi:"cors"`
+	// Enum to indicate the mode of account creation.
+	CreateMode pulumi.StringInput `pulumi:"createMode"`
+	// The offer type for the database
+	DatabaseAccountOfferType pulumi.StringInput `pulumi:"databaseAccountOfferType"`
+	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
+	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrInput `pulumi:"disableKeyBasedMetadataWriteAccess"`
+	// Flag to indicate whether to enable storage analytics.
+	EnableAnalyticalStorage pulumi.BoolPtrInput `pulumi:"enableAnalyticalStorage"`
+	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+	EnableAutomaticFailover pulumi.BoolPtrInput `pulumi:"enableAutomaticFailover"`
+	// Enables the cassandra connector on the Cosmos DB C* account
+	EnableCassandraConnector pulumi.BoolPtrInput `pulumi:"enableCassandraConnector"`
+	// Flag to indicate whether Free Tier is enabled.
+	EnableFreeTier pulumi.BoolPtrInput `pulumi:"enableFreeTier"`
+	// Enables the account to write in multiple locations
+	EnableMultipleWriteLocations pulumi.BoolPtrInput `pulumi:"enableMultipleWriteLocations"`
+	// List of IpRules.
+	IpRules IpAddressOrRangeArrayInput `pulumi:"ipRules"`
+	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
+	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput `pulumi:"isVirtualNetworkFilterEnabled"`
+	// The URI of the key vault
+	KeyVaultKeyUri pulumi.StringPtrInput `pulumi:"keyVaultKeyUri"`
+	// An array that contains the georeplication locations enabled for the Cosmos DB account.
+	Locations LocationArrayInput `pulumi:"locations"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+	// Parameters to indicate the information about the restore.
+	RestoreParameters RestoreParametersPtrInput `pulumi:"restoreParameters"`
+	// List of Virtual Network ACL rules configured for the Cosmos DB account.
+	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
+}
+
+func (RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreReqeustDatabaseAccountCreateUpdateProperties)(nil)).Elem()
+}
+
+func (i RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs) ToRestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput() RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput {
+	return i.ToRestoreReqeustDatabaseAccountCreateUpdatePropertiesOutputWithContext(context.Background())
+}
+
+func (i RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs) ToRestoreReqeustDatabaseAccountCreateUpdatePropertiesOutputWithContext(ctx context.Context) RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput)
+}
+
+// Properties to restore Azure Cosmos DB database account.
+type RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput struct{ *pulumi.OutputState }
+
+func (RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreReqeustDatabaseAccountCreateUpdateProperties)(nil)).Elem()
+}
+
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) ToRestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput() RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput {
+	return o
+}
+
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) ToRestoreReqeustDatabaseAccountCreateUpdatePropertiesOutputWithContext(ctx context.Context) RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput {
+	return o
+}
+
+// API specific properties. Currently, supported only for MongoDB API.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) ApiProperties() ApiPropertiesPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *ApiProperties { return v.ApiProperties }).(ApiPropertiesPtrOutput)
+}
+
+// The object representing the policy for taking backups on an account.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) BackupPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) interface{} { return v.BackupPolicy }).(pulumi.AnyOutput)
+}
+
+// List of Cosmos DB capabilities for the account
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) Capabilities() CapabilityArrayOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) []Capability { return v.Capabilities }).(CapabilityArrayOutput)
+}
+
+// The cassandra connector offer type for the Cosmos DB database C* account.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) ConnectorOffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *string { return v.ConnectorOffer }).(pulumi.StringPtrOutput)
+}
+
+// The consistency policy for the Cosmos DB account.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) ConsistencyPolicy() ConsistencyPolicyPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *ConsistencyPolicy {
+		return v.ConsistencyPolicy
+	}).(ConsistencyPolicyPtrOutput)
+}
+
+// The CORS policy for the Cosmos DB database account.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) Cors() CorsPolicyArrayOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) []CorsPolicy { return v.Cors }).(CorsPolicyArrayOutput)
+}
+
+// Enum to indicate the mode of account creation.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) CreateMode() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) string { return v.CreateMode }).(pulumi.StringOutput)
+}
+
+// The offer type for the database
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) DatabaseAccountOfferType() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) string { return v.DatabaseAccountOfferType }).(pulumi.StringOutput)
+}
+
+// Disable write operations on metadata resources (databases, containers, throughput) via account keys
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) DisableKeyBasedMetadataWriteAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *bool {
+		return v.DisableKeyBasedMetadataWriteAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag to indicate whether to enable storage analytics.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) EnableAnalyticalStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *bool { return v.EnableAnalyticalStorage }).(pulumi.BoolPtrOutput)
+}
+
+// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) EnableAutomaticFailover() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *bool { return v.EnableAutomaticFailover }).(pulumi.BoolPtrOutput)
+}
+
+// Enables the cassandra connector on the Cosmos DB C* account
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) EnableCassandraConnector() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *bool { return v.EnableCassandraConnector }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to indicate whether Free Tier is enabled.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) EnableFreeTier() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *bool { return v.EnableFreeTier }).(pulumi.BoolPtrOutput)
+}
+
+// Enables the account to write in multiple locations
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) EnableMultipleWriteLocations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *bool {
+		return v.EnableMultipleWriteLocations
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of IpRules.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) IpRules() IpAddressOrRangeArrayOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) []IpAddressOrRange { return v.IpRules }).(IpAddressOrRangeArrayOutput)
+}
+
+// Flag to indicate whether to enable/disable Virtual Network ACL rules.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) IsVirtualNetworkFilterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *bool {
+		return v.IsVirtualNetworkFilterEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the key vault
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) KeyVaultKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *string { return v.KeyVaultKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// An array that contains the georeplication locations enabled for the Cosmos DB account.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) Locations() LocationArrayOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) []Location { return v.Locations }).(LocationArrayOutput)
+}
+
+// Whether requests from Public Network are allowed
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Parameters to indicate the information about the restore.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) RestoreParameters() RestoreParametersPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *RestoreParameters {
+		return v.RestoreParameters
+	}).(RestoreParametersPtrOutput)
+}
+
+// List of Virtual Network ACL rules configured for the Cosmos DB account.
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) []VirtualNetworkRule {
+		return v.VirtualNetworkRules
+	}).(VirtualNetworkRuleArrayOutput)
 }
 
 type SpatialSpec struct {
@@ -10041,8 +12411,6 @@ func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.I
 }
 
 type SqlContainerGetPropertiesResponseResource struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -10075,8 +12443,6 @@ type SqlContainerGetPropertiesResponseResourceInput interface {
 }
 
 type SqlContainerGetPropertiesResponseResourceArgs struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -10174,11 +12540,6 @@ func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetProper
 	}).(SqlContainerGetPropertiesResponseResourcePtrOutput)
 }
 
-// Analytical TTL.
-func (o SqlContainerGetPropertiesResponseResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
-}
-
 // The conflict resolution policy for the container.
 func (o SqlContainerGetPropertiesResponseResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
@@ -10246,16 +12607,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Elem() SqlContainerG
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) SqlContainerGetPropertiesResponseResource {
 		return *v
 	}).(SqlContainerGetPropertiesResponseResourceOutput)
-}
-
-// Analytical TTL.
-func (o SqlContainerGetPropertiesResponseResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AnalyticalStorageTtl
-	}).(pulumi.IntPtrOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -10350,8 +12701,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) UniqueKeyPolicy() Un
 
 // Cosmos DB SQL container resource object
 type SqlContainerResource struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy *ConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -10379,8 +12728,6 @@ type SqlContainerResourceInput interface {
 
 // Cosmos DB SQL container resource object
 type SqlContainerResourceArgs struct {
-	// Analytical TTL.
-	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy ConflictResolutionPolicyPtrInput `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -10473,11 +12820,6 @@ func (o SqlContainerResourceOutput) ToSqlContainerResourcePtrOutputWithContext(c
 	}).(SqlContainerResourcePtrOutput)
 }
 
-// Analytical TTL.
-func (o SqlContainerResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SqlContainerResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
-}
-
 // The conflict resolution policy for the container.
 func (o SqlContainerResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyPtrOutput {
 	return o.ApplyT(func(v SqlContainerResource) *ConflictResolutionPolicy { return v.ConflictResolutionPolicy }).(ConflictResolutionPolicyPtrOutput)
@@ -10524,16 +12866,6 @@ func (o SqlContainerResourcePtrOutput) ToSqlContainerResourcePtrOutputWithContex
 
 func (o SqlContainerResourcePtrOutput) Elem() SqlContainerResourceOutput {
 	return o.ApplyT(func(v *SqlContainerResource) SqlContainerResource { return *v }).(SqlContainerResourceOutput)
-}
-
-// Analytical TTL.
-func (o SqlContainerResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SqlContainerResource) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AnalyticalStorageTtl
-	}).(pulumi.IntPtrOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -13424,6 +15756,235 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 	}).(VirtualNetworkRuleResponseOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiPropertiesOutput{})
 	pulumi.RegisterOutputType(ApiPropertiesPtrOutput{})
@@ -13481,6 +16042,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerPartitionKeyPtrOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContinuousModeBackupPolicyOutput{})
+	pulumi.RegisterOutputType(ContinuousModeBackupPolicyResponseOutput{})
 	pulumi.RegisterOutputType(CorsPolicyOutput{})
 	pulumi.RegisterOutputType(CorsPolicyArrayOutput{})
 	pulumi.RegisterOutputType(CorsPolicyResponseOutput{})
@@ -13489,6 +16052,11 @@ func init() {
 	pulumi.RegisterOutputType(CreateUpdateOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseRestoreResourceOutput{})
+	pulumi.RegisterOutputType(DatabaseRestoreResourceArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseRestoreResourceResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseRestoreResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput{})
 	pulumi.RegisterOutputType(ExcludedPathOutput{})
 	pulumi.RegisterOutputType(ExcludedPathArrayOutput{})
 	pulumi.RegisterOutputType(ExcludedPathResponseOutput{})
@@ -13527,6 +16095,12 @@ func init() {
 	pulumi.RegisterOutputType(LocationArrayOutput{})
 	pulumi.RegisterOutputType(LocationResponseOutput{})
 	pulumi.RegisterOutputType(LocationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(MongoDBCollectionGetPropertiesResponseOptionsOutput{})
 	pulumi.RegisterOutputType(MongoDBCollectionGetPropertiesResponseOptionsPtrOutput{})
 	pulumi.RegisterOutputType(MongoDBCollectionGetPropertiesResponseResourceOutput{})
@@ -13551,12 +16125,27 @@ func init() {
 	pulumi.RegisterOutputType(MongoIndexOptionsResponsePtrOutput{})
 	pulumi.RegisterOutputType(MongoIndexResponseOutput{})
 	pulumi.RegisterOutputType(MongoIndexResponseArrayOutput{})
+	pulumi.RegisterOutputType(PeriodicModeBackupPolicyOutput{})
+	pulumi.RegisterOutputType(PeriodicModeBackupPolicyResponseOutput{})
+	pulumi.RegisterOutputType(PeriodicModePropertiesOutput{})
+	pulumi.RegisterOutputType(PeriodicModePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PeriodicModePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PeriodicModePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
+	pulumi.RegisterOutputType(RestoreParametersOutput{})
+	pulumi.RegisterOutputType(RestoreParametersPtrOutput{})
+	pulumi.RegisterOutputType(RestoreParametersResponseOutput{})
+	pulumi.RegisterOutputType(RestoreParametersResponsePtrOutput{})
+	pulumi.RegisterOutputType(RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput{})
 	pulumi.RegisterOutputType(SpatialSpecOutput{})
 	pulumi.RegisterOutputType(SpatialSpecArrayOutput{})
 	pulumi.RegisterOutputType(SpatialSpecResponseOutput{})
@@ -13603,4 +16192,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

@@ -26,9 +26,9 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := relay.NewNamespace(ctx, "namespace", &relay.NamespaceArgs{
-// 			Location:          pulumi.String("West US"),
-// 			NamespaceName:     pulumi.String("sdk-RelayNamespace-01"),
-// 			ResourceGroupName: pulumi.String("RG-eg"),
+// 			Location:          pulumi.String("South Central US"),
+// 			NamespaceName:     pulumi.String("sdk-Namespace-5849"),
+// 			ResourceGroupName: pulumi.String("ArunMonocle"),
 // 			Sku: &relay.SkuArgs{
 // 				Name: pulumi.String("Standard"),
 // 				Tier: pulumi.String("Standard"),

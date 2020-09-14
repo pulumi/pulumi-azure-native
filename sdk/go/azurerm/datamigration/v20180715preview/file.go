@@ -42,6 +42,12 @@ func NewFile(ctx *pulumi.Context,
 	if args == nil {
 		args = &FileArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datamigration/latest:File"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource File
 	err := ctx.RegisterResource("azurerm:datamigration/v20180715preview:File", name, args, &resource, opts...)
 	if err != nil {

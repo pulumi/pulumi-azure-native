@@ -717,6 +717,314 @@ func (o CloudToDevicePropertiesResponsePtrOutput) MaxDeliveryCount() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// The encryption properties for the IoT DPS instance.
+type EncryptionPropertiesDescription struct {
+	// The source of the key.
+	KeySource *string `pulumi:"keySource"`
+	// The properties of the KeyVault key.
+	KeyVaultProperties []KeyVaultKeyProperties `pulumi:"keyVaultProperties"`
+}
+
+// EncryptionPropertiesDescriptionInput is an input type that accepts EncryptionPropertiesDescriptionArgs and EncryptionPropertiesDescriptionOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesDescriptionInput` via:
+//
+//          EncryptionPropertiesDescriptionArgs{...}
+type EncryptionPropertiesDescriptionInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesDescriptionOutput() EncryptionPropertiesDescriptionOutput
+	ToEncryptionPropertiesDescriptionOutputWithContext(context.Context) EncryptionPropertiesDescriptionOutput
+}
+
+// The encryption properties for the IoT DPS instance.
+type EncryptionPropertiesDescriptionArgs struct {
+	// The source of the key.
+	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
+	// The properties of the KeyVault key.
+	KeyVaultProperties KeyVaultKeyPropertiesArrayInput `pulumi:"keyVaultProperties"`
+}
+
+func (EncryptionPropertiesDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesDescription)(nil)).Elem()
+}
+
+func (i EncryptionPropertiesDescriptionArgs) ToEncryptionPropertiesDescriptionOutput() EncryptionPropertiesDescriptionOutput {
+	return i.ToEncryptionPropertiesDescriptionOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesDescriptionArgs) ToEncryptionPropertiesDescriptionOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionOutput)
+}
+
+func (i EncryptionPropertiesDescriptionArgs) ToEncryptionPropertiesDescriptionPtrOutput() EncryptionPropertiesDescriptionPtrOutput {
+	return i.ToEncryptionPropertiesDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesDescriptionArgs) ToEncryptionPropertiesDescriptionPtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionOutput).ToEncryptionPropertiesDescriptionPtrOutputWithContext(ctx)
+}
+
+// EncryptionPropertiesDescriptionPtrInput is an input type that accepts EncryptionPropertiesDescriptionArgs, EncryptionPropertiesDescriptionPtr and EncryptionPropertiesDescriptionPtrOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesDescriptionPtrInput` via:
+//
+//          EncryptionPropertiesDescriptionArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPropertiesDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesDescriptionPtrOutput() EncryptionPropertiesDescriptionPtrOutput
+	ToEncryptionPropertiesDescriptionPtrOutputWithContext(context.Context) EncryptionPropertiesDescriptionPtrOutput
+}
+
+type encryptionPropertiesDescriptionPtrType EncryptionPropertiesDescriptionArgs
+
+func EncryptionPropertiesDescriptionPtr(v *EncryptionPropertiesDescriptionArgs) EncryptionPropertiesDescriptionPtrInput {
+	return (*encryptionPropertiesDescriptionPtrType)(v)
+}
+
+func (*encryptionPropertiesDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesDescription)(nil)).Elem()
+}
+
+func (i *encryptionPropertiesDescriptionPtrType) ToEncryptionPropertiesDescriptionPtrOutput() EncryptionPropertiesDescriptionPtrOutput {
+	return i.ToEncryptionPropertiesDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPropertiesDescriptionPtrType) ToEncryptionPropertiesDescriptionPtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionPtrOutput)
+}
+
+// The encryption properties for the IoT DPS instance.
+type EncryptionPropertiesDescriptionOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesDescription)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesDescriptionOutput) ToEncryptionPropertiesDescriptionOutput() EncryptionPropertiesDescriptionOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionOutput) ToEncryptionPropertiesDescriptionOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionOutput) ToEncryptionPropertiesDescriptionPtrOutput() EncryptionPropertiesDescriptionPtrOutput {
+	return o.ToEncryptionPropertiesDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPropertiesDescriptionOutput) ToEncryptionPropertiesDescriptionPtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescription) *EncryptionPropertiesDescription {
+		return &v
+	}).(EncryptionPropertiesDescriptionPtrOutput)
+}
+
+// The source of the key.
+func (o EncryptionPropertiesDescriptionOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescription) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+}
+
+// The properties of the KeyVault key.
+func (o EncryptionPropertiesDescriptionOutput) KeyVaultProperties() KeyVaultKeyPropertiesArrayOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescription) []KeyVaultKeyProperties { return v.KeyVaultProperties }).(KeyVaultKeyPropertiesArrayOutput)
+}
+
+type EncryptionPropertiesDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesDescription)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesDescriptionPtrOutput) ToEncryptionPropertiesDescriptionPtrOutput() EncryptionPropertiesDescriptionPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionPtrOutput) ToEncryptionPropertiesDescriptionPtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionPtrOutput) Elem() EncryptionPropertiesDescriptionOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescription) EncryptionPropertiesDescription { return *v }).(EncryptionPropertiesDescriptionOutput)
+}
+
+// The source of the key.
+func (o EncryptionPropertiesDescriptionPtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeySource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the KeyVault key.
+func (o EncryptionPropertiesDescriptionPtrOutput) KeyVaultProperties() KeyVaultKeyPropertiesArrayOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescription) []KeyVaultKeyProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultKeyPropertiesArrayOutput)
+}
+
+// The encryption properties for the IoT DPS instance.
+type EncryptionPropertiesDescriptionResponse struct {
+	// The source of the key.
+	KeySource *string `pulumi:"keySource"`
+	// The properties of the KeyVault key.
+	KeyVaultProperties []KeyVaultKeyPropertiesResponse `pulumi:"keyVaultProperties"`
+}
+
+// EncryptionPropertiesDescriptionResponseInput is an input type that accepts EncryptionPropertiesDescriptionResponseArgs and EncryptionPropertiesDescriptionResponseOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesDescriptionResponseInput` via:
+//
+//          EncryptionPropertiesDescriptionResponseArgs{...}
+type EncryptionPropertiesDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesDescriptionResponseOutput() EncryptionPropertiesDescriptionResponseOutput
+	ToEncryptionPropertiesDescriptionResponseOutputWithContext(context.Context) EncryptionPropertiesDescriptionResponseOutput
+}
+
+// The encryption properties for the IoT DPS instance.
+type EncryptionPropertiesDescriptionResponseArgs struct {
+	// The source of the key.
+	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
+	// The properties of the KeyVault key.
+	KeyVaultProperties KeyVaultKeyPropertiesResponseArrayInput `pulumi:"keyVaultProperties"`
+}
+
+func (EncryptionPropertiesDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesDescriptionResponse)(nil)).Elem()
+}
+
+func (i EncryptionPropertiesDescriptionResponseArgs) ToEncryptionPropertiesDescriptionResponseOutput() EncryptionPropertiesDescriptionResponseOutput {
+	return i.ToEncryptionPropertiesDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesDescriptionResponseArgs) ToEncryptionPropertiesDescriptionResponseOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionResponseOutput)
+}
+
+func (i EncryptionPropertiesDescriptionResponseArgs) ToEncryptionPropertiesDescriptionResponsePtrOutput() EncryptionPropertiesDescriptionResponsePtrOutput {
+	return i.ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesDescriptionResponseArgs) ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionResponseOutput).ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionPropertiesDescriptionResponsePtrInput is an input type that accepts EncryptionPropertiesDescriptionResponseArgs, EncryptionPropertiesDescriptionResponsePtr and EncryptionPropertiesDescriptionResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesDescriptionResponsePtrInput` via:
+//
+//          EncryptionPropertiesDescriptionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPropertiesDescriptionResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesDescriptionResponsePtrOutput() EncryptionPropertiesDescriptionResponsePtrOutput
+	ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(context.Context) EncryptionPropertiesDescriptionResponsePtrOutput
+}
+
+type encryptionPropertiesDescriptionResponsePtrType EncryptionPropertiesDescriptionResponseArgs
+
+func EncryptionPropertiesDescriptionResponsePtr(v *EncryptionPropertiesDescriptionResponseArgs) EncryptionPropertiesDescriptionResponsePtrInput {
+	return (*encryptionPropertiesDescriptionResponsePtrType)(v)
+}
+
+func (*encryptionPropertiesDescriptionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesDescriptionResponse)(nil)).Elem()
+}
+
+func (i *encryptionPropertiesDescriptionResponsePtrType) ToEncryptionPropertiesDescriptionResponsePtrOutput() EncryptionPropertiesDescriptionResponsePtrOutput {
+	return i.ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPropertiesDescriptionResponsePtrType) ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionResponsePtrOutput)
+}
+
+// The encryption properties for the IoT DPS instance.
+type EncryptionPropertiesDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesDescriptionResponse)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesDescriptionResponseOutput) ToEncryptionPropertiesDescriptionResponseOutput() EncryptionPropertiesDescriptionResponseOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionResponseOutput) ToEncryptionPropertiesDescriptionResponseOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionResponseOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionResponseOutput) ToEncryptionPropertiesDescriptionResponsePtrOutput() EncryptionPropertiesDescriptionResponsePtrOutput {
+	return o.ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPropertiesDescriptionResponseOutput) ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) *EncryptionPropertiesDescriptionResponse {
+		return &v
+	}).(EncryptionPropertiesDescriptionResponsePtrOutput)
+}
+
+// The source of the key.
+func (o EncryptionPropertiesDescriptionResponseOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+}
+
+// The properties of the KeyVault key.
+func (o EncryptionPropertiesDescriptionResponseOutput) KeyVaultProperties() KeyVaultKeyPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) []KeyVaultKeyPropertiesResponse {
+		return v.KeyVaultProperties
+	}).(KeyVaultKeyPropertiesResponseArrayOutput)
+}
+
+type EncryptionPropertiesDescriptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesDescriptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesDescriptionResponse)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesDescriptionResponsePtrOutput) ToEncryptionPropertiesDescriptionResponsePtrOutput() EncryptionPropertiesDescriptionResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionResponsePtrOutput) ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionResponsePtrOutput) Elem() EncryptionPropertiesDescriptionResponseOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) EncryptionPropertiesDescriptionResponse { return *v }).(EncryptionPropertiesDescriptionResponseOutput)
+}
+
+// The source of the key.
+func (o EncryptionPropertiesDescriptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeySource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the KeyVault key.
+func (o EncryptionPropertiesDescriptionResponsePtrOutput) KeyVaultProperties() KeyVaultKeyPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) []KeyVaultKeyPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultKeyPropertiesResponseArrayOutput)
+}
+
 // The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
 type EnrichmentProperties struct {
 	// The list of endpoints for which the enrichment is applied to the message.
@@ -2102,6 +2410,8 @@ type IotDpsPropertiesDescription struct {
 	AllocationPolicy *string `pulumi:"allocationPolicy"`
 	// List of authorization keys for a provisioning service.
 	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleAccessRightsDescription `pulumi:"authorizationPolicies"`
+	// The encryption properties for the IoT DPS instance.
+	Encryption *EncryptionPropertiesDescription `pulumi:"encryption"`
 	// List of IoT hubs associated with this provisioning service.
 	IotHubs []IotHubDefinitionDescription `pulumi:"iotHubs"`
 	// The IP filter rules.
@@ -2133,6 +2443,8 @@ type IotDpsPropertiesDescriptionArgs struct {
 	AllocationPolicy pulumi.StringPtrInput `pulumi:"allocationPolicy"`
 	// List of authorization keys for a provisioning service.
 	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayInput `pulumi:"authorizationPolicies"`
+	// The encryption properties for the IoT DPS instance.
+	Encryption EncryptionPropertiesDescriptionPtrInput `pulumi:"encryption"`
 	// List of IoT hubs associated with this provisioning service.
 	IotHubs IotHubDefinitionDescriptionArrayInput `pulumi:"iotHubs"`
 	// The IP filter rules.
@@ -2237,6 +2549,11 @@ func (o IotDpsPropertiesDescriptionOutput) AuthorizationPolicies() SharedAccessS
 	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput)
 }
 
+// The encryption properties for the IoT DPS instance.
+func (o IotDpsPropertiesDescriptionOutput) Encryption() EncryptionPropertiesDescriptionPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescription) *EncryptionPropertiesDescription { return v.Encryption }).(EncryptionPropertiesDescriptionPtrOutput)
+}
+
 // List of IoT hubs associated with this provisioning service.
 func (o IotDpsPropertiesDescriptionOutput) IotHubs() IotHubDefinitionDescriptionArrayOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) []IotHubDefinitionDescription { return v.IotHubs }).(IotHubDefinitionDescriptionArrayOutput)
@@ -2307,6 +2624,16 @@ func (o IotDpsPropertiesDescriptionPtrOutput) AuthorizationPolicies() SharedAcce
 	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput)
 }
 
+// The encryption properties for the IoT DPS instance.
+func (o IotDpsPropertiesDescriptionPtrOutput) Encryption() EncryptionPropertiesDescriptionPtrOutput {
+	return o.ApplyT(func(v *IotDpsPropertiesDescription) *EncryptionPropertiesDescription {
+		if v == nil {
+			return nil
+		}
+		return v.Encryption
+	}).(EncryptionPropertiesDescriptionPtrOutput)
+}
+
 // List of IoT hubs associated with this provisioning service.
 func (o IotDpsPropertiesDescriptionPtrOutput) IotHubs() IotHubDefinitionDescriptionArrayOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) []IotHubDefinitionDescription {
@@ -2375,6 +2702,8 @@ type IotDpsPropertiesDescriptionResponse struct {
 	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse `pulumi:"authorizationPolicies"`
 	// Device endpoint for this provisioning service.
 	DeviceProvisioningHostName string `pulumi:"deviceProvisioningHostName"`
+	// The encryption properties for the IoT DPS instance.
+	Encryption *EncryptionPropertiesDescriptionResponse `pulumi:"encryption"`
 	// Unique identifier of this provisioning service.
 	IdScope string `pulumi:"idScope"`
 	// List of IoT hubs associated with this provisioning service.
@@ -2412,6 +2741,8 @@ type IotDpsPropertiesDescriptionResponseArgs struct {
 	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayInput `pulumi:"authorizationPolicies"`
 	// Device endpoint for this provisioning service.
 	DeviceProvisioningHostName pulumi.StringInput `pulumi:"deviceProvisioningHostName"`
+	// The encryption properties for the IoT DPS instance.
+	Encryption EncryptionPropertiesDescriptionResponsePtrInput `pulumi:"encryption"`
 	// Unique identifier of this provisioning service.
 	IdScope pulumi.StringInput `pulumi:"idScope"`
 	// List of IoT hubs associated with this provisioning service.
@@ -2525,6 +2856,13 @@ func (o IotDpsPropertiesDescriptionResponseOutput) DeviceProvisioningHostName() 
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) string { return v.DeviceProvisioningHostName }).(pulumi.StringOutput)
 }
 
+// The encryption properties for the IoT DPS instance.
+func (o IotDpsPropertiesDescriptionResponseOutput) Encryption() EncryptionPropertiesDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *EncryptionPropertiesDescriptionResponse {
+		return v.Encryption
+	}).(EncryptionPropertiesDescriptionResponsePtrOutput)
+}
+
 // Unique identifier of this provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) IdScope() pulumi.StringOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) string { return v.IdScope }).(pulumi.StringOutput)
@@ -2613,6 +2951,16 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) DeviceProvisioningHostName
 		}
 		return &v.DeviceProvisioningHostName
 	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption properties for the IoT DPS instance.
+func (o IotDpsPropertiesDescriptionResponsePtrOutput) Encryption() EncryptionPropertiesDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *EncryptionPropertiesDescriptionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Encryption
+	}).(EncryptionPropertiesDescriptionResponsePtrOutput)
 }
 
 // Unique identifier of this provisioning service.
@@ -4759,6 +5107,206 @@ func (o IpFilterRuleResponseArrayOutput) Index(i pulumi.IntInput) IpFilterRuleRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpFilterRuleResponse {
 		return vs[0].([]IpFilterRuleResponse)[vs[1].(int)]
 	}).(IpFilterRuleResponseOutput)
+}
+
+// The properties of the KeyVault key.
+type KeyVaultKeyProperties struct {
+	// The identifier of the key.
+	KeyIdentifier *string `pulumi:"keyIdentifier"`
+}
+
+// KeyVaultKeyPropertiesInput is an input type that accepts KeyVaultKeyPropertiesArgs and KeyVaultKeyPropertiesOutput values.
+// You can construct a concrete instance of `KeyVaultKeyPropertiesInput` via:
+//
+//          KeyVaultKeyPropertiesArgs{...}
+type KeyVaultKeyPropertiesInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyPropertiesOutput() KeyVaultKeyPropertiesOutput
+	ToKeyVaultKeyPropertiesOutputWithContext(context.Context) KeyVaultKeyPropertiesOutput
+}
+
+// The properties of the KeyVault key.
+type KeyVaultKeyPropertiesArgs struct {
+	// The identifier of the key.
+	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
+}
+
+func (KeyVaultKeyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyProperties)(nil)).Elem()
+}
+
+func (i KeyVaultKeyPropertiesArgs) ToKeyVaultKeyPropertiesOutput() KeyVaultKeyPropertiesOutput {
+	return i.ToKeyVaultKeyPropertiesOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyPropertiesArgs) ToKeyVaultKeyPropertiesOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyPropertiesOutput)
+}
+
+// KeyVaultKeyPropertiesArrayInput is an input type that accepts KeyVaultKeyPropertiesArray and KeyVaultKeyPropertiesArrayOutput values.
+// You can construct a concrete instance of `KeyVaultKeyPropertiesArrayInput` via:
+//
+//          KeyVaultKeyPropertiesArray{ KeyVaultKeyPropertiesArgs{...} }
+type KeyVaultKeyPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyPropertiesArrayOutput() KeyVaultKeyPropertiesArrayOutput
+	ToKeyVaultKeyPropertiesArrayOutputWithContext(context.Context) KeyVaultKeyPropertiesArrayOutput
+}
+
+type KeyVaultKeyPropertiesArray []KeyVaultKeyPropertiesInput
+
+func (KeyVaultKeyPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultKeyProperties)(nil)).Elem()
+}
+
+func (i KeyVaultKeyPropertiesArray) ToKeyVaultKeyPropertiesArrayOutput() KeyVaultKeyPropertiesArrayOutput {
+	return i.ToKeyVaultKeyPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyPropertiesArray) ToKeyVaultKeyPropertiesArrayOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyPropertiesArrayOutput)
+}
+
+// The properties of the KeyVault key.
+type KeyVaultKeyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyProperties)(nil)).Elem()
+}
+
+func (o KeyVaultKeyPropertiesOutput) ToKeyVaultKeyPropertiesOutput() KeyVaultKeyPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultKeyPropertiesOutput) ToKeyVaultKeyPropertiesOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesOutput {
+	return o
+}
+
+// The identifier of the key.
+func (o KeyVaultKeyPropertiesOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyProperties) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultKeyProperties)(nil)).Elem()
+}
+
+func (o KeyVaultKeyPropertiesArrayOutput) ToKeyVaultKeyPropertiesArrayOutput() KeyVaultKeyPropertiesArrayOutput {
+	return o
+}
+
+func (o KeyVaultKeyPropertiesArrayOutput) ToKeyVaultKeyPropertiesArrayOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesArrayOutput {
+	return o
+}
+
+func (o KeyVaultKeyPropertiesArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultKeyProperties {
+		return vs[0].([]KeyVaultKeyProperties)[vs[1].(int)]
+	}).(KeyVaultKeyPropertiesOutput)
+}
+
+// The properties of the KeyVault key.
+type KeyVaultKeyPropertiesResponse struct {
+	// The identifier of the key.
+	KeyIdentifier *string `pulumi:"keyIdentifier"`
+}
+
+// KeyVaultKeyPropertiesResponseInput is an input type that accepts KeyVaultKeyPropertiesResponseArgs and KeyVaultKeyPropertiesResponseOutput values.
+// You can construct a concrete instance of `KeyVaultKeyPropertiesResponseInput` via:
+//
+//          KeyVaultKeyPropertiesResponseArgs{...}
+type KeyVaultKeyPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyPropertiesResponseOutput() KeyVaultKeyPropertiesResponseOutput
+	ToKeyVaultKeyPropertiesResponseOutputWithContext(context.Context) KeyVaultKeyPropertiesResponseOutput
+}
+
+// The properties of the KeyVault key.
+type KeyVaultKeyPropertiesResponseArgs struct {
+	// The identifier of the key.
+	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
+}
+
+func (KeyVaultKeyPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyPropertiesResponse)(nil)).Elem()
+}
+
+func (i KeyVaultKeyPropertiesResponseArgs) ToKeyVaultKeyPropertiesResponseOutput() KeyVaultKeyPropertiesResponseOutput {
+	return i.ToKeyVaultKeyPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyPropertiesResponseArgs) ToKeyVaultKeyPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyPropertiesResponseOutput)
+}
+
+// KeyVaultKeyPropertiesResponseArrayInput is an input type that accepts KeyVaultKeyPropertiesResponseArray and KeyVaultKeyPropertiesResponseArrayOutput values.
+// You can construct a concrete instance of `KeyVaultKeyPropertiesResponseArrayInput` via:
+//
+//          KeyVaultKeyPropertiesResponseArray{ KeyVaultKeyPropertiesResponseArgs{...} }
+type KeyVaultKeyPropertiesResponseArrayInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyPropertiesResponseArrayOutput() KeyVaultKeyPropertiesResponseArrayOutput
+	ToKeyVaultKeyPropertiesResponseArrayOutputWithContext(context.Context) KeyVaultKeyPropertiesResponseArrayOutput
+}
+
+type KeyVaultKeyPropertiesResponseArray []KeyVaultKeyPropertiesResponseInput
+
+func (KeyVaultKeyPropertiesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultKeyPropertiesResponse)(nil)).Elem()
+}
+
+func (i KeyVaultKeyPropertiesResponseArray) ToKeyVaultKeyPropertiesResponseArrayOutput() KeyVaultKeyPropertiesResponseArrayOutput {
+	return i.ToKeyVaultKeyPropertiesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyPropertiesResponseArray) ToKeyVaultKeyPropertiesResponseArrayOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyPropertiesResponseArrayOutput)
+}
+
+// The properties of the KeyVault key.
+type KeyVaultKeyPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyPropertiesResponseOutput) ToKeyVaultKeyPropertiesResponseOutput() KeyVaultKeyPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyPropertiesResponseOutput) ToKeyVaultKeyPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesResponseOutput {
+	return o
+}
+
+// The identifier of the key.
+func (o KeyVaultKeyPropertiesResponseOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyPropertiesResponse) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyPropertiesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultKeyPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyPropertiesResponseArrayOutput) ToKeyVaultKeyPropertiesResponseArrayOutput() KeyVaultKeyPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o KeyVaultKeyPropertiesResponseArrayOutput) ToKeyVaultKeyPropertiesResponseArrayOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o KeyVaultKeyPropertiesResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyPropertiesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultKeyPropertiesResponse {
+		return vs[0].([]KeyVaultKeyPropertiesResponse)[vs[1].(int)]
+	}).(KeyVaultKeyPropertiesResponseOutput)
 }
 
 // The properties of the messaging endpoints used by this IoT hub.
@@ -9192,6 +9740,10 @@ func init() {
 	pulumi.RegisterOutputType(CloudToDevicePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CloudToDevicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CloudToDevicePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnrichmentPropertiesOutput{})
 	pulumi.RegisterOutputType(EnrichmentPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(EnrichmentPropertiesResponseOutput{})
@@ -9236,6 +9788,10 @@ func init() {
 	pulumi.RegisterOutputType(IpFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyPropertiesOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesMapOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseOutput{})

@@ -28,7 +28,7 @@ import (
 // 		_, err := containerservice.NewOpenShiftManagedCluster(ctx, "openShiftManagedCluster", &containerservice.OpenShiftManagedClusterArgs{
 // 			AgentPoolProfiles: containerservice.OpenShiftManagedClusterAgentPoolProfileArray{
 // 				&containerservice.OpenShiftManagedClusterAgentPoolProfileArgs{
-// 					Count:      pulumi.Int(2),
+// 					Count:      pulumi.Int(3),
 // 					Name:       pulumi.String("infra"),
 // 					OsType:     pulumi.String("Linux"),
 // 					Role:       pulumi.String("infra"),
@@ -60,11 +60,16 @@ import (
 // 			},
 // 			Location: pulumi.String("location1"),
 // 			MasterPoolProfile: &containerservice.OpenShiftManagedClusterMasterPoolProfileArgs{
+// 				ApiProperties: &containerservice.OpenShiftAPIPropertiesArgs{
+// 					PrivateApiServer: pulumi.Bool(false),
+// 				},
 // 				Count:      pulumi.Int(3),
-// 				Name:       pulumi.String("master"),
-// 				OsType:     pulumi.String("Linux"),
 // 				SubnetCidr: pulumi.String("10.0.0.0/24"),
 // 				VmSize:     pulumi.String("Standard_D4s_v3"),
+// 			},
+// 			MonitorProfile: &containerservice.OpenShiftManagedClusterMonitorProfileArgs{
+// 				Enabled:             pulumi.Bool(true),
+// 				WorkspaceResourceID: pulumi.String("/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1"),
 // 			},
 // 			NetworkProfile: &containerservice.NetworkProfileArgs{
 // 				VnetCidr: pulumi.String("10.0.0.0/8"),
@@ -72,6 +77,90 @@ import (
 // 			OpenShiftVersion:  pulumi.String("v3.11"),
 // 			ResourceGroupName: pulumi.String("rg1"),
 // 			ResourceName:      pulumi.String("clustername1"),
+// 			RouterProfiles: containerservice.OpenShiftRouterProfileArray{
+// 				&containerservice.OpenShiftRouterProfileArgs{
+// 					Name: pulumi.String("default"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"archv2": pulumi.String(""),
+// 				"tier":   pulumi.String("production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create/Update Private OpenShift Managed Cluster
+//
+// ```go
+// package main
+//
+// import (
+// 	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerservice.NewOpenShiftManagedCluster(ctx, "openShiftManagedCluster", &containerservice.OpenShiftManagedClusterArgs{
+// 			AgentPoolProfiles: containerservice.OpenShiftManagedClusterAgentPoolProfileArray{
+// 				&containerservice.OpenShiftManagedClusterAgentPoolProfileArgs{
+// 					Count:      pulumi.Int(3),
+// 					Name:       pulumi.String("infra"),
+// 					OsType:     pulumi.String("Linux"),
+// 					Role:       pulumi.String("infra"),
+// 					SubnetCidr: pulumi.String("10.0.0.0/24"),
+// 					VmSize:     pulumi.String("Standard_D4s_v3"),
+// 				},
+// 				&containerservice.OpenShiftManagedClusterAgentPoolProfileArgs{
+// 					Count:      pulumi.Int(4),
+// 					Name:       pulumi.String("compute"),
+// 					OsType:     pulumi.String("Linux"),
+// 					Role:       pulumi.String("compute"),
+// 					SubnetCidr: pulumi.String("10.0.0.0/24"),
+// 					VmSize:     pulumi.String("Standard_D4s_v3"),
+// 				},
+// 			},
+// 			AuthProfile: &containerservice.OpenShiftManagedClusterAuthProfileArgs{
+// 				IdentityProviders: containerservice.OpenShiftManagedClusterIdentityProviderArray{
+// 					&containerservice.OpenShiftManagedClusterIdentityProviderArgs{
+// 						Name: pulumi.String("Azure AD"),
+// 						Provider: &containerservice.OpenShiftManagedClusterAADIdentityProviderArgs{
+// 							ClientId:             pulumi.String("clientId"),
+// 							CustomerAdminGroupId: pulumi.String("customerAdminGroupId"),
+// 							Kind:                 pulumi.String("AADIdentityProvider"),
+// 							Secret:               pulumi.String("secret"),
+// 							TenantId:             pulumi.String("tenantId"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Location: pulumi.String("location1"),
+// 			MasterPoolProfile: &containerservice.OpenShiftManagedClusterMasterPoolProfileArgs{
+// 				ApiProperties: &containerservice.OpenShiftAPIPropertiesArgs{
+// 					PrivateApiServer: pulumi.Bool(true),
+// 				},
+// 				Count:      pulumi.Int(3),
+// 				SubnetCidr: pulumi.String("10.0.0.0/24"),
+// 				VmSize:     pulumi.String("Standard_D4s_v3"),
+// 			},
+// 			MonitorProfile: &containerservice.OpenShiftManagedClusterMonitorProfileArgs{
+// 				Enabled:             pulumi.Bool(true),
+// 				WorkspaceResourceID: pulumi.String("/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1"),
+// 			},
+// 			NetworkProfile: &containerservice.NetworkProfileArgs{
+// 				ManagementSubnetCidr: pulumi.String("10.0.1.0/24"),
+// 				VnetCidr:             pulumi.String("10.0.0.0/8"),
+// 			},
+// 			OpenShiftVersion:  pulumi.String("v3.11"),
+// 			RefreshCluster:    pulumi.Bool(true),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ResourceName:      pulumi.String("privateclustername1"),
 // 			RouterProfiles: containerservice.OpenShiftRouterProfileArray{
 // 				&containerservice.OpenShiftRouterProfileArgs{
 // 					Name: pulumi.String("default"),
@@ -105,6 +194,8 @@ type OpenShiftManagedCluster struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Configuration for OpenShift master VMs.
 	MasterPoolProfile OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput `pulumi:"masterPoolProfile"`
+	// Configures Log Analytics integration.
+	MonitorProfile OpenShiftManagedClusterMonitorProfileResponsePtrOutput `pulumi:"monitorProfile"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration for OpenShift networking.
@@ -115,8 +206,10 @@ type OpenShiftManagedCluster struct {
 	Plan PurchasePlanResponsePtrOutput `pulumi:"plan"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Service generated FQDN for OpenShift API server.
+	// Service generated FQDN or private IP for OpenShift API server.
 	PublicHostname pulumi.StringOutput `pulumi:"publicHostname"`
+	// Allows node rotation
+	RefreshCluster pulumi.BoolPtrOutput `pulumi:"refreshCluster"`
 	// Configuration for OpenShift router(s).
 	RouterProfiles OpenShiftRouterProfileResponseArrayOutput `pulumi:"routerProfiles"`
 	// Resource tags
@@ -192,6 +285,8 @@ type openShiftManagedClusterState struct {
 	Location *string `pulumi:"location"`
 	// Configuration for OpenShift master VMs.
 	MasterPoolProfile *OpenShiftManagedClusterMasterPoolProfileResponse `pulumi:"masterPoolProfile"`
+	// Configures Log Analytics integration.
+	MonitorProfile *OpenShiftManagedClusterMonitorProfileResponse `pulumi:"monitorProfile"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Configuration for OpenShift networking.
@@ -202,8 +297,10 @@ type openShiftManagedClusterState struct {
 	Plan *PurchasePlanResponse `pulumi:"plan"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Service generated FQDN for OpenShift API server.
+	// Service generated FQDN or private IP for OpenShift API server.
 	PublicHostname *string `pulumi:"publicHostname"`
+	// Allows node rotation
+	RefreshCluster *bool `pulumi:"refreshCluster"`
 	// Configuration for OpenShift router(s).
 	RouterProfiles []OpenShiftRouterProfileResponse `pulumi:"routerProfiles"`
 	// Resource tags
@@ -225,6 +322,8 @@ type OpenShiftManagedClusterState struct {
 	Location pulumi.StringPtrInput
 	// Configuration for OpenShift master VMs.
 	MasterPoolProfile OpenShiftManagedClusterMasterPoolProfileResponsePtrInput
+	// Configures Log Analytics integration.
+	MonitorProfile OpenShiftManagedClusterMonitorProfileResponsePtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Configuration for OpenShift networking.
@@ -235,8 +334,10 @@ type OpenShiftManagedClusterState struct {
 	Plan PurchasePlanResponsePtrInput
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
-	// Service generated FQDN for OpenShift API server.
+	// Service generated FQDN or private IP for OpenShift API server.
 	PublicHostname pulumi.StringPtrInput
+	// Allows node rotation
+	RefreshCluster pulumi.BoolPtrInput
 	// Configuration for OpenShift router(s).
 	RouterProfiles OpenShiftRouterProfileResponseArrayInput
 	// Resource tags
@@ -258,12 +359,16 @@ type openShiftManagedClusterArgs struct {
 	Location string `pulumi:"location"`
 	// Configuration for OpenShift master VMs.
 	MasterPoolProfile *OpenShiftManagedClusterMasterPoolProfile `pulumi:"masterPoolProfile"`
+	// Configures Log Analytics integration.
+	MonitorProfile *OpenShiftManagedClusterMonitorProfile `pulumi:"monitorProfile"`
 	// Configuration for OpenShift networking.
 	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
 	// Version of OpenShift specified when creating the cluster.
 	OpenShiftVersion string `pulumi:"openShiftVersion"`
 	// Define the resource plan as required by ARM for billing purposes
 	Plan *PurchasePlan `pulumi:"plan"`
+	// Allows node rotation
+	RefreshCluster *bool `pulumi:"refreshCluster"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the OpenShift managed cluster resource.
@@ -284,12 +389,16 @@ type OpenShiftManagedClusterArgs struct {
 	Location pulumi.StringInput
 	// Configuration for OpenShift master VMs.
 	MasterPoolProfile OpenShiftManagedClusterMasterPoolProfilePtrInput
+	// Configures Log Analytics integration.
+	MonitorProfile OpenShiftManagedClusterMonitorProfilePtrInput
 	// Configuration for OpenShift networking.
 	NetworkProfile NetworkProfilePtrInput
 	// Version of OpenShift specified when creating the cluster.
 	OpenShiftVersion pulumi.StringInput
 	// Define the resource plan as required by ARM for billing purposes
 	Plan PurchasePlanPtrInput
+	// Allows node rotation
+	RefreshCluster pulumi.BoolPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the OpenShift managed cluster resource.

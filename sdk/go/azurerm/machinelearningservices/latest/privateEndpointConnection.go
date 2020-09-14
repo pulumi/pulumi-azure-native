@@ -45,7 +45,11 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Friendly name of the private endpoint connection.
+	// The identity of the resource.
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
+	// Specifies the location of the resource.
+	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// Specifies the name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
@@ -53,7 +57,11 @@ type PrivateEndpointConnection struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Resource type of private endpoint connection.
+	// The sku of the workspace.
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Contains resource tags defined as key/value pairs.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -124,7 +132,11 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
-	// Friendly name of the private endpoint connection.
+	// The identity of the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// Specifies the location of the resource.
+	Location *string `pulumi:"location"`
+	// Specifies the name of the resource.
 	Name *string `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -132,12 +144,20 @@ type privateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource type of private endpoint connection.
+	// The sku of the workspace.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Contains resource tags defined as key/value pairs.
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
-	// Friendly name of the private endpoint connection.
+	// The identity of the resource.
+	Identity IdentityResponsePtrInput
+	// Specifies the location of the resource.
+	Location pulumi.StringPtrInput
+	// Specifies the name of the resource.
 	Name pulumi.StringPtrInput
 	// The resource of private end point.
 	PrivateEndpoint PrivateEndpointResponsePtrInput
@@ -145,7 +165,11 @@ type PrivateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringPtrInput
-	// Resource type of private endpoint connection.
+	// The sku of the workspace.
+	Sku SkuResponsePtrInput
+	// Contains resource tags defined as key/value pairs.
+	Tags pulumi.StringMapInput
+	// Specifies the type of the resource.
 	Type pulumi.StringPtrInput
 }
 
@@ -154,6 +178,10 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
+	// The identity of the resource.
+	Identity *Identity `pulumi:"identity"`
+	// Specifies the location of the resource.
+	Location *string `pulumi:"location"`
 	// The name of the private endpoint connection associated with the workspace
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// A collection of information about the state of the connection between service consumer and provider.
@@ -162,12 +190,20 @@ type privateEndpointConnectionArgs struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The sku of the workspace.
+	Sku *Sku `pulumi:"sku"`
+	// Contains resource tags defined as key/value pairs.
+	Tags map[string]string `pulumi:"tags"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
+	// The identity of the resource.
+	Identity IdentityPtrInput
+	// Specifies the location of the resource.
+	Location pulumi.StringPtrInput
 	// The name of the private endpoint connection associated with the workspace
 	PrivateEndpointConnectionName pulumi.StringInput
 	// A collection of information about the state of the connection between service consumer and provider.
@@ -176,6 +212,10 @@ type PrivateEndpointConnectionArgs struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName pulumi.StringInput
+	// The sku of the workspace.
+	Sku SkuPtrInput
+	// Contains resource tags defined as key/value pairs.
+	Tags pulumi.StringMapInput
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName pulumi.StringInput
 }

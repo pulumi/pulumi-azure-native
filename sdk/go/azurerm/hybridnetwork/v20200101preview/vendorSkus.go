@@ -50,6 +50,12 @@ func NewVendorSkus(ctx *pulumi.Context,
 	if args == nil {
 		args = &VendorSkusArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:hybridnetwork/latest:VendorSkus"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VendorSkus
 	err := ctx.RegisterResource("azurerm:hybridnetwork/v20200101preview:VendorSkus", name, args, &resource, opts...)
 	if err != nil {

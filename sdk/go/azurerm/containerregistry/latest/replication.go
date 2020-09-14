@@ -51,6 +51,8 @@ type Replication struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the replication at the time the operation was called.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+	RegionEndpointEnabled pulumi.BoolPtrOutput `pulumi:"regionEndpointEnabled"`
 	// The status of the replication at the time the operation was called.
 	Status StatusResponseOutput `pulumi:"status"`
 	// The tags of the resource.
@@ -120,6 +122,8 @@ type replicationState struct {
 	Name *string `pulumi:"name"`
 	// The provisioning state of the replication at the time the operation was called.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+	RegionEndpointEnabled *bool `pulumi:"regionEndpointEnabled"`
 	// The status of the replication at the time the operation was called.
 	Status *StatusResponse `pulumi:"status"`
 	// The tags of the resource.
@@ -135,6 +139,8 @@ type ReplicationState struct {
 	Name pulumi.StringPtrInput
 	// The provisioning state of the replication at the time the operation was called.
 	ProvisioningState pulumi.StringPtrInput
+	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+	RegionEndpointEnabled pulumi.BoolPtrInput
 	// The status of the replication at the time the operation was called.
 	Status StatusResponsePtrInput
 	// The tags of the resource.
@@ -150,6 +156,8 @@ func (ReplicationState) ElementType() reflect.Type {
 type replicationArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
+	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+	RegionEndpointEnabled *bool `pulumi:"regionEndpointEnabled"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the replication.
@@ -164,6 +172,8 @@ type replicationArgs struct {
 type ReplicationArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
+	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+	RegionEndpointEnabled pulumi.BoolPtrInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the replication.

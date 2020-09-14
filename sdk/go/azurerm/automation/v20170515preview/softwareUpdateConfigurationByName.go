@@ -59,6 +59,12 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	if args == nil {
 		args = &SoftwareUpdateConfigurationByNameArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:SoftwareUpdateConfigurationByName"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SoftwareUpdateConfigurationByName
 	err := ctx.RegisterResource("azurerm:automation/v20170515preview:SoftwareUpdateConfigurationByName", name, args, &resource, opts...)
 	if err != nil {

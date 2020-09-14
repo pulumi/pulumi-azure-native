@@ -17,7 +17,7 @@ func LookupServerAzureADAdministrator(ctx *pulumi.Context, args *LookupServerAzu
 }
 
 type LookupServerAzureADAdministratorArgs struct {
-	// Name of the server administrator resource.
+	// The name of server active directory administrator.
 	AdministratorName string `pulumi:"administratorName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -25,18 +25,20 @@ type LookupServerAzureADAdministratorArgs struct {
 	ServerName string `pulumi:"serverName"`
 }
 
-// An server Active Directory Administrator.
+// Azure Active Directory administrator.
 type LookupServerAzureADAdministratorResult struct {
-	// The type of administrator.
+	// Type of the sever administrator.
 	AdministratorType string `pulumi:"administratorType"`
-	// The server administrator login value.
+	// Azure Active Directory only Authentication enabled.
+	AzureADOnlyAuthentication bool `pulumi:"azureADOnlyAuthentication"`
+	// Login name of the server administrator.
 	Login string `pulumi:"login"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The server administrator Sid (Secure ID).
+	// SID (object ID) of the server administrator.
 	Sid string `pulumi:"sid"`
-	// The server Active Directory Administrator tenant id.
-	TenantId string `pulumi:"tenantId"`
+	// Tenant ID of the administrator.
+	TenantId *string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

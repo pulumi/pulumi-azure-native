@@ -10154,8 +10154,8 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) LicenseType() pulumi.Stri
 
 // Represents the OpenShift networking configuration
 type NetworkProfile struct {
-	// CIDR of the Vnet to peer.
-	PeerVnetId *string `pulumi:"peerVnetId"`
+	// CIDR of subnet used to create PLS needed for management of the cluster
+	ManagementSubnetCidr *string `pulumi:"managementSubnetCidr"`
 	// CIDR for the OpenShift Vnet.
 	VnetCidr *string `pulumi:"vnetCidr"`
 	// ID of the Vnet created for OSA cluster.
@@ -10175,8 +10175,8 @@ type NetworkProfileInput interface {
 
 // Represents the OpenShift networking configuration
 type NetworkProfileArgs struct {
-	// CIDR of the Vnet to peer.
-	PeerVnetId pulumi.StringPtrInput `pulumi:"peerVnetId"`
+	// CIDR of subnet used to create PLS needed for management of the cluster
+	ManagementSubnetCidr pulumi.StringPtrInput `pulumi:"managementSubnetCidr"`
 	// CIDR for the OpenShift Vnet.
 	VnetCidr pulumi.StringPtrInput `pulumi:"vnetCidr"`
 	// ID of the Vnet created for OSA cluster.
@@ -10261,9 +10261,9 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.C
 	}).(NetworkProfilePtrOutput)
 }
 
-// CIDR of the Vnet to peer.
-func (o NetworkProfileOutput) PeerVnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkProfile) *string { return v.PeerVnetId }).(pulumi.StringPtrOutput)
+// CIDR of subnet used to create PLS needed for management of the cluster
+func (o NetworkProfileOutput) ManagementSubnetCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfile) *string { return v.ManagementSubnetCidr }).(pulumi.StringPtrOutput)
 }
 
 // CIDR for the OpenShift Vnet.
@@ -10294,13 +10294,13 @@ func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
 	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
 }
 
-// CIDR of the Vnet to peer.
-func (o NetworkProfilePtrOutput) PeerVnetId() pulumi.StringPtrOutput {
+// CIDR of subnet used to create PLS needed for management of the cluster
+func (o NetworkProfilePtrOutput) ManagementSubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PeerVnetId
+		return v.ManagementSubnetCidr
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10326,8 +10326,8 @@ func (o NetworkProfilePtrOutput) VnetId() pulumi.StringPtrOutput {
 
 // Represents the OpenShift networking configuration
 type NetworkProfileResponse struct {
-	// CIDR of the Vnet to peer.
-	PeerVnetId *string `pulumi:"peerVnetId"`
+	// CIDR of subnet used to create PLS needed for management of the cluster
+	ManagementSubnetCidr *string `pulumi:"managementSubnetCidr"`
 	// CIDR for the OpenShift Vnet.
 	VnetCidr *string `pulumi:"vnetCidr"`
 	// ID of the Vnet created for OSA cluster.
@@ -10347,8 +10347,8 @@ type NetworkProfileResponseInput interface {
 
 // Represents the OpenShift networking configuration
 type NetworkProfileResponseArgs struct {
-	// CIDR of the Vnet to peer.
-	PeerVnetId pulumi.StringPtrInput `pulumi:"peerVnetId"`
+	// CIDR of subnet used to create PLS needed for management of the cluster
+	ManagementSubnetCidr pulumi.StringPtrInput `pulumi:"managementSubnetCidr"`
 	// CIDR for the OpenShift Vnet.
 	VnetCidr pulumi.StringPtrInput `pulumi:"vnetCidr"`
 	// ID of the Vnet created for OSA cluster.
@@ -10433,9 +10433,9 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithConte
 	}).(NetworkProfileResponsePtrOutput)
 }
 
-// CIDR of the Vnet to peer.
-func (o NetworkProfileResponseOutput) PeerVnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.PeerVnetId }).(pulumi.StringPtrOutput)
+// CIDR of subnet used to create PLS needed for management of the cluster
+func (o NetworkProfileResponseOutput) ManagementSubnetCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.ManagementSubnetCidr }).(pulumi.StringPtrOutput)
 }
 
 // CIDR for the OpenShift Vnet.
@@ -10466,13 +10466,13 @@ func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse { return *v }).(NetworkProfileResponseOutput)
 }
 
-// CIDR of the Vnet to peer.
-func (o NetworkProfileResponsePtrOutput) PeerVnetId() pulumi.StringPtrOutput {
+// CIDR of subnet used to create PLS needed for management of the cluster
+func (o NetworkProfileResponsePtrOutput) ManagementSubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PeerVnetId
+		return v.ManagementSubnetCidr
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10494,6 +10494,274 @@ func (o NetworkProfileResponsePtrOutput) VnetId() pulumi.StringPtrOutput {
 		}
 		return v.VnetId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Defines further properties on the API.
+type OpenShiftAPIProperties struct {
+	// Specifies if API server is public or private.
+	PrivateApiServer *bool `pulumi:"privateApiServer"`
+}
+
+// OpenShiftAPIPropertiesInput is an input type that accepts OpenShiftAPIPropertiesArgs and OpenShiftAPIPropertiesOutput values.
+// You can construct a concrete instance of `OpenShiftAPIPropertiesInput` via:
+//
+//          OpenShiftAPIPropertiesArgs{...}
+type OpenShiftAPIPropertiesInput interface {
+	pulumi.Input
+
+	ToOpenShiftAPIPropertiesOutput() OpenShiftAPIPropertiesOutput
+	ToOpenShiftAPIPropertiesOutputWithContext(context.Context) OpenShiftAPIPropertiesOutput
+}
+
+// Defines further properties on the API.
+type OpenShiftAPIPropertiesArgs struct {
+	// Specifies if API server is public or private.
+	PrivateApiServer pulumi.BoolPtrInput `pulumi:"privateApiServer"`
+}
+
+func (OpenShiftAPIPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftAPIProperties)(nil)).Elem()
+}
+
+func (i OpenShiftAPIPropertiesArgs) ToOpenShiftAPIPropertiesOutput() OpenShiftAPIPropertiesOutput {
+	return i.ToOpenShiftAPIPropertiesOutputWithContext(context.Background())
+}
+
+func (i OpenShiftAPIPropertiesArgs) ToOpenShiftAPIPropertiesOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftAPIPropertiesOutput)
+}
+
+func (i OpenShiftAPIPropertiesArgs) ToOpenShiftAPIPropertiesPtrOutput() OpenShiftAPIPropertiesPtrOutput {
+	return i.ToOpenShiftAPIPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OpenShiftAPIPropertiesArgs) ToOpenShiftAPIPropertiesPtrOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftAPIPropertiesOutput).ToOpenShiftAPIPropertiesPtrOutputWithContext(ctx)
+}
+
+// OpenShiftAPIPropertiesPtrInput is an input type that accepts OpenShiftAPIPropertiesArgs, OpenShiftAPIPropertiesPtr and OpenShiftAPIPropertiesPtrOutput values.
+// You can construct a concrete instance of `OpenShiftAPIPropertiesPtrInput` via:
+//
+//          OpenShiftAPIPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenShiftAPIPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOpenShiftAPIPropertiesPtrOutput() OpenShiftAPIPropertiesPtrOutput
+	ToOpenShiftAPIPropertiesPtrOutputWithContext(context.Context) OpenShiftAPIPropertiesPtrOutput
+}
+
+type openShiftAPIPropertiesPtrType OpenShiftAPIPropertiesArgs
+
+func OpenShiftAPIPropertiesPtr(v *OpenShiftAPIPropertiesArgs) OpenShiftAPIPropertiesPtrInput {
+	return (*openShiftAPIPropertiesPtrType)(v)
+}
+
+func (*openShiftAPIPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftAPIProperties)(nil)).Elem()
+}
+
+func (i *openShiftAPIPropertiesPtrType) ToOpenShiftAPIPropertiesPtrOutput() OpenShiftAPIPropertiesPtrOutput {
+	return i.ToOpenShiftAPIPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *openShiftAPIPropertiesPtrType) ToOpenShiftAPIPropertiesPtrOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftAPIPropertiesPtrOutput)
+}
+
+// Defines further properties on the API.
+type OpenShiftAPIPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftAPIPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftAPIProperties)(nil)).Elem()
+}
+
+func (o OpenShiftAPIPropertiesOutput) ToOpenShiftAPIPropertiesOutput() OpenShiftAPIPropertiesOutput {
+	return o
+}
+
+func (o OpenShiftAPIPropertiesOutput) ToOpenShiftAPIPropertiesOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesOutput {
+	return o
+}
+
+func (o OpenShiftAPIPropertiesOutput) ToOpenShiftAPIPropertiesPtrOutput() OpenShiftAPIPropertiesPtrOutput {
+	return o.ToOpenShiftAPIPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OpenShiftAPIPropertiesOutput) ToOpenShiftAPIPropertiesPtrOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesPtrOutput {
+	return o.ApplyT(func(v OpenShiftAPIProperties) *OpenShiftAPIProperties {
+		return &v
+	}).(OpenShiftAPIPropertiesPtrOutput)
+}
+
+// Specifies if API server is public or private.
+func (o OpenShiftAPIPropertiesOutput) PrivateApiServer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenShiftAPIProperties) *bool { return v.PrivateApiServer }).(pulumi.BoolPtrOutput)
+}
+
+type OpenShiftAPIPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftAPIPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftAPIProperties)(nil)).Elem()
+}
+
+func (o OpenShiftAPIPropertiesPtrOutput) ToOpenShiftAPIPropertiesPtrOutput() OpenShiftAPIPropertiesPtrOutput {
+	return o
+}
+
+func (o OpenShiftAPIPropertiesPtrOutput) ToOpenShiftAPIPropertiesPtrOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesPtrOutput {
+	return o
+}
+
+func (o OpenShiftAPIPropertiesPtrOutput) Elem() OpenShiftAPIPropertiesOutput {
+	return o.ApplyT(func(v *OpenShiftAPIProperties) OpenShiftAPIProperties { return *v }).(OpenShiftAPIPropertiesOutput)
+}
+
+// Specifies if API server is public or private.
+func (o OpenShiftAPIPropertiesPtrOutput) PrivateApiServer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenShiftAPIProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateApiServer
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Defines further properties on the API.
+type OpenShiftAPIPropertiesResponse struct {
+	// Specifies if API server is public or private.
+	PrivateApiServer *bool `pulumi:"privateApiServer"`
+}
+
+// OpenShiftAPIPropertiesResponseInput is an input type that accepts OpenShiftAPIPropertiesResponseArgs and OpenShiftAPIPropertiesResponseOutput values.
+// You can construct a concrete instance of `OpenShiftAPIPropertiesResponseInput` via:
+//
+//          OpenShiftAPIPropertiesResponseArgs{...}
+type OpenShiftAPIPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToOpenShiftAPIPropertiesResponseOutput() OpenShiftAPIPropertiesResponseOutput
+	ToOpenShiftAPIPropertiesResponseOutputWithContext(context.Context) OpenShiftAPIPropertiesResponseOutput
+}
+
+// Defines further properties on the API.
+type OpenShiftAPIPropertiesResponseArgs struct {
+	// Specifies if API server is public or private.
+	PrivateApiServer pulumi.BoolPtrInput `pulumi:"privateApiServer"`
+}
+
+func (OpenShiftAPIPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftAPIPropertiesResponse)(nil)).Elem()
+}
+
+func (i OpenShiftAPIPropertiesResponseArgs) ToOpenShiftAPIPropertiesResponseOutput() OpenShiftAPIPropertiesResponseOutput {
+	return i.ToOpenShiftAPIPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i OpenShiftAPIPropertiesResponseArgs) ToOpenShiftAPIPropertiesResponseOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftAPIPropertiesResponseOutput)
+}
+
+func (i OpenShiftAPIPropertiesResponseArgs) ToOpenShiftAPIPropertiesResponsePtrOutput() OpenShiftAPIPropertiesResponsePtrOutput {
+	return i.ToOpenShiftAPIPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OpenShiftAPIPropertiesResponseArgs) ToOpenShiftAPIPropertiesResponsePtrOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftAPIPropertiesResponseOutput).ToOpenShiftAPIPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// OpenShiftAPIPropertiesResponsePtrInput is an input type that accepts OpenShiftAPIPropertiesResponseArgs, OpenShiftAPIPropertiesResponsePtr and OpenShiftAPIPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `OpenShiftAPIPropertiesResponsePtrInput` via:
+//
+//          OpenShiftAPIPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenShiftAPIPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToOpenShiftAPIPropertiesResponsePtrOutput() OpenShiftAPIPropertiesResponsePtrOutput
+	ToOpenShiftAPIPropertiesResponsePtrOutputWithContext(context.Context) OpenShiftAPIPropertiesResponsePtrOutput
+}
+
+type openShiftAPIPropertiesResponsePtrType OpenShiftAPIPropertiesResponseArgs
+
+func OpenShiftAPIPropertiesResponsePtr(v *OpenShiftAPIPropertiesResponseArgs) OpenShiftAPIPropertiesResponsePtrInput {
+	return (*openShiftAPIPropertiesResponsePtrType)(v)
+}
+
+func (*openShiftAPIPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftAPIPropertiesResponse)(nil)).Elem()
+}
+
+func (i *openShiftAPIPropertiesResponsePtrType) ToOpenShiftAPIPropertiesResponsePtrOutput() OpenShiftAPIPropertiesResponsePtrOutput {
+	return i.ToOpenShiftAPIPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *openShiftAPIPropertiesResponsePtrType) ToOpenShiftAPIPropertiesResponsePtrOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftAPIPropertiesResponsePtrOutput)
+}
+
+// Defines further properties on the API.
+type OpenShiftAPIPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftAPIPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftAPIPropertiesResponse)(nil)).Elem()
+}
+
+func (o OpenShiftAPIPropertiesResponseOutput) ToOpenShiftAPIPropertiesResponseOutput() OpenShiftAPIPropertiesResponseOutput {
+	return o
+}
+
+func (o OpenShiftAPIPropertiesResponseOutput) ToOpenShiftAPIPropertiesResponseOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesResponseOutput {
+	return o
+}
+
+func (o OpenShiftAPIPropertiesResponseOutput) ToOpenShiftAPIPropertiesResponsePtrOutput() OpenShiftAPIPropertiesResponsePtrOutput {
+	return o.ToOpenShiftAPIPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OpenShiftAPIPropertiesResponseOutput) ToOpenShiftAPIPropertiesResponsePtrOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v OpenShiftAPIPropertiesResponse) *OpenShiftAPIPropertiesResponse {
+		return &v
+	}).(OpenShiftAPIPropertiesResponsePtrOutput)
+}
+
+// Specifies if API server is public or private.
+func (o OpenShiftAPIPropertiesResponseOutput) PrivateApiServer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenShiftAPIPropertiesResponse) *bool { return v.PrivateApiServer }).(pulumi.BoolPtrOutput)
+}
+
+type OpenShiftAPIPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftAPIPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftAPIPropertiesResponse)(nil)).Elem()
+}
+
+func (o OpenShiftAPIPropertiesResponsePtrOutput) ToOpenShiftAPIPropertiesResponsePtrOutput() OpenShiftAPIPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o OpenShiftAPIPropertiesResponsePtrOutput) ToOpenShiftAPIPropertiesResponsePtrOutputWithContext(ctx context.Context) OpenShiftAPIPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o OpenShiftAPIPropertiesResponsePtrOutput) Elem() OpenShiftAPIPropertiesResponseOutput {
+	return o.ApplyT(func(v *OpenShiftAPIPropertiesResponse) OpenShiftAPIPropertiesResponse { return *v }).(OpenShiftAPIPropertiesResponseOutput)
+}
+
+// Specifies if API server is public or private.
+func (o OpenShiftAPIPropertiesResponsePtrOutput) PrivateApiServer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenShiftAPIPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateApiServer
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Defines the Identity provider for MS AAD.
@@ -11708,12 +11976,10 @@ func (o OpenShiftManagedClusterIdentityProviderResponseArrayOutput) Index(i pulu
 
 // OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfile struct {
+	// Defines further properties on the API.
+	ApiProperties *OpenShiftAPIProperties `pulumi:"apiProperties"`
 	// Number of masters (VMs) to host docker containers. The default value is 3.
 	Count int `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name *string `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
 	// Subnet CIDR for the peering.
 	SubnetCidr *string `pulumi:"subnetCidr"`
 	// Size of agent VMs.
@@ -11733,12 +11999,10 @@ type OpenShiftManagedClusterMasterPoolProfileInput interface {
 
 // OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileArgs struct {
+	// Defines further properties on the API.
+	ApiProperties OpenShiftAPIPropertiesPtrInput `pulumi:"apiProperties"`
 	// Number of masters (VMs) to host docker containers. The default value is 3.
 	Count pulumi.IntInput `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// Subnet CIDR for the peering.
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
 	// Size of agent VMs.
@@ -11823,19 +12087,14 @@ func (o OpenShiftManagedClusterMasterPoolProfileOutput) ToOpenShiftManagedCluste
 	}).(OpenShiftManagedClusterMasterPoolProfilePtrOutput)
 }
 
+// Defines further properties on the API.
+func (o OpenShiftManagedClusterMasterPoolProfileOutput) ApiProperties() OpenShiftAPIPropertiesPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *OpenShiftAPIProperties { return v.ApiProperties }).(OpenShiftAPIPropertiesPtrOutput)
+}
+
 // Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) int { return v.Count }).(pulumi.IntOutput)
-}
-
-// Unique name of the master pool profile in the context of the subscription and resource group.
-func (o OpenShiftManagedClusterMasterPoolProfileOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-func (o OpenShiftManagedClusterMasterPoolProfileOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // Subnet CIDR for the peering.
@@ -11866,6 +12125,16 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Elem() OpenShiftManag
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) OpenShiftManagedClusterMasterPoolProfile { return *v }).(OpenShiftManagedClusterMasterPoolProfileOutput)
 }
 
+// Defines further properties on the API.
+func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) ApiProperties() OpenShiftAPIPropertiesPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *OpenShiftAPIProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ApiProperties
+	}).(OpenShiftAPIPropertiesPtrOutput)
+}
+
 // Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *int {
@@ -11874,26 +12143,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Count() pulumi.IntPtr
 		}
 		return &v.Count
 	}).(pulumi.IntPtrOutput)
-}
-
-// Unique name of the master pool profile in the context of the subscription and resource group.
-func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
-	}).(pulumi.StringPtrOutput)
 }
 
 // Subnet CIDR for the peering.
@@ -11918,12 +12167,10 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) VmSize() pulumi.Strin
 
 // OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileResponse struct {
+	// Defines further properties on the API.
+	ApiProperties *OpenShiftAPIPropertiesResponse `pulumi:"apiProperties"`
 	// Number of masters (VMs) to host docker containers. The default value is 3.
 	Count int `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name *string `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
 	// Subnet CIDR for the peering.
 	SubnetCidr *string `pulumi:"subnetCidr"`
 	// Size of agent VMs.
@@ -11943,12 +12190,10 @@ type OpenShiftManagedClusterMasterPoolProfileResponseInput interface {
 
 // OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileResponseArgs struct {
+	// Defines further properties on the API.
+	ApiProperties OpenShiftAPIPropertiesResponsePtrInput `pulumi:"apiProperties"`
 	// Number of masters (VMs) to host docker containers. The default value is 3.
 	Count pulumi.IntInput `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// Subnet CIDR for the peering.
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
 	// Size of agent VMs.
@@ -12033,19 +12278,16 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ToOpenShiftManag
 	}).(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput)
 }
 
+// Defines further properties on the API.
+func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ApiProperties() OpenShiftAPIPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *OpenShiftAPIPropertiesResponse {
+		return v.ApiProperties
+	}).(OpenShiftAPIPropertiesResponsePtrOutput)
+}
+
 // Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) int { return v.Count }).(pulumi.IntOutput)
-}
-
-// Unique name of the master pool profile in the context of the subscription and resource group.
-func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // Subnet CIDR for the peering.
@@ -12078,6 +12320,16 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Elem() OpenSh
 	}).(OpenShiftManagedClusterMasterPoolProfileResponseOutput)
 }
 
+// Defines further properties on the API.
+func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) ApiProperties() OpenShiftAPIPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *OpenShiftAPIPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ApiProperties
+	}).(OpenShiftAPIPropertiesResponsePtrOutput)
+}
+
 // Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *int {
@@ -12086,26 +12338,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Count() pulum
 		}
 		return &v.Count
 	}).(pulumi.IntPtrOutput)
-}
-
-// Unique name of the master pool profile in the context of the subscription and resource group.
-func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
-	}).(pulumi.StringPtrOutput)
 }
 
 // Subnet CIDR for the peering.
@@ -12125,6 +12357,314 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) VmSize() pulu
 			return nil
 		}
 		return &v.VmSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the configuration for Log Analytics integration.
+type OpenShiftManagedClusterMonitorProfile struct {
+	// If the Log analytics integration should be turned on or off
+	Enabled *bool `pulumi:"enabled"`
+	// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+	WorkspaceResourceID *string `pulumi:"workspaceResourceID"`
+}
+
+// OpenShiftManagedClusterMonitorProfileInput is an input type that accepts OpenShiftManagedClusterMonitorProfileArgs and OpenShiftManagedClusterMonitorProfileOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterMonitorProfileInput` via:
+//
+//          OpenShiftManagedClusterMonitorProfileArgs{...}
+type OpenShiftManagedClusterMonitorProfileInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterMonitorProfileOutput() OpenShiftManagedClusterMonitorProfileOutput
+	ToOpenShiftManagedClusterMonitorProfileOutputWithContext(context.Context) OpenShiftManagedClusterMonitorProfileOutput
+}
+
+// Defines the configuration for Log Analytics integration.
+type OpenShiftManagedClusterMonitorProfileArgs struct {
+	// If the Log analytics integration should be turned on or off
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+	WorkspaceResourceID pulumi.StringPtrInput `pulumi:"workspaceResourceID"`
+}
+
+func (OpenShiftManagedClusterMonitorProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterMonitorProfile)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterMonitorProfileArgs) ToOpenShiftManagedClusterMonitorProfileOutput() OpenShiftManagedClusterMonitorProfileOutput {
+	return i.ToOpenShiftManagedClusterMonitorProfileOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterMonitorProfileArgs) ToOpenShiftManagedClusterMonitorProfileOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMonitorProfileOutput)
+}
+
+func (i OpenShiftManagedClusterMonitorProfileArgs) ToOpenShiftManagedClusterMonitorProfilePtrOutput() OpenShiftManagedClusterMonitorProfilePtrOutput {
+	return i.ToOpenShiftManagedClusterMonitorProfilePtrOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterMonitorProfileArgs) ToOpenShiftManagedClusterMonitorProfilePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMonitorProfileOutput).ToOpenShiftManagedClusterMonitorProfilePtrOutputWithContext(ctx)
+}
+
+// OpenShiftManagedClusterMonitorProfilePtrInput is an input type that accepts OpenShiftManagedClusterMonitorProfileArgs, OpenShiftManagedClusterMonitorProfilePtr and OpenShiftManagedClusterMonitorProfilePtrOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterMonitorProfilePtrInput` via:
+//
+//          OpenShiftManagedClusterMonitorProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenShiftManagedClusterMonitorProfilePtrInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterMonitorProfilePtrOutput() OpenShiftManagedClusterMonitorProfilePtrOutput
+	ToOpenShiftManagedClusterMonitorProfilePtrOutputWithContext(context.Context) OpenShiftManagedClusterMonitorProfilePtrOutput
+}
+
+type openShiftManagedClusterMonitorProfilePtrType OpenShiftManagedClusterMonitorProfileArgs
+
+func OpenShiftManagedClusterMonitorProfilePtr(v *OpenShiftManagedClusterMonitorProfileArgs) OpenShiftManagedClusterMonitorProfilePtrInput {
+	return (*openShiftManagedClusterMonitorProfilePtrType)(v)
+}
+
+func (*openShiftManagedClusterMonitorProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftManagedClusterMonitorProfile)(nil)).Elem()
+}
+
+func (i *openShiftManagedClusterMonitorProfilePtrType) ToOpenShiftManagedClusterMonitorProfilePtrOutput() OpenShiftManagedClusterMonitorProfilePtrOutput {
+	return i.ToOpenShiftManagedClusterMonitorProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *openShiftManagedClusterMonitorProfilePtrType) ToOpenShiftManagedClusterMonitorProfilePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMonitorProfilePtrOutput)
+}
+
+// Defines the configuration for Log Analytics integration.
+type OpenShiftManagedClusterMonitorProfileOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterMonitorProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterMonitorProfile)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterMonitorProfileOutput) ToOpenShiftManagedClusterMonitorProfileOutput() OpenShiftManagedClusterMonitorProfileOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterMonitorProfileOutput) ToOpenShiftManagedClusterMonitorProfileOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfileOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterMonitorProfileOutput) ToOpenShiftManagedClusterMonitorProfilePtrOutput() OpenShiftManagedClusterMonitorProfilePtrOutput {
+	return o.ToOpenShiftManagedClusterMonitorProfilePtrOutputWithContext(context.Background())
+}
+
+func (o OpenShiftManagedClusterMonitorProfileOutput) ToOpenShiftManagedClusterMonitorProfilePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfilePtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMonitorProfile) *OpenShiftManagedClusterMonitorProfile {
+		return &v
+	}).(OpenShiftManagedClusterMonitorProfilePtrOutput)
+}
+
+// If the Log analytics integration should be turned on or off
+func (o OpenShiftManagedClusterMonitorProfileOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMonitorProfile) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+func (o OpenShiftManagedClusterMonitorProfileOutput) WorkspaceResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMonitorProfile) *string { return v.WorkspaceResourceID }).(pulumi.StringPtrOutput)
+}
+
+type OpenShiftManagedClusterMonitorProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterMonitorProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftManagedClusterMonitorProfile)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterMonitorProfilePtrOutput) ToOpenShiftManagedClusterMonitorProfilePtrOutput() OpenShiftManagedClusterMonitorProfilePtrOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterMonitorProfilePtrOutput) ToOpenShiftManagedClusterMonitorProfilePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfilePtrOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterMonitorProfilePtrOutput) Elem() OpenShiftManagedClusterMonitorProfileOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterMonitorProfile) OpenShiftManagedClusterMonitorProfile { return *v }).(OpenShiftManagedClusterMonitorProfileOutput)
+}
+
+// If the Log analytics integration should be turned on or off
+func (o OpenShiftManagedClusterMonitorProfilePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterMonitorProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+func (o OpenShiftManagedClusterMonitorProfilePtrOutput) WorkspaceResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterMonitorProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkspaceResourceID
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the configuration for Log Analytics integration.
+type OpenShiftManagedClusterMonitorProfileResponse struct {
+	// If the Log analytics integration should be turned on or off
+	Enabled *bool `pulumi:"enabled"`
+	// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+	WorkspaceResourceID *string `pulumi:"workspaceResourceID"`
+}
+
+// OpenShiftManagedClusterMonitorProfileResponseInput is an input type that accepts OpenShiftManagedClusterMonitorProfileResponseArgs and OpenShiftManagedClusterMonitorProfileResponseOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterMonitorProfileResponseInput` via:
+//
+//          OpenShiftManagedClusterMonitorProfileResponseArgs{...}
+type OpenShiftManagedClusterMonitorProfileResponseInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterMonitorProfileResponseOutput() OpenShiftManagedClusterMonitorProfileResponseOutput
+	ToOpenShiftManagedClusterMonitorProfileResponseOutputWithContext(context.Context) OpenShiftManagedClusterMonitorProfileResponseOutput
+}
+
+// Defines the configuration for Log Analytics integration.
+type OpenShiftManagedClusterMonitorProfileResponseArgs struct {
+	// If the Log analytics integration should be turned on or off
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+	WorkspaceResourceID pulumi.StringPtrInput `pulumi:"workspaceResourceID"`
+}
+
+func (OpenShiftManagedClusterMonitorProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterMonitorProfileResponse)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterMonitorProfileResponseArgs) ToOpenShiftManagedClusterMonitorProfileResponseOutput() OpenShiftManagedClusterMonitorProfileResponseOutput {
+	return i.ToOpenShiftManagedClusterMonitorProfileResponseOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterMonitorProfileResponseArgs) ToOpenShiftManagedClusterMonitorProfileResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMonitorProfileResponseOutput)
+}
+
+func (i OpenShiftManagedClusterMonitorProfileResponseArgs) ToOpenShiftManagedClusterMonitorProfileResponsePtrOutput() OpenShiftManagedClusterMonitorProfileResponsePtrOutput {
+	return i.ToOpenShiftManagedClusterMonitorProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterMonitorProfileResponseArgs) ToOpenShiftManagedClusterMonitorProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMonitorProfileResponseOutput).ToOpenShiftManagedClusterMonitorProfileResponsePtrOutputWithContext(ctx)
+}
+
+// OpenShiftManagedClusterMonitorProfileResponsePtrInput is an input type that accepts OpenShiftManagedClusterMonitorProfileResponseArgs, OpenShiftManagedClusterMonitorProfileResponsePtr and OpenShiftManagedClusterMonitorProfileResponsePtrOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterMonitorProfileResponsePtrInput` via:
+//
+//          OpenShiftManagedClusterMonitorProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenShiftManagedClusterMonitorProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterMonitorProfileResponsePtrOutput() OpenShiftManagedClusterMonitorProfileResponsePtrOutput
+	ToOpenShiftManagedClusterMonitorProfileResponsePtrOutputWithContext(context.Context) OpenShiftManagedClusterMonitorProfileResponsePtrOutput
+}
+
+type openShiftManagedClusterMonitorProfileResponsePtrType OpenShiftManagedClusterMonitorProfileResponseArgs
+
+func OpenShiftManagedClusterMonitorProfileResponsePtr(v *OpenShiftManagedClusterMonitorProfileResponseArgs) OpenShiftManagedClusterMonitorProfileResponsePtrInput {
+	return (*openShiftManagedClusterMonitorProfileResponsePtrType)(v)
+}
+
+func (*openShiftManagedClusterMonitorProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftManagedClusterMonitorProfileResponse)(nil)).Elem()
+}
+
+func (i *openShiftManagedClusterMonitorProfileResponsePtrType) ToOpenShiftManagedClusterMonitorProfileResponsePtrOutput() OpenShiftManagedClusterMonitorProfileResponsePtrOutput {
+	return i.ToOpenShiftManagedClusterMonitorProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *openShiftManagedClusterMonitorProfileResponsePtrType) ToOpenShiftManagedClusterMonitorProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMonitorProfileResponsePtrOutput)
+}
+
+// Defines the configuration for Log Analytics integration.
+type OpenShiftManagedClusterMonitorProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterMonitorProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterMonitorProfileResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterMonitorProfileResponseOutput) ToOpenShiftManagedClusterMonitorProfileResponseOutput() OpenShiftManagedClusterMonitorProfileResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterMonitorProfileResponseOutput) ToOpenShiftManagedClusterMonitorProfileResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfileResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterMonitorProfileResponseOutput) ToOpenShiftManagedClusterMonitorProfileResponsePtrOutput() OpenShiftManagedClusterMonitorProfileResponsePtrOutput {
+	return o.ToOpenShiftManagedClusterMonitorProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OpenShiftManagedClusterMonitorProfileResponseOutput) ToOpenShiftManagedClusterMonitorProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfileResponsePtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMonitorProfileResponse) *OpenShiftManagedClusterMonitorProfileResponse {
+		return &v
+	}).(OpenShiftManagedClusterMonitorProfileResponsePtrOutput)
+}
+
+// If the Log analytics integration should be turned on or off
+func (o OpenShiftManagedClusterMonitorProfileResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMonitorProfileResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+func (o OpenShiftManagedClusterMonitorProfileResponseOutput) WorkspaceResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMonitorProfileResponse) *string { return v.WorkspaceResourceID }).(pulumi.StringPtrOutput)
+}
+
+type OpenShiftManagedClusterMonitorProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterMonitorProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftManagedClusterMonitorProfileResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterMonitorProfileResponsePtrOutput) ToOpenShiftManagedClusterMonitorProfileResponsePtrOutput() OpenShiftManagedClusterMonitorProfileResponsePtrOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterMonitorProfileResponsePtrOutput) ToOpenShiftManagedClusterMonitorProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfileResponsePtrOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterMonitorProfileResponsePtrOutput) Elem() OpenShiftManagedClusterMonitorProfileResponseOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterMonitorProfileResponse) OpenShiftManagedClusterMonitorProfileResponse {
+		return *v
+	}).(OpenShiftManagedClusterMonitorProfileResponseOutput)
+}
+
+// If the Log analytics integration should be turned on or off
+func (o OpenShiftManagedClusterMonitorProfileResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterMonitorProfileResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+func (o OpenShiftManagedClusterMonitorProfileResponsePtrOutput) WorkspaceResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterMonitorProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkspaceResourceID
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13760,6 +14300,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(OpenShiftAPIPropertiesOutput{})
+	pulumi.RegisterOutputType(OpenShiftAPIPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OpenShiftAPIPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(OpenShiftAPIPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderPtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderResponseOutput{})
@@ -13780,6 +14324,10 @@ func init() {
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMasterPoolProfilePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMasterPoolProfileResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterMonitorProfileOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterMonitorProfilePtrOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterMonitorProfileResponseOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterMonitorProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileResponseOutput{})

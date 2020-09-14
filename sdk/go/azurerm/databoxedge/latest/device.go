@@ -27,7 +27,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := databoxedge.NewDevice(ctx, "device", &databoxedge.DeviceArgs{
 // 			DeviceName:        pulumi.String("testedgedevice"),
-// 			Location:          pulumi.String("eastus"),
+// 			Location:          pulumi.String("WUS"),
 // 			ResourceGroupName: pulumi.String("GroupForEdgeAutomation"),
 // 			Sku: &databoxedge.SkuArgs{
 // 				Name: pulumi.String("Edge"),

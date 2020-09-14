@@ -3670,6 +3670,133 @@ func (o CertificateDescriptionResponsePtrOutput) X509StoreName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Client Certificate definition.
+type ClientCertificate struct {
+	// Certificate Common name.
+	CommonName *string `pulumi:"commonName"`
+	// Whether the certificate is admin or not.
+	IsAdmin bool `pulumi:"isAdmin"`
+	// Issuer thumbprint for the certificate. Its only use CommonName is used.
+	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
+	// Certificate Thumbprint.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// ClientCertificateInput is an input type that accepts ClientCertificateArgs and ClientCertificateOutput values.
+// You can construct a concrete instance of `ClientCertificateInput` via:
+//
+//          ClientCertificateArgs{...}
+type ClientCertificateInput interface {
+	pulumi.Input
+
+	ToClientCertificateOutput() ClientCertificateOutput
+	ToClientCertificateOutputWithContext(context.Context) ClientCertificateOutput
+}
+
+// Client Certificate definition.
+type ClientCertificateArgs struct {
+	// Certificate Common name.
+	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
+	// Whether the certificate is admin or not.
+	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
+	// Issuer thumbprint for the certificate. Its only use CommonName is used.
+	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
+	// Certificate Thumbprint.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (ClientCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificate)(nil)).Elem()
+}
+
+func (i ClientCertificateArgs) ToClientCertificateOutput() ClientCertificateOutput {
+	return i.ToClientCertificateOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateArgs) ToClientCertificateOutputWithContext(ctx context.Context) ClientCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateOutput)
+}
+
+// ClientCertificateArrayInput is an input type that accepts ClientCertificateArray and ClientCertificateArrayOutput values.
+// You can construct a concrete instance of `ClientCertificateArrayInput` via:
+//
+//          ClientCertificateArray{ ClientCertificateArgs{...} }
+type ClientCertificateArrayInput interface {
+	pulumi.Input
+
+	ToClientCertificateArrayOutput() ClientCertificateArrayOutput
+	ToClientCertificateArrayOutputWithContext(context.Context) ClientCertificateArrayOutput
+}
+
+type ClientCertificateArray []ClientCertificateInput
+
+func (ClientCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificate)(nil)).Elem()
+}
+
+func (i ClientCertificateArray) ToClientCertificateArrayOutput() ClientCertificateArrayOutput {
+	return i.ToClientCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateArray) ToClientCertificateArrayOutputWithContext(ctx context.Context) ClientCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateArrayOutput)
+}
+
+// Client Certificate definition.
+type ClientCertificateOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificate)(nil)).Elem()
+}
+
+func (o ClientCertificateOutput) ToClientCertificateOutput() ClientCertificateOutput {
+	return o
+}
+
+func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx context.Context) ClientCertificateOutput {
+	return o
+}
+
+// Certificate Common name.
+func (o ClientCertificateOutput) CommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertificate) *string { return v.CommonName }).(pulumi.StringPtrOutput)
+}
+
+// Whether the certificate is admin or not.
+func (o ClientCertificateOutput) IsAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientCertificate) bool { return v.IsAdmin }).(pulumi.BoolOutput)
+}
+
+// Issuer thumbprint for the certificate. Its only use CommonName is used.
+func (o ClientCertificateOutput) IssuerThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertificate) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Certificate Thumbprint.
+func (o ClientCertificateOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertificate) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type ClientCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificate)(nil)).Elem()
+}
+
+func (o ClientCertificateArrayOutput) ToClientCertificateArrayOutput() ClientCertificateArrayOutput {
+	return o
+}
+
+func (o ClientCertificateArrayOutput) ToClientCertificateArrayOutputWithContext(ctx context.Context) ClientCertificateArrayOutput {
+	return o
+}
+
+func (o ClientCertificateArrayOutput) Index(i pulumi.IntInput) ClientCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificate {
+		return vs[0].([]ClientCertificate)[vs[1].(int)]
+	}).(ClientCertificateOutput)
+}
+
 // Describes the client certificate details using common name.
 type ClientCertificateCommonName struct {
 	// The common name of the client certificate.
@@ -3904,6 +4031,133 @@ func (o ClientCertificateCommonNameResponseArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateCommonNameResponse {
 		return vs[0].([]ClientCertificateCommonNameResponse)[vs[1].(int)]
 	}).(ClientCertificateCommonNameResponseOutput)
+}
+
+// Client Certificate definition.
+type ClientCertificateResponse struct {
+	// Certificate Common name.
+	CommonName *string `pulumi:"commonName"`
+	// Whether the certificate is admin or not.
+	IsAdmin bool `pulumi:"isAdmin"`
+	// Issuer thumbprint for the certificate. Its only use CommonName is used.
+	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
+	// Certificate Thumbprint.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// ClientCertificateResponseInput is an input type that accepts ClientCertificateResponseArgs and ClientCertificateResponseOutput values.
+// You can construct a concrete instance of `ClientCertificateResponseInput` via:
+//
+//          ClientCertificateResponseArgs{...}
+type ClientCertificateResponseInput interface {
+	pulumi.Input
+
+	ToClientCertificateResponseOutput() ClientCertificateResponseOutput
+	ToClientCertificateResponseOutputWithContext(context.Context) ClientCertificateResponseOutput
+}
+
+// Client Certificate definition.
+type ClientCertificateResponseArgs struct {
+	// Certificate Common name.
+	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
+	// Whether the certificate is admin or not.
+	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
+	// Issuer thumbprint for the certificate. Its only use CommonName is used.
+	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
+	// Certificate Thumbprint.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (ClientCertificateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificateResponse)(nil)).Elem()
+}
+
+func (i ClientCertificateResponseArgs) ToClientCertificateResponseOutput() ClientCertificateResponseOutput {
+	return i.ToClientCertificateResponseOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateResponseArgs) ToClientCertificateResponseOutputWithContext(ctx context.Context) ClientCertificateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateResponseOutput)
+}
+
+// ClientCertificateResponseArrayInput is an input type that accepts ClientCertificateResponseArray and ClientCertificateResponseArrayOutput values.
+// You can construct a concrete instance of `ClientCertificateResponseArrayInput` via:
+//
+//          ClientCertificateResponseArray{ ClientCertificateResponseArgs{...} }
+type ClientCertificateResponseArrayInput interface {
+	pulumi.Input
+
+	ToClientCertificateResponseArrayOutput() ClientCertificateResponseArrayOutput
+	ToClientCertificateResponseArrayOutputWithContext(context.Context) ClientCertificateResponseArrayOutput
+}
+
+type ClientCertificateResponseArray []ClientCertificateResponseInput
+
+func (ClientCertificateResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificateResponse)(nil)).Elem()
+}
+
+func (i ClientCertificateResponseArray) ToClientCertificateResponseArrayOutput() ClientCertificateResponseArrayOutput {
+	return i.ToClientCertificateResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateResponseArray) ToClientCertificateResponseArrayOutputWithContext(ctx context.Context) ClientCertificateResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateResponseArrayOutput)
+}
+
+// Client Certificate definition.
+type ClientCertificateResponseOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificateResponse)(nil)).Elem()
+}
+
+func (o ClientCertificateResponseOutput) ToClientCertificateResponseOutput() ClientCertificateResponseOutput {
+	return o
+}
+
+func (o ClientCertificateResponseOutput) ToClientCertificateResponseOutputWithContext(ctx context.Context) ClientCertificateResponseOutput {
+	return o
+}
+
+// Certificate Common name.
+func (o ClientCertificateResponseOutput) CommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertificateResponse) *string { return v.CommonName }).(pulumi.StringPtrOutput)
+}
+
+// Whether the certificate is admin or not.
+func (o ClientCertificateResponseOutput) IsAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientCertificateResponse) bool { return v.IsAdmin }).(pulumi.BoolOutput)
+}
+
+// Issuer thumbprint for the certificate. Its only use CommonName is used.
+func (o ClientCertificateResponseOutput) IssuerThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertificateResponse) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Certificate Thumbprint.
+func (o ClientCertificateResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertificateResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type ClientCertificateResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificateResponse)(nil)).Elem()
+}
+
+func (o ClientCertificateResponseArrayOutput) ToClientCertificateResponseArrayOutput() ClientCertificateResponseArrayOutput {
+	return o
+}
+
+func (o ClientCertificateResponseArrayOutput) ToClientCertificateResponseArrayOutputWithContext(ctx context.Context) ClientCertificateResponseArrayOutput {
+	return o
+}
+
+func (o ClientCertificateResponseArrayOutput) Index(i pulumi.IntInput) ClientCertificateResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateResponse {
+		return vs[0].([]ClientCertificateResponse)[vs[1].(int)]
+	}).(ClientCertificateResponseOutput)
 }
 
 // Describes the client certificate details using thumbprint.
@@ -6456,6 +6710,278 @@ func (o EndpointRangeDescriptionResponsePtrOutput) StartPort() pulumi.IntPtrOutp
 		}
 		return &v.StartPort
 	}).(pulumi.IntPtrOutput)
+}
+
+// Describes a load balancing rule.
+type LoadBalancingRule struct {
+	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+	BackendPort int `pulumi:"backendPort"`
+	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+	FrontendPort int `pulumi:"frontendPort"`
+	// the reference to the load balancer probe used by the load balancing rule.
+	ProbeProtocol string `pulumi:"probeProtocol"`
+	// The probe request path. Only supported for HTTP/HTTPS probes.
+	ProbeRequestPath *string `pulumi:"probeRequestPath"`
+	// The reference to the transport protocol used by the load balancing rule.
+	Protocol string `pulumi:"protocol"`
+}
+
+// LoadBalancingRuleInput is an input type that accepts LoadBalancingRuleArgs and LoadBalancingRuleOutput values.
+// You can construct a concrete instance of `LoadBalancingRuleInput` via:
+//
+//          LoadBalancingRuleArgs{...}
+type LoadBalancingRuleInput interface {
+	pulumi.Input
+
+	ToLoadBalancingRuleOutput() LoadBalancingRuleOutput
+	ToLoadBalancingRuleOutputWithContext(context.Context) LoadBalancingRuleOutput
+}
+
+// Describes a load balancing rule.
+type LoadBalancingRuleArgs struct {
+	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
+	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
+	// the reference to the load balancer probe used by the load balancing rule.
+	ProbeProtocol pulumi.StringInput `pulumi:"probeProtocol"`
+	// The probe request path. Only supported for HTTP/HTTPS probes.
+	ProbeRequestPath pulumi.StringPtrInput `pulumi:"probeRequestPath"`
+	// The reference to the transport protocol used by the load balancing rule.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (LoadBalancingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancingRule)(nil)).Elem()
+}
+
+func (i LoadBalancingRuleArgs) ToLoadBalancingRuleOutput() LoadBalancingRuleOutput {
+	return i.ToLoadBalancingRuleOutputWithContext(context.Background())
+}
+
+func (i LoadBalancingRuleArgs) ToLoadBalancingRuleOutputWithContext(ctx context.Context) LoadBalancingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleOutput)
+}
+
+// LoadBalancingRuleArrayInput is an input type that accepts LoadBalancingRuleArray and LoadBalancingRuleArrayOutput values.
+// You can construct a concrete instance of `LoadBalancingRuleArrayInput` via:
+//
+//          LoadBalancingRuleArray{ LoadBalancingRuleArgs{...} }
+type LoadBalancingRuleArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancingRuleArrayOutput() LoadBalancingRuleArrayOutput
+	ToLoadBalancingRuleArrayOutputWithContext(context.Context) LoadBalancingRuleArrayOutput
+}
+
+type LoadBalancingRuleArray []LoadBalancingRuleInput
+
+func (LoadBalancingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancingRule)(nil)).Elem()
+}
+
+func (i LoadBalancingRuleArray) ToLoadBalancingRuleArrayOutput() LoadBalancingRuleArrayOutput {
+	return i.ToLoadBalancingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancingRuleArray) ToLoadBalancingRuleArrayOutputWithContext(ctx context.Context) LoadBalancingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleArrayOutput)
+}
+
+// Describes a load balancing rule.
+type LoadBalancingRuleOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancingRule)(nil)).Elem()
+}
+
+func (o LoadBalancingRuleOutput) ToLoadBalancingRuleOutput() LoadBalancingRuleOutput {
+	return o
+}
+
+func (o LoadBalancingRuleOutput) ToLoadBalancingRuleOutputWithContext(ctx context.Context) LoadBalancingRuleOutput {
+	return o
+}
+
+// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+func (o LoadBalancingRuleOutput) BackendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancingRule) int { return v.BackendPort }).(pulumi.IntOutput)
+}
+
+// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+func (o LoadBalancingRuleOutput) FrontendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancingRule) int { return v.FrontendPort }).(pulumi.IntOutput)
+}
+
+// the reference to the load balancer probe used by the load balancing rule.
+func (o LoadBalancingRuleOutput) ProbeProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancingRule) string { return v.ProbeProtocol }).(pulumi.StringOutput)
+}
+
+// The probe request path. Only supported for HTTP/HTTPS probes.
+func (o LoadBalancingRuleOutput) ProbeRequestPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancingRule) *string { return v.ProbeRequestPath }).(pulumi.StringPtrOutput)
+}
+
+// The reference to the transport protocol used by the load balancing rule.
+func (o LoadBalancingRuleOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancingRule) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type LoadBalancingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancingRule)(nil)).Elem()
+}
+
+func (o LoadBalancingRuleArrayOutput) ToLoadBalancingRuleArrayOutput() LoadBalancingRuleArrayOutput {
+	return o
+}
+
+func (o LoadBalancingRuleArrayOutput) ToLoadBalancingRuleArrayOutputWithContext(ctx context.Context) LoadBalancingRuleArrayOutput {
+	return o
+}
+
+func (o LoadBalancingRuleArrayOutput) Index(i pulumi.IntInput) LoadBalancingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancingRule {
+		return vs[0].([]LoadBalancingRule)[vs[1].(int)]
+	}).(LoadBalancingRuleOutput)
+}
+
+// Describes a load balancing rule.
+type LoadBalancingRuleResponse struct {
+	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+	BackendPort int `pulumi:"backendPort"`
+	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+	FrontendPort int `pulumi:"frontendPort"`
+	// the reference to the load balancer probe used by the load balancing rule.
+	ProbeProtocol string `pulumi:"probeProtocol"`
+	// The probe request path. Only supported for HTTP/HTTPS probes.
+	ProbeRequestPath *string `pulumi:"probeRequestPath"`
+	// The reference to the transport protocol used by the load balancing rule.
+	Protocol string `pulumi:"protocol"`
+}
+
+// LoadBalancingRuleResponseInput is an input type that accepts LoadBalancingRuleResponseArgs and LoadBalancingRuleResponseOutput values.
+// You can construct a concrete instance of `LoadBalancingRuleResponseInput` via:
+//
+//          LoadBalancingRuleResponseArgs{...}
+type LoadBalancingRuleResponseInput interface {
+	pulumi.Input
+
+	ToLoadBalancingRuleResponseOutput() LoadBalancingRuleResponseOutput
+	ToLoadBalancingRuleResponseOutputWithContext(context.Context) LoadBalancingRuleResponseOutput
+}
+
+// Describes a load balancing rule.
+type LoadBalancingRuleResponseArgs struct {
+	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
+	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
+	// the reference to the load balancer probe used by the load balancing rule.
+	ProbeProtocol pulumi.StringInput `pulumi:"probeProtocol"`
+	// The probe request path. Only supported for HTTP/HTTPS probes.
+	ProbeRequestPath pulumi.StringPtrInput `pulumi:"probeRequestPath"`
+	// The reference to the transport protocol used by the load balancing rule.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (LoadBalancingRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancingRuleResponse)(nil)).Elem()
+}
+
+func (i LoadBalancingRuleResponseArgs) ToLoadBalancingRuleResponseOutput() LoadBalancingRuleResponseOutput {
+	return i.ToLoadBalancingRuleResponseOutputWithContext(context.Background())
+}
+
+func (i LoadBalancingRuleResponseArgs) ToLoadBalancingRuleResponseOutputWithContext(ctx context.Context) LoadBalancingRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleResponseOutput)
+}
+
+// LoadBalancingRuleResponseArrayInput is an input type that accepts LoadBalancingRuleResponseArray and LoadBalancingRuleResponseArrayOutput values.
+// You can construct a concrete instance of `LoadBalancingRuleResponseArrayInput` via:
+//
+//          LoadBalancingRuleResponseArray{ LoadBalancingRuleResponseArgs{...} }
+type LoadBalancingRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancingRuleResponseArrayOutput() LoadBalancingRuleResponseArrayOutput
+	ToLoadBalancingRuleResponseArrayOutputWithContext(context.Context) LoadBalancingRuleResponseArrayOutput
+}
+
+type LoadBalancingRuleResponseArray []LoadBalancingRuleResponseInput
+
+func (LoadBalancingRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancingRuleResponse)(nil)).Elem()
+}
+
+func (i LoadBalancingRuleResponseArray) ToLoadBalancingRuleResponseArrayOutput() LoadBalancingRuleResponseArrayOutput {
+	return i.ToLoadBalancingRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancingRuleResponseArray) ToLoadBalancingRuleResponseArrayOutputWithContext(ctx context.Context) LoadBalancingRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleResponseArrayOutput)
+}
+
+// Describes a load balancing rule.
+type LoadBalancingRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancingRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancingRuleResponse)(nil)).Elem()
+}
+
+func (o LoadBalancingRuleResponseOutput) ToLoadBalancingRuleResponseOutput() LoadBalancingRuleResponseOutput {
+	return o
+}
+
+func (o LoadBalancingRuleResponseOutput) ToLoadBalancingRuleResponseOutputWithContext(ctx context.Context) LoadBalancingRuleResponseOutput {
+	return o
+}
+
+// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+func (o LoadBalancingRuleResponseOutput) BackendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancingRuleResponse) int { return v.BackendPort }).(pulumi.IntOutput)
+}
+
+// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+func (o LoadBalancingRuleResponseOutput) FrontendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancingRuleResponse) int { return v.FrontendPort }).(pulumi.IntOutput)
+}
+
+// the reference to the load balancer probe used by the load balancing rule.
+func (o LoadBalancingRuleResponseOutput) ProbeProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancingRuleResponse) string { return v.ProbeProtocol }).(pulumi.StringOutput)
+}
+
+// The probe request path. Only supported for HTTP/HTTPS probes.
+func (o LoadBalancingRuleResponseOutput) ProbeRequestPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancingRuleResponse) *string { return v.ProbeRequestPath }).(pulumi.StringPtrOutput)
+}
+
+// The reference to the transport protocol used by the load balancing rule.
+func (o LoadBalancingRuleResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancingRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type LoadBalancingRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancingRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancingRuleResponse)(nil)).Elem()
+}
+
+func (o LoadBalancingRuleResponseArrayOutput) ToLoadBalancingRuleResponseArrayOutput() LoadBalancingRuleResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancingRuleResponseArrayOutput) ToLoadBalancingRuleResponseArrayOutputWithContext(ctx context.Context) LoadBalancingRuleResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancingRuleResponseArrayOutput) Index(i pulumi.IntInput) LoadBalancingRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancingRuleResponse {
+		return vs[0].([]LoadBalancingRuleResponse)[vs[1].(int)]
+	}).(LoadBalancingRuleResponseOutput)
 }
 
 // Describes the managed identities for an Azure resource.
@@ -9833,6 +10359,384 @@ func (o SingletonPartitionSchemeDescriptionResponseOutput) PartitionScheme() pul
 	return o.ApplyT(func(v SingletonPartitionSchemeDescriptionResponse) string { return v.PartitionScheme }).(pulumi.StringOutput)
 }
 
+// Sku definition
+type Sku struct {
+	// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+	Name string `pulumi:"name"`
+}
+
+// SkuInput is an input type that accepts SkuArgs and SkuOutput values.
+// You can construct a concrete instance of `SkuInput` via:
+//
+//          SkuArgs{...}
+type SkuInput interface {
+	pulumi.Input
+
+	ToSkuOutput() SkuOutput
+	ToSkuOutputWithContext(context.Context) SkuOutput
+}
+
+// Sku definition
+type SkuArgs struct {
+	// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sku)(nil)).Elem()
+}
+
+func (i SkuArgs) ToSkuOutput() SkuOutput {
+	return i.ToSkuOutputWithContext(context.Background())
+}
+
+func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
+}
+
+func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
+	return i.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
+}
+
+// SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
+// You can construct a concrete instance of `SkuPtrInput` via:
+//
+//          SkuArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuPtrInput interface {
+	pulumi.Input
+
+	ToSkuPtrOutput() SkuPtrOutput
+	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
+}
+
+type skuPtrType SkuArgs
+
+func SkuPtr(v *SkuArgs) SkuPtrInput {
+	return (*skuPtrType)(v)
+}
+
+func (*skuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Sku)(nil)).Elem()
+}
+
+func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
+	return i.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
+}
+
+// Sku definition
+type SkuOutput struct{ *pulumi.OutputState }
+
+func (SkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sku)(nil)).Elem()
+}
+
+func (o SkuOutput) ToSkuOutput() SkuOutput {
+	return o
+}
+
+func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+	return o
+}
+
+func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
+	return o.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return o.ApplyT(func(v Sku) *Sku {
+		return &v
+	}).(SkuPtrOutput)
+}
+
+// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SkuPtrOutput struct{ *pulumi.OutputState }
+
+func (SkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Sku)(nil)).Elem()
+}
+
+func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
+	return o
+}
+
+func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return o
+}
+
+func (o SkuPtrOutput) Elem() SkuOutput {
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+}
+
+// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sku definition
+type SkuResponse struct {
+	// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+	Name string `pulumi:"name"`
+}
+
+// SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
+// You can construct a concrete instance of `SkuResponseInput` via:
+//
+//          SkuResponseArgs{...}
+type SkuResponseInput interface {
+	pulumi.Input
+
+	ToSkuResponseOutput() SkuResponseOutput
+	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
+}
+
+// Sku definition
+type SkuResponseArgs struct {
+	// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
+}
+
+func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
+	return i.ToSkuResponseOutputWithContext(context.Background())
+}
+
+func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
+}
+
+func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return i.ToSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
+}
+
+// SkuResponsePtrInput is an input type that accepts SkuResponseArgs, SkuResponsePtr and SkuResponsePtrOutput values.
+// You can construct a concrete instance of `SkuResponsePtrInput` via:
+//
+//          SkuResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuResponsePtrInput interface {
+	pulumi.Input
+
+	ToSkuResponsePtrOutput() SkuResponsePtrOutput
+	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
+}
+
+type skuResponsePtrType SkuResponseArgs
+
+func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
+	return (*skuResponsePtrType)(v)
+}
+
+func (*skuResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
+}
+
+func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return i.ToSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
+}
+
+// Sku definition
+type SkuResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
+}
+
+func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
+	return o
+}
+
+func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
+	return o
+}
+
+func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return o.ToSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+		return &v
+	}).(SkuResponsePtrOutput)
+}
+
+// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+func (o SkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
+}
+
+func (o SkuResponsePtrOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return o
+}
+
+func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return o
+}
+
+func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+}
+
+// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure resource identifier.
+type SubResource struct {
+	// Azure resource identifier.
+	Id *string `pulumi:"id"`
+}
+
+// SubResourceInput is an input type that accepts SubResourceArgs and SubResourceOutput values.
+// You can construct a concrete instance of `SubResourceInput` via:
+//
+//          SubResourceArgs{...}
+type SubResourceInput interface {
+	pulumi.Input
+
+	ToSubResourceOutput() SubResourceOutput
+	ToSubResourceOutputWithContext(context.Context) SubResourceOutput
+}
+
+// Azure resource identifier.
+type SubResourceArgs struct {
+	// Azure resource identifier.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SubResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResource)(nil)).Elem()
+}
+
+func (i SubResourceArgs) ToSubResourceOutput() SubResourceOutput {
+	return i.ToSubResourceOutputWithContext(context.Background())
+}
+
+func (i SubResourceArgs) ToSubResourceOutputWithContext(ctx context.Context) SubResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceOutput)
+}
+
+// Azure resource identifier.
+type SubResourceOutput struct{ *pulumi.OutputState }
+
+func (SubResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResource)(nil)).Elem()
+}
+
+func (o SubResourceOutput) ToSubResourceOutput() SubResourceOutput {
+	return o
+}
+
+func (o SubResourceOutput) ToSubResourceOutputWithContext(ctx context.Context) SubResourceOutput {
+	return o
+}
+
+// Azure resource identifier.
+func (o SubResourceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubResource) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource identifier.
+type SubResourceResponse struct {
+	// Azure resource identifier.
+	Id *string `pulumi:"id"`
+}
+
+// SubResourceResponseInput is an input type that accepts SubResourceResponseArgs and SubResourceResponseOutput values.
+// You can construct a concrete instance of `SubResourceResponseInput` via:
+//
+//          SubResourceResponseArgs{...}
+type SubResourceResponseInput interface {
+	pulumi.Input
+
+	ToSubResourceResponseOutput() SubResourceResponseOutput
+	ToSubResourceResponseOutputWithContext(context.Context) SubResourceResponseOutput
+}
+
+// Azure resource identifier.
+type SubResourceResponseArgs struct {
+	// Azure resource identifier.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SubResourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceResponse)(nil)).Elem()
+}
+
+func (i SubResourceResponseArgs) ToSubResourceResponseOutput() SubResourceResponseOutput {
+	return i.ToSubResourceResponseOutputWithContext(context.Background())
+}
+
+func (i SubResourceResponseArgs) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput)
+}
+
+// Azure resource identifier.
+type SubResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (SubResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceResponse)(nil)).Elem()
+}
+
+func (o SubResourceResponseOutput) ToSubResourceResponseOutput() SubResourceResponseOutput {
+	return o
+}
+
+func (o SubResourceResponseOutput) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
+	return o
+}
+
+// Azure resource identifier.
+func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 // Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
 type UniformInt64RangePartitionSchemeDescription struct {
 	// The number of partitions.
@@ -10115,6 +11019,795 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 	}).(UserAssignedIdentityResponseOutput)
 }
 
+// Specifies set of extensions that should be installed onto the virtual machines.
+type VMSSExtension struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// The name of the extension.
+	Name string `pulumi:"name"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
+	// The name of the extension handler publisher.
+	Publisher string `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings map[string]interface{} `pulumi:"settings"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type string `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+}
+
+// VMSSExtensionInput is an input type that accepts VMSSExtensionArgs and VMSSExtensionOutput values.
+// You can construct a concrete instance of `VMSSExtensionInput` via:
+//
+//          VMSSExtensionArgs{...}
+type VMSSExtensionInput interface {
+	pulumi.Input
+
+	ToVMSSExtensionOutput() VMSSExtensionOutput
+	ToVMSSExtensionOutputWithContext(context.Context) VMSSExtensionOutput
+}
+
+// Specifies set of extensions that should be installed onto the virtual machines.
+type VMSSExtensionArgs struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
+	// The name of the extension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings pulumi.MapInput `pulumi:"settings"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+}
+
+func (VMSSExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMSSExtension)(nil)).Elem()
+}
+
+func (i VMSSExtensionArgs) ToVMSSExtensionOutput() VMSSExtensionOutput {
+	return i.ToVMSSExtensionOutputWithContext(context.Background())
+}
+
+func (i VMSSExtensionArgs) ToVMSSExtensionOutputWithContext(ctx context.Context) VMSSExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMSSExtensionOutput)
+}
+
+// VMSSExtensionArrayInput is an input type that accepts VMSSExtensionArray and VMSSExtensionArrayOutput values.
+// You can construct a concrete instance of `VMSSExtensionArrayInput` via:
+//
+//          VMSSExtensionArray{ VMSSExtensionArgs{...} }
+type VMSSExtensionArrayInput interface {
+	pulumi.Input
+
+	ToVMSSExtensionArrayOutput() VMSSExtensionArrayOutput
+	ToVMSSExtensionArrayOutputWithContext(context.Context) VMSSExtensionArrayOutput
+}
+
+type VMSSExtensionArray []VMSSExtensionInput
+
+func (VMSSExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMSSExtension)(nil)).Elem()
+}
+
+func (i VMSSExtensionArray) ToVMSSExtensionArrayOutput() VMSSExtensionArrayOutput {
+	return i.ToVMSSExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i VMSSExtensionArray) ToVMSSExtensionArrayOutputWithContext(ctx context.Context) VMSSExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMSSExtensionArrayOutput)
+}
+
+// Specifies set of extensions that should be installed onto the virtual machines.
+type VMSSExtensionOutput struct{ *pulumi.OutputState }
+
+func (VMSSExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMSSExtension)(nil)).Elem()
+}
+
+func (o VMSSExtensionOutput) ToVMSSExtensionOutput() VMSSExtensionOutput {
+	return o
+}
+
+func (o VMSSExtensionOutput) ToVMSSExtensionOutputWithContext(ctx context.Context) VMSSExtensionOutput {
+	return o
+}
+
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o VMSSExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VMSSExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+func (o VMSSExtensionOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMSSExtension) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the extension.
+func (o VMSSExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o VMSSExtensionOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v VMSSExtension) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
+}
+
+// Collection of extension names after which this extension needs to be provisioned.
+func (o VMSSExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VMSSExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+}
+
+// The name of the extension handler publisher.
+func (o VMSSExtensionOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtension) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// Json formatted public settings for the extension.
+func (o VMSSExtensionOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v VMSSExtension) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
+}
+
+// Specifies the type of the extension; an example is "CustomScriptExtension".
+func (o VMSSExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtension) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the script handler.
+func (o VMSSExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtension) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
+}
+
+type VMSSExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (VMSSExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMSSExtension)(nil)).Elem()
+}
+
+func (o VMSSExtensionArrayOutput) ToVMSSExtensionArrayOutput() VMSSExtensionArrayOutput {
+	return o
+}
+
+func (o VMSSExtensionArrayOutput) ToVMSSExtensionArrayOutputWithContext(ctx context.Context) VMSSExtensionArrayOutput {
+	return o
+}
+
+func (o VMSSExtensionArrayOutput) Index(i pulumi.IntInput) VMSSExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VMSSExtension {
+		return vs[0].([]VMSSExtension)[vs[1].(int)]
+	}).(VMSSExtensionOutput)
+}
+
+// Specifies set of extensions that should be installed onto the virtual machines.
+type VMSSExtensionResponse struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// The name of the extension.
+	Name string `pulumi:"name"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher string `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings map[string]interface{} `pulumi:"settings"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type string `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+}
+
+// VMSSExtensionResponseInput is an input type that accepts VMSSExtensionResponseArgs and VMSSExtensionResponseOutput values.
+// You can construct a concrete instance of `VMSSExtensionResponseInput` via:
+//
+//          VMSSExtensionResponseArgs{...}
+type VMSSExtensionResponseInput interface {
+	pulumi.Input
+
+	ToVMSSExtensionResponseOutput() VMSSExtensionResponseOutput
+	ToVMSSExtensionResponseOutputWithContext(context.Context) VMSSExtensionResponseOutput
+}
+
+// Specifies set of extensions that should be installed onto the virtual machines.
+type VMSSExtensionResponseArgs struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
+	// The name of the extension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings pulumi.MapInput `pulumi:"settings"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+}
+
+func (VMSSExtensionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMSSExtensionResponse)(nil)).Elem()
+}
+
+func (i VMSSExtensionResponseArgs) ToVMSSExtensionResponseOutput() VMSSExtensionResponseOutput {
+	return i.ToVMSSExtensionResponseOutputWithContext(context.Background())
+}
+
+func (i VMSSExtensionResponseArgs) ToVMSSExtensionResponseOutputWithContext(ctx context.Context) VMSSExtensionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMSSExtensionResponseOutput)
+}
+
+// VMSSExtensionResponseArrayInput is an input type that accepts VMSSExtensionResponseArray and VMSSExtensionResponseArrayOutput values.
+// You can construct a concrete instance of `VMSSExtensionResponseArrayInput` via:
+//
+//          VMSSExtensionResponseArray{ VMSSExtensionResponseArgs{...} }
+type VMSSExtensionResponseArrayInput interface {
+	pulumi.Input
+
+	ToVMSSExtensionResponseArrayOutput() VMSSExtensionResponseArrayOutput
+	ToVMSSExtensionResponseArrayOutputWithContext(context.Context) VMSSExtensionResponseArrayOutput
+}
+
+type VMSSExtensionResponseArray []VMSSExtensionResponseInput
+
+func (VMSSExtensionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMSSExtensionResponse)(nil)).Elem()
+}
+
+func (i VMSSExtensionResponseArray) ToVMSSExtensionResponseArrayOutput() VMSSExtensionResponseArrayOutput {
+	return i.ToVMSSExtensionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VMSSExtensionResponseArray) ToVMSSExtensionResponseArrayOutputWithContext(ctx context.Context) VMSSExtensionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMSSExtensionResponseArrayOutput)
+}
+
+// Specifies set of extensions that should be installed onto the virtual machines.
+type VMSSExtensionResponseOutput struct{ *pulumi.OutputState }
+
+func (VMSSExtensionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMSSExtensionResponse)(nil)).Elem()
+}
+
+func (o VMSSExtensionResponseOutput) ToVMSSExtensionResponseOutput() VMSSExtensionResponseOutput {
+	return o
+}
+
+func (o VMSSExtensionResponseOutput) ToVMSSExtensionResponseOutputWithContext(ctx context.Context) VMSSExtensionResponseOutput {
+	return o
+}
+
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o VMSSExtensionResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+func (o VMSSExtensionResponseOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the extension.
+func (o VMSSExtensionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o VMSSExtensionResponseOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
+}
+
+// Collection of extension names after which this extension needs to be provisioned.
+func (o VMSSExtensionResponseOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VMSSExtensionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the extension handler publisher.
+func (o VMSSExtensionResponseOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// Json formatted public settings for the extension.
+func (o VMSSExtensionResponseOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
+}
+
+// Specifies the type of the extension; an example is "CustomScriptExtension".
+func (o VMSSExtensionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the script handler.
+func (o VMSSExtensionResponseOutput) TypeHandlerVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtensionResponse) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
+}
+
+type VMSSExtensionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VMSSExtensionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMSSExtensionResponse)(nil)).Elem()
+}
+
+func (o VMSSExtensionResponseArrayOutput) ToVMSSExtensionResponseArrayOutput() VMSSExtensionResponseArrayOutput {
+	return o
+}
+
+func (o VMSSExtensionResponseArrayOutput) ToVMSSExtensionResponseArrayOutputWithContext(ctx context.Context) VMSSExtensionResponseArrayOutput {
+	return o
+}
+
+func (o VMSSExtensionResponseArrayOutput) Index(i pulumi.IntInput) VMSSExtensionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VMSSExtensionResponse {
+		return vs[0].([]VMSSExtensionResponse)[vs[1].(int)]
+	}).(VMSSExtensionResponseOutput)
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+type VaultCertificate struct {
+	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+	CertificateStore string `pulumi:"certificateStore"`
+	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+	CertificateUrl string `pulumi:"certificateUrl"`
+}
+
+// VaultCertificateInput is an input type that accepts VaultCertificateArgs and VaultCertificateOutput values.
+// You can construct a concrete instance of `VaultCertificateInput` via:
+//
+//          VaultCertificateArgs{...}
+type VaultCertificateInput interface {
+	pulumi.Input
+
+	ToVaultCertificateOutput() VaultCertificateOutput
+	ToVaultCertificateOutputWithContext(context.Context) VaultCertificateOutput
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+type VaultCertificateArgs struct {
+	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+	CertificateStore pulumi.StringInput `pulumi:"certificateStore"`
+	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
+}
+
+func (VaultCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultCertificate)(nil)).Elem()
+}
+
+func (i VaultCertificateArgs) ToVaultCertificateOutput() VaultCertificateOutput {
+	return i.ToVaultCertificateOutputWithContext(context.Background())
+}
+
+func (i VaultCertificateArgs) ToVaultCertificateOutputWithContext(ctx context.Context) VaultCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateOutput)
+}
+
+// VaultCertificateArrayInput is an input type that accepts VaultCertificateArray and VaultCertificateArrayOutput values.
+// You can construct a concrete instance of `VaultCertificateArrayInput` via:
+//
+//          VaultCertificateArray{ VaultCertificateArgs{...} }
+type VaultCertificateArrayInput interface {
+	pulumi.Input
+
+	ToVaultCertificateArrayOutput() VaultCertificateArrayOutput
+	ToVaultCertificateArrayOutputWithContext(context.Context) VaultCertificateArrayOutput
+}
+
+type VaultCertificateArray []VaultCertificateInput
+
+func (VaultCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultCertificate)(nil)).Elem()
+}
+
+func (i VaultCertificateArray) ToVaultCertificateArrayOutput() VaultCertificateArrayOutput {
+	return i.ToVaultCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i VaultCertificateArray) ToVaultCertificateArrayOutputWithContext(ctx context.Context) VaultCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateArrayOutput)
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+type VaultCertificateOutput struct{ *pulumi.OutputState }
+
+func (VaultCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultCertificate)(nil)).Elem()
+}
+
+func (o VaultCertificateOutput) ToVaultCertificateOutput() VaultCertificateOutput {
+	return o
+}
+
+func (o VaultCertificateOutput) ToVaultCertificateOutputWithContext(ctx context.Context) VaultCertificateOutput {
+	return o
+}
+
+// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+func (o VaultCertificateOutput) CertificateStore() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultCertificate) string { return v.CertificateStore }).(pulumi.StringOutput)
+}
+
+// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+func (o VaultCertificateOutput) CertificateUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultCertificate) string { return v.CertificateUrl }).(pulumi.StringOutput)
+}
+
+type VaultCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (VaultCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultCertificate)(nil)).Elem()
+}
+
+func (o VaultCertificateArrayOutput) ToVaultCertificateArrayOutput() VaultCertificateArrayOutput {
+	return o
+}
+
+func (o VaultCertificateArrayOutput) ToVaultCertificateArrayOutputWithContext(ctx context.Context) VaultCertificateArrayOutput {
+	return o
+}
+
+func (o VaultCertificateArrayOutput) Index(i pulumi.IntInput) VaultCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultCertificate {
+		return vs[0].([]VaultCertificate)[vs[1].(int)]
+	}).(VaultCertificateOutput)
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+type VaultCertificateResponse struct {
+	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+	CertificateStore string `pulumi:"certificateStore"`
+	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+	CertificateUrl string `pulumi:"certificateUrl"`
+}
+
+// VaultCertificateResponseInput is an input type that accepts VaultCertificateResponseArgs and VaultCertificateResponseOutput values.
+// You can construct a concrete instance of `VaultCertificateResponseInput` via:
+//
+//          VaultCertificateResponseArgs{...}
+type VaultCertificateResponseInput interface {
+	pulumi.Input
+
+	ToVaultCertificateResponseOutput() VaultCertificateResponseOutput
+	ToVaultCertificateResponseOutputWithContext(context.Context) VaultCertificateResponseOutput
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+type VaultCertificateResponseArgs struct {
+	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+	CertificateStore pulumi.StringInput `pulumi:"certificateStore"`
+	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
+}
+
+func (VaultCertificateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultCertificateResponse)(nil)).Elem()
+}
+
+func (i VaultCertificateResponseArgs) ToVaultCertificateResponseOutput() VaultCertificateResponseOutput {
+	return i.ToVaultCertificateResponseOutputWithContext(context.Background())
+}
+
+func (i VaultCertificateResponseArgs) ToVaultCertificateResponseOutputWithContext(ctx context.Context) VaultCertificateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateResponseOutput)
+}
+
+// VaultCertificateResponseArrayInput is an input type that accepts VaultCertificateResponseArray and VaultCertificateResponseArrayOutput values.
+// You can construct a concrete instance of `VaultCertificateResponseArrayInput` via:
+//
+//          VaultCertificateResponseArray{ VaultCertificateResponseArgs{...} }
+type VaultCertificateResponseArrayInput interface {
+	pulumi.Input
+
+	ToVaultCertificateResponseArrayOutput() VaultCertificateResponseArrayOutput
+	ToVaultCertificateResponseArrayOutputWithContext(context.Context) VaultCertificateResponseArrayOutput
+}
+
+type VaultCertificateResponseArray []VaultCertificateResponseInput
+
+func (VaultCertificateResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultCertificateResponse)(nil)).Elem()
+}
+
+func (i VaultCertificateResponseArray) ToVaultCertificateResponseArrayOutput() VaultCertificateResponseArrayOutput {
+	return i.ToVaultCertificateResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VaultCertificateResponseArray) ToVaultCertificateResponseArrayOutputWithContext(ctx context.Context) VaultCertificateResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateResponseArrayOutput)
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+type VaultCertificateResponseOutput struct{ *pulumi.OutputState }
+
+func (VaultCertificateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultCertificateResponse)(nil)).Elem()
+}
+
+func (o VaultCertificateResponseOutput) ToVaultCertificateResponseOutput() VaultCertificateResponseOutput {
+	return o
+}
+
+func (o VaultCertificateResponseOutput) ToVaultCertificateResponseOutputWithContext(ctx context.Context) VaultCertificateResponseOutput {
+	return o
+}
+
+// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+func (o VaultCertificateResponseOutput) CertificateStore() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultCertificateResponse) string { return v.CertificateStore }).(pulumi.StringOutput)
+}
+
+// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+func (o VaultCertificateResponseOutput) CertificateUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultCertificateResponse) string { return v.CertificateUrl }).(pulumi.StringOutput)
+}
+
+type VaultCertificateResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VaultCertificateResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultCertificateResponse)(nil)).Elem()
+}
+
+func (o VaultCertificateResponseArrayOutput) ToVaultCertificateResponseArrayOutput() VaultCertificateResponseArrayOutput {
+	return o
+}
+
+func (o VaultCertificateResponseArrayOutput) ToVaultCertificateResponseArrayOutputWithContext(ctx context.Context) VaultCertificateResponseArrayOutput {
+	return o
+}
+
+func (o VaultCertificateResponseArrayOutput) Index(i pulumi.IntInput) VaultCertificateResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultCertificateResponse {
+		return vs[0].([]VaultCertificateResponse)[vs[1].(int)]
+	}).(VaultCertificateResponseOutput)
+}
+
+// Specifies set of certificates that should be installed onto the virtual machines.
+type VaultSecretGroup struct {
+	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+	SourceVault SubResource `pulumi:"sourceVault"`
+	// The list of key vault references in SourceVault which contain certificates.
+	VaultCertificates []VaultCertificate `pulumi:"vaultCertificates"`
+}
+
+// VaultSecretGroupInput is an input type that accepts VaultSecretGroupArgs and VaultSecretGroupOutput values.
+// You can construct a concrete instance of `VaultSecretGroupInput` via:
+//
+//          VaultSecretGroupArgs{...}
+type VaultSecretGroupInput interface {
+	pulumi.Input
+
+	ToVaultSecretGroupOutput() VaultSecretGroupOutput
+	ToVaultSecretGroupOutputWithContext(context.Context) VaultSecretGroupOutput
+}
+
+// Specifies set of certificates that should be installed onto the virtual machines.
+type VaultSecretGroupArgs struct {
+	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+	SourceVault SubResourceInput `pulumi:"sourceVault"`
+	// The list of key vault references in SourceVault which contain certificates.
+	VaultCertificates VaultCertificateArrayInput `pulumi:"vaultCertificates"`
+}
+
+func (VaultSecretGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultSecretGroup)(nil)).Elem()
+}
+
+func (i VaultSecretGroupArgs) ToVaultSecretGroupOutput() VaultSecretGroupOutput {
+	return i.ToVaultSecretGroupOutputWithContext(context.Background())
+}
+
+func (i VaultSecretGroupArgs) ToVaultSecretGroupOutputWithContext(ctx context.Context) VaultSecretGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupOutput)
+}
+
+// VaultSecretGroupArrayInput is an input type that accepts VaultSecretGroupArray and VaultSecretGroupArrayOutput values.
+// You can construct a concrete instance of `VaultSecretGroupArrayInput` via:
+//
+//          VaultSecretGroupArray{ VaultSecretGroupArgs{...} }
+type VaultSecretGroupArrayInput interface {
+	pulumi.Input
+
+	ToVaultSecretGroupArrayOutput() VaultSecretGroupArrayOutput
+	ToVaultSecretGroupArrayOutputWithContext(context.Context) VaultSecretGroupArrayOutput
+}
+
+type VaultSecretGroupArray []VaultSecretGroupInput
+
+func (VaultSecretGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultSecretGroup)(nil)).Elem()
+}
+
+func (i VaultSecretGroupArray) ToVaultSecretGroupArrayOutput() VaultSecretGroupArrayOutput {
+	return i.ToVaultSecretGroupArrayOutputWithContext(context.Background())
+}
+
+func (i VaultSecretGroupArray) ToVaultSecretGroupArrayOutputWithContext(ctx context.Context) VaultSecretGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupArrayOutput)
+}
+
+// Specifies set of certificates that should be installed onto the virtual machines.
+type VaultSecretGroupOutput struct{ *pulumi.OutputState }
+
+func (VaultSecretGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultSecretGroup)(nil)).Elem()
+}
+
+func (o VaultSecretGroupOutput) ToVaultSecretGroupOutput() VaultSecretGroupOutput {
+	return o
+}
+
+func (o VaultSecretGroupOutput) ToVaultSecretGroupOutputWithContext(ctx context.Context) VaultSecretGroupOutput {
+	return o
+}
+
+// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+func (o VaultSecretGroupOutput) SourceVault() SubResourceOutput {
+	return o.ApplyT(func(v VaultSecretGroup) SubResource { return v.SourceVault }).(SubResourceOutput)
+}
+
+// The list of key vault references in SourceVault which contain certificates.
+func (o VaultSecretGroupOutput) VaultCertificates() VaultCertificateArrayOutput {
+	return o.ApplyT(func(v VaultSecretGroup) []VaultCertificate { return v.VaultCertificates }).(VaultCertificateArrayOutput)
+}
+
+type VaultSecretGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (VaultSecretGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultSecretGroup)(nil)).Elem()
+}
+
+func (o VaultSecretGroupArrayOutput) ToVaultSecretGroupArrayOutput() VaultSecretGroupArrayOutput {
+	return o
+}
+
+func (o VaultSecretGroupArrayOutput) ToVaultSecretGroupArrayOutputWithContext(ctx context.Context) VaultSecretGroupArrayOutput {
+	return o
+}
+
+func (o VaultSecretGroupArrayOutput) Index(i pulumi.IntInput) VaultSecretGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultSecretGroup {
+		return vs[0].([]VaultSecretGroup)[vs[1].(int)]
+	}).(VaultSecretGroupOutput)
+}
+
+// Specifies set of certificates that should be installed onto the virtual machines.
+type VaultSecretGroupResponse struct {
+	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+	SourceVault SubResourceResponse `pulumi:"sourceVault"`
+	// The list of key vault references in SourceVault which contain certificates.
+	VaultCertificates []VaultCertificateResponse `pulumi:"vaultCertificates"`
+}
+
+// VaultSecretGroupResponseInput is an input type that accepts VaultSecretGroupResponseArgs and VaultSecretGroupResponseOutput values.
+// You can construct a concrete instance of `VaultSecretGroupResponseInput` via:
+//
+//          VaultSecretGroupResponseArgs{...}
+type VaultSecretGroupResponseInput interface {
+	pulumi.Input
+
+	ToVaultSecretGroupResponseOutput() VaultSecretGroupResponseOutput
+	ToVaultSecretGroupResponseOutputWithContext(context.Context) VaultSecretGroupResponseOutput
+}
+
+// Specifies set of certificates that should be installed onto the virtual machines.
+type VaultSecretGroupResponseArgs struct {
+	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+	SourceVault SubResourceResponseInput `pulumi:"sourceVault"`
+	// The list of key vault references in SourceVault which contain certificates.
+	VaultCertificates VaultCertificateResponseArrayInput `pulumi:"vaultCertificates"`
+}
+
+func (VaultSecretGroupResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultSecretGroupResponse)(nil)).Elem()
+}
+
+func (i VaultSecretGroupResponseArgs) ToVaultSecretGroupResponseOutput() VaultSecretGroupResponseOutput {
+	return i.ToVaultSecretGroupResponseOutputWithContext(context.Background())
+}
+
+func (i VaultSecretGroupResponseArgs) ToVaultSecretGroupResponseOutputWithContext(ctx context.Context) VaultSecretGroupResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupResponseOutput)
+}
+
+// VaultSecretGroupResponseArrayInput is an input type that accepts VaultSecretGroupResponseArray and VaultSecretGroupResponseArrayOutput values.
+// You can construct a concrete instance of `VaultSecretGroupResponseArrayInput` via:
+//
+//          VaultSecretGroupResponseArray{ VaultSecretGroupResponseArgs{...} }
+type VaultSecretGroupResponseArrayInput interface {
+	pulumi.Input
+
+	ToVaultSecretGroupResponseArrayOutput() VaultSecretGroupResponseArrayOutput
+	ToVaultSecretGroupResponseArrayOutputWithContext(context.Context) VaultSecretGroupResponseArrayOutput
+}
+
+type VaultSecretGroupResponseArray []VaultSecretGroupResponseInput
+
+func (VaultSecretGroupResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultSecretGroupResponse)(nil)).Elem()
+}
+
+func (i VaultSecretGroupResponseArray) ToVaultSecretGroupResponseArrayOutput() VaultSecretGroupResponseArrayOutput {
+	return i.ToVaultSecretGroupResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VaultSecretGroupResponseArray) ToVaultSecretGroupResponseArrayOutputWithContext(ctx context.Context) VaultSecretGroupResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupResponseArrayOutput)
+}
+
+// Specifies set of certificates that should be installed onto the virtual machines.
+type VaultSecretGroupResponseOutput struct{ *pulumi.OutputState }
+
+func (VaultSecretGroupResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultSecretGroupResponse)(nil)).Elem()
+}
+
+func (o VaultSecretGroupResponseOutput) ToVaultSecretGroupResponseOutput() VaultSecretGroupResponseOutput {
+	return o
+}
+
+func (o VaultSecretGroupResponseOutput) ToVaultSecretGroupResponseOutputWithContext(ctx context.Context) VaultSecretGroupResponseOutput {
+	return o
+}
+
+// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+func (o VaultSecretGroupResponseOutput) SourceVault() SubResourceResponseOutput {
+	return o.ApplyT(func(v VaultSecretGroupResponse) SubResourceResponse { return v.SourceVault }).(SubResourceResponseOutput)
+}
+
+// The list of key vault references in SourceVault which contain certificates.
+func (o VaultSecretGroupResponseOutput) VaultCertificates() VaultCertificateResponseArrayOutput {
+	return o.ApplyT(func(v VaultSecretGroupResponse) []VaultCertificateResponse { return v.VaultCertificates }).(VaultCertificateResponseArrayOutput)
+}
+
+type VaultSecretGroupResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VaultSecretGroupResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultSecretGroupResponse)(nil)).Elem()
+}
+
+func (o VaultSecretGroupResponseArrayOutput) ToVaultSecretGroupResponseArrayOutput() VaultSecretGroupResponseArrayOutput {
+	return o
+}
+
+func (o VaultSecretGroupResponseArrayOutput) ToVaultSecretGroupResponseArrayOutputWithContext(ctx context.Context) VaultSecretGroupResponseArrayOutput {
+	return o
+}
+
+func (o VaultSecretGroupResponseArrayOutput) Index(i pulumi.IntInput) VaultSecretGroupResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultSecretGroupResponse {
+		return vs[0].([]VaultSecretGroupResponse)[vs[1].(int)]
+	}).(VaultSecretGroupResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapOutput{})
@@ -10162,10 +11855,14 @@ func init() {
 	pulumi.RegisterOutputType(CertificateDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(CertificateDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(CertificateDescriptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ClientCertificateOutput{})
+	pulumi.RegisterOutputType(ClientCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateCommonNameOutput{})
 	pulumi.RegisterOutputType(ClientCertificateCommonNameArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateCommonNameResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertificateCommonNameResponseArrayOutput{})
+	pulumi.RegisterOutputType(ClientCertificateResponseOutput{})
+	pulumi.RegisterOutputType(ClientCertificateResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseOutput{})
@@ -10192,6 +11889,10 @@ func init() {
 	pulumi.RegisterOutputType(EndpointRangeDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancingRuleOutput{})
+	pulumi.RegisterOutputType(LoadBalancingRuleArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancingRuleResponseOutput{})
+	pulumi.RegisterOutputType(LoadBalancingRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityResponseOutput{})
@@ -10244,8 +11945,26 @@ func init() {
 	pulumi.RegisterOutputType(SettingsSectionDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(SingletonPartitionSchemeDescriptionOutput{})
 	pulumi.RegisterOutputType(SingletonPartitionSchemeDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(SkuOutput{})
+	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuResponseOutput{})
+	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SubResourceOutput{})
+	pulumi.RegisterOutputType(SubResourceResponseOutput{})
 	pulumi.RegisterOutputType(UniformInt64RangePartitionSchemeDescriptionOutput{})
 	pulumi.RegisterOutputType(UniformInt64RangePartitionSchemeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
+	pulumi.RegisterOutputType(VMSSExtensionOutput{})
+	pulumi.RegisterOutputType(VMSSExtensionArrayOutput{})
+	pulumi.RegisterOutputType(VMSSExtensionResponseOutput{})
+	pulumi.RegisterOutputType(VMSSExtensionResponseArrayOutput{})
+	pulumi.RegisterOutputType(VaultCertificateOutput{})
+	pulumi.RegisterOutputType(VaultCertificateArrayOutput{})
+	pulumi.RegisterOutputType(VaultCertificateResponseOutput{})
+	pulumi.RegisterOutputType(VaultCertificateResponseArrayOutput{})
+	pulumi.RegisterOutputType(VaultSecretGroupOutput{})
+	pulumi.RegisterOutputType(VaultSecretGroupArrayOutput{})
+	pulumi.RegisterOutputType(VaultSecretGroupResponseOutput{})
+	pulumi.RegisterOutputType(VaultSecretGroupResponseArrayOutput{})
 }

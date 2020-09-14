@@ -45,6 +45,12 @@ func NewToken(ctx *pulumi.Context,
 	if args == nil {
 		args = &TokenArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerregistry/latest:Token"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Token
 	err := ctx.RegisterResource("azurerm:containerregistry/v20190501preview:Token", name, args, &resource, opts...)
 	if err != nil {

@@ -33,6 +33,8 @@ type LookupReplicationResult struct {
 	Name string `pulumi:"name"`
 	// The provisioning state of the replication at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+	RegionEndpointEnabled *bool `pulumi:"regionEndpointEnabled"`
 	// The status of the replication at the time the operation was called.
 	Status StatusResponse `pulumi:"status"`
 	// The tags of the resource.

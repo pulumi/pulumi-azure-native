@@ -37,12 +37,6 @@ func NewLinkedWorkspace(ctx *pulumi.Context,
 	if args == nil {
 		args = &LinkedWorkspaceArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:machinelearningservices/latest:LinkedWorkspace"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource LinkedWorkspace
 	err := ctx.RegisterResource("azurerm:machinelearningservices/v20200301:LinkedWorkspace", name, args, &resource, opts...)
 	if err != nil {

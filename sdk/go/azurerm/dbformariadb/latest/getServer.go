@@ -17,7 +17,7 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 }
 
 type LookupServerArgs struct {
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
@@ -31,16 +31,14 @@ type LookupServerResult struct {
 	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
+	// The Azure Active Directory identity of the server.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId *string `pulumi:"masterServerId"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// List of private endpoint connections on a server
-	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a master server can have.
 	ReplicaCapacity *int `pulumi:"replicaCapacity"`
 	// The replication role of the server.

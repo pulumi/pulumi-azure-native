@@ -47,6 +47,8 @@ import (
 type MongoDBResourceMongoDBDatabase struct {
 	pulumi.CustomResourceState
 
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the ARM resource.
@@ -120,6 +122,8 @@ func GetMongoDBResourceMongoDBDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MongoDBResourceMongoDBDatabase resources.
 type mongoDBResourceMongoDBDatabaseState struct {
+	// Identity for the resource.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the ARM resource.
@@ -133,6 +137,8 @@ type mongoDBResourceMongoDBDatabaseState struct {
 }
 
 type MongoDBResourceMongoDBDatabaseState struct {
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// The name of the ARM resource.
@@ -154,6 +160,8 @@ type mongoDBResourceMongoDBDatabaseArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
+	// Identity for the resource.
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
@@ -172,6 +180,8 @@ type MongoDBResourceMongoDBDatabaseArgs struct {
 	AccountName pulumi.StringInput
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
+	// Identity for the resource.
+	Identity ManagedServiceIdentityPtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.

@@ -13,7 +13,7 @@ import (
 // Represents a Database.
 //
 // ## Example Usage
-// ### DatabaseCreate
+// ### Create a database
 //
 // ```go
 // package main
@@ -70,10 +70,7 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:dbformysql/v20171201:Database"),
-		},
-		{
-			Type: pulumi.String("azurerm:dbformysql/v20171201preview:Database"),
+			Type: pulumi.String("azurerm:dbformysql/v20200701privatepreview:Database"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -12,8 +12,12 @@ import (
 
 // Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type Authorization struct {
+	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
 	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 	PrincipalId string `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
 	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
@@ -31,8 +35,12 @@ type AuthorizationInput interface {
 
 // Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationArgs struct {
+	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
 	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
 	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
@@ -89,9 +97,19 @@ func (o AuthorizationOutput) ToAuthorizationOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+func (o AuthorizationOutput) DelegatedRoleDefinitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Authorization) []string { return v.DelegatedRoleDefinitionIds }).(pulumi.StringArrayOutput)
+}
+
 // Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 func (o AuthorizationOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v Authorization) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Display name of the principal Id.
+func (o AuthorizationOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Authorization) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
@@ -121,8 +139,12 @@ func (o AuthorizationArrayOutput) Index(i pulumi.IntInput) AuthorizationOutput {
 
 // Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponse struct {
+	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
 	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 	PrincipalId string `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
 	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
@@ -140,8 +162,12 @@ type AuthorizationResponseInput interface {
 
 // Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponseArgs struct {
+	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
 	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
 	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
@@ -198,9 +224,19 @@ func (o AuthorizationResponseOutput) ToAuthorizationResponseOutputWithContext(ct
 	return o
 }
 
+// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+func (o AuthorizationResponseOutput) DelegatedRoleDefinitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthorizationResponse) []string { return v.DelegatedRoleDefinitionIds }).(pulumi.StringArrayOutput)
+}
+
 // Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
 func (o AuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Display name of the principal Id.
+func (o AuthorizationResponseOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthorizationResponse) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
@@ -226,6 +262,566 @@ func (o AuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Authorization
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthorizationResponse {
 		return vs[0].([]AuthorizationResponse)[vs[1].(int)]
 	}).(AuthorizationResponseOutput)
+}
+
+// Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
+type EligibleAuthorization struct {
+	// Just-in-time access policy setting.
+	JustInTimeAccessPolicy *JustInTimeAccessPolicy `pulumi:"justInTimeAccessPolicy"`
+	// Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
+	PrincipalId string `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
+	// The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// EligibleAuthorizationInput is an input type that accepts EligibleAuthorizationArgs and EligibleAuthorizationOutput values.
+// You can construct a concrete instance of `EligibleAuthorizationInput` via:
+//
+//          EligibleAuthorizationArgs{...}
+type EligibleAuthorizationInput interface {
+	pulumi.Input
+
+	ToEligibleAuthorizationOutput() EligibleAuthorizationOutput
+	ToEligibleAuthorizationOutputWithContext(context.Context) EligibleAuthorizationOutput
+}
+
+// Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
+type EligibleAuthorizationArgs struct {
+	// Just-in-time access policy setting.
+	JustInTimeAccessPolicy JustInTimeAccessPolicyPtrInput `pulumi:"justInTimeAccessPolicy"`
+	// Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
+	// The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (EligibleAuthorizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EligibleAuthorization)(nil)).Elem()
+}
+
+func (i EligibleAuthorizationArgs) ToEligibleAuthorizationOutput() EligibleAuthorizationOutput {
+	return i.ToEligibleAuthorizationOutputWithContext(context.Background())
+}
+
+func (i EligibleAuthorizationArgs) ToEligibleAuthorizationOutputWithContext(ctx context.Context) EligibleAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EligibleAuthorizationOutput)
+}
+
+// EligibleAuthorizationArrayInput is an input type that accepts EligibleAuthorizationArray and EligibleAuthorizationArrayOutput values.
+// You can construct a concrete instance of `EligibleAuthorizationArrayInput` via:
+//
+//          EligibleAuthorizationArray{ EligibleAuthorizationArgs{...} }
+type EligibleAuthorizationArrayInput interface {
+	pulumi.Input
+
+	ToEligibleAuthorizationArrayOutput() EligibleAuthorizationArrayOutput
+	ToEligibleAuthorizationArrayOutputWithContext(context.Context) EligibleAuthorizationArrayOutput
+}
+
+type EligibleAuthorizationArray []EligibleAuthorizationInput
+
+func (EligibleAuthorizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EligibleAuthorization)(nil)).Elem()
+}
+
+func (i EligibleAuthorizationArray) ToEligibleAuthorizationArrayOutput() EligibleAuthorizationArrayOutput {
+	return i.ToEligibleAuthorizationArrayOutputWithContext(context.Background())
+}
+
+func (i EligibleAuthorizationArray) ToEligibleAuthorizationArrayOutputWithContext(ctx context.Context) EligibleAuthorizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EligibleAuthorizationArrayOutput)
+}
+
+// Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
+type EligibleAuthorizationOutput struct{ *pulumi.OutputState }
+
+func (EligibleAuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EligibleAuthorization)(nil)).Elem()
+}
+
+func (o EligibleAuthorizationOutput) ToEligibleAuthorizationOutput() EligibleAuthorizationOutput {
+	return o
+}
+
+func (o EligibleAuthorizationOutput) ToEligibleAuthorizationOutputWithContext(ctx context.Context) EligibleAuthorizationOutput {
+	return o
+}
+
+// Just-in-time access policy setting.
+func (o EligibleAuthorizationOutput) JustInTimeAccessPolicy() JustInTimeAccessPolicyPtrOutput {
+	return o.ApplyT(func(v EligibleAuthorization) *JustInTimeAccessPolicy { return v.JustInTimeAccessPolicy }).(JustInTimeAccessPolicyPtrOutput)
+}
+
+// Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
+func (o EligibleAuthorizationOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v EligibleAuthorization) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Display name of the principal Id.
+func (o EligibleAuthorizationOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EligibleAuthorization) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+func (o EligibleAuthorizationOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v EligibleAuthorization) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type EligibleAuthorizationArrayOutput struct{ *pulumi.OutputState }
+
+func (EligibleAuthorizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EligibleAuthorization)(nil)).Elem()
+}
+
+func (o EligibleAuthorizationArrayOutput) ToEligibleAuthorizationArrayOutput() EligibleAuthorizationArrayOutput {
+	return o
+}
+
+func (o EligibleAuthorizationArrayOutput) ToEligibleAuthorizationArrayOutputWithContext(ctx context.Context) EligibleAuthorizationArrayOutput {
+	return o
+}
+
+func (o EligibleAuthorizationArrayOutput) Index(i pulumi.IntInput) EligibleAuthorizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EligibleAuthorization {
+		return vs[0].([]EligibleAuthorization)[vs[1].(int)]
+	}).(EligibleAuthorizationOutput)
+}
+
+// Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
+type EligibleAuthorizationResponse struct {
+	// Just-in-time access policy setting.
+	JustInTimeAccessPolicy *JustInTimeAccessPolicyResponse `pulumi:"justInTimeAccessPolicy"`
+	// Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
+	PrincipalId string `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
+	// The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// EligibleAuthorizationResponseInput is an input type that accepts EligibleAuthorizationResponseArgs and EligibleAuthorizationResponseOutput values.
+// You can construct a concrete instance of `EligibleAuthorizationResponseInput` via:
+//
+//          EligibleAuthorizationResponseArgs{...}
+type EligibleAuthorizationResponseInput interface {
+	pulumi.Input
+
+	ToEligibleAuthorizationResponseOutput() EligibleAuthorizationResponseOutput
+	ToEligibleAuthorizationResponseOutputWithContext(context.Context) EligibleAuthorizationResponseOutput
+}
+
+// Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
+type EligibleAuthorizationResponseArgs struct {
+	// Just-in-time access policy setting.
+	JustInTimeAccessPolicy JustInTimeAccessPolicyResponsePtrInput `pulumi:"justInTimeAccessPolicy"`
+	// Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
+	// The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (EligibleAuthorizationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EligibleAuthorizationResponse)(nil)).Elem()
+}
+
+func (i EligibleAuthorizationResponseArgs) ToEligibleAuthorizationResponseOutput() EligibleAuthorizationResponseOutput {
+	return i.ToEligibleAuthorizationResponseOutputWithContext(context.Background())
+}
+
+func (i EligibleAuthorizationResponseArgs) ToEligibleAuthorizationResponseOutputWithContext(ctx context.Context) EligibleAuthorizationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EligibleAuthorizationResponseOutput)
+}
+
+// EligibleAuthorizationResponseArrayInput is an input type that accepts EligibleAuthorizationResponseArray and EligibleAuthorizationResponseArrayOutput values.
+// You can construct a concrete instance of `EligibleAuthorizationResponseArrayInput` via:
+//
+//          EligibleAuthorizationResponseArray{ EligibleAuthorizationResponseArgs{...} }
+type EligibleAuthorizationResponseArrayInput interface {
+	pulumi.Input
+
+	ToEligibleAuthorizationResponseArrayOutput() EligibleAuthorizationResponseArrayOutput
+	ToEligibleAuthorizationResponseArrayOutputWithContext(context.Context) EligibleAuthorizationResponseArrayOutput
+}
+
+type EligibleAuthorizationResponseArray []EligibleAuthorizationResponseInput
+
+func (EligibleAuthorizationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EligibleAuthorizationResponse)(nil)).Elem()
+}
+
+func (i EligibleAuthorizationResponseArray) ToEligibleAuthorizationResponseArrayOutput() EligibleAuthorizationResponseArrayOutput {
+	return i.ToEligibleAuthorizationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EligibleAuthorizationResponseArray) ToEligibleAuthorizationResponseArrayOutputWithContext(ctx context.Context) EligibleAuthorizationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EligibleAuthorizationResponseArrayOutput)
+}
+
+// Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
+type EligibleAuthorizationResponseOutput struct{ *pulumi.OutputState }
+
+func (EligibleAuthorizationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EligibleAuthorizationResponse)(nil)).Elem()
+}
+
+func (o EligibleAuthorizationResponseOutput) ToEligibleAuthorizationResponseOutput() EligibleAuthorizationResponseOutput {
+	return o
+}
+
+func (o EligibleAuthorizationResponseOutput) ToEligibleAuthorizationResponseOutputWithContext(ctx context.Context) EligibleAuthorizationResponseOutput {
+	return o
+}
+
+// Just-in-time access policy setting.
+func (o EligibleAuthorizationResponseOutput) JustInTimeAccessPolicy() JustInTimeAccessPolicyResponsePtrOutput {
+	return o.ApplyT(func(v EligibleAuthorizationResponse) *JustInTimeAccessPolicyResponse { return v.JustInTimeAccessPolicy }).(JustInTimeAccessPolicyResponsePtrOutput)
+}
+
+// Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
+func (o EligibleAuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v EligibleAuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Display name of the principal Id.
+func (o EligibleAuthorizationResponseOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EligibleAuthorizationResponse) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+func (o EligibleAuthorizationResponseOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v EligibleAuthorizationResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type EligibleAuthorizationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EligibleAuthorizationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EligibleAuthorizationResponse)(nil)).Elem()
+}
+
+func (o EligibleAuthorizationResponseArrayOutput) ToEligibleAuthorizationResponseArrayOutput() EligibleAuthorizationResponseArrayOutput {
+	return o
+}
+
+func (o EligibleAuthorizationResponseArrayOutput) ToEligibleAuthorizationResponseArrayOutputWithContext(ctx context.Context) EligibleAuthorizationResponseArrayOutput {
+	return o
+}
+
+func (o EligibleAuthorizationResponseArrayOutput) Index(i pulumi.IntInput) EligibleAuthorizationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EligibleAuthorizationResponse {
+		return vs[0].([]EligibleAuthorizationResponse)[vs[1].(int)]
+	}).(EligibleAuthorizationResponseOutput)
+}
+
+// Just-in-time access policy setting.
+type JustInTimeAccessPolicy struct {
+	// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+	MaximumActivationDuration *string `pulumi:"maximumActivationDuration"`
+	// MFA provider.
+	MultiFactorAuthProvider string `pulumi:"multiFactorAuthProvider"`
+}
+
+// JustInTimeAccessPolicyInput is an input type that accepts JustInTimeAccessPolicyArgs and JustInTimeAccessPolicyOutput values.
+// You can construct a concrete instance of `JustInTimeAccessPolicyInput` via:
+//
+//          JustInTimeAccessPolicyArgs{...}
+type JustInTimeAccessPolicyInput interface {
+	pulumi.Input
+
+	ToJustInTimeAccessPolicyOutput() JustInTimeAccessPolicyOutput
+	ToJustInTimeAccessPolicyOutputWithContext(context.Context) JustInTimeAccessPolicyOutput
+}
+
+// Just-in-time access policy setting.
+type JustInTimeAccessPolicyArgs struct {
+	// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+	MaximumActivationDuration pulumi.StringPtrInput `pulumi:"maximumActivationDuration"`
+	// MFA provider.
+	MultiFactorAuthProvider pulumi.StringInput `pulumi:"multiFactorAuthProvider"`
+}
+
+func (JustInTimeAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JustInTimeAccessPolicy)(nil)).Elem()
+}
+
+func (i JustInTimeAccessPolicyArgs) ToJustInTimeAccessPolicyOutput() JustInTimeAccessPolicyOutput {
+	return i.ToJustInTimeAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i JustInTimeAccessPolicyArgs) ToJustInTimeAccessPolicyOutputWithContext(ctx context.Context) JustInTimeAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JustInTimeAccessPolicyOutput)
+}
+
+func (i JustInTimeAccessPolicyArgs) ToJustInTimeAccessPolicyPtrOutput() JustInTimeAccessPolicyPtrOutput {
+	return i.ToJustInTimeAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i JustInTimeAccessPolicyArgs) ToJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JustInTimeAccessPolicyOutput).ToJustInTimeAccessPolicyPtrOutputWithContext(ctx)
+}
+
+// JustInTimeAccessPolicyPtrInput is an input type that accepts JustInTimeAccessPolicyArgs, JustInTimeAccessPolicyPtr and JustInTimeAccessPolicyPtrOutput values.
+// You can construct a concrete instance of `JustInTimeAccessPolicyPtrInput` via:
+//
+//          JustInTimeAccessPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type JustInTimeAccessPolicyPtrInput interface {
+	pulumi.Input
+
+	ToJustInTimeAccessPolicyPtrOutput() JustInTimeAccessPolicyPtrOutput
+	ToJustInTimeAccessPolicyPtrOutputWithContext(context.Context) JustInTimeAccessPolicyPtrOutput
+}
+
+type justInTimeAccessPolicyPtrType JustInTimeAccessPolicyArgs
+
+func JustInTimeAccessPolicyPtr(v *JustInTimeAccessPolicyArgs) JustInTimeAccessPolicyPtrInput {
+	return (*justInTimeAccessPolicyPtrType)(v)
+}
+
+func (*justInTimeAccessPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JustInTimeAccessPolicy)(nil)).Elem()
+}
+
+func (i *justInTimeAccessPolicyPtrType) ToJustInTimeAccessPolicyPtrOutput() JustInTimeAccessPolicyPtrOutput {
+	return i.ToJustInTimeAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *justInTimeAccessPolicyPtrType) ToJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JustInTimeAccessPolicyPtrOutput)
+}
+
+// Just-in-time access policy setting.
+type JustInTimeAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (JustInTimeAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JustInTimeAccessPolicy)(nil)).Elem()
+}
+
+func (o JustInTimeAccessPolicyOutput) ToJustInTimeAccessPolicyOutput() JustInTimeAccessPolicyOutput {
+	return o
+}
+
+func (o JustInTimeAccessPolicyOutput) ToJustInTimeAccessPolicyOutputWithContext(ctx context.Context) JustInTimeAccessPolicyOutput {
+	return o
+}
+
+func (o JustInTimeAccessPolicyOutput) ToJustInTimeAccessPolicyPtrOutput() JustInTimeAccessPolicyPtrOutput {
+	return o.ToJustInTimeAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o JustInTimeAccessPolicyOutput) ToJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyPtrOutput {
+	return o.ApplyT(func(v JustInTimeAccessPolicy) *JustInTimeAccessPolicy {
+		return &v
+	}).(JustInTimeAccessPolicyPtrOutput)
+}
+
+// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+func (o JustInTimeAccessPolicyOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JustInTimeAccessPolicy) *string { return v.MaximumActivationDuration }).(pulumi.StringPtrOutput)
+}
+
+// MFA provider.
+func (o JustInTimeAccessPolicyOutput) MultiFactorAuthProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v JustInTimeAccessPolicy) string { return v.MultiFactorAuthProvider }).(pulumi.StringOutput)
+}
+
+type JustInTimeAccessPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (JustInTimeAccessPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JustInTimeAccessPolicy)(nil)).Elem()
+}
+
+func (o JustInTimeAccessPolicyPtrOutput) ToJustInTimeAccessPolicyPtrOutput() JustInTimeAccessPolicyPtrOutput {
+	return o
+}
+
+func (o JustInTimeAccessPolicyPtrOutput) ToJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyPtrOutput {
+	return o
+}
+
+func (o JustInTimeAccessPolicyPtrOutput) Elem() JustInTimeAccessPolicyOutput {
+	return o.ApplyT(func(v *JustInTimeAccessPolicy) JustInTimeAccessPolicy { return *v }).(JustInTimeAccessPolicyOutput)
+}
+
+// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+func (o JustInTimeAccessPolicyPtrOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JustInTimeAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumActivationDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// MFA provider.
+func (o JustInTimeAccessPolicyPtrOutput) MultiFactorAuthProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JustInTimeAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MultiFactorAuthProvider
+	}).(pulumi.StringPtrOutput)
+}
+
+// Just-in-time access policy setting.
+type JustInTimeAccessPolicyResponse struct {
+	// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+	MaximumActivationDuration *string `pulumi:"maximumActivationDuration"`
+	// MFA provider.
+	MultiFactorAuthProvider string `pulumi:"multiFactorAuthProvider"`
+}
+
+// JustInTimeAccessPolicyResponseInput is an input type that accepts JustInTimeAccessPolicyResponseArgs and JustInTimeAccessPolicyResponseOutput values.
+// You can construct a concrete instance of `JustInTimeAccessPolicyResponseInput` via:
+//
+//          JustInTimeAccessPolicyResponseArgs{...}
+type JustInTimeAccessPolicyResponseInput interface {
+	pulumi.Input
+
+	ToJustInTimeAccessPolicyResponseOutput() JustInTimeAccessPolicyResponseOutput
+	ToJustInTimeAccessPolicyResponseOutputWithContext(context.Context) JustInTimeAccessPolicyResponseOutput
+}
+
+// Just-in-time access policy setting.
+type JustInTimeAccessPolicyResponseArgs struct {
+	// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+	MaximumActivationDuration pulumi.StringPtrInput `pulumi:"maximumActivationDuration"`
+	// MFA provider.
+	MultiFactorAuthProvider pulumi.StringInput `pulumi:"multiFactorAuthProvider"`
+}
+
+func (JustInTimeAccessPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JustInTimeAccessPolicyResponse)(nil)).Elem()
+}
+
+func (i JustInTimeAccessPolicyResponseArgs) ToJustInTimeAccessPolicyResponseOutput() JustInTimeAccessPolicyResponseOutput {
+	return i.ToJustInTimeAccessPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i JustInTimeAccessPolicyResponseArgs) ToJustInTimeAccessPolicyResponseOutputWithContext(ctx context.Context) JustInTimeAccessPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JustInTimeAccessPolicyResponseOutput)
+}
+
+func (i JustInTimeAccessPolicyResponseArgs) ToJustInTimeAccessPolicyResponsePtrOutput() JustInTimeAccessPolicyResponsePtrOutput {
+	return i.ToJustInTimeAccessPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i JustInTimeAccessPolicyResponseArgs) ToJustInTimeAccessPolicyResponsePtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JustInTimeAccessPolicyResponseOutput).ToJustInTimeAccessPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// JustInTimeAccessPolicyResponsePtrInput is an input type that accepts JustInTimeAccessPolicyResponseArgs, JustInTimeAccessPolicyResponsePtr and JustInTimeAccessPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `JustInTimeAccessPolicyResponsePtrInput` via:
+//
+//          JustInTimeAccessPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type JustInTimeAccessPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToJustInTimeAccessPolicyResponsePtrOutput() JustInTimeAccessPolicyResponsePtrOutput
+	ToJustInTimeAccessPolicyResponsePtrOutputWithContext(context.Context) JustInTimeAccessPolicyResponsePtrOutput
+}
+
+type justInTimeAccessPolicyResponsePtrType JustInTimeAccessPolicyResponseArgs
+
+func JustInTimeAccessPolicyResponsePtr(v *JustInTimeAccessPolicyResponseArgs) JustInTimeAccessPolicyResponsePtrInput {
+	return (*justInTimeAccessPolicyResponsePtrType)(v)
+}
+
+func (*justInTimeAccessPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JustInTimeAccessPolicyResponse)(nil)).Elem()
+}
+
+func (i *justInTimeAccessPolicyResponsePtrType) ToJustInTimeAccessPolicyResponsePtrOutput() JustInTimeAccessPolicyResponsePtrOutput {
+	return i.ToJustInTimeAccessPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *justInTimeAccessPolicyResponsePtrType) ToJustInTimeAccessPolicyResponsePtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JustInTimeAccessPolicyResponsePtrOutput)
+}
+
+// Just-in-time access policy setting.
+type JustInTimeAccessPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (JustInTimeAccessPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JustInTimeAccessPolicyResponse)(nil)).Elem()
+}
+
+func (o JustInTimeAccessPolicyResponseOutput) ToJustInTimeAccessPolicyResponseOutput() JustInTimeAccessPolicyResponseOutput {
+	return o
+}
+
+func (o JustInTimeAccessPolicyResponseOutput) ToJustInTimeAccessPolicyResponseOutputWithContext(ctx context.Context) JustInTimeAccessPolicyResponseOutput {
+	return o
+}
+
+func (o JustInTimeAccessPolicyResponseOutput) ToJustInTimeAccessPolicyResponsePtrOutput() JustInTimeAccessPolicyResponsePtrOutput {
+	return o.ToJustInTimeAccessPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o JustInTimeAccessPolicyResponseOutput) ToJustInTimeAccessPolicyResponsePtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyResponsePtrOutput {
+	return o.ApplyT(func(v JustInTimeAccessPolicyResponse) *JustInTimeAccessPolicyResponse {
+		return &v
+	}).(JustInTimeAccessPolicyResponsePtrOutput)
+}
+
+// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+func (o JustInTimeAccessPolicyResponseOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JustInTimeAccessPolicyResponse) *string { return v.MaximumActivationDuration }).(pulumi.StringPtrOutput)
+}
+
+// MFA provider.
+func (o JustInTimeAccessPolicyResponseOutput) MultiFactorAuthProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v JustInTimeAccessPolicyResponse) string { return v.MultiFactorAuthProvider }).(pulumi.StringOutput)
+}
+
+type JustInTimeAccessPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (JustInTimeAccessPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JustInTimeAccessPolicyResponse)(nil)).Elem()
+}
+
+func (o JustInTimeAccessPolicyResponsePtrOutput) ToJustInTimeAccessPolicyResponsePtrOutput() JustInTimeAccessPolicyResponsePtrOutput {
+	return o
+}
+
+func (o JustInTimeAccessPolicyResponsePtrOutput) ToJustInTimeAccessPolicyResponsePtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyResponsePtrOutput {
+	return o
+}
+
+func (o JustInTimeAccessPolicyResponsePtrOutput) Elem() JustInTimeAccessPolicyResponseOutput {
+	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) JustInTimeAccessPolicyResponse { return *v }).(JustInTimeAccessPolicyResponseOutput)
+}
+
+// Maximum access duration in ISO 8601 format.  The default value is "PT8H".
+func (o JustInTimeAccessPolicyResponsePtrOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumActivationDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// MFA provider.
+func (o JustInTimeAccessPolicyResponsePtrOutput) MultiFactorAuthProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MultiFactorAuthProvider
+	}).(pulumi.StringPtrOutput)
 }
 
 // Plan details for the managed services.
@@ -924,6 +1520,8 @@ type RegistrationAssignmentPropertiesResponseProperties struct {
 	Authorizations []AuthorizationResponse `pulumi:"authorizations"`
 	// Description of the registration definition.
 	Description *string `pulumi:"description"`
+	// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+	EligibleAuthorizations []EligibleAuthorizationResponse `pulumi:"eligibleAuthorizations"`
 	// Id of the managedBy tenant.
 	ManagedByTenantId *string `pulumi:"managedByTenantId"`
 	// Name of the managedBy tenant.
@@ -955,6 +1553,8 @@ type RegistrationAssignmentPropertiesResponsePropertiesArgs struct {
 	Authorizations AuthorizationResponseArrayInput `pulumi:"authorizations"`
 	// Description of the registration definition.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+	EligibleAuthorizations EligibleAuthorizationResponseArrayInput `pulumi:"eligibleAuthorizations"`
 	// Id of the managedBy tenant.
 	ManagedByTenantId pulumi.StringPtrInput `pulumi:"managedByTenantId"`
 	// Name of the managedBy tenant.
@@ -1059,6 +1659,13 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Description() 
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) EligibleAuthorizations() EligibleAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) []EligibleAuthorizationResponse {
+		return v.EligibleAuthorizations
+	}).(EligibleAuthorizationResponseArrayOutput)
+}
+
 // Id of the managedBy tenant.
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManagedByTenantId }).(pulumi.StringPtrOutput)
@@ -1129,6 +1736,16 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Description
 		}
 		return v.Description
 	}).(pulumi.StringPtrOutput)
+}
+
+// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) EligibleAuthorizations() EligibleAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) []EligibleAuthorizationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EligibleAuthorizations
+	}).(EligibleAuthorizationResponseArrayOutput)
 }
 
 // Id of the managedBy tenant.
@@ -1411,6 +2028,8 @@ type RegistrationDefinitionProperties struct {
 	Authorizations []Authorization `pulumi:"authorizations"`
 	// Description of the registration definition.
 	Description *string `pulumi:"description"`
+	// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+	EligibleAuthorizations []EligibleAuthorization `pulumi:"eligibleAuthorizations"`
 	// Id of the managedBy tenant.
 	ManagedByTenantId string `pulumi:"managedByTenantId"`
 	// Name of the registration definition.
@@ -1434,6 +2053,8 @@ type RegistrationDefinitionPropertiesArgs struct {
 	Authorizations AuthorizationArrayInput `pulumi:"authorizations"`
 	// Description of the registration definition.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+	EligibleAuthorizations EligibleAuthorizationArrayInput `pulumi:"eligibleAuthorizations"`
 	// Id of the managedBy tenant.
 	ManagedByTenantId pulumi.StringInput `pulumi:"managedByTenantId"`
 	// Name of the registration definition.
@@ -1528,6 +2149,11 @@ func (o RegistrationDefinitionPropertiesOutput) Description() pulumi.StringPtrOu
 	return o.ApplyT(func(v RegistrationDefinitionProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+func (o RegistrationDefinitionPropertiesOutput) EligibleAuthorizations() EligibleAuthorizationArrayOutput {
+	return o.ApplyT(func(v RegistrationDefinitionProperties) []EligibleAuthorization { return v.EligibleAuthorizations }).(EligibleAuthorizationArrayOutput)
+}
+
 // Id of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesOutput) ManagedByTenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionProperties) string { return v.ManagedByTenantId }).(pulumi.StringOutput)
@@ -1576,6 +2202,16 @@ func (o RegistrationDefinitionPropertiesPtrOutput) Description() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+func (o RegistrationDefinitionPropertiesPtrOutput) EligibleAuthorizations() EligibleAuthorizationArrayOutput {
+	return o.ApplyT(func(v *RegistrationDefinitionProperties) []EligibleAuthorization {
+		if v == nil {
+			return nil
+		}
+		return v.EligibleAuthorizations
+	}).(EligibleAuthorizationArrayOutput)
+}
+
 // Id of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesPtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionProperties) *string {
@@ -1602,6 +2238,8 @@ type RegistrationDefinitionPropertiesResponse struct {
 	Authorizations []AuthorizationResponse `pulumi:"authorizations"`
 	// Description of the registration definition.
 	Description *string `pulumi:"description"`
+	// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+	EligibleAuthorizations []EligibleAuthorizationResponse `pulumi:"eligibleAuthorizations"`
 	// Id of the managedBy tenant.
 	ManagedByTenantId string `pulumi:"managedByTenantId"`
 	// Name of the managedBy tenant.
@@ -1629,6 +2267,8 @@ type RegistrationDefinitionPropertiesResponseArgs struct {
 	Authorizations AuthorizationResponseArrayInput `pulumi:"authorizations"`
 	// Description of the registration definition.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+	EligibleAuthorizations EligibleAuthorizationResponseArrayInput `pulumi:"eligibleAuthorizations"`
 	// Id of the managedBy tenant.
 	ManagedByTenantId pulumi.StringInput `pulumi:"managedByTenantId"`
 	// Name of the managedBy tenant.
@@ -1727,6 +2367,13 @@ func (o RegistrationDefinitionPropertiesResponseOutput) Description() pulumi.Str
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+func (o RegistrationDefinitionPropertiesResponseOutput) EligibleAuthorizations() EligibleAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) []EligibleAuthorizationResponse {
+		return v.EligibleAuthorizations
+	}).(EligibleAuthorizationResponseArrayOutput)
+}
+
 // Id of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesResponseOutput) ManagedByTenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ManagedByTenantId }).(pulumi.StringOutput)
@@ -1785,6 +2432,16 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) Description() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+func (o RegistrationDefinitionPropertiesResponsePtrOutput) EligibleAuthorizations() EligibleAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) []EligibleAuthorizationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EligibleAuthorizations
+	}).(EligibleAuthorizationResponseArrayOutput)
+}
+
 // Id of the managedBy tenant.
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
@@ -1830,6 +2487,14 @@ func init() {
 	pulumi.RegisterOutputType(AuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(AuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(AuthorizationResponseArrayOutput{})
+	pulumi.RegisterOutputType(EligibleAuthorizationOutput{})
+	pulumi.RegisterOutputType(EligibleAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(EligibleAuthorizationResponseOutput{})
+	pulumi.RegisterOutputType(EligibleAuthorizationResponseArrayOutput{})
+	pulumi.RegisterOutputType(JustInTimeAccessPolicyOutput{})
+	pulumi.RegisterOutputType(JustInTimeAccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(JustInTimeAccessPolicyResponseOutput{})
+	pulumi.RegisterOutputType(JustInTimeAccessPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(PlanOutput{})
 	pulumi.RegisterOutputType(PlanPtrOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})

@@ -49,8 +49,14 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
+	// Cluster ARM ID of the Namespace.
+	ClusterArmId pulumi.StringPtrOutput `pulumi:"clusterArmId"`
 	// The time the Namespace was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Properties of BYOK Encryption description
+	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled pulumi.BoolPtrOutput `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
@@ -75,6 +81,8 @@ type Namespace struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The time the Namespace was updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -126,8 +134,14 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
+	// Cluster ARM ID of the Namespace.
+	ClusterArmId *string `pulumi:"clusterArmId"`
 	// The time the Namespace was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// Properties of BYOK Encryption description
+	Encryption *EncryptionResponse `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity *IdentityResponse `pulumi:"identity"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
@@ -152,11 +166,19 @@ type namespaceState struct {
 	Type *string `pulumi:"type"`
 	// The time the Namespace was updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
+	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type NamespaceState struct {
+	// Cluster ARM ID of the Namespace.
+	ClusterArmId pulumi.StringPtrInput
 	// The time the Namespace was created.
 	CreatedAt pulumi.StringPtrInput
+	// Properties of BYOK Encryption description
+	Encryption EncryptionResponsePtrInput
+	// Properties of BYOK Identity description
+	Identity IdentityResponsePtrInput
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled pulumi.BoolPtrInput
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
@@ -181,6 +203,8 @@ type NamespaceState struct {
 	Type pulumi.StringPtrInput
 	// The time the Namespace was updated.
 	UpdatedAt pulumi.StringPtrInput
+	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -188,6 +212,12 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
+	// Cluster ARM ID of the Namespace.
+	ClusterArmId *string `pulumi:"clusterArmId"`
+	// Properties of BYOK Encryption description
+	Encryption *Encryption `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity *Identity `pulumi:"identity"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
@@ -204,10 +234,18 @@ type namespaceArgs struct {
 	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
+	// Cluster ARM ID of the Namespace.
+	ClusterArmId pulumi.StringPtrInput
+	// Properties of BYOK Encryption description
+	Encryption EncryptionPtrInput
+	// Properties of BYOK Identity description
+	Identity IdentityPtrInput
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled pulumi.BoolPtrInput
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
@@ -224,6 +262,8 @@ type NamespaceArgs struct {
 	Sku SkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {

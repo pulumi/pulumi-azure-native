@@ -44,6 +44,12 @@ func NewPrivateAtlase(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateAtlaseArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:maps/latest:PrivateAtlase"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateAtlase
 	err := ctx.RegisterResource("azurerm:maps/v20200201preview:PrivateAtlase", name, args, &resource, opts...)
 	if err != nil {

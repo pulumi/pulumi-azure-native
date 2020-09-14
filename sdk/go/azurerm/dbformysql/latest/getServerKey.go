@@ -19,7 +19,7 @@ func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pul
 type LookupServerKeyArgs struct {
 	// The name of the MySQL Server key to be retrieved.
 	KeyName string `pulumi:"keyName"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
@@ -29,7 +29,7 @@ type LookupServerKeyArgs struct {
 type LookupServerKeyResult struct {
 	// The key creation date.
 	CreationDate string `pulumi:"creationDate"`
-	// Kind of encryption protector used to protect the key.
+	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// The name of the resource
 	Name string `pulumi:"name"`

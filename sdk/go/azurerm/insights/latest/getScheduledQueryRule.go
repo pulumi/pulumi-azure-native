@@ -23,28 +23,33 @@ type LookupScheduledQueryRuleArgs struct {
 	RuleName string `pulumi:"ruleName"`
 }
 
-// The Log Search Rule resource.
+// The scheduled query rule resource.
 type LookupScheduledQueryRuleResult struct {
-	// Action needs to be taken on rule execution.
-	Action interface{} `pulumi:"action"`
-	// The description of the Log Search rule.
+	Actions []ActionResponse `pulumi:"actions"`
+	// The rule criteria that defines the conditions of the scheduled query rule.
+	Criteria *ScheduledQueryRuleCriteriaResponse `pulumi:"criteria"`
+	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
-	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-	Enabled *string `pulumi:"enabled"`
-	// Last time the rule was updated in IS08601 format.
-	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
-	// Resource location
+	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
+	Enabled *bool `pulumi:"enabled"`
+	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
+	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// Azure resource name
+	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+	MuteActionsDuration *string `pulumi:"muteActionsDuration"`
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Provisioning state of the scheduled query rule
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-	Schedule *ScheduleResponse `pulumi:"schedule"`
-	// Data Source against which rule will Query Data
-	Source SourceResponse `pulumi:"source"`
-	// Resource tags
+	// The list of resource id's that this scheduled query rule is scoped to.
+	Scopes []string `pulumi:"scopes"`
+	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
+	Severity *float64 `pulumi:"severity"`
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
+	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+	TargetResourceTypes []string `pulumi:"targetResourceTypes"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+	// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+	WindowSize *string `pulumi:"windowSize"`
 }

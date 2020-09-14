@@ -31,6 +31,8 @@ type LookupSqlResourceSqlTriggerArgs struct {
 
 // An Azure Cosmos DB trigger.
 type LookupSqlResourceSqlTriggerResult struct {
+	// Identity for the resource.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the ARM resource.

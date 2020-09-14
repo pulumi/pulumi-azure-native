@@ -30,18 +30,24 @@ type ListTaskDetailsArgs struct {
 type ListTaskDetailsResult struct {
 	// The machine configuration of the run agent.
 	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the task.
+	AgentPoolName *string `pulumi:"agentPoolName"`
 	// The creation date of task.
 	CreationDate string `pulumi:"creationDate"`
 	// The properties that describes a set of credentials that will be used when this run is invoked.
 	Credentials *CredentialsResponse `pulumi:"credentials"`
 	// Identity for the resource.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask *bool `pulumi:"isSystemTask"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesResponse `pulumi:"platform"`
+	Platform *PlatformPropertiesResponse `pulumi:"platform"`
 	// The provisioning state of the task.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The current status of task.

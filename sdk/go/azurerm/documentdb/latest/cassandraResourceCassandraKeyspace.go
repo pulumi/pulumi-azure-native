@@ -47,6 +47,8 @@ import (
 type CassandraResourceCassandraKeyspace struct {
 	pulumi.CustomResourceState
 
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the ARM resource.
@@ -120,6 +122,8 @@ func GetCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CassandraResourceCassandraKeyspace resources.
 type cassandraResourceCassandraKeyspaceState struct {
+	// Identity for the resource.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the ARM resource.
@@ -133,6 +137,8 @@ type cassandraResourceCassandraKeyspaceState struct {
 }
 
 type CassandraResourceCassandraKeyspaceState struct {
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// The name of the ARM resource.
@@ -152,6 +158,8 @@ func (CassandraResourceCassandraKeyspaceState) ElementType() reflect.Type {
 type cassandraResourceCassandraKeyspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
+	// Identity for the resource.
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// Cosmos DB keyspace name.
 	KeyspaceName string `pulumi:"keyspaceName"`
 	// The location of the resource group to which the resource belongs.
@@ -170,6 +178,8 @@ type cassandraResourceCassandraKeyspaceArgs struct {
 type CassandraResourceCassandraKeyspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
+	// Identity for the resource.
+	Identity ManagedServiceIdentityPtrInput
 	// Cosmos DB keyspace name.
 	KeyspaceName pulumi.StringInput
 	// The location of the resource group to which the resource belongs.

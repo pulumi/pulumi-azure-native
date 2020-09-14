@@ -53,8 +53,6 @@ type LookupWorkspaceResult struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the resource.
 	Name string `pulumi:"name"`
-	// The notebook info of Azure ML workspace.
-	NotebookInfo NotebookResourceInfoResponse `pulumi:"notebookInfo"`
 	// The list of private endpoint connections in the workspace.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Count of private connections in the workspace

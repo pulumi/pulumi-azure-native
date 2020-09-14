@@ -70,7 +70,7 @@ type Subscription struct {
 	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
 	// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
 	State pulumi.StringOutput `pulumi:"state"`
-	// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+	// Optional subscription comment added by an administrator.
 	StateComment pulumi.StringPtrOutput `pulumi:"stateComment"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -172,7 +172,7 @@ type subscriptionState struct {
 	StartDate *string `pulumi:"startDate"`
 	// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
 	State *string `pulumi:"state"`
-	// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+	// Optional subscription comment added by an administrator.
 	StateComment *string `pulumi:"stateComment"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
@@ -205,7 +205,7 @@ type SubscriptionState struct {
 	StartDate pulumi.StringPtrInput
 	// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
 	State pulumi.StringPtrInput
-	// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+	// Optional subscription comment added by an administrator.
 	StateComment pulumi.StringPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
@@ -218,8 +218,6 @@ func (SubscriptionState) ElementType() reflect.Type {
 type subscriptionArgs struct {
 	// Determines whether tracing can be enabled
 	AllowTracing *bool `pulumi:"allowTracing"`
-	// Determines the type of application which send the create user request. Default is legacy publisher portal.
-	AppType *string `pulumi:"appType"`
 	// Subscription name.
 	DisplayName string `pulumi:"displayName"`
 	// Notify change in Subscription State.
@@ -248,8 +246,6 @@ type subscriptionArgs struct {
 type SubscriptionArgs struct {
 	// Determines whether tracing can be enabled
 	AllowTracing pulumi.BoolPtrInput
-	// Determines the type of application which send the create user request. Default is legacy publisher portal.
-	AppType pulumi.StringPtrInput
 	// Subscription name.
 	DisplayName pulumi.StringInput
 	// Notify change in Subscription State.

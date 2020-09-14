@@ -464,6 +464,846 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 	}).(IPRuleResponseOutput)
 }
 
+// Properties of the managed HSM Pool
+type ManagedHsmProperties struct {
+	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+	CreateMode *string `pulumi:"createMode"`
+	// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
+	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
+	// The URI of the managed hsm pool for performing operations on keys.
+	HsmPoolUri *string `pulumi:"hsmPoolUri"`
+	// Array of initial administrators object ids for this managed hsm pool.
+	InitialAdminObjectIds []string `pulumi:"initialAdminObjectIds"`
+	// softDelete data retention days. It accepts >=7 and <=90.
+	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ManagedHsmPropertiesInput is an input type that accepts ManagedHsmPropertiesArgs and ManagedHsmPropertiesOutput values.
+// You can construct a concrete instance of `ManagedHsmPropertiesInput` via:
+//
+//          ManagedHsmPropertiesArgs{...}
+type ManagedHsmPropertiesInput interface {
+	pulumi.Input
+
+	ToManagedHsmPropertiesOutput() ManagedHsmPropertiesOutput
+	ToManagedHsmPropertiesOutputWithContext(context.Context) ManagedHsmPropertiesOutput
+}
+
+// Properties of the managed HSM Pool
+type ManagedHsmPropertiesArgs struct {
+	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
+	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
+	// The URI of the managed hsm pool for performing operations on keys.
+	HsmPoolUri pulumi.StringPtrInput `pulumi:"hsmPoolUri"`
+	// Array of initial administrators object ids for this managed hsm pool.
+	InitialAdminObjectIds pulumi.StringArrayInput `pulumi:"initialAdminObjectIds"`
+	// softDelete data retention days. It accepts >=7 and <=90.
+	SoftDeleteRetentionInDays pulumi.IntPtrInput `pulumi:"softDeleteRetentionInDays"`
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ManagedHsmPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsmProperties)(nil)).Elem()
+}
+
+func (i ManagedHsmPropertiesArgs) ToManagedHsmPropertiesOutput() ManagedHsmPropertiesOutput {
+	return i.ToManagedHsmPropertiesOutputWithContext(context.Background())
+}
+
+func (i ManagedHsmPropertiesArgs) ToManagedHsmPropertiesOutputWithContext(ctx context.Context) ManagedHsmPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmPropertiesOutput)
+}
+
+func (i ManagedHsmPropertiesArgs) ToManagedHsmPropertiesPtrOutput() ManagedHsmPropertiesPtrOutput {
+	return i.ToManagedHsmPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedHsmPropertiesArgs) ToManagedHsmPropertiesPtrOutputWithContext(ctx context.Context) ManagedHsmPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmPropertiesOutput).ToManagedHsmPropertiesPtrOutputWithContext(ctx)
+}
+
+// ManagedHsmPropertiesPtrInput is an input type that accepts ManagedHsmPropertiesArgs, ManagedHsmPropertiesPtr and ManagedHsmPropertiesPtrOutput values.
+// You can construct a concrete instance of `ManagedHsmPropertiesPtrInput` via:
+//
+//          ManagedHsmPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedHsmPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToManagedHsmPropertiesPtrOutput() ManagedHsmPropertiesPtrOutput
+	ToManagedHsmPropertiesPtrOutputWithContext(context.Context) ManagedHsmPropertiesPtrOutput
+}
+
+type managedHsmPropertiesPtrType ManagedHsmPropertiesArgs
+
+func ManagedHsmPropertiesPtr(v *ManagedHsmPropertiesArgs) ManagedHsmPropertiesPtrInput {
+	return (*managedHsmPropertiesPtrType)(v)
+}
+
+func (*managedHsmPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedHsmProperties)(nil)).Elem()
+}
+
+func (i *managedHsmPropertiesPtrType) ToManagedHsmPropertiesPtrOutput() ManagedHsmPropertiesPtrOutput {
+	return i.ToManagedHsmPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *managedHsmPropertiesPtrType) ToManagedHsmPropertiesPtrOutputWithContext(ctx context.Context) ManagedHsmPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmPropertiesPtrOutput)
+}
+
+// Properties of the managed HSM Pool
+type ManagedHsmPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ManagedHsmPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsmProperties)(nil)).Elem()
+}
+
+func (o ManagedHsmPropertiesOutput) ToManagedHsmPropertiesOutput() ManagedHsmPropertiesOutput {
+	return o
+}
+
+func (o ManagedHsmPropertiesOutput) ToManagedHsmPropertiesOutputWithContext(ctx context.Context) ManagedHsmPropertiesOutput {
+	return o
+}
+
+func (o ManagedHsmPropertiesOutput) ToManagedHsmPropertiesPtrOutput() ManagedHsmPropertiesPtrOutput {
+	return o.ToManagedHsmPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedHsmPropertiesOutput) ToManagedHsmPropertiesPtrOutputWithContext(ctx context.Context) ManagedHsmPropertiesPtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *ManagedHsmProperties {
+		return &v
+	}).(ManagedHsmPropertiesPtrOutput)
+}
+
+// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+func (o ManagedHsmPropertiesOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+func (o ManagedHsmPropertiesOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *bool { return v.EnablePurgeProtection }).(pulumi.BoolPtrOutput)
+}
+
+// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+func (o ManagedHsmPropertiesOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *bool { return v.EnableSoftDelete }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the managed hsm pool for performing operations on keys.
+func (o ManagedHsmPropertiesOutput) HsmPoolUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *string { return v.HsmPoolUri }).(pulumi.StringPtrOutput)
+}
+
+// Array of initial administrators object ids for this managed hsm pool.
+func (o ManagedHsmPropertiesOutput) InitialAdminObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) []string { return v.InitialAdminObjectIds }).(pulumi.StringArrayOutput)
+}
+
+// softDelete data retention days. It accepts >=7 and <=90.
+func (o ManagedHsmPropertiesOutput) SoftDeleteRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *int { return v.SoftDeleteRetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+func (o ManagedHsmPropertiesOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedHsmPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedHsmPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedHsmProperties)(nil)).Elem()
+}
+
+func (o ManagedHsmPropertiesPtrOutput) ToManagedHsmPropertiesPtrOutput() ManagedHsmPropertiesPtrOutput {
+	return o
+}
+
+func (o ManagedHsmPropertiesPtrOutput) ToManagedHsmPropertiesPtrOutputWithContext(ctx context.Context) ManagedHsmPropertiesPtrOutput {
+	return o
+}
+
+func (o ManagedHsmPropertiesPtrOutput) Elem() ManagedHsmPropertiesOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) ManagedHsmProperties { return *v }).(ManagedHsmPropertiesOutput)
+}
+
+// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+func (o ManagedHsmPropertiesPtrOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+func (o ManagedHsmPropertiesPtrOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnablePurgeProtection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+func (o ManagedHsmPropertiesPtrOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableSoftDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the managed hsm pool for performing operations on keys.
+func (o ManagedHsmPropertiesPtrOutput) HsmPoolUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HsmPoolUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of initial administrators object ids for this managed hsm pool.
+func (o ManagedHsmPropertiesPtrOutput) InitialAdminObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InitialAdminObjectIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// softDelete data retention days. It accepts >=7 and <=90.
+func (o ManagedHsmPropertiesPtrOutput) SoftDeleteRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SoftDeleteRetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+func (o ManagedHsmPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the managed HSM Pool
+type ManagedHsmPropertiesResponse struct {
+	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+	CreateMode *string `pulumi:"createMode"`
+	// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
+	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+	EnableSoftDelete *bool `pulumi:"enableSoftDelete"`
+	// The URI of the managed hsm pool for performing operations on keys.
+	HsmPoolUri *string `pulumi:"hsmPoolUri"`
+	// Array of initial administrators object ids for this managed hsm pool.
+	InitialAdminObjectIds []string `pulumi:"initialAdminObjectIds"`
+	// Provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// softDelete data retention days. It accepts >=7 and <=90.
+	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
+	// Resource Status Message.
+	StatusMessage string `pulumi:"statusMessage"`
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ManagedHsmPropertiesResponseInput is an input type that accepts ManagedHsmPropertiesResponseArgs and ManagedHsmPropertiesResponseOutput values.
+// You can construct a concrete instance of `ManagedHsmPropertiesResponseInput` via:
+//
+//          ManagedHsmPropertiesResponseArgs{...}
+type ManagedHsmPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToManagedHsmPropertiesResponseOutput() ManagedHsmPropertiesResponseOutput
+	ToManagedHsmPropertiesResponseOutputWithContext(context.Context) ManagedHsmPropertiesResponseOutput
+}
+
+// Properties of the managed HSM Pool
+type ManagedHsmPropertiesResponseArgs struct {
+	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
+	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+	EnableSoftDelete pulumi.BoolPtrInput `pulumi:"enableSoftDelete"`
+	// The URI of the managed hsm pool for performing operations on keys.
+	HsmPoolUri pulumi.StringPtrInput `pulumi:"hsmPoolUri"`
+	// Array of initial administrators object ids for this managed hsm pool.
+	InitialAdminObjectIds pulumi.StringArrayInput `pulumi:"initialAdminObjectIds"`
+	// Provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// softDelete data retention days. It accepts >=7 and <=90.
+	SoftDeleteRetentionInDays pulumi.IntPtrInput `pulumi:"softDeleteRetentionInDays"`
+	// Resource Status Message.
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ManagedHsmPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsmPropertiesResponse)(nil)).Elem()
+}
+
+func (i ManagedHsmPropertiesResponseArgs) ToManagedHsmPropertiesResponseOutput() ManagedHsmPropertiesResponseOutput {
+	return i.ToManagedHsmPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedHsmPropertiesResponseArgs) ToManagedHsmPropertiesResponseOutputWithContext(ctx context.Context) ManagedHsmPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmPropertiesResponseOutput)
+}
+
+func (i ManagedHsmPropertiesResponseArgs) ToManagedHsmPropertiesResponsePtrOutput() ManagedHsmPropertiesResponsePtrOutput {
+	return i.ToManagedHsmPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedHsmPropertiesResponseArgs) ToManagedHsmPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedHsmPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmPropertiesResponseOutput).ToManagedHsmPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedHsmPropertiesResponsePtrInput is an input type that accepts ManagedHsmPropertiesResponseArgs, ManagedHsmPropertiesResponsePtr and ManagedHsmPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedHsmPropertiesResponsePtrInput` via:
+//
+//          ManagedHsmPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedHsmPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedHsmPropertiesResponsePtrOutput() ManagedHsmPropertiesResponsePtrOutput
+	ToManagedHsmPropertiesResponsePtrOutputWithContext(context.Context) ManagedHsmPropertiesResponsePtrOutput
+}
+
+type managedHsmPropertiesResponsePtrType ManagedHsmPropertiesResponseArgs
+
+func ManagedHsmPropertiesResponsePtr(v *ManagedHsmPropertiesResponseArgs) ManagedHsmPropertiesResponsePtrInput {
+	return (*managedHsmPropertiesResponsePtrType)(v)
+}
+
+func (*managedHsmPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedHsmPropertiesResponse)(nil)).Elem()
+}
+
+func (i *managedHsmPropertiesResponsePtrType) ToManagedHsmPropertiesResponsePtrOutput() ManagedHsmPropertiesResponsePtrOutput {
+	return i.ToManagedHsmPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedHsmPropertiesResponsePtrType) ToManagedHsmPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedHsmPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmPropertiesResponsePtrOutput)
+}
+
+// Properties of the managed HSM Pool
+type ManagedHsmPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedHsmPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsmPropertiesResponse)(nil)).Elem()
+}
+
+func (o ManagedHsmPropertiesResponseOutput) ToManagedHsmPropertiesResponseOutput() ManagedHsmPropertiesResponseOutput {
+	return o
+}
+
+func (o ManagedHsmPropertiesResponseOutput) ToManagedHsmPropertiesResponseOutputWithContext(ctx context.Context) ManagedHsmPropertiesResponseOutput {
+	return o
+}
+
+func (o ManagedHsmPropertiesResponseOutput) ToManagedHsmPropertiesResponsePtrOutput() ManagedHsmPropertiesResponsePtrOutput {
+	return o.ToManagedHsmPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedHsmPropertiesResponseOutput) ToManagedHsmPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedHsmPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *ManagedHsmPropertiesResponse {
+		return &v
+	}).(ManagedHsmPropertiesResponsePtrOutput)
+}
+
+// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+func (o ManagedHsmPropertiesResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+func (o ManagedHsmPropertiesResponseOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *bool { return v.EnablePurgeProtection }).(pulumi.BoolPtrOutput)
+}
+
+// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+func (o ManagedHsmPropertiesResponseOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *bool { return v.EnableSoftDelete }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the managed hsm pool for performing operations on keys.
+func (o ManagedHsmPropertiesResponseOutput) HsmPoolUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *string { return v.HsmPoolUri }).(pulumi.StringPtrOutput)
+}
+
+// Array of initial administrators object ids for this managed hsm pool.
+func (o ManagedHsmPropertiesResponseOutput) InitialAdminObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) []string { return v.InitialAdminObjectIds }).(pulumi.StringArrayOutput)
+}
+
+// Provisioning state.
+func (o ManagedHsmPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// softDelete data retention days. It accepts >=7 and <=90.
+func (o ManagedHsmPropertiesResponseOutput) SoftDeleteRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *int { return v.SoftDeleteRetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// Resource Status Message.
+func (o ManagedHsmPropertiesResponseOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+func (o ManagedHsmPropertiesResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedHsmPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedHsmPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedHsmPropertiesResponse)(nil)).Elem()
+}
+
+func (o ManagedHsmPropertiesResponsePtrOutput) ToManagedHsmPropertiesResponsePtrOutput() ManagedHsmPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ManagedHsmPropertiesResponsePtrOutput) ToManagedHsmPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedHsmPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ManagedHsmPropertiesResponsePtrOutput) Elem() ManagedHsmPropertiesResponseOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) ManagedHsmPropertiesResponse { return *v }).(ManagedHsmPropertiesResponseOutput)
+}
+
+// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+func (o ManagedHsmPropertiesResponsePtrOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+func (o ManagedHsmPropertiesResponsePtrOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnablePurgeProtection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+func (o ManagedHsmPropertiesResponsePtrOutput) EnableSoftDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableSoftDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the managed hsm pool for performing operations on keys.
+func (o ManagedHsmPropertiesResponsePtrOutput) HsmPoolUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HsmPoolUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of initial administrators object ids for this managed hsm pool.
+func (o ManagedHsmPropertiesResponsePtrOutput) InitialAdminObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InitialAdminObjectIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Provisioning state.
+func (o ManagedHsmPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// softDelete data retention days. It accepts >=7 and <=90.
+func (o ManagedHsmPropertiesResponsePtrOutput) SoftDeleteRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SoftDeleteRetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource Status Message.
+func (o ManagedHsmPropertiesResponsePtrOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
+func (o ManagedHsmPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// SKU details
+type ManagedHsmSku struct {
+	// SKU Family of the managed HSM Pool
+	Family string `pulumi:"family"`
+	// SKU of the managed HSM Pool
+	Name string `pulumi:"name"`
+}
+
+// ManagedHsmSkuInput is an input type that accepts ManagedHsmSkuArgs and ManagedHsmSkuOutput values.
+// You can construct a concrete instance of `ManagedHsmSkuInput` via:
+//
+//          ManagedHsmSkuArgs{...}
+type ManagedHsmSkuInput interface {
+	pulumi.Input
+
+	ToManagedHsmSkuOutput() ManagedHsmSkuOutput
+	ToManagedHsmSkuOutputWithContext(context.Context) ManagedHsmSkuOutput
+}
+
+// SKU details
+type ManagedHsmSkuArgs struct {
+	// SKU Family of the managed HSM Pool
+	Family pulumi.StringInput `pulumi:"family"`
+	// SKU of the managed HSM Pool
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ManagedHsmSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsmSku)(nil)).Elem()
+}
+
+func (i ManagedHsmSkuArgs) ToManagedHsmSkuOutput() ManagedHsmSkuOutput {
+	return i.ToManagedHsmSkuOutputWithContext(context.Background())
+}
+
+func (i ManagedHsmSkuArgs) ToManagedHsmSkuOutputWithContext(ctx context.Context) ManagedHsmSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmSkuOutput)
+}
+
+func (i ManagedHsmSkuArgs) ToManagedHsmSkuPtrOutput() ManagedHsmSkuPtrOutput {
+	return i.ToManagedHsmSkuPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedHsmSkuArgs) ToManagedHsmSkuPtrOutputWithContext(ctx context.Context) ManagedHsmSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmSkuOutput).ToManagedHsmSkuPtrOutputWithContext(ctx)
+}
+
+// ManagedHsmSkuPtrInput is an input type that accepts ManagedHsmSkuArgs, ManagedHsmSkuPtr and ManagedHsmSkuPtrOutput values.
+// You can construct a concrete instance of `ManagedHsmSkuPtrInput` via:
+//
+//          ManagedHsmSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedHsmSkuPtrInput interface {
+	pulumi.Input
+
+	ToManagedHsmSkuPtrOutput() ManagedHsmSkuPtrOutput
+	ToManagedHsmSkuPtrOutputWithContext(context.Context) ManagedHsmSkuPtrOutput
+}
+
+type managedHsmSkuPtrType ManagedHsmSkuArgs
+
+func ManagedHsmSkuPtr(v *ManagedHsmSkuArgs) ManagedHsmSkuPtrInput {
+	return (*managedHsmSkuPtrType)(v)
+}
+
+func (*managedHsmSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedHsmSku)(nil)).Elem()
+}
+
+func (i *managedHsmSkuPtrType) ToManagedHsmSkuPtrOutput() ManagedHsmSkuPtrOutput {
+	return i.ToManagedHsmSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *managedHsmSkuPtrType) ToManagedHsmSkuPtrOutputWithContext(ctx context.Context) ManagedHsmSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmSkuPtrOutput)
+}
+
+// SKU details
+type ManagedHsmSkuOutput struct{ *pulumi.OutputState }
+
+func (ManagedHsmSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsmSku)(nil)).Elem()
+}
+
+func (o ManagedHsmSkuOutput) ToManagedHsmSkuOutput() ManagedHsmSkuOutput {
+	return o
+}
+
+func (o ManagedHsmSkuOutput) ToManagedHsmSkuOutputWithContext(ctx context.Context) ManagedHsmSkuOutput {
+	return o
+}
+
+func (o ManagedHsmSkuOutput) ToManagedHsmSkuPtrOutput() ManagedHsmSkuPtrOutput {
+	return o.ToManagedHsmSkuPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedHsmSkuOutput) ToManagedHsmSkuPtrOutputWithContext(ctx context.Context) ManagedHsmSkuPtrOutput {
+	return o.ApplyT(func(v ManagedHsmSku) *ManagedHsmSku {
+		return &v
+	}).(ManagedHsmSkuPtrOutput)
+}
+
+// SKU Family of the managed HSM Pool
+func (o ManagedHsmSkuOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHsmSku) string { return v.Family }).(pulumi.StringOutput)
+}
+
+// SKU of the managed HSM Pool
+func (o ManagedHsmSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHsmSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ManagedHsmSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedHsmSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedHsmSku)(nil)).Elem()
+}
+
+func (o ManagedHsmSkuPtrOutput) ToManagedHsmSkuPtrOutput() ManagedHsmSkuPtrOutput {
+	return o
+}
+
+func (o ManagedHsmSkuPtrOutput) ToManagedHsmSkuPtrOutputWithContext(ctx context.Context) ManagedHsmSkuPtrOutput {
+	return o
+}
+
+func (o ManagedHsmSkuPtrOutput) Elem() ManagedHsmSkuOutput {
+	return o.ApplyT(func(v *ManagedHsmSku) ManagedHsmSku { return *v }).(ManagedHsmSkuOutput)
+}
+
+// SKU Family of the managed HSM Pool
+func (o ManagedHsmSkuPtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// SKU of the managed HSM Pool
+func (o ManagedHsmSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// SKU details
+type ManagedHsmSkuResponse struct {
+	// SKU Family of the managed HSM Pool
+	Family string `pulumi:"family"`
+	// SKU of the managed HSM Pool
+	Name string `pulumi:"name"`
+}
+
+// ManagedHsmSkuResponseInput is an input type that accepts ManagedHsmSkuResponseArgs and ManagedHsmSkuResponseOutput values.
+// You can construct a concrete instance of `ManagedHsmSkuResponseInput` via:
+//
+//          ManagedHsmSkuResponseArgs{...}
+type ManagedHsmSkuResponseInput interface {
+	pulumi.Input
+
+	ToManagedHsmSkuResponseOutput() ManagedHsmSkuResponseOutput
+	ToManagedHsmSkuResponseOutputWithContext(context.Context) ManagedHsmSkuResponseOutput
+}
+
+// SKU details
+type ManagedHsmSkuResponseArgs struct {
+	// SKU Family of the managed HSM Pool
+	Family pulumi.StringInput `pulumi:"family"`
+	// SKU of the managed HSM Pool
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ManagedHsmSkuResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsmSkuResponse)(nil)).Elem()
+}
+
+func (i ManagedHsmSkuResponseArgs) ToManagedHsmSkuResponseOutput() ManagedHsmSkuResponseOutput {
+	return i.ToManagedHsmSkuResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedHsmSkuResponseArgs) ToManagedHsmSkuResponseOutputWithContext(ctx context.Context) ManagedHsmSkuResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmSkuResponseOutput)
+}
+
+func (i ManagedHsmSkuResponseArgs) ToManagedHsmSkuResponsePtrOutput() ManagedHsmSkuResponsePtrOutput {
+	return i.ToManagedHsmSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedHsmSkuResponseArgs) ToManagedHsmSkuResponsePtrOutputWithContext(ctx context.Context) ManagedHsmSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmSkuResponseOutput).ToManagedHsmSkuResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedHsmSkuResponsePtrInput is an input type that accepts ManagedHsmSkuResponseArgs, ManagedHsmSkuResponsePtr and ManagedHsmSkuResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedHsmSkuResponsePtrInput` via:
+//
+//          ManagedHsmSkuResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedHsmSkuResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedHsmSkuResponsePtrOutput() ManagedHsmSkuResponsePtrOutput
+	ToManagedHsmSkuResponsePtrOutputWithContext(context.Context) ManagedHsmSkuResponsePtrOutput
+}
+
+type managedHsmSkuResponsePtrType ManagedHsmSkuResponseArgs
+
+func ManagedHsmSkuResponsePtr(v *ManagedHsmSkuResponseArgs) ManagedHsmSkuResponsePtrInput {
+	return (*managedHsmSkuResponsePtrType)(v)
+}
+
+func (*managedHsmSkuResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedHsmSkuResponse)(nil)).Elem()
+}
+
+func (i *managedHsmSkuResponsePtrType) ToManagedHsmSkuResponsePtrOutput() ManagedHsmSkuResponsePtrOutput {
+	return i.ToManagedHsmSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedHsmSkuResponsePtrType) ToManagedHsmSkuResponsePtrOutputWithContext(ctx context.Context) ManagedHsmSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmSkuResponsePtrOutput)
+}
+
+// SKU details
+type ManagedHsmSkuResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedHsmSkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHsmSkuResponse)(nil)).Elem()
+}
+
+func (o ManagedHsmSkuResponseOutput) ToManagedHsmSkuResponseOutput() ManagedHsmSkuResponseOutput {
+	return o
+}
+
+func (o ManagedHsmSkuResponseOutput) ToManagedHsmSkuResponseOutputWithContext(ctx context.Context) ManagedHsmSkuResponseOutput {
+	return o
+}
+
+func (o ManagedHsmSkuResponseOutput) ToManagedHsmSkuResponsePtrOutput() ManagedHsmSkuResponsePtrOutput {
+	return o.ToManagedHsmSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedHsmSkuResponseOutput) ToManagedHsmSkuResponsePtrOutputWithContext(ctx context.Context) ManagedHsmSkuResponsePtrOutput {
+	return o.ApplyT(func(v ManagedHsmSkuResponse) *ManagedHsmSkuResponse {
+		return &v
+	}).(ManagedHsmSkuResponsePtrOutput)
+}
+
+// SKU Family of the managed HSM Pool
+func (o ManagedHsmSkuResponseOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHsmSkuResponse) string { return v.Family }).(pulumi.StringOutput)
+}
+
+// SKU of the managed HSM Pool
+func (o ManagedHsmSkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHsmSkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ManagedHsmSkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedHsmSkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedHsmSkuResponse)(nil)).Elem()
+}
+
+func (o ManagedHsmSkuResponsePtrOutput) ToManagedHsmSkuResponsePtrOutput() ManagedHsmSkuResponsePtrOutput {
+	return o
+}
+
+func (o ManagedHsmSkuResponsePtrOutput) ToManagedHsmSkuResponsePtrOutputWithContext(ctx context.Context) ManagedHsmSkuResponsePtrOutput {
+	return o
+}
+
+func (o ManagedHsmSkuResponsePtrOutput) Elem() ManagedHsmSkuResponseOutput {
+	return o.ApplyT(func(v *ManagedHsmSkuResponse) ManagedHsmSkuResponse { return *v }).(ManagedHsmSkuResponseOutput)
+}
+
+// SKU Family of the managed HSM Pool
+func (o ManagedHsmSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// SKU of the managed HSM Pool
+func (o ManagedHsmSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsmSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // A set of rules governing the network accessibility of a vault.
 type NetworkRuleSet struct {
 	// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
@@ -2870,6 +3710,14 @@ func init() {
 	pulumi.RegisterOutputType(IPRuleArrayOutput{})
 	pulumi.RegisterOutputType(IPRuleResponseOutput{})
 	pulumi.RegisterOutputType(IPRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedHsmPropertiesOutput{})
+	pulumi.RegisterOutputType(ManagedHsmPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ManagedHsmPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ManagedHsmPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedHsmSkuOutput{})
+	pulumi.RegisterOutputType(ManagedHsmSkuPtrOutput{})
+	pulumi.RegisterOutputType(ManagedHsmSkuResponseOutput{})
+	pulumi.RegisterOutputType(ManagedHsmSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})

@@ -41,6 +41,12 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &IpFirewallRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:synapse/latest:IpFirewallRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IpFirewallRule
 	err := ctx.RegisterResource("azurerm:synapse/v20190601preview:IpFirewallRule", name, args, &resource, opts...)
 	if err != nil {

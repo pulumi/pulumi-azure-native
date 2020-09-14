@@ -1284,8 +1284,12 @@ func (o ParameterValuesValueResponseMapOutput) MapIndex(k pulumi.StringInput) Pa
 type Permission struct {
 	// Allowed actions.
 	Actions []string `pulumi:"actions"`
+	// Allowed Data actions.
+	DataActions []string `pulumi:"dataActions"`
 	// Denied actions.
 	NotActions []string `pulumi:"notActions"`
+	// Denied Data actions.
+	NotDataActions []string `pulumi:"notDataActions"`
 }
 
 // PermissionInput is an input type that accepts PermissionArgs and PermissionOutput values.
@@ -1303,8 +1307,12 @@ type PermissionInput interface {
 type PermissionArgs struct {
 	// Allowed actions.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// Allowed Data actions.
+	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
 	// Denied actions.
 	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	// Denied Data actions.
+	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
 func (PermissionArgs) ElementType() reflect.Type {
@@ -1364,9 +1372,19 @@ func (o PermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// Allowed Data actions.
+func (o PermissionOutput) DataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Permission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
+}
+
 // Denied actions.
 func (o PermissionOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Permission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+}
+
+// Denied Data actions.
+func (o PermissionOutput) NotDataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Permission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }
 
 type PermissionArrayOutput struct{ *pulumi.OutputState }
@@ -1393,8 +1411,12 @@ func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
 type PermissionResponse struct {
 	// Allowed actions.
 	Actions []string `pulumi:"actions"`
+	// Allowed Data actions.
+	DataActions []string `pulumi:"dataActions"`
 	// Denied actions.
 	NotActions []string `pulumi:"notActions"`
+	// Denied Data actions.
+	NotDataActions []string `pulumi:"notDataActions"`
 }
 
 // PermissionResponseInput is an input type that accepts PermissionResponseArgs and PermissionResponseOutput values.
@@ -1412,8 +1434,12 @@ type PermissionResponseInput interface {
 type PermissionResponseArgs struct {
 	// Allowed actions.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// Allowed Data actions.
+	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
 	// Denied actions.
 	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	// Denied Data actions.
+	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
 func (PermissionResponseArgs) ElementType() reflect.Type {
@@ -1473,9 +1499,19 @@ func (o PermissionResponseOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// Allowed Data actions.
+func (o PermissionResponseOutput) DataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PermissionResponse) []string { return v.DataActions }).(pulumi.StringArrayOutput)
+}
+
 // Denied actions.
 func (o PermissionResponseOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionResponse) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+}
+
+// Denied Data actions.
+func (o PermissionResponseOutput) NotDataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PermissionResponse) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }
 
 type PermissionResponseArrayOutput struct{ *pulumi.OutputState }
@@ -2330,330 +2366,232 @@ func (o PolicySkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Role assignment properties.
-type RoleAssignmentProperties struct {
-	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-	PrincipalId string `pulumi:"principalId"`
-	// The role definition ID used in the role assignment.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-// RoleAssignmentPropertiesInput is an input type that accepts RoleAssignmentPropertiesArgs and RoleAssignmentPropertiesOutput values.
-// You can construct a concrete instance of `RoleAssignmentPropertiesInput` via:
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
 //
-//          RoleAssignmentPropertiesArgs{...}
-type RoleAssignmentPropertiesInput interface {
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
 	pulumi.Input
 
-	ToRoleAssignmentPropertiesOutput() RoleAssignmentPropertiesOutput
-	ToRoleAssignmentPropertiesOutputWithContext(context.Context) RoleAssignmentPropertiesOutput
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Role assignment properties.
-type RoleAssignmentPropertiesArgs struct {
-	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The role definition ID used in the role assignment.
-	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
-func (RoleAssignmentPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentProperties)(nil)).Elem()
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
 }
 
-func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesOutput() RoleAssignmentPropertiesOutput {
-	return i.ToRoleAssignmentPropertiesOutputWithContext(context.Background())
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
 }
 
-func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesOutputWithContext(ctx context.Context) RoleAssignmentPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesOutput)
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
 }
 
-func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
-	return i.ToRoleAssignmentPropertiesPtrOutputWithContext(context.Background())
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
 }
 
-func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesOutput).ToRoleAssignmentPropertiesPtrOutputWithContext(ctx)
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
 }
 
-// RoleAssignmentPropertiesPtrInput is an input type that accepts RoleAssignmentPropertiesArgs, RoleAssignmentPropertiesPtr and RoleAssignmentPropertiesPtrOutput values.
-// You can construct a concrete instance of `RoleAssignmentPropertiesPtrInput` via:
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
 //
-//          RoleAssignmentPropertiesArgs{...}
+//          SystemDataResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type RoleAssignmentPropertiesPtrInput interface {
+type SystemDataResponsePtrInput interface {
 	pulumi.Input
 
-	ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput
-	ToRoleAssignmentPropertiesPtrOutputWithContext(context.Context) RoleAssignmentPropertiesPtrOutput
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
 }
 
-type roleAssignmentPropertiesPtrType RoleAssignmentPropertiesArgs
+type systemDataResponsePtrType SystemDataResponseArgs
 
-func RoleAssignmentPropertiesPtr(v *RoleAssignmentPropertiesArgs) RoleAssignmentPropertiesPtrInput {
-	return (*roleAssignmentPropertiesPtrType)(v)
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
 }
 
-func (*roleAssignmentPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAssignmentProperties)(nil)).Elem()
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
 }
 
-func (i *roleAssignmentPropertiesPtrType) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
-	return i.ToRoleAssignmentPropertiesPtrOutputWithContext(context.Background())
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *roleAssignmentPropertiesPtrType) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesPtrOutput)
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Role assignment properties.
-type RoleAssignmentPropertiesOutput struct{ *pulumi.OutputState }
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
-func (RoleAssignmentPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentProperties)(nil)).Elem()
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
 }
 
-func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesOutput() RoleAssignmentPropertiesOutput {
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
 	return o
 }
 
-func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesOutputWithContext(ctx context.Context) RoleAssignmentPropertiesOutput {
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
 }
 
-func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
-	return o.ToRoleAssignmentPropertiesPtrOutputWithContext(context.Background())
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
 }
 
-func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
-	return o.ApplyT(func(v RoleAssignmentProperties) *RoleAssignmentProperties {
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
-	}).(RoleAssignmentPropertiesPtrOutput)
+	}).(SystemDataResponsePtrOutput)
 }
 
-// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-func (o RoleAssignmentPropertiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleAssignmentProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The role definition ID used in the role assignment.
-func (o RoleAssignmentPropertiesOutput) RoleDefinitionId() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleAssignmentProperties) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-type RoleAssignmentPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (RoleAssignmentPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAssignmentProperties)(nil)).Elem()
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-func (o RoleAssignmentPropertiesPtrOutput) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
 	return o
 }
 
-func (o RoleAssignmentPropertiesPtrOutput) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
 	return o
 }
 
-func (o RoleAssignmentPropertiesPtrOutput) Elem() RoleAssignmentPropertiesOutput {
-	return o.ApplyT(func(v *RoleAssignmentProperties) RoleAssignmentProperties { return *v }).(RoleAssignmentPropertiesOutput)
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
-// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-func (o RoleAssignmentPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignmentProperties) *string {
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.PrincipalId
+		return v.CreatedAt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The role definition ID used in the role assignment.
-func (o RoleAssignmentPropertiesPtrOutput) RoleDefinitionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignmentProperties) *string {
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.RoleDefinitionId
+		return v.CreatedBy
 	}).(pulumi.StringPtrOutput)
 }
 
-// Role assignment properties with scope.
-type RoleAssignmentPropertiesWithScopeResponse struct {
-	// The principal ID.
-	PrincipalId *string `pulumi:"principalId"`
-	// The role definition ID.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The role assignment scope.
-	Scope *string `pulumi:"scope"`
-}
-
-// RoleAssignmentPropertiesWithScopeResponseInput is an input type that accepts RoleAssignmentPropertiesWithScopeResponseArgs and RoleAssignmentPropertiesWithScopeResponseOutput values.
-// You can construct a concrete instance of `RoleAssignmentPropertiesWithScopeResponseInput` via:
-//
-//          RoleAssignmentPropertiesWithScopeResponseArgs{...}
-type RoleAssignmentPropertiesWithScopeResponseInput interface {
-	pulumi.Input
-
-	ToRoleAssignmentPropertiesWithScopeResponseOutput() RoleAssignmentPropertiesWithScopeResponseOutput
-	ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(context.Context) RoleAssignmentPropertiesWithScopeResponseOutput
-}
-
-// Role assignment properties with scope.
-type RoleAssignmentPropertiesWithScopeResponseArgs struct {
-	// The principal ID.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The role definition ID.
-	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`
-	// The role assignment scope.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-}
-
-func (RoleAssignmentPropertiesWithScopeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
-}
-
-func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponseOutput() RoleAssignmentPropertiesWithScopeResponseOutput {
-	return i.ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(context.Background())
-}
-
-func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeResponseOutput)
-}
-
-func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return i.ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeResponseOutput).ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx)
-}
-
-// RoleAssignmentPropertiesWithScopeResponsePtrInput is an input type that accepts RoleAssignmentPropertiesWithScopeResponseArgs, RoleAssignmentPropertiesWithScopeResponsePtr and RoleAssignmentPropertiesWithScopeResponsePtrOutput values.
-// You can construct a concrete instance of `RoleAssignmentPropertiesWithScopeResponsePtrInput` via:
-//
-//          RoleAssignmentPropertiesWithScopeResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RoleAssignmentPropertiesWithScopeResponsePtrInput interface {
-	pulumi.Input
-
-	ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput
-	ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput
-}
-
-type roleAssignmentPropertiesWithScopeResponsePtrType RoleAssignmentPropertiesWithScopeResponseArgs
-
-func RoleAssignmentPropertiesWithScopeResponsePtr(v *RoleAssignmentPropertiesWithScopeResponseArgs) RoleAssignmentPropertiesWithScopeResponsePtrInput {
-	return (*roleAssignmentPropertiesWithScopeResponsePtrType)(v)
-}
-
-func (*roleAssignmentPropertiesWithScopeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
-}
-
-func (i *roleAssignmentPropertiesWithScopeResponsePtrType) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return i.ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *roleAssignmentPropertiesWithScopeResponsePtrType) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeResponsePtrOutput)
-}
-
-// Role assignment properties with scope.
-type RoleAssignmentPropertiesWithScopeResponseOutput struct{ *pulumi.OutputState }
-
-func (RoleAssignmentPropertiesWithScopeResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponseOutput() RoleAssignmentPropertiesWithScopeResponseOutput {
-	return o
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponseOutput {
-	return o
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return o.ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *RoleAssignmentPropertiesWithScopeResponse {
-		return &v
-	}).(RoleAssignmentPropertiesWithScopeResponsePtrOutput)
-}
-
-// The principal ID.
-func (o RoleAssignmentPropertiesWithScopeResponseOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-// The role definition ID.
-func (o RoleAssignmentPropertiesWithScopeResponseOutput) RoleDefinitionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
-}
-
-// The role assignment scope.
-func (o RoleAssignmentPropertiesWithScopeResponseOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
-}
-
-type RoleAssignmentPropertiesWithScopeResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RoleAssignmentPropertiesWithScopeResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return o
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return o
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Elem() RoleAssignmentPropertiesWithScopeResponseOutput {
-	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) RoleAssignmentPropertiesWithScopeResponse {
-		return *v
-	}).(RoleAssignmentPropertiesWithScopeResponseOutput)
-}
-
-// The principal ID.
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PrincipalId
+		return v.CreatedByType
 	}).(pulumi.StringPtrOutput)
 }
 
-// The role definition ID.
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) RoleDefinitionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.RoleDefinitionId
+		return v.LastModifiedAt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The role assignment scope.
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Scope
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2694,8 +2632,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicySkuPtrOutput{})
 	pulumi.RegisterOutputType(PolicySkuResponseOutput{})
 	pulumi.RegisterOutputType(PolicySkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentPropertiesOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponseOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

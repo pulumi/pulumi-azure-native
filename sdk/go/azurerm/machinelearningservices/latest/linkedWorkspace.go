@@ -67,7 +67,10 @@ func NewLinkedWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:machinelearningservices/v20200301:LinkedWorkspace"),
+			Type: pulumi.String("azurerm:machinelearningservices/v20200501preview:LinkedWorkspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200515preview:LinkedWorkspace"),
 		},
 	})
 	opts = append(opts, aliases)

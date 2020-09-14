@@ -49,6 +49,9 @@ import (
 // 					Value:      pulumi.String("False"),
 // 				},
 // 			},
+// 			Identity: &signalrservice.ManagedIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 			Kind:     pulumi.String("SignalR"),
 // 			Location: pulumi.String("eastus"),
 // 			NetworkACLs: &signalrservice.SignalRNetworkACLsArgs{
@@ -77,9 +80,18 @@ import (
 // 			Tags: pulumi.StringMap{
 // 				"key1": pulumi.String("value1"),
 // 			},
+// 			Tls: &signalrservice.SignalRTlsSettingsArgs{
+// 				ClientCertEnabled: pulumi.Bool(false),
+// 			},
 // 			Upstream: &signalrservice.ServerlessUpstreamSettingsArgs{
 // 				Templates: signalrservice.UpstreamTemplateArray{
 // 					&signalrservice.UpstreamTemplateArgs{
+// 						Auth: &signalrservice.UpstreamAuthSettingsArgs{
+// 							ManagedIdentity: &signalrservice.ManagedIdentitySettingsArgs{
+// 								Resource: pulumi.String("api://example"),
+// 							},
+// 							Type: pulumi.String("ManagedIdentity"),
+// 						},
 // 						CategoryPattern: pulumi.String("*"),
 // 						EventPattern:    pulumi.String("connect,disconnect"),
 // 						HubPattern:      pulumi.String("*"),
@@ -112,9 +124,8 @@ type SignalR struct {
 	Features SignalRFeatureResponseArrayOutput `pulumi:"features"`
 	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
 	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix pulumi.StringPtrOutput `pulumi:"hostNamePrefix"`
+	// The managed identity response
+	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
@@ -135,6 +146,8 @@ type SignalR struct {
 	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// TLS settings.
+	Tls SignalRTlsSettingsResponsePtrOutput `pulumi:"tls"`
 	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Upstream settings when the Azure SignalR is in server-less mode.
@@ -205,9 +218,8 @@ type signalRState struct {
 	Features []SignalRFeatureResponse `pulumi:"features"`
 	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
 	HostName *string `pulumi:"hostName"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix *string `pulumi:"hostNamePrefix"`
+	// The managed identity response
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind *string `pulumi:"kind"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
@@ -228,6 +240,8 @@ type signalRState struct {
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// TLS settings.
+	Tls *SignalRTlsSettingsResponse `pulumi:"tls"`
 	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
 	Type *string `pulumi:"type"`
 	// Upstream settings when the Azure SignalR is in server-less mode.
@@ -250,9 +264,8 @@ type SignalRState struct {
 	Features SignalRFeatureResponseArrayInput
 	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
 	HostName pulumi.StringPtrInput
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix pulumi.StringPtrInput
+	// The managed identity response
+	Identity ManagedIdentityResponsePtrInput
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind pulumi.StringPtrInput
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
@@ -273,6 +286,8 @@ type SignalRState struct {
 	Sku ResourceSkuResponsePtrInput
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags pulumi.StringMapInput
+	// TLS settings.
+	Tls SignalRTlsSettingsResponsePtrInput
 	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
 	Type pulumi.StringPtrInput
 	// Upstream settings when the Azure SignalR is in server-less mode.
@@ -295,9 +310,8 @@ type signalRArgs struct {
 	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
 	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
 	Features []SignalRFeature `pulumi:"features"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix *string `pulumi:"hostNamePrefix"`
+	// The managed identity response
+	Identity *ManagedIdentity `pulumi:"identity"`
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind *string `pulumi:"kind"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
@@ -312,6 +326,8 @@ type signalRArgs struct {
 	Sku *ResourceSku `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// TLS settings.
+	Tls *SignalRTlsSettings `pulumi:"tls"`
 	// Upstream settings when the Azure SignalR is in server-less mode.
 	Upstream *ServerlessUpstreamSettings `pulumi:"upstream"`
 }
@@ -327,9 +343,8 @@ type SignalRArgs struct {
 	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
 	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
 	Features SignalRFeatureArrayInput
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix pulumi.StringPtrInput
+	// The managed identity response
+	Identity ManagedIdentityPtrInput
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind pulumi.StringPtrInput
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
@@ -344,6 +359,8 @@ type SignalRArgs struct {
 	Sku ResourceSkuPtrInput
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags pulumi.StringMapInput
+	// TLS settings.
+	Tls SignalRTlsSettingsPtrInput
 	// Upstream settings when the Azure SignalR is in server-less mode.
 	Upstream ServerlessUpstreamSettingsPtrInput
 }

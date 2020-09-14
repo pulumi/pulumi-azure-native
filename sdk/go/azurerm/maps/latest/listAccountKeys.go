@@ -19,7 +19,7 @@ func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pul
 type ListAccountKeysArgs struct {
 	// The name of the Maps Account.
 	AccountName string `pulumi:"accountName"`
-	// The name of the Azure Resource Group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 

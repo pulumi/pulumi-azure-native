@@ -48,6 +48,12 @@ func NewExportPipeline(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExportPipelineArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerregistry/latest:ExportPipeline"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ExportPipeline
 	err := ctx.RegisterResource("azurerm:containerregistry/v20191201preview:ExportPipeline", name, args, &resource, opts...)
 	if err != nil {

@@ -49,6 +49,8 @@ type Machine struct {
 	OsSku pulumi.StringOutput `pulumi:"osSku"`
 	// The version of Operating System running on the hybrid machine.
 	OsVersion pulumi.StringOutput `pulumi:"osVersion"`
+	// List of private link scoped resources associated with this machine.
+	PrivateLinkScopedResources pulumi.StringArrayOutput `pulumi:"privateLinkScopedResources"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The status of the hybrid machine agent.
@@ -156,6 +158,8 @@ type machineState struct {
 	OsSku *string `pulumi:"osSku"`
 	// The version of Operating System running on the hybrid machine.
 	OsVersion *string `pulumi:"osVersion"`
+	// List of private link scoped resources associated with this machine.
+	PrivateLinkScopedResources []string `pulumi:"privateLinkScopedResources"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The status of the hybrid machine agent.
@@ -206,6 +210,8 @@ type MachineState struct {
 	OsSku pulumi.StringPtrInput
 	// The version of Operating System running on the hybrid machine.
 	OsVersion pulumi.StringPtrInput
+	// List of private link scoped resources associated with this machine.
+	PrivateLinkScopedResources pulumi.StringArrayInput
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
 	// The status of the hybrid machine agent.
@@ -226,8 +232,10 @@ func (MachineState) ElementType() reflect.Type {
 
 type machineArgs struct {
 	// Public Key that the client provides to be used during initial resource onboarding
-	ClientPublicKey *string          `pulumi:"clientPublicKey"`
-	Identity        *MachineIdentity `pulumi:"identity"`
+	ClientPublicKey *string `pulumi:"clientPublicKey"`
+	// Machine Extensions information
+	Extensions []MachineExtensionInstanceView `pulumi:"extensions"`
+	Identity   *MachineIdentity               `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Metadata pertaining to the geographic location of the resource.
@@ -246,7 +254,9 @@ type machineArgs struct {
 type MachineArgs struct {
 	// Public Key that the client provides to be used during initial resource onboarding
 	ClientPublicKey pulumi.StringPtrInput
-	Identity        MachineIdentityPtrInput
+	// Machine Extensions information
+	Extensions MachineExtensionInstanceViewArrayInput
+	Identity   MachineIdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// Metadata pertaining to the geographic location of the resource.

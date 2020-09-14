@@ -1798,6 +1798,8 @@ func (o ContactDetailsResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 type MountPointMapResponse struct {
 	// Mount point for the share.
 	MountPoint string `pulumi:"mountPoint"`
+	// Mounting type.
+	MountType string `pulumi:"mountType"`
 	// ID of the role to which share is mounted.
 	RoleId string `pulumi:"roleId"`
 	// Role type.
@@ -1821,6 +1823,8 @@ type MountPointMapResponseInput interface {
 type MountPointMapResponseArgs struct {
 	// Mount point for the share.
 	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	// Mounting type.
+	MountType pulumi.StringInput `pulumi:"mountType"`
 	// ID of the role to which share is mounted.
 	RoleId pulumi.StringInput `pulumi:"roleId"`
 	// Role type.
@@ -1884,6 +1888,11 @@ func (o MountPointMapResponseOutput) ToMountPointMapResponseOutputWithContext(ct
 // Mount point for the share.
 func (o MountPointMapResponseOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v MountPointMapResponse) string { return v.MountPoint }).(pulumi.StringOutput)
+}
+
+// Mounting type.
+func (o MountPointMapResponseOutput) MountType() pulumi.StringOutput {
+	return o.ApplyT(func(v MountPointMapResponse) string { return v.MountType }).(pulumi.StringOutput)
 }
 
 // ID of the role to which share is mounted.
@@ -2697,115 +2706,6 @@ func (o RefreshDetailsResponsePtrOutput) LastJob() pulumi.StringPtrOutput {
 }
 
 // Specifies the mapping between this particular user and the type of access he has on shares on this device.
-type ShareAccessRight struct {
-	// Type of access to be allowed on the share for this user.
-	AccessType string `pulumi:"accessType"`
-	// The share ID.
-	ShareId string `pulumi:"shareId"`
-}
-
-// ShareAccessRightInput is an input type that accepts ShareAccessRightArgs and ShareAccessRightOutput values.
-// You can construct a concrete instance of `ShareAccessRightInput` via:
-//
-//          ShareAccessRightArgs{...}
-type ShareAccessRightInput interface {
-	pulumi.Input
-
-	ToShareAccessRightOutput() ShareAccessRightOutput
-	ToShareAccessRightOutputWithContext(context.Context) ShareAccessRightOutput
-}
-
-// Specifies the mapping between this particular user and the type of access he has on shares on this device.
-type ShareAccessRightArgs struct {
-	// Type of access to be allowed on the share for this user.
-	AccessType pulumi.StringInput `pulumi:"accessType"`
-	// The share ID.
-	ShareId pulumi.StringInput `pulumi:"shareId"`
-}
-
-func (ShareAccessRightArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareAccessRight)(nil)).Elem()
-}
-
-func (i ShareAccessRightArgs) ToShareAccessRightOutput() ShareAccessRightOutput {
-	return i.ToShareAccessRightOutputWithContext(context.Background())
-}
-
-func (i ShareAccessRightArgs) ToShareAccessRightOutputWithContext(ctx context.Context) ShareAccessRightOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShareAccessRightOutput)
-}
-
-// ShareAccessRightArrayInput is an input type that accepts ShareAccessRightArray and ShareAccessRightArrayOutput values.
-// You can construct a concrete instance of `ShareAccessRightArrayInput` via:
-//
-//          ShareAccessRightArray{ ShareAccessRightArgs{...} }
-type ShareAccessRightArrayInput interface {
-	pulumi.Input
-
-	ToShareAccessRightArrayOutput() ShareAccessRightArrayOutput
-	ToShareAccessRightArrayOutputWithContext(context.Context) ShareAccessRightArrayOutput
-}
-
-type ShareAccessRightArray []ShareAccessRightInput
-
-func (ShareAccessRightArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ShareAccessRight)(nil)).Elem()
-}
-
-func (i ShareAccessRightArray) ToShareAccessRightArrayOutput() ShareAccessRightArrayOutput {
-	return i.ToShareAccessRightArrayOutputWithContext(context.Background())
-}
-
-func (i ShareAccessRightArray) ToShareAccessRightArrayOutputWithContext(ctx context.Context) ShareAccessRightArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShareAccessRightArrayOutput)
-}
-
-// Specifies the mapping between this particular user and the type of access he has on shares on this device.
-type ShareAccessRightOutput struct{ *pulumi.OutputState }
-
-func (ShareAccessRightOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareAccessRight)(nil)).Elem()
-}
-
-func (o ShareAccessRightOutput) ToShareAccessRightOutput() ShareAccessRightOutput {
-	return o
-}
-
-func (o ShareAccessRightOutput) ToShareAccessRightOutputWithContext(ctx context.Context) ShareAccessRightOutput {
-	return o
-}
-
-// Type of access to be allowed on the share for this user.
-func (o ShareAccessRightOutput) AccessType() pulumi.StringOutput {
-	return o.ApplyT(func(v ShareAccessRight) string { return v.AccessType }).(pulumi.StringOutput)
-}
-
-// The share ID.
-func (o ShareAccessRightOutput) ShareId() pulumi.StringOutput {
-	return o.ApplyT(func(v ShareAccessRight) string { return v.ShareId }).(pulumi.StringOutput)
-}
-
-type ShareAccessRightArrayOutput struct{ *pulumi.OutputState }
-
-func (ShareAccessRightArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ShareAccessRight)(nil)).Elem()
-}
-
-func (o ShareAccessRightArrayOutput) ToShareAccessRightArrayOutput() ShareAccessRightArrayOutput {
-	return o
-}
-
-func (o ShareAccessRightArrayOutput) ToShareAccessRightArrayOutputWithContext(ctx context.Context) ShareAccessRightArrayOutput {
-	return o
-}
-
-func (o ShareAccessRightArrayOutput) Index(i pulumi.IntInput) ShareAccessRightOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareAccessRight {
-		return vs[0].([]ShareAccessRight)[vs[1].(int)]
-	}).(ShareAccessRightOutput)
-}
-
-// Specifies the mapping between this particular user and the type of access he has on shares on this device.
 type ShareAccessRightResponse struct {
 	// Type of access to be allowed on the share for this user.
 	AccessType string `pulumi:"accessType"`
@@ -3597,8 +3497,6 @@ func init() {
 	pulumi.RegisterOutputType(RefreshDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsResponseOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(ShareAccessRightOutput{})
-	pulumi.RegisterOutputType(ShareAccessRightArrayOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

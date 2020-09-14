@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents a server firewall rule.
+// A server firewall rule.
 //
 // ## Example Usage
 // ### Create a firewall rule max/min
@@ -70,16 +70,12 @@ import (
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
-	// Kind of server that contains this firewall rule.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Location of the server that contains this firewall rule.
-	Location pulumi.StringOutput `pulumi:"location"`
+	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	EndIpAddress pulumi.StringPtrOutput `pulumi:"endIpAddress"`
 	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	StartIpAddress pulumi.StringPtrOutput `pulumi:"startIpAddress"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -87,9 +83,6 @@ type FirewallRule struct {
 // NewFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewFirewallRule(ctx *pulumi.Context,
 	name string, args *FirewallRuleArgs, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
-	if args == nil || args.EndIpAddress == nil {
-		return nil, errors.New("missing required argument 'EndIpAddress'")
-	}
 	if args == nil || args.FirewallRuleName == nil {
 		return nil, errors.New("missing required argument 'FirewallRuleName'")
 	}
@@ -98,9 +91,6 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	if args == nil || args.ServerName == nil {
 		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.StartIpAddress == nil {
-		return nil, errors.New("missing required argument 'StartIpAddress'")
 	}
 	if args == nil {
 		args = &FirewallRuleArgs{}
@@ -136,30 +126,22 @@ func GetFirewallRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallRule resources.
 type firewallRuleState struct {
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
 	EndIpAddress *string `pulumi:"endIpAddress"`
-	// Kind of server that contains this firewall rule.
-	Kind *string `pulumi:"kind"`
-	// Location of the server that contains this firewall rule.
-	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
 	StartIpAddress *string `pulumi:"startIpAddress"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type FirewallRuleState struct {
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
 	EndIpAddress pulumi.StringPtrInput
-	// Kind of server that contains this firewall rule.
-	Kind pulumi.StringPtrInput
-	// Location of the server that contains this firewall rule.
-	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
 	StartIpAddress pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
@@ -170,30 +152,34 @@ func (FirewallRuleState) ElementType() reflect.Type {
 }
 
 type firewallRuleArgs struct {
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	EndIpAddress string `pulumi:"endIpAddress"`
+	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	EndIpAddress *string `pulumi:"endIpAddress"`
 	// The name of the firewall rule.
 	FirewallRuleName string `pulumi:"firewallRuleName"`
+	// Resource name.
+	Name *string `pulumi:"name"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
-	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	StartIpAddress string `pulumi:"startIpAddress"`
+	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	StartIpAddress *string `pulumi:"startIpAddress"`
 }
 
 // The set of arguments for constructing a FirewallRule resource.
 type FirewallRuleArgs struct {
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	EndIpAddress pulumi.StringInput
+	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	EndIpAddress pulumi.StringPtrInput
 	// The name of the firewall rule.
 	FirewallRuleName pulumi.StringInput
+	// Resource name.
+	Name pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput
-	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	StartIpAddress pulumi.StringInput
+	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	StartIpAddress pulumi.StringPtrInput
 }
 
 func (FirewallRuleArgs) ElementType() reflect.Type {

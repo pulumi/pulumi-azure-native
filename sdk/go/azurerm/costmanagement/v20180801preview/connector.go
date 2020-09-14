@@ -56,6 +56,12 @@ func NewConnector(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConnectorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:costmanagement/latest:Connector"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Connector
 	err := ctx.RegisterResource("azurerm:costmanagement/v20180801preview:Connector", name, args, &resource, opts...)
 	if err != nil {

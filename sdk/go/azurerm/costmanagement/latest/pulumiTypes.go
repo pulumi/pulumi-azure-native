@@ -10,6 +10,312 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The start and end date for a budget.
+type BudgetTimePeriod struct {
+	// The end date for the budget. If not provided, we default this to 10 years from the start date.
+	EndDate *string `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate string `pulumi:"startDate"`
+}
+
+// BudgetTimePeriodInput is an input type that accepts BudgetTimePeriodArgs and BudgetTimePeriodOutput values.
+// You can construct a concrete instance of `BudgetTimePeriodInput` via:
+//
+//          BudgetTimePeriodArgs{...}
+type BudgetTimePeriodInput interface {
+	pulumi.Input
+
+	ToBudgetTimePeriodOutput() BudgetTimePeriodOutput
+	ToBudgetTimePeriodOutputWithContext(context.Context) BudgetTimePeriodOutput
+}
+
+// The start and end date for a budget.
+type BudgetTimePeriodArgs struct {
+	// The end date for the budget. If not provided, we default this to 10 years from the start date.
+	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate pulumi.StringInput `pulumi:"startDate"`
+}
+
+func (BudgetTimePeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriod)(nil)).Elem()
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodOutput() BudgetTimePeriodOutput {
+	return i.ToBudgetTimePeriodOutputWithContext(context.Background())
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodOutputWithContext(ctx context.Context) BudgetTimePeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodOutput)
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return i.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodOutput).ToBudgetTimePeriodPtrOutputWithContext(ctx)
+}
+
+// BudgetTimePeriodPtrInput is an input type that accepts BudgetTimePeriodArgs, BudgetTimePeriodPtr and BudgetTimePeriodPtrOutput values.
+// You can construct a concrete instance of `BudgetTimePeriodPtrInput` via:
+//
+//          BudgetTimePeriodArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetTimePeriodPtrInput interface {
+	pulumi.Input
+
+	ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput
+	ToBudgetTimePeriodPtrOutputWithContext(context.Context) BudgetTimePeriodPtrOutput
+}
+
+type budgetTimePeriodPtrType BudgetTimePeriodArgs
+
+func BudgetTimePeriodPtr(v *BudgetTimePeriodArgs) BudgetTimePeriodPtrInput {
+	return (*budgetTimePeriodPtrType)(v)
+}
+
+func (*budgetTimePeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetTimePeriod)(nil)).Elem()
+}
+
+func (i *budgetTimePeriodPtrType) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return i.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetTimePeriodPtrType) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodPtrOutput)
+}
+
+// The start and end date for a budget.
+type BudgetTimePeriodOutput struct{ *pulumi.OutputState }
+
+func (BudgetTimePeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriod)(nil)).Elem()
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodOutput() BudgetTimePeriodOutput {
+	return o
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodOutputWithContext(ctx context.Context) BudgetTimePeriodOutput {
+	return o
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return o.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return o.ApplyT(func(v BudgetTimePeriod) *BudgetTimePeriod {
+		return &v
+	}).(BudgetTimePeriodPtrOutput)
+}
+
+// The end date for the budget. If not provided, we default this to 10 years from the start date.
+func (o BudgetTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetTimePeriod) *string { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// The start date for the budget.
+func (o BudgetTimePeriodOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetTimePeriod) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+type BudgetTimePeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetTimePeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetTimePeriod)(nil)).Elem()
+}
+
+func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return o
+}
+
+func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return o
+}
+
+func (o BudgetTimePeriodPtrOutput) Elem() BudgetTimePeriodOutput {
+	return o.ApplyT(func(v *BudgetTimePeriod) BudgetTimePeriod { return *v }).(BudgetTimePeriodOutput)
+}
+
+// The end date for the budget. If not provided, we default this to 10 years from the start date.
+func (o BudgetTimePeriodPtrOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetTimePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start date for the budget.
+func (o BudgetTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetTimePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start and end date for a budget.
+type BudgetTimePeriodResponse struct {
+	// The end date for the budget. If not provided, we default this to 10 years from the start date.
+	EndDate *string `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate string `pulumi:"startDate"`
+}
+
+// BudgetTimePeriodResponseInput is an input type that accepts BudgetTimePeriodResponseArgs and BudgetTimePeriodResponseOutput values.
+// You can construct a concrete instance of `BudgetTimePeriodResponseInput` via:
+//
+//          BudgetTimePeriodResponseArgs{...}
+type BudgetTimePeriodResponseInput interface {
+	pulumi.Input
+
+	ToBudgetTimePeriodResponseOutput() BudgetTimePeriodResponseOutput
+	ToBudgetTimePeriodResponseOutputWithContext(context.Context) BudgetTimePeriodResponseOutput
+}
+
+// The start and end date for a budget.
+type BudgetTimePeriodResponseArgs struct {
+	// The end date for the budget. If not provided, we default this to 10 years from the start date.
+	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate pulumi.StringInput `pulumi:"startDate"`
+}
+
+func (BudgetTimePeriodResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriodResponse)(nil)).Elem()
+}
+
+func (i BudgetTimePeriodResponseArgs) ToBudgetTimePeriodResponseOutput() BudgetTimePeriodResponseOutput {
+	return i.ToBudgetTimePeriodResponseOutputWithContext(context.Background())
+}
+
+func (i BudgetTimePeriodResponseArgs) ToBudgetTimePeriodResponseOutputWithContext(ctx context.Context) BudgetTimePeriodResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodResponseOutput)
+}
+
+func (i BudgetTimePeriodResponseArgs) ToBudgetTimePeriodResponsePtrOutput() BudgetTimePeriodResponsePtrOutput {
+	return i.ToBudgetTimePeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BudgetTimePeriodResponseArgs) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodResponseOutput).ToBudgetTimePeriodResponsePtrOutputWithContext(ctx)
+}
+
+// BudgetTimePeriodResponsePtrInput is an input type that accepts BudgetTimePeriodResponseArgs, BudgetTimePeriodResponsePtr and BudgetTimePeriodResponsePtrOutput values.
+// You can construct a concrete instance of `BudgetTimePeriodResponsePtrInput` via:
+//
+//          BudgetTimePeriodResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetTimePeriodResponsePtrInput interface {
+	pulumi.Input
+
+	ToBudgetTimePeriodResponsePtrOutput() BudgetTimePeriodResponsePtrOutput
+	ToBudgetTimePeriodResponsePtrOutputWithContext(context.Context) BudgetTimePeriodResponsePtrOutput
+}
+
+type budgetTimePeriodResponsePtrType BudgetTimePeriodResponseArgs
+
+func BudgetTimePeriodResponsePtr(v *BudgetTimePeriodResponseArgs) BudgetTimePeriodResponsePtrInput {
+	return (*budgetTimePeriodResponsePtrType)(v)
+}
+
+func (*budgetTimePeriodResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetTimePeriodResponse)(nil)).Elem()
+}
+
+func (i *budgetTimePeriodResponsePtrType) ToBudgetTimePeriodResponsePtrOutput() BudgetTimePeriodResponsePtrOutput {
+	return i.ToBudgetTimePeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *budgetTimePeriodResponsePtrType) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodResponsePtrOutput)
+}
+
+// The start and end date for a budget.
+type BudgetTimePeriodResponseOutput struct{ *pulumi.OutputState }
+
+func (BudgetTimePeriodResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriodResponse)(nil)).Elem()
+}
+
+func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponseOutput() BudgetTimePeriodResponseOutput {
+	return o
+}
+
+func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponseOutputWithContext(ctx context.Context) BudgetTimePeriodResponseOutput {
+	return o
+}
+
+func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponsePtrOutput() BudgetTimePeriodResponsePtrOutput {
+	return o.ToBudgetTimePeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
+	return o.ApplyT(func(v BudgetTimePeriodResponse) *BudgetTimePeriodResponse {
+		return &v
+	}).(BudgetTimePeriodResponsePtrOutput)
+}
+
+// The end date for the budget. If not provided, we default this to 10 years from the start date.
+func (o BudgetTimePeriodResponseOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetTimePeriodResponse) *string { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// The start date for the budget.
+func (o BudgetTimePeriodResponseOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetTimePeriodResponse) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+type BudgetTimePeriodResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetTimePeriodResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetTimePeriodResponse)(nil)).Elem()
+}
+
+func (o BudgetTimePeriodResponsePtrOutput) ToBudgetTimePeriodResponsePtrOutput() BudgetTimePeriodResponsePtrOutput {
+	return o
+}
+
+func (o BudgetTimePeriodResponsePtrOutput) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
+	return o
+}
+
+func (o BudgetTimePeriodResponsePtrOutput) Elem() BudgetTimePeriodResponseOutput {
+	return o.ApplyT(func(v *BudgetTimePeriodResponse) BudgetTimePeriodResponse { return *v }).(BudgetTimePeriodResponseOutput)
+}
+
+// The end date for the budget. If not provided, we default this to 10 years from the start date.
+func (o BudgetTimePeriodResponsePtrOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetTimePeriodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start date for the budget.
+func (o BudgetTimePeriodResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetTimePeriodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
 // The common properties of the export.
 type CommonExportPropertiesResponse struct {
 	// Has the definition for the export.
@@ -218,6 +524,522 @@ func (o CommonExportPropertiesResponsePtrOutput) RunHistory() ExportExecutionLis
 		}
 		return v.RunHistory
 	}).(ExportExecutionListResultResponsePtrOutput)
+}
+
+// Details of any error encountered on last collection attempt
+type ConnectorCollectionErrorInfoResponse struct {
+	// Short error message
+	ErrorCode string `pulumi:"errorCode"`
+	// Detailed error message
+	ErrorMessage string `pulumi:"errorMessage"`
+	// Time the error started occurring (Last time error occurred in lastRun)
+	ErrorStartTime string `pulumi:"errorStartTime"`
+}
+
+// ConnectorCollectionErrorInfoResponseInput is an input type that accepts ConnectorCollectionErrorInfoResponseArgs and ConnectorCollectionErrorInfoResponseOutput values.
+// You can construct a concrete instance of `ConnectorCollectionErrorInfoResponseInput` via:
+//
+//          ConnectorCollectionErrorInfoResponseArgs{...}
+type ConnectorCollectionErrorInfoResponseInput interface {
+	pulumi.Input
+
+	ToConnectorCollectionErrorInfoResponseOutput() ConnectorCollectionErrorInfoResponseOutput
+	ToConnectorCollectionErrorInfoResponseOutputWithContext(context.Context) ConnectorCollectionErrorInfoResponseOutput
+}
+
+// Details of any error encountered on last collection attempt
+type ConnectorCollectionErrorInfoResponseArgs struct {
+	// Short error message
+	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
+	// Detailed error message
+	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// Time the error started occurring (Last time error occurred in lastRun)
+	ErrorStartTime pulumi.StringInput `pulumi:"errorStartTime"`
+}
+
+func (ConnectorCollectionErrorInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorCollectionErrorInfoResponse)(nil)).Elem()
+}
+
+func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponseOutput() ConnectorCollectionErrorInfoResponseOutput {
+	return i.ToConnectorCollectionErrorInfoResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoResponseOutput)
+}
+
+func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput {
+	return i.ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoResponseOutput).ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx)
+}
+
+// ConnectorCollectionErrorInfoResponsePtrInput is an input type that accepts ConnectorCollectionErrorInfoResponseArgs, ConnectorCollectionErrorInfoResponsePtr and ConnectorCollectionErrorInfoResponsePtrOutput values.
+// You can construct a concrete instance of `ConnectorCollectionErrorInfoResponsePtrInput` via:
+//
+//          ConnectorCollectionErrorInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectorCollectionErrorInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput
+	ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Context) ConnectorCollectionErrorInfoResponsePtrOutput
+}
+
+type connectorCollectionErrorInfoResponsePtrType ConnectorCollectionErrorInfoResponseArgs
+
+func ConnectorCollectionErrorInfoResponsePtr(v *ConnectorCollectionErrorInfoResponseArgs) ConnectorCollectionErrorInfoResponsePtrInput {
+	return (*connectorCollectionErrorInfoResponsePtrType)(v)
+}
+
+func (*connectorCollectionErrorInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorCollectionErrorInfoResponse)(nil)).Elem()
+}
+
+func (i *connectorCollectionErrorInfoResponsePtrType) ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput {
+	return i.ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *connectorCollectionErrorInfoResponsePtrType) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoResponsePtrOutput)
+}
+
+// Details of any error encountered on last collection attempt
+type ConnectorCollectionErrorInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectorCollectionErrorInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorCollectionErrorInfoResponse)(nil)).Elem()
+}
+
+func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponseOutput() ConnectorCollectionErrorInfoResponseOutput {
+	return o
+}
+
+func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponseOutput {
+	return o
+}
+
+func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput {
+	return o.ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
+	return o.ApplyT(func(v ConnectorCollectionErrorInfoResponse) *ConnectorCollectionErrorInfoResponse {
+		return &v
+	}).(ConnectorCollectionErrorInfoResponsePtrOutput)
+}
+
+// Short error message
+func (o ConnectorCollectionErrorInfoResponseOutput) ErrorCode() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionErrorInfoResponse) string { return v.ErrorCode }).(pulumi.StringOutput)
+}
+
+// Detailed error message
+func (o ConnectorCollectionErrorInfoResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionErrorInfoResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// Time the error started occurring (Last time error occurred in lastRun)
+func (o ConnectorCollectionErrorInfoResponseOutput) ErrorStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionErrorInfoResponse) string { return v.ErrorStartTime }).(pulumi.StringOutput)
+}
+
+type ConnectorCollectionErrorInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorCollectionErrorInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorCollectionErrorInfoResponse)(nil)).Elem()
+}
+
+func (o ConnectorCollectionErrorInfoResponsePtrOutput) ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput {
+	return o
+}
+
+func (o ConnectorCollectionErrorInfoResponsePtrOutput) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
+	return o
+}
+
+func (o ConnectorCollectionErrorInfoResponsePtrOutput) Elem() ConnectorCollectionErrorInfoResponseOutput {
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) ConnectorCollectionErrorInfoResponse { return *v }).(ConnectorCollectionErrorInfoResponseOutput)
+}
+
+// Short error message
+func (o ConnectorCollectionErrorInfoResponsePtrOutput) ErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Detailed error message
+func (o ConnectorCollectionErrorInfoResponsePtrOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time the error started occurring (Last time error occurred in lastRun)
+func (o ConnectorCollectionErrorInfoResponsePtrOutput) ErrorStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Collection and ingestion information
+type ConnectorCollectionInfoResponse struct {
+	// Error information of last collection
+	Error *ConnectorCollectionErrorInfoResponse `pulumi:"error"`
+	// Last time the data acquisition process completed (even if no new data was found)
+	LastRun string `pulumi:"lastRun"`
+	// Last time the external data was updated into Azure
+	LastUpdated string `pulumi:"lastUpdated"`
+	// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+	SourceLastUpdated string `pulumi:"sourceLastUpdated"`
+}
+
+// ConnectorCollectionInfoResponseInput is an input type that accepts ConnectorCollectionInfoResponseArgs and ConnectorCollectionInfoResponseOutput values.
+// You can construct a concrete instance of `ConnectorCollectionInfoResponseInput` via:
+//
+//          ConnectorCollectionInfoResponseArgs{...}
+type ConnectorCollectionInfoResponseInput interface {
+	pulumi.Input
+
+	ToConnectorCollectionInfoResponseOutput() ConnectorCollectionInfoResponseOutput
+	ToConnectorCollectionInfoResponseOutputWithContext(context.Context) ConnectorCollectionInfoResponseOutput
+}
+
+// Collection and ingestion information
+type ConnectorCollectionInfoResponseArgs struct {
+	// Error information of last collection
+	Error ConnectorCollectionErrorInfoResponsePtrInput `pulumi:"error"`
+	// Last time the data acquisition process completed (even if no new data was found)
+	LastRun pulumi.StringInput `pulumi:"lastRun"`
+	// Last time the external data was updated into Azure
+	LastUpdated pulumi.StringInput `pulumi:"lastUpdated"`
+	// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+	SourceLastUpdated pulumi.StringInput `pulumi:"sourceLastUpdated"`
+}
+
+func (ConnectorCollectionInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorCollectionInfoResponse)(nil)).Elem()
+}
+
+func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponseOutput() ConnectorCollectionInfoResponseOutput {
+	return i.ToConnectorCollectionInfoResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoResponseOutput)
+}
+
+func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
+	return i.ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoResponseOutput).ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx)
+}
+
+// ConnectorCollectionInfoResponsePtrInput is an input type that accepts ConnectorCollectionInfoResponseArgs, ConnectorCollectionInfoResponsePtr and ConnectorCollectionInfoResponsePtrOutput values.
+// You can construct a concrete instance of `ConnectorCollectionInfoResponsePtrInput` via:
+//
+//          ConnectorCollectionInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectorCollectionInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput
+	ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Context) ConnectorCollectionInfoResponsePtrOutput
+}
+
+type connectorCollectionInfoResponsePtrType ConnectorCollectionInfoResponseArgs
+
+func ConnectorCollectionInfoResponsePtr(v *ConnectorCollectionInfoResponseArgs) ConnectorCollectionInfoResponsePtrInput {
+	return (*connectorCollectionInfoResponsePtrType)(v)
+}
+
+func (*connectorCollectionInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorCollectionInfoResponse)(nil)).Elem()
+}
+
+func (i *connectorCollectionInfoResponsePtrType) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
+	return i.ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *connectorCollectionInfoResponsePtrType) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoResponsePtrOutput)
+}
+
+// Collection and ingestion information
+type ConnectorCollectionInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectorCollectionInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorCollectionInfoResponse)(nil)).Elem()
+}
+
+func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponseOutput() ConnectorCollectionInfoResponseOutput {
+	return o
+}
+
+func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponseOutput {
+	return o
+}
+
+func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
+	return o.ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
+	return o.ApplyT(func(v ConnectorCollectionInfoResponse) *ConnectorCollectionInfoResponse {
+		return &v
+	}).(ConnectorCollectionInfoResponsePtrOutput)
+}
+
+// Error information of last collection
+func (o ConnectorCollectionInfoResponseOutput) Error() ConnectorCollectionErrorInfoResponsePtrOutput {
+	return o.ApplyT(func(v ConnectorCollectionInfoResponse) *ConnectorCollectionErrorInfoResponse { return v.Error }).(ConnectorCollectionErrorInfoResponsePtrOutput)
+}
+
+// Last time the data acquisition process completed (even if no new data was found)
+func (o ConnectorCollectionInfoResponseOutput) LastRun() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionInfoResponse) string { return v.LastRun }).(pulumi.StringOutput)
+}
+
+// Last time the external data was updated into Azure
+func (o ConnectorCollectionInfoResponseOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionInfoResponse) string { return v.LastUpdated }).(pulumi.StringOutput)
+}
+
+// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+func (o ConnectorCollectionInfoResponseOutput) SourceLastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionInfoResponse) string { return v.SourceLastUpdated }).(pulumi.StringOutput)
+}
+
+type ConnectorCollectionInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorCollectionInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorCollectionInfoResponse)(nil)).Elem()
+}
+
+func (o ConnectorCollectionInfoResponsePtrOutput) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
+	return o
+}
+
+func (o ConnectorCollectionInfoResponsePtrOutput) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
+	return o
+}
+
+func (o ConnectorCollectionInfoResponsePtrOutput) Elem() ConnectorCollectionInfoResponseOutput {
+	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) ConnectorCollectionInfoResponse { return *v }).(ConnectorCollectionInfoResponseOutput)
+}
+
+// Error information of last collection
+func (o ConnectorCollectionInfoResponsePtrOutput) Error() ConnectorCollectionErrorInfoResponsePtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *ConnectorCollectionErrorInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Error
+	}).(ConnectorCollectionErrorInfoResponsePtrOutput)
+}
+
+// Last time the data acquisition process completed (even if no new data was found)
+func (o ConnectorCollectionInfoResponsePtrOutput) LastRun() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastRun
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last time the external data was updated into Azure
+func (o ConnectorCollectionInfoResponsePtrOutput) LastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastUpdated
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+func (o ConnectorCollectionInfoResponsePtrOutput) SourceLastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceLastUpdated
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current amount of cost which is being tracked for a budget.
+type CurrentSpendResponse struct {
+	// The total amount of cost which is being tracked by the budget.
+	Amount float64 `pulumi:"amount"`
+	// The unit of measure for the budget amount.
+	Unit string `pulumi:"unit"`
+}
+
+// CurrentSpendResponseInput is an input type that accepts CurrentSpendResponseArgs and CurrentSpendResponseOutput values.
+// You can construct a concrete instance of `CurrentSpendResponseInput` via:
+//
+//          CurrentSpendResponseArgs{...}
+type CurrentSpendResponseInput interface {
+	pulumi.Input
+
+	ToCurrentSpendResponseOutput() CurrentSpendResponseOutput
+	ToCurrentSpendResponseOutputWithContext(context.Context) CurrentSpendResponseOutput
+}
+
+// The current amount of cost which is being tracked for a budget.
+type CurrentSpendResponseArgs struct {
+	// The total amount of cost which is being tracked by the budget.
+	Amount pulumi.Float64Input `pulumi:"amount"`
+	// The unit of measure for the budget amount.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (CurrentSpendResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CurrentSpendResponse)(nil)).Elem()
+}
+
+func (i CurrentSpendResponseArgs) ToCurrentSpendResponseOutput() CurrentSpendResponseOutput {
+	return i.ToCurrentSpendResponseOutputWithContext(context.Background())
+}
+
+func (i CurrentSpendResponseArgs) ToCurrentSpendResponseOutputWithContext(ctx context.Context) CurrentSpendResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendResponseOutput)
+}
+
+func (i CurrentSpendResponseArgs) ToCurrentSpendResponsePtrOutput() CurrentSpendResponsePtrOutput {
+	return i.ToCurrentSpendResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CurrentSpendResponseArgs) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendResponseOutput).ToCurrentSpendResponsePtrOutputWithContext(ctx)
+}
+
+// CurrentSpendResponsePtrInput is an input type that accepts CurrentSpendResponseArgs, CurrentSpendResponsePtr and CurrentSpendResponsePtrOutput values.
+// You can construct a concrete instance of `CurrentSpendResponsePtrInput` via:
+//
+//          CurrentSpendResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CurrentSpendResponsePtrInput interface {
+	pulumi.Input
+
+	ToCurrentSpendResponsePtrOutput() CurrentSpendResponsePtrOutput
+	ToCurrentSpendResponsePtrOutputWithContext(context.Context) CurrentSpendResponsePtrOutput
+}
+
+type currentSpendResponsePtrType CurrentSpendResponseArgs
+
+func CurrentSpendResponsePtr(v *CurrentSpendResponseArgs) CurrentSpendResponsePtrInput {
+	return (*currentSpendResponsePtrType)(v)
+}
+
+func (*currentSpendResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CurrentSpendResponse)(nil)).Elem()
+}
+
+func (i *currentSpendResponsePtrType) ToCurrentSpendResponsePtrOutput() CurrentSpendResponsePtrOutput {
+	return i.ToCurrentSpendResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *currentSpendResponsePtrType) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendResponsePtrOutput)
+}
+
+// The current amount of cost which is being tracked for a budget.
+type CurrentSpendResponseOutput struct{ *pulumi.OutputState }
+
+func (CurrentSpendResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CurrentSpendResponse)(nil)).Elem()
+}
+
+func (o CurrentSpendResponseOutput) ToCurrentSpendResponseOutput() CurrentSpendResponseOutput {
+	return o
+}
+
+func (o CurrentSpendResponseOutput) ToCurrentSpendResponseOutputWithContext(ctx context.Context) CurrentSpendResponseOutput {
+	return o
+}
+
+func (o CurrentSpendResponseOutput) ToCurrentSpendResponsePtrOutput() CurrentSpendResponsePtrOutput {
+	return o.ToCurrentSpendResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CurrentSpendResponseOutput) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
+	return o.ApplyT(func(v CurrentSpendResponse) *CurrentSpendResponse {
+		return &v
+	}).(CurrentSpendResponsePtrOutput)
+}
+
+// The total amount of cost which is being tracked by the budget.
+func (o CurrentSpendResponseOutput) Amount() pulumi.Float64Output {
+	return o.ApplyT(func(v CurrentSpendResponse) float64 { return v.Amount }).(pulumi.Float64Output)
+}
+
+// The unit of measure for the budget amount.
+func (o CurrentSpendResponseOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v CurrentSpendResponse) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type CurrentSpendResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CurrentSpendResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CurrentSpendResponse)(nil)).Elem()
+}
+
+func (o CurrentSpendResponsePtrOutput) ToCurrentSpendResponsePtrOutput() CurrentSpendResponsePtrOutput {
+	return o
+}
+
+func (o CurrentSpendResponsePtrOutput) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
+	return o
+}
+
+func (o CurrentSpendResponsePtrOutput) Elem() CurrentSpendResponseOutput {
+	return o.ApplyT(func(v *CurrentSpendResponse) CurrentSpendResponse { return *v }).(CurrentSpendResponseOutput)
+}
+
+// The total amount of cost which is being tracked by the budget.
+func (o CurrentSpendResponsePtrOutput) Amount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CurrentSpendResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Amount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The unit of measure for the budget amount.
+func (o CurrentSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CurrentSpendResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
 }
 
 // The details of the error.
@@ -3475,6 +4297,296 @@ func (o KpiPropertiesResponseArrayOutput) Index(i pulumi.IntInput) KpiProperties
 	}).(KpiPropertiesResponseOutput)
 }
 
+// The notification associated with a budget.
+type Notification struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails []string `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded.
+	ContactGroups []string `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles []string `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// The comparison operator.
+	Operator string `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+// NotificationInput is an input type that accepts NotificationArgs and NotificationOutput values.
+// You can construct a concrete instance of `NotificationInput` via:
+//
+//          NotificationArgs{...}
+type NotificationInput interface {
+	pulumi.Input
+
+	ToNotificationOutput() NotificationOutput
+	ToNotificationOutputWithContext(context.Context) NotificationOutput
+}
+
+// The notification associated with a budget.
+type NotificationArgs struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded.
+	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The comparison operator.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (NotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Notification)(nil)).Elem()
+}
+
+func (i NotificationArgs) ToNotificationOutput() NotificationOutput {
+	return i.ToNotificationOutputWithContext(context.Background())
+}
+
+func (i NotificationArgs) ToNotificationOutputWithContext(ctx context.Context) NotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationOutput)
+}
+
+// NotificationMapInput is an input type that accepts NotificationMap and NotificationMapOutput values.
+// You can construct a concrete instance of `NotificationMapInput` via:
+//
+//          NotificationMap{ "key": NotificationArgs{...} }
+type NotificationMapInput interface {
+	pulumi.Input
+
+	ToNotificationMapOutput() NotificationMapOutput
+	ToNotificationMapOutputWithContext(context.Context) NotificationMapOutput
+}
+
+type NotificationMap map[string]NotificationInput
+
+func (NotificationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Notification)(nil)).Elem()
+}
+
+func (i NotificationMap) ToNotificationMapOutput() NotificationMapOutput {
+	return i.ToNotificationMapOutputWithContext(context.Background())
+}
+
+func (i NotificationMap) ToNotificationMapOutputWithContext(ctx context.Context) NotificationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationMapOutput)
+}
+
+// The notification associated with a budget.
+type NotificationOutput struct{ *pulumi.OutputState }
+
+func (NotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Notification)(nil)).Elem()
+}
+
+func (o NotificationOutput) ToNotificationOutput() NotificationOutput {
+	return o
+}
+
+func (o NotificationOutput) ToNotificationOutputWithContext(ctx context.Context) NotificationOutput {
+	return o
+}
+
+// Email addresses to send the budget notification to when the threshold is exceeded.
+func (o NotificationOutput) ContactEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Notification) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
+}
+
+// Action groups to send the budget notification to when the threshold is exceeded.
+func (o NotificationOutput) ContactGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Notification) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
+}
+
+// Contact roles to send the budget notification to when the threshold is exceeded.
+func (o NotificationOutput) ContactRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Notification) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
+}
+
+// The notification is enabled or not.
+func (o NotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v Notification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The comparison operator.
+func (o NotificationOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v Notification) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+func (o NotificationOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v Notification) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type NotificationMapOutput struct{ *pulumi.OutputState }
+
+func (NotificationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Notification)(nil)).Elem()
+}
+
+func (o NotificationMapOutput) ToNotificationMapOutput() NotificationMapOutput {
+	return o
+}
+
+func (o NotificationMapOutput) ToNotificationMapOutputWithContext(ctx context.Context) NotificationMapOutput {
+	return o
+}
+
+func (o NotificationMapOutput) MapIndex(k pulumi.StringInput) NotificationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Notification {
+		return vs[0].(map[string]Notification)[vs[1].(string)]
+	}).(NotificationOutput)
+}
+
+// The notification associated with a budget.
+type NotificationResponse struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails []string `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded.
+	ContactGroups []string `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles []string `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// The comparison operator.
+	Operator string `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+// NotificationResponseInput is an input type that accepts NotificationResponseArgs and NotificationResponseOutput values.
+// You can construct a concrete instance of `NotificationResponseInput` via:
+//
+//          NotificationResponseArgs{...}
+type NotificationResponseInput interface {
+	pulumi.Input
+
+	ToNotificationResponseOutput() NotificationResponseOutput
+	ToNotificationResponseOutputWithContext(context.Context) NotificationResponseOutput
+}
+
+// The notification associated with a budget.
+type NotificationResponseArgs struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded.
+	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The comparison operator.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (NotificationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationResponse)(nil)).Elem()
+}
+
+func (i NotificationResponseArgs) ToNotificationResponseOutput() NotificationResponseOutput {
+	return i.ToNotificationResponseOutputWithContext(context.Background())
+}
+
+func (i NotificationResponseArgs) ToNotificationResponseOutputWithContext(ctx context.Context) NotificationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationResponseOutput)
+}
+
+// NotificationResponseMapInput is an input type that accepts NotificationResponseMap and NotificationResponseMapOutput values.
+// You can construct a concrete instance of `NotificationResponseMapInput` via:
+//
+//          NotificationResponseMap{ "key": NotificationResponseArgs{...} }
+type NotificationResponseMapInput interface {
+	pulumi.Input
+
+	ToNotificationResponseMapOutput() NotificationResponseMapOutput
+	ToNotificationResponseMapOutputWithContext(context.Context) NotificationResponseMapOutput
+}
+
+type NotificationResponseMap map[string]NotificationResponseInput
+
+func (NotificationResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotificationResponse)(nil)).Elem()
+}
+
+func (i NotificationResponseMap) ToNotificationResponseMapOutput() NotificationResponseMapOutput {
+	return i.ToNotificationResponseMapOutputWithContext(context.Background())
+}
+
+func (i NotificationResponseMap) ToNotificationResponseMapOutputWithContext(ctx context.Context) NotificationResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationResponseMapOutput)
+}
+
+// The notification associated with a budget.
+type NotificationResponseOutput struct{ *pulumi.OutputState }
+
+func (NotificationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationResponse)(nil)).Elem()
+}
+
+func (o NotificationResponseOutput) ToNotificationResponseOutput() NotificationResponseOutput {
+	return o
+}
+
+func (o NotificationResponseOutput) ToNotificationResponseOutputWithContext(ctx context.Context) NotificationResponseOutput {
+	return o
+}
+
+// Email addresses to send the budget notification to when the threshold is exceeded.
+func (o NotificationResponseOutput) ContactEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
+}
+
+// Action groups to send the budget notification to when the threshold is exceeded.
+func (o NotificationResponseOutput) ContactGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
+}
+
+// Contact roles to send the budget notification to when the threshold is exceeded.
+func (o NotificationResponseOutput) ContactRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
+}
+
+// The notification is enabled or not.
+func (o NotificationResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v NotificationResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The comparison operator.
+func (o NotificationResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+func (o NotificationResponseOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v NotificationResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type NotificationResponseMapOutput struct{ *pulumi.OutputState }
+
+func (NotificationResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotificationResponse)(nil)).Elem()
+}
+
+func (o NotificationResponseMapOutput) ToNotificationResponseMapOutput() NotificationResponseMapOutput {
+	return o
+}
+
+func (o NotificationResponseMapOutput) ToNotificationResponseMapOutputWithContext(ctx context.Context) NotificationResponseMapOutput {
+	return o
+}
+
+func (o NotificationResponseMapOutput) MapIndex(k pulumi.StringInput) NotificationResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotificationResponse {
+		return vs[0].(map[string]NotificationResponse)[vs[1].(string)]
+	}).(NotificationResponseOutput)
+}
+
 // Each pivot must contain a 'type' and 'name'.
 type PivotProperties struct {
 	// Data field to show in view.
@@ -3691,6 +4803,568 @@ func (o PivotPropertiesResponseArrayOutput) Index(i pulumi.IntInput) PivotProper
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PivotPropertiesResponse {
 		return vs[0].([]PivotPropertiesResponse)[vs[1].(int)]
 	}).(PivotPropertiesResponseOutput)
+}
+
+// The aggregation expression to be used in the report.
+type ReportAggregation struct {
+	// The name of the aggregation function to use.
+	Function string `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name string `pulumi:"name"`
+}
+
+// ReportAggregationInput is an input type that accepts ReportAggregationArgs and ReportAggregationOutput values.
+// You can construct a concrete instance of `ReportAggregationInput` via:
+//
+//          ReportAggregationArgs{...}
+type ReportAggregationInput interface {
+	pulumi.Input
+
+	ToReportAggregationOutput() ReportAggregationOutput
+	ToReportAggregationOutputWithContext(context.Context) ReportAggregationOutput
+}
+
+// The aggregation expression to be used in the report.
+type ReportAggregationArgs struct {
+	// The name of the aggregation function to use.
+	Function pulumi.StringInput `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ReportAggregationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportAggregation)(nil)).Elem()
+}
+
+func (i ReportAggregationArgs) ToReportAggregationOutput() ReportAggregationOutput {
+	return i.ToReportAggregationOutputWithContext(context.Background())
+}
+
+func (i ReportAggregationArgs) ToReportAggregationOutputWithContext(ctx context.Context) ReportAggregationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportAggregationOutput)
+}
+
+// ReportAggregationMapInput is an input type that accepts ReportAggregationMap and ReportAggregationMapOutput values.
+// You can construct a concrete instance of `ReportAggregationMapInput` via:
+//
+//          ReportAggregationMap{ "key": ReportAggregationArgs{...} }
+type ReportAggregationMapInput interface {
+	pulumi.Input
+
+	ToReportAggregationMapOutput() ReportAggregationMapOutput
+	ToReportAggregationMapOutputWithContext(context.Context) ReportAggregationMapOutput
+}
+
+type ReportAggregationMap map[string]ReportAggregationInput
+
+func (ReportAggregationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReportAggregation)(nil)).Elem()
+}
+
+func (i ReportAggregationMap) ToReportAggregationMapOutput() ReportAggregationMapOutput {
+	return i.ToReportAggregationMapOutputWithContext(context.Background())
+}
+
+func (i ReportAggregationMap) ToReportAggregationMapOutputWithContext(ctx context.Context) ReportAggregationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportAggregationMapOutput)
+}
+
+// The aggregation expression to be used in the report.
+type ReportAggregationOutput struct{ *pulumi.OutputState }
+
+func (ReportAggregationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportAggregation)(nil)).Elem()
+}
+
+func (o ReportAggregationOutput) ToReportAggregationOutput() ReportAggregationOutput {
+	return o
+}
+
+func (o ReportAggregationOutput) ToReportAggregationOutputWithContext(ctx context.Context) ReportAggregationOutput {
+	return o
+}
+
+// The name of the aggregation function to use.
+func (o ReportAggregationOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportAggregation) string { return v.Function }).(pulumi.StringOutput)
+}
+
+// The name of the column to aggregate.
+func (o ReportAggregationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportAggregation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ReportAggregationMapOutput struct{ *pulumi.OutputState }
+
+func (ReportAggregationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReportAggregation)(nil)).Elem()
+}
+
+func (o ReportAggregationMapOutput) ToReportAggregationMapOutput() ReportAggregationMapOutput {
+	return o
+}
+
+func (o ReportAggregationMapOutput) ToReportAggregationMapOutputWithContext(ctx context.Context) ReportAggregationMapOutput {
+	return o
+}
+
+func (o ReportAggregationMapOutput) MapIndex(k pulumi.StringInput) ReportAggregationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReportAggregation {
+		return vs[0].(map[string]ReportAggregation)[vs[1].(string)]
+	}).(ReportAggregationOutput)
+}
+
+// The aggregation expression to be used in the report.
+type ReportAggregationResponse struct {
+	// The name of the aggregation function to use.
+	Function string `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name string `pulumi:"name"`
+}
+
+// ReportAggregationResponseInput is an input type that accepts ReportAggregationResponseArgs and ReportAggregationResponseOutput values.
+// You can construct a concrete instance of `ReportAggregationResponseInput` via:
+//
+//          ReportAggregationResponseArgs{...}
+type ReportAggregationResponseInput interface {
+	pulumi.Input
+
+	ToReportAggregationResponseOutput() ReportAggregationResponseOutput
+	ToReportAggregationResponseOutputWithContext(context.Context) ReportAggregationResponseOutput
+}
+
+// The aggregation expression to be used in the report.
+type ReportAggregationResponseArgs struct {
+	// The name of the aggregation function to use.
+	Function pulumi.StringInput `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ReportAggregationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportAggregationResponse)(nil)).Elem()
+}
+
+func (i ReportAggregationResponseArgs) ToReportAggregationResponseOutput() ReportAggregationResponseOutput {
+	return i.ToReportAggregationResponseOutputWithContext(context.Background())
+}
+
+func (i ReportAggregationResponseArgs) ToReportAggregationResponseOutputWithContext(ctx context.Context) ReportAggregationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportAggregationResponseOutput)
+}
+
+// ReportAggregationResponseMapInput is an input type that accepts ReportAggregationResponseMap and ReportAggregationResponseMapOutput values.
+// You can construct a concrete instance of `ReportAggregationResponseMapInput` via:
+//
+//          ReportAggregationResponseMap{ "key": ReportAggregationResponseArgs{...} }
+type ReportAggregationResponseMapInput interface {
+	pulumi.Input
+
+	ToReportAggregationResponseMapOutput() ReportAggregationResponseMapOutput
+	ToReportAggregationResponseMapOutputWithContext(context.Context) ReportAggregationResponseMapOutput
+}
+
+type ReportAggregationResponseMap map[string]ReportAggregationResponseInput
+
+func (ReportAggregationResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReportAggregationResponse)(nil)).Elem()
+}
+
+func (i ReportAggregationResponseMap) ToReportAggregationResponseMapOutput() ReportAggregationResponseMapOutput {
+	return i.ToReportAggregationResponseMapOutputWithContext(context.Background())
+}
+
+func (i ReportAggregationResponseMap) ToReportAggregationResponseMapOutputWithContext(ctx context.Context) ReportAggregationResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportAggregationResponseMapOutput)
+}
+
+// The aggregation expression to be used in the report.
+type ReportAggregationResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportAggregationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportAggregationResponse)(nil)).Elem()
+}
+
+func (o ReportAggregationResponseOutput) ToReportAggregationResponseOutput() ReportAggregationResponseOutput {
+	return o
+}
+
+func (o ReportAggregationResponseOutput) ToReportAggregationResponseOutputWithContext(ctx context.Context) ReportAggregationResponseOutput {
+	return o
+}
+
+// The name of the aggregation function to use.
+func (o ReportAggregationResponseOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportAggregationResponse) string { return v.Function }).(pulumi.StringOutput)
+}
+
+// The name of the column to aggregate.
+func (o ReportAggregationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportAggregationResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ReportAggregationResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ReportAggregationResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReportAggregationResponse)(nil)).Elem()
+}
+
+func (o ReportAggregationResponseMapOutput) ToReportAggregationResponseMapOutput() ReportAggregationResponseMapOutput {
+	return o
+}
+
+func (o ReportAggregationResponseMapOutput) ToReportAggregationResponseMapOutputWithContext(ctx context.Context) ReportAggregationResponseMapOutput {
+	return o
+}
+
+func (o ReportAggregationResponseMapOutput) MapIndex(k pulumi.StringInput) ReportAggregationResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReportAggregationResponse {
+		return vs[0].(map[string]ReportAggregationResponse)[vs[1].(string)]
+	}).(ReportAggregationResponseOutput)
+}
+
+// The comparison expression to be used in the report.
+type ReportComparisonExpression struct {
+	// The name of the column to use in comparison.
+	Name string `pulumi:"name"`
+	// The operator to use for comparison.
+	Operator string `pulumi:"operator"`
+	// Array of values to use for comparison
+	Values []string `pulumi:"values"`
+}
+
+// ReportComparisonExpressionInput is an input type that accepts ReportComparisonExpressionArgs and ReportComparisonExpressionOutput values.
+// You can construct a concrete instance of `ReportComparisonExpressionInput` via:
+//
+//          ReportComparisonExpressionArgs{...}
+type ReportComparisonExpressionInput interface {
+	pulumi.Input
+
+	ToReportComparisonExpressionOutput() ReportComparisonExpressionOutput
+	ToReportComparisonExpressionOutputWithContext(context.Context) ReportComparisonExpressionOutput
+}
+
+// The comparison expression to be used in the report.
+type ReportComparisonExpressionArgs struct {
+	// The name of the column to use in comparison.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to use for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Array of values to use for comparison
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ReportComparisonExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportComparisonExpression)(nil)).Elem()
+}
+
+func (i ReportComparisonExpressionArgs) ToReportComparisonExpressionOutput() ReportComparisonExpressionOutput {
+	return i.ToReportComparisonExpressionOutputWithContext(context.Background())
+}
+
+func (i ReportComparisonExpressionArgs) ToReportComparisonExpressionOutputWithContext(ctx context.Context) ReportComparisonExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionOutput)
+}
+
+func (i ReportComparisonExpressionArgs) ToReportComparisonExpressionPtrOutput() ReportComparisonExpressionPtrOutput {
+	return i.ToReportComparisonExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i ReportComparisonExpressionArgs) ToReportComparisonExpressionPtrOutputWithContext(ctx context.Context) ReportComparisonExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionOutput).ToReportComparisonExpressionPtrOutputWithContext(ctx)
+}
+
+// ReportComparisonExpressionPtrInput is an input type that accepts ReportComparisonExpressionArgs, ReportComparisonExpressionPtr and ReportComparisonExpressionPtrOutput values.
+// You can construct a concrete instance of `ReportComparisonExpressionPtrInput` via:
+//
+//          ReportComparisonExpressionArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportComparisonExpressionPtrInput interface {
+	pulumi.Input
+
+	ToReportComparisonExpressionPtrOutput() ReportComparisonExpressionPtrOutput
+	ToReportComparisonExpressionPtrOutputWithContext(context.Context) ReportComparisonExpressionPtrOutput
+}
+
+type reportComparisonExpressionPtrType ReportComparisonExpressionArgs
+
+func ReportComparisonExpressionPtr(v *ReportComparisonExpressionArgs) ReportComparisonExpressionPtrInput {
+	return (*reportComparisonExpressionPtrType)(v)
+}
+
+func (*reportComparisonExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportComparisonExpression)(nil)).Elem()
+}
+
+func (i *reportComparisonExpressionPtrType) ToReportComparisonExpressionPtrOutput() ReportComparisonExpressionPtrOutput {
+	return i.ToReportComparisonExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *reportComparisonExpressionPtrType) ToReportComparisonExpressionPtrOutputWithContext(ctx context.Context) ReportComparisonExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionPtrOutput)
+}
+
+// The comparison expression to be used in the report.
+type ReportComparisonExpressionOutput struct{ *pulumi.OutputState }
+
+func (ReportComparisonExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportComparisonExpression)(nil)).Elem()
+}
+
+func (o ReportComparisonExpressionOutput) ToReportComparisonExpressionOutput() ReportComparisonExpressionOutput {
+	return o
+}
+
+func (o ReportComparisonExpressionOutput) ToReportComparisonExpressionOutputWithContext(ctx context.Context) ReportComparisonExpressionOutput {
+	return o
+}
+
+func (o ReportComparisonExpressionOutput) ToReportComparisonExpressionPtrOutput() ReportComparisonExpressionPtrOutput {
+	return o.ToReportComparisonExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o ReportComparisonExpressionOutput) ToReportComparisonExpressionPtrOutputWithContext(ctx context.Context) ReportComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v ReportComparisonExpression) *ReportComparisonExpression {
+		return &v
+	}).(ReportComparisonExpressionPtrOutput)
+}
+
+// The name of the column to use in comparison.
+func (o ReportComparisonExpressionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportComparisonExpression) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to use for comparison.
+func (o ReportComparisonExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportComparisonExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Array of values to use for comparison
+func (o ReportComparisonExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReportComparisonExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ReportComparisonExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportComparisonExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportComparisonExpression)(nil)).Elem()
+}
+
+func (o ReportComparisonExpressionPtrOutput) ToReportComparisonExpressionPtrOutput() ReportComparisonExpressionPtrOutput {
+	return o
+}
+
+func (o ReportComparisonExpressionPtrOutput) ToReportComparisonExpressionPtrOutputWithContext(ctx context.Context) ReportComparisonExpressionPtrOutput {
+	return o
+}
+
+func (o ReportComparisonExpressionPtrOutput) Elem() ReportComparisonExpressionOutput {
+	return o.ApplyT(func(v *ReportComparisonExpression) ReportComparisonExpression { return *v }).(ReportComparisonExpressionOutput)
+}
+
+// The name of the column to use in comparison.
+func (o ReportComparisonExpressionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportComparisonExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The operator to use for comparison.
+func (o ReportComparisonExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportComparisonExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of values to use for comparison
+func (o ReportComparisonExpressionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportComparisonExpression) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// The comparison expression to be used in the report.
+type ReportComparisonExpressionResponse struct {
+	// The name of the column to use in comparison.
+	Name string `pulumi:"name"`
+	// The operator to use for comparison.
+	Operator string `pulumi:"operator"`
+	// Array of values to use for comparison
+	Values []string `pulumi:"values"`
+}
+
+// ReportComparisonExpressionResponseInput is an input type that accepts ReportComparisonExpressionResponseArgs and ReportComparisonExpressionResponseOutput values.
+// You can construct a concrete instance of `ReportComparisonExpressionResponseInput` via:
+//
+//          ReportComparisonExpressionResponseArgs{...}
+type ReportComparisonExpressionResponseInput interface {
+	pulumi.Input
+
+	ToReportComparisonExpressionResponseOutput() ReportComparisonExpressionResponseOutput
+	ToReportComparisonExpressionResponseOutputWithContext(context.Context) ReportComparisonExpressionResponseOutput
+}
+
+// The comparison expression to be used in the report.
+type ReportComparisonExpressionResponseArgs struct {
+	// The name of the column to use in comparison.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to use for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Array of values to use for comparison
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ReportComparisonExpressionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportComparisonExpressionResponse)(nil)).Elem()
+}
+
+func (i ReportComparisonExpressionResponseArgs) ToReportComparisonExpressionResponseOutput() ReportComparisonExpressionResponseOutput {
+	return i.ToReportComparisonExpressionResponseOutputWithContext(context.Background())
+}
+
+func (i ReportComparisonExpressionResponseArgs) ToReportComparisonExpressionResponseOutputWithContext(ctx context.Context) ReportComparisonExpressionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionResponseOutput)
+}
+
+func (i ReportComparisonExpressionResponseArgs) ToReportComparisonExpressionResponsePtrOutput() ReportComparisonExpressionResponsePtrOutput {
+	return i.ToReportComparisonExpressionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReportComparisonExpressionResponseArgs) ToReportComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) ReportComparisonExpressionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionResponseOutput).ToReportComparisonExpressionResponsePtrOutputWithContext(ctx)
+}
+
+// ReportComparisonExpressionResponsePtrInput is an input type that accepts ReportComparisonExpressionResponseArgs, ReportComparisonExpressionResponsePtr and ReportComparisonExpressionResponsePtrOutput values.
+// You can construct a concrete instance of `ReportComparisonExpressionResponsePtrInput` via:
+//
+//          ReportComparisonExpressionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportComparisonExpressionResponsePtrInput interface {
+	pulumi.Input
+
+	ToReportComparisonExpressionResponsePtrOutput() ReportComparisonExpressionResponsePtrOutput
+	ToReportComparisonExpressionResponsePtrOutputWithContext(context.Context) ReportComparisonExpressionResponsePtrOutput
+}
+
+type reportComparisonExpressionResponsePtrType ReportComparisonExpressionResponseArgs
+
+func ReportComparisonExpressionResponsePtr(v *ReportComparisonExpressionResponseArgs) ReportComparisonExpressionResponsePtrInput {
+	return (*reportComparisonExpressionResponsePtrType)(v)
+}
+
+func (*reportComparisonExpressionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportComparisonExpressionResponse)(nil)).Elem()
+}
+
+func (i *reportComparisonExpressionResponsePtrType) ToReportComparisonExpressionResponsePtrOutput() ReportComparisonExpressionResponsePtrOutput {
+	return i.ToReportComparisonExpressionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *reportComparisonExpressionResponsePtrType) ToReportComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) ReportComparisonExpressionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionResponsePtrOutput)
+}
+
+// The comparison expression to be used in the report.
+type ReportComparisonExpressionResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportComparisonExpressionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportComparisonExpressionResponse)(nil)).Elem()
+}
+
+func (o ReportComparisonExpressionResponseOutput) ToReportComparisonExpressionResponseOutput() ReportComparisonExpressionResponseOutput {
+	return o
+}
+
+func (o ReportComparisonExpressionResponseOutput) ToReportComparisonExpressionResponseOutputWithContext(ctx context.Context) ReportComparisonExpressionResponseOutput {
+	return o
+}
+
+func (o ReportComparisonExpressionResponseOutput) ToReportComparisonExpressionResponsePtrOutput() ReportComparisonExpressionResponsePtrOutput {
+	return o.ToReportComparisonExpressionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReportComparisonExpressionResponseOutput) ToReportComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) ReportComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v ReportComparisonExpressionResponse) *ReportComparisonExpressionResponse {
+		return &v
+	}).(ReportComparisonExpressionResponsePtrOutput)
+}
+
+// The name of the column to use in comparison.
+func (o ReportComparisonExpressionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportComparisonExpressionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to use for comparison.
+func (o ReportComparisonExpressionResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportComparisonExpressionResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Array of values to use for comparison
+func (o ReportComparisonExpressionResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReportComparisonExpressionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ReportComparisonExpressionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportComparisonExpressionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportComparisonExpressionResponse)(nil)).Elem()
+}
+
+func (o ReportComparisonExpressionResponsePtrOutput) ToReportComparisonExpressionResponsePtrOutput() ReportComparisonExpressionResponsePtrOutput {
+	return o
+}
+
+func (o ReportComparisonExpressionResponsePtrOutput) ToReportComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) ReportComparisonExpressionResponsePtrOutput {
+	return o
+}
+
+func (o ReportComparisonExpressionResponsePtrOutput) Elem() ReportComparisonExpressionResponseOutput {
+	return o.ApplyT(func(v *ReportComparisonExpressionResponse) ReportComparisonExpressionResponse { return *v }).(ReportComparisonExpressionResponseOutput)
+}
+
+// The name of the column to use in comparison.
+func (o ReportComparisonExpressionResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportComparisonExpressionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The operator to use for comparison.
+func (o ReportComparisonExpressionResponsePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportComparisonExpressionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of values to use for comparison
+func (o ReportComparisonExpressionResponsePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportComparisonExpressionResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
 }
 
 // The aggregation expression to be used in the report.
@@ -7877,9 +9551,3385 @@ func (o ReportConfigTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The definition of data present in the report.
+type ReportDataset struct {
+	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+	Aggregation map[string]ReportAggregation `pulumi:"aggregation"`
+	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+	Configuration *ReportDatasetConfiguration `pulumi:"configuration"`
+	// Has filter expression to use in the report.
+	Filter *ReportFilter `pulumi:"filter"`
+	// The granularity of rows in the report.
+	Granularity *string `pulumi:"granularity"`
+	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+	Grouping []ReportGrouping `pulumi:"grouping"`
+}
+
+// ReportDatasetInput is an input type that accepts ReportDatasetArgs and ReportDatasetOutput values.
+// You can construct a concrete instance of `ReportDatasetInput` via:
+//
+//          ReportDatasetArgs{...}
+type ReportDatasetInput interface {
+	pulumi.Input
+
+	ToReportDatasetOutput() ReportDatasetOutput
+	ToReportDatasetOutputWithContext(context.Context) ReportDatasetOutput
+}
+
+// The definition of data present in the report.
+type ReportDatasetArgs struct {
+	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+	Aggregation ReportAggregationMapInput `pulumi:"aggregation"`
+	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+	Configuration ReportDatasetConfigurationPtrInput `pulumi:"configuration"`
+	// Has filter expression to use in the report.
+	Filter ReportFilterPtrInput `pulumi:"filter"`
+	// The granularity of rows in the report.
+	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
+	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+	Grouping ReportGroupingArrayInput `pulumi:"grouping"`
+}
+
+func (ReportDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDataset)(nil)).Elem()
+}
+
+func (i ReportDatasetArgs) ToReportDatasetOutput() ReportDatasetOutput {
+	return i.ToReportDatasetOutputWithContext(context.Background())
+}
+
+func (i ReportDatasetArgs) ToReportDatasetOutputWithContext(ctx context.Context) ReportDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetOutput)
+}
+
+func (i ReportDatasetArgs) ToReportDatasetPtrOutput() ReportDatasetPtrOutput {
+	return i.ToReportDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i ReportDatasetArgs) ToReportDatasetPtrOutputWithContext(ctx context.Context) ReportDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetOutput).ToReportDatasetPtrOutputWithContext(ctx)
+}
+
+// ReportDatasetPtrInput is an input type that accepts ReportDatasetArgs, ReportDatasetPtr and ReportDatasetPtrOutput values.
+// You can construct a concrete instance of `ReportDatasetPtrInput` via:
+//
+//          ReportDatasetArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportDatasetPtrInput interface {
+	pulumi.Input
+
+	ToReportDatasetPtrOutput() ReportDatasetPtrOutput
+	ToReportDatasetPtrOutputWithContext(context.Context) ReportDatasetPtrOutput
+}
+
+type reportDatasetPtrType ReportDatasetArgs
+
+func ReportDatasetPtr(v *ReportDatasetArgs) ReportDatasetPtrInput {
+	return (*reportDatasetPtrType)(v)
+}
+
+func (*reportDatasetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDataset)(nil)).Elem()
+}
+
+func (i *reportDatasetPtrType) ToReportDatasetPtrOutput() ReportDatasetPtrOutput {
+	return i.ToReportDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i *reportDatasetPtrType) ToReportDatasetPtrOutputWithContext(ctx context.Context) ReportDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetPtrOutput)
+}
+
+// The definition of data present in the report.
+type ReportDatasetOutput struct{ *pulumi.OutputState }
+
+func (ReportDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDataset)(nil)).Elem()
+}
+
+func (o ReportDatasetOutput) ToReportDatasetOutput() ReportDatasetOutput {
+	return o
+}
+
+func (o ReportDatasetOutput) ToReportDatasetOutputWithContext(ctx context.Context) ReportDatasetOutput {
+	return o
+}
+
+func (o ReportDatasetOutput) ToReportDatasetPtrOutput() ReportDatasetPtrOutput {
+	return o.ToReportDatasetPtrOutputWithContext(context.Background())
+}
+
+func (o ReportDatasetOutput) ToReportDatasetPtrOutputWithContext(ctx context.Context) ReportDatasetPtrOutput {
+	return o.ApplyT(func(v ReportDataset) *ReportDataset {
+		return &v
+	}).(ReportDatasetPtrOutput)
+}
+
+// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+func (o ReportDatasetOutput) Aggregation() ReportAggregationMapOutput {
+	return o.ApplyT(func(v ReportDataset) map[string]ReportAggregation { return v.Aggregation }).(ReportAggregationMapOutput)
+}
+
+// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+func (o ReportDatasetOutput) Configuration() ReportDatasetConfigurationPtrOutput {
+	return o.ApplyT(func(v ReportDataset) *ReportDatasetConfiguration { return v.Configuration }).(ReportDatasetConfigurationPtrOutput)
+}
+
+// Has filter expression to use in the report.
+func (o ReportDatasetOutput) Filter() ReportFilterPtrOutput {
+	return o.ApplyT(func(v ReportDataset) *ReportFilter { return v.Filter }).(ReportFilterPtrOutput)
+}
+
+// The granularity of rows in the report.
+func (o ReportDatasetOutput) Granularity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportDataset) *string { return v.Granularity }).(pulumi.StringPtrOutput)
+}
+
+// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+func (o ReportDatasetOutput) Grouping() ReportGroupingArrayOutput {
+	return o.ApplyT(func(v ReportDataset) []ReportGrouping { return v.Grouping }).(ReportGroupingArrayOutput)
+}
+
+type ReportDatasetPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDatasetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDataset)(nil)).Elem()
+}
+
+func (o ReportDatasetPtrOutput) ToReportDatasetPtrOutput() ReportDatasetPtrOutput {
+	return o
+}
+
+func (o ReportDatasetPtrOutput) ToReportDatasetPtrOutputWithContext(ctx context.Context) ReportDatasetPtrOutput {
+	return o
+}
+
+func (o ReportDatasetPtrOutput) Elem() ReportDatasetOutput {
+	return o.ApplyT(func(v *ReportDataset) ReportDataset { return *v }).(ReportDatasetOutput)
+}
+
+// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+func (o ReportDatasetPtrOutput) Aggregation() ReportAggregationMapOutput {
+	return o.ApplyT(func(v *ReportDataset) map[string]ReportAggregation {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregation
+	}).(ReportAggregationMapOutput)
+}
+
+// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+func (o ReportDatasetPtrOutput) Configuration() ReportDatasetConfigurationPtrOutput {
+	return o.ApplyT(func(v *ReportDataset) *ReportDatasetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(ReportDatasetConfigurationPtrOutput)
+}
+
+// Has filter expression to use in the report.
+func (o ReportDatasetPtrOutput) Filter() ReportFilterPtrOutput {
+	return o.ApplyT(func(v *ReportDataset) *ReportFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Filter
+	}).(ReportFilterPtrOutput)
+}
+
+// The granularity of rows in the report.
+func (o ReportDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDataset) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Granularity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+func (o ReportDatasetPtrOutput) Grouping() ReportGroupingArrayOutput {
+	return o.ApplyT(func(v *ReportDataset) []ReportGrouping {
+		if v == nil {
+			return nil
+		}
+		return v.Grouping
+	}).(ReportGroupingArrayOutput)
+}
+
+// The configuration of dataset in the report.
+type ReportDatasetConfiguration struct {
+	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+	Columns []string `pulumi:"columns"`
+}
+
+// ReportDatasetConfigurationInput is an input type that accepts ReportDatasetConfigurationArgs and ReportDatasetConfigurationOutput values.
+// You can construct a concrete instance of `ReportDatasetConfigurationInput` via:
+//
+//          ReportDatasetConfigurationArgs{...}
+type ReportDatasetConfigurationInput interface {
+	pulumi.Input
+
+	ToReportDatasetConfigurationOutput() ReportDatasetConfigurationOutput
+	ToReportDatasetConfigurationOutputWithContext(context.Context) ReportDatasetConfigurationOutput
+}
+
+// The configuration of dataset in the report.
+type ReportDatasetConfigurationArgs struct {
+	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+}
+
+func (ReportDatasetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDatasetConfiguration)(nil)).Elem()
+}
+
+func (i ReportDatasetConfigurationArgs) ToReportDatasetConfigurationOutput() ReportDatasetConfigurationOutput {
+	return i.ToReportDatasetConfigurationOutputWithContext(context.Background())
+}
+
+func (i ReportDatasetConfigurationArgs) ToReportDatasetConfigurationOutputWithContext(ctx context.Context) ReportDatasetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationOutput)
+}
+
+func (i ReportDatasetConfigurationArgs) ToReportDatasetConfigurationPtrOutput() ReportDatasetConfigurationPtrOutput {
+	return i.ToReportDatasetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ReportDatasetConfigurationArgs) ToReportDatasetConfigurationPtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationOutput).ToReportDatasetConfigurationPtrOutputWithContext(ctx)
+}
+
+// ReportDatasetConfigurationPtrInput is an input type that accepts ReportDatasetConfigurationArgs, ReportDatasetConfigurationPtr and ReportDatasetConfigurationPtrOutput values.
+// You can construct a concrete instance of `ReportDatasetConfigurationPtrInput` via:
+//
+//          ReportDatasetConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportDatasetConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToReportDatasetConfigurationPtrOutput() ReportDatasetConfigurationPtrOutput
+	ToReportDatasetConfigurationPtrOutputWithContext(context.Context) ReportDatasetConfigurationPtrOutput
+}
+
+type reportDatasetConfigurationPtrType ReportDatasetConfigurationArgs
+
+func ReportDatasetConfigurationPtr(v *ReportDatasetConfigurationArgs) ReportDatasetConfigurationPtrInput {
+	return (*reportDatasetConfigurationPtrType)(v)
+}
+
+func (*reportDatasetConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDatasetConfiguration)(nil)).Elem()
+}
+
+func (i *reportDatasetConfigurationPtrType) ToReportDatasetConfigurationPtrOutput() ReportDatasetConfigurationPtrOutput {
+	return i.ToReportDatasetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *reportDatasetConfigurationPtrType) ToReportDatasetConfigurationPtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationPtrOutput)
+}
+
+// The configuration of dataset in the report.
+type ReportDatasetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ReportDatasetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDatasetConfiguration)(nil)).Elem()
+}
+
+func (o ReportDatasetConfigurationOutput) ToReportDatasetConfigurationOutput() ReportDatasetConfigurationOutput {
+	return o
+}
+
+func (o ReportDatasetConfigurationOutput) ToReportDatasetConfigurationOutputWithContext(ctx context.Context) ReportDatasetConfigurationOutput {
+	return o
+}
+
+func (o ReportDatasetConfigurationOutput) ToReportDatasetConfigurationPtrOutput() ReportDatasetConfigurationPtrOutput {
+	return o.ToReportDatasetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ReportDatasetConfigurationOutput) ToReportDatasetConfigurationPtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationPtrOutput {
+	return o.ApplyT(func(v ReportDatasetConfiguration) *ReportDatasetConfiguration {
+		return &v
+	}).(ReportDatasetConfigurationPtrOutput)
+}
+
+// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+func (o ReportDatasetConfigurationOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReportDatasetConfiguration) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+type ReportDatasetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDatasetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDatasetConfiguration)(nil)).Elem()
+}
+
+func (o ReportDatasetConfigurationPtrOutput) ToReportDatasetConfigurationPtrOutput() ReportDatasetConfigurationPtrOutput {
+	return o
+}
+
+func (o ReportDatasetConfigurationPtrOutput) ToReportDatasetConfigurationPtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationPtrOutput {
+	return o
+}
+
+func (o ReportDatasetConfigurationPtrOutput) Elem() ReportDatasetConfigurationOutput {
+	return o.ApplyT(func(v *ReportDatasetConfiguration) ReportDatasetConfiguration { return *v }).(ReportDatasetConfigurationOutput)
+}
+
+// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+func (o ReportDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportDatasetConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The configuration of dataset in the report.
+type ReportDatasetConfigurationResponse struct {
+	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+	Columns []string `pulumi:"columns"`
+}
+
+// ReportDatasetConfigurationResponseInput is an input type that accepts ReportDatasetConfigurationResponseArgs and ReportDatasetConfigurationResponseOutput values.
+// You can construct a concrete instance of `ReportDatasetConfigurationResponseInput` via:
+//
+//          ReportDatasetConfigurationResponseArgs{...}
+type ReportDatasetConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToReportDatasetConfigurationResponseOutput() ReportDatasetConfigurationResponseOutput
+	ToReportDatasetConfigurationResponseOutputWithContext(context.Context) ReportDatasetConfigurationResponseOutput
+}
+
+// The configuration of dataset in the report.
+type ReportDatasetConfigurationResponseArgs struct {
+	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+}
+
+func (ReportDatasetConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDatasetConfigurationResponse)(nil)).Elem()
+}
+
+func (i ReportDatasetConfigurationResponseArgs) ToReportDatasetConfigurationResponseOutput() ReportDatasetConfigurationResponseOutput {
+	return i.ToReportDatasetConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i ReportDatasetConfigurationResponseArgs) ToReportDatasetConfigurationResponseOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationResponseOutput)
+}
+
+func (i ReportDatasetConfigurationResponseArgs) ToReportDatasetConfigurationResponsePtrOutput() ReportDatasetConfigurationResponsePtrOutput {
+	return i.ToReportDatasetConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReportDatasetConfigurationResponseArgs) ToReportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationResponseOutput).ToReportDatasetConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// ReportDatasetConfigurationResponsePtrInput is an input type that accepts ReportDatasetConfigurationResponseArgs, ReportDatasetConfigurationResponsePtr and ReportDatasetConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `ReportDatasetConfigurationResponsePtrInput` via:
+//
+//          ReportDatasetConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportDatasetConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToReportDatasetConfigurationResponsePtrOutput() ReportDatasetConfigurationResponsePtrOutput
+	ToReportDatasetConfigurationResponsePtrOutputWithContext(context.Context) ReportDatasetConfigurationResponsePtrOutput
+}
+
+type reportDatasetConfigurationResponsePtrType ReportDatasetConfigurationResponseArgs
+
+func ReportDatasetConfigurationResponsePtr(v *ReportDatasetConfigurationResponseArgs) ReportDatasetConfigurationResponsePtrInput {
+	return (*reportDatasetConfigurationResponsePtrType)(v)
+}
+
+func (*reportDatasetConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDatasetConfigurationResponse)(nil)).Elem()
+}
+
+func (i *reportDatasetConfigurationResponsePtrType) ToReportDatasetConfigurationResponsePtrOutput() ReportDatasetConfigurationResponsePtrOutput {
+	return i.ToReportDatasetConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *reportDatasetConfigurationResponsePtrType) ToReportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationResponsePtrOutput)
+}
+
+// The configuration of dataset in the report.
+type ReportDatasetConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportDatasetConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDatasetConfigurationResponse)(nil)).Elem()
+}
+
+func (o ReportDatasetConfigurationResponseOutput) ToReportDatasetConfigurationResponseOutput() ReportDatasetConfigurationResponseOutput {
+	return o
+}
+
+func (o ReportDatasetConfigurationResponseOutput) ToReportDatasetConfigurationResponseOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponseOutput {
+	return o
+}
+
+func (o ReportDatasetConfigurationResponseOutput) ToReportDatasetConfigurationResponsePtrOutput() ReportDatasetConfigurationResponsePtrOutput {
+	return o.ToReportDatasetConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReportDatasetConfigurationResponseOutput) ToReportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ReportDatasetConfigurationResponse) *ReportDatasetConfigurationResponse {
+		return &v
+	}).(ReportDatasetConfigurationResponsePtrOutput)
+}
+
+// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+func (o ReportDatasetConfigurationResponseOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReportDatasetConfigurationResponse) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+type ReportDatasetConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDatasetConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDatasetConfigurationResponse)(nil)).Elem()
+}
+
+func (o ReportDatasetConfigurationResponsePtrOutput) ToReportDatasetConfigurationResponsePtrOutput() ReportDatasetConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ReportDatasetConfigurationResponsePtrOutput) ToReportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ReportDatasetConfigurationResponsePtrOutput) Elem() ReportDatasetConfigurationResponseOutput {
+	return o.ApplyT(func(v *ReportDatasetConfigurationResponse) ReportDatasetConfigurationResponse { return *v }).(ReportDatasetConfigurationResponseOutput)
+}
+
+// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+func (o ReportDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportDatasetConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The definition of data present in the report.
+type ReportDatasetResponse struct {
+	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+	Aggregation map[string]ReportAggregationResponse `pulumi:"aggregation"`
+	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+	Configuration *ReportDatasetConfigurationResponse `pulumi:"configuration"`
+	// Has filter expression to use in the report.
+	Filter *ReportFilterResponse `pulumi:"filter"`
+	// The granularity of rows in the report.
+	Granularity *string `pulumi:"granularity"`
+	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+	Grouping []ReportGroupingResponse `pulumi:"grouping"`
+}
+
+// ReportDatasetResponseInput is an input type that accepts ReportDatasetResponseArgs and ReportDatasetResponseOutput values.
+// You can construct a concrete instance of `ReportDatasetResponseInput` via:
+//
+//          ReportDatasetResponseArgs{...}
+type ReportDatasetResponseInput interface {
+	pulumi.Input
+
+	ToReportDatasetResponseOutput() ReportDatasetResponseOutput
+	ToReportDatasetResponseOutputWithContext(context.Context) ReportDatasetResponseOutput
+}
+
+// The definition of data present in the report.
+type ReportDatasetResponseArgs struct {
+	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+	Aggregation ReportAggregationResponseMapInput `pulumi:"aggregation"`
+	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+	Configuration ReportDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
+	// Has filter expression to use in the report.
+	Filter ReportFilterResponsePtrInput `pulumi:"filter"`
+	// The granularity of rows in the report.
+	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
+	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+	Grouping ReportGroupingResponseArrayInput `pulumi:"grouping"`
+}
+
+func (ReportDatasetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDatasetResponse)(nil)).Elem()
+}
+
+func (i ReportDatasetResponseArgs) ToReportDatasetResponseOutput() ReportDatasetResponseOutput {
+	return i.ToReportDatasetResponseOutputWithContext(context.Background())
+}
+
+func (i ReportDatasetResponseArgs) ToReportDatasetResponseOutputWithContext(ctx context.Context) ReportDatasetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetResponseOutput)
+}
+
+func (i ReportDatasetResponseArgs) ToReportDatasetResponsePtrOutput() ReportDatasetResponsePtrOutput {
+	return i.ToReportDatasetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReportDatasetResponseArgs) ToReportDatasetResponsePtrOutputWithContext(ctx context.Context) ReportDatasetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetResponseOutput).ToReportDatasetResponsePtrOutputWithContext(ctx)
+}
+
+// ReportDatasetResponsePtrInput is an input type that accepts ReportDatasetResponseArgs, ReportDatasetResponsePtr and ReportDatasetResponsePtrOutput values.
+// You can construct a concrete instance of `ReportDatasetResponsePtrInput` via:
+//
+//          ReportDatasetResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportDatasetResponsePtrInput interface {
+	pulumi.Input
+
+	ToReportDatasetResponsePtrOutput() ReportDatasetResponsePtrOutput
+	ToReportDatasetResponsePtrOutputWithContext(context.Context) ReportDatasetResponsePtrOutput
+}
+
+type reportDatasetResponsePtrType ReportDatasetResponseArgs
+
+func ReportDatasetResponsePtr(v *ReportDatasetResponseArgs) ReportDatasetResponsePtrInput {
+	return (*reportDatasetResponsePtrType)(v)
+}
+
+func (*reportDatasetResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDatasetResponse)(nil)).Elem()
+}
+
+func (i *reportDatasetResponsePtrType) ToReportDatasetResponsePtrOutput() ReportDatasetResponsePtrOutput {
+	return i.ToReportDatasetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *reportDatasetResponsePtrType) ToReportDatasetResponsePtrOutputWithContext(ctx context.Context) ReportDatasetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetResponsePtrOutput)
+}
+
+// The definition of data present in the report.
+type ReportDatasetResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportDatasetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDatasetResponse)(nil)).Elem()
+}
+
+func (o ReportDatasetResponseOutput) ToReportDatasetResponseOutput() ReportDatasetResponseOutput {
+	return o
+}
+
+func (o ReportDatasetResponseOutput) ToReportDatasetResponseOutputWithContext(ctx context.Context) ReportDatasetResponseOutput {
+	return o
+}
+
+func (o ReportDatasetResponseOutput) ToReportDatasetResponsePtrOutput() ReportDatasetResponsePtrOutput {
+	return o.ToReportDatasetResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReportDatasetResponseOutput) ToReportDatasetResponsePtrOutputWithContext(ctx context.Context) ReportDatasetResponsePtrOutput {
+	return o.ApplyT(func(v ReportDatasetResponse) *ReportDatasetResponse {
+		return &v
+	}).(ReportDatasetResponsePtrOutput)
+}
+
+// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+func (o ReportDatasetResponseOutput) Aggregation() ReportAggregationResponseMapOutput {
+	return o.ApplyT(func(v ReportDatasetResponse) map[string]ReportAggregationResponse { return v.Aggregation }).(ReportAggregationResponseMapOutput)
+}
+
+// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+func (o ReportDatasetResponseOutput) Configuration() ReportDatasetConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ReportDatasetResponse) *ReportDatasetConfigurationResponse { return v.Configuration }).(ReportDatasetConfigurationResponsePtrOutput)
+}
+
+// Has filter expression to use in the report.
+func (o ReportDatasetResponseOutput) Filter() ReportFilterResponsePtrOutput {
+	return o.ApplyT(func(v ReportDatasetResponse) *ReportFilterResponse { return v.Filter }).(ReportFilterResponsePtrOutput)
+}
+
+// The granularity of rows in the report.
+func (o ReportDatasetResponseOutput) Granularity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportDatasetResponse) *string { return v.Granularity }).(pulumi.StringPtrOutput)
+}
+
+// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+func (o ReportDatasetResponseOutput) Grouping() ReportGroupingResponseArrayOutput {
+	return o.ApplyT(func(v ReportDatasetResponse) []ReportGroupingResponse { return v.Grouping }).(ReportGroupingResponseArrayOutput)
+}
+
+type ReportDatasetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDatasetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDatasetResponse)(nil)).Elem()
+}
+
+func (o ReportDatasetResponsePtrOutput) ToReportDatasetResponsePtrOutput() ReportDatasetResponsePtrOutput {
+	return o
+}
+
+func (o ReportDatasetResponsePtrOutput) ToReportDatasetResponsePtrOutputWithContext(ctx context.Context) ReportDatasetResponsePtrOutput {
+	return o
+}
+
+func (o ReportDatasetResponsePtrOutput) Elem() ReportDatasetResponseOutput {
+	return o.ApplyT(func(v *ReportDatasetResponse) ReportDatasetResponse { return *v }).(ReportDatasetResponseOutput)
+}
+
+// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+func (o ReportDatasetResponsePtrOutput) Aggregation() ReportAggregationResponseMapOutput {
+	return o.ApplyT(func(v *ReportDatasetResponse) map[string]ReportAggregationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregation
+	}).(ReportAggregationResponseMapOutput)
+}
+
+// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+func (o ReportDatasetResponsePtrOutput) Configuration() ReportDatasetConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ReportDatasetResponse) *ReportDatasetConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(ReportDatasetConfigurationResponsePtrOutput)
+}
+
+// Has filter expression to use in the report.
+func (o ReportDatasetResponsePtrOutput) Filter() ReportFilterResponsePtrOutput {
+	return o.ApplyT(func(v *ReportDatasetResponse) *ReportFilterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Filter
+	}).(ReportFilterResponsePtrOutput)
+}
+
+// The granularity of rows in the report.
+func (o ReportDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDatasetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Granularity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+func (o ReportDatasetResponsePtrOutput) Grouping() ReportGroupingResponseArrayOutput {
+	return o.ApplyT(func(v *ReportDatasetResponse) []ReportGroupingResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Grouping
+	}).(ReportGroupingResponseArrayOutput)
+}
+
+// The definition of a report.
+type ReportDefinition struct {
+	// Has definition for data in this report.
+	Dataset *ReportDataset `pulumi:"dataset"`
+	// Has time period for pulling data for the report.
+	TimePeriod *ReportTimePeriod `pulumi:"timePeriod"`
+	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+	Timeframe string `pulumi:"timeframe"`
+	// The type of the report.
+	Type string `pulumi:"type"`
+}
+
+// ReportDefinitionInput is an input type that accepts ReportDefinitionArgs and ReportDefinitionOutput values.
+// You can construct a concrete instance of `ReportDefinitionInput` via:
+//
+//          ReportDefinitionArgs{...}
+type ReportDefinitionInput interface {
+	pulumi.Input
+
+	ToReportDefinitionOutput() ReportDefinitionOutput
+	ToReportDefinitionOutputWithContext(context.Context) ReportDefinitionOutput
+}
+
+// The definition of a report.
+type ReportDefinitionArgs struct {
+	// Has definition for data in this report.
+	Dataset ReportDatasetPtrInput `pulumi:"dataset"`
+	// Has time period for pulling data for the report.
+	TimePeriod ReportTimePeriodPtrInput `pulumi:"timePeriod"`
+	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+	Timeframe pulumi.StringInput `pulumi:"timeframe"`
+	// The type of the report.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReportDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDefinition)(nil)).Elem()
+}
+
+func (i ReportDefinitionArgs) ToReportDefinitionOutput() ReportDefinitionOutput {
+	return i.ToReportDefinitionOutputWithContext(context.Background())
+}
+
+func (i ReportDefinitionArgs) ToReportDefinitionOutputWithContext(ctx context.Context) ReportDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionOutput)
+}
+
+func (i ReportDefinitionArgs) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
+	return i.ToReportDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ReportDefinitionArgs) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionOutput).ToReportDefinitionPtrOutputWithContext(ctx)
+}
+
+// ReportDefinitionPtrInput is an input type that accepts ReportDefinitionArgs, ReportDefinitionPtr and ReportDefinitionPtrOutput values.
+// You can construct a concrete instance of `ReportDefinitionPtrInput` via:
+//
+//          ReportDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput
+	ToReportDefinitionPtrOutputWithContext(context.Context) ReportDefinitionPtrOutput
+}
+
+type reportDefinitionPtrType ReportDefinitionArgs
+
+func ReportDefinitionPtr(v *ReportDefinitionArgs) ReportDefinitionPtrInput {
+	return (*reportDefinitionPtrType)(v)
+}
+
+func (*reportDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDefinition)(nil)).Elem()
+}
+
+func (i *reportDefinitionPtrType) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
+	return i.ToReportDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *reportDefinitionPtrType) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionPtrOutput)
+}
+
+// The definition of a report.
+type ReportDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ReportDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDefinition)(nil)).Elem()
+}
+
+func (o ReportDefinitionOutput) ToReportDefinitionOutput() ReportDefinitionOutput {
+	return o
+}
+
+func (o ReportDefinitionOutput) ToReportDefinitionOutputWithContext(ctx context.Context) ReportDefinitionOutput {
+	return o
+}
+
+func (o ReportDefinitionOutput) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
+	return o.ToReportDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ReportDefinitionOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
+	return o.ApplyT(func(v ReportDefinition) *ReportDefinition {
+		return &v
+	}).(ReportDefinitionPtrOutput)
+}
+
+// Has definition for data in this report.
+func (o ReportDefinitionOutput) Dataset() ReportDatasetPtrOutput {
+	return o.ApplyT(func(v ReportDefinition) *ReportDataset { return v.Dataset }).(ReportDatasetPtrOutput)
+}
+
+// Has time period for pulling data for the report.
+func (o ReportDefinitionOutput) TimePeriod() ReportTimePeriodPtrOutput {
+	return o.ApplyT(func(v ReportDefinition) *ReportTimePeriod { return v.TimePeriod }).(ReportTimePeriodPtrOutput)
+}
+
+// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+func (o ReportDefinitionOutput) Timeframe() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportDefinition) string { return v.Timeframe }).(pulumi.StringOutput)
+}
+
+// The type of the report.
+func (o ReportDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportDefinition) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ReportDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDefinition)(nil)).Elem()
+}
+
+func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
+	return o
+}
+
+func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
+	return o
+}
+
+func (o ReportDefinitionPtrOutput) Elem() ReportDefinitionOutput {
+	return o.ApplyT(func(v *ReportDefinition) ReportDefinition { return *v }).(ReportDefinitionOutput)
+}
+
+// Has definition for data in this report.
+func (o ReportDefinitionPtrOutput) Dataset() ReportDatasetPtrOutput {
+	return o.ApplyT(func(v *ReportDefinition) *ReportDataset {
+		if v == nil {
+			return nil
+		}
+		return v.Dataset
+	}).(ReportDatasetPtrOutput)
+}
+
+// Has time period for pulling data for the report.
+func (o ReportDefinitionPtrOutput) TimePeriod() ReportTimePeriodPtrOutput {
+	return o.ApplyT(func(v *ReportDefinition) *ReportTimePeriod {
+		if v == nil {
+			return nil
+		}
+		return v.TimePeriod
+	}).(ReportTimePeriodPtrOutput)
+}
+
+// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+func (o ReportDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timeframe
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the report.
+func (o ReportDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The definition of a report.
+type ReportDefinitionResponse struct {
+	// Has definition for data in this report.
+	Dataset *ReportDatasetResponse `pulumi:"dataset"`
+	// Has time period for pulling data for the report.
+	TimePeriod *ReportTimePeriodResponse `pulumi:"timePeriod"`
+	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+	Timeframe string `pulumi:"timeframe"`
+	// The type of the report.
+	Type string `pulumi:"type"`
+}
+
+// ReportDefinitionResponseInput is an input type that accepts ReportDefinitionResponseArgs and ReportDefinitionResponseOutput values.
+// You can construct a concrete instance of `ReportDefinitionResponseInput` via:
+//
+//          ReportDefinitionResponseArgs{...}
+type ReportDefinitionResponseInput interface {
+	pulumi.Input
+
+	ToReportDefinitionResponseOutput() ReportDefinitionResponseOutput
+	ToReportDefinitionResponseOutputWithContext(context.Context) ReportDefinitionResponseOutput
+}
+
+// The definition of a report.
+type ReportDefinitionResponseArgs struct {
+	// Has definition for data in this report.
+	Dataset ReportDatasetResponsePtrInput `pulumi:"dataset"`
+	// Has time period for pulling data for the report.
+	TimePeriod ReportTimePeriodResponsePtrInput `pulumi:"timePeriod"`
+	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+	Timeframe pulumi.StringInput `pulumi:"timeframe"`
+	// The type of the report.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReportDefinitionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDefinitionResponse)(nil)).Elem()
+}
+
+func (i ReportDefinitionResponseArgs) ToReportDefinitionResponseOutput() ReportDefinitionResponseOutput {
+	return i.ToReportDefinitionResponseOutputWithContext(context.Background())
+}
+
+func (i ReportDefinitionResponseArgs) ToReportDefinitionResponseOutputWithContext(ctx context.Context) ReportDefinitionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionResponseOutput)
+}
+
+func (i ReportDefinitionResponseArgs) ToReportDefinitionResponsePtrOutput() ReportDefinitionResponsePtrOutput {
+	return i.ToReportDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReportDefinitionResponseArgs) ToReportDefinitionResponsePtrOutputWithContext(ctx context.Context) ReportDefinitionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionResponseOutput).ToReportDefinitionResponsePtrOutputWithContext(ctx)
+}
+
+// ReportDefinitionResponsePtrInput is an input type that accepts ReportDefinitionResponseArgs, ReportDefinitionResponsePtr and ReportDefinitionResponsePtrOutput values.
+// You can construct a concrete instance of `ReportDefinitionResponsePtrInput` via:
+//
+//          ReportDefinitionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportDefinitionResponsePtrInput interface {
+	pulumi.Input
+
+	ToReportDefinitionResponsePtrOutput() ReportDefinitionResponsePtrOutput
+	ToReportDefinitionResponsePtrOutputWithContext(context.Context) ReportDefinitionResponsePtrOutput
+}
+
+type reportDefinitionResponsePtrType ReportDefinitionResponseArgs
+
+func ReportDefinitionResponsePtr(v *ReportDefinitionResponseArgs) ReportDefinitionResponsePtrInput {
+	return (*reportDefinitionResponsePtrType)(v)
+}
+
+func (*reportDefinitionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDefinitionResponse)(nil)).Elem()
+}
+
+func (i *reportDefinitionResponsePtrType) ToReportDefinitionResponsePtrOutput() ReportDefinitionResponsePtrOutput {
+	return i.ToReportDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *reportDefinitionResponsePtrType) ToReportDefinitionResponsePtrOutputWithContext(ctx context.Context) ReportDefinitionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionResponsePtrOutput)
+}
+
+// The definition of a report.
+type ReportDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDefinitionResponse)(nil)).Elem()
+}
+
+func (o ReportDefinitionResponseOutput) ToReportDefinitionResponseOutput() ReportDefinitionResponseOutput {
+	return o
+}
+
+func (o ReportDefinitionResponseOutput) ToReportDefinitionResponseOutputWithContext(ctx context.Context) ReportDefinitionResponseOutput {
+	return o
+}
+
+func (o ReportDefinitionResponseOutput) ToReportDefinitionResponsePtrOutput() ReportDefinitionResponsePtrOutput {
+	return o.ToReportDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReportDefinitionResponseOutput) ToReportDefinitionResponsePtrOutputWithContext(ctx context.Context) ReportDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v ReportDefinitionResponse) *ReportDefinitionResponse {
+		return &v
+	}).(ReportDefinitionResponsePtrOutput)
+}
+
+// Has definition for data in this report.
+func (o ReportDefinitionResponseOutput) Dataset() ReportDatasetResponsePtrOutput {
+	return o.ApplyT(func(v ReportDefinitionResponse) *ReportDatasetResponse { return v.Dataset }).(ReportDatasetResponsePtrOutput)
+}
+
+// Has time period for pulling data for the report.
+func (o ReportDefinitionResponseOutput) TimePeriod() ReportTimePeriodResponsePtrOutput {
+	return o.ApplyT(func(v ReportDefinitionResponse) *ReportTimePeriodResponse { return v.TimePeriod }).(ReportTimePeriodResponsePtrOutput)
+}
+
+// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+func (o ReportDefinitionResponseOutput) Timeframe() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportDefinitionResponse) string { return v.Timeframe }).(pulumi.StringOutput)
+}
+
+// The type of the report.
+func (o ReportDefinitionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportDefinitionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ReportDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDefinitionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDefinitionResponse)(nil)).Elem()
+}
+
+func (o ReportDefinitionResponsePtrOutput) ToReportDefinitionResponsePtrOutput() ReportDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ReportDefinitionResponsePtrOutput) ToReportDefinitionResponsePtrOutputWithContext(ctx context.Context) ReportDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ReportDefinitionResponsePtrOutput) Elem() ReportDefinitionResponseOutput {
+	return o.ApplyT(func(v *ReportDefinitionResponse) ReportDefinitionResponse { return *v }).(ReportDefinitionResponseOutput)
+}
+
+// Has definition for data in this report.
+func (o ReportDefinitionResponsePtrOutput) Dataset() ReportDatasetResponsePtrOutput {
+	return o.ApplyT(func(v *ReportDefinitionResponse) *ReportDatasetResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Dataset
+	}).(ReportDatasetResponsePtrOutput)
+}
+
+// Has time period for pulling data for the report.
+func (o ReportDefinitionResponsePtrOutput) TimePeriod() ReportTimePeriodResponsePtrOutput {
+	return o.ApplyT(func(v *ReportDefinitionResponse) *ReportTimePeriodResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TimePeriod
+	}).(ReportTimePeriodResponsePtrOutput)
+}
+
+// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+func (o ReportDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timeframe
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the report.
+func (o ReportDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination information for the delivery of the report.
+type ReportDeliveryDestination struct {
+	// The name of the container where reports will be uploaded.
+	Container string `pulumi:"container"`
+	// The resource id of the storage account where reports will be delivered.
+	ResourceId string `pulumi:"resourceId"`
+	// The name of the directory where reports will be uploaded.
+	RootFolderPath *string `pulumi:"rootFolderPath"`
+}
+
+// ReportDeliveryDestinationInput is an input type that accepts ReportDeliveryDestinationArgs and ReportDeliveryDestinationOutput values.
+// You can construct a concrete instance of `ReportDeliveryDestinationInput` via:
+//
+//          ReportDeliveryDestinationArgs{...}
+type ReportDeliveryDestinationInput interface {
+	pulumi.Input
+
+	ToReportDeliveryDestinationOutput() ReportDeliveryDestinationOutput
+	ToReportDeliveryDestinationOutputWithContext(context.Context) ReportDeliveryDestinationOutput
+}
+
+// The destination information for the delivery of the report.
+type ReportDeliveryDestinationArgs struct {
+	// The name of the container where reports will be uploaded.
+	Container pulumi.StringInput `pulumi:"container"`
+	// The resource id of the storage account where reports will be delivered.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The name of the directory where reports will be uploaded.
+	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
+}
+
+func (ReportDeliveryDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDeliveryDestination)(nil)).Elem()
+}
+
+func (i ReportDeliveryDestinationArgs) ToReportDeliveryDestinationOutput() ReportDeliveryDestinationOutput {
+	return i.ToReportDeliveryDestinationOutputWithContext(context.Background())
+}
+
+func (i ReportDeliveryDestinationArgs) ToReportDeliveryDestinationOutputWithContext(ctx context.Context) ReportDeliveryDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationOutput)
+}
+
+func (i ReportDeliveryDestinationArgs) ToReportDeliveryDestinationPtrOutput() ReportDeliveryDestinationPtrOutput {
+	return i.ToReportDeliveryDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ReportDeliveryDestinationArgs) ToReportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationOutput).ToReportDeliveryDestinationPtrOutputWithContext(ctx)
+}
+
+// ReportDeliveryDestinationPtrInput is an input type that accepts ReportDeliveryDestinationArgs, ReportDeliveryDestinationPtr and ReportDeliveryDestinationPtrOutput values.
+// You can construct a concrete instance of `ReportDeliveryDestinationPtrInput` via:
+//
+//          ReportDeliveryDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportDeliveryDestinationPtrInput interface {
+	pulumi.Input
+
+	ToReportDeliveryDestinationPtrOutput() ReportDeliveryDestinationPtrOutput
+	ToReportDeliveryDestinationPtrOutputWithContext(context.Context) ReportDeliveryDestinationPtrOutput
+}
+
+type reportDeliveryDestinationPtrType ReportDeliveryDestinationArgs
+
+func ReportDeliveryDestinationPtr(v *ReportDeliveryDestinationArgs) ReportDeliveryDestinationPtrInput {
+	return (*reportDeliveryDestinationPtrType)(v)
+}
+
+func (*reportDeliveryDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDeliveryDestination)(nil)).Elem()
+}
+
+func (i *reportDeliveryDestinationPtrType) ToReportDeliveryDestinationPtrOutput() ReportDeliveryDestinationPtrOutput {
+	return i.ToReportDeliveryDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *reportDeliveryDestinationPtrType) ToReportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationPtrOutput)
+}
+
+// The destination information for the delivery of the report.
+type ReportDeliveryDestinationOutput struct{ *pulumi.OutputState }
+
+func (ReportDeliveryDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDeliveryDestination)(nil)).Elem()
+}
+
+func (o ReportDeliveryDestinationOutput) ToReportDeliveryDestinationOutput() ReportDeliveryDestinationOutput {
+	return o
+}
+
+func (o ReportDeliveryDestinationOutput) ToReportDeliveryDestinationOutputWithContext(ctx context.Context) ReportDeliveryDestinationOutput {
+	return o
+}
+
+func (o ReportDeliveryDestinationOutput) ToReportDeliveryDestinationPtrOutput() ReportDeliveryDestinationPtrOutput {
+	return o.ToReportDeliveryDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ReportDeliveryDestinationOutput) ToReportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationPtrOutput {
+	return o.ApplyT(func(v ReportDeliveryDestination) *ReportDeliveryDestination {
+		return &v
+	}).(ReportDeliveryDestinationPtrOutput)
+}
+
+// The name of the container where reports will be uploaded.
+func (o ReportDeliveryDestinationOutput) Container() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportDeliveryDestination) string { return v.Container }).(pulumi.StringOutput)
+}
+
+// The resource id of the storage account where reports will be delivered.
+func (o ReportDeliveryDestinationOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportDeliveryDestination) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the directory where reports will be uploaded.
+func (o ReportDeliveryDestinationOutput) RootFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportDeliveryDestination) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
+}
+
+type ReportDeliveryDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDeliveryDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDeliveryDestination)(nil)).Elem()
+}
+
+func (o ReportDeliveryDestinationPtrOutput) ToReportDeliveryDestinationPtrOutput() ReportDeliveryDestinationPtrOutput {
+	return o
+}
+
+func (o ReportDeliveryDestinationPtrOutput) ToReportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationPtrOutput {
+	return o
+}
+
+func (o ReportDeliveryDestinationPtrOutput) Elem() ReportDeliveryDestinationOutput {
+	return o.ApplyT(func(v *ReportDeliveryDestination) ReportDeliveryDestination { return *v }).(ReportDeliveryDestinationOutput)
+}
+
+// The name of the container where reports will be uploaded.
+func (o ReportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDeliveryDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Container
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the storage account where reports will be delivered.
+func (o ReportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDeliveryDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the directory where reports will be uploaded.
+func (o ReportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDeliveryDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootFolderPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination information for the delivery of the report.
+type ReportDeliveryDestinationResponse struct {
+	// The name of the container where reports will be uploaded.
+	Container string `pulumi:"container"`
+	// The resource id of the storage account where reports will be delivered.
+	ResourceId string `pulumi:"resourceId"`
+	// The name of the directory where reports will be uploaded.
+	RootFolderPath *string `pulumi:"rootFolderPath"`
+}
+
+// ReportDeliveryDestinationResponseInput is an input type that accepts ReportDeliveryDestinationResponseArgs and ReportDeliveryDestinationResponseOutput values.
+// You can construct a concrete instance of `ReportDeliveryDestinationResponseInput` via:
+//
+//          ReportDeliveryDestinationResponseArgs{...}
+type ReportDeliveryDestinationResponseInput interface {
+	pulumi.Input
+
+	ToReportDeliveryDestinationResponseOutput() ReportDeliveryDestinationResponseOutput
+	ToReportDeliveryDestinationResponseOutputWithContext(context.Context) ReportDeliveryDestinationResponseOutput
+}
+
+// The destination information for the delivery of the report.
+type ReportDeliveryDestinationResponseArgs struct {
+	// The name of the container where reports will be uploaded.
+	Container pulumi.StringInput `pulumi:"container"`
+	// The resource id of the storage account where reports will be delivered.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The name of the directory where reports will be uploaded.
+	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
+}
+
+func (ReportDeliveryDestinationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDeliveryDestinationResponse)(nil)).Elem()
+}
+
+func (i ReportDeliveryDestinationResponseArgs) ToReportDeliveryDestinationResponseOutput() ReportDeliveryDestinationResponseOutput {
+	return i.ToReportDeliveryDestinationResponseOutputWithContext(context.Background())
+}
+
+func (i ReportDeliveryDestinationResponseArgs) ToReportDeliveryDestinationResponseOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationResponseOutput)
+}
+
+func (i ReportDeliveryDestinationResponseArgs) ToReportDeliveryDestinationResponsePtrOutput() ReportDeliveryDestinationResponsePtrOutput {
+	return i.ToReportDeliveryDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReportDeliveryDestinationResponseArgs) ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationResponseOutput).ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx)
+}
+
+// ReportDeliveryDestinationResponsePtrInput is an input type that accepts ReportDeliveryDestinationResponseArgs, ReportDeliveryDestinationResponsePtr and ReportDeliveryDestinationResponsePtrOutput values.
+// You can construct a concrete instance of `ReportDeliveryDestinationResponsePtrInput` via:
+//
+//          ReportDeliveryDestinationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportDeliveryDestinationResponsePtrInput interface {
+	pulumi.Input
+
+	ToReportDeliveryDestinationResponsePtrOutput() ReportDeliveryDestinationResponsePtrOutput
+	ToReportDeliveryDestinationResponsePtrOutputWithContext(context.Context) ReportDeliveryDestinationResponsePtrOutput
+}
+
+type reportDeliveryDestinationResponsePtrType ReportDeliveryDestinationResponseArgs
+
+func ReportDeliveryDestinationResponsePtr(v *ReportDeliveryDestinationResponseArgs) ReportDeliveryDestinationResponsePtrInput {
+	return (*reportDeliveryDestinationResponsePtrType)(v)
+}
+
+func (*reportDeliveryDestinationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDeliveryDestinationResponse)(nil)).Elem()
+}
+
+func (i *reportDeliveryDestinationResponsePtrType) ToReportDeliveryDestinationResponsePtrOutput() ReportDeliveryDestinationResponsePtrOutput {
+	return i.ToReportDeliveryDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *reportDeliveryDestinationResponsePtrType) ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationResponsePtrOutput)
+}
+
+// The destination information for the delivery of the report.
+type ReportDeliveryDestinationResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportDeliveryDestinationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDeliveryDestinationResponse)(nil)).Elem()
+}
+
+func (o ReportDeliveryDestinationResponseOutput) ToReportDeliveryDestinationResponseOutput() ReportDeliveryDestinationResponseOutput {
+	return o
+}
+
+func (o ReportDeliveryDestinationResponseOutput) ToReportDeliveryDestinationResponseOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponseOutput {
+	return o
+}
+
+func (o ReportDeliveryDestinationResponseOutput) ToReportDeliveryDestinationResponsePtrOutput() ReportDeliveryDestinationResponsePtrOutput {
+	return o.ToReportDeliveryDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReportDeliveryDestinationResponseOutput) ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponsePtrOutput {
+	return o.ApplyT(func(v ReportDeliveryDestinationResponse) *ReportDeliveryDestinationResponse {
+		return &v
+	}).(ReportDeliveryDestinationResponsePtrOutput)
+}
+
+// The name of the container where reports will be uploaded.
+func (o ReportDeliveryDestinationResponseOutput) Container() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportDeliveryDestinationResponse) string { return v.Container }).(pulumi.StringOutput)
+}
+
+// The resource id of the storage account where reports will be delivered.
+func (o ReportDeliveryDestinationResponseOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportDeliveryDestinationResponse) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the directory where reports will be uploaded.
+func (o ReportDeliveryDestinationResponseOutput) RootFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportDeliveryDestinationResponse) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
+}
+
+type ReportDeliveryDestinationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDeliveryDestinationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDeliveryDestinationResponse)(nil)).Elem()
+}
+
+func (o ReportDeliveryDestinationResponsePtrOutput) ToReportDeliveryDestinationResponsePtrOutput() ReportDeliveryDestinationResponsePtrOutput {
+	return o
+}
+
+func (o ReportDeliveryDestinationResponsePtrOutput) ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponsePtrOutput {
+	return o
+}
+
+func (o ReportDeliveryDestinationResponsePtrOutput) Elem() ReportDeliveryDestinationResponseOutput {
+	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) ReportDeliveryDestinationResponse { return *v }).(ReportDeliveryDestinationResponseOutput)
+}
+
+// The name of the container where reports will be uploaded.
+func (o ReportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Container
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the storage account where reports will be delivered.
+func (o ReportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the directory where reports will be uploaded.
+func (o ReportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootFolderPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The delivery information associated with a report.
+type ReportDeliveryInfo struct {
+	// Has destination for the report being delivered.
+	Destination ReportDeliveryDestination `pulumi:"destination"`
+}
+
+// ReportDeliveryInfoInput is an input type that accepts ReportDeliveryInfoArgs and ReportDeliveryInfoOutput values.
+// You can construct a concrete instance of `ReportDeliveryInfoInput` via:
+//
+//          ReportDeliveryInfoArgs{...}
+type ReportDeliveryInfoInput interface {
+	pulumi.Input
+
+	ToReportDeliveryInfoOutput() ReportDeliveryInfoOutput
+	ToReportDeliveryInfoOutputWithContext(context.Context) ReportDeliveryInfoOutput
+}
+
+// The delivery information associated with a report.
+type ReportDeliveryInfoArgs struct {
+	// Has destination for the report being delivered.
+	Destination ReportDeliveryDestinationInput `pulumi:"destination"`
+}
+
+func (ReportDeliveryInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDeliveryInfo)(nil)).Elem()
+}
+
+func (i ReportDeliveryInfoArgs) ToReportDeliveryInfoOutput() ReportDeliveryInfoOutput {
+	return i.ToReportDeliveryInfoOutputWithContext(context.Background())
+}
+
+func (i ReportDeliveryInfoArgs) ToReportDeliveryInfoOutputWithContext(ctx context.Context) ReportDeliveryInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoOutput)
+}
+
+func (i ReportDeliveryInfoArgs) ToReportDeliveryInfoPtrOutput() ReportDeliveryInfoPtrOutput {
+	return i.ToReportDeliveryInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ReportDeliveryInfoArgs) ToReportDeliveryInfoPtrOutputWithContext(ctx context.Context) ReportDeliveryInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoOutput).ToReportDeliveryInfoPtrOutputWithContext(ctx)
+}
+
+// ReportDeliveryInfoPtrInput is an input type that accepts ReportDeliveryInfoArgs, ReportDeliveryInfoPtr and ReportDeliveryInfoPtrOutput values.
+// You can construct a concrete instance of `ReportDeliveryInfoPtrInput` via:
+//
+//          ReportDeliveryInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportDeliveryInfoPtrInput interface {
+	pulumi.Input
+
+	ToReportDeliveryInfoPtrOutput() ReportDeliveryInfoPtrOutput
+	ToReportDeliveryInfoPtrOutputWithContext(context.Context) ReportDeliveryInfoPtrOutput
+}
+
+type reportDeliveryInfoPtrType ReportDeliveryInfoArgs
+
+func ReportDeliveryInfoPtr(v *ReportDeliveryInfoArgs) ReportDeliveryInfoPtrInput {
+	return (*reportDeliveryInfoPtrType)(v)
+}
+
+func (*reportDeliveryInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDeliveryInfo)(nil)).Elem()
+}
+
+func (i *reportDeliveryInfoPtrType) ToReportDeliveryInfoPtrOutput() ReportDeliveryInfoPtrOutput {
+	return i.ToReportDeliveryInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *reportDeliveryInfoPtrType) ToReportDeliveryInfoPtrOutputWithContext(ctx context.Context) ReportDeliveryInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoPtrOutput)
+}
+
+// The delivery information associated with a report.
+type ReportDeliveryInfoOutput struct{ *pulumi.OutputState }
+
+func (ReportDeliveryInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDeliveryInfo)(nil)).Elem()
+}
+
+func (o ReportDeliveryInfoOutput) ToReportDeliveryInfoOutput() ReportDeliveryInfoOutput {
+	return o
+}
+
+func (o ReportDeliveryInfoOutput) ToReportDeliveryInfoOutputWithContext(ctx context.Context) ReportDeliveryInfoOutput {
+	return o
+}
+
+func (o ReportDeliveryInfoOutput) ToReportDeliveryInfoPtrOutput() ReportDeliveryInfoPtrOutput {
+	return o.ToReportDeliveryInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ReportDeliveryInfoOutput) ToReportDeliveryInfoPtrOutputWithContext(ctx context.Context) ReportDeliveryInfoPtrOutput {
+	return o.ApplyT(func(v ReportDeliveryInfo) *ReportDeliveryInfo {
+		return &v
+	}).(ReportDeliveryInfoPtrOutput)
+}
+
+// Has destination for the report being delivered.
+func (o ReportDeliveryInfoOutput) Destination() ReportDeliveryDestinationOutput {
+	return o.ApplyT(func(v ReportDeliveryInfo) ReportDeliveryDestination { return v.Destination }).(ReportDeliveryDestinationOutput)
+}
+
+type ReportDeliveryInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDeliveryInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDeliveryInfo)(nil)).Elem()
+}
+
+func (o ReportDeliveryInfoPtrOutput) ToReportDeliveryInfoPtrOutput() ReportDeliveryInfoPtrOutput {
+	return o
+}
+
+func (o ReportDeliveryInfoPtrOutput) ToReportDeliveryInfoPtrOutputWithContext(ctx context.Context) ReportDeliveryInfoPtrOutput {
+	return o
+}
+
+func (o ReportDeliveryInfoPtrOutput) Elem() ReportDeliveryInfoOutput {
+	return o.ApplyT(func(v *ReportDeliveryInfo) ReportDeliveryInfo { return *v }).(ReportDeliveryInfoOutput)
+}
+
+// Has destination for the report being delivered.
+func (o ReportDeliveryInfoPtrOutput) Destination() ReportDeliveryDestinationPtrOutput {
+	return o.ApplyT(func(v *ReportDeliveryInfo) *ReportDeliveryDestination {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(ReportDeliveryDestinationPtrOutput)
+}
+
+// The delivery information associated with a report.
+type ReportDeliveryInfoResponse struct {
+	// Has destination for the report being delivered.
+	Destination ReportDeliveryDestinationResponse `pulumi:"destination"`
+}
+
+// ReportDeliveryInfoResponseInput is an input type that accepts ReportDeliveryInfoResponseArgs and ReportDeliveryInfoResponseOutput values.
+// You can construct a concrete instance of `ReportDeliveryInfoResponseInput` via:
+//
+//          ReportDeliveryInfoResponseArgs{...}
+type ReportDeliveryInfoResponseInput interface {
+	pulumi.Input
+
+	ToReportDeliveryInfoResponseOutput() ReportDeliveryInfoResponseOutput
+	ToReportDeliveryInfoResponseOutputWithContext(context.Context) ReportDeliveryInfoResponseOutput
+}
+
+// The delivery information associated with a report.
+type ReportDeliveryInfoResponseArgs struct {
+	// Has destination for the report being delivered.
+	Destination ReportDeliveryDestinationResponseInput `pulumi:"destination"`
+}
+
+func (ReportDeliveryInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDeliveryInfoResponse)(nil)).Elem()
+}
+
+func (i ReportDeliveryInfoResponseArgs) ToReportDeliveryInfoResponseOutput() ReportDeliveryInfoResponseOutput {
+	return i.ToReportDeliveryInfoResponseOutputWithContext(context.Background())
+}
+
+func (i ReportDeliveryInfoResponseArgs) ToReportDeliveryInfoResponseOutputWithContext(ctx context.Context) ReportDeliveryInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoResponseOutput)
+}
+
+func (i ReportDeliveryInfoResponseArgs) ToReportDeliveryInfoResponsePtrOutput() ReportDeliveryInfoResponsePtrOutput {
+	return i.ToReportDeliveryInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReportDeliveryInfoResponseArgs) ToReportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoResponseOutput).ToReportDeliveryInfoResponsePtrOutputWithContext(ctx)
+}
+
+// ReportDeliveryInfoResponsePtrInput is an input type that accepts ReportDeliveryInfoResponseArgs, ReportDeliveryInfoResponsePtr and ReportDeliveryInfoResponsePtrOutput values.
+// You can construct a concrete instance of `ReportDeliveryInfoResponsePtrInput` via:
+//
+//          ReportDeliveryInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportDeliveryInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToReportDeliveryInfoResponsePtrOutput() ReportDeliveryInfoResponsePtrOutput
+	ToReportDeliveryInfoResponsePtrOutputWithContext(context.Context) ReportDeliveryInfoResponsePtrOutput
+}
+
+type reportDeliveryInfoResponsePtrType ReportDeliveryInfoResponseArgs
+
+func ReportDeliveryInfoResponsePtr(v *ReportDeliveryInfoResponseArgs) ReportDeliveryInfoResponsePtrInput {
+	return (*reportDeliveryInfoResponsePtrType)(v)
+}
+
+func (*reportDeliveryInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDeliveryInfoResponse)(nil)).Elem()
+}
+
+func (i *reportDeliveryInfoResponsePtrType) ToReportDeliveryInfoResponsePtrOutput() ReportDeliveryInfoResponsePtrOutput {
+	return i.ToReportDeliveryInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *reportDeliveryInfoResponsePtrType) ToReportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoResponsePtrOutput)
+}
+
+// The delivery information associated with a report.
+type ReportDeliveryInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportDeliveryInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportDeliveryInfoResponse)(nil)).Elem()
+}
+
+func (o ReportDeliveryInfoResponseOutput) ToReportDeliveryInfoResponseOutput() ReportDeliveryInfoResponseOutput {
+	return o
+}
+
+func (o ReportDeliveryInfoResponseOutput) ToReportDeliveryInfoResponseOutputWithContext(ctx context.Context) ReportDeliveryInfoResponseOutput {
+	return o
+}
+
+func (o ReportDeliveryInfoResponseOutput) ToReportDeliveryInfoResponsePtrOutput() ReportDeliveryInfoResponsePtrOutput {
+	return o.ToReportDeliveryInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReportDeliveryInfoResponseOutput) ToReportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryInfoResponsePtrOutput {
+	return o.ApplyT(func(v ReportDeliveryInfoResponse) *ReportDeliveryInfoResponse {
+		return &v
+	}).(ReportDeliveryInfoResponsePtrOutput)
+}
+
+// Has destination for the report being delivered.
+func (o ReportDeliveryInfoResponseOutput) Destination() ReportDeliveryDestinationResponseOutput {
+	return o.ApplyT(func(v ReportDeliveryInfoResponse) ReportDeliveryDestinationResponse { return v.Destination }).(ReportDeliveryDestinationResponseOutput)
+}
+
+type ReportDeliveryInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportDeliveryInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportDeliveryInfoResponse)(nil)).Elem()
+}
+
+func (o ReportDeliveryInfoResponsePtrOutput) ToReportDeliveryInfoResponsePtrOutput() ReportDeliveryInfoResponsePtrOutput {
+	return o
+}
+
+func (o ReportDeliveryInfoResponsePtrOutput) ToReportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryInfoResponsePtrOutput {
+	return o
+}
+
+func (o ReportDeliveryInfoResponsePtrOutput) Elem() ReportDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v *ReportDeliveryInfoResponse) ReportDeliveryInfoResponse { return *v }).(ReportDeliveryInfoResponseOutput)
+}
+
+// Has destination for the report being delivered.
+func (o ReportDeliveryInfoResponsePtrOutput) Destination() ReportDeliveryDestinationResponsePtrOutput {
+	return o.ApplyT(func(v *ReportDeliveryInfoResponse) *ReportDeliveryDestinationResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(ReportDeliveryDestinationResponsePtrOutput)
+}
+
+// The filter expression to be used in the report.
+type ReportFilter struct {
+	// The logical "AND" expression. Must have at least 2 items.
+	And []ReportFilter `pulumi:"and"`
+	// Has comparison expression for a dimension
+	Dimension *ReportComparisonExpression `pulumi:"dimension"`
+	// The logical "NOT" expression.
+	Not *ReportFilter `pulumi:"not"`
+	// The logical "OR" expression. Must have at least 2 items.
+	Or []ReportFilter `pulumi:"or"`
+	// Has comparison expression for a tag
+	Tag *ReportComparisonExpression `pulumi:"tag"`
+}
+
+// ReportFilterInput is an input type that accepts ReportFilterArgs and ReportFilterOutput values.
+// You can construct a concrete instance of `ReportFilterInput` via:
+//
+//          ReportFilterArgs{...}
+type ReportFilterInput interface {
+	pulumi.Input
+
+	ToReportFilterOutput() ReportFilterOutput
+	ToReportFilterOutputWithContext(context.Context) ReportFilterOutput
+}
+
+// The filter expression to be used in the report.
+type ReportFilterArgs struct {
+	// The logical "AND" expression. Must have at least 2 items.
+	And ReportFilterArrayInput `pulumi:"and"`
+	// Has comparison expression for a dimension
+	Dimension ReportComparisonExpressionPtrInput `pulumi:"dimension"`
+	// The logical "NOT" expression.
+	Not ReportFilterPtrInput `pulumi:"not"`
+	// The logical "OR" expression. Must have at least 2 items.
+	Or ReportFilterArrayInput `pulumi:"or"`
+	// Has comparison expression for a tag
+	Tag ReportComparisonExpressionPtrInput `pulumi:"tag"`
+}
+
+func (ReportFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportFilter)(nil)).Elem()
+}
+
+func (i ReportFilterArgs) ToReportFilterOutput() ReportFilterOutput {
+	return i.ToReportFilterOutputWithContext(context.Background())
+}
+
+func (i ReportFilterArgs) ToReportFilterOutputWithContext(ctx context.Context) ReportFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterOutput)
+}
+
+func (i ReportFilterArgs) ToReportFilterPtrOutput() ReportFilterPtrOutput {
+	return i.ToReportFilterPtrOutputWithContext(context.Background())
+}
+
+func (i ReportFilterArgs) ToReportFilterPtrOutputWithContext(ctx context.Context) ReportFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterOutput).ToReportFilterPtrOutputWithContext(ctx)
+}
+
+// ReportFilterPtrInput is an input type that accepts ReportFilterArgs, ReportFilterPtr and ReportFilterPtrOutput values.
+// You can construct a concrete instance of `ReportFilterPtrInput` via:
+//
+//          ReportFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportFilterPtrInput interface {
+	pulumi.Input
+
+	ToReportFilterPtrOutput() ReportFilterPtrOutput
+	ToReportFilterPtrOutputWithContext(context.Context) ReportFilterPtrOutput
+}
+
+type reportFilterPtrType ReportFilterArgs
+
+func ReportFilterPtr(v *ReportFilterArgs) ReportFilterPtrInput {
+	return (*reportFilterPtrType)(v)
+}
+
+func (*reportFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportFilter)(nil)).Elem()
+}
+
+func (i *reportFilterPtrType) ToReportFilterPtrOutput() ReportFilterPtrOutput {
+	return i.ToReportFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *reportFilterPtrType) ToReportFilterPtrOutputWithContext(ctx context.Context) ReportFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterPtrOutput)
+}
+
+// ReportFilterArrayInput is an input type that accepts ReportFilterArray and ReportFilterArrayOutput values.
+// You can construct a concrete instance of `ReportFilterArrayInput` via:
+//
+//          ReportFilterArray{ ReportFilterArgs{...} }
+type ReportFilterArrayInput interface {
+	pulumi.Input
+
+	ToReportFilterArrayOutput() ReportFilterArrayOutput
+	ToReportFilterArrayOutputWithContext(context.Context) ReportFilterArrayOutput
+}
+
+type ReportFilterArray []ReportFilterInput
+
+func (ReportFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportFilter)(nil)).Elem()
+}
+
+func (i ReportFilterArray) ToReportFilterArrayOutput() ReportFilterArrayOutput {
+	return i.ToReportFilterArrayOutputWithContext(context.Background())
+}
+
+func (i ReportFilterArray) ToReportFilterArrayOutputWithContext(ctx context.Context) ReportFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterArrayOutput)
+}
+
+// The filter expression to be used in the report.
+type ReportFilterOutput struct{ *pulumi.OutputState }
+
+func (ReportFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportFilter)(nil)).Elem()
+}
+
+func (o ReportFilterOutput) ToReportFilterOutput() ReportFilterOutput {
+	return o
+}
+
+func (o ReportFilterOutput) ToReportFilterOutputWithContext(ctx context.Context) ReportFilterOutput {
+	return o
+}
+
+func (o ReportFilterOutput) ToReportFilterPtrOutput() ReportFilterPtrOutput {
+	return o.ToReportFilterPtrOutputWithContext(context.Background())
+}
+
+func (o ReportFilterOutput) ToReportFilterPtrOutputWithContext(ctx context.Context) ReportFilterPtrOutput {
+	return o.ApplyT(func(v ReportFilter) *ReportFilter {
+		return &v
+	}).(ReportFilterPtrOutput)
+}
+
+// The logical "AND" expression. Must have at least 2 items.
+func (o ReportFilterOutput) And() ReportFilterArrayOutput {
+	return o.ApplyT(func(v ReportFilter) []ReportFilter { return v.And }).(ReportFilterArrayOutput)
+}
+
+// Has comparison expression for a dimension
+func (o ReportFilterOutput) Dimension() ReportComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v ReportFilter) *ReportComparisonExpression { return v.Dimension }).(ReportComparisonExpressionPtrOutput)
+}
+
+// The logical "NOT" expression.
+func (o ReportFilterOutput) Not() ReportFilterPtrOutput {
+	return o.ApplyT(func(v ReportFilter) *ReportFilter { return v.Not }).(ReportFilterPtrOutput)
+}
+
+// The logical "OR" expression. Must have at least 2 items.
+func (o ReportFilterOutput) Or() ReportFilterArrayOutput {
+	return o.ApplyT(func(v ReportFilter) []ReportFilter { return v.Or }).(ReportFilterArrayOutput)
+}
+
+// Has comparison expression for a tag
+func (o ReportFilterOutput) Tag() ReportComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v ReportFilter) *ReportComparisonExpression { return v.Tag }).(ReportComparisonExpressionPtrOutput)
+}
+
+type ReportFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportFilter)(nil)).Elem()
+}
+
+func (o ReportFilterPtrOutput) ToReportFilterPtrOutput() ReportFilterPtrOutput {
+	return o
+}
+
+func (o ReportFilterPtrOutput) ToReportFilterPtrOutputWithContext(ctx context.Context) ReportFilterPtrOutput {
+	return o
+}
+
+func (o ReportFilterPtrOutput) Elem() ReportFilterOutput {
+	return o.ApplyT(func(v *ReportFilter) ReportFilter { return *v }).(ReportFilterOutput)
+}
+
+// The logical "AND" expression. Must have at least 2 items.
+func (o ReportFilterPtrOutput) And() ReportFilterArrayOutput {
+	return o.ApplyT(func(v *ReportFilter) []ReportFilter {
+		if v == nil {
+			return nil
+		}
+		return v.And
+	}).(ReportFilterArrayOutput)
+}
+
+// Has comparison expression for a dimension
+func (o ReportFilterPtrOutput) Dimension() ReportComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v *ReportFilter) *ReportComparisonExpression {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(ReportComparisonExpressionPtrOutput)
+}
+
+// The logical "NOT" expression.
+func (o ReportFilterPtrOutput) Not() ReportFilterPtrOutput {
+	return o.ApplyT(func(v *ReportFilter) *ReportFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Not
+	}).(ReportFilterPtrOutput)
+}
+
+// The logical "OR" expression. Must have at least 2 items.
+func (o ReportFilterPtrOutput) Or() ReportFilterArrayOutput {
+	return o.ApplyT(func(v *ReportFilter) []ReportFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Or
+	}).(ReportFilterArrayOutput)
+}
+
+// Has comparison expression for a tag
+func (o ReportFilterPtrOutput) Tag() ReportComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v *ReportFilter) *ReportComparisonExpression {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(ReportComparisonExpressionPtrOutput)
+}
+
+type ReportFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (ReportFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportFilter)(nil)).Elem()
+}
+
+func (o ReportFilterArrayOutput) ToReportFilterArrayOutput() ReportFilterArrayOutput {
+	return o
+}
+
+func (o ReportFilterArrayOutput) ToReportFilterArrayOutputWithContext(ctx context.Context) ReportFilterArrayOutput {
+	return o
+}
+
+func (o ReportFilterArrayOutput) Index(i pulumi.IntInput) ReportFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReportFilter {
+		return vs[0].([]ReportFilter)[vs[1].(int)]
+	}).(ReportFilterOutput)
+}
+
+// The filter expression to be used in the report.
+type ReportFilterResponse struct {
+	// The logical "AND" expression. Must have at least 2 items.
+	And []ReportFilterResponse `pulumi:"and"`
+	// Has comparison expression for a dimension
+	Dimension *ReportComparisonExpressionResponse `pulumi:"dimension"`
+	// The logical "NOT" expression.
+	Not *ReportFilterResponse `pulumi:"not"`
+	// The logical "OR" expression. Must have at least 2 items.
+	Or []ReportFilterResponse `pulumi:"or"`
+	// Has comparison expression for a tag
+	Tag *ReportComparisonExpressionResponse `pulumi:"tag"`
+}
+
+// ReportFilterResponseInput is an input type that accepts ReportFilterResponseArgs and ReportFilterResponseOutput values.
+// You can construct a concrete instance of `ReportFilterResponseInput` via:
+//
+//          ReportFilterResponseArgs{...}
+type ReportFilterResponseInput interface {
+	pulumi.Input
+
+	ToReportFilterResponseOutput() ReportFilterResponseOutput
+	ToReportFilterResponseOutputWithContext(context.Context) ReportFilterResponseOutput
+}
+
+// The filter expression to be used in the report.
+type ReportFilterResponseArgs struct {
+	// The logical "AND" expression. Must have at least 2 items.
+	And ReportFilterResponseArrayInput `pulumi:"and"`
+	// Has comparison expression for a dimension
+	Dimension ReportComparisonExpressionResponsePtrInput `pulumi:"dimension"`
+	// The logical "NOT" expression.
+	Not ReportFilterResponsePtrInput `pulumi:"not"`
+	// The logical "OR" expression. Must have at least 2 items.
+	Or ReportFilterResponseArrayInput `pulumi:"or"`
+	// Has comparison expression for a tag
+	Tag ReportComparisonExpressionResponsePtrInput `pulumi:"tag"`
+}
+
+func (ReportFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportFilterResponse)(nil)).Elem()
+}
+
+func (i ReportFilterResponseArgs) ToReportFilterResponseOutput() ReportFilterResponseOutput {
+	return i.ToReportFilterResponseOutputWithContext(context.Background())
+}
+
+func (i ReportFilterResponseArgs) ToReportFilterResponseOutputWithContext(ctx context.Context) ReportFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterResponseOutput)
+}
+
+func (i ReportFilterResponseArgs) ToReportFilterResponsePtrOutput() ReportFilterResponsePtrOutput {
+	return i.ToReportFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReportFilterResponseArgs) ToReportFilterResponsePtrOutputWithContext(ctx context.Context) ReportFilterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterResponseOutput).ToReportFilterResponsePtrOutputWithContext(ctx)
+}
+
+// ReportFilterResponsePtrInput is an input type that accepts ReportFilterResponseArgs, ReportFilterResponsePtr and ReportFilterResponsePtrOutput values.
+// You can construct a concrete instance of `ReportFilterResponsePtrInput` via:
+//
+//          ReportFilterResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportFilterResponsePtrInput interface {
+	pulumi.Input
+
+	ToReportFilterResponsePtrOutput() ReportFilterResponsePtrOutput
+	ToReportFilterResponsePtrOutputWithContext(context.Context) ReportFilterResponsePtrOutput
+}
+
+type reportFilterResponsePtrType ReportFilterResponseArgs
+
+func ReportFilterResponsePtr(v *ReportFilterResponseArgs) ReportFilterResponsePtrInput {
+	return (*reportFilterResponsePtrType)(v)
+}
+
+func (*reportFilterResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportFilterResponse)(nil)).Elem()
+}
+
+func (i *reportFilterResponsePtrType) ToReportFilterResponsePtrOutput() ReportFilterResponsePtrOutput {
+	return i.ToReportFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *reportFilterResponsePtrType) ToReportFilterResponsePtrOutputWithContext(ctx context.Context) ReportFilterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterResponsePtrOutput)
+}
+
+// ReportFilterResponseArrayInput is an input type that accepts ReportFilterResponseArray and ReportFilterResponseArrayOutput values.
+// You can construct a concrete instance of `ReportFilterResponseArrayInput` via:
+//
+//          ReportFilterResponseArray{ ReportFilterResponseArgs{...} }
+type ReportFilterResponseArrayInput interface {
+	pulumi.Input
+
+	ToReportFilterResponseArrayOutput() ReportFilterResponseArrayOutput
+	ToReportFilterResponseArrayOutputWithContext(context.Context) ReportFilterResponseArrayOutput
+}
+
+type ReportFilterResponseArray []ReportFilterResponseInput
+
+func (ReportFilterResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportFilterResponse)(nil)).Elem()
+}
+
+func (i ReportFilterResponseArray) ToReportFilterResponseArrayOutput() ReportFilterResponseArrayOutput {
+	return i.ToReportFilterResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ReportFilterResponseArray) ToReportFilterResponseArrayOutputWithContext(ctx context.Context) ReportFilterResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterResponseArrayOutput)
+}
+
+// The filter expression to be used in the report.
+type ReportFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportFilterResponse)(nil)).Elem()
+}
+
+func (o ReportFilterResponseOutput) ToReportFilterResponseOutput() ReportFilterResponseOutput {
+	return o
+}
+
+func (o ReportFilterResponseOutput) ToReportFilterResponseOutputWithContext(ctx context.Context) ReportFilterResponseOutput {
+	return o
+}
+
+func (o ReportFilterResponseOutput) ToReportFilterResponsePtrOutput() ReportFilterResponsePtrOutput {
+	return o.ToReportFilterResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReportFilterResponseOutput) ToReportFilterResponsePtrOutputWithContext(ctx context.Context) ReportFilterResponsePtrOutput {
+	return o.ApplyT(func(v ReportFilterResponse) *ReportFilterResponse {
+		return &v
+	}).(ReportFilterResponsePtrOutput)
+}
+
+// The logical "AND" expression. Must have at least 2 items.
+func (o ReportFilterResponseOutput) And() ReportFilterResponseArrayOutput {
+	return o.ApplyT(func(v ReportFilterResponse) []ReportFilterResponse { return v.And }).(ReportFilterResponseArrayOutput)
+}
+
+// Has comparison expression for a dimension
+func (o ReportFilterResponseOutput) Dimension() ReportComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v ReportFilterResponse) *ReportComparisonExpressionResponse { return v.Dimension }).(ReportComparisonExpressionResponsePtrOutput)
+}
+
+// The logical "NOT" expression.
+func (o ReportFilterResponseOutput) Not() ReportFilterResponsePtrOutput {
+	return o.ApplyT(func(v ReportFilterResponse) *ReportFilterResponse { return v.Not }).(ReportFilterResponsePtrOutput)
+}
+
+// The logical "OR" expression. Must have at least 2 items.
+func (o ReportFilterResponseOutput) Or() ReportFilterResponseArrayOutput {
+	return o.ApplyT(func(v ReportFilterResponse) []ReportFilterResponse { return v.Or }).(ReportFilterResponseArrayOutput)
+}
+
+// Has comparison expression for a tag
+func (o ReportFilterResponseOutput) Tag() ReportComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v ReportFilterResponse) *ReportComparisonExpressionResponse { return v.Tag }).(ReportComparisonExpressionResponsePtrOutput)
+}
+
+type ReportFilterResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportFilterResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportFilterResponse)(nil)).Elem()
+}
+
+func (o ReportFilterResponsePtrOutput) ToReportFilterResponsePtrOutput() ReportFilterResponsePtrOutput {
+	return o
+}
+
+func (o ReportFilterResponsePtrOutput) ToReportFilterResponsePtrOutputWithContext(ctx context.Context) ReportFilterResponsePtrOutput {
+	return o
+}
+
+func (o ReportFilterResponsePtrOutput) Elem() ReportFilterResponseOutput {
+	return o.ApplyT(func(v *ReportFilterResponse) ReportFilterResponse { return *v }).(ReportFilterResponseOutput)
+}
+
+// The logical "AND" expression. Must have at least 2 items.
+func (o ReportFilterResponsePtrOutput) And() ReportFilterResponseArrayOutput {
+	return o.ApplyT(func(v *ReportFilterResponse) []ReportFilterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.And
+	}).(ReportFilterResponseArrayOutput)
+}
+
+// Has comparison expression for a dimension
+func (o ReportFilterResponsePtrOutput) Dimension() ReportComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v *ReportFilterResponse) *ReportComparisonExpressionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(ReportComparisonExpressionResponsePtrOutput)
+}
+
+// The logical "NOT" expression.
+func (o ReportFilterResponsePtrOutput) Not() ReportFilterResponsePtrOutput {
+	return o.ApplyT(func(v *ReportFilterResponse) *ReportFilterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Not
+	}).(ReportFilterResponsePtrOutput)
+}
+
+// The logical "OR" expression. Must have at least 2 items.
+func (o ReportFilterResponsePtrOutput) Or() ReportFilterResponseArrayOutput {
+	return o.ApplyT(func(v *ReportFilterResponse) []ReportFilterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Or
+	}).(ReportFilterResponseArrayOutput)
+}
+
+// Has comparison expression for a tag
+func (o ReportFilterResponsePtrOutput) Tag() ReportComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v *ReportFilterResponse) *ReportComparisonExpressionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(ReportComparisonExpressionResponsePtrOutput)
+}
+
+type ReportFilterResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ReportFilterResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportFilterResponse)(nil)).Elem()
+}
+
+func (o ReportFilterResponseArrayOutput) ToReportFilterResponseArrayOutput() ReportFilterResponseArrayOutput {
+	return o
+}
+
+func (o ReportFilterResponseArrayOutput) ToReportFilterResponseArrayOutputWithContext(ctx context.Context) ReportFilterResponseArrayOutput {
+	return o
+}
+
+func (o ReportFilterResponseArrayOutput) Index(i pulumi.IntInput) ReportFilterResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReportFilterResponse {
+		return vs[0].([]ReportFilterResponse)[vs[1].(int)]
+	}).(ReportFilterResponseOutput)
+}
+
+// The group by expression to be used in the report.
+type ReportGrouping struct {
+	// The name of the column to group.
+	Name string `pulumi:"name"`
+	// Has type of the column to group.
+	Type string `pulumi:"type"`
+}
+
+// ReportGroupingInput is an input type that accepts ReportGroupingArgs and ReportGroupingOutput values.
+// You can construct a concrete instance of `ReportGroupingInput` via:
+//
+//          ReportGroupingArgs{...}
+type ReportGroupingInput interface {
+	pulumi.Input
+
+	ToReportGroupingOutput() ReportGroupingOutput
+	ToReportGroupingOutputWithContext(context.Context) ReportGroupingOutput
+}
+
+// The group by expression to be used in the report.
+type ReportGroupingArgs struct {
+	// The name of the column to group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Has type of the column to group.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReportGroupingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGrouping)(nil)).Elem()
+}
+
+func (i ReportGroupingArgs) ToReportGroupingOutput() ReportGroupingOutput {
+	return i.ToReportGroupingOutputWithContext(context.Background())
+}
+
+func (i ReportGroupingArgs) ToReportGroupingOutputWithContext(ctx context.Context) ReportGroupingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupingOutput)
+}
+
+// ReportGroupingArrayInput is an input type that accepts ReportGroupingArray and ReportGroupingArrayOutput values.
+// You can construct a concrete instance of `ReportGroupingArrayInput` via:
+//
+//          ReportGroupingArray{ ReportGroupingArgs{...} }
+type ReportGroupingArrayInput interface {
+	pulumi.Input
+
+	ToReportGroupingArrayOutput() ReportGroupingArrayOutput
+	ToReportGroupingArrayOutputWithContext(context.Context) ReportGroupingArrayOutput
+}
+
+type ReportGroupingArray []ReportGroupingInput
+
+func (ReportGroupingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportGrouping)(nil)).Elem()
+}
+
+func (i ReportGroupingArray) ToReportGroupingArrayOutput() ReportGroupingArrayOutput {
+	return i.ToReportGroupingArrayOutputWithContext(context.Background())
+}
+
+func (i ReportGroupingArray) ToReportGroupingArrayOutputWithContext(ctx context.Context) ReportGroupingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupingArrayOutput)
+}
+
+// The group by expression to be used in the report.
+type ReportGroupingOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGrouping)(nil)).Elem()
+}
+
+func (o ReportGroupingOutput) ToReportGroupingOutput() ReportGroupingOutput {
+	return o
+}
+
+func (o ReportGroupingOutput) ToReportGroupingOutputWithContext(ctx context.Context) ReportGroupingOutput {
+	return o
+}
+
+// The name of the column to group.
+func (o ReportGroupingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportGrouping) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has type of the column to group.
+func (o ReportGroupingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportGrouping) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ReportGroupingArrayOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportGrouping)(nil)).Elem()
+}
+
+func (o ReportGroupingArrayOutput) ToReportGroupingArrayOutput() ReportGroupingArrayOutput {
+	return o
+}
+
+func (o ReportGroupingArrayOutput) ToReportGroupingArrayOutputWithContext(ctx context.Context) ReportGroupingArrayOutput {
+	return o
+}
+
+func (o ReportGroupingArrayOutput) Index(i pulumi.IntInput) ReportGroupingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReportGrouping {
+		return vs[0].([]ReportGrouping)[vs[1].(int)]
+	}).(ReportGroupingOutput)
+}
+
+// The group by expression to be used in the report.
+type ReportGroupingResponse struct {
+	// The name of the column to group.
+	Name string `pulumi:"name"`
+	// Has type of the column to group.
+	Type string `pulumi:"type"`
+}
+
+// ReportGroupingResponseInput is an input type that accepts ReportGroupingResponseArgs and ReportGroupingResponseOutput values.
+// You can construct a concrete instance of `ReportGroupingResponseInput` via:
+//
+//          ReportGroupingResponseArgs{...}
+type ReportGroupingResponseInput interface {
+	pulumi.Input
+
+	ToReportGroupingResponseOutput() ReportGroupingResponseOutput
+	ToReportGroupingResponseOutputWithContext(context.Context) ReportGroupingResponseOutput
+}
+
+// The group by expression to be used in the report.
+type ReportGroupingResponseArgs struct {
+	// The name of the column to group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Has type of the column to group.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReportGroupingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupingResponse)(nil)).Elem()
+}
+
+func (i ReportGroupingResponseArgs) ToReportGroupingResponseOutput() ReportGroupingResponseOutput {
+	return i.ToReportGroupingResponseOutputWithContext(context.Background())
+}
+
+func (i ReportGroupingResponseArgs) ToReportGroupingResponseOutputWithContext(ctx context.Context) ReportGroupingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupingResponseOutput)
+}
+
+// ReportGroupingResponseArrayInput is an input type that accepts ReportGroupingResponseArray and ReportGroupingResponseArrayOutput values.
+// You can construct a concrete instance of `ReportGroupingResponseArrayInput` via:
+//
+//          ReportGroupingResponseArray{ ReportGroupingResponseArgs{...} }
+type ReportGroupingResponseArrayInput interface {
+	pulumi.Input
+
+	ToReportGroupingResponseArrayOutput() ReportGroupingResponseArrayOutput
+	ToReportGroupingResponseArrayOutputWithContext(context.Context) ReportGroupingResponseArrayOutput
+}
+
+type ReportGroupingResponseArray []ReportGroupingResponseInput
+
+func (ReportGroupingResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportGroupingResponse)(nil)).Elem()
+}
+
+func (i ReportGroupingResponseArray) ToReportGroupingResponseArrayOutput() ReportGroupingResponseArrayOutput {
+	return i.ToReportGroupingResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ReportGroupingResponseArray) ToReportGroupingResponseArrayOutputWithContext(ctx context.Context) ReportGroupingResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupingResponseArrayOutput)
+}
+
+// The group by expression to be used in the report.
+type ReportGroupingResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupingResponse)(nil)).Elem()
+}
+
+func (o ReportGroupingResponseOutput) ToReportGroupingResponseOutput() ReportGroupingResponseOutput {
+	return o
+}
+
+func (o ReportGroupingResponseOutput) ToReportGroupingResponseOutputWithContext(ctx context.Context) ReportGroupingResponseOutput {
+	return o
+}
+
+// The name of the column to group.
+func (o ReportGroupingResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportGroupingResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has type of the column to group.
+func (o ReportGroupingResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportGroupingResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ReportGroupingResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupingResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReportGroupingResponse)(nil)).Elem()
+}
+
+func (o ReportGroupingResponseArrayOutput) ToReportGroupingResponseArrayOutput() ReportGroupingResponseArrayOutput {
+	return o
+}
+
+func (o ReportGroupingResponseArrayOutput) ToReportGroupingResponseArrayOutputWithContext(ctx context.Context) ReportGroupingResponseArrayOutput {
+	return o
+}
+
+func (o ReportGroupingResponseArrayOutput) Index(i pulumi.IntInput) ReportGroupingResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReportGroupingResponse {
+		return vs[0].([]ReportGroupingResponse)[vs[1].(int)]
+	}).(ReportGroupingResponseOutput)
+}
+
+// The start and end date for recurrence schedule.
+type ReportRecurrencePeriod struct {
+	// The start date of recurrence.
+	From string `pulumi:"from"`
+	// The end date of recurrence.
+	To *string `pulumi:"to"`
+}
+
+// ReportRecurrencePeriodInput is an input type that accepts ReportRecurrencePeriodArgs and ReportRecurrencePeriodOutput values.
+// You can construct a concrete instance of `ReportRecurrencePeriodInput` via:
+//
+//          ReportRecurrencePeriodArgs{...}
+type ReportRecurrencePeriodInput interface {
+	pulumi.Input
+
+	ToReportRecurrencePeriodOutput() ReportRecurrencePeriodOutput
+	ToReportRecurrencePeriodOutputWithContext(context.Context) ReportRecurrencePeriodOutput
+}
+
+// The start and end date for recurrence schedule.
+type ReportRecurrencePeriodArgs struct {
+	// The start date of recurrence.
+	From pulumi.StringInput `pulumi:"from"`
+	// The end date of recurrence.
+	To pulumi.StringPtrInput `pulumi:"to"`
+}
+
+func (ReportRecurrencePeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportRecurrencePeriod)(nil)).Elem()
+}
+
+func (i ReportRecurrencePeriodArgs) ToReportRecurrencePeriodOutput() ReportRecurrencePeriodOutput {
+	return i.ToReportRecurrencePeriodOutputWithContext(context.Background())
+}
+
+func (i ReportRecurrencePeriodArgs) ToReportRecurrencePeriodOutputWithContext(ctx context.Context) ReportRecurrencePeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodOutput)
+}
+
+func (i ReportRecurrencePeriodArgs) ToReportRecurrencePeriodPtrOutput() ReportRecurrencePeriodPtrOutput {
+	return i.ToReportRecurrencePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i ReportRecurrencePeriodArgs) ToReportRecurrencePeriodPtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodOutput).ToReportRecurrencePeriodPtrOutputWithContext(ctx)
+}
+
+// ReportRecurrencePeriodPtrInput is an input type that accepts ReportRecurrencePeriodArgs, ReportRecurrencePeriodPtr and ReportRecurrencePeriodPtrOutput values.
+// You can construct a concrete instance of `ReportRecurrencePeriodPtrInput` via:
+//
+//          ReportRecurrencePeriodArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportRecurrencePeriodPtrInput interface {
+	pulumi.Input
+
+	ToReportRecurrencePeriodPtrOutput() ReportRecurrencePeriodPtrOutput
+	ToReportRecurrencePeriodPtrOutputWithContext(context.Context) ReportRecurrencePeriodPtrOutput
+}
+
+type reportRecurrencePeriodPtrType ReportRecurrencePeriodArgs
+
+func ReportRecurrencePeriodPtr(v *ReportRecurrencePeriodArgs) ReportRecurrencePeriodPtrInput {
+	return (*reportRecurrencePeriodPtrType)(v)
+}
+
+func (*reportRecurrencePeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportRecurrencePeriod)(nil)).Elem()
+}
+
+func (i *reportRecurrencePeriodPtrType) ToReportRecurrencePeriodPtrOutput() ReportRecurrencePeriodPtrOutput {
+	return i.ToReportRecurrencePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *reportRecurrencePeriodPtrType) ToReportRecurrencePeriodPtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodPtrOutput)
+}
+
+// The start and end date for recurrence schedule.
+type ReportRecurrencePeriodOutput struct{ *pulumi.OutputState }
+
+func (ReportRecurrencePeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportRecurrencePeriod)(nil)).Elem()
+}
+
+func (o ReportRecurrencePeriodOutput) ToReportRecurrencePeriodOutput() ReportRecurrencePeriodOutput {
+	return o
+}
+
+func (o ReportRecurrencePeriodOutput) ToReportRecurrencePeriodOutputWithContext(ctx context.Context) ReportRecurrencePeriodOutput {
+	return o
+}
+
+func (o ReportRecurrencePeriodOutput) ToReportRecurrencePeriodPtrOutput() ReportRecurrencePeriodPtrOutput {
+	return o.ToReportRecurrencePeriodPtrOutputWithContext(context.Background())
+}
+
+func (o ReportRecurrencePeriodOutput) ToReportRecurrencePeriodPtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodPtrOutput {
+	return o.ApplyT(func(v ReportRecurrencePeriod) *ReportRecurrencePeriod {
+		return &v
+	}).(ReportRecurrencePeriodPtrOutput)
+}
+
+// The start date of recurrence.
+func (o ReportRecurrencePeriodOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportRecurrencePeriod) string { return v.From }).(pulumi.StringOutput)
+}
+
+// The end date of recurrence.
+func (o ReportRecurrencePeriodOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportRecurrencePeriod) *string { return v.To }).(pulumi.StringPtrOutput)
+}
+
+type ReportRecurrencePeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportRecurrencePeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportRecurrencePeriod)(nil)).Elem()
+}
+
+func (o ReportRecurrencePeriodPtrOutput) ToReportRecurrencePeriodPtrOutput() ReportRecurrencePeriodPtrOutput {
+	return o
+}
+
+func (o ReportRecurrencePeriodPtrOutput) ToReportRecurrencePeriodPtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodPtrOutput {
+	return o
+}
+
+func (o ReportRecurrencePeriodPtrOutput) Elem() ReportRecurrencePeriodOutput {
+	return o.ApplyT(func(v *ReportRecurrencePeriod) ReportRecurrencePeriod { return *v }).(ReportRecurrencePeriodOutput)
+}
+
+// The start date of recurrence.
+func (o ReportRecurrencePeriodPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportRecurrencePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The end date of recurrence.
+func (o ReportRecurrencePeriodPtrOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportRecurrencePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.To
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start and end date for recurrence schedule.
+type ReportRecurrencePeriodResponse struct {
+	// The start date of recurrence.
+	From string `pulumi:"from"`
+	// The end date of recurrence.
+	To *string `pulumi:"to"`
+}
+
+// ReportRecurrencePeriodResponseInput is an input type that accepts ReportRecurrencePeriodResponseArgs and ReportRecurrencePeriodResponseOutput values.
+// You can construct a concrete instance of `ReportRecurrencePeriodResponseInput` via:
+//
+//          ReportRecurrencePeriodResponseArgs{...}
+type ReportRecurrencePeriodResponseInput interface {
+	pulumi.Input
+
+	ToReportRecurrencePeriodResponseOutput() ReportRecurrencePeriodResponseOutput
+	ToReportRecurrencePeriodResponseOutputWithContext(context.Context) ReportRecurrencePeriodResponseOutput
+}
+
+// The start and end date for recurrence schedule.
+type ReportRecurrencePeriodResponseArgs struct {
+	// The start date of recurrence.
+	From pulumi.StringInput `pulumi:"from"`
+	// The end date of recurrence.
+	To pulumi.StringPtrInput `pulumi:"to"`
+}
+
+func (ReportRecurrencePeriodResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportRecurrencePeriodResponse)(nil)).Elem()
+}
+
+func (i ReportRecurrencePeriodResponseArgs) ToReportRecurrencePeriodResponseOutput() ReportRecurrencePeriodResponseOutput {
+	return i.ToReportRecurrencePeriodResponseOutputWithContext(context.Background())
+}
+
+func (i ReportRecurrencePeriodResponseArgs) ToReportRecurrencePeriodResponseOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodResponseOutput)
+}
+
+func (i ReportRecurrencePeriodResponseArgs) ToReportRecurrencePeriodResponsePtrOutput() ReportRecurrencePeriodResponsePtrOutput {
+	return i.ToReportRecurrencePeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReportRecurrencePeriodResponseArgs) ToReportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodResponseOutput).ToReportRecurrencePeriodResponsePtrOutputWithContext(ctx)
+}
+
+// ReportRecurrencePeriodResponsePtrInput is an input type that accepts ReportRecurrencePeriodResponseArgs, ReportRecurrencePeriodResponsePtr and ReportRecurrencePeriodResponsePtrOutput values.
+// You can construct a concrete instance of `ReportRecurrencePeriodResponsePtrInput` via:
+//
+//          ReportRecurrencePeriodResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportRecurrencePeriodResponsePtrInput interface {
+	pulumi.Input
+
+	ToReportRecurrencePeriodResponsePtrOutput() ReportRecurrencePeriodResponsePtrOutput
+	ToReportRecurrencePeriodResponsePtrOutputWithContext(context.Context) ReportRecurrencePeriodResponsePtrOutput
+}
+
+type reportRecurrencePeriodResponsePtrType ReportRecurrencePeriodResponseArgs
+
+func ReportRecurrencePeriodResponsePtr(v *ReportRecurrencePeriodResponseArgs) ReportRecurrencePeriodResponsePtrInput {
+	return (*reportRecurrencePeriodResponsePtrType)(v)
+}
+
+func (*reportRecurrencePeriodResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportRecurrencePeriodResponse)(nil)).Elem()
+}
+
+func (i *reportRecurrencePeriodResponsePtrType) ToReportRecurrencePeriodResponsePtrOutput() ReportRecurrencePeriodResponsePtrOutput {
+	return i.ToReportRecurrencePeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *reportRecurrencePeriodResponsePtrType) ToReportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodResponsePtrOutput)
+}
+
+// The start and end date for recurrence schedule.
+type ReportRecurrencePeriodResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportRecurrencePeriodResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportRecurrencePeriodResponse)(nil)).Elem()
+}
+
+func (o ReportRecurrencePeriodResponseOutput) ToReportRecurrencePeriodResponseOutput() ReportRecurrencePeriodResponseOutput {
+	return o
+}
+
+func (o ReportRecurrencePeriodResponseOutput) ToReportRecurrencePeriodResponseOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponseOutput {
+	return o
+}
+
+func (o ReportRecurrencePeriodResponseOutput) ToReportRecurrencePeriodResponsePtrOutput() ReportRecurrencePeriodResponsePtrOutput {
+	return o.ToReportRecurrencePeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReportRecurrencePeriodResponseOutput) ToReportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponsePtrOutput {
+	return o.ApplyT(func(v ReportRecurrencePeriodResponse) *ReportRecurrencePeriodResponse {
+		return &v
+	}).(ReportRecurrencePeriodResponsePtrOutput)
+}
+
+// The start date of recurrence.
+func (o ReportRecurrencePeriodResponseOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportRecurrencePeriodResponse) string { return v.From }).(pulumi.StringOutput)
+}
+
+// The end date of recurrence.
+func (o ReportRecurrencePeriodResponseOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportRecurrencePeriodResponse) *string { return v.To }).(pulumi.StringPtrOutput)
+}
+
+type ReportRecurrencePeriodResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportRecurrencePeriodResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportRecurrencePeriodResponse)(nil)).Elem()
+}
+
+func (o ReportRecurrencePeriodResponsePtrOutput) ToReportRecurrencePeriodResponsePtrOutput() ReportRecurrencePeriodResponsePtrOutput {
+	return o
+}
+
+func (o ReportRecurrencePeriodResponsePtrOutput) ToReportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponsePtrOutput {
+	return o
+}
+
+func (o ReportRecurrencePeriodResponsePtrOutput) Elem() ReportRecurrencePeriodResponseOutput {
+	return o.ApplyT(func(v *ReportRecurrencePeriodResponse) ReportRecurrencePeriodResponse { return *v }).(ReportRecurrencePeriodResponseOutput)
+}
+
+// The start date of recurrence.
+func (o ReportRecurrencePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportRecurrencePeriodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The end date of recurrence.
+func (o ReportRecurrencePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportRecurrencePeriodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.To
+	}).(pulumi.StringPtrOutput)
+}
+
+// The schedule associated with a report.
+type ReportSchedule struct {
+	// The schedule recurrence.
+	Recurrence string `pulumi:"recurrence"`
+	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	RecurrencePeriod *ReportRecurrencePeriod `pulumi:"recurrencePeriod"`
+	// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+	Status *string `pulumi:"status"`
+}
+
+// ReportScheduleInput is an input type that accepts ReportScheduleArgs and ReportScheduleOutput values.
+// You can construct a concrete instance of `ReportScheduleInput` via:
+//
+//          ReportScheduleArgs{...}
+type ReportScheduleInput interface {
+	pulumi.Input
+
+	ToReportScheduleOutput() ReportScheduleOutput
+	ToReportScheduleOutputWithContext(context.Context) ReportScheduleOutput
+}
+
+// The schedule associated with a report.
+type ReportScheduleArgs struct {
+	// The schedule recurrence.
+	Recurrence pulumi.StringInput `pulumi:"recurrence"`
+	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	RecurrencePeriod ReportRecurrencePeriodPtrInput `pulumi:"recurrencePeriod"`
+	// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (ReportScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportSchedule)(nil)).Elem()
+}
+
+func (i ReportScheduleArgs) ToReportScheduleOutput() ReportScheduleOutput {
+	return i.ToReportScheduleOutputWithContext(context.Background())
+}
+
+func (i ReportScheduleArgs) ToReportScheduleOutputWithContext(ctx context.Context) ReportScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportScheduleOutput)
+}
+
+func (i ReportScheduleArgs) ToReportSchedulePtrOutput() ReportSchedulePtrOutput {
+	return i.ToReportSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i ReportScheduleArgs) ToReportSchedulePtrOutputWithContext(ctx context.Context) ReportSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportScheduleOutput).ToReportSchedulePtrOutputWithContext(ctx)
+}
+
+// ReportSchedulePtrInput is an input type that accepts ReportScheduleArgs, ReportSchedulePtr and ReportSchedulePtrOutput values.
+// You can construct a concrete instance of `ReportSchedulePtrInput` via:
+//
+//          ReportScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportSchedulePtrInput interface {
+	pulumi.Input
+
+	ToReportSchedulePtrOutput() ReportSchedulePtrOutput
+	ToReportSchedulePtrOutputWithContext(context.Context) ReportSchedulePtrOutput
+}
+
+type reportSchedulePtrType ReportScheduleArgs
+
+func ReportSchedulePtr(v *ReportScheduleArgs) ReportSchedulePtrInput {
+	return (*reportSchedulePtrType)(v)
+}
+
+func (*reportSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportSchedule)(nil)).Elem()
+}
+
+func (i *reportSchedulePtrType) ToReportSchedulePtrOutput() ReportSchedulePtrOutput {
+	return i.ToReportSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *reportSchedulePtrType) ToReportSchedulePtrOutputWithContext(ctx context.Context) ReportSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportSchedulePtrOutput)
+}
+
+// The schedule associated with a report.
+type ReportScheduleOutput struct{ *pulumi.OutputState }
+
+func (ReportScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportSchedule)(nil)).Elem()
+}
+
+func (o ReportScheduleOutput) ToReportScheduleOutput() ReportScheduleOutput {
+	return o
+}
+
+func (o ReportScheduleOutput) ToReportScheduleOutputWithContext(ctx context.Context) ReportScheduleOutput {
+	return o
+}
+
+func (o ReportScheduleOutput) ToReportSchedulePtrOutput() ReportSchedulePtrOutput {
+	return o.ToReportSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o ReportScheduleOutput) ToReportSchedulePtrOutputWithContext(ctx context.Context) ReportSchedulePtrOutput {
+	return o.ApplyT(func(v ReportSchedule) *ReportSchedule {
+		return &v
+	}).(ReportSchedulePtrOutput)
+}
+
+// The schedule recurrence.
+func (o ReportScheduleOutput) Recurrence() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportSchedule) string { return v.Recurrence }).(pulumi.StringOutput)
+}
+
+// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+func (o ReportScheduleOutput) RecurrencePeriod() ReportRecurrencePeriodPtrOutput {
+	return o.ApplyT(func(v ReportSchedule) *ReportRecurrencePeriod { return v.RecurrencePeriod }).(ReportRecurrencePeriodPtrOutput)
+}
+
+// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+func (o ReportScheduleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportSchedule) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ReportSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportSchedule)(nil)).Elem()
+}
+
+func (o ReportSchedulePtrOutput) ToReportSchedulePtrOutput() ReportSchedulePtrOutput {
+	return o
+}
+
+func (o ReportSchedulePtrOutput) ToReportSchedulePtrOutputWithContext(ctx context.Context) ReportSchedulePtrOutput {
+	return o
+}
+
+func (o ReportSchedulePtrOutput) Elem() ReportScheduleOutput {
+	return o.ApplyT(func(v *ReportSchedule) ReportSchedule { return *v }).(ReportScheduleOutput)
+}
+
+// The schedule recurrence.
+func (o ReportSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Recurrence
+	}).(pulumi.StringPtrOutput)
+}
+
+// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+func (o ReportSchedulePtrOutput) RecurrencePeriod() ReportRecurrencePeriodPtrOutput {
+	return o.ApplyT(func(v *ReportSchedule) *ReportRecurrencePeriod {
+		if v == nil {
+			return nil
+		}
+		return v.RecurrencePeriod
+	}).(ReportRecurrencePeriodPtrOutput)
+}
+
+// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+func (o ReportSchedulePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The schedule associated with a report.
+type ReportScheduleResponse struct {
+	// The schedule recurrence.
+	Recurrence string `pulumi:"recurrence"`
+	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	RecurrencePeriod *ReportRecurrencePeriodResponse `pulumi:"recurrencePeriod"`
+	// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+	Status *string `pulumi:"status"`
+}
+
+// ReportScheduleResponseInput is an input type that accepts ReportScheduleResponseArgs and ReportScheduleResponseOutput values.
+// You can construct a concrete instance of `ReportScheduleResponseInput` via:
+//
+//          ReportScheduleResponseArgs{...}
+type ReportScheduleResponseInput interface {
+	pulumi.Input
+
+	ToReportScheduleResponseOutput() ReportScheduleResponseOutput
+	ToReportScheduleResponseOutputWithContext(context.Context) ReportScheduleResponseOutput
+}
+
+// The schedule associated with a report.
+type ReportScheduleResponseArgs struct {
+	// The schedule recurrence.
+	Recurrence pulumi.StringInput `pulumi:"recurrence"`
+	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	RecurrencePeriod ReportRecurrencePeriodResponsePtrInput `pulumi:"recurrencePeriod"`
+	// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (ReportScheduleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportScheduleResponse)(nil)).Elem()
+}
+
+func (i ReportScheduleResponseArgs) ToReportScheduleResponseOutput() ReportScheduleResponseOutput {
+	return i.ToReportScheduleResponseOutputWithContext(context.Background())
+}
+
+func (i ReportScheduleResponseArgs) ToReportScheduleResponseOutputWithContext(ctx context.Context) ReportScheduleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportScheduleResponseOutput)
+}
+
+func (i ReportScheduleResponseArgs) ToReportScheduleResponsePtrOutput() ReportScheduleResponsePtrOutput {
+	return i.ToReportScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReportScheduleResponseArgs) ToReportScheduleResponsePtrOutputWithContext(ctx context.Context) ReportScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportScheduleResponseOutput).ToReportScheduleResponsePtrOutputWithContext(ctx)
+}
+
+// ReportScheduleResponsePtrInput is an input type that accepts ReportScheduleResponseArgs, ReportScheduleResponsePtr and ReportScheduleResponsePtrOutput values.
+// You can construct a concrete instance of `ReportScheduleResponsePtrInput` via:
+//
+//          ReportScheduleResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportScheduleResponsePtrInput interface {
+	pulumi.Input
+
+	ToReportScheduleResponsePtrOutput() ReportScheduleResponsePtrOutput
+	ToReportScheduleResponsePtrOutputWithContext(context.Context) ReportScheduleResponsePtrOutput
+}
+
+type reportScheduleResponsePtrType ReportScheduleResponseArgs
+
+func ReportScheduleResponsePtr(v *ReportScheduleResponseArgs) ReportScheduleResponsePtrInput {
+	return (*reportScheduleResponsePtrType)(v)
+}
+
+func (*reportScheduleResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportScheduleResponse)(nil)).Elem()
+}
+
+func (i *reportScheduleResponsePtrType) ToReportScheduleResponsePtrOutput() ReportScheduleResponsePtrOutput {
+	return i.ToReportScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *reportScheduleResponsePtrType) ToReportScheduleResponsePtrOutputWithContext(ctx context.Context) ReportScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportScheduleResponsePtrOutput)
+}
+
+// The schedule associated with a report.
+type ReportScheduleResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportScheduleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportScheduleResponse)(nil)).Elem()
+}
+
+func (o ReportScheduleResponseOutput) ToReportScheduleResponseOutput() ReportScheduleResponseOutput {
+	return o
+}
+
+func (o ReportScheduleResponseOutput) ToReportScheduleResponseOutputWithContext(ctx context.Context) ReportScheduleResponseOutput {
+	return o
+}
+
+func (o ReportScheduleResponseOutput) ToReportScheduleResponsePtrOutput() ReportScheduleResponsePtrOutput {
+	return o.ToReportScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReportScheduleResponseOutput) ToReportScheduleResponsePtrOutputWithContext(ctx context.Context) ReportScheduleResponsePtrOutput {
+	return o.ApplyT(func(v ReportScheduleResponse) *ReportScheduleResponse {
+		return &v
+	}).(ReportScheduleResponsePtrOutput)
+}
+
+// The schedule recurrence.
+func (o ReportScheduleResponseOutput) Recurrence() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportScheduleResponse) string { return v.Recurrence }).(pulumi.StringOutput)
+}
+
+// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+func (o ReportScheduleResponseOutput) RecurrencePeriod() ReportRecurrencePeriodResponsePtrOutput {
+	return o.ApplyT(func(v ReportScheduleResponse) *ReportRecurrencePeriodResponse { return v.RecurrencePeriod }).(ReportRecurrencePeriodResponsePtrOutput)
+}
+
+// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+func (o ReportScheduleResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportScheduleResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ReportScheduleResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportScheduleResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportScheduleResponse)(nil)).Elem()
+}
+
+func (o ReportScheduleResponsePtrOutput) ToReportScheduleResponsePtrOutput() ReportScheduleResponsePtrOutput {
+	return o
+}
+
+func (o ReportScheduleResponsePtrOutput) ToReportScheduleResponsePtrOutputWithContext(ctx context.Context) ReportScheduleResponsePtrOutput {
+	return o
+}
+
+func (o ReportScheduleResponsePtrOutput) Elem() ReportScheduleResponseOutput {
+	return o.ApplyT(func(v *ReportScheduleResponse) ReportScheduleResponse { return *v }).(ReportScheduleResponseOutput)
+}
+
+// The schedule recurrence.
+func (o ReportScheduleResponsePtrOutput) Recurrence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Recurrence
+	}).(pulumi.StringPtrOutput)
+}
+
+// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+func (o ReportScheduleResponsePtrOutput) RecurrencePeriod() ReportRecurrencePeriodResponsePtrOutput {
+	return o.ApplyT(func(v *ReportScheduleResponse) *ReportRecurrencePeriodResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RecurrencePeriod
+	}).(ReportRecurrencePeriodResponsePtrOutput)
+}
+
+// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+func (o ReportScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start and end date for pulling data for the report.
+type ReportTimePeriod struct {
+	// The start date to pull data from.
+	From string `pulumi:"from"`
+	// The end date to pull data to.
+	To string `pulumi:"to"`
+}
+
+// ReportTimePeriodInput is an input type that accepts ReportTimePeriodArgs and ReportTimePeriodOutput values.
+// You can construct a concrete instance of `ReportTimePeriodInput` via:
+//
+//          ReportTimePeriodArgs{...}
+type ReportTimePeriodInput interface {
+	pulumi.Input
+
+	ToReportTimePeriodOutput() ReportTimePeriodOutput
+	ToReportTimePeriodOutputWithContext(context.Context) ReportTimePeriodOutput
+}
+
+// The start and end date for pulling data for the report.
+type ReportTimePeriodArgs struct {
+	// The start date to pull data from.
+	From pulumi.StringInput `pulumi:"from"`
+	// The end date to pull data to.
+	To pulumi.StringInput `pulumi:"to"`
+}
+
+func (ReportTimePeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportTimePeriod)(nil)).Elem()
+}
+
+func (i ReportTimePeriodArgs) ToReportTimePeriodOutput() ReportTimePeriodOutput {
+	return i.ToReportTimePeriodOutputWithContext(context.Background())
+}
+
+func (i ReportTimePeriodArgs) ToReportTimePeriodOutputWithContext(ctx context.Context) ReportTimePeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodOutput)
+}
+
+func (i ReportTimePeriodArgs) ToReportTimePeriodPtrOutput() ReportTimePeriodPtrOutput {
+	return i.ToReportTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i ReportTimePeriodArgs) ToReportTimePeriodPtrOutputWithContext(ctx context.Context) ReportTimePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodOutput).ToReportTimePeriodPtrOutputWithContext(ctx)
+}
+
+// ReportTimePeriodPtrInput is an input type that accepts ReportTimePeriodArgs, ReportTimePeriodPtr and ReportTimePeriodPtrOutput values.
+// You can construct a concrete instance of `ReportTimePeriodPtrInput` via:
+//
+//          ReportTimePeriodArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportTimePeriodPtrInput interface {
+	pulumi.Input
+
+	ToReportTimePeriodPtrOutput() ReportTimePeriodPtrOutput
+	ToReportTimePeriodPtrOutputWithContext(context.Context) ReportTimePeriodPtrOutput
+}
+
+type reportTimePeriodPtrType ReportTimePeriodArgs
+
+func ReportTimePeriodPtr(v *ReportTimePeriodArgs) ReportTimePeriodPtrInput {
+	return (*reportTimePeriodPtrType)(v)
+}
+
+func (*reportTimePeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportTimePeriod)(nil)).Elem()
+}
+
+func (i *reportTimePeriodPtrType) ToReportTimePeriodPtrOutput() ReportTimePeriodPtrOutput {
+	return i.ToReportTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *reportTimePeriodPtrType) ToReportTimePeriodPtrOutputWithContext(ctx context.Context) ReportTimePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodPtrOutput)
+}
+
+// The start and end date for pulling data for the report.
+type ReportTimePeriodOutput struct{ *pulumi.OutputState }
+
+func (ReportTimePeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportTimePeriod)(nil)).Elem()
+}
+
+func (o ReportTimePeriodOutput) ToReportTimePeriodOutput() ReportTimePeriodOutput {
+	return o
+}
+
+func (o ReportTimePeriodOutput) ToReportTimePeriodOutputWithContext(ctx context.Context) ReportTimePeriodOutput {
+	return o
+}
+
+func (o ReportTimePeriodOutput) ToReportTimePeriodPtrOutput() ReportTimePeriodPtrOutput {
+	return o.ToReportTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (o ReportTimePeriodOutput) ToReportTimePeriodPtrOutputWithContext(ctx context.Context) ReportTimePeriodPtrOutput {
+	return o.ApplyT(func(v ReportTimePeriod) *ReportTimePeriod {
+		return &v
+	}).(ReportTimePeriodPtrOutput)
+}
+
+// The start date to pull data from.
+func (o ReportTimePeriodOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportTimePeriod) string { return v.From }).(pulumi.StringOutput)
+}
+
+// The end date to pull data to.
+func (o ReportTimePeriodOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportTimePeriod) string { return v.To }).(pulumi.StringOutput)
+}
+
+type ReportTimePeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportTimePeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportTimePeriod)(nil)).Elem()
+}
+
+func (o ReportTimePeriodPtrOutput) ToReportTimePeriodPtrOutput() ReportTimePeriodPtrOutput {
+	return o
+}
+
+func (o ReportTimePeriodPtrOutput) ToReportTimePeriodPtrOutputWithContext(ctx context.Context) ReportTimePeriodPtrOutput {
+	return o
+}
+
+func (o ReportTimePeriodPtrOutput) Elem() ReportTimePeriodOutput {
+	return o.ApplyT(func(v *ReportTimePeriod) ReportTimePeriod { return *v }).(ReportTimePeriodOutput)
+}
+
+// The start date to pull data from.
+func (o ReportTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportTimePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The end date to pull data to.
+func (o ReportTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportTimePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.To
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start and end date for pulling data for the report.
+type ReportTimePeriodResponse struct {
+	// The start date to pull data from.
+	From string `pulumi:"from"`
+	// The end date to pull data to.
+	To string `pulumi:"to"`
+}
+
+// ReportTimePeriodResponseInput is an input type that accepts ReportTimePeriodResponseArgs and ReportTimePeriodResponseOutput values.
+// You can construct a concrete instance of `ReportTimePeriodResponseInput` via:
+//
+//          ReportTimePeriodResponseArgs{...}
+type ReportTimePeriodResponseInput interface {
+	pulumi.Input
+
+	ToReportTimePeriodResponseOutput() ReportTimePeriodResponseOutput
+	ToReportTimePeriodResponseOutputWithContext(context.Context) ReportTimePeriodResponseOutput
+}
+
+// The start and end date for pulling data for the report.
+type ReportTimePeriodResponseArgs struct {
+	// The start date to pull data from.
+	From pulumi.StringInput `pulumi:"from"`
+	// The end date to pull data to.
+	To pulumi.StringInput `pulumi:"to"`
+}
+
+func (ReportTimePeriodResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportTimePeriodResponse)(nil)).Elem()
+}
+
+func (i ReportTimePeriodResponseArgs) ToReportTimePeriodResponseOutput() ReportTimePeriodResponseOutput {
+	return i.ToReportTimePeriodResponseOutputWithContext(context.Background())
+}
+
+func (i ReportTimePeriodResponseArgs) ToReportTimePeriodResponseOutputWithContext(ctx context.Context) ReportTimePeriodResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodResponseOutput)
+}
+
+func (i ReportTimePeriodResponseArgs) ToReportTimePeriodResponsePtrOutput() ReportTimePeriodResponsePtrOutput {
+	return i.ToReportTimePeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReportTimePeriodResponseArgs) ToReportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ReportTimePeriodResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodResponseOutput).ToReportTimePeriodResponsePtrOutputWithContext(ctx)
+}
+
+// ReportTimePeriodResponsePtrInput is an input type that accepts ReportTimePeriodResponseArgs, ReportTimePeriodResponsePtr and ReportTimePeriodResponsePtrOutput values.
+// You can construct a concrete instance of `ReportTimePeriodResponsePtrInput` via:
+//
+//          ReportTimePeriodResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReportTimePeriodResponsePtrInput interface {
+	pulumi.Input
+
+	ToReportTimePeriodResponsePtrOutput() ReportTimePeriodResponsePtrOutput
+	ToReportTimePeriodResponsePtrOutputWithContext(context.Context) ReportTimePeriodResponsePtrOutput
+}
+
+type reportTimePeriodResponsePtrType ReportTimePeriodResponseArgs
+
+func ReportTimePeriodResponsePtr(v *ReportTimePeriodResponseArgs) ReportTimePeriodResponsePtrInput {
+	return (*reportTimePeriodResponsePtrType)(v)
+}
+
+func (*reportTimePeriodResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportTimePeriodResponse)(nil)).Elem()
+}
+
+func (i *reportTimePeriodResponsePtrType) ToReportTimePeriodResponsePtrOutput() ReportTimePeriodResponsePtrOutput {
+	return i.ToReportTimePeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *reportTimePeriodResponsePtrType) ToReportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ReportTimePeriodResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodResponsePtrOutput)
+}
+
+// The start and end date for pulling data for the report.
+type ReportTimePeriodResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportTimePeriodResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportTimePeriodResponse)(nil)).Elem()
+}
+
+func (o ReportTimePeriodResponseOutput) ToReportTimePeriodResponseOutput() ReportTimePeriodResponseOutput {
+	return o
+}
+
+func (o ReportTimePeriodResponseOutput) ToReportTimePeriodResponseOutputWithContext(ctx context.Context) ReportTimePeriodResponseOutput {
+	return o
+}
+
+func (o ReportTimePeriodResponseOutput) ToReportTimePeriodResponsePtrOutput() ReportTimePeriodResponsePtrOutput {
+	return o.ToReportTimePeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReportTimePeriodResponseOutput) ToReportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ReportTimePeriodResponsePtrOutput {
+	return o.ApplyT(func(v ReportTimePeriodResponse) *ReportTimePeriodResponse {
+		return &v
+	}).(ReportTimePeriodResponsePtrOutput)
+}
+
+// The start date to pull data from.
+func (o ReportTimePeriodResponseOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportTimePeriodResponse) string { return v.From }).(pulumi.StringOutput)
+}
+
+// The end date to pull data to.
+func (o ReportTimePeriodResponseOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportTimePeriodResponse) string { return v.To }).(pulumi.StringOutput)
+}
+
+type ReportTimePeriodResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportTimePeriodResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportTimePeriodResponse)(nil)).Elem()
+}
+
+func (o ReportTimePeriodResponsePtrOutput) ToReportTimePeriodResponsePtrOutput() ReportTimePeriodResponsePtrOutput {
+	return o
+}
+
+func (o ReportTimePeriodResponsePtrOutput) ToReportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ReportTimePeriodResponsePtrOutput {
+	return o
+}
+
+func (o ReportTimePeriodResponsePtrOutput) Elem() ReportTimePeriodResponseOutput {
+	return o.ApplyT(func(v *ReportTimePeriodResponse) ReportTimePeriodResponse { return *v }).(ReportTimePeriodResponseOutput)
+}
+
+// The start date to pull data from.
+func (o ReportTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportTimePeriodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The end date to pull data to.
+func (o ReportTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportTimePeriodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.To
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(BudgetTimePeriodOutput{})
+	pulumi.RegisterOutputType(BudgetTimePeriodPtrOutput{})
+	pulumi.RegisterOutputType(BudgetTimePeriodResponseOutput{})
+	pulumi.RegisterOutputType(BudgetTimePeriodResponsePtrOutput{})
 	pulumi.RegisterOutputType(CommonExportPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CommonExportPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoResponseOutput{})
+	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorCollectionInfoResponseOutput{})
+	pulumi.RegisterOutputType(ConnectorCollectionInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(CurrentSpendResponseOutput{})
+	pulumi.RegisterOutputType(CurrentSpendResponsePtrOutput{})
 	pulumi.RegisterOutputType(ErrorDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExportDatasetOutput{})
@@ -7922,10 +12972,22 @@ func init() {
 	pulumi.RegisterOutputType(KpiPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(KpiPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KpiPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(NotificationOutput{})
+	pulumi.RegisterOutputType(NotificationMapOutput{})
+	pulumi.RegisterOutputType(NotificationResponseOutput{})
+	pulumi.RegisterOutputType(NotificationResponseMapOutput{})
 	pulumi.RegisterOutputType(PivotPropertiesOutput{})
 	pulumi.RegisterOutputType(PivotPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(PivotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PivotPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(ReportAggregationOutput{})
+	pulumi.RegisterOutputType(ReportAggregationMapOutput{})
+	pulumi.RegisterOutputType(ReportAggregationResponseOutput{})
+	pulumi.RegisterOutputType(ReportAggregationResponseMapOutput{})
+	pulumi.RegisterOutputType(ReportComparisonExpressionOutput{})
+	pulumi.RegisterOutputType(ReportComparisonExpressionPtrOutput{})
+	pulumi.RegisterOutputType(ReportComparisonExpressionResponseOutput{})
+	pulumi.RegisterOutputType(ReportComparisonExpressionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReportConfigAggregationOutput{})
 	pulumi.RegisterOutputType(ReportConfigAggregationMapOutput{})
 	pulumi.RegisterOutputType(ReportConfigAggregationResponseOutput{})
@@ -7980,4 +13042,46 @@ func init() {
 	pulumi.RegisterOutputType(ReportConfigTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(ReportConfigTimePeriodResponseOutput{})
 	pulumi.RegisterOutputType(ReportConfigTimePeriodResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReportDatasetOutput{})
+	pulumi.RegisterOutputType(ReportDatasetPtrOutput{})
+	pulumi.RegisterOutputType(ReportDatasetConfigurationOutput{})
+	pulumi.RegisterOutputType(ReportDatasetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ReportDatasetConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(ReportDatasetConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReportDatasetResponseOutput{})
+	pulumi.RegisterOutputType(ReportDatasetResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReportDefinitionOutput{})
+	pulumi.RegisterOutputType(ReportDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ReportDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(ReportDefinitionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReportDeliveryDestinationOutput{})
+	pulumi.RegisterOutputType(ReportDeliveryDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ReportDeliveryDestinationResponseOutput{})
+	pulumi.RegisterOutputType(ReportDeliveryDestinationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReportDeliveryInfoOutput{})
+	pulumi.RegisterOutputType(ReportDeliveryInfoPtrOutput{})
+	pulumi.RegisterOutputType(ReportDeliveryInfoResponseOutput{})
+	pulumi.RegisterOutputType(ReportDeliveryInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReportFilterOutput{})
+	pulumi.RegisterOutputType(ReportFilterPtrOutput{})
+	pulumi.RegisterOutputType(ReportFilterArrayOutput{})
+	pulumi.RegisterOutputType(ReportFilterResponseOutput{})
+	pulumi.RegisterOutputType(ReportFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReportFilterResponseArrayOutput{})
+	pulumi.RegisterOutputType(ReportGroupingOutput{})
+	pulumi.RegisterOutputType(ReportGroupingArrayOutput{})
+	pulumi.RegisterOutputType(ReportGroupingResponseOutput{})
+	pulumi.RegisterOutputType(ReportGroupingResponseArrayOutput{})
+	pulumi.RegisterOutputType(ReportRecurrencePeriodOutput{})
+	pulumi.RegisterOutputType(ReportRecurrencePeriodPtrOutput{})
+	pulumi.RegisterOutputType(ReportRecurrencePeriodResponseOutput{})
+	pulumi.RegisterOutputType(ReportRecurrencePeriodResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReportScheduleOutput{})
+	pulumi.RegisterOutputType(ReportSchedulePtrOutput{})
+	pulumi.RegisterOutputType(ReportScheduleResponseOutput{})
+	pulumi.RegisterOutputType(ReportScheduleResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReportTimePeriodOutput{})
+	pulumi.RegisterOutputType(ReportTimePeriodPtrOutput{})
+	pulumi.RegisterOutputType(ReportTimePeriodResponseOutput{})
+	pulumi.RegisterOutputType(ReportTimePeriodResponsePtrOutput{})
 }

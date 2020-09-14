@@ -54,6 +54,12 @@ func NewIncidentRelation(ctx *pulumi.Context,
 	if args == nil {
 		args = &IncidentRelationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:securityinsights/latest:IncidentRelation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IncidentRelation
 	err := ctx.RegisterResource("azurerm:securityinsights/v20190101preview:IncidentRelation", name, args, &resource, opts...)
 	if err != nil {

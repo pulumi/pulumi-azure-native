@@ -61,6 +61,12 @@ func NewQuery(ctx *pulumi.Context,
 	if args == nil {
 		args = &QueryArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:Query"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Query
 	err := ctx.RegisterResource("azurerm:insights/v20190901preview:Query", name, args, &resource, opts...)
 	if err != nil {

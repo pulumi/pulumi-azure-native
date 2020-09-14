@@ -54,6 +54,12 @@ func NewMultipleActivationKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &MultipleActivationKeyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:windowsesu/latest:MultipleActivationKey"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MultipleActivationKey
 	err := ctx.RegisterResource("azurerm:windowsesu/v20190916preview:MultipleActivationKey", name, args, &resource, opts...)
 	if err != nil {

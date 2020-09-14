@@ -50,6 +50,12 @@ func NewSqlDatabase(ctx *pulumi.Context,
 	if args == nil {
 		args = &SqlDatabaseArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:synapse/latest:SqlDatabase"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlDatabase
 	err := ctx.RegisterResource("azurerm:synapse/v20200401preview:SqlDatabase", name, args, &resource, opts...)
 	if err != nil {

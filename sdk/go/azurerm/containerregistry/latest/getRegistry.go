@@ -29,6 +29,14 @@ type LookupRegistryResult struct {
 	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
 	// The creation date of the container registry in ISO8601 format.
 	CreationDate string `pulumi:"creationDate"`
+	// Enable a single data endpoint per region for serving data.
+	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
+	// List of host names that will serve data when dataEndpointEnabled is true.
+	DataEndpointHostNames []string `pulumi:"dataEndpointHostNames"`
+	// The encryption settings of container registry.
+	Encryption *EncryptionPropertyResponse `pulumi:"encryption"`
+	// The identity of the container registry.
+	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
@@ -39,8 +47,12 @@ type LookupRegistryResult struct {
 	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
 	// The policies for a container registry.
 	Policies *PoliciesResponse `pulumi:"policies"`
+	// List of private endpoint connections for a container registry.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state of the container registry at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Whether or not public network access is allowed for the container registry.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The SKU of the container registry.
 	Sku SkuResponse `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.

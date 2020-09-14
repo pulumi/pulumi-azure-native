@@ -45,6 +45,12 @@ func NewProductSetting(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProductSettingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:securityinsights/latest:ProductSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ProductSetting
 	err := ctx.RegisterResource("azurerm:securityinsights/v20190101preview:ProductSetting", name, args, &resource, opts...)
 	if err != nil {

@@ -58,6 +58,9 @@ func NewEventHubConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:kusto/latest:EventHubConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:kusto/v20180907preview:EventHubConnection"),
 		},
 	})

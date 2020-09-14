@@ -48,6 +48,12 @@ func NewJobCredential(ctx *pulumi.Context,
 	if args == nil {
 		args = &JobCredentialArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/latest:JobCredential"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource JobCredential
 	err := ctx.RegisterResource("azurerm:sql/v20170301preview:JobCredential", name, args, &resource, opts...)
 	if err != nil {

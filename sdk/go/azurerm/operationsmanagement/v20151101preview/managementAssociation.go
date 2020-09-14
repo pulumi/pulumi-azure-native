@@ -45,6 +45,12 @@ func NewManagementAssociation(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagementAssociationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationsmanagement/latest:ManagementAssociation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementAssociation
 	err := ctx.RegisterResource("azurerm:operationsmanagement/v20151101preview:ManagementAssociation", name, args, &resource, opts...)
 	if err != nil {

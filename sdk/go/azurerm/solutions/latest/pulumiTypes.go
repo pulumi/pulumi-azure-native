@@ -10,6 +10,460 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Appliance artifact.
+type ApplianceArtifact struct {
+	// The appliance artifact name.
+	Name *string `pulumi:"name"`
+	// The appliance artifact type.
+	Type *string `pulumi:"type"`
+	// The appliance artifact blob uri.
+	Uri *string `pulumi:"uri"`
+}
+
+// ApplianceArtifactInput is an input type that accepts ApplianceArtifactArgs and ApplianceArtifactOutput values.
+// You can construct a concrete instance of `ApplianceArtifactInput` via:
+//
+//          ApplianceArtifactArgs{...}
+type ApplianceArtifactInput interface {
+	pulumi.Input
+
+	ToApplianceArtifactOutput() ApplianceArtifactOutput
+	ToApplianceArtifactOutputWithContext(context.Context) ApplianceArtifactOutput
+}
+
+// Appliance artifact.
+type ApplianceArtifactArgs struct {
+	// The appliance artifact name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The appliance artifact type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The appliance artifact blob uri.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ApplianceArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceArtifact)(nil)).Elem()
+}
+
+func (i ApplianceArtifactArgs) ToApplianceArtifactOutput() ApplianceArtifactOutput {
+	return i.ToApplianceArtifactOutputWithContext(context.Background())
+}
+
+func (i ApplianceArtifactArgs) ToApplianceArtifactOutputWithContext(ctx context.Context) ApplianceArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceArtifactOutput)
+}
+
+// ApplianceArtifactArrayInput is an input type that accepts ApplianceArtifactArray and ApplianceArtifactArrayOutput values.
+// You can construct a concrete instance of `ApplianceArtifactArrayInput` via:
+//
+//          ApplianceArtifactArray{ ApplianceArtifactArgs{...} }
+type ApplianceArtifactArrayInput interface {
+	pulumi.Input
+
+	ToApplianceArtifactArrayOutput() ApplianceArtifactArrayOutput
+	ToApplianceArtifactArrayOutputWithContext(context.Context) ApplianceArtifactArrayOutput
+}
+
+type ApplianceArtifactArray []ApplianceArtifactInput
+
+func (ApplianceArtifactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceArtifact)(nil)).Elem()
+}
+
+func (i ApplianceArtifactArray) ToApplianceArtifactArrayOutput() ApplianceArtifactArrayOutput {
+	return i.ToApplianceArtifactArrayOutputWithContext(context.Background())
+}
+
+func (i ApplianceArtifactArray) ToApplianceArtifactArrayOutputWithContext(ctx context.Context) ApplianceArtifactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceArtifactArrayOutput)
+}
+
+// Appliance artifact.
+type ApplianceArtifactOutput struct{ *pulumi.OutputState }
+
+func (ApplianceArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceArtifact)(nil)).Elem()
+}
+
+func (o ApplianceArtifactOutput) ToApplianceArtifactOutput() ApplianceArtifactOutput {
+	return o
+}
+
+func (o ApplianceArtifactOutput) ToApplianceArtifactOutputWithContext(ctx context.Context) ApplianceArtifactOutput {
+	return o
+}
+
+// The appliance artifact name.
+func (o ApplianceArtifactOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplianceArtifact) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The appliance artifact type.
+func (o ApplianceArtifactOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplianceArtifact) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The appliance artifact blob uri.
+func (o ApplianceArtifactOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplianceArtifact) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ApplianceArtifactArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplianceArtifactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceArtifact)(nil)).Elem()
+}
+
+func (o ApplianceArtifactArrayOutput) ToApplianceArtifactArrayOutput() ApplianceArtifactArrayOutput {
+	return o
+}
+
+func (o ApplianceArtifactArrayOutput) ToApplianceArtifactArrayOutputWithContext(ctx context.Context) ApplianceArtifactArrayOutput {
+	return o
+}
+
+func (o ApplianceArtifactArrayOutput) Index(i pulumi.IntInput) ApplianceArtifactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceArtifact {
+		return vs[0].([]ApplianceArtifact)[vs[1].(int)]
+	}).(ApplianceArtifactOutput)
+}
+
+// Appliance artifact.
+type ApplianceArtifactResponse struct {
+	// The appliance artifact name.
+	Name *string `pulumi:"name"`
+	// The appliance artifact type.
+	Type *string `pulumi:"type"`
+	// The appliance artifact blob uri.
+	Uri *string `pulumi:"uri"`
+}
+
+// ApplianceArtifactResponseInput is an input type that accepts ApplianceArtifactResponseArgs and ApplianceArtifactResponseOutput values.
+// You can construct a concrete instance of `ApplianceArtifactResponseInput` via:
+//
+//          ApplianceArtifactResponseArgs{...}
+type ApplianceArtifactResponseInput interface {
+	pulumi.Input
+
+	ToApplianceArtifactResponseOutput() ApplianceArtifactResponseOutput
+	ToApplianceArtifactResponseOutputWithContext(context.Context) ApplianceArtifactResponseOutput
+}
+
+// Appliance artifact.
+type ApplianceArtifactResponseArgs struct {
+	// The appliance artifact name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The appliance artifact type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The appliance artifact blob uri.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ApplianceArtifactResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceArtifactResponse)(nil)).Elem()
+}
+
+func (i ApplianceArtifactResponseArgs) ToApplianceArtifactResponseOutput() ApplianceArtifactResponseOutput {
+	return i.ToApplianceArtifactResponseOutputWithContext(context.Background())
+}
+
+func (i ApplianceArtifactResponseArgs) ToApplianceArtifactResponseOutputWithContext(ctx context.Context) ApplianceArtifactResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceArtifactResponseOutput)
+}
+
+// ApplianceArtifactResponseArrayInput is an input type that accepts ApplianceArtifactResponseArray and ApplianceArtifactResponseArrayOutput values.
+// You can construct a concrete instance of `ApplianceArtifactResponseArrayInput` via:
+//
+//          ApplianceArtifactResponseArray{ ApplianceArtifactResponseArgs{...} }
+type ApplianceArtifactResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplianceArtifactResponseArrayOutput() ApplianceArtifactResponseArrayOutput
+	ToApplianceArtifactResponseArrayOutputWithContext(context.Context) ApplianceArtifactResponseArrayOutput
+}
+
+type ApplianceArtifactResponseArray []ApplianceArtifactResponseInput
+
+func (ApplianceArtifactResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceArtifactResponse)(nil)).Elem()
+}
+
+func (i ApplianceArtifactResponseArray) ToApplianceArtifactResponseArrayOutput() ApplianceArtifactResponseArrayOutput {
+	return i.ToApplianceArtifactResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplianceArtifactResponseArray) ToApplianceArtifactResponseArrayOutputWithContext(ctx context.Context) ApplianceArtifactResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceArtifactResponseArrayOutput)
+}
+
+// Appliance artifact.
+type ApplianceArtifactResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplianceArtifactResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceArtifactResponse)(nil)).Elem()
+}
+
+func (o ApplianceArtifactResponseOutput) ToApplianceArtifactResponseOutput() ApplianceArtifactResponseOutput {
+	return o
+}
+
+func (o ApplianceArtifactResponseOutput) ToApplianceArtifactResponseOutputWithContext(ctx context.Context) ApplianceArtifactResponseOutput {
+	return o
+}
+
+// The appliance artifact name.
+func (o ApplianceArtifactResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplianceArtifactResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The appliance artifact type.
+func (o ApplianceArtifactResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplianceArtifactResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The appliance artifact blob uri.
+func (o ApplianceArtifactResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplianceArtifactResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ApplianceArtifactResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplianceArtifactResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceArtifactResponse)(nil)).Elem()
+}
+
+func (o ApplianceArtifactResponseArrayOutput) ToApplianceArtifactResponseArrayOutput() ApplianceArtifactResponseArrayOutput {
+	return o
+}
+
+func (o ApplianceArtifactResponseArrayOutput) ToApplianceArtifactResponseArrayOutputWithContext(ctx context.Context) ApplianceArtifactResponseArrayOutput {
+	return o
+}
+
+func (o ApplianceArtifactResponseArrayOutput) Index(i pulumi.IntInput) ApplianceArtifactResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceArtifactResponse {
+		return vs[0].([]ApplianceArtifactResponse)[vs[1].(int)]
+	}).(ApplianceArtifactResponseOutput)
+}
+
+// The appliance provider authorization.
+type ApplianceProviderAuthorization struct {
+	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
+	PrincipalId string `pulumi:"principalId"`
+	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// ApplianceProviderAuthorizationInput is an input type that accepts ApplianceProviderAuthorizationArgs and ApplianceProviderAuthorizationOutput values.
+// You can construct a concrete instance of `ApplianceProviderAuthorizationInput` via:
+//
+//          ApplianceProviderAuthorizationArgs{...}
+type ApplianceProviderAuthorizationInput interface {
+	pulumi.Input
+
+	ToApplianceProviderAuthorizationOutput() ApplianceProviderAuthorizationOutput
+	ToApplianceProviderAuthorizationOutputWithContext(context.Context) ApplianceProviderAuthorizationOutput
+}
+
+// The appliance provider authorization.
+type ApplianceProviderAuthorizationArgs struct {
+	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (ApplianceProviderAuthorizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceProviderAuthorization)(nil)).Elem()
+}
+
+func (i ApplianceProviderAuthorizationArgs) ToApplianceProviderAuthorizationOutput() ApplianceProviderAuthorizationOutput {
+	return i.ToApplianceProviderAuthorizationOutputWithContext(context.Background())
+}
+
+func (i ApplianceProviderAuthorizationArgs) ToApplianceProviderAuthorizationOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceProviderAuthorizationOutput)
+}
+
+// ApplianceProviderAuthorizationArrayInput is an input type that accepts ApplianceProviderAuthorizationArray and ApplianceProviderAuthorizationArrayOutput values.
+// You can construct a concrete instance of `ApplianceProviderAuthorizationArrayInput` via:
+//
+//          ApplianceProviderAuthorizationArray{ ApplianceProviderAuthorizationArgs{...} }
+type ApplianceProviderAuthorizationArrayInput interface {
+	pulumi.Input
+
+	ToApplianceProviderAuthorizationArrayOutput() ApplianceProviderAuthorizationArrayOutput
+	ToApplianceProviderAuthorizationArrayOutputWithContext(context.Context) ApplianceProviderAuthorizationArrayOutput
+}
+
+type ApplianceProviderAuthorizationArray []ApplianceProviderAuthorizationInput
+
+func (ApplianceProviderAuthorizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceProviderAuthorization)(nil)).Elem()
+}
+
+func (i ApplianceProviderAuthorizationArray) ToApplianceProviderAuthorizationArrayOutput() ApplianceProviderAuthorizationArrayOutput {
+	return i.ToApplianceProviderAuthorizationArrayOutputWithContext(context.Background())
+}
+
+func (i ApplianceProviderAuthorizationArray) ToApplianceProviderAuthorizationArrayOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceProviderAuthorizationArrayOutput)
+}
+
+// The appliance provider authorization.
+type ApplianceProviderAuthorizationOutput struct{ *pulumi.OutputState }
+
+func (ApplianceProviderAuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceProviderAuthorization)(nil)).Elem()
+}
+
+func (o ApplianceProviderAuthorizationOutput) ToApplianceProviderAuthorizationOutput() ApplianceProviderAuthorizationOutput {
+	return o
+}
+
+func (o ApplianceProviderAuthorizationOutput) ToApplianceProviderAuthorizationOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationOutput {
+	return o
+}
+
+// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
+func (o ApplianceProviderAuthorizationOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplianceProviderAuthorization) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+func (o ApplianceProviderAuthorizationOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplianceProviderAuthorization) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type ApplianceProviderAuthorizationArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplianceProviderAuthorizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceProviderAuthorization)(nil)).Elem()
+}
+
+func (o ApplianceProviderAuthorizationArrayOutput) ToApplianceProviderAuthorizationArrayOutput() ApplianceProviderAuthorizationArrayOutput {
+	return o
+}
+
+func (o ApplianceProviderAuthorizationArrayOutput) ToApplianceProviderAuthorizationArrayOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationArrayOutput {
+	return o
+}
+
+func (o ApplianceProviderAuthorizationArrayOutput) Index(i pulumi.IntInput) ApplianceProviderAuthorizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceProviderAuthorization {
+		return vs[0].([]ApplianceProviderAuthorization)[vs[1].(int)]
+	}).(ApplianceProviderAuthorizationOutput)
+}
+
+// The appliance provider authorization.
+type ApplianceProviderAuthorizationResponse struct {
+	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
+	PrincipalId string `pulumi:"principalId"`
+	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// ApplianceProviderAuthorizationResponseInput is an input type that accepts ApplianceProviderAuthorizationResponseArgs and ApplianceProviderAuthorizationResponseOutput values.
+// You can construct a concrete instance of `ApplianceProviderAuthorizationResponseInput` via:
+//
+//          ApplianceProviderAuthorizationResponseArgs{...}
+type ApplianceProviderAuthorizationResponseInput interface {
+	pulumi.Input
+
+	ToApplianceProviderAuthorizationResponseOutput() ApplianceProviderAuthorizationResponseOutput
+	ToApplianceProviderAuthorizationResponseOutputWithContext(context.Context) ApplianceProviderAuthorizationResponseOutput
+}
+
+// The appliance provider authorization.
+type ApplianceProviderAuthorizationResponseArgs struct {
+	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (ApplianceProviderAuthorizationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceProviderAuthorizationResponse)(nil)).Elem()
+}
+
+func (i ApplianceProviderAuthorizationResponseArgs) ToApplianceProviderAuthorizationResponseOutput() ApplianceProviderAuthorizationResponseOutput {
+	return i.ToApplianceProviderAuthorizationResponseOutputWithContext(context.Background())
+}
+
+func (i ApplianceProviderAuthorizationResponseArgs) ToApplianceProviderAuthorizationResponseOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceProviderAuthorizationResponseOutput)
+}
+
+// ApplianceProviderAuthorizationResponseArrayInput is an input type that accepts ApplianceProviderAuthorizationResponseArray and ApplianceProviderAuthorizationResponseArrayOutput values.
+// You can construct a concrete instance of `ApplianceProviderAuthorizationResponseArrayInput` via:
+//
+//          ApplianceProviderAuthorizationResponseArray{ ApplianceProviderAuthorizationResponseArgs{...} }
+type ApplianceProviderAuthorizationResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplianceProviderAuthorizationResponseArrayOutput() ApplianceProviderAuthorizationResponseArrayOutput
+	ToApplianceProviderAuthorizationResponseArrayOutputWithContext(context.Context) ApplianceProviderAuthorizationResponseArrayOutput
+}
+
+type ApplianceProviderAuthorizationResponseArray []ApplianceProviderAuthorizationResponseInput
+
+func (ApplianceProviderAuthorizationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceProviderAuthorizationResponse)(nil)).Elem()
+}
+
+func (i ApplianceProviderAuthorizationResponseArray) ToApplianceProviderAuthorizationResponseArrayOutput() ApplianceProviderAuthorizationResponseArrayOutput {
+	return i.ToApplianceProviderAuthorizationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplianceProviderAuthorizationResponseArray) ToApplianceProviderAuthorizationResponseArrayOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceProviderAuthorizationResponseArrayOutput)
+}
+
+// The appliance provider authorization.
+type ApplianceProviderAuthorizationResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplianceProviderAuthorizationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceProviderAuthorizationResponse)(nil)).Elem()
+}
+
+func (o ApplianceProviderAuthorizationResponseOutput) ToApplianceProviderAuthorizationResponseOutput() ApplianceProviderAuthorizationResponseOutput {
+	return o
+}
+
+func (o ApplianceProviderAuthorizationResponseOutput) ToApplianceProviderAuthorizationResponseOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationResponseOutput {
+	return o
+}
+
+// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
+func (o ApplianceProviderAuthorizationResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplianceProviderAuthorizationResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+func (o ApplianceProviderAuthorizationResponseOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplianceProviderAuthorizationResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type ApplianceProviderAuthorizationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplianceProviderAuthorizationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceProviderAuthorizationResponse)(nil)).Elem()
+}
+
+func (o ApplianceProviderAuthorizationResponseArrayOutput) ToApplianceProviderAuthorizationResponseArrayOutput() ApplianceProviderAuthorizationResponseArrayOutput {
+	return o
+}
+
+func (o ApplianceProviderAuthorizationResponseArrayOutput) ToApplianceProviderAuthorizationResponseArrayOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationResponseArrayOutput {
+	return o
+}
+
+func (o ApplianceProviderAuthorizationResponseArrayOutput) Index(i pulumi.IntInput) ApplianceProviderAuthorizationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceProviderAuthorizationResponse {
+		return vs[0].([]ApplianceProviderAuthorizationResponse)[vs[1].(int)]
+	}).(ApplianceProviderAuthorizationResponseOutput)
+}
+
 // Managed application artifact.
 type ApplicationArtifactResponse struct {
 	// The managed application artifact name.
@@ -5216,6 +5670,14 @@ func (o UserAssignedResourceIdentityResponseMapOutput) MapIndex(k pulumi.StringI
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApplianceArtifactOutput{})
+	pulumi.RegisterOutputType(ApplianceArtifactArrayOutput{})
+	pulumi.RegisterOutputType(ApplianceArtifactResponseOutput{})
+	pulumi.RegisterOutputType(ApplianceArtifactResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApplianceProviderAuthorizationOutput{})
+	pulumi.RegisterOutputType(ApplianceProviderAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(ApplianceProviderAuthorizationResponseOutput{})
+	pulumi.RegisterOutputType(ApplianceProviderAuthorizationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationAuthorizationOutput{})

@@ -78,6 +78,9 @@ func NewHostPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:desktopvirtualization/latest:HostPool"),
+		},
+		{
 			Type: pulumi.String("azurerm:desktopvirtualization/v20190924preview:HostPool"),
 		},
 		{

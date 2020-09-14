@@ -44,6 +44,12 @@ func NewAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &AccountArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:engagementfabric/latest:Account"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Account
 	err := ctx.RegisterResource("azurerm:engagementfabric/v20180901preview:Account", name, args, &resource, opts...)
 	if err != nil {

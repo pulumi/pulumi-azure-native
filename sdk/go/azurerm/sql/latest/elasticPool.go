@@ -10,10 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents a database elastic pool.
+// An elastic pool.
 //
 // ## Example Usage
-// ### Create elastic pool max
+// ### Create or update elastic pool with all parameter
 //
 // ```go
 // package main
@@ -26,15 +26,19 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := sql.NewElasticPool(ctx, "elasticPool", &sql.ElasticPoolArgs{
-// 			DatabaseDtuMax:    pulumi.Int(5),
-// 			DatabaseDtuMin:    pulumi.Int(0),
-// 			Dtu:               pulumi.Int(50),
-// 			Edition:           pulumi.String("Basic"),
-// 			ElasticPoolName:   pulumi.String("sqlcrudtest-8102"),
-// 			Location:          pulumi.String("Japan East"),
+// 			ElasticPoolName: pulumi.String("sqlcrudtest-8102"),
+// 			Location:        pulumi.String("Japan East"),
+// 			PerDatabaseSettings: &sql.ElasticPoolPerDatabaseSettingsArgs{
+// 				MaxCapacity: pulumi.Float64(2),
+// 				MinCapacity: pulumi.Float64(0.25),
+// 			},
 // 			ResourceGroupName: pulumi.String("sqlcrudtest-2369"),
 // 			ServerName:        pulumi.String("sqlcrudtest-8069"),
-// 			StorageMB:         pulumi.Int(5000),
+// 			Sku: &sql.SkuArgs{
+// 				Capacity: pulumi.Int(2),
+// 				Name:     pulumi.String("GP_Gen4_2"),
+// 				Tier:     pulumi.String("GeneralPurpose"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -44,7 +48,7 @@ import (
 // }
 //
 // ```
-// ### Create elastic pool min
+// ### Create or update elastic pool with minimum parameters
 //
 // ```go
 // package main
@@ -75,29 +79,29 @@ type ElasticPool struct {
 
 	// The creation date of the elastic pool (ISO8601 format).
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The maximum DTU any one database can consume.
-	DatabaseDtuMax pulumi.IntPtrOutput `pulumi:"databaseDtuMax"`
-	// The minimum DTU all databases are guaranteed.
-	DatabaseDtuMin pulumi.IntPtrOutput `pulumi:"databaseDtuMin"`
-	// The total shared DTU for the database elastic pool.
-	Dtu pulumi.IntPtrOutput `pulumi:"dtu"`
-	// The edition of the elastic pool.
-	Edition pulumi.StringPtrOutput `pulumi:"edition"`
-	// Kind of elastic pool.  This is metadata used for the Azure portal experience.
+	// Kind of elastic pool. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringOutput `pulumi:"kind"`
+	// The license type to apply for this elastic pool.
+	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The storage limit for the database elastic pool in bytes.
+	MaxSizeBytes pulumi.IntPtrOutput `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The per database settings for the elastic pool.
+	PerDatabaseSettings ElasticPoolPerDatabaseSettingsResponsePtrOutput `pulumi:"perDatabaseSettings"`
+	// The elastic pool SKU.
+	//
+	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// The state of the elastic pool.
 	State pulumi.StringOutput `pulumi:"state"`
-	// Gets storage limit for the database elastic pool in MB.
-	StorageMB pulumi.IntPtrOutput `pulumi:"storageMB"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
 	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
@@ -152,58 +156,58 @@ func GetElasticPool(ctx *pulumi.Context,
 type elasticPoolState struct {
 	// The creation date of the elastic pool (ISO8601 format).
 	CreationDate *string `pulumi:"creationDate"`
-	// The maximum DTU any one database can consume.
-	DatabaseDtuMax *int `pulumi:"databaseDtuMax"`
-	// The minimum DTU all databases are guaranteed.
-	DatabaseDtuMin *int `pulumi:"databaseDtuMin"`
-	// The total shared DTU for the database elastic pool.
-	Dtu *int `pulumi:"dtu"`
-	// The edition of the elastic pool.
-	Edition *string `pulumi:"edition"`
-	// Kind of elastic pool.  This is metadata used for the Azure portal experience.
+	// Kind of elastic pool. This is metadata used for the Azure portal experience.
 	Kind *string `pulumi:"kind"`
+	// The license type to apply for this elastic pool.
+	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// The storage limit for the database elastic pool in bytes.
+	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// The per database settings for the elastic pool.
+	PerDatabaseSettings *ElasticPoolPerDatabaseSettingsResponse `pulumi:"perDatabaseSettings"`
+	// The elastic pool SKU.
+	//
+	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+	Sku *SkuResponse `pulumi:"sku"`
 	// The state of the elastic pool.
 	State *string `pulumi:"state"`
-	// Gets storage limit for the database elastic pool in MB.
-	StorageMB *int `pulumi:"storageMB"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
-	// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type ElasticPoolState struct {
 	// The creation date of the elastic pool (ISO8601 format).
 	CreationDate pulumi.StringPtrInput
-	// The maximum DTU any one database can consume.
-	DatabaseDtuMax pulumi.IntPtrInput
-	// The minimum DTU all databases are guaranteed.
-	DatabaseDtuMin pulumi.IntPtrInput
-	// The total shared DTU for the database elastic pool.
-	Dtu pulumi.IntPtrInput
-	// The edition of the elastic pool.
-	Edition pulumi.StringPtrInput
-	// Kind of elastic pool.  This is metadata used for the Azure portal experience.
+	// Kind of elastic pool. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringPtrInput
+	// The license type to apply for this elastic pool.
+	LicenseType pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// The storage limit for the database elastic pool in bytes.
+	MaxSizeBytes pulumi.IntPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// The per database settings for the elastic pool.
+	PerDatabaseSettings ElasticPoolPerDatabaseSettingsResponsePtrInput
+	// The elastic pool SKU.
+	//
+	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+	Sku SkuResponsePtrInput
 	// The state of the elastic pool.
 	State pulumi.StringPtrInput
-	// Gets storage limit for the database elastic pool in MB.
-	StorageMB pulumi.IntPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
-	// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -212,53 +216,53 @@ func (ElasticPoolState) ElementType() reflect.Type {
 }
 
 type elasticPoolArgs struct {
-	// The maximum DTU any one database can consume.
-	DatabaseDtuMax *int `pulumi:"databaseDtuMax"`
-	// The minimum DTU all databases are guaranteed.
-	DatabaseDtuMin *int `pulumi:"databaseDtuMin"`
-	// The total shared DTU for the database elastic pool.
-	Dtu *int `pulumi:"dtu"`
-	// The edition of the elastic pool.
-	Edition *string `pulumi:"edition"`
-	// The name of the elastic pool to be operated on (updated or created).
+	// The name of the elastic pool.
 	ElasticPoolName string `pulumi:"elasticPoolName"`
+	// The license type to apply for this elastic pool.
+	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
 	Location string `pulumi:"location"`
+	// The storage limit for the database elastic pool in bytes.
+	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
+	// The per database settings for the elastic pool.
+	PerDatabaseSettings *ElasticPoolPerDatabaseSettings `pulumi:"perDatabaseSettings"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
-	// Gets storage limit for the database elastic pool in MB.
-	StorageMB *int `pulumi:"storageMB"`
+	// The elastic pool SKU.
+	//
+	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a ElasticPool resource.
 type ElasticPoolArgs struct {
-	// The maximum DTU any one database can consume.
-	DatabaseDtuMax pulumi.IntPtrInput
-	// The minimum DTU all databases are guaranteed.
-	DatabaseDtuMin pulumi.IntPtrInput
-	// The total shared DTU for the database elastic pool.
-	Dtu pulumi.IntPtrInput
-	// The edition of the elastic pool.
-	Edition pulumi.StringPtrInput
-	// The name of the elastic pool to be operated on (updated or created).
+	// The name of the elastic pool.
 	ElasticPoolName pulumi.StringInput
+	// The license type to apply for this elastic pool.
+	LicenseType pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
+	// The storage limit for the database elastic pool in bytes.
+	MaxSizeBytes pulumi.IntPtrInput
+	// The per database settings for the elastic pool.
+	PerDatabaseSettings ElasticPoolPerDatabaseSettingsPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput
-	// Gets storage limit for the database elastic pool in MB.
-	StorageMB pulumi.IntPtrInput
+	// The elastic pool SKU.
+	//
+	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+	Sku SkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 

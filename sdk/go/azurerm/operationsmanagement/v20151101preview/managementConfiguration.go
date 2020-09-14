@@ -36,6 +36,12 @@ func NewManagementConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagementConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationsmanagement/latest:ManagementConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementConfiguration
 	err := ctx.RegisterResource("azurerm:operationsmanagement/v20151101preview:ManagementConfiguration", name, args, &resource, opts...)
 	if err != nil {

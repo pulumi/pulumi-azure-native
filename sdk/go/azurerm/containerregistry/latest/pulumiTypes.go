@@ -10,6 +10,312 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+type ActiveDirectoryObject struct {
+	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+	ObjectId *string `pulumi:"objectId"`
+	// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ActiveDirectoryObjectInput is an input type that accepts ActiveDirectoryObjectArgs and ActiveDirectoryObjectOutput values.
+// You can construct a concrete instance of `ActiveDirectoryObjectInput` via:
+//
+//          ActiveDirectoryObjectArgs{...}
+type ActiveDirectoryObjectInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryObjectOutput() ActiveDirectoryObjectOutput
+	ToActiveDirectoryObjectOutputWithContext(context.Context) ActiveDirectoryObjectOutput
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+type ActiveDirectoryObjectArgs struct {
+	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ActiveDirectoryObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryObject)(nil)).Elem()
+}
+
+func (i ActiveDirectoryObjectArgs) ToActiveDirectoryObjectOutput() ActiveDirectoryObjectOutput {
+	return i.ToActiveDirectoryObjectOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryObjectArgs) ToActiveDirectoryObjectOutputWithContext(ctx context.Context) ActiveDirectoryObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectOutput)
+}
+
+func (i ActiveDirectoryObjectArgs) ToActiveDirectoryObjectPtrOutput() ActiveDirectoryObjectPtrOutput {
+	return i.ToActiveDirectoryObjectPtrOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryObjectArgs) ToActiveDirectoryObjectPtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectOutput).ToActiveDirectoryObjectPtrOutputWithContext(ctx)
+}
+
+// ActiveDirectoryObjectPtrInput is an input type that accepts ActiveDirectoryObjectArgs, ActiveDirectoryObjectPtr and ActiveDirectoryObjectPtrOutput values.
+// You can construct a concrete instance of `ActiveDirectoryObjectPtrInput` via:
+//
+//          ActiveDirectoryObjectArgs{...}
+//
+//  or:
+//
+//          nil
+type ActiveDirectoryObjectPtrInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryObjectPtrOutput() ActiveDirectoryObjectPtrOutput
+	ToActiveDirectoryObjectPtrOutputWithContext(context.Context) ActiveDirectoryObjectPtrOutput
+}
+
+type activeDirectoryObjectPtrType ActiveDirectoryObjectArgs
+
+func ActiveDirectoryObjectPtr(v *ActiveDirectoryObjectArgs) ActiveDirectoryObjectPtrInput {
+	return (*activeDirectoryObjectPtrType)(v)
+}
+
+func (*activeDirectoryObjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryObject)(nil)).Elem()
+}
+
+func (i *activeDirectoryObjectPtrType) ToActiveDirectoryObjectPtrOutput() ActiveDirectoryObjectPtrOutput {
+	return i.ToActiveDirectoryObjectPtrOutputWithContext(context.Background())
+}
+
+func (i *activeDirectoryObjectPtrType) ToActiveDirectoryObjectPtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectPtrOutput)
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+type ActiveDirectoryObjectOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryObject)(nil)).Elem()
+}
+
+func (o ActiveDirectoryObjectOutput) ToActiveDirectoryObjectOutput() ActiveDirectoryObjectOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectOutput) ToActiveDirectoryObjectOutputWithContext(ctx context.Context) ActiveDirectoryObjectOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectOutput) ToActiveDirectoryObjectPtrOutput() ActiveDirectoryObjectPtrOutput {
+	return o.ToActiveDirectoryObjectPtrOutputWithContext(context.Background())
+}
+
+func (o ActiveDirectoryObjectOutput) ToActiveDirectoryObjectPtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryObject) *ActiveDirectoryObject {
+		return &v
+	}).(ActiveDirectoryObjectPtrOutput)
+}
+
+// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryObject) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryObject) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ActiveDirectoryObjectPtrOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryObject)(nil)).Elem()
+}
+
+func (o ActiveDirectoryObjectPtrOutput) ToActiveDirectoryObjectPtrOutput() ActiveDirectoryObjectPtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectPtrOutput) ToActiveDirectoryObjectPtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectPtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectPtrOutput) Elem() ActiveDirectoryObjectOutput {
+	return o.ApplyT(func(v *ActiveDirectoryObject) ActiveDirectoryObject { return *v }).(ActiveDirectoryObjectOutput)
+}
+
+// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+type ActiveDirectoryObjectResponse struct {
+	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+	ObjectId *string `pulumi:"objectId"`
+	// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ActiveDirectoryObjectResponseInput is an input type that accepts ActiveDirectoryObjectResponseArgs and ActiveDirectoryObjectResponseOutput values.
+// You can construct a concrete instance of `ActiveDirectoryObjectResponseInput` via:
+//
+//          ActiveDirectoryObjectResponseArgs{...}
+type ActiveDirectoryObjectResponseInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryObjectResponseOutput() ActiveDirectoryObjectResponseOutput
+	ToActiveDirectoryObjectResponseOutputWithContext(context.Context) ActiveDirectoryObjectResponseOutput
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+type ActiveDirectoryObjectResponseArgs struct {
+	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ActiveDirectoryObjectResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryObjectResponse)(nil)).Elem()
+}
+
+func (i ActiveDirectoryObjectResponseArgs) ToActiveDirectoryObjectResponseOutput() ActiveDirectoryObjectResponseOutput {
+	return i.ToActiveDirectoryObjectResponseOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryObjectResponseArgs) ToActiveDirectoryObjectResponseOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectResponseOutput)
+}
+
+func (i ActiveDirectoryObjectResponseArgs) ToActiveDirectoryObjectResponsePtrOutput() ActiveDirectoryObjectResponsePtrOutput {
+	return i.ToActiveDirectoryObjectResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryObjectResponseArgs) ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectResponseOutput).ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx)
+}
+
+// ActiveDirectoryObjectResponsePtrInput is an input type that accepts ActiveDirectoryObjectResponseArgs, ActiveDirectoryObjectResponsePtr and ActiveDirectoryObjectResponsePtrOutput values.
+// You can construct a concrete instance of `ActiveDirectoryObjectResponsePtrInput` via:
+//
+//          ActiveDirectoryObjectResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ActiveDirectoryObjectResponsePtrInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryObjectResponsePtrOutput() ActiveDirectoryObjectResponsePtrOutput
+	ToActiveDirectoryObjectResponsePtrOutputWithContext(context.Context) ActiveDirectoryObjectResponsePtrOutput
+}
+
+type activeDirectoryObjectResponsePtrType ActiveDirectoryObjectResponseArgs
+
+func ActiveDirectoryObjectResponsePtr(v *ActiveDirectoryObjectResponseArgs) ActiveDirectoryObjectResponsePtrInput {
+	return (*activeDirectoryObjectResponsePtrType)(v)
+}
+
+func (*activeDirectoryObjectResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryObjectResponse)(nil)).Elem()
+}
+
+func (i *activeDirectoryObjectResponsePtrType) ToActiveDirectoryObjectResponsePtrOutput() ActiveDirectoryObjectResponsePtrOutput {
+	return i.ToActiveDirectoryObjectResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *activeDirectoryObjectResponsePtrType) ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectResponsePtrOutput)
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+type ActiveDirectoryObjectResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryObjectResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryObjectResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponseOutput() ActiveDirectoryObjectResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponseOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponsePtrOutput() ActiveDirectoryObjectResponsePtrOutput {
+	return o.ToActiveDirectoryObjectResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponsePtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryObjectResponse) *ActiveDirectoryObjectResponse {
+		return &v
+	}).(ActiveDirectoryObjectResponsePtrOutput)
+}
+
+// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectResponseOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryObjectResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryObjectResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ActiveDirectoryObjectResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryObjectResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryObjectResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryObjectResponsePtrOutput) ToActiveDirectoryObjectResponsePtrOutput() ActiveDirectoryObjectResponsePtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectResponsePtrOutput) ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponsePtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectResponsePtrOutput) Elem() ActiveDirectoryObjectResponseOutput {
+	return o.ApplyT(func(v *ActiveDirectoryObjectResponse) ActiveDirectoryObjectResponse { return *v }).(ActiveDirectoryObjectResponseOutput)
+}
+
+// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryObjectResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryObjectResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The agent that initiated the event. For most situations, this could be from the authorization context of the request.
 type ActorResponse struct {
 	// The subject or username associated with the request context that generated the event.
@@ -410,6 +716,124 @@ func (o AgentPropertiesResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
 		}
 		return v.Cpu
 	}).(pulumi.IntPtrOutput)
+}
+
+// The properties of a run argument.
+type Argument struct {
+	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+	IsSecret *bool `pulumi:"isSecret"`
+	// The name of the argument.
+	Name string `pulumi:"name"`
+	// The value of the argument.
+	Value string `pulumi:"value"`
+}
+
+// ArgumentInput is an input type that accepts ArgumentArgs and ArgumentOutput values.
+// You can construct a concrete instance of `ArgumentInput` via:
+//
+//          ArgumentArgs{...}
+type ArgumentInput interface {
+	pulumi.Input
+
+	ToArgumentOutput() ArgumentOutput
+	ToArgumentOutputWithContext(context.Context) ArgumentOutput
+}
+
+// The properties of a run argument.
+type ArgumentArgs struct {
+	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
+	// The name of the argument.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the argument.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ArgumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Argument)(nil)).Elem()
+}
+
+func (i ArgumentArgs) ToArgumentOutput() ArgumentOutput {
+	return i.ToArgumentOutputWithContext(context.Background())
+}
+
+func (i ArgumentArgs) ToArgumentOutputWithContext(ctx context.Context) ArgumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArgumentOutput)
+}
+
+// ArgumentArrayInput is an input type that accepts ArgumentArray and ArgumentArrayOutput values.
+// You can construct a concrete instance of `ArgumentArrayInput` via:
+//
+//          ArgumentArray{ ArgumentArgs{...} }
+type ArgumentArrayInput interface {
+	pulumi.Input
+
+	ToArgumentArrayOutput() ArgumentArrayOutput
+	ToArgumentArrayOutputWithContext(context.Context) ArgumentArrayOutput
+}
+
+type ArgumentArray []ArgumentInput
+
+func (ArgumentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Argument)(nil)).Elem()
+}
+
+func (i ArgumentArray) ToArgumentArrayOutput() ArgumentArrayOutput {
+	return i.ToArgumentArrayOutputWithContext(context.Background())
+}
+
+func (i ArgumentArray) ToArgumentArrayOutputWithContext(ctx context.Context) ArgumentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArgumentArrayOutput)
+}
+
+// The properties of a run argument.
+type ArgumentOutput struct{ *pulumi.OutputState }
+
+func (ArgumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Argument)(nil)).Elem()
+}
+
+func (o ArgumentOutput) ToArgumentOutput() ArgumentOutput {
+	return o
+}
+
+func (o ArgumentOutput) ToArgumentOutputWithContext(ctx context.Context) ArgumentOutput {
+	return o
+}
+
+// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+func (o ArgumentOutput) IsSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Argument) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the argument.
+func (o ArgumentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Argument) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the argument.
+func (o ArgumentOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v Argument) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ArgumentArrayOutput struct{ *pulumi.OutputState }
+
+func (ArgumentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Argument)(nil)).Elem()
+}
+
+func (o ArgumentArrayOutput) ToArgumentArrayOutput() ArgumentArrayOutput {
+	return o
+}
+
+func (o ArgumentArrayOutput) ToArgumentArrayOutputWithContext(ctx context.Context) ArgumentArrayOutput {
+	return o
+}
+
+func (o ArgumentArrayOutput) Index(i pulumi.IntInput) ArgumentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Argument {
+		return vs[0].([]Argument)[vs[1].(int)]
+	}).(ArgumentOutput)
 }
 
 // The properties of a run argument.
@@ -1094,6 +1518,10 @@ type BaseImageTrigger struct {
 	Name string `pulumi:"name"`
 	// The current status of trigger.
 	Status *string `pulumi:"status"`
+	// The endpoint URL for receiving update triggers.
+	UpdateTriggerEndpoint *string `pulumi:"updateTriggerEndpoint"`
+	// Type of Payload body for Base image update triggers.
+	UpdateTriggerPayloadType *string `pulumi:"updateTriggerPayloadType"`
 }
 
 // BaseImageTriggerInput is an input type that accepts BaseImageTriggerArgs and BaseImageTriggerOutput values.
@@ -1115,6 +1543,10 @@ type BaseImageTriggerArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The current status of trigger.
 	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The endpoint URL for receiving update triggers.
+	UpdateTriggerEndpoint pulumi.StringPtrInput `pulumi:"updateTriggerEndpoint"`
+	// Type of Payload body for Base image update triggers.
+	UpdateTriggerPayloadType pulumi.StringPtrInput `pulumi:"updateTriggerPayloadType"`
 }
 
 func (BaseImageTriggerArgs) ElementType() reflect.Type {
@@ -1210,6 +1642,16 @@ func (o BaseImageTriggerOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageTrigger) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint URL for receiving update triggers.
+func (o BaseImageTriggerOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageTrigger) *string { return v.UpdateTriggerEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Type of Payload body for Base image update triggers.
+func (o BaseImageTriggerOutput) UpdateTriggerPayloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageTrigger) *string { return v.UpdateTriggerPayloadType }).(pulumi.StringPtrOutput)
+}
+
 type BaseImageTriggerPtrOutput struct{ *pulumi.OutputState }
 
 func (BaseImageTriggerPtrOutput) ElementType() reflect.Type {
@@ -1258,6 +1700,26 @@ func (o BaseImageTriggerPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint URL for receiving update triggers.
+func (o BaseImageTriggerPtrOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaseImageTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTriggerEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of Payload body for Base image update triggers.
+func (o BaseImageTriggerPtrOutput) UpdateTriggerPayloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaseImageTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTriggerPayloadType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The trigger based on base image dependency.
 type BaseImageTriggerResponse struct {
 	// The type of the auto trigger for base image dependency updates.
@@ -1266,6 +1728,10 @@ type BaseImageTriggerResponse struct {
 	Name string `pulumi:"name"`
 	// The current status of trigger.
 	Status *string `pulumi:"status"`
+	// The endpoint URL for receiving update triggers.
+	UpdateTriggerEndpoint *string `pulumi:"updateTriggerEndpoint"`
+	// Type of Payload body for Base image update triggers.
+	UpdateTriggerPayloadType *string `pulumi:"updateTriggerPayloadType"`
 }
 
 // BaseImageTriggerResponseInput is an input type that accepts BaseImageTriggerResponseArgs and BaseImageTriggerResponseOutput values.
@@ -1287,6 +1753,10 @@ type BaseImageTriggerResponseArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The current status of trigger.
 	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The endpoint URL for receiving update triggers.
+	UpdateTriggerEndpoint pulumi.StringPtrInput `pulumi:"updateTriggerEndpoint"`
+	// Type of Payload body for Base image update triggers.
+	UpdateTriggerPayloadType pulumi.StringPtrInput `pulumi:"updateTriggerPayloadType"`
 }
 
 func (BaseImageTriggerResponseArgs) ElementType() reflect.Type {
@@ -1382,6 +1852,16 @@ func (o BaseImageTriggerResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageTriggerResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint URL for receiving update triggers.
+func (o BaseImageTriggerResponseOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageTriggerResponse) *string { return v.UpdateTriggerEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Type of Payload body for Base image update triggers.
+func (o BaseImageTriggerResponseOutput) UpdateTriggerPayloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageTriggerResponse) *string { return v.UpdateTriggerPayloadType }).(pulumi.StringPtrOutput)
+}
+
 type BaseImageTriggerResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (BaseImageTriggerResponsePtrOutput) ElementType() reflect.Type {
@@ -1428,6 +1908,153 @@ func (o BaseImageTriggerResponsePtrOutput) Status() pulumi.StringPtrOutput {
 		}
 		return v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint URL for receiving update triggers.
+func (o BaseImageTriggerResponsePtrOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaseImageTriggerResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTriggerEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of Payload body for Base image update triggers.
+func (o BaseImageTriggerResponsePtrOutput) UpdateTriggerPayloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaseImageTriggerResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTriggerPayloadType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a build argument.
+type BuildArgumentResponse struct {
+	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+	IsSecret *bool `pulumi:"isSecret"`
+	// The name of the argument.
+	Name string `pulumi:"name"`
+	// The type of the argument.
+	Type string `pulumi:"type"`
+	// The value of the argument.
+	Value string `pulumi:"value"`
+}
+
+// BuildArgumentResponseInput is an input type that accepts BuildArgumentResponseArgs and BuildArgumentResponseOutput values.
+// You can construct a concrete instance of `BuildArgumentResponseInput` via:
+//
+//          BuildArgumentResponseArgs{...}
+type BuildArgumentResponseInput interface {
+	pulumi.Input
+
+	ToBuildArgumentResponseOutput() BuildArgumentResponseOutput
+	ToBuildArgumentResponseOutputWithContext(context.Context) BuildArgumentResponseOutput
+}
+
+// Properties of a build argument.
+type BuildArgumentResponseArgs struct {
+	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
+	// The name of the argument.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the argument.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value of the argument.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BuildArgumentResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildArgumentResponse)(nil)).Elem()
+}
+
+func (i BuildArgumentResponseArgs) ToBuildArgumentResponseOutput() BuildArgumentResponseOutput {
+	return i.ToBuildArgumentResponseOutputWithContext(context.Background())
+}
+
+func (i BuildArgumentResponseArgs) ToBuildArgumentResponseOutputWithContext(ctx context.Context) BuildArgumentResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildArgumentResponseOutput)
+}
+
+// BuildArgumentResponseArrayInput is an input type that accepts BuildArgumentResponseArray and BuildArgumentResponseArrayOutput values.
+// You can construct a concrete instance of `BuildArgumentResponseArrayInput` via:
+//
+//          BuildArgumentResponseArray{ BuildArgumentResponseArgs{...} }
+type BuildArgumentResponseArrayInput interface {
+	pulumi.Input
+
+	ToBuildArgumentResponseArrayOutput() BuildArgumentResponseArrayOutput
+	ToBuildArgumentResponseArrayOutputWithContext(context.Context) BuildArgumentResponseArrayOutput
+}
+
+type BuildArgumentResponseArray []BuildArgumentResponseInput
+
+func (BuildArgumentResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildArgumentResponse)(nil)).Elem()
+}
+
+func (i BuildArgumentResponseArray) ToBuildArgumentResponseArrayOutput() BuildArgumentResponseArrayOutput {
+	return i.ToBuildArgumentResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BuildArgumentResponseArray) ToBuildArgumentResponseArrayOutputWithContext(ctx context.Context) BuildArgumentResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildArgumentResponseArrayOutput)
+}
+
+// Properties of a build argument.
+type BuildArgumentResponseOutput struct{ *pulumi.OutputState }
+
+func (BuildArgumentResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildArgumentResponse)(nil)).Elem()
+}
+
+func (o BuildArgumentResponseOutput) ToBuildArgumentResponseOutput() BuildArgumentResponseOutput {
+	return o
+}
+
+func (o BuildArgumentResponseOutput) ToBuildArgumentResponseOutputWithContext(ctx context.Context) BuildArgumentResponseOutput {
+	return o
+}
+
+// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+func (o BuildArgumentResponseOutput) IsSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BuildArgumentResponse) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the argument.
+func (o BuildArgumentResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildArgumentResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the argument.
+func (o BuildArgumentResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildArgumentResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value of the argument.
+func (o BuildArgumentResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildArgumentResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BuildArgumentResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildArgumentResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildArgumentResponse)(nil)).Elem()
+}
+
+func (o BuildArgumentResponseArrayOutput) ToBuildArgumentResponseArrayOutput() BuildArgumentResponseArrayOutput {
+	return o
+}
+
+func (o BuildArgumentResponseArrayOutput) ToBuildArgumentResponseArrayOutputWithContext(ctx context.Context) BuildArgumentResponseArrayOutput {
+	return o
+}
+
+func (o BuildArgumentResponseArrayOutput) Index(i pulumi.IntInput) BuildArgumentResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildArgumentResponse {
+		return vs[0].([]BuildArgumentResponse)[vs[1].(int)]
+	}).(BuildArgumentResponseOutput)
 }
 
 // The parameters that describes a set of credentials that will be used when a run is invoked.
@@ -2018,6 +2645,501 @@ func (o CustomRegistryCredentialsResponseMapOutput) MapIndex(k pulumi.StringInpu
 	}).(CustomRegistryCredentialsResponseOutput)
 }
 
+// The parameters for a docker quick build.
+type DockerBuildRequest struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The collection of override arguments to be used when executing the run.
+	Arguments []Argument `pulumi:"arguments"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials *Credentials `pulumi:"credentials"`
+	// The Docker file path relative to the source location.
+	DockerFilePath string `pulumi:"dockerFilePath"`
+	// The fully qualified image names including the repository and tag.
+	ImageNames []string `pulumi:"imageNames"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The value of this property indicates whether the image built should be pushed to the registry or not.
+	IsPushEnabled *bool `pulumi:"isPushEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
+	// The value of this property indicates whether the image cache is enabled or not.
+	NoCache *bool `pulumi:"noCache"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformProperties `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation *string `pulumi:"sourceLocation"`
+	// The name of the target build stage for the docker build.
+	Target *string `pulumi:"target"`
+	// Run timeout in seconds.
+	Timeout *int `pulumi:"timeout"`
+	// The type of the run request.
+	Type string `pulumi:"type"`
+}
+
+// DockerBuildRequestInput is an input type that accepts DockerBuildRequestArgs and DockerBuildRequestOutput values.
+// You can construct a concrete instance of `DockerBuildRequestInput` via:
+//
+//          DockerBuildRequestArgs{...}
+type DockerBuildRequestInput interface {
+	pulumi.Input
+
+	ToDockerBuildRequestOutput() DockerBuildRequestOutput
+	ToDockerBuildRequestOutputWithContext(context.Context) DockerBuildRequestOutput
+}
+
+// The parameters for a docker quick build.
+type DockerBuildRequestArgs struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration AgentPropertiesPtrInput `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
+	// The collection of override arguments to be used when executing the run.
+	Arguments ArgumentArrayInput `pulumi:"arguments"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials CredentialsPtrInput `pulumi:"credentials"`
+	// The Docker file path relative to the source location.
+	DockerFilePath pulumi.StringInput `pulumi:"dockerFilePath"`
+	// The fully qualified image names including the repository and tag.
+	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The value of this property indicates whether the image built should be pushed to the registry or not.
+	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
+	// The value of this property indicates whether the image cache is enabled or not.
+	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesInput `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
+	// The name of the target build stage for the docker build.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Run timeout in seconds.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// The type of the run request.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DockerBuildRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerBuildRequest)(nil)).Elem()
+}
+
+func (i DockerBuildRequestArgs) ToDockerBuildRequestOutput() DockerBuildRequestOutput {
+	return i.ToDockerBuildRequestOutputWithContext(context.Background())
+}
+
+func (i DockerBuildRequestArgs) ToDockerBuildRequestOutputWithContext(ctx context.Context) DockerBuildRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildRequestOutput)
+}
+
+// The parameters for a docker quick build.
+type DockerBuildRequestOutput struct{ *pulumi.OutputState }
+
+func (DockerBuildRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerBuildRequest)(nil)).Elem()
+}
+
+func (o DockerBuildRequestOutput) ToDockerBuildRequestOutput() DockerBuildRequestOutput {
+	return o
+}
+
+func (o DockerBuildRequestOutput) ToDockerBuildRequestOutputWithContext(ctx context.Context) DockerBuildRequestOutput {
+	return o
+}
+
+// The machine configuration of the run agent.
+func (o DockerBuildRequestOutput) AgentConfiguration() AgentPropertiesPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *AgentProperties { return v.AgentConfiguration }).(AgentPropertiesPtrOutput)
+}
+
+// The dedicated agent pool for the run.
+func (o DockerBuildRequestOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The collection of override arguments to be used when executing the run.
+func (o DockerBuildRequestOutput) Arguments() ArgumentArrayOutput {
+	return o.ApplyT(func(v DockerBuildRequest) []Argument { return v.Arguments }).(ArgumentArrayOutput)
+}
+
+// The properties that describes a set of credentials that will be used when this run is invoked.
+func (o DockerBuildRequestOutput) Credentials() CredentialsPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *Credentials { return v.Credentials }).(CredentialsPtrOutput)
+}
+
+// The Docker file path relative to the source location.
+func (o DockerBuildRequestOutput) DockerFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v DockerBuildRequest) string { return v.DockerFilePath }).(pulumi.StringOutput)
+}
+
+// The fully qualified image names including the repository and tag.
+func (o DockerBuildRequestOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DockerBuildRequest) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
+}
+
+// The value that indicates whether archiving is enabled for the run or not.
+func (o DockerBuildRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The value of this property indicates whether the image built should be pushed to the registry or not.
+func (o DockerBuildRequestOutput) IsPushEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o DockerBuildRequestOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The value of this property indicates whether the image cache is enabled or not.
+func (o DockerBuildRequestOutput) NoCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
+}
+
+// The platform properties against which the run has to happen.
+func (o DockerBuildRequestOutput) Platform() PlatformPropertiesOutput {
+	return o.ApplyT(func(v DockerBuildRequest) PlatformProperties { return v.Platform }).(PlatformPropertiesOutput)
+}
+
+// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+func (o DockerBuildRequestOutput) SourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
+}
+
+// The name of the target build stage for the docker build.
+func (o DockerBuildRequestOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Run timeout in seconds.
+func (o DockerBuildRequestOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the run request.
+func (o DockerBuildRequestOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DockerBuildRequest) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The parameters for a docker quick build.
+type DockerBuildRequestResponse struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The collection of override arguments to be used when executing the run.
+	Arguments []ArgumentResponse `pulumi:"arguments"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials *CredentialsResponse `pulumi:"credentials"`
+	// The Docker file path relative to the source location.
+	DockerFilePath string `pulumi:"dockerFilePath"`
+	// The fully qualified image names including the repository and tag.
+	ImageNames []string `pulumi:"imageNames"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The value of this property indicates whether the image built should be pushed to the registry or not.
+	IsPushEnabled *bool `pulumi:"isPushEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
+	// The value of this property indicates whether the image cache is enabled or not.
+	NoCache *bool `pulumi:"noCache"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesResponse `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation *string `pulumi:"sourceLocation"`
+	// The name of the target build stage for the docker build.
+	Target *string `pulumi:"target"`
+	// Run timeout in seconds.
+	Timeout *int `pulumi:"timeout"`
+	// The type of the run request.
+	Type string `pulumi:"type"`
+}
+
+// DockerBuildRequestResponseInput is an input type that accepts DockerBuildRequestResponseArgs and DockerBuildRequestResponseOutput values.
+// You can construct a concrete instance of `DockerBuildRequestResponseInput` via:
+//
+//          DockerBuildRequestResponseArgs{...}
+type DockerBuildRequestResponseInput interface {
+	pulumi.Input
+
+	ToDockerBuildRequestResponseOutput() DockerBuildRequestResponseOutput
+	ToDockerBuildRequestResponseOutputWithContext(context.Context) DockerBuildRequestResponseOutput
+}
+
+// The parameters for a docker quick build.
+type DockerBuildRequestResponseArgs struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
+	// The collection of override arguments to be used when executing the run.
+	Arguments ArgumentResponseArrayInput `pulumi:"arguments"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials CredentialsResponsePtrInput `pulumi:"credentials"`
+	// The Docker file path relative to the source location.
+	DockerFilePath pulumi.StringInput `pulumi:"dockerFilePath"`
+	// The fully qualified image names including the repository and tag.
+	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The value of this property indicates whether the image built should be pushed to the registry or not.
+	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
+	// The value of this property indicates whether the image cache is enabled or not.
+	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesResponseInput `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
+	// The name of the target build stage for the docker build.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Run timeout in seconds.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// The type of the run request.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DockerBuildRequestResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerBuildRequestResponse)(nil)).Elem()
+}
+
+func (i DockerBuildRequestResponseArgs) ToDockerBuildRequestResponseOutput() DockerBuildRequestResponseOutput {
+	return i.ToDockerBuildRequestResponseOutputWithContext(context.Background())
+}
+
+func (i DockerBuildRequestResponseArgs) ToDockerBuildRequestResponseOutputWithContext(ctx context.Context) DockerBuildRequestResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildRequestResponseOutput)
+}
+
+// The parameters for a docker quick build.
+type DockerBuildRequestResponseOutput struct{ *pulumi.OutputState }
+
+func (DockerBuildRequestResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerBuildRequestResponse)(nil)).Elem()
+}
+
+func (o DockerBuildRequestResponseOutput) ToDockerBuildRequestResponseOutput() DockerBuildRequestResponseOutput {
+	return o
+}
+
+func (o DockerBuildRequestResponseOutput) ToDockerBuildRequestResponseOutputWithContext(ctx context.Context) DockerBuildRequestResponseOutput {
+	return o
+}
+
+// The machine configuration of the run agent.
+func (o DockerBuildRequestResponseOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *AgentPropertiesResponse { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
+}
+
+// The dedicated agent pool for the run.
+func (o DockerBuildRequestResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The collection of override arguments to be used when executing the run.
+func (o DockerBuildRequestResponseOutput) Arguments() ArgumentResponseArrayOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) []ArgumentResponse { return v.Arguments }).(ArgumentResponseArrayOutput)
+}
+
+// The properties that describes a set of credentials that will be used when this run is invoked.
+func (o DockerBuildRequestResponseOutput) Credentials() CredentialsResponsePtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *CredentialsResponse { return v.Credentials }).(CredentialsResponsePtrOutput)
+}
+
+// The Docker file path relative to the source location.
+func (o DockerBuildRequestResponseOutput) DockerFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) string { return v.DockerFilePath }).(pulumi.StringOutput)
+}
+
+// The fully qualified image names including the repository and tag.
+func (o DockerBuildRequestResponseOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
+}
+
+// The value that indicates whether archiving is enabled for the run or not.
+func (o DockerBuildRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The value of this property indicates whether the image built should be pushed to the registry or not.
+func (o DockerBuildRequestResponseOutput) IsPushEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o DockerBuildRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The value of this property indicates whether the image cache is enabled or not.
+func (o DockerBuildRequestResponseOutput) NoCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
+}
+
+// The platform properties against which the run has to happen.
+func (o DockerBuildRequestResponseOutput) Platform() PlatformPropertiesResponseOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponseOutput)
+}
+
+// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+func (o DockerBuildRequestResponseOutput) SourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
+}
+
+// The name of the target build stage for the docker build.
+func (o DockerBuildRequestResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Run timeout in seconds.
+func (o DockerBuildRequestResponseOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the run request.
+func (o DockerBuildRequestResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Docker build step.
+type DockerBuildStep struct {
+	// The collection of override arguments to be used when executing this build step.
+	Arguments []Argument `pulumi:"arguments"`
+	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+	ContextAccessToken *string `pulumi:"contextAccessToken"`
+	// The URL(absolute or relative) of the source context for the task step.
+	ContextPath *string `pulumi:"contextPath"`
+	// The Docker file path relative to the source context.
+	DockerFilePath string `pulumi:"dockerFilePath"`
+	// The fully qualified image names including the repository and tag.
+	ImageNames []string `pulumi:"imageNames"`
+	// The value of this property indicates whether the image built should be pushed to the registry or not.
+	IsPushEnabled *bool `pulumi:"isPushEnabled"`
+	// The value of this property indicates whether the image cache is enabled or not.
+	NoCache *bool `pulumi:"noCache"`
+	// The name of the target build stage for the docker build.
+	Target *string `pulumi:"target"`
+	// The type of the step.
+	Type string `pulumi:"type"`
+}
+
+// DockerBuildStepInput is an input type that accepts DockerBuildStepArgs and DockerBuildStepOutput values.
+// You can construct a concrete instance of `DockerBuildStepInput` via:
+//
+//          DockerBuildStepArgs{...}
+type DockerBuildStepInput interface {
+	pulumi.Input
+
+	ToDockerBuildStepOutput() DockerBuildStepOutput
+	ToDockerBuildStepOutputWithContext(context.Context) DockerBuildStepOutput
+}
+
+// The Docker build step.
+type DockerBuildStepArgs struct {
+	// The collection of override arguments to be used when executing this build step.
+	Arguments ArgumentArrayInput `pulumi:"arguments"`
+	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
+	// The URL(absolute or relative) of the source context for the task step.
+	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+	// The Docker file path relative to the source context.
+	DockerFilePath pulumi.StringInput `pulumi:"dockerFilePath"`
+	// The fully qualified image names including the repository and tag.
+	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
+	// The value of this property indicates whether the image built should be pushed to the registry or not.
+	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
+	// The value of this property indicates whether the image cache is enabled or not.
+	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
+	// The name of the target build stage for the docker build.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// The type of the step.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DockerBuildStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerBuildStep)(nil)).Elem()
+}
+
+func (i DockerBuildStepArgs) ToDockerBuildStepOutput() DockerBuildStepOutput {
+	return i.ToDockerBuildStepOutputWithContext(context.Background())
+}
+
+func (i DockerBuildStepArgs) ToDockerBuildStepOutputWithContext(ctx context.Context) DockerBuildStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepOutput)
+}
+
+// The Docker build step.
+type DockerBuildStepOutput struct{ *pulumi.OutputState }
+
+func (DockerBuildStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerBuildStep)(nil)).Elem()
+}
+
+func (o DockerBuildStepOutput) ToDockerBuildStepOutput() DockerBuildStepOutput {
+	return o
+}
+
+func (o DockerBuildStepOutput) ToDockerBuildStepOutputWithContext(ctx context.Context) DockerBuildStepOutput {
+	return o
+}
+
+// The collection of override arguments to be used when executing this build step.
+func (o DockerBuildStepOutput) Arguments() ArgumentArrayOutput {
+	return o.ApplyT(func(v DockerBuildStep) []Argument { return v.Arguments }).(ArgumentArrayOutput)
+}
+
+// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+func (o DockerBuildStepOutput) ContextAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStep) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The URL(absolute or relative) of the source context for the task step.
+func (o DockerBuildStepOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStep) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// The Docker file path relative to the source context.
+func (o DockerBuildStepOutput) DockerFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v DockerBuildStep) string { return v.DockerFilePath }).(pulumi.StringOutput)
+}
+
+// The fully qualified image names including the repository and tag.
+func (o DockerBuildStepOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DockerBuildStep) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
+}
+
+// The value of this property indicates whether the image built should be pushed to the registry or not.
+func (o DockerBuildStepOutput) IsPushEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildStep) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The value of this property indicates whether the image cache is enabled or not.
+func (o DockerBuildStepOutput) NoCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildStep) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the target build stage for the docker build.
+func (o DockerBuildStepOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStep) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// The type of the step.
+func (o DockerBuildStepOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DockerBuildStep) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The Docker build step.
 type DockerBuildStepResponse struct {
 	// The collection of override arguments to be used when executing this build step.
@@ -2089,6 +3211,47 @@ func (i DockerBuildStepResponseArgs) ToDockerBuildStepResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepResponseOutput)
 }
 
+func (i DockerBuildStepResponseArgs) ToDockerBuildStepResponsePtrOutput() DockerBuildStepResponsePtrOutput {
+	return i.ToDockerBuildStepResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DockerBuildStepResponseArgs) ToDockerBuildStepResponsePtrOutputWithContext(ctx context.Context) DockerBuildStepResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepResponseOutput).ToDockerBuildStepResponsePtrOutputWithContext(ctx)
+}
+
+// DockerBuildStepResponsePtrInput is an input type that accepts DockerBuildStepResponseArgs, DockerBuildStepResponsePtr and DockerBuildStepResponsePtrOutput values.
+// You can construct a concrete instance of `DockerBuildStepResponsePtrInput` via:
+//
+//          DockerBuildStepResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DockerBuildStepResponsePtrInput interface {
+	pulumi.Input
+
+	ToDockerBuildStepResponsePtrOutput() DockerBuildStepResponsePtrOutput
+	ToDockerBuildStepResponsePtrOutputWithContext(context.Context) DockerBuildStepResponsePtrOutput
+}
+
+type dockerBuildStepResponsePtrType DockerBuildStepResponseArgs
+
+func DockerBuildStepResponsePtr(v *DockerBuildStepResponseArgs) DockerBuildStepResponsePtrInput {
+	return (*dockerBuildStepResponsePtrType)(v)
+}
+
+func (*dockerBuildStepResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DockerBuildStepResponse)(nil)).Elem()
+}
+
+func (i *dockerBuildStepResponsePtrType) ToDockerBuildStepResponsePtrOutput() DockerBuildStepResponsePtrOutput {
+	return i.ToDockerBuildStepResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dockerBuildStepResponsePtrType) ToDockerBuildStepResponsePtrOutputWithContext(ctx context.Context) DockerBuildStepResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepResponsePtrOutput)
+}
+
 // The Docker build step.
 type DockerBuildStepResponseOutput struct{ *pulumi.OutputState }
 
@@ -2102,6 +3265,16 @@ func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponseOutput() DockerB
 
 func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponseOutputWithContext(ctx context.Context) DockerBuildStepResponseOutput {
 	return o
+}
+
+func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponsePtrOutput() DockerBuildStepResponsePtrOutput {
+	return o.ToDockerBuildStepResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponsePtrOutputWithContext(ctx context.Context) DockerBuildStepResponsePtrOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) *DockerBuildStepResponse {
+		return &v
+	}).(DockerBuildStepResponsePtrOutput)
 }
 
 // The collection of override arguments to be used when executing this build step.
@@ -2152,6 +3325,538 @@ func (o DockerBuildStepResponseOutput) Target() pulumi.StringPtrOutput {
 // The type of the step.
 func (o DockerBuildStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DockerBuildStepResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DockerBuildStepResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DockerBuildStepResponse)(nil)).Elem()
+}
+
+func (o DockerBuildStepResponsePtrOutput) ToDockerBuildStepResponsePtrOutput() DockerBuildStepResponsePtrOutput {
+	return o
+}
+
+func (o DockerBuildStepResponsePtrOutput) ToDockerBuildStepResponsePtrOutputWithContext(ctx context.Context) DockerBuildStepResponsePtrOutput {
+	return o
+}
+
+func (o DockerBuildStepResponsePtrOutput) Elem() DockerBuildStepResponseOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) DockerBuildStepResponse { return *v }).(DockerBuildStepResponseOutput)
+}
+
+// The collection of override arguments to be used when executing this build step.
+func (o DockerBuildStepResponsePtrOutput) Arguments() ArgumentResponseArrayOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) []ArgumentResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Arguments
+	}).(ArgumentResponseArrayOutput)
+}
+
+// List of base image dependencies for a step.
+func (o DockerBuildStepResponsePtrOutput) BaseImageDependencies() BaseImageDependencyResponseArrayOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) []BaseImageDependencyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BaseImageDependencies
+	}).(BaseImageDependencyResponseArrayOutput)
+}
+
+// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+func (o DockerBuildStepResponsePtrOutput) ContextAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL(absolute or relative) of the source context for the task step.
+func (o DockerBuildStepResponsePtrOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Docker file path relative to the source context.
+func (o DockerBuildStepResponsePtrOutput) DockerFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DockerFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified image names including the repository and tag.
+func (o DockerBuildStepResponsePtrOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The value of this property indicates whether the image built should be pushed to the registry or not.
+func (o DockerBuildStepResponsePtrOutput) IsPushEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsPushEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value of this property indicates whether the image cache is enabled or not.
+func (o DockerBuildStepResponsePtrOutput) NoCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoCache
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the target build stage for the docker build.
+func (o DockerBuildStepResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the step.
+func (o DockerBuildStepResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The parameters for a quick task run request.
+type EncodedTaskRunRequest struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials *Credentials `pulumi:"credentials"`
+	// Base64 encoded value of the template/definition file content.
+	EncodedTaskContent string `pulumi:"encodedTaskContent"`
+	// Base64 encoded value of the parameters/values file content.
+	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformProperties `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation *string `pulumi:"sourceLocation"`
+	// Run timeout in seconds.
+	Timeout *int `pulumi:"timeout"`
+	// The type of the run request.
+	Type string `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values []SetValue `pulumi:"values"`
+}
+
+// EncodedTaskRunRequestInput is an input type that accepts EncodedTaskRunRequestArgs and EncodedTaskRunRequestOutput values.
+// You can construct a concrete instance of `EncodedTaskRunRequestInput` via:
+//
+//          EncodedTaskRunRequestArgs{...}
+type EncodedTaskRunRequestInput interface {
+	pulumi.Input
+
+	ToEncodedTaskRunRequestOutput() EncodedTaskRunRequestOutput
+	ToEncodedTaskRunRequestOutputWithContext(context.Context) EncodedTaskRunRequestOutput
+}
+
+// The parameters for a quick task run request.
+type EncodedTaskRunRequestArgs struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration AgentPropertiesPtrInput `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials CredentialsPtrInput `pulumi:"credentials"`
+	// Base64 encoded value of the template/definition file content.
+	EncodedTaskContent pulumi.StringInput `pulumi:"encodedTaskContent"`
+	// Base64 encoded value of the parameters/values file content.
+	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesInput `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
+	// Run timeout in seconds.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// The type of the run request.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values SetValueArrayInput `pulumi:"values"`
+}
+
+func (EncodedTaskRunRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncodedTaskRunRequest)(nil)).Elem()
+}
+
+func (i EncodedTaskRunRequestArgs) ToEncodedTaskRunRequestOutput() EncodedTaskRunRequestOutput {
+	return i.ToEncodedTaskRunRequestOutputWithContext(context.Background())
+}
+
+func (i EncodedTaskRunRequestArgs) ToEncodedTaskRunRequestOutputWithContext(ctx context.Context) EncodedTaskRunRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskRunRequestOutput)
+}
+
+// The parameters for a quick task run request.
+type EncodedTaskRunRequestOutput struct{ *pulumi.OutputState }
+
+func (EncodedTaskRunRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncodedTaskRunRequest)(nil)).Elem()
+}
+
+func (o EncodedTaskRunRequestOutput) ToEncodedTaskRunRequestOutput() EncodedTaskRunRequestOutput {
+	return o
+}
+
+func (o EncodedTaskRunRequestOutput) ToEncodedTaskRunRequestOutputWithContext(ctx context.Context) EncodedTaskRunRequestOutput {
+	return o
+}
+
+// The machine configuration of the run agent.
+func (o EncodedTaskRunRequestOutput) AgentConfiguration() AgentPropertiesPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) *AgentProperties { return v.AgentConfiguration }).(AgentPropertiesPtrOutput)
+}
+
+// The dedicated agent pool for the run.
+func (o EncodedTaskRunRequestOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The properties that describes a set of credentials that will be used when this run is invoked.
+func (o EncodedTaskRunRequestOutput) Credentials() CredentialsPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) *Credentials { return v.Credentials }).(CredentialsPtrOutput)
+}
+
+// Base64 encoded value of the template/definition file content.
+func (o EncodedTaskRunRequestOutput) EncodedTaskContent() pulumi.StringOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) string { return v.EncodedTaskContent }).(pulumi.StringOutput)
+}
+
+// Base64 encoded value of the parameters/values file content.
+func (o EncodedTaskRunRequestOutput) EncodedValuesContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) *string { return v.EncodedValuesContent }).(pulumi.StringPtrOutput)
+}
+
+// The value that indicates whether archiving is enabled for the run or not.
+func (o EncodedTaskRunRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o EncodedTaskRunRequestOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The platform properties against which the run has to happen.
+func (o EncodedTaskRunRequestOutput) Platform() PlatformPropertiesOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) PlatformProperties { return v.Platform }).(PlatformPropertiesOutput)
+}
+
+// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+func (o EncodedTaskRunRequestOutput) SourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
+}
+
+// Run timeout in seconds.
+func (o EncodedTaskRunRequestOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the run request.
+func (o EncodedTaskRunRequestOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The collection of overridable values that can be passed when running a task.
+func (o EncodedTaskRunRequestOutput) Values() SetValueArrayOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) []SetValue { return v.Values }).(SetValueArrayOutput)
+}
+
+// The parameters for a quick task run request.
+type EncodedTaskRunRequestResponse struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials *CredentialsResponse `pulumi:"credentials"`
+	// Base64 encoded value of the template/definition file content.
+	EncodedTaskContent string `pulumi:"encodedTaskContent"`
+	// Base64 encoded value of the parameters/values file content.
+	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesResponse `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation *string `pulumi:"sourceLocation"`
+	// Run timeout in seconds.
+	Timeout *int `pulumi:"timeout"`
+	// The type of the run request.
+	Type string `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values []SetValueResponse `pulumi:"values"`
+}
+
+// EncodedTaskRunRequestResponseInput is an input type that accepts EncodedTaskRunRequestResponseArgs and EncodedTaskRunRequestResponseOutput values.
+// You can construct a concrete instance of `EncodedTaskRunRequestResponseInput` via:
+//
+//          EncodedTaskRunRequestResponseArgs{...}
+type EncodedTaskRunRequestResponseInput interface {
+	pulumi.Input
+
+	ToEncodedTaskRunRequestResponseOutput() EncodedTaskRunRequestResponseOutput
+	ToEncodedTaskRunRequestResponseOutputWithContext(context.Context) EncodedTaskRunRequestResponseOutput
+}
+
+// The parameters for a quick task run request.
+type EncodedTaskRunRequestResponseArgs struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials CredentialsResponsePtrInput `pulumi:"credentials"`
+	// Base64 encoded value of the template/definition file content.
+	EncodedTaskContent pulumi.StringInput `pulumi:"encodedTaskContent"`
+	// Base64 encoded value of the parameters/values file content.
+	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesResponseInput `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
+	// Run timeout in seconds.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// The type of the run request.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values SetValueResponseArrayInput `pulumi:"values"`
+}
+
+func (EncodedTaskRunRequestResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncodedTaskRunRequestResponse)(nil)).Elem()
+}
+
+func (i EncodedTaskRunRequestResponseArgs) ToEncodedTaskRunRequestResponseOutput() EncodedTaskRunRequestResponseOutput {
+	return i.ToEncodedTaskRunRequestResponseOutputWithContext(context.Background())
+}
+
+func (i EncodedTaskRunRequestResponseArgs) ToEncodedTaskRunRequestResponseOutputWithContext(ctx context.Context) EncodedTaskRunRequestResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskRunRequestResponseOutput)
+}
+
+// The parameters for a quick task run request.
+type EncodedTaskRunRequestResponseOutput struct{ *pulumi.OutputState }
+
+func (EncodedTaskRunRequestResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncodedTaskRunRequestResponse)(nil)).Elem()
+}
+
+func (o EncodedTaskRunRequestResponseOutput) ToEncodedTaskRunRequestResponseOutput() EncodedTaskRunRequestResponseOutput {
+	return o
+}
+
+func (o EncodedTaskRunRequestResponseOutput) ToEncodedTaskRunRequestResponseOutputWithContext(ctx context.Context) EncodedTaskRunRequestResponseOutput {
+	return o
+}
+
+// The machine configuration of the run agent.
+func (o EncodedTaskRunRequestResponseOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *AgentPropertiesResponse { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
+}
+
+// The dedicated agent pool for the run.
+func (o EncodedTaskRunRequestResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The properties that describes a set of credentials that will be used when this run is invoked.
+func (o EncodedTaskRunRequestResponseOutput) Credentials() CredentialsResponsePtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *CredentialsResponse { return v.Credentials }).(CredentialsResponsePtrOutput)
+}
+
+// Base64 encoded value of the template/definition file content.
+func (o EncodedTaskRunRequestResponseOutput) EncodedTaskContent() pulumi.StringOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) string { return v.EncodedTaskContent }).(pulumi.StringOutput)
+}
+
+// Base64 encoded value of the parameters/values file content.
+func (o EncodedTaskRunRequestResponseOutput) EncodedValuesContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *string { return v.EncodedValuesContent }).(pulumi.StringPtrOutput)
+}
+
+// The value that indicates whether archiving is enabled for the run or not.
+func (o EncodedTaskRunRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o EncodedTaskRunRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The platform properties against which the run has to happen.
+func (o EncodedTaskRunRequestResponseOutput) Platform() PlatformPropertiesResponseOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponseOutput)
+}
+
+// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+func (o EncodedTaskRunRequestResponseOutput) SourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
+}
+
+// Run timeout in seconds.
+func (o EncodedTaskRunRequestResponseOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the run request.
+func (o EncodedTaskRunRequestResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The collection of overridable values that can be passed when running a task.
+func (o EncodedTaskRunRequestResponseOutput) Values() SetValueResponseArrayOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
+}
+
+// The properties of a encoded task step.
+type EncodedTaskStep struct {
+	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+	ContextAccessToken *string `pulumi:"contextAccessToken"`
+	// The URL(absolute or relative) of the source context for the task step.
+	ContextPath *string `pulumi:"contextPath"`
+	// Base64 encoded value of the template/definition file content.
+	EncodedTaskContent string `pulumi:"encodedTaskContent"`
+	// Base64 encoded value of the parameters/values file content.
+	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
+	// The type of the step.
+	Type string `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values []SetValue `pulumi:"values"`
+}
+
+// EncodedTaskStepInput is an input type that accepts EncodedTaskStepArgs and EncodedTaskStepOutput values.
+// You can construct a concrete instance of `EncodedTaskStepInput` via:
+//
+//          EncodedTaskStepArgs{...}
+type EncodedTaskStepInput interface {
+	pulumi.Input
+
+	ToEncodedTaskStepOutput() EncodedTaskStepOutput
+	ToEncodedTaskStepOutputWithContext(context.Context) EncodedTaskStepOutput
+}
+
+// The properties of a encoded task step.
+type EncodedTaskStepArgs struct {
+	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
+	// The URL(absolute or relative) of the source context for the task step.
+	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+	// Base64 encoded value of the template/definition file content.
+	EncodedTaskContent pulumi.StringInput `pulumi:"encodedTaskContent"`
+	// Base64 encoded value of the parameters/values file content.
+	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
+	// The type of the step.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values SetValueArrayInput `pulumi:"values"`
+}
+
+func (EncodedTaskStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncodedTaskStep)(nil)).Elem()
+}
+
+func (i EncodedTaskStepArgs) ToEncodedTaskStepOutput() EncodedTaskStepOutput {
+	return i.ToEncodedTaskStepOutputWithContext(context.Background())
+}
+
+func (i EncodedTaskStepArgs) ToEncodedTaskStepOutputWithContext(ctx context.Context) EncodedTaskStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskStepOutput)
+}
+
+// The properties of a encoded task step.
+type EncodedTaskStepOutput struct{ *pulumi.OutputState }
+
+func (EncodedTaskStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncodedTaskStep)(nil)).Elem()
+}
+
+func (o EncodedTaskStepOutput) ToEncodedTaskStepOutput() EncodedTaskStepOutput {
+	return o
+}
+
+func (o EncodedTaskStepOutput) ToEncodedTaskStepOutputWithContext(ctx context.Context) EncodedTaskStepOutput {
+	return o
+}
+
+// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+func (o EncodedTaskStepOutput) ContextAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskStep) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The URL(absolute or relative) of the source context for the task step.
+func (o EncodedTaskStepOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskStep) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// Base64 encoded value of the template/definition file content.
+func (o EncodedTaskStepOutput) EncodedTaskContent() pulumi.StringOutput {
+	return o.ApplyT(func(v EncodedTaskStep) string { return v.EncodedTaskContent }).(pulumi.StringOutput)
+}
+
+// Base64 encoded value of the parameters/values file content.
+func (o EncodedTaskStepOutput) EncodedValuesContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskStep) *string { return v.EncodedValuesContent }).(pulumi.StringPtrOutput)
+}
+
+// The type of the step.
+func (o EncodedTaskStepOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EncodedTaskStep) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The collection of overridable values that can be passed when running a task.
+func (o EncodedTaskStepOutput) Values() SetValueArrayOutput {
+	return o.ApplyT(func(v EncodedTaskStep) []SetValue { return v.Values }).(SetValueArrayOutput)
 }
 
 // The properties of a encoded task step.
@@ -2261,6 +3966,306 @@ func (o EncodedTaskStepResponseOutput) Type() pulumi.StringOutput {
 // The collection of overridable values that can be passed when running a task.
 func (o EncodedTaskStepResponseOutput) Values() SetValueResponseArrayOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
+}
+
+type EncryptionProperty struct {
+	// Key vault properties.
+	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
+	// Indicates whether or not the encryption is enabled for container registry.
+	Status *string `pulumi:"status"`
+}
+
+// EncryptionPropertyInput is an input type that accepts EncryptionPropertyArgs and EncryptionPropertyOutput values.
+// You can construct a concrete instance of `EncryptionPropertyInput` via:
+//
+//          EncryptionPropertyArgs{...}
+type EncryptionPropertyInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertyOutput() EncryptionPropertyOutput
+	ToEncryptionPropertyOutputWithContext(context.Context) EncryptionPropertyOutput
+}
+
+type EncryptionPropertyArgs struct {
+	// Key vault properties.
+	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
+	// Indicates whether or not the encryption is enabled for container registry.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (EncryptionPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionProperty)(nil)).Elem()
+}
+
+func (i EncryptionPropertyArgs) ToEncryptionPropertyOutput() EncryptionPropertyOutput {
+	return i.ToEncryptionPropertyOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertyArgs) ToEncryptionPropertyOutputWithContext(ctx context.Context) EncryptionPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertyOutput)
+}
+
+func (i EncryptionPropertyArgs) ToEncryptionPropertyPtrOutput() EncryptionPropertyPtrOutput {
+	return i.ToEncryptionPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertyArgs) ToEncryptionPropertyPtrOutputWithContext(ctx context.Context) EncryptionPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertyOutput).ToEncryptionPropertyPtrOutputWithContext(ctx)
+}
+
+// EncryptionPropertyPtrInput is an input type that accepts EncryptionPropertyArgs, EncryptionPropertyPtr and EncryptionPropertyPtrOutput values.
+// You can construct a concrete instance of `EncryptionPropertyPtrInput` via:
+//
+//          EncryptionPropertyArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPropertyPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertyPtrOutput() EncryptionPropertyPtrOutput
+	ToEncryptionPropertyPtrOutputWithContext(context.Context) EncryptionPropertyPtrOutput
+}
+
+type encryptionPropertyPtrType EncryptionPropertyArgs
+
+func EncryptionPropertyPtr(v *EncryptionPropertyArgs) EncryptionPropertyPtrInput {
+	return (*encryptionPropertyPtrType)(v)
+}
+
+func (*encryptionPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionProperty)(nil)).Elem()
+}
+
+func (i *encryptionPropertyPtrType) ToEncryptionPropertyPtrOutput() EncryptionPropertyPtrOutput {
+	return i.ToEncryptionPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPropertyPtrType) ToEncryptionPropertyPtrOutputWithContext(ctx context.Context) EncryptionPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertyPtrOutput)
+}
+
+type EncryptionPropertyOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionProperty)(nil)).Elem()
+}
+
+func (o EncryptionPropertyOutput) ToEncryptionPropertyOutput() EncryptionPropertyOutput {
+	return o
+}
+
+func (o EncryptionPropertyOutput) ToEncryptionPropertyOutputWithContext(ctx context.Context) EncryptionPropertyOutput {
+	return o
+}
+
+func (o EncryptionPropertyOutput) ToEncryptionPropertyPtrOutput() EncryptionPropertyPtrOutput {
+	return o.ToEncryptionPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPropertyOutput) ToEncryptionPropertyPtrOutputWithContext(ctx context.Context) EncryptionPropertyPtrOutput {
+	return o.ApplyT(func(v EncryptionProperty) *EncryptionProperty {
+		return &v
+	}).(EncryptionPropertyPtrOutput)
+}
+
+// Key vault properties.
+func (o EncryptionPropertyOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v EncryptionProperty) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
+}
+
+// Indicates whether or not the encryption is enabled for container registry.
+func (o EncryptionPropertyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionProperty) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionProperty)(nil)).Elem()
+}
+
+func (o EncryptionPropertyPtrOutput) ToEncryptionPropertyPtrOutput() EncryptionPropertyPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertyPtrOutput) ToEncryptionPropertyPtrOutputWithContext(ctx context.Context) EncryptionPropertyPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertyPtrOutput) Elem() EncryptionPropertyOutput {
+	return o.ApplyT(func(v *EncryptionProperty) EncryptionProperty { return *v }).(EncryptionPropertyOutput)
+}
+
+// Key vault properties.
+func (o EncryptionPropertyPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *EncryptionProperty) *KeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// Indicates whether or not the encryption is enabled for container registry.
+func (o EncryptionPropertyPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPropertyResponse struct {
+	// Key vault properties.
+	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// Indicates whether or not the encryption is enabled for container registry.
+	Status *string `pulumi:"status"`
+}
+
+// EncryptionPropertyResponseInput is an input type that accepts EncryptionPropertyResponseArgs and EncryptionPropertyResponseOutput values.
+// You can construct a concrete instance of `EncryptionPropertyResponseInput` via:
+//
+//          EncryptionPropertyResponseArgs{...}
+type EncryptionPropertyResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertyResponseOutput() EncryptionPropertyResponseOutput
+	ToEncryptionPropertyResponseOutputWithContext(context.Context) EncryptionPropertyResponseOutput
+}
+
+type EncryptionPropertyResponseArgs struct {
+	// Key vault properties.
+	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
+	// Indicates whether or not the encryption is enabled for container registry.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (EncryptionPropertyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertyResponse)(nil)).Elem()
+}
+
+func (i EncryptionPropertyResponseArgs) ToEncryptionPropertyResponseOutput() EncryptionPropertyResponseOutput {
+	return i.ToEncryptionPropertyResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertyResponseArgs) ToEncryptionPropertyResponseOutputWithContext(ctx context.Context) EncryptionPropertyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertyResponseOutput)
+}
+
+func (i EncryptionPropertyResponseArgs) ToEncryptionPropertyResponsePtrOutput() EncryptionPropertyResponsePtrOutput {
+	return i.ToEncryptionPropertyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertyResponseArgs) ToEncryptionPropertyResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertyResponseOutput).ToEncryptionPropertyResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionPropertyResponsePtrInput is an input type that accepts EncryptionPropertyResponseArgs, EncryptionPropertyResponsePtr and EncryptionPropertyResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionPropertyResponsePtrInput` via:
+//
+//          EncryptionPropertyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPropertyResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertyResponsePtrOutput() EncryptionPropertyResponsePtrOutput
+	ToEncryptionPropertyResponsePtrOutputWithContext(context.Context) EncryptionPropertyResponsePtrOutput
+}
+
+type encryptionPropertyResponsePtrType EncryptionPropertyResponseArgs
+
+func EncryptionPropertyResponsePtr(v *EncryptionPropertyResponseArgs) EncryptionPropertyResponsePtrInput {
+	return (*encryptionPropertyResponsePtrType)(v)
+}
+
+func (*encryptionPropertyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertyResponse)(nil)).Elem()
+}
+
+func (i *encryptionPropertyResponsePtrType) ToEncryptionPropertyResponsePtrOutput() EncryptionPropertyResponsePtrOutput {
+	return i.ToEncryptionPropertyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPropertyResponsePtrType) ToEncryptionPropertyResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertyResponsePtrOutput)
+}
+
+type EncryptionPropertyResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertyResponse)(nil)).Elem()
+}
+
+func (o EncryptionPropertyResponseOutput) ToEncryptionPropertyResponseOutput() EncryptionPropertyResponseOutput {
+	return o
+}
+
+func (o EncryptionPropertyResponseOutput) ToEncryptionPropertyResponseOutputWithContext(ctx context.Context) EncryptionPropertyResponseOutput {
+	return o
+}
+
+func (o EncryptionPropertyResponseOutput) ToEncryptionPropertyResponsePtrOutput() EncryptionPropertyResponsePtrOutput {
+	return o.ToEncryptionPropertyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPropertyResponseOutput) ToEncryptionPropertyResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertyResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionPropertyResponse) *EncryptionPropertyResponse {
+		return &v
+	}).(EncryptionPropertyResponsePtrOutput)
+}
+
+// Key vault properties.
+func (o EncryptionPropertyResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionPropertyResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// Indicates whether or not the encryption is enabled for container registry.
+func (o EncryptionPropertyResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertyResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPropertyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertyResponse)(nil)).Elem()
+}
+
+func (o EncryptionPropertyResponsePtrOutput) ToEncryptionPropertyResponsePtrOutput() EncryptionPropertyResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPropertyResponsePtrOutput) ToEncryptionPropertyResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertyResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPropertyResponsePtrOutput) Elem() EncryptionPropertyResponseOutput {
+	return o.ApplyT(func(v *EncryptionPropertyResponse) EncryptionPropertyResponse { return *v }).(EncryptionPropertyResponseOutput)
+}
+
+// Key vault properties.
+func (o EncryptionPropertyResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertyResponse) *KeyVaultPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// Indicates whether or not the encryption is enabled for container registry.
+func (o EncryptionPropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // The content of the event request message.
@@ -3049,6 +5054,780 @@ func (o EventResponseMessageResponsePtrOutput) Version() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The properties of the export pipeline target.
+type ExportPipelineTargetProperties struct {
+	// They key vault secret uri to obtain the target storage SAS token.
+	KeyVaultUri string `pulumi:"keyVaultUri"`
+	// The type of target for the export pipeline.
+	Type *string `pulumi:"type"`
+	// The target uri of the export pipeline.
+	// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+	// When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+	Uri *string `pulumi:"uri"`
+}
+
+// ExportPipelineTargetPropertiesInput is an input type that accepts ExportPipelineTargetPropertiesArgs and ExportPipelineTargetPropertiesOutput values.
+// You can construct a concrete instance of `ExportPipelineTargetPropertiesInput` via:
+//
+//          ExportPipelineTargetPropertiesArgs{...}
+type ExportPipelineTargetPropertiesInput interface {
+	pulumi.Input
+
+	ToExportPipelineTargetPropertiesOutput() ExportPipelineTargetPropertiesOutput
+	ToExportPipelineTargetPropertiesOutputWithContext(context.Context) ExportPipelineTargetPropertiesOutput
+}
+
+// The properties of the export pipeline target.
+type ExportPipelineTargetPropertiesArgs struct {
+	// They key vault secret uri to obtain the target storage SAS token.
+	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
+	// The type of target for the export pipeline.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The target uri of the export pipeline.
+	// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+	// When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ExportPipelineTargetPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportPipelineTargetProperties)(nil)).Elem()
+}
+
+func (i ExportPipelineTargetPropertiesArgs) ToExportPipelineTargetPropertiesOutput() ExportPipelineTargetPropertiesOutput {
+	return i.ToExportPipelineTargetPropertiesOutputWithContext(context.Background())
+}
+
+func (i ExportPipelineTargetPropertiesArgs) ToExportPipelineTargetPropertiesOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportPipelineTargetPropertiesOutput)
+}
+
+func (i ExportPipelineTargetPropertiesArgs) ToExportPipelineTargetPropertiesPtrOutput() ExportPipelineTargetPropertiesPtrOutput {
+	return i.ToExportPipelineTargetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ExportPipelineTargetPropertiesArgs) ToExportPipelineTargetPropertiesPtrOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportPipelineTargetPropertiesOutput).ToExportPipelineTargetPropertiesPtrOutputWithContext(ctx)
+}
+
+// ExportPipelineTargetPropertiesPtrInput is an input type that accepts ExportPipelineTargetPropertiesArgs, ExportPipelineTargetPropertiesPtr and ExportPipelineTargetPropertiesPtrOutput values.
+// You can construct a concrete instance of `ExportPipelineTargetPropertiesPtrInput` via:
+//
+//          ExportPipelineTargetPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ExportPipelineTargetPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToExportPipelineTargetPropertiesPtrOutput() ExportPipelineTargetPropertiesPtrOutput
+	ToExportPipelineTargetPropertiesPtrOutputWithContext(context.Context) ExportPipelineTargetPropertiesPtrOutput
+}
+
+type exportPipelineTargetPropertiesPtrType ExportPipelineTargetPropertiesArgs
+
+func ExportPipelineTargetPropertiesPtr(v *ExportPipelineTargetPropertiesArgs) ExportPipelineTargetPropertiesPtrInput {
+	return (*exportPipelineTargetPropertiesPtrType)(v)
+}
+
+func (*exportPipelineTargetPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportPipelineTargetProperties)(nil)).Elem()
+}
+
+func (i *exportPipelineTargetPropertiesPtrType) ToExportPipelineTargetPropertiesPtrOutput() ExportPipelineTargetPropertiesPtrOutput {
+	return i.ToExportPipelineTargetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *exportPipelineTargetPropertiesPtrType) ToExportPipelineTargetPropertiesPtrOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportPipelineTargetPropertiesPtrOutput)
+}
+
+// The properties of the export pipeline target.
+type ExportPipelineTargetPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ExportPipelineTargetPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportPipelineTargetProperties)(nil)).Elem()
+}
+
+func (o ExportPipelineTargetPropertiesOutput) ToExportPipelineTargetPropertiesOutput() ExportPipelineTargetPropertiesOutput {
+	return o
+}
+
+func (o ExportPipelineTargetPropertiesOutput) ToExportPipelineTargetPropertiesOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesOutput {
+	return o
+}
+
+func (o ExportPipelineTargetPropertiesOutput) ToExportPipelineTargetPropertiesPtrOutput() ExportPipelineTargetPropertiesPtrOutput {
+	return o.ToExportPipelineTargetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ExportPipelineTargetPropertiesOutput) ToExportPipelineTargetPropertiesPtrOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesPtrOutput {
+	return o.ApplyT(func(v ExportPipelineTargetProperties) *ExportPipelineTargetProperties {
+		return &v
+	}).(ExportPipelineTargetPropertiesPtrOutput)
+}
+
+// They key vault secret uri to obtain the target storage SAS token.
+func (o ExportPipelineTargetPropertiesOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ExportPipelineTargetProperties) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The type of target for the export pipeline.
+func (o ExportPipelineTargetPropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportPipelineTargetProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The target uri of the export pipeline.
+// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+// When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+func (o ExportPipelineTargetPropertiesOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportPipelineTargetProperties) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ExportPipelineTargetPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ExportPipelineTargetPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportPipelineTargetProperties)(nil)).Elem()
+}
+
+func (o ExportPipelineTargetPropertiesPtrOutput) ToExportPipelineTargetPropertiesPtrOutput() ExportPipelineTargetPropertiesPtrOutput {
+	return o
+}
+
+func (o ExportPipelineTargetPropertiesPtrOutput) ToExportPipelineTargetPropertiesPtrOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesPtrOutput {
+	return o
+}
+
+func (o ExportPipelineTargetPropertiesPtrOutput) Elem() ExportPipelineTargetPropertiesOutput {
+	return o.ApplyT(func(v *ExportPipelineTargetProperties) ExportPipelineTargetProperties { return *v }).(ExportPipelineTargetPropertiesOutput)
+}
+
+// They key vault secret uri to obtain the target storage SAS token.
+func (o ExportPipelineTargetPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportPipelineTargetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of target for the export pipeline.
+func (o ExportPipelineTargetPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportPipelineTargetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The target uri of the export pipeline.
+// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+// When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+func (o ExportPipelineTargetPropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportPipelineTargetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the export pipeline target.
+type ExportPipelineTargetPropertiesResponse struct {
+	// They key vault secret uri to obtain the target storage SAS token.
+	KeyVaultUri string `pulumi:"keyVaultUri"`
+	// The type of target for the export pipeline.
+	Type *string `pulumi:"type"`
+	// The target uri of the export pipeline.
+	// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+	// When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+	Uri *string `pulumi:"uri"`
+}
+
+// ExportPipelineTargetPropertiesResponseInput is an input type that accepts ExportPipelineTargetPropertiesResponseArgs and ExportPipelineTargetPropertiesResponseOutput values.
+// You can construct a concrete instance of `ExportPipelineTargetPropertiesResponseInput` via:
+//
+//          ExportPipelineTargetPropertiesResponseArgs{...}
+type ExportPipelineTargetPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToExportPipelineTargetPropertiesResponseOutput() ExportPipelineTargetPropertiesResponseOutput
+	ToExportPipelineTargetPropertiesResponseOutputWithContext(context.Context) ExportPipelineTargetPropertiesResponseOutput
+}
+
+// The properties of the export pipeline target.
+type ExportPipelineTargetPropertiesResponseArgs struct {
+	// They key vault secret uri to obtain the target storage SAS token.
+	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
+	// The type of target for the export pipeline.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The target uri of the export pipeline.
+	// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+	// When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ExportPipelineTargetPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportPipelineTargetPropertiesResponse)(nil)).Elem()
+}
+
+func (i ExportPipelineTargetPropertiesResponseArgs) ToExportPipelineTargetPropertiesResponseOutput() ExportPipelineTargetPropertiesResponseOutput {
+	return i.ToExportPipelineTargetPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ExportPipelineTargetPropertiesResponseArgs) ToExportPipelineTargetPropertiesResponseOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportPipelineTargetPropertiesResponseOutput)
+}
+
+func (i ExportPipelineTargetPropertiesResponseArgs) ToExportPipelineTargetPropertiesResponsePtrOutput() ExportPipelineTargetPropertiesResponsePtrOutput {
+	return i.ToExportPipelineTargetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ExportPipelineTargetPropertiesResponseArgs) ToExportPipelineTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportPipelineTargetPropertiesResponseOutput).ToExportPipelineTargetPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ExportPipelineTargetPropertiesResponsePtrInput is an input type that accepts ExportPipelineTargetPropertiesResponseArgs, ExportPipelineTargetPropertiesResponsePtr and ExportPipelineTargetPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ExportPipelineTargetPropertiesResponsePtrInput` via:
+//
+//          ExportPipelineTargetPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ExportPipelineTargetPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToExportPipelineTargetPropertiesResponsePtrOutput() ExportPipelineTargetPropertiesResponsePtrOutput
+	ToExportPipelineTargetPropertiesResponsePtrOutputWithContext(context.Context) ExportPipelineTargetPropertiesResponsePtrOutput
+}
+
+type exportPipelineTargetPropertiesResponsePtrType ExportPipelineTargetPropertiesResponseArgs
+
+func ExportPipelineTargetPropertiesResponsePtr(v *ExportPipelineTargetPropertiesResponseArgs) ExportPipelineTargetPropertiesResponsePtrInput {
+	return (*exportPipelineTargetPropertiesResponsePtrType)(v)
+}
+
+func (*exportPipelineTargetPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportPipelineTargetPropertiesResponse)(nil)).Elem()
+}
+
+func (i *exportPipelineTargetPropertiesResponsePtrType) ToExportPipelineTargetPropertiesResponsePtrOutput() ExportPipelineTargetPropertiesResponsePtrOutput {
+	return i.ToExportPipelineTargetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *exportPipelineTargetPropertiesResponsePtrType) ToExportPipelineTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportPipelineTargetPropertiesResponsePtrOutput)
+}
+
+// The properties of the export pipeline target.
+type ExportPipelineTargetPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ExportPipelineTargetPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportPipelineTargetPropertiesResponse)(nil)).Elem()
+}
+
+func (o ExportPipelineTargetPropertiesResponseOutput) ToExportPipelineTargetPropertiesResponseOutput() ExportPipelineTargetPropertiesResponseOutput {
+	return o
+}
+
+func (o ExportPipelineTargetPropertiesResponseOutput) ToExportPipelineTargetPropertiesResponseOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesResponseOutput {
+	return o
+}
+
+func (o ExportPipelineTargetPropertiesResponseOutput) ToExportPipelineTargetPropertiesResponsePtrOutput() ExportPipelineTargetPropertiesResponsePtrOutput {
+	return o.ToExportPipelineTargetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ExportPipelineTargetPropertiesResponseOutput) ToExportPipelineTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ExportPipelineTargetPropertiesResponse) *ExportPipelineTargetPropertiesResponse {
+		return &v
+	}).(ExportPipelineTargetPropertiesResponsePtrOutput)
+}
+
+// They key vault secret uri to obtain the target storage SAS token.
+func (o ExportPipelineTargetPropertiesResponseOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ExportPipelineTargetPropertiesResponse) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The type of target for the export pipeline.
+func (o ExportPipelineTargetPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportPipelineTargetPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The target uri of the export pipeline.
+// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+// When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+func (o ExportPipelineTargetPropertiesResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportPipelineTargetPropertiesResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ExportPipelineTargetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExportPipelineTargetPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportPipelineTargetPropertiesResponse)(nil)).Elem()
+}
+
+func (o ExportPipelineTargetPropertiesResponsePtrOutput) ToExportPipelineTargetPropertiesResponsePtrOutput() ExportPipelineTargetPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ExportPipelineTargetPropertiesResponsePtrOutput) ToExportPipelineTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) ExportPipelineTargetPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ExportPipelineTargetPropertiesResponsePtrOutput) Elem() ExportPipelineTargetPropertiesResponseOutput {
+	return o.ApplyT(func(v *ExportPipelineTargetPropertiesResponse) ExportPipelineTargetPropertiesResponse { return *v }).(ExportPipelineTargetPropertiesResponseOutput)
+}
+
+// They key vault secret uri to obtain the target storage SAS token.
+func (o ExportPipelineTargetPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportPipelineTargetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of target for the export pipeline.
+func (o ExportPipelineTargetPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportPipelineTargetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The target uri of the export pipeline.
+// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+// When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
+func (o ExportPipelineTargetPropertiesResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportPipelineTargetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The request parameters for a scheduling run against a task file.
+type FileTaskRunRequest struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials *Credentials `pulumi:"credentials"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformProperties `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation *string `pulumi:"sourceLocation"`
+	// The template/definition file path relative to the source.
+	TaskFilePath string `pulumi:"taskFilePath"`
+	// Run timeout in seconds.
+	Timeout *int `pulumi:"timeout"`
+	// The type of the run request.
+	Type string `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values []SetValue `pulumi:"values"`
+	// The values/parameters file path relative to the source.
+	ValuesFilePath *string `pulumi:"valuesFilePath"`
+}
+
+// FileTaskRunRequestInput is an input type that accepts FileTaskRunRequestArgs and FileTaskRunRequestOutput values.
+// You can construct a concrete instance of `FileTaskRunRequestInput` via:
+//
+//          FileTaskRunRequestArgs{...}
+type FileTaskRunRequestInput interface {
+	pulumi.Input
+
+	ToFileTaskRunRequestOutput() FileTaskRunRequestOutput
+	ToFileTaskRunRequestOutputWithContext(context.Context) FileTaskRunRequestOutput
+}
+
+// The request parameters for a scheduling run against a task file.
+type FileTaskRunRequestArgs struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration AgentPropertiesPtrInput `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials CredentialsPtrInput `pulumi:"credentials"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesInput `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
+	// The template/definition file path relative to the source.
+	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
+	// Run timeout in seconds.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// The type of the run request.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values SetValueArrayInput `pulumi:"values"`
+	// The values/parameters file path relative to the source.
+	ValuesFilePath pulumi.StringPtrInput `pulumi:"valuesFilePath"`
+}
+
+func (FileTaskRunRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileTaskRunRequest)(nil)).Elem()
+}
+
+func (i FileTaskRunRequestArgs) ToFileTaskRunRequestOutput() FileTaskRunRequestOutput {
+	return i.ToFileTaskRunRequestOutputWithContext(context.Background())
+}
+
+func (i FileTaskRunRequestArgs) ToFileTaskRunRequestOutputWithContext(ctx context.Context) FileTaskRunRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileTaskRunRequestOutput)
+}
+
+// The request parameters for a scheduling run against a task file.
+type FileTaskRunRequestOutput struct{ *pulumi.OutputState }
+
+func (FileTaskRunRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileTaskRunRequest)(nil)).Elem()
+}
+
+func (o FileTaskRunRequestOutput) ToFileTaskRunRequestOutput() FileTaskRunRequestOutput {
+	return o
+}
+
+func (o FileTaskRunRequestOutput) ToFileTaskRunRequestOutputWithContext(ctx context.Context) FileTaskRunRequestOutput {
+	return o
+}
+
+// The machine configuration of the run agent.
+func (o FileTaskRunRequestOutput) AgentConfiguration() AgentPropertiesPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) *AgentProperties { return v.AgentConfiguration }).(AgentPropertiesPtrOutput)
+}
+
+// The dedicated agent pool for the run.
+func (o FileTaskRunRequestOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The properties that describes a set of credentials that will be used when this run is invoked.
+func (o FileTaskRunRequestOutput) Credentials() CredentialsPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) *Credentials { return v.Credentials }).(CredentialsPtrOutput)
+}
+
+// The value that indicates whether archiving is enabled for the run or not.
+func (o FileTaskRunRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o FileTaskRunRequestOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The platform properties against which the run has to happen.
+func (o FileTaskRunRequestOutput) Platform() PlatformPropertiesOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) PlatformProperties { return v.Platform }).(PlatformPropertiesOutput)
+}
+
+// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+func (o FileTaskRunRequestOutput) SourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
+}
+
+// The template/definition file path relative to the source.
+func (o FileTaskRunRequestOutput) TaskFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) string { return v.TaskFilePath }).(pulumi.StringOutput)
+}
+
+// Run timeout in seconds.
+func (o FileTaskRunRequestOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the run request.
+func (o FileTaskRunRequestOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The collection of overridable values that can be passed when running a task.
+func (o FileTaskRunRequestOutput) Values() SetValueArrayOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) []SetValue { return v.Values }).(SetValueArrayOutput)
+}
+
+// The values/parameters file path relative to the source.
+func (o FileTaskRunRequestOutput) ValuesFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
+}
+
+// The request parameters for a scheduling run against a task file.
+type FileTaskRunRequestResponse struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials *CredentialsResponse `pulumi:"credentials"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesResponse `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation *string `pulumi:"sourceLocation"`
+	// The template/definition file path relative to the source.
+	TaskFilePath string `pulumi:"taskFilePath"`
+	// Run timeout in seconds.
+	Timeout *int `pulumi:"timeout"`
+	// The type of the run request.
+	Type string `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values []SetValueResponse `pulumi:"values"`
+	// The values/parameters file path relative to the source.
+	ValuesFilePath *string `pulumi:"valuesFilePath"`
+}
+
+// FileTaskRunRequestResponseInput is an input type that accepts FileTaskRunRequestResponseArgs and FileTaskRunRequestResponseOutput values.
+// You can construct a concrete instance of `FileTaskRunRequestResponseInput` via:
+//
+//          FileTaskRunRequestResponseArgs{...}
+type FileTaskRunRequestResponseInput interface {
+	pulumi.Input
+
+	ToFileTaskRunRequestResponseOutput() FileTaskRunRequestResponseOutput
+	ToFileTaskRunRequestResponseOutputWithContext(context.Context) FileTaskRunRequestResponseOutput
+}
+
+// The request parameters for a scheduling run against a task file.
+type FileTaskRunRequestResponseArgs struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials CredentialsResponsePtrInput `pulumi:"credentials"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesResponseInput `pulumi:"platform"`
+	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
+	// The template/definition file path relative to the source.
+	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
+	// Run timeout in seconds.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// The type of the run request.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values SetValueResponseArrayInput `pulumi:"values"`
+	// The values/parameters file path relative to the source.
+	ValuesFilePath pulumi.StringPtrInput `pulumi:"valuesFilePath"`
+}
+
+func (FileTaskRunRequestResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileTaskRunRequestResponse)(nil)).Elem()
+}
+
+func (i FileTaskRunRequestResponseArgs) ToFileTaskRunRequestResponseOutput() FileTaskRunRequestResponseOutput {
+	return i.ToFileTaskRunRequestResponseOutputWithContext(context.Background())
+}
+
+func (i FileTaskRunRequestResponseArgs) ToFileTaskRunRequestResponseOutputWithContext(ctx context.Context) FileTaskRunRequestResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileTaskRunRequestResponseOutput)
+}
+
+// The request parameters for a scheduling run against a task file.
+type FileTaskRunRequestResponseOutput struct{ *pulumi.OutputState }
+
+func (FileTaskRunRequestResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileTaskRunRequestResponse)(nil)).Elem()
+}
+
+func (o FileTaskRunRequestResponseOutput) ToFileTaskRunRequestResponseOutput() FileTaskRunRequestResponseOutput {
+	return o
+}
+
+func (o FileTaskRunRequestResponseOutput) ToFileTaskRunRequestResponseOutputWithContext(ctx context.Context) FileTaskRunRequestResponseOutput {
+	return o
+}
+
+// The machine configuration of the run agent.
+func (o FileTaskRunRequestResponseOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) *AgentPropertiesResponse { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
+}
+
+// The dedicated agent pool for the run.
+func (o FileTaskRunRequestResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The properties that describes a set of credentials that will be used when this run is invoked.
+func (o FileTaskRunRequestResponseOutput) Credentials() CredentialsResponsePtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) *CredentialsResponse { return v.Credentials }).(CredentialsResponsePtrOutput)
+}
+
+// The value that indicates whether archiving is enabled for the run or not.
+func (o FileTaskRunRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o FileTaskRunRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The platform properties against which the run has to happen.
+func (o FileTaskRunRequestResponseOutput) Platform() PlatformPropertiesResponseOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponseOutput)
+}
+
+// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
+// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
+func (o FileTaskRunRequestResponseOutput) SourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
+}
+
+// The template/definition file path relative to the source.
+func (o FileTaskRunRequestResponseOutput) TaskFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) string { return v.TaskFilePath }).(pulumi.StringOutput)
+}
+
+// Run timeout in seconds.
+func (o FileTaskRunRequestResponseOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the run request.
+func (o FileTaskRunRequestResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The collection of overridable values that can be passed when running a task.
+func (o FileTaskRunRequestResponseOutput) Values() SetValueResponseArrayOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
+}
+
+// The values/parameters file path relative to the source.
+func (o FileTaskRunRequestResponseOutput) ValuesFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
+}
+
+// The properties of a task step.
+type FileTaskStep struct {
+	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+	ContextAccessToken *string `pulumi:"contextAccessToken"`
+	// The URL(absolute or relative) of the source context for the task step.
+	ContextPath *string `pulumi:"contextPath"`
+	// The task template/definition file path relative to the source context.
+	TaskFilePath string `pulumi:"taskFilePath"`
+	// The type of the step.
+	Type string `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values []SetValue `pulumi:"values"`
+	// The task values/parameters file path relative to the source context.
+	ValuesFilePath *string `pulumi:"valuesFilePath"`
+}
+
+// FileTaskStepInput is an input type that accepts FileTaskStepArgs and FileTaskStepOutput values.
+// You can construct a concrete instance of `FileTaskStepInput` via:
+//
+//          FileTaskStepArgs{...}
+type FileTaskStepInput interface {
+	pulumi.Input
+
+	ToFileTaskStepOutput() FileTaskStepOutput
+	ToFileTaskStepOutputWithContext(context.Context) FileTaskStepOutput
+}
+
+// The properties of a task step.
+type FileTaskStepArgs struct {
+	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
+	// The URL(absolute or relative) of the source context for the task step.
+	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+	// The task template/definition file path relative to the source context.
+	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
+	// The type of the step.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The collection of overridable values that can be passed when running a task.
+	Values SetValueArrayInput `pulumi:"values"`
+	// The task values/parameters file path relative to the source context.
+	ValuesFilePath pulumi.StringPtrInput `pulumi:"valuesFilePath"`
+}
+
+func (FileTaskStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileTaskStep)(nil)).Elem()
+}
+
+func (i FileTaskStepArgs) ToFileTaskStepOutput() FileTaskStepOutput {
+	return i.ToFileTaskStepOutputWithContext(context.Background())
+}
+
+func (i FileTaskStepArgs) ToFileTaskStepOutputWithContext(ctx context.Context) FileTaskStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileTaskStepOutput)
+}
+
+// The properties of a task step.
+type FileTaskStepOutput struct{ *pulumi.OutputState }
+
+func (FileTaskStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileTaskStep)(nil)).Elem()
+}
+
+func (o FileTaskStepOutput) ToFileTaskStepOutput() FileTaskStepOutput {
+	return o
+}
+
+func (o FileTaskStepOutput) ToFileTaskStepOutputWithContext(ctx context.Context) FileTaskStepOutput {
+	return o
+}
+
+// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+func (o FileTaskStepOutput) ContextAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskStep) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The URL(absolute or relative) of the source context for the task step.
+func (o FileTaskStepOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskStep) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// The task template/definition file path relative to the source context.
+func (o FileTaskStepOutput) TaskFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v FileTaskStep) string { return v.TaskFilePath }).(pulumi.StringOutput)
+}
+
+// The type of the step.
+func (o FileTaskStepOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FileTaskStep) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The collection of overridable values that can be passed when running a task.
+func (o FileTaskStepOutput) Values() SetValueArrayOutput {
+	return o.ApplyT(func(v FileTaskStep) []SetValue { return v.Values }).(SetValueArrayOutput)
+}
+
+// The task values/parameters file path relative to the source context.
+func (o FileTaskStepOutput) ValuesFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskStep) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
+}
+
 // The properties of a task step.
 type FileTaskStepResponse struct {
 	// List of base image dependencies for a step.
@@ -3784,6 +6563,1093 @@ func (o IdentityPropertiesResponsePtrOutput) UserAssignedIdentities() UserIdenti
 	}).(UserIdentityPropertiesResponseMapOutput)
 }
 
+// Properties for a registry image.
+type ImageDescriptorResponse struct {
+	// The sha256-based digest of the image manifest.
+	Digest *string `pulumi:"digest"`
+	// The registry login server.
+	Registry *string `pulumi:"registry"`
+	// The repository name.
+	Repository *string `pulumi:"repository"`
+	// The tag name.
+	Tag *string `pulumi:"tag"`
+}
+
+// ImageDescriptorResponseInput is an input type that accepts ImageDescriptorResponseArgs and ImageDescriptorResponseOutput values.
+// You can construct a concrete instance of `ImageDescriptorResponseInput` via:
+//
+//          ImageDescriptorResponseArgs{...}
+type ImageDescriptorResponseInput interface {
+	pulumi.Input
+
+	ToImageDescriptorResponseOutput() ImageDescriptorResponseOutput
+	ToImageDescriptorResponseOutputWithContext(context.Context) ImageDescriptorResponseOutput
+}
+
+// Properties for a registry image.
+type ImageDescriptorResponseArgs struct {
+	// The sha256-based digest of the image manifest.
+	Digest pulumi.StringPtrInput `pulumi:"digest"`
+	// The registry login server.
+	Registry pulumi.StringPtrInput `pulumi:"registry"`
+	// The repository name.
+	Repository pulumi.StringPtrInput `pulumi:"repository"`
+	// The tag name.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+}
+
+func (ImageDescriptorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageDescriptorResponse)(nil)).Elem()
+}
+
+func (i ImageDescriptorResponseArgs) ToImageDescriptorResponseOutput() ImageDescriptorResponseOutput {
+	return i.ToImageDescriptorResponseOutputWithContext(context.Background())
+}
+
+func (i ImageDescriptorResponseArgs) ToImageDescriptorResponseOutputWithContext(ctx context.Context) ImageDescriptorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDescriptorResponseOutput)
+}
+
+func (i ImageDescriptorResponseArgs) ToImageDescriptorResponsePtrOutput() ImageDescriptorResponsePtrOutput {
+	return i.ToImageDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ImageDescriptorResponseArgs) ToImageDescriptorResponsePtrOutputWithContext(ctx context.Context) ImageDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDescriptorResponseOutput).ToImageDescriptorResponsePtrOutputWithContext(ctx)
+}
+
+// ImageDescriptorResponsePtrInput is an input type that accepts ImageDescriptorResponseArgs, ImageDescriptorResponsePtr and ImageDescriptorResponsePtrOutput values.
+// You can construct a concrete instance of `ImageDescriptorResponsePtrInput` via:
+//
+//          ImageDescriptorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageDescriptorResponsePtrInput interface {
+	pulumi.Input
+
+	ToImageDescriptorResponsePtrOutput() ImageDescriptorResponsePtrOutput
+	ToImageDescriptorResponsePtrOutputWithContext(context.Context) ImageDescriptorResponsePtrOutput
+}
+
+type imageDescriptorResponsePtrType ImageDescriptorResponseArgs
+
+func ImageDescriptorResponsePtr(v *ImageDescriptorResponseArgs) ImageDescriptorResponsePtrInput {
+	return (*imageDescriptorResponsePtrType)(v)
+}
+
+func (*imageDescriptorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageDescriptorResponse)(nil)).Elem()
+}
+
+func (i *imageDescriptorResponsePtrType) ToImageDescriptorResponsePtrOutput() ImageDescriptorResponsePtrOutput {
+	return i.ToImageDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *imageDescriptorResponsePtrType) ToImageDescriptorResponsePtrOutputWithContext(ctx context.Context) ImageDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDescriptorResponsePtrOutput)
+}
+
+// ImageDescriptorResponseArrayInput is an input type that accepts ImageDescriptorResponseArray and ImageDescriptorResponseArrayOutput values.
+// You can construct a concrete instance of `ImageDescriptorResponseArrayInput` via:
+//
+//          ImageDescriptorResponseArray{ ImageDescriptorResponseArgs{...} }
+type ImageDescriptorResponseArrayInput interface {
+	pulumi.Input
+
+	ToImageDescriptorResponseArrayOutput() ImageDescriptorResponseArrayOutput
+	ToImageDescriptorResponseArrayOutputWithContext(context.Context) ImageDescriptorResponseArrayOutput
+}
+
+type ImageDescriptorResponseArray []ImageDescriptorResponseInput
+
+func (ImageDescriptorResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageDescriptorResponse)(nil)).Elem()
+}
+
+func (i ImageDescriptorResponseArray) ToImageDescriptorResponseArrayOutput() ImageDescriptorResponseArrayOutput {
+	return i.ToImageDescriptorResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ImageDescriptorResponseArray) ToImageDescriptorResponseArrayOutputWithContext(ctx context.Context) ImageDescriptorResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDescriptorResponseArrayOutput)
+}
+
+// Properties for a registry image.
+type ImageDescriptorResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageDescriptorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageDescriptorResponse)(nil)).Elem()
+}
+
+func (o ImageDescriptorResponseOutput) ToImageDescriptorResponseOutput() ImageDescriptorResponseOutput {
+	return o
+}
+
+func (o ImageDescriptorResponseOutput) ToImageDescriptorResponseOutputWithContext(ctx context.Context) ImageDescriptorResponseOutput {
+	return o
+}
+
+func (o ImageDescriptorResponseOutput) ToImageDescriptorResponsePtrOutput() ImageDescriptorResponsePtrOutput {
+	return o.ToImageDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ImageDescriptorResponseOutput) ToImageDescriptorResponsePtrOutputWithContext(ctx context.Context) ImageDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v ImageDescriptorResponse) *ImageDescriptorResponse {
+		return &v
+	}).(ImageDescriptorResponsePtrOutput)
+}
+
+// The sha256-based digest of the image manifest.
+func (o ImageDescriptorResponseOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageDescriptorResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
+}
+
+// The registry login server.
+func (o ImageDescriptorResponseOutput) Registry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageDescriptorResponse) *string { return v.Registry }).(pulumi.StringPtrOutput)
+}
+
+// The repository name.
+func (o ImageDescriptorResponseOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageDescriptorResponse) *string { return v.Repository }).(pulumi.StringPtrOutput)
+}
+
+// The tag name.
+func (o ImageDescriptorResponseOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageDescriptorResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+type ImageDescriptorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageDescriptorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageDescriptorResponse)(nil)).Elem()
+}
+
+func (o ImageDescriptorResponsePtrOutput) ToImageDescriptorResponsePtrOutput() ImageDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o ImageDescriptorResponsePtrOutput) ToImageDescriptorResponsePtrOutputWithContext(ctx context.Context) ImageDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o ImageDescriptorResponsePtrOutput) Elem() ImageDescriptorResponseOutput {
+	return o.ApplyT(func(v *ImageDescriptorResponse) ImageDescriptorResponse { return *v }).(ImageDescriptorResponseOutput)
+}
+
+// The sha256-based digest of the image manifest.
+func (o ImageDescriptorResponsePtrOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Digest
+	}).(pulumi.StringPtrOutput)
+}
+
+// The registry login server.
+func (o ImageDescriptorResponsePtrOutput) Registry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Registry
+	}).(pulumi.StringPtrOutput)
+}
+
+// The repository name.
+func (o ImageDescriptorResponsePtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Repository
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tag name.
+func (o ImageDescriptorResponsePtrOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageDescriptorResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageDescriptorResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageDescriptorResponse)(nil)).Elem()
+}
+
+func (o ImageDescriptorResponseArrayOutput) ToImageDescriptorResponseArrayOutput() ImageDescriptorResponseArrayOutput {
+	return o
+}
+
+func (o ImageDescriptorResponseArrayOutput) ToImageDescriptorResponseArrayOutputWithContext(ctx context.Context) ImageDescriptorResponseArrayOutput {
+	return o
+}
+
+func (o ImageDescriptorResponseArrayOutput) Index(i pulumi.IntInput) ImageDescriptorResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageDescriptorResponse {
+		return vs[0].([]ImageDescriptorResponse)[vs[1].(int)]
+	}).(ImageDescriptorResponseOutput)
+}
+
+// The image update trigger that caused a build.
+type ImageUpdateTriggerResponse struct {
+	// The unique ID of the trigger.
+	Id *string `pulumi:"id"`
+	// The list of image updates that caused the build.
+	Images []ImageDescriptorResponse `pulumi:"images"`
+	// The timestamp when the image update happened.
+	Timestamp *string `pulumi:"timestamp"`
+}
+
+// ImageUpdateTriggerResponseInput is an input type that accepts ImageUpdateTriggerResponseArgs and ImageUpdateTriggerResponseOutput values.
+// You can construct a concrete instance of `ImageUpdateTriggerResponseInput` via:
+//
+//          ImageUpdateTriggerResponseArgs{...}
+type ImageUpdateTriggerResponseInput interface {
+	pulumi.Input
+
+	ToImageUpdateTriggerResponseOutput() ImageUpdateTriggerResponseOutput
+	ToImageUpdateTriggerResponseOutputWithContext(context.Context) ImageUpdateTriggerResponseOutput
+}
+
+// The image update trigger that caused a build.
+type ImageUpdateTriggerResponseArgs struct {
+	// The unique ID of the trigger.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The list of image updates that caused the build.
+	Images ImageDescriptorResponseArrayInput `pulumi:"images"`
+	// The timestamp when the image update happened.
+	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
+}
+
+func (ImageUpdateTriggerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageUpdateTriggerResponse)(nil)).Elem()
+}
+
+func (i ImageUpdateTriggerResponseArgs) ToImageUpdateTriggerResponseOutput() ImageUpdateTriggerResponseOutput {
+	return i.ToImageUpdateTriggerResponseOutputWithContext(context.Background())
+}
+
+func (i ImageUpdateTriggerResponseArgs) ToImageUpdateTriggerResponseOutputWithContext(ctx context.Context) ImageUpdateTriggerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageUpdateTriggerResponseOutput)
+}
+
+func (i ImageUpdateTriggerResponseArgs) ToImageUpdateTriggerResponsePtrOutput() ImageUpdateTriggerResponsePtrOutput {
+	return i.ToImageUpdateTriggerResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ImageUpdateTriggerResponseArgs) ToImageUpdateTriggerResponsePtrOutputWithContext(ctx context.Context) ImageUpdateTriggerResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageUpdateTriggerResponseOutput).ToImageUpdateTriggerResponsePtrOutputWithContext(ctx)
+}
+
+// ImageUpdateTriggerResponsePtrInput is an input type that accepts ImageUpdateTriggerResponseArgs, ImageUpdateTriggerResponsePtr and ImageUpdateTriggerResponsePtrOutput values.
+// You can construct a concrete instance of `ImageUpdateTriggerResponsePtrInput` via:
+//
+//          ImageUpdateTriggerResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageUpdateTriggerResponsePtrInput interface {
+	pulumi.Input
+
+	ToImageUpdateTriggerResponsePtrOutput() ImageUpdateTriggerResponsePtrOutput
+	ToImageUpdateTriggerResponsePtrOutputWithContext(context.Context) ImageUpdateTriggerResponsePtrOutput
+}
+
+type imageUpdateTriggerResponsePtrType ImageUpdateTriggerResponseArgs
+
+func ImageUpdateTriggerResponsePtr(v *ImageUpdateTriggerResponseArgs) ImageUpdateTriggerResponsePtrInput {
+	return (*imageUpdateTriggerResponsePtrType)(v)
+}
+
+func (*imageUpdateTriggerResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageUpdateTriggerResponse)(nil)).Elem()
+}
+
+func (i *imageUpdateTriggerResponsePtrType) ToImageUpdateTriggerResponsePtrOutput() ImageUpdateTriggerResponsePtrOutput {
+	return i.ToImageUpdateTriggerResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *imageUpdateTriggerResponsePtrType) ToImageUpdateTriggerResponsePtrOutputWithContext(ctx context.Context) ImageUpdateTriggerResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageUpdateTriggerResponsePtrOutput)
+}
+
+// The image update trigger that caused a build.
+type ImageUpdateTriggerResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageUpdateTriggerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageUpdateTriggerResponse)(nil)).Elem()
+}
+
+func (o ImageUpdateTriggerResponseOutput) ToImageUpdateTriggerResponseOutput() ImageUpdateTriggerResponseOutput {
+	return o
+}
+
+func (o ImageUpdateTriggerResponseOutput) ToImageUpdateTriggerResponseOutputWithContext(ctx context.Context) ImageUpdateTriggerResponseOutput {
+	return o
+}
+
+func (o ImageUpdateTriggerResponseOutput) ToImageUpdateTriggerResponsePtrOutput() ImageUpdateTriggerResponsePtrOutput {
+	return o.ToImageUpdateTriggerResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ImageUpdateTriggerResponseOutput) ToImageUpdateTriggerResponsePtrOutputWithContext(ctx context.Context) ImageUpdateTriggerResponsePtrOutput {
+	return o.ApplyT(func(v ImageUpdateTriggerResponse) *ImageUpdateTriggerResponse {
+		return &v
+	}).(ImageUpdateTriggerResponsePtrOutput)
+}
+
+// The unique ID of the trigger.
+func (o ImageUpdateTriggerResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageUpdateTriggerResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The list of image updates that caused the build.
+func (o ImageUpdateTriggerResponseOutput) Images() ImageDescriptorResponseArrayOutput {
+	return o.ApplyT(func(v ImageUpdateTriggerResponse) []ImageDescriptorResponse { return v.Images }).(ImageDescriptorResponseArrayOutput)
+}
+
+// The timestamp when the image update happened.
+func (o ImageUpdateTriggerResponseOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageUpdateTriggerResponse) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
+}
+
+type ImageUpdateTriggerResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageUpdateTriggerResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageUpdateTriggerResponse)(nil)).Elem()
+}
+
+func (o ImageUpdateTriggerResponsePtrOutput) ToImageUpdateTriggerResponsePtrOutput() ImageUpdateTriggerResponsePtrOutput {
+	return o
+}
+
+func (o ImageUpdateTriggerResponsePtrOutput) ToImageUpdateTriggerResponsePtrOutputWithContext(ctx context.Context) ImageUpdateTriggerResponsePtrOutput {
+	return o
+}
+
+func (o ImageUpdateTriggerResponsePtrOutput) Elem() ImageUpdateTriggerResponseOutput {
+	return o.ApplyT(func(v *ImageUpdateTriggerResponse) ImageUpdateTriggerResponse { return *v }).(ImageUpdateTriggerResponseOutput)
+}
+
+// The unique ID of the trigger.
+func (o ImageUpdateTriggerResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageUpdateTriggerResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of image updates that caused the build.
+func (o ImageUpdateTriggerResponsePtrOutput) Images() ImageDescriptorResponseArrayOutput {
+	return o.ApplyT(func(v *ImageUpdateTriggerResponse) []ImageDescriptorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Images
+	}).(ImageDescriptorResponseArrayOutput)
+}
+
+// The timestamp when the image update happened.
+func (o ImageUpdateTriggerResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageUpdateTriggerResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the import pipeline source.
+type ImportPipelineSourceProperties struct {
+	// They key vault secret uri to obtain the source storage SAS token.
+	KeyVaultUri string `pulumi:"keyVaultUri"`
+	// The type of source for the import pipeline.
+	Type *string `pulumi:"type"`
+	// The source uri of the import pipeline.
+	// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+	// When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+	Uri *string `pulumi:"uri"`
+}
+
+// ImportPipelineSourcePropertiesInput is an input type that accepts ImportPipelineSourcePropertiesArgs and ImportPipelineSourcePropertiesOutput values.
+// You can construct a concrete instance of `ImportPipelineSourcePropertiesInput` via:
+//
+//          ImportPipelineSourcePropertiesArgs{...}
+type ImportPipelineSourcePropertiesInput interface {
+	pulumi.Input
+
+	ToImportPipelineSourcePropertiesOutput() ImportPipelineSourcePropertiesOutput
+	ToImportPipelineSourcePropertiesOutputWithContext(context.Context) ImportPipelineSourcePropertiesOutput
+}
+
+// The properties of the import pipeline source.
+type ImportPipelineSourcePropertiesArgs struct {
+	// They key vault secret uri to obtain the source storage SAS token.
+	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
+	// The type of source for the import pipeline.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The source uri of the import pipeline.
+	// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+	// When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ImportPipelineSourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImportPipelineSourceProperties)(nil)).Elem()
+}
+
+func (i ImportPipelineSourcePropertiesArgs) ToImportPipelineSourcePropertiesOutput() ImportPipelineSourcePropertiesOutput {
+	return i.ToImportPipelineSourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i ImportPipelineSourcePropertiesArgs) ToImportPipelineSourcePropertiesOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineSourcePropertiesOutput)
+}
+
+func (i ImportPipelineSourcePropertiesArgs) ToImportPipelineSourcePropertiesPtrOutput() ImportPipelineSourcePropertiesPtrOutput {
+	return i.ToImportPipelineSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ImportPipelineSourcePropertiesArgs) ToImportPipelineSourcePropertiesPtrOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineSourcePropertiesOutput).ToImportPipelineSourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// ImportPipelineSourcePropertiesPtrInput is an input type that accepts ImportPipelineSourcePropertiesArgs, ImportPipelineSourcePropertiesPtr and ImportPipelineSourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `ImportPipelineSourcePropertiesPtrInput` via:
+//
+//          ImportPipelineSourcePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ImportPipelineSourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToImportPipelineSourcePropertiesPtrOutput() ImportPipelineSourcePropertiesPtrOutput
+	ToImportPipelineSourcePropertiesPtrOutputWithContext(context.Context) ImportPipelineSourcePropertiesPtrOutput
+}
+
+type importPipelineSourcePropertiesPtrType ImportPipelineSourcePropertiesArgs
+
+func ImportPipelineSourcePropertiesPtr(v *ImportPipelineSourcePropertiesArgs) ImportPipelineSourcePropertiesPtrInput {
+	return (*importPipelineSourcePropertiesPtrType)(v)
+}
+
+func (*importPipelineSourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImportPipelineSourceProperties)(nil)).Elem()
+}
+
+func (i *importPipelineSourcePropertiesPtrType) ToImportPipelineSourcePropertiesPtrOutput() ImportPipelineSourcePropertiesPtrOutput {
+	return i.ToImportPipelineSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *importPipelineSourcePropertiesPtrType) ToImportPipelineSourcePropertiesPtrOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineSourcePropertiesPtrOutput)
+}
+
+// The properties of the import pipeline source.
+type ImportPipelineSourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ImportPipelineSourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImportPipelineSourceProperties)(nil)).Elem()
+}
+
+func (o ImportPipelineSourcePropertiesOutput) ToImportPipelineSourcePropertiesOutput() ImportPipelineSourcePropertiesOutput {
+	return o
+}
+
+func (o ImportPipelineSourcePropertiesOutput) ToImportPipelineSourcePropertiesOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesOutput {
+	return o
+}
+
+func (o ImportPipelineSourcePropertiesOutput) ToImportPipelineSourcePropertiesPtrOutput() ImportPipelineSourcePropertiesPtrOutput {
+	return o.ToImportPipelineSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ImportPipelineSourcePropertiesOutput) ToImportPipelineSourcePropertiesPtrOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v ImportPipelineSourceProperties) *ImportPipelineSourceProperties {
+		return &v
+	}).(ImportPipelineSourcePropertiesPtrOutput)
+}
+
+// They key vault secret uri to obtain the source storage SAS token.
+func (o ImportPipelineSourcePropertiesOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ImportPipelineSourceProperties) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The type of source for the import pipeline.
+func (o ImportPipelineSourcePropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImportPipelineSourceProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The source uri of the import pipeline.
+// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+// When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+func (o ImportPipelineSourcePropertiesOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImportPipelineSourceProperties) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ImportPipelineSourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ImportPipelineSourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImportPipelineSourceProperties)(nil)).Elem()
+}
+
+func (o ImportPipelineSourcePropertiesPtrOutput) ToImportPipelineSourcePropertiesPtrOutput() ImportPipelineSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o ImportPipelineSourcePropertiesPtrOutput) ToImportPipelineSourcePropertiesPtrOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o ImportPipelineSourcePropertiesPtrOutput) Elem() ImportPipelineSourcePropertiesOutput {
+	return o.ApplyT(func(v *ImportPipelineSourceProperties) ImportPipelineSourceProperties { return *v }).(ImportPipelineSourcePropertiesOutput)
+}
+
+// They key vault secret uri to obtain the source storage SAS token.
+func (o ImportPipelineSourcePropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImportPipelineSourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of source for the import pipeline.
+func (o ImportPipelineSourcePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImportPipelineSourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source uri of the import pipeline.
+// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+// When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+func (o ImportPipelineSourcePropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImportPipelineSourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the import pipeline source.
+type ImportPipelineSourcePropertiesResponse struct {
+	// They key vault secret uri to obtain the source storage SAS token.
+	KeyVaultUri string `pulumi:"keyVaultUri"`
+	// The type of source for the import pipeline.
+	Type *string `pulumi:"type"`
+	// The source uri of the import pipeline.
+	// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+	// When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+	Uri *string `pulumi:"uri"`
+}
+
+// ImportPipelineSourcePropertiesResponseInput is an input type that accepts ImportPipelineSourcePropertiesResponseArgs and ImportPipelineSourcePropertiesResponseOutput values.
+// You can construct a concrete instance of `ImportPipelineSourcePropertiesResponseInput` via:
+//
+//          ImportPipelineSourcePropertiesResponseArgs{...}
+type ImportPipelineSourcePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToImportPipelineSourcePropertiesResponseOutput() ImportPipelineSourcePropertiesResponseOutput
+	ToImportPipelineSourcePropertiesResponseOutputWithContext(context.Context) ImportPipelineSourcePropertiesResponseOutput
+}
+
+// The properties of the import pipeline source.
+type ImportPipelineSourcePropertiesResponseArgs struct {
+	// They key vault secret uri to obtain the source storage SAS token.
+	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
+	// The type of source for the import pipeline.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The source uri of the import pipeline.
+	// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+	// When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ImportPipelineSourcePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImportPipelineSourcePropertiesResponse)(nil)).Elem()
+}
+
+func (i ImportPipelineSourcePropertiesResponseArgs) ToImportPipelineSourcePropertiesResponseOutput() ImportPipelineSourcePropertiesResponseOutput {
+	return i.ToImportPipelineSourcePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ImportPipelineSourcePropertiesResponseArgs) ToImportPipelineSourcePropertiesResponseOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineSourcePropertiesResponseOutput)
+}
+
+func (i ImportPipelineSourcePropertiesResponseArgs) ToImportPipelineSourcePropertiesResponsePtrOutput() ImportPipelineSourcePropertiesResponsePtrOutput {
+	return i.ToImportPipelineSourcePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ImportPipelineSourcePropertiesResponseArgs) ToImportPipelineSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineSourcePropertiesResponseOutput).ToImportPipelineSourcePropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ImportPipelineSourcePropertiesResponsePtrInput is an input type that accepts ImportPipelineSourcePropertiesResponseArgs, ImportPipelineSourcePropertiesResponsePtr and ImportPipelineSourcePropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ImportPipelineSourcePropertiesResponsePtrInput` via:
+//
+//          ImportPipelineSourcePropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ImportPipelineSourcePropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToImportPipelineSourcePropertiesResponsePtrOutput() ImportPipelineSourcePropertiesResponsePtrOutput
+	ToImportPipelineSourcePropertiesResponsePtrOutputWithContext(context.Context) ImportPipelineSourcePropertiesResponsePtrOutput
+}
+
+type importPipelineSourcePropertiesResponsePtrType ImportPipelineSourcePropertiesResponseArgs
+
+func ImportPipelineSourcePropertiesResponsePtr(v *ImportPipelineSourcePropertiesResponseArgs) ImportPipelineSourcePropertiesResponsePtrInput {
+	return (*importPipelineSourcePropertiesResponsePtrType)(v)
+}
+
+func (*importPipelineSourcePropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImportPipelineSourcePropertiesResponse)(nil)).Elem()
+}
+
+func (i *importPipelineSourcePropertiesResponsePtrType) ToImportPipelineSourcePropertiesResponsePtrOutput() ImportPipelineSourcePropertiesResponsePtrOutput {
+	return i.ToImportPipelineSourcePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *importPipelineSourcePropertiesResponsePtrType) ToImportPipelineSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineSourcePropertiesResponsePtrOutput)
+}
+
+// The properties of the import pipeline source.
+type ImportPipelineSourcePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ImportPipelineSourcePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImportPipelineSourcePropertiesResponse)(nil)).Elem()
+}
+
+func (o ImportPipelineSourcePropertiesResponseOutput) ToImportPipelineSourcePropertiesResponseOutput() ImportPipelineSourcePropertiesResponseOutput {
+	return o
+}
+
+func (o ImportPipelineSourcePropertiesResponseOutput) ToImportPipelineSourcePropertiesResponseOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesResponseOutput {
+	return o
+}
+
+func (o ImportPipelineSourcePropertiesResponseOutput) ToImportPipelineSourcePropertiesResponsePtrOutput() ImportPipelineSourcePropertiesResponsePtrOutput {
+	return o.ToImportPipelineSourcePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ImportPipelineSourcePropertiesResponseOutput) ToImportPipelineSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ImportPipelineSourcePropertiesResponse) *ImportPipelineSourcePropertiesResponse {
+		return &v
+	}).(ImportPipelineSourcePropertiesResponsePtrOutput)
+}
+
+// They key vault secret uri to obtain the source storage SAS token.
+func (o ImportPipelineSourcePropertiesResponseOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ImportPipelineSourcePropertiesResponse) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The type of source for the import pipeline.
+func (o ImportPipelineSourcePropertiesResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImportPipelineSourcePropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The source uri of the import pipeline.
+// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+// When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+func (o ImportPipelineSourcePropertiesResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImportPipelineSourcePropertiesResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ImportPipelineSourcePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImportPipelineSourcePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImportPipelineSourcePropertiesResponse)(nil)).Elem()
+}
+
+func (o ImportPipelineSourcePropertiesResponsePtrOutput) ToImportPipelineSourcePropertiesResponsePtrOutput() ImportPipelineSourcePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ImportPipelineSourcePropertiesResponsePtrOutput) ToImportPipelineSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ImportPipelineSourcePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ImportPipelineSourcePropertiesResponsePtrOutput) Elem() ImportPipelineSourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *ImportPipelineSourcePropertiesResponse) ImportPipelineSourcePropertiesResponse { return *v }).(ImportPipelineSourcePropertiesResponseOutput)
+}
+
+// They key vault secret uri to obtain the source storage SAS token.
+func (o ImportPipelineSourcePropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImportPipelineSourcePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of source for the import pipeline.
+func (o ImportPipelineSourcePropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImportPipelineSourcePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source uri of the import pipeline.
+// When 'AzureStorageBlob': "https://accountName.blob.core.windows.net/containerName/blobName"
+// When 'AzureStorageBlobContainer': "https://accountName.blob.core.windows.net/containerName"
+func (o ImportPipelineSourcePropertiesResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImportPipelineSourcePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultProperties struct {
+	// The client id of the identity which will be used to access key vault.
+	Identity *string `pulumi:"identity"`
+	// Key vault uri to access the encryption key.
+	KeyIdentifier *string `pulumi:"keyIdentifier"`
+}
+
+// KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesInput` via:
+//
+//          KeyVaultPropertiesArgs{...}
+type KeyVaultPropertiesInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput
+	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
+}
+
+type KeyVaultPropertiesArgs struct {
+	// The client id of the identity which will be used to access key vault.
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// Key vault uri to access the encryption key.
+	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
+}
+
+func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
+	return i.ToKeyVaultPropertiesOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput)
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput).ToKeyVaultPropertiesPtrOutputWithContext(ctx)
+}
+
+// KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
+//
+//          KeyVaultPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput
+	ToKeyVaultPropertiesPtrOutputWithContext(context.Context) KeyVaultPropertiesPtrOutput
+}
+
+type keyVaultPropertiesPtrType KeyVaultPropertiesArgs
+
+func KeyVaultPropertiesPtr(v *KeyVaultPropertiesArgs) KeyVaultPropertiesPtrInput {
+	return (*keyVaultPropertiesPtrType)(v)
+}
+
+func (*keyVaultPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
+}
+
+func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
+}
+
+type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return o.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+		return &v
+	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// The client id of the identity which will be used to access key vault.
+func (o KeyVaultPropertiesOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// Key vault uri to access the encryption key.
+func (o KeyVaultPropertiesOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+}
+
+// The client id of the identity which will be used to access key vault.
+func (o KeyVaultPropertiesPtrOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key vault uri to access the encryption key.
+func (o KeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesResponse struct {
+	// The client id of the identity which will be used to access key vault.
+	Identity *string `pulumi:"identity"`
+	// Key vault uri to access the encryption key.
+	KeyIdentifier *string `pulumi:"keyIdentifier"`
+	// The fully qualified key identifier that includes the version of the key that is actually used for encryption.
+	VersionedKeyIdentifier string `pulumi:"versionedKeyIdentifier"`
+}
+
+// KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesResponseInput` via:
+//
+//          KeyVaultPropertiesResponseArgs{...}
+type KeyVaultPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput
+	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
+}
+
+type KeyVaultPropertiesResponseArgs struct {
+	// The client id of the identity which will be used to access key vault.
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// Key vault uri to access the encryption key.
+	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
+	// The fully qualified key identifier that includes the version of the key that is actually used for encryption.
+	VersionedKeyIdentifier pulumi.StringInput `pulumi:"versionedKeyIdentifier"`
+}
+
+func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
+	return i.ToKeyVaultPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponseOutput)
+}
+
+func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
+	return i.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponseOutput).ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultPropertiesResponsePtrInput is an input type that accepts KeyVaultPropertiesResponseArgs, KeyVaultPropertiesResponsePtr and KeyVaultPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesResponsePtrInput` via:
+//
+//          KeyVaultPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput
+	ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Context) KeyVaultPropertiesResponsePtrOutput
+}
+
+type keyVaultPropertiesResponsePtrType KeyVaultPropertiesResponseArgs
+
+func KeyVaultPropertiesResponsePtr(v *KeyVaultPropertiesResponseArgs) KeyVaultPropertiesResponsePtrInput {
+	return (*keyVaultPropertiesResponsePtrType)(v)
+}
+
+func (*keyVaultPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
+	return i.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
+	return o.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+		return &v
+	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The client id of the identity which will be used to access key vault.
+func (o KeyVaultPropertiesResponseOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// Key vault uri to access the encryption key.
+func (o KeyVaultPropertiesResponseOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified key identifier that includes the version of the key that is actually used for encryption.
+func (o KeyVaultPropertiesResponseOutput) VersionedKeyIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.VersionedKeyIdentifier }).(pulumi.StringOutput)
+}
+
+type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+}
+
+// The client id of the identity which will be used to access key vault.
+func (o KeyVaultPropertiesResponsePtrOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key vault uri to access the encryption key.
+func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified key identifier that includes the version of the key that is actually used for encryption.
+func (o KeyVaultPropertiesResponsePtrOutput) VersionedKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VersionedKeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 // The network rule set for a container registry.
 type NetworkRuleSet struct {
 	// The default action of allow or deny when no other rules match.
@@ -4126,6 +7992,2605 @@ func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRul
 		}
 		return v.VirtualNetworkRules
 	}).(VirtualNetworkRuleResponseArrayOutput)
+}
+
+type OverrideTaskStepProperties struct {
+	// Gets or sets the collection of override arguments to be used when
+	// executing a build step.
+	Arguments []Argument `pulumi:"arguments"`
+	// The source context against which run has to be queued.
+	ContextPath *string `pulumi:"contextPath"`
+	// The file against which run has to be queued.
+	File *string `pulumi:"file"`
+	// The name of the target build stage for the docker build.
+	Target *string `pulumi:"target"`
+	// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+	UpdateTriggerToken *string `pulumi:"updateTriggerToken"`
+	// The collection of overridable values that can be passed when running a Task.
+	Values []SetValue `pulumi:"values"`
+}
+
+// OverrideTaskStepPropertiesInput is an input type that accepts OverrideTaskStepPropertiesArgs and OverrideTaskStepPropertiesOutput values.
+// You can construct a concrete instance of `OverrideTaskStepPropertiesInput` via:
+//
+//          OverrideTaskStepPropertiesArgs{...}
+type OverrideTaskStepPropertiesInput interface {
+	pulumi.Input
+
+	ToOverrideTaskStepPropertiesOutput() OverrideTaskStepPropertiesOutput
+	ToOverrideTaskStepPropertiesOutputWithContext(context.Context) OverrideTaskStepPropertiesOutput
+}
+
+type OverrideTaskStepPropertiesArgs struct {
+	// Gets or sets the collection of override arguments to be used when
+	// executing a build step.
+	Arguments ArgumentArrayInput `pulumi:"arguments"`
+	// The source context against which run has to be queued.
+	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+	// The file against which run has to be queued.
+	File pulumi.StringPtrInput `pulumi:"file"`
+	// The name of the target build stage for the docker build.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+	UpdateTriggerToken pulumi.StringPtrInput `pulumi:"updateTriggerToken"`
+	// The collection of overridable values that can be passed when running a Task.
+	Values SetValueArrayInput `pulumi:"values"`
+}
+
+func (OverrideTaskStepPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OverrideTaskStepProperties)(nil)).Elem()
+}
+
+func (i OverrideTaskStepPropertiesArgs) ToOverrideTaskStepPropertiesOutput() OverrideTaskStepPropertiesOutput {
+	return i.ToOverrideTaskStepPropertiesOutputWithContext(context.Background())
+}
+
+func (i OverrideTaskStepPropertiesArgs) ToOverrideTaskStepPropertiesOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OverrideTaskStepPropertiesOutput)
+}
+
+func (i OverrideTaskStepPropertiesArgs) ToOverrideTaskStepPropertiesPtrOutput() OverrideTaskStepPropertiesPtrOutput {
+	return i.ToOverrideTaskStepPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OverrideTaskStepPropertiesArgs) ToOverrideTaskStepPropertiesPtrOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OverrideTaskStepPropertiesOutput).ToOverrideTaskStepPropertiesPtrOutputWithContext(ctx)
+}
+
+// OverrideTaskStepPropertiesPtrInput is an input type that accepts OverrideTaskStepPropertiesArgs, OverrideTaskStepPropertiesPtr and OverrideTaskStepPropertiesPtrOutput values.
+// You can construct a concrete instance of `OverrideTaskStepPropertiesPtrInput` via:
+//
+//          OverrideTaskStepPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type OverrideTaskStepPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOverrideTaskStepPropertiesPtrOutput() OverrideTaskStepPropertiesPtrOutput
+	ToOverrideTaskStepPropertiesPtrOutputWithContext(context.Context) OverrideTaskStepPropertiesPtrOutput
+}
+
+type overrideTaskStepPropertiesPtrType OverrideTaskStepPropertiesArgs
+
+func OverrideTaskStepPropertiesPtr(v *OverrideTaskStepPropertiesArgs) OverrideTaskStepPropertiesPtrInput {
+	return (*overrideTaskStepPropertiesPtrType)(v)
+}
+
+func (*overrideTaskStepPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OverrideTaskStepProperties)(nil)).Elem()
+}
+
+func (i *overrideTaskStepPropertiesPtrType) ToOverrideTaskStepPropertiesPtrOutput() OverrideTaskStepPropertiesPtrOutput {
+	return i.ToOverrideTaskStepPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *overrideTaskStepPropertiesPtrType) ToOverrideTaskStepPropertiesPtrOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OverrideTaskStepPropertiesPtrOutput)
+}
+
+type OverrideTaskStepPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OverrideTaskStepPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OverrideTaskStepProperties)(nil)).Elem()
+}
+
+func (o OverrideTaskStepPropertiesOutput) ToOverrideTaskStepPropertiesOutput() OverrideTaskStepPropertiesOutput {
+	return o
+}
+
+func (o OverrideTaskStepPropertiesOutput) ToOverrideTaskStepPropertiesOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesOutput {
+	return o
+}
+
+func (o OverrideTaskStepPropertiesOutput) ToOverrideTaskStepPropertiesPtrOutput() OverrideTaskStepPropertiesPtrOutput {
+	return o.ToOverrideTaskStepPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OverrideTaskStepPropertiesOutput) ToOverrideTaskStepPropertiesPtrOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesPtrOutput {
+	return o.ApplyT(func(v OverrideTaskStepProperties) *OverrideTaskStepProperties {
+		return &v
+	}).(OverrideTaskStepPropertiesPtrOutput)
+}
+
+// Gets or sets the collection of override arguments to be used when
+// executing a build step.
+func (o OverrideTaskStepPropertiesOutput) Arguments() ArgumentArrayOutput {
+	return o.ApplyT(func(v OverrideTaskStepProperties) []Argument { return v.Arguments }).(ArgumentArrayOutput)
+}
+
+// The source context against which run has to be queued.
+func (o OverrideTaskStepPropertiesOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OverrideTaskStepProperties) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// The file against which run has to be queued.
+func (o OverrideTaskStepPropertiesOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OverrideTaskStepProperties) *string { return v.File }).(pulumi.StringPtrOutput)
+}
+
+// The name of the target build stage for the docker build.
+func (o OverrideTaskStepPropertiesOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OverrideTaskStepProperties) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+func (o OverrideTaskStepPropertiesOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OverrideTaskStepProperties) *string { return v.UpdateTriggerToken }).(pulumi.StringPtrOutput)
+}
+
+// The collection of overridable values that can be passed when running a Task.
+func (o OverrideTaskStepPropertiesOutput) Values() SetValueArrayOutput {
+	return o.ApplyT(func(v OverrideTaskStepProperties) []SetValue { return v.Values }).(SetValueArrayOutput)
+}
+
+type OverrideTaskStepPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OverrideTaskStepPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OverrideTaskStepProperties)(nil)).Elem()
+}
+
+func (o OverrideTaskStepPropertiesPtrOutput) ToOverrideTaskStepPropertiesPtrOutput() OverrideTaskStepPropertiesPtrOutput {
+	return o
+}
+
+func (o OverrideTaskStepPropertiesPtrOutput) ToOverrideTaskStepPropertiesPtrOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesPtrOutput {
+	return o
+}
+
+func (o OverrideTaskStepPropertiesPtrOutput) Elem() OverrideTaskStepPropertiesOutput {
+	return o.ApplyT(func(v *OverrideTaskStepProperties) OverrideTaskStepProperties { return *v }).(OverrideTaskStepPropertiesOutput)
+}
+
+// Gets or sets the collection of override arguments to be used when
+// executing a build step.
+func (o OverrideTaskStepPropertiesPtrOutput) Arguments() ArgumentArrayOutput {
+	return o.ApplyT(func(v *OverrideTaskStepProperties) []Argument {
+		if v == nil {
+			return nil
+		}
+		return v.Arguments
+	}).(ArgumentArrayOutput)
+}
+
+// The source context against which run has to be queued.
+func (o OverrideTaskStepPropertiesPtrOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OverrideTaskStepProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The file against which run has to be queued.
+func (o OverrideTaskStepPropertiesPtrOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OverrideTaskStepProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the target build stage for the docker build.
+func (o OverrideTaskStepPropertiesPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OverrideTaskStepProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+func (o OverrideTaskStepPropertiesPtrOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OverrideTaskStepProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTriggerToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The collection of overridable values that can be passed when running a Task.
+func (o OverrideTaskStepPropertiesPtrOutput) Values() SetValueArrayOutput {
+	return o.ApplyT(func(v *OverrideTaskStepProperties) []SetValue {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(SetValueArrayOutput)
+}
+
+type OverrideTaskStepPropertiesResponse struct {
+	// Gets or sets the collection of override arguments to be used when
+	// executing a build step.
+	Arguments []ArgumentResponse `pulumi:"arguments"`
+	// The source context against which run has to be queued.
+	ContextPath *string `pulumi:"contextPath"`
+	// The file against which run has to be queued.
+	File *string `pulumi:"file"`
+	// The name of the target build stage for the docker build.
+	Target *string `pulumi:"target"`
+	// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+	UpdateTriggerToken *string `pulumi:"updateTriggerToken"`
+	// The collection of overridable values that can be passed when running a Task.
+	Values []SetValueResponse `pulumi:"values"`
+}
+
+// OverrideTaskStepPropertiesResponseInput is an input type that accepts OverrideTaskStepPropertiesResponseArgs and OverrideTaskStepPropertiesResponseOutput values.
+// You can construct a concrete instance of `OverrideTaskStepPropertiesResponseInput` via:
+//
+//          OverrideTaskStepPropertiesResponseArgs{...}
+type OverrideTaskStepPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToOverrideTaskStepPropertiesResponseOutput() OverrideTaskStepPropertiesResponseOutput
+	ToOverrideTaskStepPropertiesResponseOutputWithContext(context.Context) OverrideTaskStepPropertiesResponseOutput
+}
+
+type OverrideTaskStepPropertiesResponseArgs struct {
+	// Gets or sets the collection of override arguments to be used when
+	// executing a build step.
+	Arguments ArgumentResponseArrayInput `pulumi:"arguments"`
+	// The source context against which run has to be queued.
+	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+	// The file against which run has to be queued.
+	File pulumi.StringPtrInput `pulumi:"file"`
+	// The name of the target build stage for the docker build.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+	UpdateTriggerToken pulumi.StringPtrInput `pulumi:"updateTriggerToken"`
+	// The collection of overridable values that can be passed when running a Task.
+	Values SetValueResponseArrayInput `pulumi:"values"`
+}
+
+func (OverrideTaskStepPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OverrideTaskStepPropertiesResponse)(nil)).Elem()
+}
+
+func (i OverrideTaskStepPropertiesResponseArgs) ToOverrideTaskStepPropertiesResponseOutput() OverrideTaskStepPropertiesResponseOutput {
+	return i.ToOverrideTaskStepPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i OverrideTaskStepPropertiesResponseArgs) ToOverrideTaskStepPropertiesResponseOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OverrideTaskStepPropertiesResponseOutput)
+}
+
+func (i OverrideTaskStepPropertiesResponseArgs) ToOverrideTaskStepPropertiesResponsePtrOutput() OverrideTaskStepPropertiesResponsePtrOutput {
+	return i.ToOverrideTaskStepPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OverrideTaskStepPropertiesResponseArgs) ToOverrideTaskStepPropertiesResponsePtrOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OverrideTaskStepPropertiesResponseOutput).ToOverrideTaskStepPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// OverrideTaskStepPropertiesResponsePtrInput is an input type that accepts OverrideTaskStepPropertiesResponseArgs, OverrideTaskStepPropertiesResponsePtr and OverrideTaskStepPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `OverrideTaskStepPropertiesResponsePtrInput` via:
+//
+//          OverrideTaskStepPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OverrideTaskStepPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToOverrideTaskStepPropertiesResponsePtrOutput() OverrideTaskStepPropertiesResponsePtrOutput
+	ToOverrideTaskStepPropertiesResponsePtrOutputWithContext(context.Context) OverrideTaskStepPropertiesResponsePtrOutput
+}
+
+type overrideTaskStepPropertiesResponsePtrType OverrideTaskStepPropertiesResponseArgs
+
+func OverrideTaskStepPropertiesResponsePtr(v *OverrideTaskStepPropertiesResponseArgs) OverrideTaskStepPropertiesResponsePtrInput {
+	return (*overrideTaskStepPropertiesResponsePtrType)(v)
+}
+
+func (*overrideTaskStepPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OverrideTaskStepPropertiesResponse)(nil)).Elem()
+}
+
+func (i *overrideTaskStepPropertiesResponsePtrType) ToOverrideTaskStepPropertiesResponsePtrOutput() OverrideTaskStepPropertiesResponsePtrOutput {
+	return i.ToOverrideTaskStepPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *overrideTaskStepPropertiesResponsePtrType) ToOverrideTaskStepPropertiesResponsePtrOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OverrideTaskStepPropertiesResponsePtrOutput)
+}
+
+type OverrideTaskStepPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (OverrideTaskStepPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OverrideTaskStepPropertiesResponse)(nil)).Elem()
+}
+
+func (o OverrideTaskStepPropertiesResponseOutput) ToOverrideTaskStepPropertiesResponseOutput() OverrideTaskStepPropertiesResponseOutput {
+	return o
+}
+
+func (o OverrideTaskStepPropertiesResponseOutput) ToOverrideTaskStepPropertiesResponseOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesResponseOutput {
+	return o
+}
+
+func (o OverrideTaskStepPropertiesResponseOutput) ToOverrideTaskStepPropertiesResponsePtrOutput() OverrideTaskStepPropertiesResponsePtrOutput {
+	return o.ToOverrideTaskStepPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OverrideTaskStepPropertiesResponseOutput) ToOverrideTaskStepPropertiesResponsePtrOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) *OverrideTaskStepPropertiesResponse {
+		return &v
+	}).(OverrideTaskStepPropertiesResponsePtrOutput)
+}
+
+// Gets or sets the collection of override arguments to be used when
+// executing a build step.
+func (o OverrideTaskStepPropertiesResponseOutput) Arguments() ArgumentResponseArrayOutput {
+	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) []ArgumentResponse { return v.Arguments }).(ArgumentResponseArrayOutput)
+}
+
+// The source context against which run has to be queued.
+func (o OverrideTaskStepPropertiesResponseOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// The file against which run has to be queued.
+func (o OverrideTaskStepPropertiesResponseOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) *string { return v.File }).(pulumi.StringPtrOutput)
+}
+
+// The name of the target build stage for the docker build.
+func (o OverrideTaskStepPropertiesResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+func (o OverrideTaskStepPropertiesResponseOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) *string { return v.UpdateTriggerToken }).(pulumi.StringPtrOutput)
+}
+
+// The collection of overridable values that can be passed when running a Task.
+func (o OverrideTaskStepPropertiesResponseOutput) Values() SetValueResponseArrayOutput {
+	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
+}
+
+type OverrideTaskStepPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OverrideTaskStepPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OverrideTaskStepPropertiesResponse)(nil)).Elem()
+}
+
+func (o OverrideTaskStepPropertiesResponsePtrOutput) ToOverrideTaskStepPropertiesResponsePtrOutput() OverrideTaskStepPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o OverrideTaskStepPropertiesResponsePtrOutput) ToOverrideTaskStepPropertiesResponsePtrOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o OverrideTaskStepPropertiesResponsePtrOutput) Elem() OverrideTaskStepPropertiesResponseOutput {
+	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) OverrideTaskStepPropertiesResponse { return *v }).(OverrideTaskStepPropertiesResponseOutput)
+}
+
+// Gets or sets the collection of override arguments to be used when
+// executing a build step.
+func (o OverrideTaskStepPropertiesResponsePtrOutput) Arguments() ArgumentResponseArrayOutput {
+	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) []ArgumentResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Arguments
+	}).(ArgumentResponseArrayOutput)
+}
+
+// The source context against which run has to be queued.
+func (o OverrideTaskStepPropertiesResponsePtrOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The file against which run has to be queued.
+func (o OverrideTaskStepPropertiesResponsePtrOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the target build stage for the docker build.
+func (o OverrideTaskStepPropertiesResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+func (o OverrideTaskStepPropertiesResponsePtrOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTriggerToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The collection of overridable values that can be passed when running a Task.
+func (o OverrideTaskStepPropertiesResponsePtrOutput) Values() SetValueResponseArrayOutput {
+	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) []SetValueResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(SetValueResponseArrayOutput)
+}
+
+// The request properties provided for a pipeline run.
+type PipelineRunRequest struct {
+	// List of source artifacts to be transferred by the pipeline.
+	// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+	// Specify an image by tag ('hello-world:latest').
+	// Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+	Artifacts []string `pulumi:"artifacts"`
+	// The digest of the tar used to transfer the artifacts.
+	CatalogDigest *string `pulumi:"catalogDigest"`
+	// The resource ID of the pipeline to run.
+	PipelineResourceId *string `pulumi:"pipelineResourceId"`
+	// The source properties of the pipeline run.
+	Source *PipelineRunSourceProperties `pulumi:"source"`
+	// The target properties of the pipeline run.
+	Target *PipelineRunTargetProperties `pulumi:"target"`
+}
+
+// PipelineRunRequestInput is an input type that accepts PipelineRunRequestArgs and PipelineRunRequestOutput values.
+// You can construct a concrete instance of `PipelineRunRequestInput` via:
+//
+//          PipelineRunRequestArgs{...}
+type PipelineRunRequestInput interface {
+	pulumi.Input
+
+	ToPipelineRunRequestOutput() PipelineRunRequestOutput
+	ToPipelineRunRequestOutputWithContext(context.Context) PipelineRunRequestOutput
+}
+
+// The request properties provided for a pipeline run.
+type PipelineRunRequestArgs struct {
+	// List of source artifacts to be transferred by the pipeline.
+	// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+	// Specify an image by tag ('hello-world:latest').
+	// Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+	Artifacts pulumi.StringArrayInput `pulumi:"artifacts"`
+	// The digest of the tar used to transfer the artifacts.
+	CatalogDigest pulumi.StringPtrInput `pulumi:"catalogDigest"`
+	// The resource ID of the pipeline to run.
+	PipelineResourceId pulumi.StringPtrInput `pulumi:"pipelineResourceId"`
+	// The source properties of the pipeline run.
+	Source PipelineRunSourcePropertiesPtrInput `pulumi:"source"`
+	// The target properties of the pipeline run.
+	Target PipelineRunTargetPropertiesPtrInput `pulumi:"target"`
+}
+
+func (PipelineRunRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunRequest)(nil)).Elem()
+}
+
+func (i PipelineRunRequestArgs) ToPipelineRunRequestOutput() PipelineRunRequestOutput {
+	return i.ToPipelineRunRequestOutputWithContext(context.Background())
+}
+
+func (i PipelineRunRequestArgs) ToPipelineRunRequestOutputWithContext(ctx context.Context) PipelineRunRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunRequestOutput)
+}
+
+func (i PipelineRunRequestArgs) ToPipelineRunRequestPtrOutput() PipelineRunRequestPtrOutput {
+	return i.ToPipelineRunRequestPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineRunRequestArgs) ToPipelineRunRequestPtrOutputWithContext(ctx context.Context) PipelineRunRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunRequestOutput).ToPipelineRunRequestPtrOutputWithContext(ctx)
+}
+
+// PipelineRunRequestPtrInput is an input type that accepts PipelineRunRequestArgs, PipelineRunRequestPtr and PipelineRunRequestPtrOutput values.
+// You can construct a concrete instance of `PipelineRunRequestPtrInput` via:
+//
+//          PipelineRunRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineRunRequestPtrInput interface {
+	pulumi.Input
+
+	ToPipelineRunRequestPtrOutput() PipelineRunRequestPtrOutput
+	ToPipelineRunRequestPtrOutputWithContext(context.Context) PipelineRunRequestPtrOutput
+}
+
+type pipelineRunRequestPtrType PipelineRunRequestArgs
+
+func PipelineRunRequestPtr(v *PipelineRunRequestArgs) PipelineRunRequestPtrInput {
+	return (*pipelineRunRequestPtrType)(v)
+}
+
+func (*pipelineRunRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunRequest)(nil)).Elem()
+}
+
+func (i *pipelineRunRequestPtrType) ToPipelineRunRequestPtrOutput() PipelineRunRequestPtrOutput {
+	return i.ToPipelineRunRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineRunRequestPtrType) ToPipelineRunRequestPtrOutputWithContext(ctx context.Context) PipelineRunRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunRequestPtrOutput)
+}
+
+// The request properties provided for a pipeline run.
+type PipelineRunRequestOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunRequest)(nil)).Elem()
+}
+
+func (o PipelineRunRequestOutput) ToPipelineRunRequestOutput() PipelineRunRequestOutput {
+	return o
+}
+
+func (o PipelineRunRequestOutput) ToPipelineRunRequestOutputWithContext(ctx context.Context) PipelineRunRequestOutput {
+	return o
+}
+
+func (o PipelineRunRequestOutput) ToPipelineRunRequestPtrOutput() PipelineRunRequestPtrOutput {
+	return o.ToPipelineRunRequestPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineRunRequestOutput) ToPipelineRunRequestPtrOutputWithContext(ctx context.Context) PipelineRunRequestPtrOutput {
+	return o.ApplyT(func(v PipelineRunRequest) *PipelineRunRequest {
+		return &v
+	}).(PipelineRunRequestPtrOutput)
+}
+
+// List of source artifacts to be transferred by the pipeline.
+// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+// Specify an image by tag ('hello-world:latest').
+// Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+func (o PipelineRunRequestOutput) Artifacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineRunRequest) []string { return v.Artifacts }).(pulumi.StringArrayOutput)
+}
+
+// The digest of the tar used to transfer the artifacts.
+func (o PipelineRunRequestOutput) CatalogDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunRequest) *string { return v.CatalogDigest }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the pipeline to run.
+func (o PipelineRunRequestOutput) PipelineResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunRequest) *string { return v.PipelineResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The source properties of the pipeline run.
+func (o PipelineRunRequestOutput) Source() PipelineRunSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v PipelineRunRequest) *PipelineRunSourceProperties { return v.Source }).(PipelineRunSourcePropertiesPtrOutput)
+}
+
+// The target properties of the pipeline run.
+func (o PipelineRunRequestOutput) Target() PipelineRunTargetPropertiesPtrOutput {
+	return o.ApplyT(func(v PipelineRunRequest) *PipelineRunTargetProperties { return v.Target }).(PipelineRunTargetPropertiesPtrOutput)
+}
+
+type PipelineRunRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunRequest)(nil)).Elem()
+}
+
+func (o PipelineRunRequestPtrOutput) ToPipelineRunRequestPtrOutput() PipelineRunRequestPtrOutput {
+	return o
+}
+
+func (o PipelineRunRequestPtrOutput) ToPipelineRunRequestPtrOutputWithContext(ctx context.Context) PipelineRunRequestPtrOutput {
+	return o
+}
+
+func (o PipelineRunRequestPtrOutput) Elem() PipelineRunRequestOutput {
+	return o.ApplyT(func(v *PipelineRunRequest) PipelineRunRequest { return *v }).(PipelineRunRequestOutput)
+}
+
+// List of source artifacts to be transferred by the pipeline.
+// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+// Specify an image by tag ('hello-world:latest').
+// Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+func (o PipelineRunRequestPtrOutput) Artifacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineRunRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Artifacts
+	}).(pulumi.StringArrayOutput)
+}
+
+// The digest of the tar used to transfer the artifacts.
+func (o PipelineRunRequestPtrOutput) CatalogDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogDigest
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the pipeline to run.
+func (o PipelineRunRequestPtrOutput) PipelineResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source properties of the pipeline run.
+func (o PipelineRunRequestPtrOutput) Source() PipelineRunSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v *PipelineRunRequest) *PipelineRunSourceProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(PipelineRunSourcePropertiesPtrOutput)
+}
+
+// The target properties of the pipeline run.
+func (o PipelineRunRequestPtrOutput) Target() PipelineRunTargetPropertiesPtrOutput {
+	return o.ApplyT(func(v *PipelineRunRequest) *PipelineRunTargetProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(PipelineRunTargetPropertiesPtrOutput)
+}
+
+// The request properties provided for a pipeline run.
+type PipelineRunRequestResponse struct {
+	// List of source artifacts to be transferred by the pipeline.
+	// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+	// Specify an image by tag ('hello-world:latest').
+	// Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+	Artifacts []string `pulumi:"artifacts"`
+	// The digest of the tar used to transfer the artifacts.
+	CatalogDigest *string `pulumi:"catalogDigest"`
+	// The resource ID of the pipeline to run.
+	PipelineResourceId *string `pulumi:"pipelineResourceId"`
+	// The source properties of the pipeline run.
+	Source *PipelineRunSourcePropertiesResponse `pulumi:"source"`
+	// The target properties of the pipeline run.
+	Target *PipelineRunTargetPropertiesResponse `pulumi:"target"`
+}
+
+// PipelineRunRequestResponseInput is an input type that accepts PipelineRunRequestResponseArgs and PipelineRunRequestResponseOutput values.
+// You can construct a concrete instance of `PipelineRunRequestResponseInput` via:
+//
+//          PipelineRunRequestResponseArgs{...}
+type PipelineRunRequestResponseInput interface {
+	pulumi.Input
+
+	ToPipelineRunRequestResponseOutput() PipelineRunRequestResponseOutput
+	ToPipelineRunRequestResponseOutputWithContext(context.Context) PipelineRunRequestResponseOutput
+}
+
+// The request properties provided for a pipeline run.
+type PipelineRunRequestResponseArgs struct {
+	// List of source artifacts to be transferred by the pipeline.
+	// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+	// Specify an image by tag ('hello-world:latest').
+	// Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+	Artifacts pulumi.StringArrayInput `pulumi:"artifacts"`
+	// The digest of the tar used to transfer the artifacts.
+	CatalogDigest pulumi.StringPtrInput `pulumi:"catalogDigest"`
+	// The resource ID of the pipeline to run.
+	PipelineResourceId pulumi.StringPtrInput `pulumi:"pipelineResourceId"`
+	// The source properties of the pipeline run.
+	Source PipelineRunSourcePropertiesResponsePtrInput `pulumi:"source"`
+	// The target properties of the pipeline run.
+	Target PipelineRunTargetPropertiesResponsePtrInput `pulumi:"target"`
+}
+
+func (PipelineRunRequestResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunRequestResponse)(nil)).Elem()
+}
+
+func (i PipelineRunRequestResponseArgs) ToPipelineRunRequestResponseOutput() PipelineRunRequestResponseOutput {
+	return i.ToPipelineRunRequestResponseOutputWithContext(context.Background())
+}
+
+func (i PipelineRunRequestResponseArgs) ToPipelineRunRequestResponseOutputWithContext(ctx context.Context) PipelineRunRequestResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunRequestResponseOutput)
+}
+
+func (i PipelineRunRequestResponseArgs) ToPipelineRunRequestResponsePtrOutput() PipelineRunRequestResponsePtrOutput {
+	return i.ToPipelineRunRequestResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PipelineRunRequestResponseArgs) ToPipelineRunRequestResponsePtrOutputWithContext(ctx context.Context) PipelineRunRequestResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunRequestResponseOutput).ToPipelineRunRequestResponsePtrOutputWithContext(ctx)
+}
+
+// PipelineRunRequestResponsePtrInput is an input type that accepts PipelineRunRequestResponseArgs, PipelineRunRequestResponsePtr and PipelineRunRequestResponsePtrOutput values.
+// You can construct a concrete instance of `PipelineRunRequestResponsePtrInput` via:
+//
+//          PipelineRunRequestResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineRunRequestResponsePtrInput interface {
+	pulumi.Input
+
+	ToPipelineRunRequestResponsePtrOutput() PipelineRunRequestResponsePtrOutput
+	ToPipelineRunRequestResponsePtrOutputWithContext(context.Context) PipelineRunRequestResponsePtrOutput
+}
+
+type pipelineRunRequestResponsePtrType PipelineRunRequestResponseArgs
+
+func PipelineRunRequestResponsePtr(v *PipelineRunRequestResponseArgs) PipelineRunRequestResponsePtrInput {
+	return (*pipelineRunRequestResponsePtrType)(v)
+}
+
+func (*pipelineRunRequestResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunRequestResponse)(nil)).Elem()
+}
+
+func (i *pipelineRunRequestResponsePtrType) ToPipelineRunRequestResponsePtrOutput() PipelineRunRequestResponsePtrOutput {
+	return i.ToPipelineRunRequestResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineRunRequestResponsePtrType) ToPipelineRunRequestResponsePtrOutputWithContext(ctx context.Context) PipelineRunRequestResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunRequestResponsePtrOutput)
+}
+
+// The request properties provided for a pipeline run.
+type PipelineRunRequestResponseOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunRequestResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunRequestResponse)(nil)).Elem()
+}
+
+func (o PipelineRunRequestResponseOutput) ToPipelineRunRequestResponseOutput() PipelineRunRequestResponseOutput {
+	return o
+}
+
+func (o PipelineRunRequestResponseOutput) ToPipelineRunRequestResponseOutputWithContext(ctx context.Context) PipelineRunRequestResponseOutput {
+	return o
+}
+
+func (o PipelineRunRequestResponseOutput) ToPipelineRunRequestResponsePtrOutput() PipelineRunRequestResponsePtrOutput {
+	return o.ToPipelineRunRequestResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineRunRequestResponseOutput) ToPipelineRunRequestResponsePtrOutputWithContext(ctx context.Context) PipelineRunRequestResponsePtrOutput {
+	return o.ApplyT(func(v PipelineRunRequestResponse) *PipelineRunRequestResponse {
+		return &v
+	}).(PipelineRunRequestResponsePtrOutput)
+}
+
+// List of source artifacts to be transferred by the pipeline.
+// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+// Specify an image by tag ('hello-world:latest').
+// Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+func (o PipelineRunRequestResponseOutput) Artifacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineRunRequestResponse) []string { return v.Artifacts }).(pulumi.StringArrayOutput)
+}
+
+// The digest of the tar used to transfer the artifacts.
+func (o PipelineRunRequestResponseOutput) CatalogDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunRequestResponse) *string { return v.CatalogDigest }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the pipeline to run.
+func (o PipelineRunRequestResponseOutput) PipelineResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunRequestResponse) *string { return v.PipelineResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The source properties of the pipeline run.
+func (o PipelineRunRequestResponseOutput) Source() PipelineRunSourcePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PipelineRunRequestResponse) *PipelineRunSourcePropertiesResponse { return v.Source }).(PipelineRunSourcePropertiesResponsePtrOutput)
+}
+
+// The target properties of the pipeline run.
+func (o PipelineRunRequestResponseOutput) Target() PipelineRunTargetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PipelineRunRequestResponse) *PipelineRunTargetPropertiesResponse { return v.Target }).(PipelineRunTargetPropertiesResponsePtrOutput)
+}
+
+type PipelineRunRequestResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunRequestResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunRequestResponse)(nil)).Elem()
+}
+
+func (o PipelineRunRequestResponsePtrOutput) ToPipelineRunRequestResponsePtrOutput() PipelineRunRequestResponsePtrOutput {
+	return o
+}
+
+func (o PipelineRunRequestResponsePtrOutput) ToPipelineRunRequestResponsePtrOutputWithContext(ctx context.Context) PipelineRunRequestResponsePtrOutput {
+	return o
+}
+
+func (o PipelineRunRequestResponsePtrOutput) Elem() PipelineRunRequestResponseOutput {
+	return o.ApplyT(func(v *PipelineRunRequestResponse) PipelineRunRequestResponse { return *v }).(PipelineRunRequestResponseOutput)
+}
+
+// List of source artifacts to be transferred by the pipeline.
+// Specify an image by repository ('hello-world'). This will use the 'latest' tag.
+// Specify an image by tag ('hello-world:latest').
+// Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
+func (o PipelineRunRequestResponsePtrOutput) Artifacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineRunRequestResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Artifacts
+	}).(pulumi.StringArrayOutput)
+}
+
+// The digest of the tar used to transfer the artifacts.
+func (o PipelineRunRequestResponsePtrOutput) CatalogDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunRequestResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogDigest
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the pipeline to run.
+func (o PipelineRunRequestResponsePtrOutput) PipelineResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunRequestResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source properties of the pipeline run.
+func (o PipelineRunRequestResponsePtrOutput) Source() PipelineRunSourcePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *PipelineRunRequestResponse) *PipelineRunSourcePropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(PipelineRunSourcePropertiesResponsePtrOutput)
+}
+
+// The target properties of the pipeline run.
+func (o PipelineRunRequestResponsePtrOutput) Target() PipelineRunTargetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *PipelineRunRequestResponse) *PipelineRunTargetPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(PipelineRunTargetPropertiesResponsePtrOutput)
+}
+
+// The response properties returned for a pipeline run.
+type PipelineRunResponseResponse struct {
+	// The digest of the tar used to transfer the artifacts.
+	CatalogDigest *string `pulumi:"catalogDigest"`
+	// The time the pipeline run finished.
+	FinishTime *string `pulumi:"finishTime"`
+	// The artifacts imported in the pipeline run.
+	ImportedArtifacts []string `pulumi:"importedArtifacts"`
+	// The detailed error message for the pipeline run in the case of failure.
+	PipelineRunErrorMessage *string `pulumi:"pipelineRunErrorMessage"`
+	// The current progress of the copy operation.
+	Progress *ProgressPropertiesResponse `pulumi:"progress"`
+	// The source of the pipeline run.
+	Source *ImportPipelineSourcePropertiesResponse `pulumi:"source"`
+	// The time the pipeline run started.
+	StartTime *string `pulumi:"startTime"`
+	// The current status of the pipeline run.
+	Status *string `pulumi:"status"`
+	// The target of the pipeline run.
+	Target *ExportPipelineTargetPropertiesResponse `pulumi:"target"`
+	// The trigger that caused the pipeline run.
+	Trigger *PipelineTriggerDescriptorResponse `pulumi:"trigger"`
+}
+
+// PipelineRunResponseResponseInput is an input type that accepts PipelineRunResponseResponseArgs and PipelineRunResponseResponseOutput values.
+// You can construct a concrete instance of `PipelineRunResponseResponseInput` via:
+//
+//          PipelineRunResponseResponseArgs{...}
+type PipelineRunResponseResponseInput interface {
+	pulumi.Input
+
+	ToPipelineRunResponseResponseOutput() PipelineRunResponseResponseOutput
+	ToPipelineRunResponseResponseOutputWithContext(context.Context) PipelineRunResponseResponseOutput
+}
+
+// The response properties returned for a pipeline run.
+type PipelineRunResponseResponseArgs struct {
+	// The digest of the tar used to transfer the artifacts.
+	CatalogDigest pulumi.StringPtrInput `pulumi:"catalogDigest"`
+	// The time the pipeline run finished.
+	FinishTime pulumi.StringPtrInput `pulumi:"finishTime"`
+	// The artifacts imported in the pipeline run.
+	ImportedArtifacts pulumi.StringArrayInput `pulumi:"importedArtifacts"`
+	// The detailed error message for the pipeline run in the case of failure.
+	PipelineRunErrorMessage pulumi.StringPtrInput `pulumi:"pipelineRunErrorMessage"`
+	// The current progress of the copy operation.
+	Progress ProgressPropertiesResponsePtrInput `pulumi:"progress"`
+	// The source of the pipeline run.
+	Source ImportPipelineSourcePropertiesResponsePtrInput `pulumi:"source"`
+	// The time the pipeline run started.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The current status of the pipeline run.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The target of the pipeline run.
+	Target ExportPipelineTargetPropertiesResponsePtrInput `pulumi:"target"`
+	// The trigger that caused the pipeline run.
+	Trigger PipelineTriggerDescriptorResponsePtrInput `pulumi:"trigger"`
+}
+
+func (PipelineRunResponseResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunResponseResponse)(nil)).Elem()
+}
+
+func (i PipelineRunResponseResponseArgs) ToPipelineRunResponseResponseOutput() PipelineRunResponseResponseOutput {
+	return i.ToPipelineRunResponseResponseOutputWithContext(context.Background())
+}
+
+func (i PipelineRunResponseResponseArgs) ToPipelineRunResponseResponseOutputWithContext(ctx context.Context) PipelineRunResponseResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunResponseResponseOutput)
+}
+
+func (i PipelineRunResponseResponseArgs) ToPipelineRunResponseResponsePtrOutput() PipelineRunResponseResponsePtrOutput {
+	return i.ToPipelineRunResponseResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PipelineRunResponseResponseArgs) ToPipelineRunResponseResponsePtrOutputWithContext(ctx context.Context) PipelineRunResponseResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunResponseResponseOutput).ToPipelineRunResponseResponsePtrOutputWithContext(ctx)
+}
+
+// PipelineRunResponseResponsePtrInput is an input type that accepts PipelineRunResponseResponseArgs, PipelineRunResponseResponsePtr and PipelineRunResponseResponsePtrOutput values.
+// You can construct a concrete instance of `PipelineRunResponseResponsePtrInput` via:
+//
+//          PipelineRunResponseResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineRunResponseResponsePtrInput interface {
+	pulumi.Input
+
+	ToPipelineRunResponseResponsePtrOutput() PipelineRunResponseResponsePtrOutput
+	ToPipelineRunResponseResponsePtrOutputWithContext(context.Context) PipelineRunResponseResponsePtrOutput
+}
+
+type pipelineRunResponseResponsePtrType PipelineRunResponseResponseArgs
+
+func PipelineRunResponseResponsePtr(v *PipelineRunResponseResponseArgs) PipelineRunResponseResponsePtrInput {
+	return (*pipelineRunResponseResponsePtrType)(v)
+}
+
+func (*pipelineRunResponseResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunResponseResponse)(nil)).Elem()
+}
+
+func (i *pipelineRunResponseResponsePtrType) ToPipelineRunResponseResponsePtrOutput() PipelineRunResponseResponsePtrOutput {
+	return i.ToPipelineRunResponseResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineRunResponseResponsePtrType) ToPipelineRunResponseResponsePtrOutputWithContext(ctx context.Context) PipelineRunResponseResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunResponseResponsePtrOutput)
+}
+
+// The response properties returned for a pipeline run.
+type PipelineRunResponseResponseOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunResponseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunResponseResponse)(nil)).Elem()
+}
+
+func (o PipelineRunResponseResponseOutput) ToPipelineRunResponseResponseOutput() PipelineRunResponseResponseOutput {
+	return o
+}
+
+func (o PipelineRunResponseResponseOutput) ToPipelineRunResponseResponseOutputWithContext(ctx context.Context) PipelineRunResponseResponseOutput {
+	return o
+}
+
+func (o PipelineRunResponseResponseOutput) ToPipelineRunResponseResponsePtrOutput() PipelineRunResponseResponsePtrOutput {
+	return o.ToPipelineRunResponseResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineRunResponseResponseOutput) ToPipelineRunResponseResponsePtrOutputWithContext(ctx context.Context) PipelineRunResponseResponsePtrOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) *PipelineRunResponseResponse {
+		return &v
+	}).(PipelineRunResponseResponsePtrOutput)
+}
+
+// The digest of the tar used to transfer the artifacts.
+func (o PipelineRunResponseResponseOutput) CatalogDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) *string { return v.CatalogDigest }).(pulumi.StringPtrOutput)
+}
+
+// The time the pipeline run finished.
+func (o PipelineRunResponseResponseOutput) FinishTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) *string { return v.FinishTime }).(pulumi.StringPtrOutput)
+}
+
+// The artifacts imported in the pipeline run.
+func (o PipelineRunResponseResponseOutput) ImportedArtifacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) []string { return v.ImportedArtifacts }).(pulumi.StringArrayOutput)
+}
+
+// The detailed error message for the pipeline run in the case of failure.
+func (o PipelineRunResponseResponseOutput) PipelineRunErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) *string { return v.PipelineRunErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+// The current progress of the copy operation.
+func (o PipelineRunResponseResponseOutput) Progress() ProgressPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) *ProgressPropertiesResponse { return v.Progress }).(ProgressPropertiesResponsePtrOutput)
+}
+
+// The source of the pipeline run.
+func (o PipelineRunResponseResponseOutput) Source() ImportPipelineSourcePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) *ImportPipelineSourcePropertiesResponse { return v.Source }).(ImportPipelineSourcePropertiesResponsePtrOutput)
+}
+
+// The time the pipeline run started.
+func (o PipelineRunResponseResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the pipeline run.
+func (o PipelineRunResponseResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The target of the pipeline run.
+func (o PipelineRunResponseResponseOutput) Target() ExportPipelineTargetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) *ExportPipelineTargetPropertiesResponse { return v.Target }).(ExportPipelineTargetPropertiesResponsePtrOutput)
+}
+
+// The trigger that caused the pipeline run.
+func (o PipelineRunResponseResponseOutput) Trigger() PipelineTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v PipelineRunResponseResponse) *PipelineTriggerDescriptorResponse { return v.Trigger }).(PipelineTriggerDescriptorResponsePtrOutput)
+}
+
+type PipelineRunResponseResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunResponseResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunResponseResponse)(nil)).Elem()
+}
+
+func (o PipelineRunResponseResponsePtrOutput) ToPipelineRunResponseResponsePtrOutput() PipelineRunResponseResponsePtrOutput {
+	return o
+}
+
+func (o PipelineRunResponseResponsePtrOutput) ToPipelineRunResponseResponsePtrOutputWithContext(ctx context.Context) PipelineRunResponseResponsePtrOutput {
+	return o
+}
+
+func (o PipelineRunResponseResponsePtrOutput) Elem() PipelineRunResponseResponseOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) PipelineRunResponseResponse { return *v }).(PipelineRunResponseResponseOutput)
+}
+
+// The digest of the tar used to transfer the artifacts.
+func (o PipelineRunResponseResponsePtrOutput) CatalogDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogDigest
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time the pipeline run finished.
+func (o PipelineRunResponseResponsePtrOutput) FinishTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FinishTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The artifacts imported in the pipeline run.
+func (o PipelineRunResponseResponsePtrOutput) ImportedArtifacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ImportedArtifacts
+	}).(pulumi.StringArrayOutput)
+}
+
+// The detailed error message for the pipeline run in the case of failure.
+func (o PipelineRunResponseResponsePtrOutput) PipelineRunErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineRunErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current progress of the copy operation.
+func (o PipelineRunResponseResponsePtrOutput) Progress() ProgressPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) *ProgressPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Progress
+	}).(ProgressPropertiesResponsePtrOutput)
+}
+
+// The source of the pipeline run.
+func (o PipelineRunResponseResponsePtrOutput) Source() ImportPipelineSourcePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) *ImportPipelineSourcePropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(ImportPipelineSourcePropertiesResponsePtrOutput)
+}
+
+// The time the pipeline run started.
+func (o PipelineRunResponseResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status of the pipeline run.
+func (o PipelineRunResponseResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The target of the pipeline run.
+func (o PipelineRunResponseResponsePtrOutput) Target() ExportPipelineTargetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) *ExportPipelineTargetPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(ExportPipelineTargetPropertiesResponsePtrOutput)
+}
+
+// The trigger that caused the pipeline run.
+func (o PipelineRunResponseResponsePtrOutput) Trigger() PipelineTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v *PipelineRunResponseResponse) *PipelineTriggerDescriptorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Trigger
+	}).(PipelineTriggerDescriptorResponsePtrOutput)
+}
+
+type PipelineRunSourceProperties struct {
+	// The name of the source.
+	Name *string `pulumi:"name"`
+	// The type of the source.
+	Type *string `pulumi:"type"`
+}
+
+// PipelineRunSourcePropertiesInput is an input type that accepts PipelineRunSourcePropertiesArgs and PipelineRunSourcePropertiesOutput values.
+// You can construct a concrete instance of `PipelineRunSourcePropertiesInput` via:
+//
+//          PipelineRunSourcePropertiesArgs{...}
+type PipelineRunSourcePropertiesInput interface {
+	pulumi.Input
+
+	ToPipelineRunSourcePropertiesOutput() PipelineRunSourcePropertiesOutput
+	ToPipelineRunSourcePropertiesOutputWithContext(context.Context) PipelineRunSourcePropertiesOutput
+}
+
+type PipelineRunSourcePropertiesArgs struct {
+	// The name of the source.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the source.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PipelineRunSourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunSourceProperties)(nil)).Elem()
+}
+
+func (i PipelineRunSourcePropertiesArgs) ToPipelineRunSourcePropertiesOutput() PipelineRunSourcePropertiesOutput {
+	return i.ToPipelineRunSourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i PipelineRunSourcePropertiesArgs) ToPipelineRunSourcePropertiesOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunSourcePropertiesOutput)
+}
+
+func (i PipelineRunSourcePropertiesArgs) ToPipelineRunSourcePropertiesPtrOutput() PipelineRunSourcePropertiesPtrOutput {
+	return i.ToPipelineRunSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineRunSourcePropertiesArgs) ToPipelineRunSourcePropertiesPtrOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunSourcePropertiesOutput).ToPipelineRunSourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// PipelineRunSourcePropertiesPtrInput is an input type that accepts PipelineRunSourcePropertiesArgs, PipelineRunSourcePropertiesPtr and PipelineRunSourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `PipelineRunSourcePropertiesPtrInput` via:
+//
+//          PipelineRunSourcePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineRunSourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPipelineRunSourcePropertiesPtrOutput() PipelineRunSourcePropertiesPtrOutput
+	ToPipelineRunSourcePropertiesPtrOutputWithContext(context.Context) PipelineRunSourcePropertiesPtrOutput
+}
+
+type pipelineRunSourcePropertiesPtrType PipelineRunSourcePropertiesArgs
+
+func PipelineRunSourcePropertiesPtr(v *PipelineRunSourcePropertiesArgs) PipelineRunSourcePropertiesPtrInput {
+	return (*pipelineRunSourcePropertiesPtrType)(v)
+}
+
+func (*pipelineRunSourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunSourceProperties)(nil)).Elem()
+}
+
+func (i *pipelineRunSourcePropertiesPtrType) ToPipelineRunSourcePropertiesPtrOutput() PipelineRunSourcePropertiesPtrOutput {
+	return i.ToPipelineRunSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineRunSourcePropertiesPtrType) ToPipelineRunSourcePropertiesPtrOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunSourcePropertiesPtrOutput)
+}
+
+type PipelineRunSourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunSourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunSourceProperties)(nil)).Elem()
+}
+
+func (o PipelineRunSourcePropertiesOutput) ToPipelineRunSourcePropertiesOutput() PipelineRunSourcePropertiesOutput {
+	return o
+}
+
+func (o PipelineRunSourcePropertiesOutput) ToPipelineRunSourcePropertiesOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesOutput {
+	return o
+}
+
+func (o PipelineRunSourcePropertiesOutput) ToPipelineRunSourcePropertiesPtrOutput() PipelineRunSourcePropertiesPtrOutput {
+	return o.ToPipelineRunSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineRunSourcePropertiesOutput) ToPipelineRunSourcePropertiesPtrOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v PipelineRunSourceProperties) *PipelineRunSourceProperties {
+		return &v
+	}).(PipelineRunSourcePropertiesPtrOutput)
+}
+
+// The name of the source.
+func (o PipelineRunSourcePropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunSourceProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the source.
+func (o PipelineRunSourcePropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunSourceProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PipelineRunSourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunSourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunSourceProperties)(nil)).Elem()
+}
+
+func (o PipelineRunSourcePropertiesPtrOutput) ToPipelineRunSourcePropertiesPtrOutput() PipelineRunSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o PipelineRunSourcePropertiesPtrOutput) ToPipelineRunSourcePropertiesPtrOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o PipelineRunSourcePropertiesPtrOutput) Elem() PipelineRunSourcePropertiesOutput {
+	return o.ApplyT(func(v *PipelineRunSourceProperties) PipelineRunSourceProperties { return *v }).(PipelineRunSourcePropertiesOutput)
+}
+
+// The name of the source.
+func (o PipelineRunSourcePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunSourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the source.
+func (o PipelineRunSourcePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunSourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineRunSourcePropertiesResponse struct {
+	// The name of the source.
+	Name *string `pulumi:"name"`
+	// The type of the source.
+	Type *string `pulumi:"type"`
+}
+
+// PipelineRunSourcePropertiesResponseInput is an input type that accepts PipelineRunSourcePropertiesResponseArgs and PipelineRunSourcePropertiesResponseOutput values.
+// You can construct a concrete instance of `PipelineRunSourcePropertiesResponseInput` via:
+//
+//          PipelineRunSourcePropertiesResponseArgs{...}
+type PipelineRunSourcePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPipelineRunSourcePropertiesResponseOutput() PipelineRunSourcePropertiesResponseOutput
+	ToPipelineRunSourcePropertiesResponseOutputWithContext(context.Context) PipelineRunSourcePropertiesResponseOutput
+}
+
+type PipelineRunSourcePropertiesResponseArgs struct {
+	// The name of the source.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the source.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PipelineRunSourcePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunSourcePropertiesResponse)(nil)).Elem()
+}
+
+func (i PipelineRunSourcePropertiesResponseArgs) ToPipelineRunSourcePropertiesResponseOutput() PipelineRunSourcePropertiesResponseOutput {
+	return i.ToPipelineRunSourcePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PipelineRunSourcePropertiesResponseArgs) ToPipelineRunSourcePropertiesResponseOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunSourcePropertiesResponseOutput)
+}
+
+func (i PipelineRunSourcePropertiesResponseArgs) ToPipelineRunSourcePropertiesResponsePtrOutput() PipelineRunSourcePropertiesResponsePtrOutput {
+	return i.ToPipelineRunSourcePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PipelineRunSourcePropertiesResponseArgs) ToPipelineRunSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunSourcePropertiesResponseOutput).ToPipelineRunSourcePropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// PipelineRunSourcePropertiesResponsePtrInput is an input type that accepts PipelineRunSourcePropertiesResponseArgs, PipelineRunSourcePropertiesResponsePtr and PipelineRunSourcePropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `PipelineRunSourcePropertiesResponsePtrInput` via:
+//
+//          PipelineRunSourcePropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineRunSourcePropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToPipelineRunSourcePropertiesResponsePtrOutput() PipelineRunSourcePropertiesResponsePtrOutput
+	ToPipelineRunSourcePropertiesResponsePtrOutputWithContext(context.Context) PipelineRunSourcePropertiesResponsePtrOutput
+}
+
+type pipelineRunSourcePropertiesResponsePtrType PipelineRunSourcePropertiesResponseArgs
+
+func PipelineRunSourcePropertiesResponsePtr(v *PipelineRunSourcePropertiesResponseArgs) PipelineRunSourcePropertiesResponsePtrInput {
+	return (*pipelineRunSourcePropertiesResponsePtrType)(v)
+}
+
+func (*pipelineRunSourcePropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunSourcePropertiesResponse)(nil)).Elem()
+}
+
+func (i *pipelineRunSourcePropertiesResponsePtrType) ToPipelineRunSourcePropertiesResponsePtrOutput() PipelineRunSourcePropertiesResponsePtrOutput {
+	return i.ToPipelineRunSourcePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineRunSourcePropertiesResponsePtrType) ToPipelineRunSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunSourcePropertiesResponsePtrOutput)
+}
+
+type PipelineRunSourcePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunSourcePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunSourcePropertiesResponse)(nil)).Elem()
+}
+
+func (o PipelineRunSourcePropertiesResponseOutput) ToPipelineRunSourcePropertiesResponseOutput() PipelineRunSourcePropertiesResponseOutput {
+	return o
+}
+
+func (o PipelineRunSourcePropertiesResponseOutput) ToPipelineRunSourcePropertiesResponseOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesResponseOutput {
+	return o
+}
+
+func (o PipelineRunSourcePropertiesResponseOutput) ToPipelineRunSourcePropertiesResponsePtrOutput() PipelineRunSourcePropertiesResponsePtrOutput {
+	return o.ToPipelineRunSourcePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineRunSourcePropertiesResponseOutput) ToPipelineRunSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PipelineRunSourcePropertiesResponse) *PipelineRunSourcePropertiesResponse {
+		return &v
+	}).(PipelineRunSourcePropertiesResponsePtrOutput)
+}
+
+// The name of the source.
+func (o PipelineRunSourcePropertiesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunSourcePropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the source.
+func (o PipelineRunSourcePropertiesResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunSourcePropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PipelineRunSourcePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunSourcePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunSourcePropertiesResponse)(nil)).Elem()
+}
+
+func (o PipelineRunSourcePropertiesResponsePtrOutput) ToPipelineRunSourcePropertiesResponsePtrOutput() PipelineRunSourcePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PipelineRunSourcePropertiesResponsePtrOutput) ToPipelineRunSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineRunSourcePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PipelineRunSourcePropertiesResponsePtrOutput) Elem() PipelineRunSourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *PipelineRunSourcePropertiesResponse) PipelineRunSourcePropertiesResponse { return *v }).(PipelineRunSourcePropertiesResponseOutput)
+}
+
+// The name of the source.
+func (o PipelineRunSourcePropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunSourcePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the source.
+func (o PipelineRunSourcePropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunSourcePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineRunTargetProperties struct {
+	// The name of the target.
+	Name *string `pulumi:"name"`
+	// The type of the target.
+	Type *string `pulumi:"type"`
+}
+
+// PipelineRunTargetPropertiesInput is an input type that accepts PipelineRunTargetPropertiesArgs and PipelineRunTargetPropertiesOutput values.
+// You can construct a concrete instance of `PipelineRunTargetPropertiesInput` via:
+//
+//          PipelineRunTargetPropertiesArgs{...}
+type PipelineRunTargetPropertiesInput interface {
+	pulumi.Input
+
+	ToPipelineRunTargetPropertiesOutput() PipelineRunTargetPropertiesOutput
+	ToPipelineRunTargetPropertiesOutputWithContext(context.Context) PipelineRunTargetPropertiesOutput
+}
+
+type PipelineRunTargetPropertiesArgs struct {
+	// The name of the target.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the target.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PipelineRunTargetPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunTargetProperties)(nil)).Elem()
+}
+
+func (i PipelineRunTargetPropertiesArgs) ToPipelineRunTargetPropertiesOutput() PipelineRunTargetPropertiesOutput {
+	return i.ToPipelineRunTargetPropertiesOutputWithContext(context.Background())
+}
+
+func (i PipelineRunTargetPropertiesArgs) ToPipelineRunTargetPropertiesOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunTargetPropertiesOutput)
+}
+
+func (i PipelineRunTargetPropertiesArgs) ToPipelineRunTargetPropertiesPtrOutput() PipelineRunTargetPropertiesPtrOutput {
+	return i.ToPipelineRunTargetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineRunTargetPropertiesArgs) ToPipelineRunTargetPropertiesPtrOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunTargetPropertiesOutput).ToPipelineRunTargetPropertiesPtrOutputWithContext(ctx)
+}
+
+// PipelineRunTargetPropertiesPtrInput is an input type that accepts PipelineRunTargetPropertiesArgs, PipelineRunTargetPropertiesPtr and PipelineRunTargetPropertiesPtrOutput values.
+// You can construct a concrete instance of `PipelineRunTargetPropertiesPtrInput` via:
+//
+//          PipelineRunTargetPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineRunTargetPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPipelineRunTargetPropertiesPtrOutput() PipelineRunTargetPropertiesPtrOutput
+	ToPipelineRunTargetPropertiesPtrOutputWithContext(context.Context) PipelineRunTargetPropertiesPtrOutput
+}
+
+type pipelineRunTargetPropertiesPtrType PipelineRunTargetPropertiesArgs
+
+func PipelineRunTargetPropertiesPtr(v *PipelineRunTargetPropertiesArgs) PipelineRunTargetPropertiesPtrInput {
+	return (*pipelineRunTargetPropertiesPtrType)(v)
+}
+
+func (*pipelineRunTargetPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunTargetProperties)(nil)).Elem()
+}
+
+func (i *pipelineRunTargetPropertiesPtrType) ToPipelineRunTargetPropertiesPtrOutput() PipelineRunTargetPropertiesPtrOutput {
+	return i.ToPipelineRunTargetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineRunTargetPropertiesPtrType) ToPipelineRunTargetPropertiesPtrOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunTargetPropertiesPtrOutput)
+}
+
+type PipelineRunTargetPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunTargetPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunTargetProperties)(nil)).Elem()
+}
+
+func (o PipelineRunTargetPropertiesOutput) ToPipelineRunTargetPropertiesOutput() PipelineRunTargetPropertiesOutput {
+	return o
+}
+
+func (o PipelineRunTargetPropertiesOutput) ToPipelineRunTargetPropertiesOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesOutput {
+	return o
+}
+
+func (o PipelineRunTargetPropertiesOutput) ToPipelineRunTargetPropertiesPtrOutput() PipelineRunTargetPropertiesPtrOutput {
+	return o.ToPipelineRunTargetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineRunTargetPropertiesOutput) ToPipelineRunTargetPropertiesPtrOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesPtrOutput {
+	return o.ApplyT(func(v PipelineRunTargetProperties) *PipelineRunTargetProperties {
+		return &v
+	}).(PipelineRunTargetPropertiesPtrOutput)
+}
+
+// The name of the target.
+func (o PipelineRunTargetPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunTargetProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the target.
+func (o PipelineRunTargetPropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunTargetProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PipelineRunTargetPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunTargetPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunTargetProperties)(nil)).Elem()
+}
+
+func (o PipelineRunTargetPropertiesPtrOutput) ToPipelineRunTargetPropertiesPtrOutput() PipelineRunTargetPropertiesPtrOutput {
+	return o
+}
+
+func (o PipelineRunTargetPropertiesPtrOutput) ToPipelineRunTargetPropertiesPtrOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesPtrOutput {
+	return o
+}
+
+func (o PipelineRunTargetPropertiesPtrOutput) Elem() PipelineRunTargetPropertiesOutput {
+	return o.ApplyT(func(v *PipelineRunTargetProperties) PipelineRunTargetProperties { return *v }).(PipelineRunTargetPropertiesOutput)
+}
+
+// The name of the target.
+func (o PipelineRunTargetPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunTargetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the target.
+func (o PipelineRunTargetPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunTargetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineRunTargetPropertiesResponse struct {
+	// The name of the target.
+	Name *string `pulumi:"name"`
+	// The type of the target.
+	Type *string `pulumi:"type"`
+}
+
+// PipelineRunTargetPropertiesResponseInput is an input type that accepts PipelineRunTargetPropertiesResponseArgs and PipelineRunTargetPropertiesResponseOutput values.
+// You can construct a concrete instance of `PipelineRunTargetPropertiesResponseInput` via:
+//
+//          PipelineRunTargetPropertiesResponseArgs{...}
+type PipelineRunTargetPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPipelineRunTargetPropertiesResponseOutput() PipelineRunTargetPropertiesResponseOutput
+	ToPipelineRunTargetPropertiesResponseOutputWithContext(context.Context) PipelineRunTargetPropertiesResponseOutput
+}
+
+type PipelineRunTargetPropertiesResponseArgs struct {
+	// The name of the target.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the target.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PipelineRunTargetPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunTargetPropertiesResponse)(nil)).Elem()
+}
+
+func (i PipelineRunTargetPropertiesResponseArgs) ToPipelineRunTargetPropertiesResponseOutput() PipelineRunTargetPropertiesResponseOutput {
+	return i.ToPipelineRunTargetPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PipelineRunTargetPropertiesResponseArgs) ToPipelineRunTargetPropertiesResponseOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunTargetPropertiesResponseOutput)
+}
+
+func (i PipelineRunTargetPropertiesResponseArgs) ToPipelineRunTargetPropertiesResponsePtrOutput() PipelineRunTargetPropertiesResponsePtrOutput {
+	return i.ToPipelineRunTargetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PipelineRunTargetPropertiesResponseArgs) ToPipelineRunTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunTargetPropertiesResponseOutput).ToPipelineRunTargetPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// PipelineRunTargetPropertiesResponsePtrInput is an input type that accepts PipelineRunTargetPropertiesResponseArgs, PipelineRunTargetPropertiesResponsePtr and PipelineRunTargetPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `PipelineRunTargetPropertiesResponsePtrInput` via:
+//
+//          PipelineRunTargetPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineRunTargetPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToPipelineRunTargetPropertiesResponsePtrOutput() PipelineRunTargetPropertiesResponsePtrOutput
+	ToPipelineRunTargetPropertiesResponsePtrOutputWithContext(context.Context) PipelineRunTargetPropertiesResponsePtrOutput
+}
+
+type pipelineRunTargetPropertiesResponsePtrType PipelineRunTargetPropertiesResponseArgs
+
+func PipelineRunTargetPropertiesResponsePtr(v *PipelineRunTargetPropertiesResponseArgs) PipelineRunTargetPropertiesResponsePtrInput {
+	return (*pipelineRunTargetPropertiesResponsePtrType)(v)
+}
+
+func (*pipelineRunTargetPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunTargetPropertiesResponse)(nil)).Elem()
+}
+
+func (i *pipelineRunTargetPropertiesResponsePtrType) ToPipelineRunTargetPropertiesResponsePtrOutput() PipelineRunTargetPropertiesResponsePtrOutput {
+	return i.ToPipelineRunTargetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineRunTargetPropertiesResponsePtrType) ToPipelineRunTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineRunTargetPropertiesResponsePtrOutput)
+}
+
+type PipelineRunTargetPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunTargetPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineRunTargetPropertiesResponse)(nil)).Elem()
+}
+
+func (o PipelineRunTargetPropertiesResponseOutput) ToPipelineRunTargetPropertiesResponseOutput() PipelineRunTargetPropertiesResponseOutput {
+	return o
+}
+
+func (o PipelineRunTargetPropertiesResponseOutput) ToPipelineRunTargetPropertiesResponseOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesResponseOutput {
+	return o
+}
+
+func (o PipelineRunTargetPropertiesResponseOutput) ToPipelineRunTargetPropertiesResponsePtrOutput() PipelineRunTargetPropertiesResponsePtrOutput {
+	return o.ToPipelineRunTargetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineRunTargetPropertiesResponseOutput) ToPipelineRunTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PipelineRunTargetPropertiesResponse) *PipelineRunTargetPropertiesResponse {
+		return &v
+	}).(PipelineRunTargetPropertiesResponsePtrOutput)
+}
+
+// The name of the target.
+func (o PipelineRunTargetPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunTargetPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the target.
+func (o PipelineRunTargetPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineRunTargetPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PipelineRunTargetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineRunTargetPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineRunTargetPropertiesResponse)(nil)).Elem()
+}
+
+func (o PipelineRunTargetPropertiesResponsePtrOutput) ToPipelineRunTargetPropertiesResponsePtrOutput() PipelineRunTargetPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PipelineRunTargetPropertiesResponsePtrOutput) ToPipelineRunTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineRunTargetPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PipelineRunTargetPropertiesResponsePtrOutput) Elem() PipelineRunTargetPropertiesResponseOutput {
+	return o.ApplyT(func(v *PipelineRunTargetPropertiesResponse) PipelineRunTargetPropertiesResponse { return *v }).(PipelineRunTargetPropertiesResponseOutput)
+}
+
+// The name of the target.
+func (o PipelineRunTargetPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunTargetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the target.
+func (o PipelineRunTargetPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRunTargetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineSourceTriggerDescriptorResponse struct {
+	// The timestamp when the source update happened.
+	Timestamp *string `pulumi:"timestamp"`
+}
+
+// PipelineSourceTriggerDescriptorResponseInput is an input type that accepts PipelineSourceTriggerDescriptorResponseArgs and PipelineSourceTriggerDescriptorResponseOutput values.
+// You can construct a concrete instance of `PipelineSourceTriggerDescriptorResponseInput` via:
+//
+//          PipelineSourceTriggerDescriptorResponseArgs{...}
+type PipelineSourceTriggerDescriptorResponseInput interface {
+	pulumi.Input
+
+	ToPipelineSourceTriggerDescriptorResponseOutput() PipelineSourceTriggerDescriptorResponseOutput
+	ToPipelineSourceTriggerDescriptorResponseOutputWithContext(context.Context) PipelineSourceTriggerDescriptorResponseOutput
+}
+
+type PipelineSourceTriggerDescriptorResponseArgs struct {
+	// The timestamp when the source update happened.
+	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
+}
+
+func (PipelineSourceTriggerDescriptorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineSourceTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (i PipelineSourceTriggerDescriptorResponseArgs) ToPipelineSourceTriggerDescriptorResponseOutput() PipelineSourceTriggerDescriptorResponseOutput {
+	return i.ToPipelineSourceTriggerDescriptorResponseOutputWithContext(context.Background())
+}
+
+func (i PipelineSourceTriggerDescriptorResponseArgs) ToPipelineSourceTriggerDescriptorResponseOutputWithContext(ctx context.Context) PipelineSourceTriggerDescriptorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineSourceTriggerDescriptorResponseOutput)
+}
+
+func (i PipelineSourceTriggerDescriptorResponseArgs) ToPipelineSourceTriggerDescriptorResponsePtrOutput() PipelineSourceTriggerDescriptorResponsePtrOutput {
+	return i.ToPipelineSourceTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PipelineSourceTriggerDescriptorResponseArgs) ToPipelineSourceTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) PipelineSourceTriggerDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineSourceTriggerDescriptorResponseOutput).ToPipelineSourceTriggerDescriptorResponsePtrOutputWithContext(ctx)
+}
+
+// PipelineSourceTriggerDescriptorResponsePtrInput is an input type that accepts PipelineSourceTriggerDescriptorResponseArgs, PipelineSourceTriggerDescriptorResponsePtr and PipelineSourceTriggerDescriptorResponsePtrOutput values.
+// You can construct a concrete instance of `PipelineSourceTriggerDescriptorResponsePtrInput` via:
+//
+//          PipelineSourceTriggerDescriptorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineSourceTriggerDescriptorResponsePtrInput interface {
+	pulumi.Input
+
+	ToPipelineSourceTriggerDescriptorResponsePtrOutput() PipelineSourceTriggerDescriptorResponsePtrOutput
+	ToPipelineSourceTriggerDescriptorResponsePtrOutputWithContext(context.Context) PipelineSourceTriggerDescriptorResponsePtrOutput
+}
+
+type pipelineSourceTriggerDescriptorResponsePtrType PipelineSourceTriggerDescriptorResponseArgs
+
+func PipelineSourceTriggerDescriptorResponsePtr(v *PipelineSourceTriggerDescriptorResponseArgs) PipelineSourceTriggerDescriptorResponsePtrInput {
+	return (*pipelineSourceTriggerDescriptorResponsePtrType)(v)
+}
+
+func (*pipelineSourceTriggerDescriptorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineSourceTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (i *pipelineSourceTriggerDescriptorResponsePtrType) ToPipelineSourceTriggerDescriptorResponsePtrOutput() PipelineSourceTriggerDescriptorResponsePtrOutput {
+	return i.ToPipelineSourceTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineSourceTriggerDescriptorResponsePtrType) ToPipelineSourceTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) PipelineSourceTriggerDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineSourceTriggerDescriptorResponsePtrOutput)
+}
+
+type PipelineSourceTriggerDescriptorResponseOutput struct{ *pulumi.OutputState }
+
+func (PipelineSourceTriggerDescriptorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineSourceTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (o PipelineSourceTriggerDescriptorResponseOutput) ToPipelineSourceTriggerDescriptorResponseOutput() PipelineSourceTriggerDescriptorResponseOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerDescriptorResponseOutput) ToPipelineSourceTriggerDescriptorResponseOutputWithContext(ctx context.Context) PipelineSourceTriggerDescriptorResponseOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerDescriptorResponseOutput) ToPipelineSourceTriggerDescriptorResponsePtrOutput() PipelineSourceTriggerDescriptorResponsePtrOutput {
+	return o.ToPipelineSourceTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineSourceTriggerDescriptorResponseOutput) ToPipelineSourceTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) PipelineSourceTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v PipelineSourceTriggerDescriptorResponse) *PipelineSourceTriggerDescriptorResponse {
+		return &v
+	}).(PipelineSourceTriggerDescriptorResponsePtrOutput)
+}
+
+// The timestamp when the source update happened.
+func (o PipelineSourceTriggerDescriptorResponseOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineSourceTriggerDescriptorResponse) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
+}
+
+type PipelineSourceTriggerDescriptorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineSourceTriggerDescriptorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineSourceTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (o PipelineSourceTriggerDescriptorResponsePtrOutput) ToPipelineSourceTriggerDescriptorResponsePtrOutput() PipelineSourceTriggerDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerDescriptorResponsePtrOutput) ToPipelineSourceTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) PipelineSourceTriggerDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerDescriptorResponsePtrOutput) Elem() PipelineSourceTriggerDescriptorResponseOutput {
+	return o.ApplyT(func(v *PipelineSourceTriggerDescriptorResponse) PipelineSourceTriggerDescriptorResponse { return *v }).(PipelineSourceTriggerDescriptorResponseOutput)
+}
+
+// The timestamp when the source update happened.
+func (o PipelineSourceTriggerDescriptorResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineSourceTriggerDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineSourceTriggerProperties struct {
+	// The current status of the source trigger.
+	Status string `pulumi:"status"`
+}
+
+// PipelineSourceTriggerPropertiesInput is an input type that accepts PipelineSourceTriggerPropertiesArgs and PipelineSourceTriggerPropertiesOutput values.
+// You can construct a concrete instance of `PipelineSourceTriggerPropertiesInput` via:
+//
+//          PipelineSourceTriggerPropertiesArgs{...}
+type PipelineSourceTriggerPropertiesInput interface {
+	pulumi.Input
+
+	ToPipelineSourceTriggerPropertiesOutput() PipelineSourceTriggerPropertiesOutput
+	ToPipelineSourceTriggerPropertiesOutputWithContext(context.Context) PipelineSourceTriggerPropertiesOutput
+}
+
+type PipelineSourceTriggerPropertiesArgs struct {
+	// The current status of the source trigger.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (PipelineSourceTriggerPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineSourceTriggerProperties)(nil)).Elem()
+}
+
+func (i PipelineSourceTriggerPropertiesArgs) ToPipelineSourceTriggerPropertiesOutput() PipelineSourceTriggerPropertiesOutput {
+	return i.ToPipelineSourceTriggerPropertiesOutputWithContext(context.Background())
+}
+
+func (i PipelineSourceTriggerPropertiesArgs) ToPipelineSourceTriggerPropertiesOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineSourceTriggerPropertiesOutput)
+}
+
+func (i PipelineSourceTriggerPropertiesArgs) ToPipelineSourceTriggerPropertiesPtrOutput() PipelineSourceTriggerPropertiesPtrOutput {
+	return i.ToPipelineSourceTriggerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineSourceTriggerPropertiesArgs) ToPipelineSourceTriggerPropertiesPtrOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineSourceTriggerPropertiesOutput).ToPipelineSourceTriggerPropertiesPtrOutputWithContext(ctx)
+}
+
+// PipelineSourceTriggerPropertiesPtrInput is an input type that accepts PipelineSourceTriggerPropertiesArgs, PipelineSourceTriggerPropertiesPtr and PipelineSourceTriggerPropertiesPtrOutput values.
+// You can construct a concrete instance of `PipelineSourceTriggerPropertiesPtrInput` via:
+//
+//          PipelineSourceTriggerPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineSourceTriggerPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPipelineSourceTriggerPropertiesPtrOutput() PipelineSourceTriggerPropertiesPtrOutput
+	ToPipelineSourceTriggerPropertiesPtrOutputWithContext(context.Context) PipelineSourceTriggerPropertiesPtrOutput
+}
+
+type pipelineSourceTriggerPropertiesPtrType PipelineSourceTriggerPropertiesArgs
+
+func PipelineSourceTriggerPropertiesPtr(v *PipelineSourceTriggerPropertiesArgs) PipelineSourceTriggerPropertiesPtrInput {
+	return (*pipelineSourceTriggerPropertiesPtrType)(v)
+}
+
+func (*pipelineSourceTriggerPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineSourceTriggerProperties)(nil)).Elem()
+}
+
+func (i *pipelineSourceTriggerPropertiesPtrType) ToPipelineSourceTriggerPropertiesPtrOutput() PipelineSourceTriggerPropertiesPtrOutput {
+	return i.ToPipelineSourceTriggerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineSourceTriggerPropertiesPtrType) ToPipelineSourceTriggerPropertiesPtrOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineSourceTriggerPropertiesPtrOutput)
+}
+
+type PipelineSourceTriggerPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PipelineSourceTriggerPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineSourceTriggerProperties)(nil)).Elem()
+}
+
+func (o PipelineSourceTriggerPropertiesOutput) ToPipelineSourceTriggerPropertiesOutput() PipelineSourceTriggerPropertiesOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerPropertiesOutput) ToPipelineSourceTriggerPropertiesOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerPropertiesOutput) ToPipelineSourceTriggerPropertiesPtrOutput() PipelineSourceTriggerPropertiesPtrOutput {
+	return o.ToPipelineSourceTriggerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineSourceTriggerPropertiesOutput) ToPipelineSourceTriggerPropertiesPtrOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesPtrOutput {
+	return o.ApplyT(func(v PipelineSourceTriggerProperties) *PipelineSourceTriggerProperties {
+		return &v
+	}).(PipelineSourceTriggerPropertiesPtrOutput)
+}
+
+// The current status of the source trigger.
+func (o PipelineSourceTriggerPropertiesOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineSourceTriggerProperties) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type PipelineSourceTriggerPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineSourceTriggerPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineSourceTriggerProperties)(nil)).Elem()
+}
+
+func (o PipelineSourceTriggerPropertiesPtrOutput) ToPipelineSourceTriggerPropertiesPtrOutput() PipelineSourceTriggerPropertiesPtrOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerPropertiesPtrOutput) ToPipelineSourceTriggerPropertiesPtrOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesPtrOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerPropertiesPtrOutput) Elem() PipelineSourceTriggerPropertiesOutput {
+	return o.ApplyT(func(v *PipelineSourceTriggerProperties) PipelineSourceTriggerProperties { return *v }).(PipelineSourceTriggerPropertiesOutput)
+}
+
+// The current status of the source trigger.
+func (o PipelineSourceTriggerPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineSourceTriggerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineSourceTriggerPropertiesResponse struct {
+	// The current status of the source trigger.
+	Status string `pulumi:"status"`
+}
+
+// PipelineSourceTriggerPropertiesResponseInput is an input type that accepts PipelineSourceTriggerPropertiesResponseArgs and PipelineSourceTriggerPropertiesResponseOutput values.
+// You can construct a concrete instance of `PipelineSourceTriggerPropertiesResponseInput` via:
+//
+//          PipelineSourceTriggerPropertiesResponseArgs{...}
+type PipelineSourceTriggerPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPipelineSourceTriggerPropertiesResponseOutput() PipelineSourceTriggerPropertiesResponseOutput
+	ToPipelineSourceTriggerPropertiesResponseOutputWithContext(context.Context) PipelineSourceTriggerPropertiesResponseOutput
+}
+
+type PipelineSourceTriggerPropertiesResponseArgs struct {
+	// The current status of the source trigger.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (PipelineSourceTriggerPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineSourceTriggerPropertiesResponse)(nil)).Elem()
+}
+
+func (i PipelineSourceTriggerPropertiesResponseArgs) ToPipelineSourceTriggerPropertiesResponseOutput() PipelineSourceTriggerPropertiesResponseOutput {
+	return i.ToPipelineSourceTriggerPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PipelineSourceTriggerPropertiesResponseArgs) ToPipelineSourceTriggerPropertiesResponseOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineSourceTriggerPropertiesResponseOutput)
+}
+
+func (i PipelineSourceTriggerPropertiesResponseArgs) ToPipelineSourceTriggerPropertiesResponsePtrOutput() PipelineSourceTriggerPropertiesResponsePtrOutput {
+	return i.ToPipelineSourceTriggerPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PipelineSourceTriggerPropertiesResponseArgs) ToPipelineSourceTriggerPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineSourceTriggerPropertiesResponseOutput).ToPipelineSourceTriggerPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// PipelineSourceTriggerPropertiesResponsePtrInput is an input type that accepts PipelineSourceTriggerPropertiesResponseArgs, PipelineSourceTriggerPropertiesResponsePtr and PipelineSourceTriggerPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `PipelineSourceTriggerPropertiesResponsePtrInput` via:
+//
+//          PipelineSourceTriggerPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineSourceTriggerPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToPipelineSourceTriggerPropertiesResponsePtrOutput() PipelineSourceTriggerPropertiesResponsePtrOutput
+	ToPipelineSourceTriggerPropertiesResponsePtrOutputWithContext(context.Context) PipelineSourceTriggerPropertiesResponsePtrOutput
+}
+
+type pipelineSourceTriggerPropertiesResponsePtrType PipelineSourceTriggerPropertiesResponseArgs
+
+func PipelineSourceTriggerPropertiesResponsePtr(v *PipelineSourceTriggerPropertiesResponseArgs) PipelineSourceTriggerPropertiesResponsePtrInput {
+	return (*pipelineSourceTriggerPropertiesResponsePtrType)(v)
+}
+
+func (*pipelineSourceTriggerPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineSourceTriggerPropertiesResponse)(nil)).Elem()
+}
+
+func (i *pipelineSourceTriggerPropertiesResponsePtrType) ToPipelineSourceTriggerPropertiesResponsePtrOutput() PipelineSourceTriggerPropertiesResponsePtrOutput {
+	return i.ToPipelineSourceTriggerPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineSourceTriggerPropertiesResponsePtrType) ToPipelineSourceTriggerPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineSourceTriggerPropertiesResponsePtrOutput)
+}
+
+type PipelineSourceTriggerPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PipelineSourceTriggerPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineSourceTriggerPropertiesResponse)(nil)).Elem()
+}
+
+func (o PipelineSourceTriggerPropertiesResponseOutput) ToPipelineSourceTriggerPropertiesResponseOutput() PipelineSourceTriggerPropertiesResponseOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerPropertiesResponseOutput) ToPipelineSourceTriggerPropertiesResponseOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesResponseOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerPropertiesResponseOutput) ToPipelineSourceTriggerPropertiesResponsePtrOutput() PipelineSourceTriggerPropertiesResponsePtrOutput {
+	return o.ToPipelineSourceTriggerPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineSourceTriggerPropertiesResponseOutput) ToPipelineSourceTriggerPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PipelineSourceTriggerPropertiesResponse) *PipelineSourceTriggerPropertiesResponse {
+		return &v
+	}).(PipelineSourceTriggerPropertiesResponsePtrOutput)
+}
+
+// The current status of the source trigger.
+func (o PipelineSourceTriggerPropertiesResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineSourceTriggerPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type PipelineSourceTriggerPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineSourceTriggerPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineSourceTriggerPropertiesResponse)(nil)).Elem()
+}
+
+func (o PipelineSourceTriggerPropertiesResponsePtrOutput) ToPipelineSourceTriggerPropertiesResponsePtrOutput() PipelineSourceTriggerPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerPropertiesResponsePtrOutput) ToPipelineSourceTriggerPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineSourceTriggerPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PipelineSourceTriggerPropertiesResponsePtrOutput) Elem() PipelineSourceTriggerPropertiesResponseOutput {
+	return o.ApplyT(func(v *PipelineSourceTriggerPropertiesResponse) PipelineSourceTriggerPropertiesResponse { return *v }).(PipelineSourceTriggerPropertiesResponseOutput)
+}
+
+// The current status of the source trigger.
+func (o PipelineSourceTriggerPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineSourceTriggerPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineTriggerDescriptorResponse struct {
+	// The source trigger that caused the pipeline run.
+	SourceTrigger *PipelineSourceTriggerDescriptorResponse `pulumi:"sourceTrigger"`
+}
+
+// PipelineTriggerDescriptorResponseInput is an input type that accepts PipelineTriggerDescriptorResponseArgs and PipelineTriggerDescriptorResponseOutput values.
+// You can construct a concrete instance of `PipelineTriggerDescriptorResponseInput` via:
+//
+//          PipelineTriggerDescriptorResponseArgs{...}
+type PipelineTriggerDescriptorResponseInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerDescriptorResponseOutput() PipelineTriggerDescriptorResponseOutput
+	ToPipelineTriggerDescriptorResponseOutputWithContext(context.Context) PipelineTriggerDescriptorResponseOutput
+}
+
+type PipelineTriggerDescriptorResponseArgs struct {
+	// The source trigger that caused the pipeline run.
+	SourceTrigger PipelineSourceTriggerDescriptorResponsePtrInput `pulumi:"sourceTrigger"`
+}
+
+func (PipelineTriggerDescriptorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (i PipelineTriggerDescriptorResponseArgs) ToPipelineTriggerDescriptorResponseOutput() PipelineTriggerDescriptorResponseOutput {
+	return i.ToPipelineTriggerDescriptorResponseOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerDescriptorResponseArgs) ToPipelineTriggerDescriptorResponseOutputWithContext(ctx context.Context) PipelineTriggerDescriptorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerDescriptorResponseOutput)
+}
+
+func (i PipelineTriggerDescriptorResponseArgs) ToPipelineTriggerDescriptorResponsePtrOutput() PipelineTriggerDescriptorResponsePtrOutput {
+	return i.ToPipelineTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerDescriptorResponseArgs) ToPipelineTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) PipelineTriggerDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerDescriptorResponseOutput).ToPipelineTriggerDescriptorResponsePtrOutputWithContext(ctx)
+}
+
+// PipelineTriggerDescriptorResponsePtrInput is an input type that accepts PipelineTriggerDescriptorResponseArgs, PipelineTriggerDescriptorResponsePtr and PipelineTriggerDescriptorResponsePtrOutput values.
+// You can construct a concrete instance of `PipelineTriggerDescriptorResponsePtrInput` via:
+//
+//          PipelineTriggerDescriptorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineTriggerDescriptorResponsePtrInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerDescriptorResponsePtrOutput() PipelineTriggerDescriptorResponsePtrOutput
+	ToPipelineTriggerDescriptorResponsePtrOutputWithContext(context.Context) PipelineTriggerDescriptorResponsePtrOutput
+}
+
+type pipelineTriggerDescriptorResponsePtrType PipelineTriggerDescriptorResponseArgs
+
+func PipelineTriggerDescriptorResponsePtr(v *PipelineTriggerDescriptorResponseArgs) PipelineTriggerDescriptorResponsePtrInput {
+	return (*pipelineTriggerDescriptorResponsePtrType)(v)
+}
+
+func (*pipelineTriggerDescriptorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (i *pipelineTriggerDescriptorResponsePtrType) ToPipelineTriggerDescriptorResponsePtrOutput() PipelineTriggerDescriptorResponsePtrOutput {
+	return i.ToPipelineTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineTriggerDescriptorResponsePtrType) ToPipelineTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) PipelineTriggerDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerDescriptorResponsePtrOutput)
+}
+
+type PipelineTriggerDescriptorResponseOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerDescriptorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (o PipelineTriggerDescriptorResponseOutput) ToPipelineTriggerDescriptorResponseOutput() PipelineTriggerDescriptorResponseOutput {
+	return o
+}
+
+func (o PipelineTriggerDescriptorResponseOutput) ToPipelineTriggerDescriptorResponseOutputWithContext(ctx context.Context) PipelineTriggerDescriptorResponseOutput {
+	return o
+}
+
+func (o PipelineTriggerDescriptorResponseOutput) ToPipelineTriggerDescriptorResponsePtrOutput() PipelineTriggerDescriptorResponsePtrOutput {
+	return o.ToPipelineTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTriggerDescriptorResponseOutput) ToPipelineTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) PipelineTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v PipelineTriggerDescriptorResponse) *PipelineTriggerDescriptorResponse {
+		return &v
+	}).(PipelineTriggerDescriptorResponsePtrOutput)
+}
+
+// The source trigger that caused the pipeline run.
+func (o PipelineTriggerDescriptorResponseOutput) SourceTrigger() PipelineSourceTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v PipelineTriggerDescriptorResponse) *PipelineSourceTriggerDescriptorResponse {
+		return v.SourceTrigger
+	}).(PipelineSourceTriggerDescriptorResponsePtrOutput)
+}
+
+type PipelineTriggerDescriptorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerDescriptorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (o PipelineTriggerDescriptorResponsePtrOutput) ToPipelineTriggerDescriptorResponsePtrOutput() PipelineTriggerDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o PipelineTriggerDescriptorResponsePtrOutput) ToPipelineTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) PipelineTriggerDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o PipelineTriggerDescriptorResponsePtrOutput) Elem() PipelineTriggerDescriptorResponseOutput {
+	return o.ApplyT(func(v *PipelineTriggerDescriptorResponse) PipelineTriggerDescriptorResponse { return *v }).(PipelineTriggerDescriptorResponseOutput)
+}
+
+// The source trigger that caused the pipeline run.
+func (o PipelineTriggerDescriptorResponsePtrOutput) SourceTrigger() PipelineSourceTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v *PipelineTriggerDescriptorResponse) *PipelineSourceTriggerDescriptorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SourceTrigger
+	}).(PipelineSourceTriggerDescriptorResponsePtrOutput)
+}
+
+type PipelineTriggerProperties struct {
+	// The source trigger properties of the pipeline.
+	SourceTrigger *PipelineSourceTriggerProperties `pulumi:"sourceTrigger"`
+}
+
+// PipelineTriggerPropertiesInput is an input type that accepts PipelineTriggerPropertiesArgs and PipelineTriggerPropertiesOutput values.
+// You can construct a concrete instance of `PipelineTriggerPropertiesInput` via:
+//
+//          PipelineTriggerPropertiesArgs{...}
+type PipelineTriggerPropertiesInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerPropertiesOutput() PipelineTriggerPropertiesOutput
+	ToPipelineTriggerPropertiesOutputWithContext(context.Context) PipelineTriggerPropertiesOutput
+}
+
+type PipelineTriggerPropertiesArgs struct {
+	// The source trigger properties of the pipeline.
+	SourceTrigger PipelineSourceTriggerPropertiesPtrInput `pulumi:"sourceTrigger"`
+}
+
+func (PipelineTriggerPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerProperties)(nil)).Elem()
+}
+
+func (i PipelineTriggerPropertiesArgs) ToPipelineTriggerPropertiesOutput() PipelineTriggerPropertiesOutput {
+	return i.ToPipelineTriggerPropertiesOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerPropertiesArgs) ToPipelineTriggerPropertiesOutputWithContext(ctx context.Context) PipelineTriggerPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerPropertiesOutput)
+}
+
+func (i PipelineTriggerPropertiesArgs) ToPipelineTriggerPropertiesPtrOutput() PipelineTriggerPropertiesPtrOutput {
+	return i.ToPipelineTriggerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerPropertiesArgs) ToPipelineTriggerPropertiesPtrOutputWithContext(ctx context.Context) PipelineTriggerPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerPropertiesOutput).ToPipelineTriggerPropertiesPtrOutputWithContext(ctx)
+}
+
+// PipelineTriggerPropertiesPtrInput is an input type that accepts PipelineTriggerPropertiesArgs, PipelineTriggerPropertiesPtr and PipelineTriggerPropertiesPtrOutput values.
+// You can construct a concrete instance of `PipelineTriggerPropertiesPtrInput` via:
+//
+//          PipelineTriggerPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineTriggerPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerPropertiesPtrOutput() PipelineTriggerPropertiesPtrOutput
+	ToPipelineTriggerPropertiesPtrOutputWithContext(context.Context) PipelineTriggerPropertiesPtrOutput
+}
+
+type pipelineTriggerPropertiesPtrType PipelineTriggerPropertiesArgs
+
+func PipelineTriggerPropertiesPtr(v *PipelineTriggerPropertiesArgs) PipelineTriggerPropertiesPtrInput {
+	return (*pipelineTriggerPropertiesPtrType)(v)
+}
+
+func (*pipelineTriggerPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerProperties)(nil)).Elem()
+}
+
+func (i *pipelineTriggerPropertiesPtrType) ToPipelineTriggerPropertiesPtrOutput() PipelineTriggerPropertiesPtrOutput {
+	return i.ToPipelineTriggerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineTriggerPropertiesPtrType) ToPipelineTriggerPropertiesPtrOutputWithContext(ctx context.Context) PipelineTriggerPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerPropertiesPtrOutput)
+}
+
+type PipelineTriggerPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerProperties)(nil)).Elem()
+}
+
+func (o PipelineTriggerPropertiesOutput) ToPipelineTriggerPropertiesOutput() PipelineTriggerPropertiesOutput {
+	return o
+}
+
+func (o PipelineTriggerPropertiesOutput) ToPipelineTriggerPropertiesOutputWithContext(ctx context.Context) PipelineTriggerPropertiesOutput {
+	return o
+}
+
+func (o PipelineTriggerPropertiesOutput) ToPipelineTriggerPropertiesPtrOutput() PipelineTriggerPropertiesPtrOutput {
+	return o.ToPipelineTriggerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTriggerPropertiesOutput) ToPipelineTriggerPropertiesPtrOutputWithContext(ctx context.Context) PipelineTriggerPropertiesPtrOutput {
+	return o.ApplyT(func(v PipelineTriggerProperties) *PipelineTriggerProperties {
+		return &v
+	}).(PipelineTriggerPropertiesPtrOutput)
+}
+
+// The source trigger properties of the pipeline.
+func (o PipelineTriggerPropertiesOutput) SourceTrigger() PipelineSourceTriggerPropertiesPtrOutput {
+	return o.ApplyT(func(v PipelineTriggerProperties) *PipelineSourceTriggerProperties { return v.SourceTrigger }).(PipelineSourceTriggerPropertiesPtrOutput)
+}
+
+type PipelineTriggerPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerProperties)(nil)).Elem()
+}
+
+func (o PipelineTriggerPropertiesPtrOutput) ToPipelineTriggerPropertiesPtrOutput() PipelineTriggerPropertiesPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerPropertiesPtrOutput) ToPipelineTriggerPropertiesPtrOutputWithContext(ctx context.Context) PipelineTriggerPropertiesPtrOutput {
+	return o
+}
+
+func (o PipelineTriggerPropertiesPtrOutput) Elem() PipelineTriggerPropertiesOutput {
+	return o.ApplyT(func(v *PipelineTriggerProperties) PipelineTriggerProperties { return *v }).(PipelineTriggerPropertiesOutput)
+}
+
+// The source trigger properties of the pipeline.
+func (o PipelineTriggerPropertiesPtrOutput) SourceTrigger() PipelineSourceTriggerPropertiesPtrOutput {
+	return o.ApplyT(func(v *PipelineTriggerProperties) *PipelineSourceTriggerProperties {
+		if v == nil {
+			return nil
+		}
+		return v.SourceTrigger
+	}).(PipelineSourceTriggerPropertiesPtrOutput)
+}
+
+type PipelineTriggerPropertiesResponse struct {
+	// The source trigger properties of the pipeline.
+	SourceTrigger *PipelineSourceTriggerPropertiesResponse `pulumi:"sourceTrigger"`
+}
+
+// PipelineTriggerPropertiesResponseInput is an input type that accepts PipelineTriggerPropertiesResponseArgs and PipelineTriggerPropertiesResponseOutput values.
+// You can construct a concrete instance of `PipelineTriggerPropertiesResponseInput` via:
+//
+//          PipelineTriggerPropertiesResponseArgs{...}
+type PipelineTriggerPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerPropertiesResponseOutput() PipelineTriggerPropertiesResponseOutput
+	ToPipelineTriggerPropertiesResponseOutputWithContext(context.Context) PipelineTriggerPropertiesResponseOutput
+}
+
+type PipelineTriggerPropertiesResponseArgs struct {
+	// The source trigger properties of the pipeline.
+	SourceTrigger PipelineSourceTriggerPropertiesResponsePtrInput `pulumi:"sourceTrigger"`
+}
+
+func (PipelineTriggerPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerPropertiesResponse)(nil)).Elem()
+}
+
+func (i PipelineTriggerPropertiesResponseArgs) ToPipelineTriggerPropertiesResponseOutput() PipelineTriggerPropertiesResponseOutput {
+	return i.ToPipelineTriggerPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerPropertiesResponseArgs) ToPipelineTriggerPropertiesResponseOutputWithContext(ctx context.Context) PipelineTriggerPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerPropertiesResponseOutput)
+}
+
+func (i PipelineTriggerPropertiesResponseArgs) ToPipelineTriggerPropertiesResponsePtrOutput() PipelineTriggerPropertiesResponsePtrOutput {
+	return i.ToPipelineTriggerPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerPropertiesResponseArgs) ToPipelineTriggerPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineTriggerPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerPropertiesResponseOutput).ToPipelineTriggerPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// PipelineTriggerPropertiesResponsePtrInput is an input type that accepts PipelineTriggerPropertiesResponseArgs, PipelineTriggerPropertiesResponsePtr and PipelineTriggerPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `PipelineTriggerPropertiesResponsePtrInput` via:
+//
+//          PipelineTriggerPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PipelineTriggerPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerPropertiesResponsePtrOutput() PipelineTriggerPropertiesResponsePtrOutput
+	ToPipelineTriggerPropertiesResponsePtrOutputWithContext(context.Context) PipelineTriggerPropertiesResponsePtrOutput
+}
+
+type pipelineTriggerPropertiesResponsePtrType PipelineTriggerPropertiesResponseArgs
+
+func PipelineTriggerPropertiesResponsePtr(v *PipelineTriggerPropertiesResponseArgs) PipelineTriggerPropertiesResponsePtrInput {
+	return (*pipelineTriggerPropertiesResponsePtrType)(v)
+}
+
+func (*pipelineTriggerPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerPropertiesResponse)(nil)).Elem()
+}
+
+func (i *pipelineTriggerPropertiesResponsePtrType) ToPipelineTriggerPropertiesResponsePtrOutput() PipelineTriggerPropertiesResponsePtrOutput {
+	return i.ToPipelineTriggerPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineTriggerPropertiesResponsePtrType) ToPipelineTriggerPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineTriggerPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerPropertiesResponsePtrOutput)
+}
+
+type PipelineTriggerPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerPropertiesResponse)(nil)).Elem()
+}
+
+func (o PipelineTriggerPropertiesResponseOutput) ToPipelineTriggerPropertiesResponseOutput() PipelineTriggerPropertiesResponseOutput {
+	return o
+}
+
+func (o PipelineTriggerPropertiesResponseOutput) ToPipelineTriggerPropertiesResponseOutputWithContext(ctx context.Context) PipelineTriggerPropertiesResponseOutput {
+	return o
+}
+
+func (o PipelineTriggerPropertiesResponseOutput) ToPipelineTriggerPropertiesResponsePtrOutput() PipelineTriggerPropertiesResponsePtrOutput {
+	return o.ToPipelineTriggerPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTriggerPropertiesResponseOutput) ToPipelineTriggerPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineTriggerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PipelineTriggerPropertiesResponse) *PipelineTriggerPropertiesResponse {
+		return &v
+	}).(PipelineTriggerPropertiesResponsePtrOutput)
+}
+
+// The source trigger properties of the pipeline.
+func (o PipelineTriggerPropertiesResponseOutput) SourceTrigger() PipelineSourceTriggerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PipelineTriggerPropertiesResponse) *PipelineSourceTriggerPropertiesResponse {
+		return v.SourceTrigger
+	}).(PipelineSourceTriggerPropertiesResponsePtrOutput)
+}
+
+type PipelineTriggerPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTriggerPropertiesResponse)(nil)).Elem()
+}
+
+func (o PipelineTriggerPropertiesResponsePtrOutput) ToPipelineTriggerPropertiesResponsePtrOutput() PipelineTriggerPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PipelineTriggerPropertiesResponsePtrOutput) ToPipelineTriggerPropertiesResponsePtrOutputWithContext(ctx context.Context) PipelineTriggerPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PipelineTriggerPropertiesResponsePtrOutput) Elem() PipelineTriggerPropertiesResponseOutput {
+	return o.ApplyT(func(v *PipelineTriggerPropertiesResponse) PipelineTriggerPropertiesResponse { return *v }).(PipelineTriggerPropertiesResponseOutput)
+}
+
+// The source trigger properties of the pipeline.
+func (o PipelineTriggerPropertiesResponsePtrOutput) SourceTrigger() PipelineSourceTriggerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *PipelineTriggerPropertiesResponse) *PipelineSourceTriggerPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SourceTrigger
+	}).(PipelineSourceTriggerPropertiesResponsePtrOutput)
 }
 
 // The platform properties against which the run has to happen.
@@ -4814,6 +11279,898 @@ func (o PoliciesResponsePtrOutput) TrustPolicy() TrustPolicyResponsePtrOutput {
 		}
 		return v.TrustPolicy
 	}).(TrustPolicyResponsePtrOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpoint struct {
+	// This is private endpoint resource created with Microsoft.Network resource provider.
+	Id *string `pulumi:"id"`
+}
+
+// PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
+// You can construct a concrete instance of `PrivateEndpointInput` via:
+//
+//          PrivateEndpointArgs{...}
+type PrivateEndpointInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointOutput() PrivateEndpointOutput
+	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointArgs struct {
+	// This is private endpoint resource created with Microsoft.Network resource provider.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
+}
+
+func (i PrivateEndpointArgs) ToPrivateEndpointOutput() PrivateEndpointOutput {
+	return i.ToPrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointArgs) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput)
+}
+
+func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
+	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput).ToPrivateEndpointPtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointPtrInput` via:
+//
+//          PrivateEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput
+	ToPrivateEndpointPtrOutputWithContext(context.Context) PrivateEndpointPtrOutput
+}
+
+type privateEndpointPtrType PrivateEndpointArgs
+
+func PrivateEndpointPtr(v *PrivateEndpointArgs) PrivateEndpointPtrInput {
+	return (*privateEndpointPtrType)(v)
+}
+
+func (*privateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
+}
+
+func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
+	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
+}
+
+func (o PrivateEndpointOutput) ToPrivateEndpointOutput() PrivateEndpointOutput {
+	return o
+}
+
+func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
+	return o
+}
+
+func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
+	return o.ToPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
+		return &v
+	}).(PrivateEndpointPtrOutput)
+}
+
+// This is private endpoint resource created with Microsoft.Network resource provider.
+func (o PrivateEndpointOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
+}
+
+func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
+}
+
+// This is private endpoint resource created with Microsoft.Network resource provider.
+func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that represents a private endpoint connection for a container registry.
+type PrivateEndpointConnectionResponse struct {
+	// The resource ID.
+	Id string `pulumi:"id"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The resource of private endpoint.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of private endpoint connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionResponseInput` via:
+//
+//          PrivateEndpointConnectionResponseArgs{...}
+type PrivateEndpointConnectionResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput
+	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
+}
+
+// An object that represents a private endpoint connection for a container registry.
+type PrivateEndpointConnectionResponseArgs struct {
+	// The resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource of private endpoint.
+	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of private endpoint connection resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionResponseArgs) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return i.ToPrivateEndpointConnectionResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionResponseArgs) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseOutput)
+}
+
+// PrivateEndpointConnectionResponseArrayInput is an input type that accepts PrivateEndpointConnectionResponseArray and PrivateEndpointConnectionResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionResponseArray{ PrivateEndpointConnectionResponseArgs{...} }
+type PrivateEndpointConnectionResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput
+	ToPrivateEndpointConnectionResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionResponseArrayOutput
+}
+
+type PrivateEndpointConnectionResponseArray []PrivateEndpointConnectionResponseInput
+
+func (PrivateEndpointConnectionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// An object that represents a private endpoint connection for a container registry.
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// The resource ID.
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private endpoint.
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// The provisioning state of private endpoint connection resource.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointResponse struct {
+	// This is private endpoint resource created with Microsoft.Network resource provider.
+	Id *string `pulumi:"id"`
+}
+
+// PrivateEndpointResponseInput is an input type that accepts PrivateEndpointResponseArgs and PrivateEndpointResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointResponseInput` via:
+//
+//          PrivateEndpointResponseArgs{...}
+type PrivateEndpointResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput
+	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointResponseArgs struct {
+	// This is private endpoint resource created with Microsoft.Network resource provider.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput {
+	return i.ToPrivateEndpointResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponseOutput)
+}
+
+func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
+	return i.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponseOutput).ToPrivateEndpointResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointResponsePtrInput is an input type that accepts PrivateEndpointResponseArgs, PrivateEndpointResponsePtr and PrivateEndpointResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointResponsePtrInput` via:
+//
+//          PrivateEndpointResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput
+	ToPrivateEndpointResponsePtrOutputWithContext(context.Context) PrivateEndpointResponsePtrOutput
+}
+
+type privateEndpointResponsePtrType PrivateEndpointResponseArgs
+
+func PrivateEndpointResponsePtr(v *PrivateEndpointResponseArgs) PrivateEndpointResponsePtrInput {
+	return (*privateEndpointResponsePtrType)(v)
+}
+
+func (*privateEndpointResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
+	return i.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
+	return o.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+		return &v
+	}).(PrivateEndpointResponsePtrOutput)
+}
+
+// This is private endpoint resource created with Microsoft.Network resource provider.
+func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+}
+
+// This is private endpoint resource created with Microsoft.Network resource provider.
+func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of a private link service connection.
+type PrivateLinkServiceConnectionState struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+	Description *string `pulumi:"description"`
+	// The private link service connection status.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
+//
+//          PrivateLinkServiceConnectionStateArgs{...}
+type PrivateLinkServiceConnectionStateInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput
+	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
+}
+
+// The state of a private link service connection.
+type PrivateLinkServiceConnectionStateArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The private link service connection status.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
+	return i.ToPrivateLinkServiceConnectionStateOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput)
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput).ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
+//
+//          PrivateLinkServiceConnectionStateArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStatePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput
+	ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePtrOutput
+}
+
+type privateLinkServiceConnectionStatePtrType PrivateLinkServiceConnectionStateArgs
+
+func PrivateLinkServiceConnectionStatePtr(v *PrivateLinkServiceConnectionStateArgs) PrivateLinkServiceConnectionStatePtrInput {
+	return (*privateLinkServiceConnectionStatePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// The state of a private link service connection.
+type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+		return &v
+	}).(PrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of a private link service connection.
+type PrivateLinkServiceConnectionStateResponse struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+	Description *string `pulumi:"description"`
+	// The private link service connection status.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStateResponseArgs{...}
+type PrivateLinkServiceConnectionStateResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput
+	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
+}
+
+// The state of a private link service connection.
+type PrivateLinkServiceConnectionStateResponseArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The private link service connection status.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput).ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStateResponsePtrInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs, PrivateLinkServiceConnectionStateResponsePtr and PrivateLinkServiceConnectionStateResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateResponsePtrInput` via:
+//
+//          PrivateLinkServiceConnectionStateResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStateResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput
+	ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput
+}
+
+type privateLinkServiceConnectionStateResponsePtrType PrivateLinkServiceConnectionStateResponseArgs
+
+func PrivateLinkServiceConnectionStateResponsePtr(v *PrivateLinkServiceConnectionStateResponseArgs) PrivateLinkServiceConnectionStateResponsePtrInput {
+	return (*privateLinkServiceConnectionStateResponsePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStateResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// The state of a private link service connection.
+type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+		return &v
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStateResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
+		return *v
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description for connection status. For example if connection is rejected it can indicate reason for rejection.
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProgressPropertiesResponse struct {
+	// The percentage complete of the copy operation.
+	Percentage *string `pulumi:"percentage"`
+}
+
+// ProgressPropertiesResponseInput is an input type that accepts ProgressPropertiesResponseArgs and ProgressPropertiesResponseOutput values.
+// You can construct a concrete instance of `ProgressPropertiesResponseInput` via:
+//
+//          ProgressPropertiesResponseArgs{...}
+type ProgressPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToProgressPropertiesResponseOutput() ProgressPropertiesResponseOutput
+	ToProgressPropertiesResponseOutputWithContext(context.Context) ProgressPropertiesResponseOutput
+}
+
+type ProgressPropertiesResponseArgs struct {
+	// The percentage complete of the copy operation.
+	Percentage pulumi.StringPtrInput `pulumi:"percentage"`
+}
+
+func (ProgressPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgressPropertiesResponse)(nil)).Elem()
+}
+
+func (i ProgressPropertiesResponseArgs) ToProgressPropertiesResponseOutput() ProgressPropertiesResponseOutput {
+	return i.ToProgressPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ProgressPropertiesResponseArgs) ToProgressPropertiesResponseOutputWithContext(ctx context.Context) ProgressPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgressPropertiesResponseOutput)
+}
+
+func (i ProgressPropertiesResponseArgs) ToProgressPropertiesResponsePtrOutput() ProgressPropertiesResponsePtrOutput {
+	return i.ToProgressPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProgressPropertiesResponseArgs) ToProgressPropertiesResponsePtrOutputWithContext(ctx context.Context) ProgressPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgressPropertiesResponseOutput).ToProgressPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ProgressPropertiesResponsePtrInput is an input type that accepts ProgressPropertiesResponseArgs, ProgressPropertiesResponsePtr and ProgressPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ProgressPropertiesResponsePtrInput` via:
+//
+//          ProgressPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ProgressPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToProgressPropertiesResponsePtrOutput() ProgressPropertiesResponsePtrOutput
+	ToProgressPropertiesResponsePtrOutputWithContext(context.Context) ProgressPropertiesResponsePtrOutput
+}
+
+type progressPropertiesResponsePtrType ProgressPropertiesResponseArgs
+
+func ProgressPropertiesResponsePtr(v *ProgressPropertiesResponseArgs) ProgressPropertiesResponsePtrInput {
+	return (*progressPropertiesResponsePtrType)(v)
+}
+
+func (*progressPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgressPropertiesResponse)(nil)).Elem()
+}
+
+func (i *progressPropertiesResponsePtrType) ToProgressPropertiesResponsePtrOutput() ProgressPropertiesResponsePtrOutput {
+	return i.ToProgressPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *progressPropertiesResponsePtrType) ToProgressPropertiesResponsePtrOutputWithContext(ctx context.Context) ProgressPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgressPropertiesResponsePtrOutput)
+}
+
+type ProgressPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ProgressPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgressPropertiesResponse)(nil)).Elem()
+}
+
+func (o ProgressPropertiesResponseOutput) ToProgressPropertiesResponseOutput() ProgressPropertiesResponseOutput {
+	return o
+}
+
+func (o ProgressPropertiesResponseOutput) ToProgressPropertiesResponseOutputWithContext(ctx context.Context) ProgressPropertiesResponseOutput {
+	return o
+}
+
+func (o ProgressPropertiesResponseOutput) ToProgressPropertiesResponsePtrOutput() ProgressPropertiesResponsePtrOutput {
+	return o.ToProgressPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProgressPropertiesResponseOutput) ToProgressPropertiesResponsePtrOutputWithContext(ctx context.Context) ProgressPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ProgressPropertiesResponse) *ProgressPropertiesResponse {
+		return &v
+	}).(ProgressPropertiesResponsePtrOutput)
+}
+
+// The percentage complete of the copy operation.
+func (o ProgressPropertiesResponseOutput) Percentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProgressPropertiesResponse) *string { return v.Percentage }).(pulumi.StringPtrOutput)
+}
+
+type ProgressPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProgressPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgressPropertiesResponse)(nil)).Elem()
+}
+
+func (o ProgressPropertiesResponsePtrOutput) ToProgressPropertiesResponsePtrOutput() ProgressPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ProgressPropertiesResponsePtrOutput) ToProgressPropertiesResponsePtrOutputWithContext(ctx context.Context) ProgressPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ProgressPropertiesResponsePtrOutput) Elem() ProgressPropertiesResponseOutput {
+	return o.ApplyT(func(v *ProgressPropertiesResponse) ProgressPropertiesResponse { return *v }).(ProgressPropertiesResponseOutput)
+}
+
+// The percentage complete of the copy operation.
+func (o ProgressPropertiesResponsePtrOutput) Percentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProgressPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Percentage
+	}).(pulumi.StringPtrOutput)
 }
 
 // The quarantine policy for a container registry.
@@ -5728,6 +13085,596 @@ func (o RetentionPolicyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Run resource properties
+type RunResponse struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The time the run was scheduled.
+	CreateTime *string `pulumi:"createTime"`
+	// The list of custom registries that were logged in during this run.
+	CustomRegistries []string `pulumi:"customRegistries"`
+	// The time the run finished.
+	FinishTime *string `pulumi:"finishTime"`
+	// The resource ID.
+	Id string `pulumi:"id"`
+	// The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
+	ImageUpdateTrigger *ImageUpdateTriggerResponse `pulumi:"imageUpdateTrigger"`
+	// The value that indicates whether archiving is enabled or not.
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The last updated time for the run.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// The image description for the log artifact.
+	LogArtifact ImageDescriptorResponse `pulumi:"logArtifact"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
+	OutputImages []ImageDescriptorResponse `pulumi:"outputImages"`
+	// The platform properties against which the run will happen.
+	Platform *PlatformPropertiesResponse `pulumi:"platform"`
+	// The provisioning state of a run.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The error message received from backend systems after the run is scheduled.
+	RunErrorMessage string `pulumi:"runErrorMessage"`
+	// The unique identifier for the run.
+	RunId *string `pulumi:"runId"`
+	// The type of run.
+	RunType *string `pulumi:"runType"`
+	// The scope of the credentials that were used to login to the source registry during this run.
+	SourceRegistryAuth *string `pulumi:"sourceRegistryAuth"`
+	// The source trigger that caused the run.
+	SourceTrigger *SourceTriggerDescriptorResponse `pulumi:"sourceTrigger"`
+	// The time the run started.
+	StartTime *string `pulumi:"startTime"`
+	// The current status of the run.
+	Status *string `pulumi:"status"`
+	// The task against which run was scheduled.
+	Task *string `pulumi:"task"`
+	// The timer trigger that caused the run.
+	TimerTrigger *TimerTriggerDescriptorResponse `pulumi:"timerTrigger"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+	// The update trigger token passed for the Run.
+	UpdateTriggerToken *string `pulumi:"updateTriggerToken"`
+}
+
+// RunResponseInput is an input type that accepts RunResponseArgs and RunResponseOutput values.
+// You can construct a concrete instance of `RunResponseInput` via:
+//
+//          RunResponseArgs{...}
+type RunResponseInput interface {
+	pulumi.Input
+
+	ToRunResponseOutput() RunResponseOutput
+	ToRunResponseOutputWithContext(context.Context) RunResponseOutput
+}
+
+// Run resource properties
+type RunResponseArgs struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
+	// The dedicated agent pool for the run.
+	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
+	// The time the run was scheduled.
+	CreateTime pulumi.StringPtrInput `pulumi:"createTime"`
+	// The list of custom registries that were logged in during this run.
+	CustomRegistries pulumi.StringArrayInput `pulumi:"customRegistries"`
+	// The time the run finished.
+	FinishTime pulumi.StringPtrInput `pulumi:"finishTime"`
+	// The resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
+	ImageUpdateTrigger ImageUpdateTriggerResponsePtrInput `pulumi:"imageUpdateTrigger"`
+	// The value that indicates whether archiving is enabled or not.
+	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The last updated time for the run.
+	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
+	// The image description for the log artifact.
+	LogArtifact ImageDescriptorResponseInput `pulumi:"logArtifact"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
+	OutputImages ImageDescriptorResponseArrayInput `pulumi:"outputImages"`
+	// The platform properties against which the run will happen.
+	Platform PlatformPropertiesResponsePtrInput `pulumi:"platform"`
+	// The provisioning state of a run.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// The error message received from backend systems after the run is scheduled.
+	RunErrorMessage pulumi.StringInput `pulumi:"runErrorMessage"`
+	// The unique identifier for the run.
+	RunId pulumi.StringPtrInput `pulumi:"runId"`
+	// The type of run.
+	RunType pulumi.StringPtrInput `pulumi:"runType"`
+	// The scope of the credentials that were used to login to the source registry during this run.
+	SourceRegistryAuth pulumi.StringPtrInput `pulumi:"sourceRegistryAuth"`
+	// The source trigger that caused the run.
+	SourceTrigger SourceTriggerDescriptorResponsePtrInput `pulumi:"sourceTrigger"`
+	// The time the run started.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The current status of the run.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The task against which run was scheduled.
+	Task pulumi.StringPtrInput `pulumi:"task"`
+	// The timer trigger that caused the run.
+	TimerTrigger TimerTriggerDescriptorResponsePtrInput `pulumi:"timerTrigger"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The update trigger token passed for the Run.
+	UpdateTriggerToken pulumi.StringPtrInput `pulumi:"updateTriggerToken"`
+}
+
+func (RunResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunResponse)(nil)).Elem()
+}
+
+func (i RunResponseArgs) ToRunResponseOutput() RunResponseOutput {
+	return i.ToRunResponseOutputWithContext(context.Background())
+}
+
+func (i RunResponseArgs) ToRunResponseOutputWithContext(ctx context.Context) RunResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunResponseOutput)
+}
+
+func (i RunResponseArgs) ToRunResponsePtrOutput() RunResponsePtrOutput {
+	return i.ToRunResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RunResponseArgs) ToRunResponsePtrOutputWithContext(ctx context.Context) RunResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunResponseOutput).ToRunResponsePtrOutputWithContext(ctx)
+}
+
+// RunResponsePtrInput is an input type that accepts RunResponseArgs, RunResponsePtr and RunResponsePtrOutput values.
+// You can construct a concrete instance of `RunResponsePtrInput` via:
+//
+//          RunResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RunResponsePtrInput interface {
+	pulumi.Input
+
+	ToRunResponsePtrOutput() RunResponsePtrOutput
+	ToRunResponsePtrOutputWithContext(context.Context) RunResponsePtrOutput
+}
+
+type runResponsePtrType RunResponseArgs
+
+func RunResponsePtr(v *RunResponseArgs) RunResponsePtrInput {
+	return (*runResponsePtrType)(v)
+}
+
+func (*runResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunResponse)(nil)).Elem()
+}
+
+func (i *runResponsePtrType) ToRunResponsePtrOutput() RunResponsePtrOutput {
+	return i.ToRunResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *runResponsePtrType) ToRunResponsePtrOutputWithContext(ctx context.Context) RunResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunResponsePtrOutput)
+}
+
+// Run resource properties
+type RunResponseOutput struct{ *pulumi.OutputState }
+
+func (RunResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunResponse)(nil)).Elem()
+}
+
+func (o RunResponseOutput) ToRunResponseOutput() RunResponseOutput {
+	return o
+}
+
+func (o RunResponseOutput) ToRunResponseOutputWithContext(ctx context.Context) RunResponseOutput {
+	return o
+}
+
+func (o RunResponseOutput) ToRunResponsePtrOutput() RunResponsePtrOutput {
+	return o.ToRunResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RunResponseOutput) ToRunResponsePtrOutputWithContext(ctx context.Context) RunResponsePtrOutput {
+	return o.ApplyT(func(v RunResponse) *RunResponse {
+		return &v
+	}).(RunResponsePtrOutput)
+}
+
+// The machine configuration of the run agent.
+func (o RunResponseOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v RunResponse) *AgentPropertiesResponse { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
+}
+
+// The dedicated agent pool for the run.
+func (o RunResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The time the run was scheduled.
+func (o RunResponseOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
+}
+
+// The list of custom registries that were logged in during this run.
+func (o RunResponseOutput) CustomRegistries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RunResponse) []string { return v.CustomRegistries }).(pulumi.StringArrayOutput)
+}
+
+// The time the run finished.
+func (o RunResponseOutput) FinishTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.FinishTime }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID.
+func (o RunResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RunResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
+func (o RunResponseOutput) ImageUpdateTrigger() ImageUpdateTriggerResponsePtrOutput {
+	return o.ApplyT(func(v RunResponse) *ImageUpdateTriggerResponse { return v.ImageUpdateTrigger }).(ImageUpdateTriggerResponsePtrOutput)
+}
+
+// The value that indicates whether archiving is enabled or not.
+func (o RunResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RunResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The last updated time for the run.
+func (o RunResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// The image description for the log artifact.
+func (o RunResponseOutput) LogArtifact() ImageDescriptorResponseOutput {
+	return o.ApplyT(func(v RunResponse) ImageDescriptorResponse { return v.LogArtifact }).(ImageDescriptorResponseOutput)
+}
+
+// The name of the resource.
+func (o RunResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RunResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
+func (o RunResponseOutput) OutputImages() ImageDescriptorResponseArrayOutput {
+	return o.ApplyT(func(v RunResponse) []ImageDescriptorResponse { return v.OutputImages }).(ImageDescriptorResponseArrayOutput)
+}
+
+// The platform properties against which the run will happen.
+func (o RunResponseOutput) Platform() PlatformPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v RunResponse) *PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponsePtrOutput)
+}
+
+// The provisioning state of a run.
+func (o RunResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The error message received from backend systems after the run is scheduled.
+func (o RunResponseOutput) RunErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v RunResponse) string { return v.RunErrorMessage }).(pulumi.StringOutput)
+}
+
+// The unique identifier for the run.
+func (o RunResponseOutput) RunId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.RunId }).(pulumi.StringPtrOutput)
+}
+
+// The type of run.
+func (o RunResponseOutput) RunType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.RunType }).(pulumi.StringPtrOutput)
+}
+
+// The scope of the credentials that were used to login to the source registry during this run.
+func (o RunResponseOutput) SourceRegistryAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.SourceRegistryAuth }).(pulumi.StringPtrOutput)
+}
+
+// The source trigger that caused the run.
+func (o RunResponseOutput) SourceTrigger() SourceTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v RunResponse) *SourceTriggerDescriptorResponse { return v.SourceTrigger }).(SourceTriggerDescriptorResponsePtrOutput)
+}
+
+// The time the run started.
+func (o RunResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the run.
+func (o RunResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The task against which run was scheduled.
+func (o RunResponseOutput) Task() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.Task }).(pulumi.StringPtrOutput)
+}
+
+// The timer trigger that caused the run.
+func (o RunResponseOutput) TimerTrigger() TimerTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v RunResponse) *TimerTriggerDescriptorResponse { return v.TimerTrigger }).(TimerTriggerDescriptorResponsePtrOutput)
+}
+
+// The type of the resource.
+func (o RunResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RunResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The update trigger token passed for the Run.
+func (o RunResponseOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunResponse) *string { return v.UpdateTriggerToken }).(pulumi.StringPtrOutput)
+}
+
+type RunResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RunResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunResponse)(nil)).Elem()
+}
+
+func (o RunResponsePtrOutput) ToRunResponsePtrOutput() RunResponsePtrOutput {
+	return o
+}
+
+func (o RunResponsePtrOutput) ToRunResponsePtrOutputWithContext(ctx context.Context) RunResponsePtrOutput {
+	return o
+}
+
+func (o RunResponsePtrOutput) Elem() RunResponseOutput {
+	return o.ApplyT(func(v *RunResponse) RunResponse { return *v }).(RunResponseOutput)
+}
+
+// The machine configuration of the run agent.
+func (o RunResponsePtrOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *RunResponse) *AgentPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AgentConfiguration
+	}).(AgentPropertiesResponsePtrOutput)
+}
+
+// The dedicated agent pool for the run.
+func (o RunResponsePtrOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AgentPoolName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time the run was scheduled.
+func (o RunResponsePtrOutput) CreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of custom registries that were logged in during this run.
+func (o RunResponsePtrOutput) CustomRegistries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RunResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRegistries
+	}).(pulumi.StringArrayOutput)
+}
+
+// The time the run finished.
+func (o RunResponsePtrOutput) FinishTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FinishTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID.
+func (o RunResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
+func (o RunResponsePtrOutput) ImageUpdateTrigger() ImageUpdateTriggerResponsePtrOutput {
+	return o.ApplyT(func(v *RunResponse) *ImageUpdateTriggerResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ImageUpdateTrigger
+	}).(ImageUpdateTriggerResponsePtrOutput)
+}
+
+// The value that indicates whether archiving is enabled or not.
+func (o RunResponsePtrOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsArchiveEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The last updated time for the run.
+func (o RunResponsePtrOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastUpdatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image description for the log artifact.
+func (o RunResponsePtrOutput) LogArtifact() ImageDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v *RunResponse) *ImageDescriptorResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.LogArtifact
+	}).(ImageDescriptorResponsePtrOutput)
+}
+
+// The name of the resource.
+func (o RunResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
+func (o RunResponsePtrOutput) OutputImages() ImageDescriptorResponseArrayOutput {
+	return o.ApplyT(func(v *RunResponse) []ImageDescriptorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.OutputImages
+	}).(ImageDescriptorResponseArrayOutput)
+}
+
+// The platform properties against which the run will happen.
+func (o RunResponsePtrOutput) Platform() PlatformPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *RunResponse) *PlatformPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Platform
+	}).(PlatformPropertiesResponsePtrOutput)
+}
+
+// The provisioning state of a run.
+func (o RunResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The error message received from backend systems after the run is scheduled.
+func (o RunResponsePtrOutput) RunErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RunErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the run.
+func (o RunResponsePtrOutput) RunId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of run.
+func (o RunResponsePtrOutput) RunType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The scope of the credentials that were used to login to the source registry during this run.
+func (o RunResponsePtrOutput) SourceRegistryAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceRegistryAuth
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source trigger that caused the run.
+func (o RunResponsePtrOutput) SourceTrigger() SourceTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v *RunResponse) *SourceTriggerDescriptorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SourceTrigger
+	}).(SourceTriggerDescriptorResponsePtrOutput)
+}
+
+// The time the run started.
+func (o RunResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status of the run.
+func (o RunResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The task against which run was scheduled.
+func (o RunResponsePtrOutput) Task() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Task
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timer trigger that caused the run.
+func (o RunResponsePtrOutput) TimerTrigger() TimerTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v *RunResponse) *TimerTriggerDescriptorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TimerTrigger
+	}).(TimerTriggerDescriptorResponsePtrOutput)
+}
+
+// The type of the resource.
+func (o RunResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The update trigger token passed for the Run.
+func (o RunResponsePtrOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTriggerToken
+	}).(pulumi.StringPtrOutput)
+}
+
 // Describes the properties of a secret object value.
 type SecretObject struct {
 	// The type of the secret object which determines how the value of the secret object has to be
@@ -6056,6 +14003,124 @@ func (o SecretObjectResponsePtrOutput) Value() pulumi.StringPtrOutput {
 		}
 		return v.Value
 	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of a overridable value that can be passed to a task template.
+type SetValue struct {
+	// Flag to indicate whether the value represents a secret or not.
+	IsSecret *bool `pulumi:"isSecret"`
+	// The name of the overridable value.
+	Name string `pulumi:"name"`
+	// The overridable value.
+	Value string `pulumi:"value"`
+}
+
+// SetValueInput is an input type that accepts SetValueArgs and SetValueOutput values.
+// You can construct a concrete instance of `SetValueInput` via:
+//
+//          SetValueArgs{...}
+type SetValueInput interface {
+	pulumi.Input
+
+	ToSetValueOutput() SetValueOutput
+	ToSetValueOutputWithContext(context.Context) SetValueOutput
+}
+
+// The properties of a overridable value that can be passed to a task template.
+type SetValueArgs struct {
+	// Flag to indicate whether the value represents a secret or not.
+	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
+	// The name of the overridable value.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The overridable value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SetValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SetValue)(nil)).Elem()
+}
+
+func (i SetValueArgs) ToSetValueOutput() SetValueOutput {
+	return i.ToSetValueOutputWithContext(context.Background())
+}
+
+func (i SetValueArgs) ToSetValueOutputWithContext(ctx context.Context) SetValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SetValueOutput)
+}
+
+// SetValueArrayInput is an input type that accepts SetValueArray and SetValueArrayOutput values.
+// You can construct a concrete instance of `SetValueArrayInput` via:
+//
+//          SetValueArray{ SetValueArgs{...} }
+type SetValueArrayInput interface {
+	pulumi.Input
+
+	ToSetValueArrayOutput() SetValueArrayOutput
+	ToSetValueArrayOutputWithContext(context.Context) SetValueArrayOutput
+}
+
+type SetValueArray []SetValueInput
+
+func (SetValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SetValue)(nil)).Elem()
+}
+
+func (i SetValueArray) ToSetValueArrayOutput() SetValueArrayOutput {
+	return i.ToSetValueArrayOutputWithContext(context.Background())
+}
+
+func (i SetValueArray) ToSetValueArrayOutputWithContext(ctx context.Context) SetValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SetValueArrayOutput)
+}
+
+// The properties of a overridable value that can be passed to a task template.
+type SetValueOutput struct{ *pulumi.OutputState }
+
+func (SetValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SetValue)(nil)).Elem()
+}
+
+func (o SetValueOutput) ToSetValueOutput() SetValueOutput {
+	return o
+}
+
+func (o SetValueOutput) ToSetValueOutputWithContext(ctx context.Context) SetValueOutput {
+	return o
+}
+
+// Flag to indicate whether the value represents a secret or not.
+func (o SetValueOutput) IsSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SetValue) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the overridable value.
+func (o SetValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SetValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The overridable value.
+func (o SetValueOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SetValue) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SetValueArrayOutput struct{ *pulumi.OutputState }
+
+func (SetValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SetValue)(nil)).Elem()
+}
+
+func (o SetValueArrayOutput) ToSetValueArrayOutput() SetValueArrayOutput {
+	return o
+}
+
+func (o SetValueArrayOutput) ToSetValueArrayOutputWithContext(ctx context.Context) SetValueArrayOutput {
+	return o
+}
+
+func (o SetValueArrayOutput) Index(i pulumi.IntInput) SetValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SetValue {
+		return vs[0].([]SetValue)[vs[1].(int)]
+	}).(SetValueOutput)
 }
 
 // The properties of a overridable value that can be passed to a task template.
@@ -6460,6 +14525,426 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+type SourceControlAuthInfo struct {
+	// Time in seconds that the token remains valid
+	ExpiresIn *int `pulumi:"expiresIn"`
+	// The refresh token used to refresh the access token.
+	RefreshToken *string `pulumi:"refreshToken"`
+	// The scope of the access token.
+	Scope *string `pulumi:"scope"`
+	// The access token used to access the source control provider.
+	Token string `pulumi:"token"`
+	// The type of Auth token.
+	TokenType *string `pulumi:"tokenType"`
+}
+
+// SourceControlAuthInfoInput is an input type that accepts SourceControlAuthInfoArgs and SourceControlAuthInfoOutput values.
+// You can construct a concrete instance of `SourceControlAuthInfoInput` via:
+//
+//          SourceControlAuthInfoArgs{...}
+type SourceControlAuthInfoInput interface {
+	pulumi.Input
+
+	ToSourceControlAuthInfoOutput() SourceControlAuthInfoOutput
+	ToSourceControlAuthInfoOutputWithContext(context.Context) SourceControlAuthInfoOutput
+}
+
+// The authorization properties for accessing the source code repository.
+type SourceControlAuthInfoArgs struct {
+	// Time in seconds that the token remains valid
+	ExpiresIn pulumi.IntPtrInput `pulumi:"expiresIn"`
+	// The refresh token used to refresh the access token.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+	// The scope of the access token.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// The access token used to access the source control provider.
+	Token pulumi.StringInput `pulumi:"token"`
+	// The type of Auth token.
+	TokenType pulumi.StringPtrInput `pulumi:"tokenType"`
+}
+
+func (SourceControlAuthInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlAuthInfo)(nil)).Elem()
+}
+
+func (i SourceControlAuthInfoArgs) ToSourceControlAuthInfoOutput() SourceControlAuthInfoOutput {
+	return i.ToSourceControlAuthInfoOutputWithContext(context.Background())
+}
+
+func (i SourceControlAuthInfoArgs) ToSourceControlAuthInfoOutputWithContext(ctx context.Context) SourceControlAuthInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoOutput)
+}
+
+func (i SourceControlAuthInfoArgs) ToSourceControlAuthInfoPtrOutput() SourceControlAuthInfoPtrOutput {
+	return i.ToSourceControlAuthInfoPtrOutputWithContext(context.Background())
+}
+
+func (i SourceControlAuthInfoArgs) ToSourceControlAuthInfoPtrOutputWithContext(ctx context.Context) SourceControlAuthInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoOutput).ToSourceControlAuthInfoPtrOutputWithContext(ctx)
+}
+
+// SourceControlAuthInfoPtrInput is an input type that accepts SourceControlAuthInfoArgs, SourceControlAuthInfoPtr and SourceControlAuthInfoPtrOutput values.
+// You can construct a concrete instance of `SourceControlAuthInfoPtrInput` via:
+//
+//          SourceControlAuthInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type SourceControlAuthInfoPtrInput interface {
+	pulumi.Input
+
+	ToSourceControlAuthInfoPtrOutput() SourceControlAuthInfoPtrOutput
+	ToSourceControlAuthInfoPtrOutputWithContext(context.Context) SourceControlAuthInfoPtrOutput
+}
+
+type sourceControlAuthInfoPtrType SourceControlAuthInfoArgs
+
+func SourceControlAuthInfoPtr(v *SourceControlAuthInfoArgs) SourceControlAuthInfoPtrInput {
+	return (*sourceControlAuthInfoPtrType)(v)
+}
+
+func (*sourceControlAuthInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlAuthInfo)(nil)).Elem()
+}
+
+func (i *sourceControlAuthInfoPtrType) ToSourceControlAuthInfoPtrOutput() SourceControlAuthInfoPtrOutput {
+	return i.ToSourceControlAuthInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceControlAuthInfoPtrType) ToSourceControlAuthInfoPtrOutputWithContext(ctx context.Context) SourceControlAuthInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoPtrOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+type SourceControlAuthInfoOutput struct{ *pulumi.OutputState }
+
+func (SourceControlAuthInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlAuthInfo)(nil)).Elem()
+}
+
+func (o SourceControlAuthInfoOutput) ToSourceControlAuthInfoOutput() SourceControlAuthInfoOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoOutput) ToSourceControlAuthInfoOutputWithContext(ctx context.Context) SourceControlAuthInfoOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoOutput) ToSourceControlAuthInfoPtrOutput() SourceControlAuthInfoPtrOutput {
+	return o.ToSourceControlAuthInfoPtrOutputWithContext(context.Background())
+}
+
+func (o SourceControlAuthInfoOutput) ToSourceControlAuthInfoPtrOutputWithContext(ctx context.Context) SourceControlAuthInfoPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfo) *SourceControlAuthInfo {
+		return &v
+	}).(SourceControlAuthInfoPtrOutput)
+}
+
+// Time in seconds that the token remains valid
+func (o SourceControlAuthInfoOutput) ExpiresIn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfo) *int { return v.ExpiresIn }).(pulumi.IntPtrOutput)
+}
+
+// The refresh token used to refresh the access token.
+func (o SourceControlAuthInfoOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfo) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+// The scope of the access token.
+func (o SourceControlAuthInfoOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfo) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The access token used to access the source control provider.
+func (o SourceControlAuthInfoOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceControlAuthInfo) string { return v.Token }).(pulumi.StringOutput)
+}
+
+// The type of Auth token.
+func (o SourceControlAuthInfoOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfo) *string { return v.TokenType }).(pulumi.StringPtrOutput)
+}
+
+type SourceControlAuthInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceControlAuthInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlAuthInfo)(nil)).Elem()
+}
+
+func (o SourceControlAuthInfoPtrOutput) ToSourceControlAuthInfoPtrOutput() SourceControlAuthInfoPtrOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoPtrOutput) ToSourceControlAuthInfoPtrOutputWithContext(ctx context.Context) SourceControlAuthInfoPtrOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoPtrOutput) Elem() SourceControlAuthInfoOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfo) SourceControlAuthInfo { return *v }).(SourceControlAuthInfoOutput)
+}
+
+// Time in seconds that the token remains valid
+func (o SourceControlAuthInfoPtrOutput) ExpiresIn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfo) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiresIn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The refresh token used to refresh the access token.
+func (o SourceControlAuthInfoPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The scope of the access token.
+func (o SourceControlAuthInfoPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The access token used to access the source control provider.
+func (o SourceControlAuthInfoPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of Auth token.
+func (o SourceControlAuthInfoPtrOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+type SourceControlAuthInfoResponse struct {
+	// Time in seconds that the token remains valid
+	ExpiresIn *int `pulumi:"expiresIn"`
+	// The refresh token used to refresh the access token.
+	RefreshToken *string `pulumi:"refreshToken"`
+	// The scope of the access token.
+	Scope *string `pulumi:"scope"`
+	// The access token used to access the source control provider.
+	Token string `pulumi:"token"`
+	// The type of Auth token.
+	TokenType *string `pulumi:"tokenType"`
+}
+
+// SourceControlAuthInfoResponseInput is an input type that accepts SourceControlAuthInfoResponseArgs and SourceControlAuthInfoResponseOutput values.
+// You can construct a concrete instance of `SourceControlAuthInfoResponseInput` via:
+//
+//          SourceControlAuthInfoResponseArgs{...}
+type SourceControlAuthInfoResponseInput interface {
+	pulumi.Input
+
+	ToSourceControlAuthInfoResponseOutput() SourceControlAuthInfoResponseOutput
+	ToSourceControlAuthInfoResponseOutputWithContext(context.Context) SourceControlAuthInfoResponseOutput
+}
+
+// The authorization properties for accessing the source code repository.
+type SourceControlAuthInfoResponseArgs struct {
+	// Time in seconds that the token remains valid
+	ExpiresIn pulumi.IntPtrInput `pulumi:"expiresIn"`
+	// The refresh token used to refresh the access token.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+	// The scope of the access token.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// The access token used to access the source control provider.
+	Token pulumi.StringInput `pulumi:"token"`
+	// The type of Auth token.
+	TokenType pulumi.StringPtrInput `pulumi:"tokenType"`
+}
+
+func (SourceControlAuthInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlAuthInfoResponse)(nil)).Elem()
+}
+
+func (i SourceControlAuthInfoResponseArgs) ToSourceControlAuthInfoResponseOutput() SourceControlAuthInfoResponseOutput {
+	return i.ToSourceControlAuthInfoResponseOutputWithContext(context.Background())
+}
+
+func (i SourceControlAuthInfoResponseArgs) ToSourceControlAuthInfoResponseOutputWithContext(ctx context.Context) SourceControlAuthInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoResponseOutput)
+}
+
+func (i SourceControlAuthInfoResponseArgs) ToSourceControlAuthInfoResponsePtrOutput() SourceControlAuthInfoResponsePtrOutput {
+	return i.ToSourceControlAuthInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SourceControlAuthInfoResponseArgs) ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoResponseOutput).ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx)
+}
+
+// SourceControlAuthInfoResponsePtrInput is an input type that accepts SourceControlAuthInfoResponseArgs, SourceControlAuthInfoResponsePtr and SourceControlAuthInfoResponsePtrOutput values.
+// You can construct a concrete instance of `SourceControlAuthInfoResponsePtrInput` via:
+//
+//          SourceControlAuthInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SourceControlAuthInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToSourceControlAuthInfoResponsePtrOutput() SourceControlAuthInfoResponsePtrOutput
+	ToSourceControlAuthInfoResponsePtrOutputWithContext(context.Context) SourceControlAuthInfoResponsePtrOutput
+}
+
+type sourceControlAuthInfoResponsePtrType SourceControlAuthInfoResponseArgs
+
+func SourceControlAuthInfoResponsePtr(v *SourceControlAuthInfoResponseArgs) SourceControlAuthInfoResponsePtrInput {
+	return (*sourceControlAuthInfoResponsePtrType)(v)
+}
+
+func (*sourceControlAuthInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlAuthInfoResponse)(nil)).Elem()
+}
+
+func (i *sourceControlAuthInfoResponsePtrType) ToSourceControlAuthInfoResponsePtrOutput() SourceControlAuthInfoResponsePtrOutput {
+	return i.ToSourceControlAuthInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sourceControlAuthInfoResponsePtrType) ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoResponsePtrOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+type SourceControlAuthInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceControlAuthInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlAuthInfoResponse)(nil)).Elem()
+}
+
+func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponseOutput() SourceControlAuthInfoResponseOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponseOutputWithContext(ctx context.Context) SourceControlAuthInfoResponseOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponsePtrOutput() SourceControlAuthInfoResponsePtrOutput {
+	return o.ToSourceControlAuthInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoResponsePtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoResponse) *SourceControlAuthInfoResponse {
+		return &v
+	}).(SourceControlAuthInfoResponsePtrOutput)
+}
+
+// Time in seconds that the token remains valid
+func (o SourceControlAuthInfoResponseOutput) ExpiresIn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoResponse) *int { return v.ExpiresIn }).(pulumi.IntPtrOutput)
+}
+
+// The refresh token used to refresh the access token.
+func (o SourceControlAuthInfoResponseOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoResponse) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+// The scope of the access token.
+func (o SourceControlAuthInfoResponseOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The access token used to access the source control provider.
+func (o SourceControlAuthInfoResponseOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoResponse) string { return v.Token }).(pulumi.StringOutput)
+}
+
+// The type of Auth token.
+func (o SourceControlAuthInfoResponseOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoResponse) *string { return v.TokenType }).(pulumi.StringPtrOutput)
+}
+
+type SourceControlAuthInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceControlAuthInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlAuthInfoResponse)(nil)).Elem()
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) ToSourceControlAuthInfoResponsePtrOutput() SourceControlAuthInfoResponsePtrOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoResponsePtrOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoResponsePtrOutput) Elem() SourceControlAuthInfoResponseOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) SourceControlAuthInfoResponse { return *v }).(SourceControlAuthInfoResponseOutput)
+}
+
+// Time in seconds that the token remains valid
+func (o SourceControlAuthInfoResponsePtrOutput) ExpiresIn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiresIn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The refresh token used to refresh the access token.
+func (o SourceControlAuthInfoResponsePtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The scope of the access token.
+func (o SourceControlAuthInfoResponsePtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The access token used to access the source control provider.
+func (o SourceControlAuthInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of Auth token.
+func (o SourceControlAuthInfoResponsePtrOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6917,6 +15402,390 @@ func (o SourceRegistryCredentialsResponsePtrOutput) LoginMode() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The properties of the source code repository.
+type SourceRepositoryProperties struct {
+	// The value of this property indicates whether the source control commit trigger is enabled or not.
+	IsCommitTriggerEnabled *bool `pulumi:"isCommitTriggerEnabled"`
+	// The full URL to the source code repository
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+	// The authorization properties for accessing the source code repository.
+	SourceControlAuthProperties *SourceControlAuthInfo `pulumi:"sourceControlAuthProperties"`
+	// The type of source control service.
+	SourceControlType string `pulumi:"sourceControlType"`
+}
+
+// SourceRepositoryPropertiesInput is an input type that accepts SourceRepositoryPropertiesArgs and SourceRepositoryPropertiesOutput values.
+// You can construct a concrete instance of `SourceRepositoryPropertiesInput` via:
+//
+//          SourceRepositoryPropertiesArgs{...}
+type SourceRepositoryPropertiesInput interface {
+	pulumi.Input
+
+	ToSourceRepositoryPropertiesOutput() SourceRepositoryPropertiesOutput
+	ToSourceRepositoryPropertiesOutputWithContext(context.Context) SourceRepositoryPropertiesOutput
+}
+
+// The properties of the source code repository.
+type SourceRepositoryPropertiesArgs struct {
+	// The value of this property indicates whether the source control commit trigger is enabled or not.
+	IsCommitTriggerEnabled pulumi.BoolPtrInput `pulumi:"isCommitTriggerEnabled"`
+	// The full URL to the source code repository
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+	// The authorization properties for accessing the source code repository.
+	SourceControlAuthProperties SourceControlAuthInfoPtrInput `pulumi:"sourceControlAuthProperties"`
+	// The type of source control service.
+	SourceControlType pulumi.StringInput `pulumi:"sourceControlType"`
+}
+
+func (SourceRepositoryPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceRepositoryProperties)(nil)).Elem()
+}
+
+func (i SourceRepositoryPropertiesArgs) ToSourceRepositoryPropertiesOutput() SourceRepositoryPropertiesOutput {
+	return i.ToSourceRepositoryPropertiesOutputWithContext(context.Background())
+}
+
+func (i SourceRepositoryPropertiesArgs) ToSourceRepositoryPropertiesOutputWithContext(ctx context.Context) SourceRepositoryPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryPropertiesOutput)
+}
+
+func (i SourceRepositoryPropertiesArgs) ToSourceRepositoryPropertiesPtrOutput() SourceRepositoryPropertiesPtrOutput {
+	return i.ToSourceRepositoryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SourceRepositoryPropertiesArgs) ToSourceRepositoryPropertiesPtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryPropertiesOutput).ToSourceRepositoryPropertiesPtrOutputWithContext(ctx)
+}
+
+// SourceRepositoryPropertiesPtrInput is an input type that accepts SourceRepositoryPropertiesArgs, SourceRepositoryPropertiesPtr and SourceRepositoryPropertiesPtrOutput values.
+// You can construct a concrete instance of `SourceRepositoryPropertiesPtrInput` via:
+//
+//          SourceRepositoryPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SourceRepositoryPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSourceRepositoryPropertiesPtrOutput() SourceRepositoryPropertiesPtrOutput
+	ToSourceRepositoryPropertiesPtrOutputWithContext(context.Context) SourceRepositoryPropertiesPtrOutput
+}
+
+type sourceRepositoryPropertiesPtrType SourceRepositoryPropertiesArgs
+
+func SourceRepositoryPropertiesPtr(v *SourceRepositoryPropertiesArgs) SourceRepositoryPropertiesPtrInput {
+	return (*sourceRepositoryPropertiesPtrType)(v)
+}
+
+func (*sourceRepositoryPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceRepositoryProperties)(nil)).Elem()
+}
+
+func (i *sourceRepositoryPropertiesPtrType) ToSourceRepositoryPropertiesPtrOutput() SourceRepositoryPropertiesPtrOutput {
+	return i.ToSourceRepositoryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceRepositoryPropertiesPtrType) ToSourceRepositoryPropertiesPtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryPropertiesPtrOutput)
+}
+
+// The properties of the source code repository.
+type SourceRepositoryPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SourceRepositoryPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceRepositoryProperties)(nil)).Elem()
+}
+
+func (o SourceRepositoryPropertiesOutput) ToSourceRepositoryPropertiesOutput() SourceRepositoryPropertiesOutput {
+	return o
+}
+
+func (o SourceRepositoryPropertiesOutput) ToSourceRepositoryPropertiesOutputWithContext(ctx context.Context) SourceRepositoryPropertiesOutput {
+	return o
+}
+
+func (o SourceRepositoryPropertiesOutput) ToSourceRepositoryPropertiesPtrOutput() SourceRepositoryPropertiesPtrOutput {
+	return o.ToSourceRepositoryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SourceRepositoryPropertiesOutput) ToSourceRepositoryPropertiesPtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesPtrOutput {
+	return o.ApplyT(func(v SourceRepositoryProperties) *SourceRepositoryProperties {
+		return &v
+	}).(SourceRepositoryPropertiesPtrOutput)
+}
+
+// The value of this property indicates whether the source control commit trigger is enabled or not.
+func (o SourceRepositoryPropertiesOutput) IsCommitTriggerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SourceRepositoryProperties) *bool { return v.IsCommitTriggerEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The full URL to the source code repository
+func (o SourceRepositoryPropertiesOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceRepositoryProperties) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+func (o SourceRepositoryPropertiesOutput) SourceControlAuthProperties() SourceControlAuthInfoPtrOutput {
+	return o.ApplyT(func(v SourceRepositoryProperties) *SourceControlAuthInfo { return v.SourceControlAuthProperties }).(SourceControlAuthInfoPtrOutput)
+}
+
+// The type of source control service.
+func (o SourceRepositoryPropertiesOutput) SourceControlType() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceRepositoryProperties) string { return v.SourceControlType }).(pulumi.StringOutput)
+}
+
+type SourceRepositoryPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceRepositoryPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceRepositoryProperties)(nil)).Elem()
+}
+
+func (o SourceRepositoryPropertiesPtrOutput) ToSourceRepositoryPropertiesPtrOutput() SourceRepositoryPropertiesPtrOutput {
+	return o
+}
+
+func (o SourceRepositoryPropertiesPtrOutput) ToSourceRepositoryPropertiesPtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesPtrOutput {
+	return o
+}
+
+func (o SourceRepositoryPropertiesPtrOutput) Elem() SourceRepositoryPropertiesOutput {
+	return o.ApplyT(func(v *SourceRepositoryProperties) SourceRepositoryProperties { return *v }).(SourceRepositoryPropertiesOutput)
+}
+
+// The value of this property indicates whether the source control commit trigger is enabled or not.
+func (o SourceRepositoryPropertiesPtrOutput) IsCommitTriggerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SourceRepositoryProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCommitTriggerEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The full URL to the source code repository
+func (o SourceRepositoryPropertiesPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceRepositoryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+func (o SourceRepositoryPropertiesPtrOutput) SourceControlAuthProperties() SourceControlAuthInfoPtrOutput {
+	return o.ApplyT(func(v *SourceRepositoryProperties) *SourceControlAuthInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SourceControlAuthProperties
+	}).(SourceControlAuthInfoPtrOutput)
+}
+
+// The type of source control service.
+func (o SourceRepositoryPropertiesPtrOutput) SourceControlType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceRepositoryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceControlType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the source code repository.
+type SourceRepositoryPropertiesResponse struct {
+	// The value of this property indicates whether the source control commit trigger is enabled or not.
+	IsCommitTriggerEnabled *bool `pulumi:"isCommitTriggerEnabled"`
+	// The full URL to the source code repository
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+	// The authorization properties for accessing the source code repository.
+	SourceControlAuthProperties *SourceControlAuthInfoResponse `pulumi:"sourceControlAuthProperties"`
+	// The type of source control service.
+	SourceControlType string `pulumi:"sourceControlType"`
+}
+
+// SourceRepositoryPropertiesResponseInput is an input type that accepts SourceRepositoryPropertiesResponseArgs and SourceRepositoryPropertiesResponseOutput values.
+// You can construct a concrete instance of `SourceRepositoryPropertiesResponseInput` via:
+//
+//          SourceRepositoryPropertiesResponseArgs{...}
+type SourceRepositoryPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToSourceRepositoryPropertiesResponseOutput() SourceRepositoryPropertiesResponseOutput
+	ToSourceRepositoryPropertiesResponseOutputWithContext(context.Context) SourceRepositoryPropertiesResponseOutput
+}
+
+// The properties of the source code repository.
+type SourceRepositoryPropertiesResponseArgs struct {
+	// The value of this property indicates whether the source control commit trigger is enabled or not.
+	IsCommitTriggerEnabled pulumi.BoolPtrInput `pulumi:"isCommitTriggerEnabled"`
+	// The full URL to the source code repository
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+	// The authorization properties for accessing the source code repository.
+	SourceControlAuthProperties SourceControlAuthInfoResponsePtrInput `pulumi:"sourceControlAuthProperties"`
+	// The type of source control service.
+	SourceControlType pulumi.StringInput `pulumi:"sourceControlType"`
+}
+
+func (SourceRepositoryPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceRepositoryPropertiesResponse)(nil)).Elem()
+}
+
+func (i SourceRepositoryPropertiesResponseArgs) ToSourceRepositoryPropertiesResponseOutput() SourceRepositoryPropertiesResponseOutput {
+	return i.ToSourceRepositoryPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i SourceRepositoryPropertiesResponseArgs) ToSourceRepositoryPropertiesResponseOutputWithContext(ctx context.Context) SourceRepositoryPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryPropertiesResponseOutput)
+}
+
+func (i SourceRepositoryPropertiesResponseArgs) ToSourceRepositoryPropertiesResponsePtrOutput() SourceRepositoryPropertiesResponsePtrOutput {
+	return i.ToSourceRepositoryPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SourceRepositoryPropertiesResponseArgs) ToSourceRepositoryPropertiesResponsePtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryPropertiesResponseOutput).ToSourceRepositoryPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// SourceRepositoryPropertiesResponsePtrInput is an input type that accepts SourceRepositoryPropertiesResponseArgs, SourceRepositoryPropertiesResponsePtr and SourceRepositoryPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `SourceRepositoryPropertiesResponsePtrInput` via:
+//
+//          SourceRepositoryPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SourceRepositoryPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToSourceRepositoryPropertiesResponsePtrOutput() SourceRepositoryPropertiesResponsePtrOutput
+	ToSourceRepositoryPropertiesResponsePtrOutputWithContext(context.Context) SourceRepositoryPropertiesResponsePtrOutput
+}
+
+type sourceRepositoryPropertiesResponsePtrType SourceRepositoryPropertiesResponseArgs
+
+func SourceRepositoryPropertiesResponsePtr(v *SourceRepositoryPropertiesResponseArgs) SourceRepositoryPropertiesResponsePtrInput {
+	return (*sourceRepositoryPropertiesResponsePtrType)(v)
+}
+
+func (*sourceRepositoryPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceRepositoryPropertiesResponse)(nil)).Elem()
+}
+
+func (i *sourceRepositoryPropertiesResponsePtrType) ToSourceRepositoryPropertiesResponsePtrOutput() SourceRepositoryPropertiesResponsePtrOutput {
+	return i.ToSourceRepositoryPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sourceRepositoryPropertiesResponsePtrType) ToSourceRepositoryPropertiesResponsePtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryPropertiesResponsePtrOutput)
+}
+
+// The properties of the source code repository.
+type SourceRepositoryPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceRepositoryPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceRepositoryPropertiesResponse)(nil)).Elem()
+}
+
+func (o SourceRepositoryPropertiesResponseOutput) ToSourceRepositoryPropertiesResponseOutput() SourceRepositoryPropertiesResponseOutput {
+	return o
+}
+
+func (o SourceRepositoryPropertiesResponseOutput) ToSourceRepositoryPropertiesResponseOutputWithContext(ctx context.Context) SourceRepositoryPropertiesResponseOutput {
+	return o
+}
+
+func (o SourceRepositoryPropertiesResponseOutput) ToSourceRepositoryPropertiesResponsePtrOutput() SourceRepositoryPropertiesResponsePtrOutput {
+	return o.ToSourceRepositoryPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SourceRepositoryPropertiesResponseOutput) ToSourceRepositoryPropertiesResponsePtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) *SourceRepositoryPropertiesResponse {
+		return &v
+	}).(SourceRepositoryPropertiesResponsePtrOutput)
+}
+
+// The value of this property indicates whether the source control commit trigger is enabled or not.
+func (o SourceRepositoryPropertiesResponseOutput) IsCommitTriggerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) *bool { return v.IsCommitTriggerEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The full URL to the source code repository
+func (o SourceRepositoryPropertiesResponseOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+func (o SourceRepositoryPropertiesResponseOutput) SourceControlAuthProperties() SourceControlAuthInfoResponsePtrOutput {
+	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) *SourceControlAuthInfoResponse {
+		return v.SourceControlAuthProperties
+	}).(SourceControlAuthInfoResponsePtrOutput)
+}
+
+// The type of source control service.
+func (o SourceRepositoryPropertiesResponseOutput) SourceControlType() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) string { return v.SourceControlType }).(pulumi.StringOutput)
+}
+
+type SourceRepositoryPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceRepositoryPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceRepositoryPropertiesResponse)(nil)).Elem()
+}
+
+func (o SourceRepositoryPropertiesResponsePtrOutput) ToSourceRepositoryPropertiesResponsePtrOutput() SourceRepositoryPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SourceRepositoryPropertiesResponsePtrOutput) ToSourceRepositoryPropertiesResponsePtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SourceRepositoryPropertiesResponsePtrOutput) Elem() SourceRepositoryPropertiesResponseOutput {
+	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) SourceRepositoryPropertiesResponse { return *v }).(SourceRepositoryPropertiesResponseOutput)
+}
+
+// The value of this property indicates whether the source control commit trigger is enabled or not.
+func (o SourceRepositoryPropertiesResponsePtrOutput) IsCommitTriggerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCommitTriggerEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The full URL to the source code repository
+func (o SourceRepositoryPropertiesResponsePtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+func (o SourceRepositoryPropertiesResponsePtrOutput) SourceControlAuthProperties() SourceControlAuthInfoResponsePtrOutput {
+	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) *SourceControlAuthInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SourceControlAuthProperties
+	}).(SourceControlAuthInfoResponsePtrOutput)
+}
+
+// The type of source control service.
+func (o SourceRepositoryPropertiesResponsePtrOutput) SourceControlType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceControlType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
 type SourceResponse struct {
 	// The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
@@ -7195,6 +16064,254 @@ func (o SourceTriggerArrayOutput) Index(i pulumi.IntInput) SourceTriggerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceTrigger {
 		return vs[0].([]SourceTrigger)[vs[1].(int)]
 	}).(SourceTriggerOutput)
+}
+
+// The source trigger that caused a run.
+type SourceTriggerDescriptorResponse struct {
+	// The branch name in the repository.
+	BranchName *string `pulumi:"branchName"`
+	// The unique ID that identifies a commit.
+	CommitId *string `pulumi:"commitId"`
+	// The event type of the trigger.
+	EventType *string `pulumi:"eventType"`
+	// The unique ID of the trigger.
+	Id *string `pulumi:"id"`
+	// The source control provider type.
+	ProviderType *string `pulumi:"providerType"`
+	// The unique ID that identifies pull request.
+	PullRequestId *string `pulumi:"pullRequestId"`
+	// The repository URL.
+	RepositoryUrl *string `pulumi:"repositoryUrl"`
+}
+
+// SourceTriggerDescriptorResponseInput is an input type that accepts SourceTriggerDescriptorResponseArgs and SourceTriggerDescriptorResponseOutput values.
+// You can construct a concrete instance of `SourceTriggerDescriptorResponseInput` via:
+//
+//          SourceTriggerDescriptorResponseArgs{...}
+type SourceTriggerDescriptorResponseInput interface {
+	pulumi.Input
+
+	ToSourceTriggerDescriptorResponseOutput() SourceTriggerDescriptorResponseOutput
+	ToSourceTriggerDescriptorResponseOutputWithContext(context.Context) SourceTriggerDescriptorResponseOutput
+}
+
+// The source trigger that caused a run.
+type SourceTriggerDescriptorResponseArgs struct {
+	// The branch name in the repository.
+	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
+	// The unique ID that identifies a commit.
+	CommitId pulumi.StringPtrInput `pulumi:"commitId"`
+	// The event type of the trigger.
+	EventType pulumi.StringPtrInput `pulumi:"eventType"`
+	// The unique ID of the trigger.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The source control provider type.
+	ProviderType pulumi.StringPtrInput `pulumi:"providerType"`
+	// The unique ID that identifies pull request.
+	PullRequestId pulumi.StringPtrInput `pulumi:"pullRequestId"`
+	// The repository URL.
+	RepositoryUrl pulumi.StringPtrInput `pulumi:"repositoryUrl"`
+}
+
+func (SourceTriggerDescriptorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (i SourceTriggerDescriptorResponseArgs) ToSourceTriggerDescriptorResponseOutput() SourceTriggerDescriptorResponseOutput {
+	return i.ToSourceTriggerDescriptorResponseOutputWithContext(context.Background())
+}
+
+func (i SourceTriggerDescriptorResponseArgs) ToSourceTriggerDescriptorResponseOutputWithContext(ctx context.Context) SourceTriggerDescriptorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceTriggerDescriptorResponseOutput)
+}
+
+func (i SourceTriggerDescriptorResponseArgs) ToSourceTriggerDescriptorResponsePtrOutput() SourceTriggerDescriptorResponsePtrOutput {
+	return i.ToSourceTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SourceTriggerDescriptorResponseArgs) ToSourceTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) SourceTriggerDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceTriggerDescriptorResponseOutput).ToSourceTriggerDescriptorResponsePtrOutputWithContext(ctx)
+}
+
+// SourceTriggerDescriptorResponsePtrInput is an input type that accepts SourceTriggerDescriptorResponseArgs, SourceTriggerDescriptorResponsePtr and SourceTriggerDescriptorResponsePtrOutput values.
+// You can construct a concrete instance of `SourceTriggerDescriptorResponsePtrInput` via:
+//
+//          SourceTriggerDescriptorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SourceTriggerDescriptorResponsePtrInput interface {
+	pulumi.Input
+
+	ToSourceTriggerDescriptorResponsePtrOutput() SourceTriggerDescriptorResponsePtrOutput
+	ToSourceTriggerDescriptorResponsePtrOutputWithContext(context.Context) SourceTriggerDescriptorResponsePtrOutput
+}
+
+type sourceTriggerDescriptorResponsePtrType SourceTriggerDescriptorResponseArgs
+
+func SourceTriggerDescriptorResponsePtr(v *SourceTriggerDescriptorResponseArgs) SourceTriggerDescriptorResponsePtrInput {
+	return (*sourceTriggerDescriptorResponsePtrType)(v)
+}
+
+func (*sourceTriggerDescriptorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (i *sourceTriggerDescriptorResponsePtrType) ToSourceTriggerDescriptorResponsePtrOutput() SourceTriggerDescriptorResponsePtrOutput {
+	return i.ToSourceTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sourceTriggerDescriptorResponsePtrType) ToSourceTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) SourceTriggerDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceTriggerDescriptorResponsePtrOutput)
+}
+
+// The source trigger that caused a run.
+type SourceTriggerDescriptorResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceTriggerDescriptorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (o SourceTriggerDescriptorResponseOutput) ToSourceTriggerDescriptorResponseOutput() SourceTriggerDescriptorResponseOutput {
+	return o
+}
+
+func (o SourceTriggerDescriptorResponseOutput) ToSourceTriggerDescriptorResponseOutputWithContext(ctx context.Context) SourceTriggerDescriptorResponseOutput {
+	return o
+}
+
+func (o SourceTriggerDescriptorResponseOutput) ToSourceTriggerDescriptorResponsePtrOutput() SourceTriggerDescriptorResponsePtrOutput {
+	return o.ToSourceTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SourceTriggerDescriptorResponseOutput) ToSourceTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) SourceTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *SourceTriggerDescriptorResponse {
+		return &v
+	}).(SourceTriggerDescriptorResponsePtrOutput)
+}
+
+// The branch name in the repository.
+func (o SourceTriggerDescriptorResponseOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.BranchName }).(pulumi.StringPtrOutput)
+}
+
+// The unique ID that identifies a commit.
+func (o SourceTriggerDescriptorResponseOutput) CommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.CommitId }).(pulumi.StringPtrOutput)
+}
+
+// The event type of the trigger.
+func (o SourceTriggerDescriptorResponseOutput) EventType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.EventType }).(pulumi.StringPtrOutput)
+}
+
+// The unique ID of the trigger.
+func (o SourceTriggerDescriptorResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The source control provider type.
+func (o SourceTriggerDescriptorResponseOutput) ProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.ProviderType }).(pulumi.StringPtrOutput)
+}
+
+// The unique ID that identifies pull request.
+func (o SourceTriggerDescriptorResponseOutput) PullRequestId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.PullRequestId }).(pulumi.StringPtrOutput)
+}
+
+// The repository URL.
+func (o SourceTriggerDescriptorResponseOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.RepositoryUrl }).(pulumi.StringPtrOutput)
+}
+
+type SourceTriggerDescriptorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceTriggerDescriptorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (o SourceTriggerDescriptorResponsePtrOutput) ToSourceTriggerDescriptorResponsePtrOutput() SourceTriggerDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o SourceTriggerDescriptorResponsePtrOutput) ToSourceTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) SourceTriggerDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o SourceTriggerDescriptorResponsePtrOutput) Elem() SourceTriggerDescriptorResponseOutput {
+	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) SourceTriggerDescriptorResponse { return *v }).(SourceTriggerDescriptorResponseOutput)
+}
+
+// The branch name in the repository.
+func (o SourceTriggerDescriptorResponsePtrOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BranchName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique ID that identifies a commit.
+func (o SourceTriggerDescriptorResponsePtrOutput) CommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommitId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The event type of the trigger.
+func (o SourceTriggerDescriptorResponsePtrOutput) EventType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique ID of the trigger.
+func (o SourceTriggerDescriptorResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source control provider type.
+func (o SourceTriggerDescriptorResponsePtrOutput) ProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProviderType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique ID that identifies pull request.
+func (o SourceTriggerDescriptorResponsePtrOutput) PullRequestId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PullRequestId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The repository URL.
+func (o SourceTriggerDescriptorResponsePtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 // The properties of a source based trigger.
@@ -8050,157 +17167,206 @@ func (o TargetResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Base properties for any task step.
-type TaskStepProperties struct {
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken *string `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath *string `pulumi:"contextPath"`
+// The parameters for a task run request.
+type TaskRunRequest struct {
+	// The dedicated agent pool for the run.
+	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
+	// Set of overridable parameters that can be passed when running a Task.
+	OverrideTaskStepProperties *OverrideTaskStepProperties `pulumi:"overrideTaskStepProperties"`
+	// The resource ID of task against which run has to be queued.
+	TaskId string `pulumi:"taskId"`
+	// The type of the run request.
+	Type string `pulumi:"type"`
 }
 
-// TaskStepPropertiesInput is an input type that accepts TaskStepPropertiesArgs and TaskStepPropertiesOutput values.
-// You can construct a concrete instance of `TaskStepPropertiesInput` via:
+// TaskRunRequestInput is an input type that accepts TaskRunRequestArgs and TaskRunRequestOutput values.
+// You can construct a concrete instance of `TaskRunRequestInput` via:
 //
-//          TaskStepPropertiesArgs{...}
-type TaskStepPropertiesInput interface {
+//          TaskRunRequestArgs{...}
+type TaskRunRequestInput interface {
 	pulumi.Input
 
-	ToTaskStepPropertiesOutput() TaskStepPropertiesOutput
-	ToTaskStepPropertiesOutputWithContext(context.Context) TaskStepPropertiesOutput
+	ToTaskRunRequestOutput() TaskRunRequestOutput
+	ToTaskRunRequestOutputWithContext(context.Context) TaskRunRequestOutput
 }
 
-// Base properties for any task step.
-type TaskStepPropertiesArgs struct {
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+// The parameters for a task run request.
+type TaskRunRequestArgs struct {
+	// The dedicated agent pool for the run.
+	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
+	// Set of overridable parameters that can be passed when running a Task.
+	OverrideTaskStepProperties OverrideTaskStepPropertiesPtrInput `pulumi:"overrideTaskStepProperties"`
+	// The resource ID of task against which run has to be queued.
+	TaskId pulumi.StringInput `pulumi:"taskId"`
+	// The type of the run request.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (TaskStepPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskStepProperties)(nil)).Elem()
+func (TaskRunRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskRunRequest)(nil)).Elem()
 }
 
-func (i TaskStepPropertiesArgs) ToTaskStepPropertiesOutput() TaskStepPropertiesOutput {
-	return i.ToTaskStepPropertiesOutputWithContext(context.Background())
+func (i TaskRunRequestArgs) ToTaskRunRequestOutput() TaskRunRequestOutput {
+	return i.ToTaskRunRequestOutputWithContext(context.Background())
 }
 
-func (i TaskStepPropertiesArgs) ToTaskStepPropertiesOutputWithContext(ctx context.Context) TaskStepPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskStepPropertiesOutput)
+func (i TaskRunRequestArgs) ToTaskRunRequestOutputWithContext(ctx context.Context) TaskRunRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskRunRequestOutput)
 }
 
-func (i TaskStepPropertiesArgs) ToTaskStepPropertiesPtrOutput() TaskStepPropertiesPtrOutput {
-	return i.ToTaskStepPropertiesPtrOutputWithContext(context.Background())
+// The parameters for a task run request.
+type TaskRunRequestOutput struct{ *pulumi.OutputState }
+
+func (TaskRunRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskRunRequest)(nil)).Elem()
 }
 
-func (i TaskStepPropertiesArgs) ToTaskStepPropertiesPtrOutputWithContext(ctx context.Context) TaskStepPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskStepPropertiesOutput).ToTaskStepPropertiesPtrOutputWithContext(ctx)
+func (o TaskRunRequestOutput) ToTaskRunRequestOutput() TaskRunRequestOutput {
+	return o
 }
 
-// TaskStepPropertiesPtrInput is an input type that accepts TaskStepPropertiesArgs, TaskStepPropertiesPtr and TaskStepPropertiesPtrOutput values.
-// You can construct a concrete instance of `TaskStepPropertiesPtrInput` via:
+func (o TaskRunRequestOutput) ToTaskRunRequestOutputWithContext(ctx context.Context) TaskRunRequestOutput {
+	return o
+}
+
+// The dedicated agent pool for the run.
+func (o TaskRunRequestOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskRunRequest) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The value that indicates whether archiving is enabled for the run or not.
+func (o TaskRunRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TaskRunRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o TaskRunRequestOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskRunRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Set of overridable parameters that can be passed when running a Task.
+func (o TaskRunRequestOutput) OverrideTaskStepProperties() OverrideTaskStepPropertiesPtrOutput {
+	return o.ApplyT(func(v TaskRunRequest) *OverrideTaskStepProperties { return v.OverrideTaskStepProperties }).(OverrideTaskStepPropertiesPtrOutput)
+}
+
+// The resource ID of task against which run has to be queued.
+func (o TaskRunRequestOutput) TaskId() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskRunRequest) string { return v.TaskId }).(pulumi.StringOutput)
+}
+
+// The type of the run request.
+func (o TaskRunRequestOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskRunRequest) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The parameters for a task run request.
+type TaskRunRequestResponse struct {
+	// The dedicated agent pool for the run.
+	AgentPoolName *string `pulumi:"agentPoolName"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
+	// Set of overridable parameters that can be passed when running a Task.
+	OverrideTaskStepProperties *OverrideTaskStepPropertiesResponse `pulumi:"overrideTaskStepProperties"`
+	// The resource ID of task against which run has to be queued.
+	TaskId string `pulumi:"taskId"`
+	// The type of the run request.
+	Type string `pulumi:"type"`
+}
+
+// TaskRunRequestResponseInput is an input type that accepts TaskRunRequestResponseArgs and TaskRunRequestResponseOutput values.
+// You can construct a concrete instance of `TaskRunRequestResponseInput` via:
 //
-//          TaskStepPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type TaskStepPropertiesPtrInput interface {
+//          TaskRunRequestResponseArgs{...}
+type TaskRunRequestResponseInput interface {
 	pulumi.Input
 
-	ToTaskStepPropertiesPtrOutput() TaskStepPropertiesPtrOutput
-	ToTaskStepPropertiesPtrOutputWithContext(context.Context) TaskStepPropertiesPtrOutput
+	ToTaskRunRequestResponseOutput() TaskRunRequestResponseOutput
+	ToTaskRunRequestResponseOutputWithContext(context.Context) TaskRunRequestResponseOutput
 }
 
-type taskStepPropertiesPtrType TaskStepPropertiesArgs
-
-func TaskStepPropertiesPtr(v *TaskStepPropertiesArgs) TaskStepPropertiesPtrInput {
-	return (*taskStepPropertiesPtrType)(v)
+// The parameters for a task run request.
+type TaskRunRequestResponseArgs struct {
+	// The dedicated agent pool for the run.
+	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
+	// The value that indicates whether archiving is enabled for the run or not.
+	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
+	// Set of overridable parameters that can be passed when running a Task.
+	OverrideTaskStepProperties OverrideTaskStepPropertiesResponsePtrInput `pulumi:"overrideTaskStepProperties"`
+	// The resource ID of task against which run has to be queued.
+	TaskId pulumi.StringInput `pulumi:"taskId"`
+	// The type of the run request.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (*taskStepPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskStepProperties)(nil)).Elem()
+func (TaskRunRequestResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskRunRequestResponse)(nil)).Elem()
 }
 
-func (i *taskStepPropertiesPtrType) ToTaskStepPropertiesPtrOutput() TaskStepPropertiesPtrOutput {
-	return i.ToTaskStepPropertiesPtrOutputWithContext(context.Background())
+func (i TaskRunRequestResponseArgs) ToTaskRunRequestResponseOutput() TaskRunRequestResponseOutput {
+	return i.ToTaskRunRequestResponseOutputWithContext(context.Background())
 }
 
-func (i *taskStepPropertiesPtrType) ToTaskStepPropertiesPtrOutputWithContext(ctx context.Context) TaskStepPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskStepPropertiesPtrOutput)
+func (i TaskRunRequestResponseArgs) ToTaskRunRequestResponseOutputWithContext(ctx context.Context) TaskRunRequestResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskRunRequestResponseOutput)
 }
 
-// Base properties for any task step.
-type TaskStepPropertiesOutput struct{ *pulumi.OutputState }
+// The parameters for a task run request.
+type TaskRunRequestResponseOutput struct{ *pulumi.OutputState }
 
-func (TaskStepPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskStepProperties)(nil)).Elem()
+func (TaskRunRequestResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskRunRequestResponse)(nil)).Elem()
 }
 
-func (o TaskStepPropertiesOutput) ToTaskStepPropertiesOutput() TaskStepPropertiesOutput {
+func (o TaskRunRequestResponseOutput) ToTaskRunRequestResponseOutput() TaskRunRequestResponseOutput {
 	return o
 }
 
-func (o TaskStepPropertiesOutput) ToTaskStepPropertiesOutputWithContext(ctx context.Context) TaskStepPropertiesOutput {
+func (o TaskRunRequestResponseOutput) ToTaskRunRequestResponseOutputWithContext(ctx context.Context) TaskRunRequestResponseOutput {
 	return o
 }
 
-func (o TaskStepPropertiesOutput) ToTaskStepPropertiesPtrOutput() TaskStepPropertiesPtrOutput {
-	return o.ToTaskStepPropertiesPtrOutputWithContext(context.Background())
+// The dedicated agent pool for the run.
+func (o TaskRunRequestResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskRunRequestResponse) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-func (o TaskStepPropertiesOutput) ToTaskStepPropertiesPtrOutputWithContext(ctx context.Context) TaskStepPropertiesPtrOutput {
-	return o.ApplyT(func(v TaskStepProperties) *TaskStepProperties {
-		return &v
-	}).(TaskStepPropertiesPtrOutput)
+// The value that indicates whether archiving is enabled for the run or not.
+func (o TaskRunRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TaskRunRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-func (o TaskStepPropertiesOutput) ContextAccessToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskStepProperties) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
+// The template that describes the repository and tag information for run log artifact.
+func (o TaskRunRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskRunRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The URL(absolute or relative) of the source context for the task step.
-func (o TaskStepPropertiesOutput) ContextPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskStepProperties) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+// Set of overridable parameters that can be passed when running a Task.
+func (o TaskRunRequestResponseOutput) OverrideTaskStepProperties() OverrideTaskStepPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v TaskRunRequestResponse) *OverrideTaskStepPropertiesResponse {
+		return v.OverrideTaskStepProperties
+	}).(OverrideTaskStepPropertiesResponsePtrOutput)
 }
 
-type TaskStepPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (TaskStepPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskStepProperties)(nil)).Elem()
+// The resource ID of task against which run has to be queued.
+func (o TaskRunRequestResponseOutput) TaskId() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskRunRequestResponse) string { return v.TaskId }).(pulumi.StringOutput)
 }
 
-func (o TaskStepPropertiesPtrOutput) ToTaskStepPropertiesPtrOutput() TaskStepPropertiesPtrOutput {
-	return o
-}
-
-func (o TaskStepPropertiesPtrOutput) ToTaskStepPropertiesPtrOutputWithContext(ctx context.Context) TaskStepPropertiesPtrOutput {
-	return o
-}
-
-func (o TaskStepPropertiesPtrOutput) Elem() TaskStepPropertiesOutput {
-	return o.ApplyT(func(v *TaskStepProperties) TaskStepProperties { return *v }).(TaskStepPropertiesOutput)
-}
-
-// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-func (o TaskStepPropertiesPtrOutput) ContextAccessToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskStepProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContextAccessToken
-	}).(pulumi.StringPtrOutput)
-}
-
-// The URL(absolute or relative) of the source context for the task step.
-func (o TaskStepPropertiesPtrOutput) ContextPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskStepProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContextPath
-	}).(pulumi.StringPtrOutput)
+// The type of the run request.
+func (o TaskRunRequestResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskRunRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties of a timer trigger.
@@ -8321,6 +17487,156 @@ func (o TimerTriggerArrayOutput) Index(i pulumi.IntInput) TimerTriggerOutput {
 	}).(TimerTriggerOutput)
 }
 
+type TimerTriggerDescriptorResponse struct {
+	// The occurrence that triggered the run.
+	ScheduleOccurrence *string `pulumi:"scheduleOccurrence"`
+	// The timer trigger name that caused the run.
+	TimerTriggerName *string `pulumi:"timerTriggerName"`
+}
+
+// TimerTriggerDescriptorResponseInput is an input type that accepts TimerTriggerDescriptorResponseArgs and TimerTriggerDescriptorResponseOutput values.
+// You can construct a concrete instance of `TimerTriggerDescriptorResponseInput` via:
+//
+//          TimerTriggerDescriptorResponseArgs{...}
+type TimerTriggerDescriptorResponseInput interface {
+	pulumi.Input
+
+	ToTimerTriggerDescriptorResponseOutput() TimerTriggerDescriptorResponseOutput
+	ToTimerTriggerDescriptorResponseOutputWithContext(context.Context) TimerTriggerDescriptorResponseOutput
+}
+
+type TimerTriggerDescriptorResponseArgs struct {
+	// The occurrence that triggered the run.
+	ScheduleOccurrence pulumi.StringPtrInput `pulumi:"scheduleOccurrence"`
+	// The timer trigger name that caused the run.
+	TimerTriggerName pulumi.StringPtrInput `pulumi:"timerTriggerName"`
+}
+
+func (TimerTriggerDescriptorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimerTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (i TimerTriggerDescriptorResponseArgs) ToTimerTriggerDescriptorResponseOutput() TimerTriggerDescriptorResponseOutput {
+	return i.ToTimerTriggerDescriptorResponseOutputWithContext(context.Background())
+}
+
+func (i TimerTriggerDescriptorResponseArgs) ToTimerTriggerDescriptorResponseOutputWithContext(ctx context.Context) TimerTriggerDescriptorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimerTriggerDescriptorResponseOutput)
+}
+
+func (i TimerTriggerDescriptorResponseArgs) ToTimerTriggerDescriptorResponsePtrOutput() TimerTriggerDescriptorResponsePtrOutput {
+	return i.ToTimerTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TimerTriggerDescriptorResponseArgs) ToTimerTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) TimerTriggerDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimerTriggerDescriptorResponseOutput).ToTimerTriggerDescriptorResponsePtrOutputWithContext(ctx)
+}
+
+// TimerTriggerDescriptorResponsePtrInput is an input type that accepts TimerTriggerDescriptorResponseArgs, TimerTriggerDescriptorResponsePtr and TimerTriggerDescriptorResponsePtrOutput values.
+// You can construct a concrete instance of `TimerTriggerDescriptorResponsePtrInput` via:
+//
+//          TimerTriggerDescriptorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TimerTriggerDescriptorResponsePtrInput interface {
+	pulumi.Input
+
+	ToTimerTriggerDescriptorResponsePtrOutput() TimerTriggerDescriptorResponsePtrOutput
+	ToTimerTriggerDescriptorResponsePtrOutputWithContext(context.Context) TimerTriggerDescriptorResponsePtrOutput
+}
+
+type timerTriggerDescriptorResponsePtrType TimerTriggerDescriptorResponseArgs
+
+func TimerTriggerDescriptorResponsePtr(v *TimerTriggerDescriptorResponseArgs) TimerTriggerDescriptorResponsePtrInput {
+	return (*timerTriggerDescriptorResponsePtrType)(v)
+}
+
+func (*timerTriggerDescriptorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TimerTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (i *timerTriggerDescriptorResponsePtrType) ToTimerTriggerDescriptorResponsePtrOutput() TimerTriggerDescriptorResponsePtrOutput {
+	return i.ToTimerTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *timerTriggerDescriptorResponsePtrType) ToTimerTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) TimerTriggerDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimerTriggerDescriptorResponsePtrOutput)
+}
+
+type TimerTriggerDescriptorResponseOutput struct{ *pulumi.OutputState }
+
+func (TimerTriggerDescriptorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimerTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (o TimerTriggerDescriptorResponseOutput) ToTimerTriggerDescriptorResponseOutput() TimerTriggerDescriptorResponseOutput {
+	return o
+}
+
+func (o TimerTriggerDescriptorResponseOutput) ToTimerTriggerDescriptorResponseOutputWithContext(ctx context.Context) TimerTriggerDescriptorResponseOutput {
+	return o
+}
+
+func (o TimerTriggerDescriptorResponseOutput) ToTimerTriggerDescriptorResponsePtrOutput() TimerTriggerDescriptorResponsePtrOutput {
+	return o.ToTimerTriggerDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TimerTriggerDescriptorResponseOutput) ToTimerTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) TimerTriggerDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v TimerTriggerDescriptorResponse) *TimerTriggerDescriptorResponse {
+		return &v
+	}).(TimerTriggerDescriptorResponsePtrOutput)
+}
+
+// The occurrence that triggered the run.
+func (o TimerTriggerDescriptorResponseOutput) ScheduleOccurrence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimerTriggerDescriptorResponse) *string { return v.ScheduleOccurrence }).(pulumi.StringPtrOutput)
+}
+
+// The timer trigger name that caused the run.
+func (o TimerTriggerDescriptorResponseOutput) TimerTriggerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TimerTriggerDescriptorResponse) *string { return v.TimerTriggerName }).(pulumi.StringPtrOutput)
+}
+
+type TimerTriggerDescriptorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TimerTriggerDescriptorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TimerTriggerDescriptorResponse)(nil)).Elem()
+}
+
+func (o TimerTriggerDescriptorResponsePtrOutput) ToTimerTriggerDescriptorResponsePtrOutput() TimerTriggerDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o TimerTriggerDescriptorResponsePtrOutput) ToTimerTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) TimerTriggerDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o TimerTriggerDescriptorResponsePtrOutput) Elem() TimerTriggerDescriptorResponseOutput {
+	return o.ApplyT(func(v *TimerTriggerDescriptorResponse) TimerTriggerDescriptorResponse { return *v }).(TimerTriggerDescriptorResponseOutput)
+}
+
+// The occurrence that triggered the run.
+func (o TimerTriggerDescriptorResponsePtrOutput) ScheduleOccurrence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TimerTriggerDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleOccurrence
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timer trigger name that caused the run.
+func (o TimerTriggerDescriptorResponsePtrOutput) TimerTriggerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TimerTriggerDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimerTriggerName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The properties of a timer trigger.
 type TimerTriggerResponse struct {
 	// The name of the trigger.
@@ -8437,6 +17753,829 @@ func (o TimerTriggerResponseArrayOutput) Index(i pulumi.IntInput) TimerTriggerRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimerTriggerResponse {
 		return vs[0].([]TimerTriggerResponse)[vs[1].(int)]
 	}).(TimerTriggerResponseOutput)
+}
+
+// The properties of a certificate used for authenticating a token.
+type TokenCertificate struct {
+	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+	EncodedPemCertificate *string `pulumi:"encodedPemCertificate"`
+	// The expiry datetime of the certificate.
+	Expiry *string `pulumi:"expiry"`
+	Name   *string `pulumi:"name"`
+	// The thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// TokenCertificateInput is an input type that accepts TokenCertificateArgs and TokenCertificateOutput values.
+// You can construct a concrete instance of `TokenCertificateInput` via:
+//
+//          TokenCertificateArgs{...}
+type TokenCertificateInput interface {
+	pulumi.Input
+
+	ToTokenCertificateOutput() TokenCertificateOutput
+	ToTokenCertificateOutputWithContext(context.Context) TokenCertificateOutput
+}
+
+// The properties of a certificate used for authenticating a token.
+type TokenCertificateArgs struct {
+	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+	EncodedPemCertificate pulumi.StringPtrInput `pulumi:"encodedPemCertificate"`
+	// The expiry datetime of the certificate.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	// The thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (TokenCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCertificate)(nil)).Elem()
+}
+
+func (i TokenCertificateArgs) ToTokenCertificateOutput() TokenCertificateOutput {
+	return i.ToTokenCertificateOutputWithContext(context.Background())
+}
+
+func (i TokenCertificateArgs) ToTokenCertificateOutputWithContext(ctx context.Context) TokenCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateOutput)
+}
+
+// TokenCertificateArrayInput is an input type that accepts TokenCertificateArray and TokenCertificateArrayOutput values.
+// You can construct a concrete instance of `TokenCertificateArrayInput` via:
+//
+//          TokenCertificateArray{ TokenCertificateArgs{...} }
+type TokenCertificateArrayInput interface {
+	pulumi.Input
+
+	ToTokenCertificateArrayOutput() TokenCertificateArrayOutput
+	ToTokenCertificateArrayOutputWithContext(context.Context) TokenCertificateArrayOutput
+}
+
+type TokenCertificateArray []TokenCertificateInput
+
+func (TokenCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenCertificate)(nil)).Elem()
+}
+
+func (i TokenCertificateArray) ToTokenCertificateArrayOutput() TokenCertificateArrayOutput {
+	return i.ToTokenCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i TokenCertificateArray) ToTokenCertificateArrayOutputWithContext(ctx context.Context) TokenCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateArrayOutput)
+}
+
+// The properties of a certificate used for authenticating a token.
+type TokenCertificateOutput struct{ *pulumi.OutputState }
+
+func (TokenCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCertificate)(nil)).Elem()
+}
+
+func (o TokenCertificateOutput) ToTokenCertificateOutput() TokenCertificateOutput {
+	return o
+}
+
+func (o TokenCertificateOutput) ToTokenCertificateOutputWithContext(ctx context.Context) TokenCertificateOutput {
+	return o
+}
+
+// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+func (o TokenCertificateOutput) EncodedPemCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificate) *string { return v.EncodedPemCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The expiry datetime of the certificate.
+func (o TokenCertificateOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificate) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+func (o TokenCertificateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificate) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate.
+func (o TokenCertificateOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificate) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type TokenCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (TokenCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenCertificate)(nil)).Elem()
+}
+
+func (o TokenCertificateArrayOutput) ToTokenCertificateArrayOutput() TokenCertificateArrayOutput {
+	return o
+}
+
+func (o TokenCertificateArrayOutput) ToTokenCertificateArrayOutputWithContext(ctx context.Context) TokenCertificateArrayOutput {
+	return o
+}
+
+func (o TokenCertificateArrayOutput) Index(i pulumi.IntInput) TokenCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TokenCertificate {
+		return vs[0].([]TokenCertificate)[vs[1].(int)]
+	}).(TokenCertificateOutput)
+}
+
+// The properties of a certificate used for authenticating a token.
+type TokenCertificateResponse struct {
+	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+	EncodedPemCertificate *string `pulumi:"encodedPemCertificate"`
+	// The expiry datetime of the certificate.
+	Expiry *string `pulumi:"expiry"`
+	Name   *string `pulumi:"name"`
+	// The thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// TokenCertificateResponseInput is an input type that accepts TokenCertificateResponseArgs and TokenCertificateResponseOutput values.
+// You can construct a concrete instance of `TokenCertificateResponseInput` via:
+//
+//          TokenCertificateResponseArgs{...}
+type TokenCertificateResponseInput interface {
+	pulumi.Input
+
+	ToTokenCertificateResponseOutput() TokenCertificateResponseOutput
+	ToTokenCertificateResponseOutputWithContext(context.Context) TokenCertificateResponseOutput
+}
+
+// The properties of a certificate used for authenticating a token.
+type TokenCertificateResponseArgs struct {
+	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+	EncodedPemCertificate pulumi.StringPtrInput `pulumi:"encodedPemCertificate"`
+	// The expiry datetime of the certificate.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	// The thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (TokenCertificateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCertificateResponse)(nil)).Elem()
+}
+
+func (i TokenCertificateResponseArgs) ToTokenCertificateResponseOutput() TokenCertificateResponseOutput {
+	return i.ToTokenCertificateResponseOutputWithContext(context.Background())
+}
+
+func (i TokenCertificateResponseArgs) ToTokenCertificateResponseOutputWithContext(ctx context.Context) TokenCertificateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateResponseOutput)
+}
+
+// TokenCertificateResponseArrayInput is an input type that accepts TokenCertificateResponseArray and TokenCertificateResponseArrayOutput values.
+// You can construct a concrete instance of `TokenCertificateResponseArrayInput` via:
+//
+//          TokenCertificateResponseArray{ TokenCertificateResponseArgs{...} }
+type TokenCertificateResponseArrayInput interface {
+	pulumi.Input
+
+	ToTokenCertificateResponseArrayOutput() TokenCertificateResponseArrayOutput
+	ToTokenCertificateResponseArrayOutputWithContext(context.Context) TokenCertificateResponseArrayOutput
+}
+
+type TokenCertificateResponseArray []TokenCertificateResponseInput
+
+func (TokenCertificateResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenCertificateResponse)(nil)).Elem()
+}
+
+func (i TokenCertificateResponseArray) ToTokenCertificateResponseArrayOutput() TokenCertificateResponseArrayOutput {
+	return i.ToTokenCertificateResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TokenCertificateResponseArray) ToTokenCertificateResponseArrayOutputWithContext(ctx context.Context) TokenCertificateResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateResponseArrayOutput)
+}
+
+// The properties of a certificate used for authenticating a token.
+type TokenCertificateResponseOutput struct{ *pulumi.OutputState }
+
+func (TokenCertificateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCertificateResponse)(nil)).Elem()
+}
+
+func (o TokenCertificateResponseOutput) ToTokenCertificateResponseOutput() TokenCertificateResponseOutput {
+	return o
+}
+
+func (o TokenCertificateResponseOutput) ToTokenCertificateResponseOutputWithContext(ctx context.Context) TokenCertificateResponseOutput {
+	return o
+}
+
+// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+func (o TokenCertificateResponseOutput) EncodedPemCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificateResponse) *string { return v.EncodedPemCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The expiry datetime of the certificate.
+func (o TokenCertificateResponseOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificateResponse) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+func (o TokenCertificateResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificateResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate.
+func (o TokenCertificateResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificateResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type TokenCertificateResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TokenCertificateResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenCertificateResponse)(nil)).Elem()
+}
+
+func (o TokenCertificateResponseArrayOutput) ToTokenCertificateResponseArrayOutput() TokenCertificateResponseArrayOutput {
+	return o
+}
+
+func (o TokenCertificateResponseArrayOutput) ToTokenCertificateResponseArrayOutputWithContext(ctx context.Context) TokenCertificateResponseArrayOutput {
+	return o
+}
+
+func (o TokenCertificateResponseArrayOutput) Index(i pulumi.IntInput) TokenCertificateResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TokenCertificateResponse {
+		return vs[0].([]TokenCertificateResponse)[vs[1].(int)]
+	}).(TokenCertificateResponseOutput)
+}
+
+// The properties of the credentials that can be used for authenticating the token.
+type TokenCredentialsProperties struct {
+	// The Active Directory Object that will be used for authenticating the token of a container registry.
+	ActiveDirectoryObject *ActiveDirectoryObject `pulumi:"activeDirectoryObject"`
+	Certificates          []TokenCertificate     `pulumi:"certificates"`
+	Passwords             []TokenPassword        `pulumi:"passwords"`
+}
+
+// TokenCredentialsPropertiesInput is an input type that accepts TokenCredentialsPropertiesArgs and TokenCredentialsPropertiesOutput values.
+// You can construct a concrete instance of `TokenCredentialsPropertiesInput` via:
+//
+//          TokenCredentialsPropertiesArgs{...}
+type TokenCredentialsPropertiesInput interface {
+	pulumi.Input
+
+	ToTokenCredentialsPropertiesOutput() TokenCredentialsPropertiesOutput
+	ToTokenCredentialsPropertiesOutputWithContext(context.Context) TokenCredentialsPropertiesOutput
+}
+
+// The properties of the credentials that can be used for authenticating the token.
+type TokenCredentialsPropertiesArgs struct {
+	// The Active Directory Object that will be used for authenticating the token of a container registry.
+	ActiveDirectoryObject ActiveDirectoryObjectPtrInput `pulumi:"activeDirectoryObject"`
+	Certificates          TokenCertificateArrayInput    `pulumi:"certificates"`
+	Passwords             TokenPasswordArrayInput       `pulumi:"passwords"`
+}
+
+func (TokenCredentialsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCredentialsProperties)(nil)).Elem()
+}
+
+func (i TokenCredentialsPropertiesArgs) ToTokenCredentialsPropertiesOutput() TokenCredentialsPropertiesOutput {
+	return i.ToTokenCredentialsPropertiesOutputWithContext(context.Background())
+}
+
+func (i TokenCredentialsPropertiesArgs) ToTokenCredentialsPropertiesOutputWithContext(ctx context.Context) TokenCredentialsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesOutput)
+}
+
+func (i TokenCredentialsPropertiesArgs) ToTokenCredentialsPropertiesPtrOutput() TokenCredentialsPropertiesPtrOutput {
+	return i.ToTokenCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TokenCredentialsPropertiesArgs) ToTokenCredentialsPropertiesPtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesOutput).ToTokenCredentialsPropertiesPtrOutputWithContext(ctx)
+}
+
+// TokenCredentialsPropertiesPtrInput is an input type that accepts TokenCredentialsPropertiesArgs, TokenCredentialsPropertiesPtr and TokenCredentialsPropertiesPtrOutput values.
+// You can construct a concrete instance of `TokenCredentialsPropertiesPtrInput` via:
+//
+//          TokenCredentialsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type TokenCredentialsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTokenCredentialsPropertiesPtrOutput() TokenCredentialsPropertiesPtrOutput
+	ToTokenCredentialsPropertiesPtrOutputWithContext(context.Context) TokenCredentialsPropertiesPtrOutput
+}
+
+type tokenCredentialsPropertiesPtrType TokenCredentialsPropertiesArgs
+
+func TokenCredentialsPropertiesPtr(v *TokenCredentialsPropertiesArgs) TokenCredentialsPropertiesPtrInput {
+	return (*tokenCredentialsPropertiesPtrType)(v)
+}
+
+func (*tokenCredentialsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TokenCredentialsProperties)(nil)).Elem()
+}
+
+func (i *tokenCredentialsPropertiesPtrType) ToTokenCredentialsPropertiesPtrOutput() TokenCredentialsPropertiesPtrOutput {
+	return i.ToTokenCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *tokenCredentialsPropertiesPtrType) ToTokenCredentialsPropertiesPtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesPtrOutput)
+}
+
+// The properties of the credentials that can be used for authenticating the token.
+type TokenCredentialsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TokenCredentialsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCredentialsProperties)(nil)).Elem()
+}
+
+func (o TokenCredentialsPropertiesOutput) ToTokenCredentialsPropertiesOutput() TokenCredentialsPropertiesOutput {
+	return o
+}
+
+func (o TokenCredentialsPropertiesOutput) ToTokenCredentialsPropertiesOutputWithContext(ctx context.Context) TokenCredentialsPropertiesOutput {
+	return o
+}
+
+func (o TokenCredentialsPropertiesOutput) ToTokenCredentialsPropertiesPtrOutput() TokenCredentialsPropertiesPtrOutput {
+	return o.ToTokenCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TokenCredentialsPropertiesOutput) ToTokenCredentialsPropertiesPtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesPtrOutput {
+	return o.ApplyT(func(v TokenCredentialsProperties) *TokenCredentialsProperties {
+		return &v
+	}).(TokenCredentialsPropertiesPtrOutput)
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+func (o TokenCredentialsPropertiesOutput) ActiveDirectoryObject() ActiveDirectoryObjectPtrOutput {
+	return o.ApplyT(func(v TokenCredentialsProperties) *ActiveDirectoryObject { return v.ActiveDirectoryObject }).(ActiveDirectoryObjectPtrOutput)
+}
+
+func (o TokenCredentialsPropertiesOutput) Certificates() TokenCertificateArrayOutput {
+	return o.ApplyT(func(v TokenCredentialsProperties) []TokenCertificate { return v.Certificates }).(TokenCertificateArrayOutput)
+}
+
+func (o TokenCredentialsPropertiesOutput) Passwords() TokenPasswordArrayOutput {
+	return o.ApplyT(func(v TokenCredentialsProperties) []TokenPassword { return v.Passwords }).(TokenPasswordArrayOutput)
+}
+
+type TokenCredentialsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TokenCredentialsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TokenCredentialsProperties)(nil)).Elem()
+}
+
+func (o TokenCredentialsPropertiesPtrOutput) ToTokenCredentialsPropertiesPtrOutput() TokenCredentialsPropertiesPtrOutput {
+	return o
+}
+
+func (o TokenCredentialsPropertiesPtrOutput) ToTokenCredentialsPropertiesPtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesPtrOutput {
+	return o
+}
+
+func (o TokenCredentialsPropertiesPtrOutput) Elem() TokenCredentialsPropertiesOutput {
+	return o.ApplyT(func(v *TokenCredentialsProperties) TokenCredentialsProperties { return *v }).(TokenCredentialsPropertiesOutput)
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+func (o TokenCredentialsPropertiesPtrOutput) ActiveDirectoryObject() ActiveDirectoryObjectPtrOutput {
+	return o.ApplyT(func(v *TokenCredentialsProperties) *ActiveDirectoryObject {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryObject
+	}).(ActiveDirectoryObjectPtrOutput)
+}
+
+func (o TokenCredentialsPropertiesPtrOutput) Certificates() TokenCertificateArrayOutput {
+	return o.ApplyT(func(v *TokenCredentialsProperties) []TokenCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.Certificates
+	}).(TokenCertificateArrayOutput)
+}
+
+func (o TokenCredentialsPropertiesPtrOutput) Passwords() TokenPasswordArrayOutput {
+	return o.ApplyT(func(v *TokenCredentialsProperties) []TokenPassword {
+		if v == nil {
+			return nil
+		}
+		return v.Passwords
+	}).(TokenPasswordArrayOutput)
+}
+
+// The properties of the credentials that can be used for authenticating the token.
+type TokenCredentialsPropertiesResponse struct {
+	// The Active Directory Object that will be used for authenticating the token of a container registry.
+	ActiveDirectoryObject *ActiveDirectoryObjectResponse `pulumi:"activeDirectoryObject"`
+	Certificates          []TokenCertificateResponse     `pulumi:"certificates"`
+	Passwords             []TokenPasswordResponse        `pulumi:"passwords"`
+}
+
+// TokenCredentialsPropertiesResponseInput is an input type that accepts TokenCredentialsPropertiesResponseArgs and TokenCredentialsPropertiesResponseOutput values.
+// You can construct a concrete instance of `TokenCredentialsPropertiesResponseInput` via:
+//
+//          TokenCredentialsPropertiesResponseArgs{...}
+type TokenCredentialsPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToTokenCredentialsPropertiesResponseOutput() TokenCredentialsPropertiesResponseOutput
+	ToTokenCredentialsPropertiesResponseOutputWithContext(context.Context) TokenCredentialsPropertiesResponseOutput
+}
+
+// The properties of the credentials that can be used for authenticating the token.
+type TokenCredentialsPropertiesResponseArgs struct {
+	// The Active Directory Object that will be used for authenticating the token of a container registry.
+	ActiveDirectoryObject ActiveDirectoryObjectResponsePtrInput `pulumi:"activeDirectoryObject"`
+	Certificates          TokenCertificateResponseArrayInput    `pulumi:"certificates"`
+	Passwords             TokenPasswordResponseArrayInput       `pulumi:"passwords"`
+}
+
+func (TokenCredentialsPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCredentialsPropertiesResponse)(nil)).Elem()
+}
+
+func (i TokenCredentialsPropertiesResponseArgs) ToTokenCredentialsPropertiesResponseOutput() TokenCredentialsPropertiesResponseOutput {
+	return i.ToTokenCredentialsPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i TokenCredentialsPropertiesResponseArgs) ToTokenCredentialsPropertiesResponseOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesResponseOutput)
+}
+
+func (i TokenCredentialsPropertiesResponseArgs) ToTokenCredentialsPropertiesResponsePtrOutput() TokenCredentialsPropertiesResponsePtrOutput {
+	return i.ToTokenCredentialsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TokenCredentialsPropertiesResponseArgs) ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesResponseOutput).ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// TokenCredentialsPropertiesResponsePtrInput is an input type that accepts TokenCredentialsPropertiesResponseArgs, TokenCredentialsPropertiesResponsePtr and TokenCredentialsPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `TokenCredentialsPropertiesResponsePtrInput` via:
+//
+//          TokenCredentialsPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TokenCredentialsPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToTokenCredentialsPropertiesResponsePtrOutput() TokenCredentialsPropertiesResponsePtrOutput
+	ToTokenCredentialsPropertiesResponsePtrOutputWithContext(context.Context) TokenCredentialsPropertiesResponsePtrOutput
+}
+
+type tokenCredentialsPropertiesResponsePtrType TokenCredentialsPropertiesResponseArgs
+
+func TokenCredentialsPropertiesResponsePtr(v *TokenCredentialsPropertiesResponseArgs) TokenCredentialsPropertiesResponsePtrInput {
+	return (*tokenCredentialsPropertiesResponsePtrType)(v)
+}
+
+func (*tokenCredentialsPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TokenCredentialsPropertiesResponse)(nil)).Elem()
+}
+
+func (i *tokenCredentialsPropertiesResponsePtrType) ToTokenCredentialsPropertiesResponsePtrOutput() TokenCredentialsPropertiesResponsePtrOutput {
+	return i.ToTokenCredentialsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *tokenCredentialsPropertiesResponsePtrType) ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesResponsePtrOutput)
+}
+
+// The properties of the credentials that can be used for authenticating the token.
+type TokenCredentialsPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (TokenCredentialsPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCredentialsPropertiesResponse)(nil)).Elem()
+}
+
+func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesResponseOutput() TokenCredentialsPropertiesResponseOutput {
+	return o
+}
+
+func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesResponseOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponseOutput {
+	return o
+}
+
+func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesResponsePtrOutput() TokenCredentialsPropertiesResponsePtrOutput {
+	return o.ToTokenCredentialsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v TokenCredentialsPropertiesResponse) *TokenCredentialsPropertiesResponse {
+		return &v
+	}).(TokenCredentialsPropertiesResponsePtrOutput)
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+func (o TokenCredentialsPropertiesResponseOutput) ActiveDirectoryObject() ActiveDirectoryObjectResponsePtrOutput {
+	return o.ApplyT(func(v TokenCredentialsPropertiesResponse) *ActiveDirectoryObjectResponse {
+		return v.ActiveDirectoryObject
+	}).(ActiveDirectoryObjectResponsePtrOutput)
+}
+
+func (o TokenCredentialsPropertiesResponseOutput) Certificates() TokenCertificateResponseArrayOutput {
+	return o.ApplyT(func(v TokenCredentialsPropertiesResponse) []TokenCertificateResponse { return v.Certificates }).(TokenCertificateResponseArrayOutput)
+}
+
+func (o TokenCredentialsPropertiesResponseOutput) Passwords() TokenPasswordResponseArrayOutput {
+	return o.ApplyT(func(v TokenCredentialsPropertiesResponse) []TokenPasswordResponse { return v.Passwords }).(TokenPasswordResponseArrayOutput)
+}
+
+type TokenCredentialsPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TokenCredentialsPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TokenCredentialsPropertiesResponse)(nil)).Elem()
+}
+
+func (o TokenCredentialsPropertiesResponsePtrOutput) ToTokenCredentialsPropertiesResponsePtrOutput() TokenCredentialsPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o TokenCredentialsPropertiesResponsePtrOutput) ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o TokenCredentialsPropertiesResponsePtrOutput) Elem() TokenCredentialsPropertiesResponseOutput {
+	return o.ApplyT(func(v *TokenCredentialsPropertiesResponse) TokenCredentialsPropertiesResponse { return *v }).(TokenCredentialsPropertiesResponseOutput)
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+func (o TokenCredentialsPropertiesResponsePtrOutput) ActiveDirectoryObject() ActiveDirectoryObjectResponsePtrOutput {
+	return o.ApplyT(func(v *TokenCredentialsPropertiesResponse) *ActiveDirectoryObjectResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryObject
+	}).(ActiveDirectoryObjectResponsePtrOutput)
+}
+
+func (o TokenCredentialsPropertiesResponsePtrOutput) Certificates() TokenCertificateResponseArrayOutput {
+	return o.ApplyT(func(v *TokenCredentialsPropertiesResponse) []TokenCertificateResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Certificates
+	}).(TokenCertificateResponseArrayOutput)
+}
+
+func (o TokenCredentialsPropertiesResponsePtrOutput) Passwords() TokenPasswordResponseArrayOutput {
+	return o.ApplyT(func(v *TokenCredentialsPropertiesResponse) []TokenPasswordResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Passwords
+	}).(TokenPasswordResponseArrayOutput)
+}
+
+// The password that will be used for authenticating the token of a container registry.
+type TokenPassword struct {
+	// The creation datetime of the password.
+	CreationTime *string `pulumi:"creationTime"`
+	// The expiry datetime of the password.
+	Expiry *string `pulumi:"expiry"`
+	// The password name "password1" or "password2"
+	Name *string `pulumi:"name"`
+}
+
+// TokenPasswordInput is an input type that accepts TokenPasswordArgs and TokenPasswordOutput values.
+// You can construct a concrete instance of `TokenPasswordInput` via:
+//
+//          TokenPasswordArgs{...}
+type TokenPasswordInput interface {
+	pulumi.Input
+
+	ToTokenPasswordOutput() TokenPasswordOutput
+	ToTokenPasswordOutputWithContext(context.Context) TokenPasswordOutput
+}
+
+// The password that will be used for authenticating the token of a container registry.
+type TokenPasswordArgs struct {
+	// The creation datetime of the password.
+	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
+	// The expiry datetime of the password.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	// The password name "password1" or "password2"
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (TokenPasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenPassword)(nil)).Elem()
+}
+
+func (i TokenPasswordArgs) ToTokenPasswordOutput() TokenPasswordOutput {
+	return i.ToTokenPasswordOutputWithContext(context.Background())
+}
+
+func (i TokenPasswordArgs) ToTokenPasswordOutputWithContext(ctx context.Context) TokenPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordOutput)
+}
+
+// TokenPasswordArrayInput is an input type that accepts TokenPasswordArray and TokenPasswordArrayOutput values.
+// You can construct a concrete instance of `TokenPasswordArrayInput` via:
+//
+//          TokenPasswordArray{ TokenPasswordArgs{...} }
+type TokenPasswordArrayInput interface {
+	pulumi.Input
+
+	ToTokenPasswordArrayOutput() TokenPasswordArrayOutput
+	ToTokenPasswordArrayOutputWithContext(context.Context) TokenPasswordArrayOutput
+}
+
+type TokenPasswordArray []TokenPasswordInput
+
+func (TokenPasswordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenPassword)(nil)).Elem()
+}
+
+func (i TokenPasswordArray) ToTokenPasswordArrayOutput() TokenPasswordArrayOutput {
+	return i.ToTokenPasswordArrayOutputWithContext(context.Background())
+}
+
+func (i TokenPasswordArray) ToTokenPasswordArrayOutputWithContext(ctx context.Context) TokenPasswordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordArrayOutput)
+}
+
+// The password that will be used for authenticating the token of a container registry.
+type TokenPasswordOutput struct{ *pulumi.OutputState }
+
+func (TokenPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenPassword)(nil)).Elem()
+}
+
+func (o TokenPasswordOutput) ToTokenPasswordOutput() TokenPasswordOutput {
+	return o
+}
+
+func (o TokenPasswordOutput) ToTokenPasswordOutputWithContext(ctx context.Context) TokenPasswordOutput {
+	return o
+}
+
+// The creation datetime of the password.
+func (o TokenPasswordOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPassword) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// The expiry datetime of the password.
+func (o TokenPasswordOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPassword) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+// The password name "password1" or "password2"
+func (o TokenPasswordOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPassword) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type TokenPasswordArrayOutput struct{ *pulumi.OutputState }
+
+func (TokenPasswordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenPassword)(nil)).Elem()
+}
+
+func (o TokenPasswordArrayOutput) ToTokenPasswordArrayOutput() TokenPasswordArrayOutput {
+	return o
+}
+
+func (o TokenPasswordArrayOutput) ToTokenPasswordArrayOutputWithContext(ctx context.Context) TokenPasswordArrayOutput {
+	return o
+}
+
+func (o TokenPasswordArrayOutput) Index(i pulumi.IntInput) TokenPasswordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TokenPassword {
+		return vs[0].([]TokenPassword)[vs[1].(int)]
+	}).(TokenPasswordOutput)
+}
+
+// The password that will be used for authenticating the token of a container registry.
+type TokenPasswordResponse struct {
+	// The creation datetime of the password.
+	CreationTime *string `pulumi:"creationTime"`
+	// The expiry datetime of the password.
+	Expiry *string `pulumi:"expiry"`
+	// The password name "password1" or "password2"
+	Name *string `pulumi:"name"`
+	// The password value.
+	Value string `pulumi:"value"`
+}
+
+// TokenPasswordResponseInput is an input type that accepts TokenPasswordResponseArgs and TokenPasswordResponseOutput values.
+// You can construct a concrete instance of `TokenPasswordResponseInput` via:
+//
+//          TokenPasswordResponseArgs{...}
+type TokenPasswordResponseInput interface {
+	pulumi.Input
+
+	ToTokenPasswordResponseOutput() TokenPasswordResponseOutput
+	ToTokenPasswordResponseOutputWithContext(context.Context) TokenPasswordResponseOutput
+}
+
+// The password that will be used for authenticating the token of a container registry.
+type TokenPasswordResponseArgs struct {
+	// The creation datetime of the password.
+	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
+	// The expiry datetime of the password.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	// The password name "password1" or "password2"
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The password value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TokenPasswordResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenPasswordResponse)(nil)).Elem()
+}
+
+func (i TokenPasswordResponseArgs) ToTokenPasswordResponseOutput() TokenPasswordResponseOutput {
+	return i.ToTokenPasswordResponseOutputWithContext(context.Background())
+}
+
+func (i TokenPasswordResponseArgs) ToTokenPasswordResponseOutputWithContext(ctx context.Context) TokenPasswordResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordResponseOutput)
+}
+
+// TokenPasswordResponseArrayInput is an input type that accepts TokenPasswordResponseArray and TokenPasswordResponseArrayOutput values.
+// You can construct a concrete instance of `TokenPasswordResponseArrayInput` via:
+//
+//          TokenPasswordResponseArray{ TokenPasswordResponseArgs{...} }
+type TokenPasswordResponseArrayInput interface {
+	pulumi.Input
+
+	ToTokenPasswordResponseArrayOutput() TokenPasswordResponseArrayOutput
+	ToTokenPasswordResponseArrayOutputWithContext(context.Context) TokenPasswordResponseArrayOutput
+}
+
+type TokenPasswordResponseArray []TokenPasswordResponseInput
+
+func (TokenPasswordResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenPasswordResponse)(nil)).Elem()
+}
+
+func (i TokenPasswordResponseArray) ToTokenPasswordResponseArrayOutput() TokenPasswordResponseArrayOutput {
+	return i.ToTokenPasswordResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TokenPasswordResponseArray) ToTokenPasswordResponseArrayOutputWithContext(ctx context.Context) TokenPasswordResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordResponseArrayOutput)
+}
+
+// The password that will be used for authenticating the token of a container registry.
+type TokenPasswordResponseOutput struct{ *pulumi.OutputState }
+
+func (TokenPasswordResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenPasswordResponse)(nil)).Elem()
+}
+
+func (o TokenPasswordResponseOutput) ToTokenPasswordResponseOutput() TokenPasswordResponseOutput {
+	return o
+}
+
+func (o TokenPasswordResponseOutput) ToTokenPasswordResponseOutputWithContext(ctx context.Context) TokenPasswordResponseOutput {
+	return o
+}
+
+// The creation datetime of the password.
+func (o TokenPasswordResponseOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPasswordResponse) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// The expiry datetime of the password.
+func (o TokenPasswordResponseOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPasswordResponse) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+// The password name "password1" or "password2"
+func (o TokenPasswordResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPasswordResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The password value.
+func (o TokenPasswordResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TokenPasswordResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TokenPasswordResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TokenPasswordResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenPasswordResponse)(nil)).Elem()
+}
+
+func (o TokenPasswordResponseArrayOutput) ToTokenPasswordResponseArrayOutput() TokenPasswordResponseArrayOutput {
+	return o
+}
+
+func (o TokenPasswordResponseArrayOutput) ToTokenPasswordResponseArrayOutputWithContext(ctx context.Context) TokenPasswordResponseArrayOutput {
+	return o
+}
+
+func (o TokenPasswordResponseArrayOutput) Index(i pulumi.IntInput) TokenPasswordResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TokenPasswordResponse {
+		return vs[0].([]TokenPasswordResponse)[vs[1].(int)]
+	}).(TokenPasswordResponseOutput)
 }
 
 // The properties of a trigger.
@@ -9520,12 +19659,18 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 }
 
 func init() {
+	pulumi.RegisterOutputType(ActiveDirectoryObjectOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryObjectPtrOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryObjectResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryObjectResponsePtrOutput{})
 	pulumi.RegisterOutputType(ActorResponseOutput{})
 	pulumi.RegisterOutputType(ActorResponsePtrOutput{})
 	pulumi.RegisterOutputType(AgentPropertiesOutput{})
 	pulumi.RegisterOutputType(AgentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AgentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AgentPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ArgumentOutput{})
+	pulumi.RegisterOutputType(ArgumentArrayOutput{})
 	pulumi.RegisterOutputType(ArgumentResponseOutput{})
 	pulumi.RegisterOutputType(ArgumentResponseArrayOutput{})
 	pulumi.RegisterOutputType(AuthInfoOutput{})
@@ -9538,6 +19683,8 @@ func init() {
 	pulumi.RegisterOutputType(BaseImageTriggerPtrOutput{})
 	pulumi.RegisterOutputType(BaseImageTriggerResponseOutput{})
 	pulumi.RegisterOutputType(BaseImageTriggerResponsePtrOutput{})
+	pulumi.RegisterOutputType(BuildArgumentResponseOutput{})
+	pulumi.RegisterOutputType(BuildArgumentResponseArrayOutput{})
 	pulumi.RegisterOutputType(CredentialsOutput{})
 	pulumi.RegisterOutputType(CredentialsPtrOutput{})
 	pulumi.RegisterOutputType(CredentialsResponseOutput{})
@@ -9546,8 +19693,19 @@ func init() {
 	pulumi.RegisterOutputType(CustomRegistryCredentialsMapOutput{})
 	pulumi.RegisterOutputType(CustomRegistryCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(CustomRegistryCredentialsResponseMapOutput{})
+	pulumi.RegisterOutputType(DockerBuildRequestOutput{})
+	pulumi.RegisterOutputType(DockerBuildRequestResponseOutput{})
+	pulumi.RegisterOutputType(DockerBuildStepOutput{})
 	pulumi.RegisterOutputType(DockerBuildStepResponseOutput{})
+	pulumi.RegisterOutputType(DockerBuildStepResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncodedTaskRunRequestOutput{})
+	pulumi.RegisterOutputType(EncodedTaskRunRequestResponseOutput{})
+	pulumi.RegisterOutputType(EncodedTaskStepOutput{})
 	pulumi.RegisterOutputType(EncodedTaskStepResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertyOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertyPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertyResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(EventContentResponseOutput{})
 	pulumi.RegisterOutputType(EventContentResponsePtrOutput{})
 	pulumi.RegisterOutputType(EventRequestMessageResponseOutput{})
@@ -9556,6 +19714,13 @@ func init() {
 	pulumi.RegisterOutputType(EventResponseArrayOutput{})
 	pulumi.RegisterOutputType(EventResponseMessageResponseOutput{})
 	pulumi.RegisterOutputType(EventResponseMessageResponsePtrOutput{})
+	pulumi.RegisterOutputType(ExportPipelineTargetPropertiesOutput{})
+	pulumi.RegisterOutputType(ExportPipelineTargetPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ExportPipelineTargetPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ExportPipelineTargetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(FileTaskRunRequestOutput{})
+	pulumi.RegisterOutputType(FileTaskRunRequestResponseOutput{})
+	pulumi.RegisterOutputType(FileTaskStepOutput{})
 	pulumi.RegisterOutputType(FileTaskStepResponseOutput{})
 	pulumi.RegisterOutputType(IPRuleOutput{})
 	pulumi.RegisterOutputType(IPRuleArrayOutput{})
@@ -9565,10 +19730,53 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ImageDescriptorResponseOutput{})
+	pulumi.RegisterOutputType(ImageDescriptorResponsePtrOutput{})
+	pulumi.RegisterOutputType(ImageDescriptorResponseArrayOutput{})
+	pulumi.RegisterOutputType(ImageUpdateTriggerResponseOutput{})
+	pulumi.RegisterOutputType(ImageUpdateTriggerResponsePtrOutput{})
+	pulumi.RegisterOutputType(ImportPipelineSourcePropertiesOutput{})
+	pulumi.RegisterOutputType(ImportPipelineSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ImportPipelineSourcePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ImportPipelineSourcePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponsePtrOutput{})
+	pulumi.RegisterOutputType(OverrideTaskStepPropertiesOutput{})
+	pulumi.RegisterOutputType(OverrideTaskStepPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OverrideTaskStepPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(OverrideTaskStepPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PipelineRunRequestOutput{})
+	pulumi.RegisterOutputType(PipelineRunRequestPtrOutput{})
+	pulumi.RegisterOutputType(PipelineRunRequestResponseOutput{})
+	pulumi.RegisterOutputType(PipelineRunRequestResponsePtrOutput{})
+	pulumi.RegisterOutputType(PipelineRunResponseResponseOutput{})
+	pulumi.RegisterOutputType(PipelineRunResponseResponsePtrOutput{})
+	pulumi.RegisterOutputType(PipelineRunSourcePropertiesOutput{})
+	pulumi.RegisterOutputType(PipelineRunSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PipelineRunSourcePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PipelineRunSourcePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PipelineRunTargetPropertiesOutput{})
+	pulumi.RegisterOutputType(PipelineRunTargetPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PipelineRunTargetPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PipelineRunTargetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PipelineSourceTriggerDescriptorResponseOutput{})
+	pulumi.RegisterOutputType(PipelineSourceTriggerDescriptorResponsePtrOutput{})
+	pulumi.RegisterOutputType(PipelineSourceTriggerPropertiesOutput{})
+	pulumi.RegisterOutputType(PipelineSourceTriggerPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PipelineSourceTriggerPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PipelineSourceTriggerPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerDescriptorResponseOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerDescriptorResponsePtrOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerPropertiesOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesResponseOutput{})
@@ -9577,6 +19785,18 @@ func init() {
 	pulumi.RegisterOutputType(PoliciesPtrOutput{})
 	pulumi.RegisterOutputType(PoliciesResponseOutput{})
 	pulumi.RegisterOutputType(PoliciesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProgressPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ProgressPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(QuarantinePolicyOutput{})
 	pulumi.RegisterOutputType(QuarantinePolicyPtrOutput{})
 	pulumi.RegisterOutputType(QuarantinePolicyResponseOutput{})
@@ -9589,26 +19809,40 @@ func init() {
 	pulumi.RegisterOutputType(RetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(RunResponseOutput{})
+	pulumi.RegisterOutputType(RunResponsePtrOutput{})
 	pulumi.RegisterOutputType(SecretObjectOutput{})
 	pulumi.RegisterOutputType(SecretObjectPtrOutput{})
 	pulumi.RegisterOutputType(SecretObjectResponseOutput{})
 	pulumi.RegisterOutputType(SecretObjectResponsePtrOutput{})
+	pulumi.RegisterOutputType(SetValueOutput{})
+	pulumi.RegisterOutputType(SetValueArrayOutput{})
 	pulumi.RegisterOutputType(SetValueResponseOutput{})
 	pulumi.RegisterOutputType(SetValueResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SourceControlAuthInfoOutput{})
+	pulumi.RegisterOutputType(SourceControlAuthInfoPtrOutput{})
+	pulumi.RegisterOutputType(SourceControlAuthInfoResponseOutput{})
+	pulumi.RegisterOutputType(SourceControlAuthInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourcePropertiesOutput{})
 	pulumi.RegisterOutputType(SourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SourceRegistryCredentialsOutput{})
 	pulumi.RegisterOutputType(SourceRegistryCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SourceRegistryCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(SourceRegistryCredentialsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SourceRepositoryPropertiesOutput{})
+	pulumi.RegisterOutputType(SourceRepositoryPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceRepositoryPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SourceRepositoryPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceResponseOutput{})
 	pulumi.RegisterOutputType(SourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceTriggerOutput{})
 	pulumi.RegisterOutputType(SourceTriggerArrayOutput{})
+	pulumi.RegisterOutputType(SourceTriggerDescriptorResponseOutput{})
+	pulumi.RegisterOutputType(SourceTriggerDescriptorResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceTriggerResponseOutput{})
 	pulumi.RegisterOutputType(SourceTriggerResponseArrayOutput{})
 	pulumi.RegisterOutputType(StatusResponseOutput{})
@@ -9619,12 +19853,26 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TargetResponseOutput{})
 	pulumi.RegisterOutputType(TargetResponsePtrOutput{})
-	pulumi.RegisterOutputType(TaskStepPropertiesOutput{})
-	pulumi.RegisterOutputType(TaskStepPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TaskRunRequestOutput{})
+	pulumi.RegisterOutputType(TaskRunRequestResponseOutput{})
 	pulumi.RegisterOutputType(TimerTriggerOutput{})
 	pulumi.RegisterOutputType(TimerTriggerArrayOutput{})
+	pulumi.RegisterOutputType(TimerTriggerDescriptorResponseOutput{})
+	pulumi.RegisterOutputType(TimerTriggerDescriptorResponsePtrOutput{})
 	pulumi.RegisterOutputType(TimerTriggerResponseOutput{})
 	pulumi.RegisterOutputType(TimerTriggerResponseArrayOutput{})
+	pulumi.RegisterOutputType(TokenCertificateOutput{})
+	pulumi.RegisterOutputType(TokenCertificateArrayOutput{})
+	pulumi.RegisterOutputType(TokenCertificateResponseOutput{})
+	pulumi.RegisterOutputType(TokenCertificateResponseArrayOutput{})
+	pulumi.RegisterOutputType(TokenCredentialsPropertiesOutput{})
+	pulumi.RegisterOutputType(TokenCredentialsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TokenCredentialsPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(TokenCredentialsPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(TokenPasswordOutput{})
+	pulumi.RegisterOutputType(TokenPasswordArrayOutput{})
+	pulumi.RegisterOutputType(TokenPasswordResponseOutput{})
+	pulumi.RegisterOutputType(TokenPasswordResponseArrayOutput{})
 	pulumi.RegisterOutputType(TriggerPropertiesOutput{})
 	pulumi.RegisterOutputType(TriggerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TriggerPropertiesResponseOutput{})

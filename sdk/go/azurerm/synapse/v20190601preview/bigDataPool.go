@@ -64,6 +64,12 @@ func NewBigDataPool(ctx *pulumi.Context,
 	if args == nil {
 		args = &BigDataPoolArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:synapse/latest:BigDataPool"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BigDataPool
 	err := ctx.RegisterResource("azurerm:synapse/v20190601preview:BigDataPool", name, args, &resource, opts...)
 	if err != nil {

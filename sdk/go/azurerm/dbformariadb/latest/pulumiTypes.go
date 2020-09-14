@@ -595,362 +595,175 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a private endpoint connection.
-type ServerPrivateEndpointConnectionPropertiesResponse struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
-	PrivateLinkServiceConnectionState *ServerPrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityResponse struct {
+	// The Azure Active Directory principal id.
+	PrincipalId string `pulumi:"principalId"`
+	// The Azure Active Directory tenant id.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+	Type *string `pulumi:"type"`
 }
 
-// ServerPrivateEndpointConnectionPropertiesResponseInput is an input type that accepts ServerPrivateEndpointConnectionPropertiesResponseArgs and ServerPrivateEndpointConnectionPropertiesResponseOutput values.
-// You can construct a concrete instance of `ServerPrivateEndpointConnectionPropertiesResponseInput` via:
+// ResourceIdentityResponseInput is an input type that accepts ResourceIdentityResponseArgs and ResourceIdentityResponseOutput values.
+// You can construct a concrete instance of `ResourceIdentityResponseInput` via:
 //
-//          ServerPrivateEndpointConnectionPropertiesResponseArgs{...}
-type ServerPrivateEndpointConnectionPropertiesResponseInput interface {
+//          ResourceIdentityResponseArgs{...}
+type ResourceIdentityResponseInput interface {
 	pulumi.Input
 
-	ToServerPrivateEndpointConnectionPropertiesResponseOutput() ServerPrivateEndpointConnectionPropertiesResponseOutput
-	ToServerPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) ServerPrivateEndpointConnectionPropertiesResponseOutput
+	ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput
+	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
 }
 
-// Properties of a private endpoint connection.
-type ServerPrivateEndpointConnectionPropertiesResponseArgs struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
-	PrivateLinkServiceConnectionState ServerPrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityResponseArgs struct {
+	// The Azure Active Directory principal id.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Azure Active Directory tenant id.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
-func (ServerPrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
+func (ResourceIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
 }
 
-func (i ServerPrivateEndpointConnectionPropertiesResponseArgs) ToServerPrivateEndpointConnectionPropertiesResponseOutput() ServerPrivateEndpointConnectionPropertiesResponseOutput {
-	return i.ToServerPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Background())
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
+	return i.ToResourceIdentityResponseOutputWithContext(context.Background())
 }
 
-func (i ServerPrivateEndpointConnectionPropertiesResponseArgs) ToServerPrivateEndpointConnectionPropertiesResponseOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateEndpointConnectionPropertiesResponseOutput)
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponseOutput)
 }
 
-// Properties of a private endpoint connection.
-type ServerPrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ServerPrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return i.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
 }
 
-func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) ToServerPrivateEndpointConnectionPropertiesResponseOutput() ServerPrivateEndpointConnectionPropertiesResponseOutput {
-	return o
+func (i ResourceIdentityResponseArgs) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponseOutput).ToResourceIdentityResponsePtrOutputWithContext(ctx)
 }
 
-func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) ToServerPrivateEndpointConnectionPropertiesResponseOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionPropertiesResponseOutput {
-	return o
-}
-
-// Private endpoint which the connection belongs to.
-func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
-	return o.ApplyT(func(v ServerPrivateEndpointConnectionPropertiesResponse) *PrivateEndpointPropertyResponse {
-		return v.PrivateEndpoint
-	}).(PrivateEndpointPropertyResponsePtrOutput)
-}
-
-// Connection state of the private endpoint connection.
-func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyT(func(v ServerPrivateEndpointConnectionPropertiesResponse) *ServerPrivateLinkServiceConnectionStatePropertyResponse {
-		return v.PrivateLinkServiceConnectionState
-	}).(ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
-}
-
-// State of the private endpoint connection.
-func (o ServerPrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// A private endpoint connection under a server
-type ServerPrivateEndpointConnectionResponse struct {
-	// Resource Id of the private endpoint connection.
-	Id string `pulumi:"id"`
-	// Private endpoint connection properties
-	Properties ServerPrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-}
-
-// ServerPrivateEndpointConnectionResponseInput is an input type that accepts ServerPrivateEndpointConnectionResponseArgs and ServerPrivateEndpointConnectionResponseOutput values.
-// You can construct a concrete instance of `ServerPrivateEndpointConnectionResponseInput` via:
+// ResourceIdentityResponsePtrInput is an input type that accepts ResourceIdentityResponseArgs, ResourceIdentityResponsePtr and ResourceIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceIdentityResponsePtrInput` via:
 //
-//          ServerPrivateEndpointConnectionResponseArgs{...}
-type ServerPrivateEndpointConnectionResponseInput interface {
-	pulumi.Input
-
-	ToServerPrivateEndpointConnectionResponseOutput() ServerPrivateEndpointConnectionResponseOutput
-	ToServerPrivateEndpointConnectionResponseOutputWithContext(context.Context) ServerPrivateEndpointConnectionResponseOutput
-}
-
-// A private endpoint connection under a server
-type ServerPrivateEndpointConnectionResponseArgs struct {
-	// Resource Id of the private endpoint connection.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Private endpoint connection properties
-	Properties ServerPrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-}
-
-func (ServerPrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (i ServerPrivateEndpointConnectionResponseArgs) ToServerPrivateEndpointConnectionResponseOutput() ServerPrivateEndpointConnectionResponseOutput {
-	return i.ToServerPrivateEndpointConnectionResponseOutputWithContext(context.Background())
-}
-
-func (i ServerPrivateEndpointConnectionResponseArgs) ToServerPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateEndpointConnectionResponseOutput)
-}
-
-// ServerPrivateEndpointConnectionResponseArrayInput is an input type that accepts ServerPrivateEndpointConnectionResponseArray and ServerPrivateEndpointConnectionResponseArrayOutput values.
-// You can construct a concrete instance of `ServerPrivateEndpointConnectionResponseArrayInput` via:
-//
-//          ServerPrivateEndpointConnectionResponseArray{ ServerPrivateEndpointConnectionResponseArgs{...} }
-type ServerPrivateEndpointConnectionResponseArrayInput interface {
-	pulumi.Input
-
-	ToServerPrivateEndpointConnectionResponseArrayOutput() ServerPrivateEndpointConnectionResponseArrayOutput
-	ToServerPrivateEndpointConnectionResponseArrayOutputWithContext(context.Context) ServerPrivateEndpointConnectionResponseArrayOutput
-}
-
-type ServerPrivateEndpointConnectionResponseArray []ServerPrivateEndpointConnectionResponseInput
-
-func (ServerPrivateEndpointConnectionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerPrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (i ServerPrivateEndpointConnectionResponseArray) ToServerPrivateEndpointConnectionResponseArrayOutput() ServerPrivateEndpointConnectionResponseArrayOutput {
-	return i.ToServerPrivateEndpointConnectionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ServerPrivateEndpointConnectionResponseArray) ToServerPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateEndpointConnectionResponseArrayOutput)
-}
-
-// A private endpoint connection under a server
-type ServerPrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
-
-func (ServerPrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (o ServerPrivateEndpointConnectionResponseOutput) ToServerPrivateEndpointConnectionResponseOutput() ServerPrivateEndpointConnectionResponseOutput {
-	return o
-}
-
-func (o ServerPrivateEndpointConnectionResponseOutput) ToServerPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionResponseOutput {
-	return o
-}
-
-// Resource Id of the private endpoint connection.
-func (o ServerPrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Private endpoint connection properties
-func (o ServerPrivateEndpointConnectionResponseOutput) Properties() ServerPrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) ServerPrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(ServerPrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-type ServerPrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ServerPrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerPrivateEndpointConnectionResponse)(nil)).Elem()
-}
-
-func (o ServerPrivateEndpointConnectionResponseArrayOutput) ToServerPrivateEndpointConnectionResponseArrayOutput() ServerPrivateEndpointConnectionResponseArrayOutput {
-	return o
-}
-
-func (o ServerPrivateEndpointConnectionResponseArrayOutput) ToServerPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionResponseArrayOutput {
-	return o
-}
-
-func (o ServerPrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) ServerPrivateEndpointConnectionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerPrivateEndpointConnectionResponse {
-		return vs[0].([]ServerPrivateEndpointConnectionResponse)[vs[1].(int)]
-	}).(ServerPrivateEndpointConnectionResponseOutput)
-}
-
-type ServerPrivateLinkServiceConnectionStatePropertyResponse struct {
-	// The actions required for private link service connection.
-	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
-}
-
-// ServerPrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts ServerPrivateLinkServiceConnectionStatePropertyResponseArgs and ServerPrivateLinkServiceConnectionStatePropertyResponseOutput values.
-// You can construct a concrete instance of `ServerPrivateLinkServiceConnectionStatePropertyResponseInput` via:
-//
-//          ServerPrivateLinkServiceConnectionStatePropertyResponseArgs{...}
-type ServerPrivateLinkServiceConnectionStatePropertyResponseInput interface {
-	pulumi.Input
-
-	ToServerPrivateLinkServiceConnectionStatePropertyResponseOutput() ServerPrivateLinkServiceConnectionStatePropertyResponseOutput
-	ToServerPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponseOutput
-}
-
-type ServerPrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// The actions required for private link service connection.
-	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
-}
-
-func (ServerPrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
-}
-
-func (i ServerPrivateLinkServiceConnectionStatePropertyResponseArgs) ToServerPrivateLinkServiceConnectionStatePropertyResponseOutput() ServerPrivateLinkServiceConnectionStatePropertyResponseOutput {
-	return i.ToServerPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(context.Background())
-}
-
-func (i ServerPrivateLinkServiceConnectionStatePropertyResponseArgs) ToServerPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(ctx context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateLinkServiceConnectionStatePropertyResponseOutput)
-}
-
-func (i ServerPrivateLinkServiceConnectionStatePropertyResponseArgs) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return i.ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServerPrivateLinkServiceConnectionStatePropertyResponseArgs) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateLinkServiceConnectionStatePropertyResponseOutput).ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx)
-}
-
-// ServerPrivateLinkServiceConnectionStatePropertyResponsePtrInput is an input type that accepts ServerPrivateLinkServiceConnectionStatePropertyResponseArgs, ServerPrivateLinkServiceConnectionStatePropertyResponsePtr and ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput values.
-// You can construct a concrete instance of `ServerPrivateLinkServiceConnectionStatePropertyResponsePtrInput` via:
-//
-//          ServerPrivateLinkServiceConnectionStatePropertyResponseArgs{...}
+//          ResourceIdentityResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type ServerPrivateLinkServiceConnectionStatePropertyResponsePtrInput interface {
+type ResourceIdentityResponsePtrInput interface {
 	pulumi.Input
 
-	ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput
-	ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput
+	ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput
+	ToResourceIdentityResponsePtrOutputWithContext(context.Context) ResourceIdentityResponsePtrOutput
 }
 
-type serverPrivateLinkServiceConnectionStatePropertyResponsePtrType ServerPrivateLinkServiceConnectionStatePropertyResponseArgs
+type resourceIdentityResponsePtrType ResourceIdentityResponseArgs
 
-func ServerPrivateLinkServiceConnectionStatePropertyResponsePtr(v *ServerPrivateLinkServiceConnectionStatePropertyResponseArgs) ServerPrivateLinkServiceConnectionStatePropertyResponsePtrInput {
-	return (*serverPrivateLinkServiceConnectionStatePropertyResponsePtrType)(v)
+func ResourceIdentityResponsePtr(v *ResourceIdentityResponseArgs) ResourceIdentityResponsePtrInput {
+	return (*resourceIdentityResponsePtrType)(v)
 }
 
-func (*serverPrivateLinkServiceConnectionStatePropertyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerPrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
+func (*resourceIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
 }
 
-func (i *serverPrivateLinkServiceConnectionStatePropertyResponsePtrType) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return i.ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Background())
+func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return i.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *serverPrivateLinkServiceConnectionStatePropertyResponsePtrType) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
+func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
 }
 
-type ServerPrivateLinkServiceConnectionStatePropertyResponseOutput struct{ *pulumi.OutputState }
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
-func (ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
+func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
 }
 
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponseOutput() ServerPrivateLinkServiceConnectionStatePropertyResponseOutput {
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
 	return o
 }
 
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(ctx context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponseOutput {
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
 	return o
 }
 
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Background())
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return o.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
 }
 
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) *ServerPrivateLinkServiceConnectionStatePropertyResponse {
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
-	}).(ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
+	}).(ResourceIdentityResponsePtrOutput)
 }
 
-// The actions required for private link service connection.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
+// The Azure Active Directory principal id.
+func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) string { return v.Description }).(pulumi.StringOutput)
+// The Azure Active Directory tenant id.
+func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) string { return v.Status }).(pulumi.StringOutput)
+// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput struct{ *pulumi.OutputState }
+type ResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerPrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
+func (ResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
 }
 
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
 	return o
 }
 
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
 	return o
 }
 
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() ServerPrivateLinkServiceConnectionStatePropertyResponseOutput {
-	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) ServerPrivateLinkServiceConnectionStatePropertyResponse {
-		return *v
-	}).(ServerPrivateLinkServiceConnectionStatePropertyResponseOutput)
+func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
 }
 
-// The actions required for private link service connection.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) *string {
+// The Azure Active Directory principal id.
+func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ActionsRequired
+		return &v.PrincipalId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) *string {
+// The Azure Active Directory tenant id.
+func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Description
+		return &v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
-func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) *string {
+// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Status
+		return v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -962,8 +775,6 @@ type ServerPropertiesForDefaultCreate struct {
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
 	// The mode to create a new server.
 	CreateMode string `pulumi:"createMode"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
@@ -991,8 +802,6 @@ type ServerPropertiesForDefaultCreateArgs struct {
 	AdministratorLoginPassword pulumi.StringInput `pulumi:"administratorLoginPassword"`
 	// The mode to create a new server.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement pulumi.StringPtrInput `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
@@ -1043,11 +852,6 @@ func (o ServerPropertiesForDefaultCreateOutput) CreateMode() pulumi.StringOutput
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-func (o ServerPropertiesForDefaultCreateOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
-}
-
 // Enable ssl enforcement or not when connect to server.
 func (o ServerPropertiesForDefaultCreateOutput) SslEnforcement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
@@ -1067,8 +871,6 @@ func (o ServerPropertiesForDefaultCreateOutput) Version() pulumi.StringPtrOutput
 type ServerPropertiesForGeoRestore struct {
 	// The mode to create a new server.
 	CreateMode string `pulumi:"createMode"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The source server id to restore from.
 	SourceServerId string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
@@ -1094,8 +896,6 @@ type ServerPropertiesForGeoRestoreInput interface {
 type ServerPropertiesForGeoRestoreArgs struct {
 	// The mode to create a new server.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// The source server id to restore from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
@@ -1138,11 +938,6 @@ func (o ServerPropertiesForGeoRestoreOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-func (o ServerPropertiesForGeoRestoreOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
-}
-
 // The source server id to restore from.
 func (o ServerPropertiesForGeoRestoreOutput) SourceServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForGeoRestore) string { return v.SourceServerId }).(pulumi.StringOutput)
@@ -1167,8 +962,6 @@ func (o ServerPropertiesForGeoRestoreOutput) Version() pulumi.StringPtrOutput {
 type ServerPropertiesForReplica struct {
 	// The mode to create a new server.
 	CreateMode string `pulumi:"createMode"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The master server id to create replica from.
 	SourceServerId string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
@@ -1194,8 +987,6 @@ type ServerPropertiesForReplicaInput interface {
 type ServerPropertiesForReplicaArgs struct {
 	// The mode to create a new server.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// The master server id to create replica from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
@@ -1238,11 +1029,6 @@ func (o ServerPropertiesForReplicaOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-func (o ServerPropertiesForReplicaOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
-}
-
 // The master server id to create replica from.
 func (o ServerPropertiesForReplicaOutput) SourceServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForReplica) string { return v.SourceServerId }).(pulumi.StringOutput)
@@ -1267,8 +1053,6 @@ func (o ServerPropertiesForReplicaOutput) Version() pulumi.StringPtrOutput {
 type ServerPropertiesForRestore struct {
 	// The mode to create a new server.
 	CreateMode string `pulumi:"createMode"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
 	RestorePointInTime string `pulumi:"restorePointInTime"`
 	// The source server id to restore from.
@@ -1296,8 +1080,6 @@ type ServerPropertiesForRestoreInput interface {
 type ServerPropertiesForRestoreArgs struct {
 	// The mode to create a new server.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
 	RestorePointInTime pulumi.StringInput `pulumi:"restorePointInTime"`
 	// The source server id to restore from.
@@ -1340,11 +1122,6 @@ func (o ServerPropertiesForRestoreOutput) ToServerPropertiesForRestoreOutputWith
 // The mode to create a new server.
 func (o ServerPropertiesForRestoreOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForRestore) string { return v.CreateMode }).(pulumi.StringOutput)
-}
-
-// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-func (o ServerPropertiesForRestoreOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -2183,11 +1960,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseOutput{})
-	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServerPrivateLinkServiceConnectionStatePropertyResponseOutput{})
-	pulumi.RegisterOutputType(ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesForDefaultCreateOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesForGeoRestoreOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesForReplicaOutput{})

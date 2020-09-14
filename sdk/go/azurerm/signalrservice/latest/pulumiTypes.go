@@ -10,6 +10,617 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A class represent managed identities used for request and response
+type ManagedIdentity struct {
+	// Represent the identity type: systemAssigned, userAssigned, None
+	Type *string `pulumi:"type"`
+}
+
+// ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
+// You can construct a concrete instance of `ManagedIdentityInput` via:
+//
+//          ManagedIdentityArgs{...}
+type ManagedIdentityInput interface {
+	pulumi.Input
+
+	ToManagedIdentityOutput() ManagedIdentityOutput
+	ToManagedIdentityOutputWithContext(context.Context) ManagedIdentityOutput
+}
+
+// A class represent managed identities used for request and response
+type ManagedIdentityArgs struct {
+	// Represent the identity type: systemAssigned, userAssigned, None
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentity)(nil)).Elem()
+}
+
+func (i ManagedIdentityArgs) ToManagedIdentityOutput() ManagedIdentityOutput {
+	return i.ToManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityArgs) ToManagedIdentityOutputWithContext(ctx context.Context) ManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityOutput)
+}
+
+func (i ManagedIdentityArgs) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
+	return i.ToManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityArgs) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityOutput).ToManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// ManagedIdentityPtrInput is an input type that accepts ManagedIdentityArgs, ManagedIdentityPtr and ManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `ManagedIdentityPtrInput` via:
+//
+//          ManagedIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput
+	ToManagedIdentityPtrOutputWithContext(context.Context) ManagedIdentityPtrOutput
+}
+
+type managedIdentityPtrType ManagedIdentityArgs
+
+func ManagedIdentityPtr(v *ManagedIdentityArgs) ManagedIdentityPtrInput {
+	return (*managedIdentityPtrType)(v)
+}
+
+func (*managedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentity)(nil)).Elem()
+}
+
+func (i *managedIdentityPtrType) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
+	return i.ToManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedIdentityPtrType) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPtrOutput)
+}
+
+// A class represent managed identities used for request and response
+type ManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentity)(nil)).Elem()
+}
+
+func (o ManagedIdentityOutput) ToManagedIdentityOutput() ManagedIdentityOutput {
+	return o
+}
+
+func (o ManagedIdentityOutput) ToManagedIdentityOutputWithContext(ctx context.Context) ManagedIdentityOutput {
+	return o
+}
+
+func (o ManagedIdentityOutput) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
+	return o.ToManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedIdentityOutput) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
+	return o.ApplyT(func(v ManagedIdentity) *ManagedIdentity {
+		return &v
+	}).(ManagedIdentityPtrOutput)
+}
+
+// Represent the identity type: systemAssigned, userAssigned, None
+func (o ManagedIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentity)(nil)).Elem()
+}
+
+func (o ManagedIdentityPtrOutput) ToManagedIdentityPtrOutput() ManagedIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedIdentityPtrOutput) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedIdentityPtrOutput) Elem() ManagedIdentityOutput {
+	return o.ApplyT(func(v *ManagedIdentity) ManagedIdentity { return *v }).(ManagedIdentityOutput)
+}
+
+// Represent the identity type: systemAssigned, userAssigned, None
+func (o ManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// A class represent managed identities used for request and response
+type ManagedIdentityResponse struct {
+	// Get the principal id for the system assigned identity.
+	// Only be used in response.
+	PrincipalId string `pulumi:"principalId"`
+	// Get the tenant id for the system assigned identity.
+	// Only be used in response
+	TenantId string `pulumi:"tenantId"`
+	// Represent the identity type: systemAssigned, userAssigned, None
+	Type *string `pulumi:"type"`
+	// Get or set the user assigned identities
+	UserAssignedIdentities map[string]UserAssignedIdentityPropertyResponse `pulumi:"userAssignedIdentities"`
+}
+
+// ManagedIdentityResponseInput is an input type that accepts ManagedIdentityResponseArgs and ManagedIdentityResponseOutput values.
+// You can construct a concrete instance of `ManagedIdentityResponseInput` via:
+//
+//          ManagedIdentityResponseArgs{...}
+type ManagedIdentityResponseInput interface {
+	pulumi.Input
+
+	ToManagedIdentityResponseOutput() ManagedIdentityResponseOutput
+	ToManagedIdentityResponseOutputWithContext(context.Context) ManagedIdentityResponseOutput
+}
+
+// A class represent managed identities used for request and response
+type ManagedIdentityResponseArgs struct {
+	// Get the principal id for the system assigned identity.
+	// Only be used in response.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Get the tenant id for the system assigned identity.
+	// Only be used in response
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Represent the identity type: systemAssigned, userAssigned, None
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Get or set the user assigned identities
+	UserAssignedIdentities UserAssignedIdentityPropertyResponseMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ManagedIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityResponse)(nil)).Elem()
+}
+
+func (i ManagedIdentityResponseArgs) ToManagedIdentityResponseOutput() ManagedIdentityResponseOutput {
+	return i.ToManagedIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityResponseArgs) ToManagedIdentityResponseOutputWithContext(ctx context.Context) ManagedIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityResponseOutput)
+}
+
+func (i ManagedIdentityResponseArgs) ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput {
+	return i.ToManagedIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityResponseArgs) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityResponseOutput).ToManagedIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedIdentityResponsePtrInput is an input type that accepts ManagedIdentityResponseArgs, ManagedIdentityResponsePtr and ManagedIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedIdentityResponsePtrInput` via:
+//
+//          ManagedIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput
+	ToManagedIdentityResponsePtrOutputWithContext(context.Context) ManagedIdentityResponsePtrOutput
+}
+
+type managedIdentityResponsePtrType ManagedIdentityResponseArgs
+
+func ManagedIdentityResponsePtr(v *ManagedIdentityResponseArgs) ManagedIdentityResponsePtrInput {
+	return (*managedIdentityResponsePtrType)(v)
+}
+
+func (*managedIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentityResponse)(nil)).Elem()
+}
+
+func (i *managedIdentityResponsePtrType) ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput {
+	return i.ToManagedIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedIdentityResponsePtrType) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityResponsePtrOutput)
+}
+
+// A class represent managed identities used for request and response
+type ManagedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityResponseOutput) ToManagedIdentityResponseOutput() ManagedIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedIdentityResponseOutput) ToManagedIdentityResponseOutputWithContext(ctx context.Context) ManagedIdentityResponseOutput {
+	return o
+}
+
+func (o ManagedIdentityResponseOutput) ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput {
+	return o.ToManagedIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedIdentityResponseOutput) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ManagedIdentityResponse) *ManagedIdentityResponse {
+		return &v
+	}).(ManagedIdentityResponsePtrOutput)
+}
+
+// Get the principal id for the system assigned identity.
+// Only be used in response.
+func (o ManagedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Get the tenant id for the system assigned identity.
+// Only be used in response
+func (o ManagedIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Represent the identity type: systemAssigned, userAssigned, None
+func (o ManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Get or set the user assigned identities
+func (o ManagedIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityPropertyResponseMapOutput {
+	return o.ApplyT(func(v ManagedIdentityResponse) map[string]UserAssignedIdentityPropertyResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityPropertyResponseMapOutput)
+}
+
+type ManagedIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityResponsePtrOutput) ToManagedIdentityResponsePtrOutput() ManagedIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedIdentityResponsePtrOutput) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ManagedIdentityResponsePtrOutput) Elem() ManagedIdentityResponseOutput {
+	return o.ApplyT(func(v *ManagedIdentityResponse) ManagedIdentityResponse { return *v }).(ManagedIdentityResponseOutput)
+}
+
+// Get the principal id for the system assigned identity.
+// Only be used in response.
+func (o ManagedIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Get the tenant id for the system assigned identity.
+// Only be used in response
+func (o ManagedIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represent the identity type: systemAssigned, userAssigned, None
+func (o ManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Get or set the user assigned identities
+func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityPropertyResponseMapOutput {
+	return o.ApplyT(func(v *ManagedIdentityResponse) map[string]UserAssignedIdentityPropertyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityPropertyResponseMapOutput)
+}
+
+// Managed identity settings for upstream.
+type ManagedIdentitySettings struct {
+	// The Resource indicating the App ID URI of the target resource.
+	// It also appears in the aud (audience) claim of the issued token.
+	Resource *string `pulumi:"resource"`
+}
+
+// ManagedIdentitySettingsInput is an input type that accepts ManagedIdentitySettingsArgs and ManagedIdentitySettingsOutput values.
+// You can construct a concrete instance of `ManagedIdentitySettingsInput` via:
+//
+//          ManagedIdentitySettingsArgs{...}
+type ManagedIdentitySettingsInput interface {
+	pulumi.Input
+
+	ToManagedIdentitySettingsOutput() ManagedIdentitySettingsOutput
+	ToManagedIdentitySettingsOutputWithContext(context.Context) ManagedIdentitySettingsOutput
+}
+
+// Managed identity settings for upstream.
+type ManagedIdentitySettingsArgs struct {
+	// The Resource indicating the App ID URI of the target resource.
+	// It also appears in the aud (audience) claim of the issued token.
+	Resource pulumi.StringPtrInput `pulumi:"resource"`
+}
+
+func (ManagedIdentitySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentitySettings)(nil)).Elem()
+}
+
+func (i ManagedIdentitySettingsArgs) ToManagedIdentitySettingsOutput() ManagedIdentitySettingsOutput {
+	return i.ToManagedIdentitySettingsOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentitySettingsArgs) ToManagedIdentitySettingsOutputWithContext(ctx context.Context) ManagedIdentitySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentitySettingsOutput)
+}
+
+func (i ManagedIdentitySettingsArgs) ToManagedIdentitySettingsPtrOutput() ManagedIdentitySettingsPtrOutput {
+	return i.ToManagedIdentitySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentitySettingsArgs) ToManagedIdentitySettingsPtrOutputWithContext(ctx context.Context) ManagedIdentitySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentitySettingsOutput).ToManagedIdentitySettingsPtrOutputWithContext(ctx)
+}
+
+// ManagedIdentitySettingsPtrInput is an input type that accepts ManagedIdentitySettingsArgs, ManagedIdentitySettingsPtr and ManagedIdentitySettingsPtrOutput values.
+// You can construct a concrete instance of `ManagedIdentitySettingsPtrInput` via:
+//
+//          ManagedIdentitySettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedIdentitySettingsPtrInput interface {
+	pulumi.Input
+
+	ToManagedIdentitySettingsPtrOutput() ManagedIdentitySettingsPtrOutput
+	ToManagedIdentitySettingsPtrOutputWithContext(context.Context) ManagedIdentitySettingsPtrOutput
+}
+
+type managedIdentitySettingsPtrType ManagedIdentitySettingsArgs
+
+func ManagedIdentitySettingsPtr(v *ManagedIdentitySettingsArgs) ManagedIdentitySettingsPtrInput {
+	return (*managedIdentitySettingsPtrType)(v)
+}
+
+func (*managedIdentitySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentitySettings)(nil)).Elem()
+}
+
+func (i *managedIdentitySettingsPtrType) ToManagedIdentitySettingsPtrOutput() ManagedIdentitySettingsPtrOutput {
+	return i.ToManagedIdentitySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *managedIdentitySettingsPtrType) ToManagedIdentitySettingsPtrOutputWithContext(ctx context.Context) ManagedIdentitySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentitySettingsPtrOutput)
+}
+
+// Managed identity settings for upstream.
+type ManagedIdentitySettingsOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentitySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentitySettings)(nil)).Elem()
+}
+
+func (o ManagedIdentitySettingsOutput) ToManagedIdentitySettingsOutput() ManagedIdentitySettingsOutput {
+	return o
+}
+
+func (o ManagedIdentitySettingsOutput) ToManagedIdentitySettingsOutputWithContext(ctx context.Context) ManagedIdentitySettingsOutput {
+	return o
+}
+
+func (o ManagedIdentitySettingsOutput) ToManagedIdentitySettingsPtrOutput() ManagedIdentitySettingsPtrOutput {
+	return o.ToManagedIdentitySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedIdentitySettingsOutput) ToManagedIdentitySettingsPtrOutputWithContext(ctx context.Context) ManagedIdentitySettingsPtrOutput {
+	return o.ApplyT(func(v ManagedIdentitySettings) *ManagedIdentitySettings {
+		return &v
+	}).(ManagedIdentitySettingsPtrOutput)
+}
+
+// The Resource indicating the App ID URI of the target resource.
+// It also appears in the aud (audience) claim of the issued token.
+func (o ManagedIdentitySettingsOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentitySettings) *string { return v.Resource }).(pulumi.StringPtrOutput)
+}
+
+type ManagedIdentitySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentitySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentitySettings)(nil)).Elem()
+}
+
+func (o ManagedIdentitySettingsPtrOutput) ToManagedIdentitySettingsPtrOutput() ManagedIdentitySettingsPtrOutput {
+	return o
+}
+
+func (o ManagedIdentitySettingsPtrOutput) ToManagedIdentitySettingsPtrOutputWithContext(ctx context.Context) ManagedIdentitySettingsPtrOutput {
+	return o
+}
+
+func (o ManagedIdentitySettingsPtrOutput) Elem() ManagedIdentitySettingsOutput {
+	return o.ApplyT(func(v *ManagedIdentitySettings) ManagedIdentitySettings { return *v }).(ManagedIdentitySettingsOutput)
+}
+
+// The Resource indicating the App ID URI of the target resource.
+// It also appears in the aud (audience) claim of the issued token.
+func (o ManagedIdentitySettingsPtrOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentitySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Resource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed identity settings for upstream.
+type ManagedIdentitySettingsResponse struct {
+	// The Resource indicating the App ID URI of the target resource.
+	// It also appears in the aud (audience) claim of the issued token.
+	Resource *string `pulumi:"resource"`
+}
+
+// ManagedIdentitySettingsResponseInput is an input type that accepts ManagedIdentitySettingsResponseArgs and ManagedIdentitySettingsResponseOutput values.
+// You can construct a concrete instance of `ManagedIdentitySettingsResponseInput` via:
+//
+//          ManagedIdentitySettingsResponseArgs{...}
+type ManagedIdentitySettingsResponseInput interface {
+	pulumi.Input
+
+	ToManagedIdentitySettingsResponseOutput() ManagedIdentitySettingsResponseOutput
+	ToManagedIdentitySettingsResponseOutputWithContext(context.Context) ManagedIdentitySettingsResponseOutput
+}
+
+// Managed identity settings for upstream.
+type ManagedIdentitySettingsResponseArgs struct {
+	// The Resource indicating the App ID URI of the target resource.
+	// It also appears in the aud (audience) claim of the issued token.
+	Resource pulumi.StringPtrInput `pulumi:"resource"`
+}
+
+func (ManagedIdentitySettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentitySettingsResponse)(nil)).Elem()
+}
+
+func (i ManagedIdentitySettingsResponseArgs) ToManagedIdentitySettingsResponseOutput() ManagedIdentitySettingsResponseOutput {
+	return i.ToManagedIdentitySettingsResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentitySettingsResponseArgs) ToManagedIdentitySettingsResponseOutputWithContext(ctx context.Context) ManagedIdentitySettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentitySettingsResponseOutput)
+}
+
+func (i ManagedIdentitySettingsResponseArgs) ToManagedIdentitySettingsResponsePtrOutput() ManagedIdentitySettingsResponsePtrOutput {
+	return i.ToManagedIdentitySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentitySettingsResponseArgs) ToManagedIdentitySettingsResponsePtrOutputWithContext(ctx context.Context) ManagedIdentitySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentitySettingsResponseOutput).ToManagedIdentitySettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedIdentitySettingsResponsePtrInput is an input type that accepts ManagedIdentitySettingsResponseArgs, ManagedIdentitySettingsResponsePtr and ManagedIdentitySettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedIdentitySettingsResponsePtrInput` via:
+//
+//          ManagedIdentitySettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedIdentitySettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedIdentitySettingsResponsePtrOutput() ManagedIdentitySettingsResponsePtrOutput
+	ToManagedIdentitySettingsResponsePtrOutputWithContext(context.Context) ManagedIdentitySettingsResponsePtrOutput
+}
+
+type managedIdentitySettingsResponsePtrType ManagedIdentitySettingsResponseArgs
+
+func ManagedIdentitySettingsResponsePtr(v *ManagedIdentitySettingsResponseArgs) ManagedIdentitySettingsResponsePtrInput {
+	return (*managedIdentitySettingsResponsePtrType)(v)
+}
+
+func (*managedIdentitySettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentitySettingsResponse)(nil)).Elem()
+}
+
+func (i *managedIdentitySettingsResponsePtrType) ToManagedIdentitySettingsResponsePtrOutput() ManagedIdentitySettingsResponsePtrOutput {
+	return i.ToManagedIdentitySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedIdentitySettingsResponsePtrType) ToManagedIdentitySettingsResponsePtrOutputWithContext(ctx context.Context) ManagedIdentitySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentitySettingsResponsePtrOutput)
+}
+
+// Managed identity settings for upstream.
+type ManagedIdentitySettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentitySettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentitySettingsResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentitySettingsResponseOutput) ToManagedIdentitySettingsResponseOutput() ManagedIdentitySettingsResponseOutput {
+	return o
+}
+
+func (o ManagedIdentitySettingsResponseOutput) ToManagedIdentitySettingsResponseOutputWithContext(ctx context.Context) ManagedIdentitySettingsResponseOutput {
+	return o
+}
+
+func (o ManagedIdentitySettingsResponseOutput) ToManagedIdentitySettingsResponsePtrOutput() ManagedIdentitySettingsResponsePtrOutput {
+	return o.ToManagedIdentitySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedIdentitySettingsResponseOutput) ToManagedIdentitySettingsResponsePtrOutputWithContext(ctx context.Context) ManagedIdentitySettingsResponsePtrOutput {
+	return o.ApplyT(func(v ManagedIdentitySettingsResponse) *ManagedIdentitySettingsResponse {
+		return &v
+	}).(ManagedIdentitySettingsResponsePtrOutput)
+}
+
+// The Resource indicating the App ID URI of the target resource.
+// It also appears in the aud (audience) claim of the issued token.
+func (o ManagedIdentitySettingsResponseOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentitySettingsResponse) *string { return v.Resource }).(pulumi.StringPtrOutput)
+}
+
+type ManagedIdentitySettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentitySettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentitySettingsResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentitySettingsResponsePtrOutput) ToManagedIdentitySettingsResponsePtrOutput() ManagedIdentitySettingsResponsePtrOutput {
+	return o
+}
+
+func (o ManagedIdentitySettingsResponsePtrOutput) ToManagedIdentitySettingsResponsePtrOutputWithContext(ctx context.Context) ManagedIdentitySettingsResponsePtrOutput {
+	return o
+}
+
+func (o ManagedIdentitySettingsResponsePtrOutput) Elem() ManagedIdentitySettingsResponseOutput {
+	return o.ApplyT(func(v *ManagedIdentitySettingsResponse) ManagedIdentitySettingsResponse { return *v }).(ManagedIdentitySettingsResponseOutput)
+}
+
+// The Resource indicating the App ID URI of the target resource.
+// It also appears in the aud (audience) claim of the issued token.
+func (o ManagedIdentitySettingsResponsePtrOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentitySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Resource
+	}).(pulumi.StringPtrOutput)
+}
+
 // Network ACL
 type NetworkACL struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
@@ -2925,9 +3536,585 @@ func (o SignalRNetworkACLsResponsePtrOutput) PublicNetwork() NetworkACLResponseP
 	}).(NetworkACLResponsePtrOutput)
 }
 
+// TLS settings for SignalR
+type SignalRTlsSettings struct {
+	// Request client certificate during TLS handshake if enabled
+	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
+}
+
+// SignalRTlsSettingsInput is an input type that accepts SignalRTlsSettingsArgs and SignalRTlsSettingsOutput values.
+// You can construct a concrete instance of `SignalRTlsSettingsInput` via:
+//
+//          SignalRTlsSettingsArgs{...}
+type SignalRTlsSettingsInput interface {
+	pulumi.Input
+
+	ToSignalRTlsSettingsOutput() SignalRTlsSettingsOutput
+	ToSignalRTlsSettingsOutputWithContext(context.Context) SignalRTlsSettingsOutput
+}
+
+// TLS settings for SignalR
+type SignalRTlsSettingsArgs struct {
+	// Request client certificate during TLS handshake if enabled
+	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
+}
+
+func (SignalRTlsSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRTlsSettings)(nil)).Elem()
+}
+
+func (i SignalRTlsSettingsArgs) ToSignalRTlsSettingsOutput() SignalRTlsSettingsOutput {
+	return i.ToSignalRTlsSettingsOutputWithContext(context.Background())
+}
+
+func (i SignalRTlsSettingsArgs) ToSignalRTlsSettingsOutputWithContext(ctx context.Context) SignalRTlsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRTlsSettingsOutput)
+}
+
+func (i SignalRTlsSettingsArgs) ToSignalRTlsSettingsPtrOutput() SignalRTlsSettingsPtrOutput {
+	return i.ToSignalRTlsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SignalRTlsSettingsArgs) ToSignalRTlsSettingsPtrOutputWithContext(ctx context.Context) SignalRTlsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRTlsSettingsOutput).ToSignalRTlsSettingsPtrOutputWithContext(ctx)
+}
+
+// SignalRTlsSettingsPtrInput is an input type that accepts SignalRTlsSettingsArgs, SignalRTlsSettingsPtr and SignalRTlsSettingsPtrOutput values.
+// You can construct a concrete instance of `SignalRTlsSettingsPtrInput` via:
+//
+//          SignalRTlsSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type SignalRTlsSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSignalRTlsSettingsPtrOutput() SignalRTlsSettingsPtrOutput
+	ToSignalRTlsSettingsPtrOutputWithContext(context.Context) SignalRTlsSettingsPtrOutput
+}
+
+type signalRTlsSettingsPtrType SignalRTlsSettingsArgs
+
+func SignalRTlsSettingsPtr(v *SignalRTlsSettingsArgs) SignalRTlsSettingsPtrInput {
+	return (*signalRTlsSettingsPtrType)(v)
+}
+
+func (*signalRTlsSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SignalRTlsSettings)(nil)).Elem()
+}
+
+func (i *signalRTlsSettingsPtrType) ToSignalRTlsSettingsPtrOutput() SignalRTlsSettingsPtrOutput {
+	return i.ToSignalRTlsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *signalRTlsSettingsPtrType) ToSignalRTlsSettingsPtrOutputWithContext(ctx context.Context) SignalRTlsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRTlsSettingsPtrOutput)
+}
+
+// TLS settings for SignalR
+type SignalRTlsSettingsOutput struct{ *pulumi.OutputState }
+
+func (SignalRTlsSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRTlsSettings)(nil)).Elem()
+}
+
+func (o SignalRTlsSettingsOutput) ToSignalRTlsSettingsOutput() SignalRTlsSettingsOutput {
+	return o
+}
+
+func (o SignalRTlsSettingsOutput) ToSignalRTlsSettingsOutputWithContext(ctx context.Context) SignalRTlsSettingsOutput {
+	return o
+}
+
+func (o SignalRTlsSettingsOutput) ToSignalRTlsSettingsPtrOutput() SignalRTlsSettingsPtrOutput {
+	return o.ToSignalRTlsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SignalRTlsSettingsOutput) ToSignalRTlsSettingsPtrOutputWithContext(ctx context.Context) SignalRTlsSettingsPtrOutput {
+	return o.ApplyT(func(v SignalRTlsSettings) *SignalRTlsSettings {
+		return &v
+	}).(SignalRTlsSettingsPtrOutput)
+}
+
+// Request client certificate during TLS handshake if enabled
+func (o SignalRTlsSettingsOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SignalRTlsSettings) *bool { return v.ClientCertEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type SignalRTlsSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SignalRTlsSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SignalRTlsSettings)(nil)).Elem()
+}
+
+func (o SignalRTlsSettingsPtrOutput) ToSignalRTlsSettingsPtrOutput() SignalRTlsSettingsPtrOutput {
+	return o
+}
+
+func (o SignalRTlsSettingsPtrOutput) ToSignalRTlsSettingsPtrOutputWithContext(ctx context.Context) SignalRTlsSettingsPtrOutput {
+	return o
+}
+
+func (o SignalRTlsSettingsPtrOutput) Elem() SignalRTlsSettingsOutput {
+	return o.ApplyT(func(v *SignalRTlsSettings) SignalRTlsSettings { return *v }).(SignalRTlsSettingsOutput)
+}
+
+// Request client certificate during TLS handshake if enabled
+func (o SignalRTlsSettingsPtrOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SignalRTlsSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// TLS settings for SignalR
+type SignalRTlsSettingsResponse struct {
+	// Request client certificate during TLS handshake if enabled
+	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
+}
+
+// SignalRTlsSettingsResponseInput is an input type that accepts SignalRTlsSettingsResponseArgs and SignalRTlsSettingsResponseOutput values.
+// You can construct a concrete instance of `SignalRTlsSettingsResponseInput` via:
+//
+//          SignalRTlsSettingsResponseArgs{...}
+type SignalRTlsSettingsResponseInput interface {
+	pulumi.Input
+
+	ToSignalRTlsSettingsResponseOutput() SignalRTlsSettingsResponseOutput
+	ToSignalRTlsSettingsResponseOutputWithContext(context.Context) SignalRTlsSettingsResponseOutput
+}
+
+// TLS settings for SignalR
+type SignalRTlsSettingsResponseArgs struct {
+	// Request client certificate during TLS handshake if enabled
+	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
+}
+
+func (SignalRTlsSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRTlsSettingsResponse)(nil)).Elem()
+}
+
+func (i SignalRTlsSettingsResponseArgs) ToSignalRTlsSettingsResponseOutput() SignalRTlsSettingsResponseOutput {
+	return i.ToSignalRTlsSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i SignalRTlsSettingsResponseArgs) ToSignalRTlsSettingsResponseOutputWithContext(ctx context.Context) SignalRTlsSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRTlsSettingsResponseOutput)
+}
+
+func (i SignalRTlsSettingsResponseArgs) ToSignalRTlsSettingsResponsePtrOutput() SignalRTlsSettingsResponsePtrOutput {
+	return i.ToSignalRTlsSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SignalRTlsSettingsResponseArgs) ToSignalRTlsSettingsResponsePtrOutputWithContext(ctx context.Context) SignalRTlsSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRTlsSettingsResponseOutput).ToSignalRTlsSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// SignalRTlsSettingsResponsePtrInput is an input type that accepts SignalRTlsSettingsResponseArgs, SignalRTlsSettingsResponsePtr and SignalRTlsSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `SignalRTlsSettingsResponsePtrInput` via:
+//
+//          SignalRTlsSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SignalRTlsSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToSignalRTlsSettingsResponsePtrOutput() SignalRTlsSettingsResponsePtrOutput
+	ToSignalRTlsSettingsResponsePtrOutputWithContext(context.Context) SignalRTlsSettingsResponsePtrOutput
+}
+
+type signalRTlsSettingsResponsePtrType SignalRTlsSettingsResponseArgs
+
+func SignalRTlsSettingsResponsePtr(v *SignalRTlsSettingsResponseArgs) SignalRTlsSettingsResponsePtrInput {
+	return (*signalRTlsSettingsResponsePtrType)(v)
+}
+
+func (*signalRTlsSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SignalRTlsSettingsResponse)(nil)).Elem()
+}
+
+func (i *signalRTlsSettingsResponsePtrType) ToSignalRTlsSettingsResponsePtrOutput() SignalRTlsSettingsResponsePtrOutput {
+	return i.ToSignalRTlsSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *signalRTlsSettingsResponsePtrType) ToSignalRTlsSettingsResponsePtrOutputWithContext(ctx context.Context) SignalRTlsSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRTlsSettingsResponsePtrOutput)
+}
+
+// TLS settings for SignalR
+type SignalRTlsSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (SignalRTlsSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRTlsSettingsResponse)(nil)).Elem()
+}
+
+func (o SignalRTlsSettingsResponseOutput) ToSignalRTlsSettingsResponseOutput() SignalRTlsSettingsResponseOutput {
+	return o
+}
+
+func (o SignalRTlsSettingsResponseOutput) ToSignalRTlsSettingsResponseOutputWithContext(ctx context.Context) SignalRTlsSettingsResponseOutput {
+	return o
+}
+
+func (o SignalRTlsSettingsResponseOutput) ToSignalRTlsSettingsResponsePtrOutput() SignalRTlsSettingsResponsePtrOutput {
+	return o.ToSignalRTlsSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SignalRTlsSettingsResponseOutput) ToSignalRTlsSettingsResponsePtrOutputWithContext(ctx context.Context) SignalRTlsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v SignalRTlsSettingsResponse) *SignalRTlsSettingsResponse {
+		return &v
+	}).(SignalRTlsSettingsResponsePtrOutput)
+}
+
+// Request client certificate during TLS handshake if enabled
+func (o SignalRTlsSettingsResponseOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SignalRTlsSettingsResponse) *bool { return v.ClientCertEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type SignalRTlsSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SignalRTlsSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SignalRTlsSettingsResponse)(nil)).Elem()
+}
+
+func (o SignalRTlsSettingsResponsePtrOutput) ToSignalRTlsSettingsResponsePtrOutput() SignalRTlsSettingsResponsePtrOutput {
+	return o
+}
+
+func (o SignalRTlsSettingsResponsePtrOutput) ToSignalRTlsSettingsResponsePtrOutputWithContext(ctx context.Context) SignalRTlsSettingsResponsePtrOutput {
+	return o
+}
+
+func (o SignalRTlsSettingsResponsePtrOutput) Elem() SignalRTlsSettingsResponseOutput {
+	return o.ApplyT(func(v *SignalRTlsSettingsResponse) SignalRTlsSettingsResponse { return *v }).(SignalRTlsSettingsResponseOutput)
+}
+
+// Request client certificate during TLS handshake if enabled
+func (o SignalRTlsSettingsResponsePtrOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SignalRTlsSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Upstream auth settings.
+type UpstreamAuthSettings struct {
+	// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+	ManagedIdentity *ManagedIdentitySettings `pulumi:"managedIdentity"`
+	// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+	Type *string `pulumi:"type"`
+}
+
+// UpstreamAuthSettingsInput is an input type that accepts UpstreamAuthSettingsArgs and UpstreamAuthSettingsOutput values.
+// You can construct a concrete instance of `UpstreamAuthSettingsInput` via:
+//
+//          UpstreamAuthSettingsArgs{...}
+type UpstreamAuthSettingsInput interface {
+	pulumi.Input
+
+	ToUpstreamAuthSettingsOutput() UpstreamAuthSettingsOutput
+	ToUpstreamAuthSettingsOutputWithContext(context.Context) UpstreamAuthSettingsOutput
+}
+
+// Upstream auth settings.
+type UpstreamAuthSettingsArgs struct {
+	// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+	ManagedIdentity ManagedIdentitySettingsPtrInput `pulumi:"managedIdentity"`
+	// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (UpstreamAuthSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamAuthSettings)(nil)).Elem()
+}
+
+func (i UpstreamAuthSettingsArgs) ToUpstreamAuthSettingsOutput() UpstreamAuthSettingsOutput {
+	return i.ToUpstreamAuthSettingsOutputWithContext(context.Background())
+}
+
+func (i UpstreamAuthSettingsArgs) ToUpstreamAuthSettingsOutputWithContext(ctx context.Context) UpstreamAuthSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamAuthSettingsOutput)
+}
+
+func (i UpstreamAuthSettingsArgs) ToUpstreamAuthSettingsPtrOutput() UpstreamAuthSettingsPtrOutput {
+	return i.ToUpstreamAuthSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamAuthSettingsArgs) ToUpstreamAuthSettingsPtrOutputWithContext(ctx context.Context) UpstreamAuthSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamAuthSettingsOutput).ToUpstreamAuthSettingsPtrOutputWithContext(ctx)
+}
+
+// UpstreamAuthSettingsPtrInput is an input type that accepts UpstreamAuthSettingsArgs, UpstreamAuthSettingsPtr and UpstreamAuthSettingsPtrOutput values.
+// You can construct a concrete instance of `UpstreamAuthSettingsPtrInput` via:
+//
+//          UpstreamAuthSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UpstreamAuthSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUpstreamAuthSettingsPtrOutput() UpstreamAuthSettingsPtrOutput
+	ToUpstreamAuthSettingsPtrOutputWithContext(context.Context) UpstreamAuthSettingsPtrOutput
+}
+
+type upstreamAuthSettingsPtrType UpstreamAuthSettingsArgs
+
+func UpstreamAuthSettingsPtr(v *UpstreamAuthSettingsArgs) UpstreamAuthSettingsPtrInput {
+	return (*upstreamAuthSettingsPtrType)(v)
+}
+
+func (*upstreamAuthSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamAuthSettings)(nil)).Elem()
+}
+
+func (i *upstreamAuthSettingsPtrType) ToUpstreamAuthSettingsPtrOutput() UpstreamAuthSettingsPtrOutput {
+	return i.ToUpstreamAuthSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamAuthSettingsPtrType) ToUpstreamAuthSettingsPtrOutputWithContext(ctx context.Context) UpstreamAuthSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamAuthSettingsPtrOutput)
+}
+
+// Upstream auth settings.
+type UpstreamAuthSettingsOutput struct{ *pulumi.OutputState }
+
+func (UpstreamAuthSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamAuthSettings)(nil)).Elem()
+}
+
+func (o UpstreamAuthSettingsOutput) ToUpstreamAuthSettingsOutput() UpstreamAuthSettingsOutput {
+	return o
+}
+
+func (o UpstreamAuthSettingsOutput) ToUpstreamAuthSettingsOutputWithContext(ctx context.Context) UpstreamAuthSettingsOutput {
+	return o
+}
+
+func (o UpstreamAuthSettingsOutput) ToUpstreamAuthSettingsPtrOutput() UpstreamAuthSettingsPtrOutput {
+	return o.ToUpstreamAuthSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamAuthSettingsOutput) ToUpstreamAuthSettingsPtrOutputWithContext(ctx context.Context) UpstreamAuthSettingsPtrOutput {
+	return o.ApplyT(func(v UpstreamAuthSettings) *UpstreamAuthSettings {
+		return &v
+	}).(UpstreamAuthSettingsPtrOutput)
+}
+
+// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+func (o UpstreamAuthSettingsOutput) ManagedIdentity() ManagedIdentitySettingsPtrOutput {
+	return o.ApplyT(func(v UpstreamAuthSettings) *ManagedIdentitySettings { return v.ManagedIdentity }).(ManagedIdentitySettingsPtrOutput)
+}
+
+// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+func (o UpstreamAuthSettingsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamAuthSettings) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type UpstreamAuthSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamAuthSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamAuthSettings)(nil)).Elem()
+}
+
+func (o UpstreamAuthSettingsPtrOutput) ToUpstreamAuthSettingsPtrOutput() UpstreamAuthSettingsPtrOutput {
+	return o
+}
+
+func (o UpstreamAuthSettingsPtrOutput) ToUpstreamAuthSettingsPtrOutputWithContext(ctx context.Context) UpstreamAuthSettingsPtrOutput {
+	return o
+}
+
+func (o UpstreamAuthSettingsPtrOutput) Elem() UpstreamAuthSettingsOutput {
+	return o.ApplyT(func(v *UpstreamAuthSettings) UpstreamAuthSettings { return *v }).(UpstreamAuthSettingsOutput)
+}
+
+// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+func (o UpstreamAuthSettingsPtrOutput) ManagedIdentity() ManagedIdentitySettingsPtrOutput {
+	return o.ApplyT(func(v *UpstreamAuthSettings) *ManagedIdentitySettings {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedIdentity
+	}).(ManagedIdentitySettingsPtrOutput)
+}
+
+// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+func (o UpstreamAuthSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamAuthSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Upstream auth settings.
+type UpstreamAuthSettingsResponse struct {
+	// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+	ManagedIdentity *ManagedIdentitySettingsResponse `pulumi:"managedIdentity"`
+	// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+	Type *string `pulumi:"type"`
+}
+
+// UpstreamAuthSettingsResponseInput is an input type that accepts UpstreamAuthSettingsResponseArgs and UpstreamAuthSettingsResponseOutput values.
+// You can construct a concrete instance of `UpstreamAuthSettingsResponseInput` via:
+//
+//          UpstreamAuthSettingsResponseArgs{...}
+type UpstreamAuthSettingsResponseInput interface {
+	pulumi.Input
+
+	ToUpstreamAuthSettingsResponseOutput() UpstreamAuthSettingsResponseOutput
+	ToUpstreamAuthSettingsResponseOutputWithContext(context.Context) UpstreamAuthSettingsResponseOutput
+}
+
+// Upstream auth settings.
+type UpstreamAuthSettingsResponseArgs struct {
+	// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+	ManagedIdentity ManagedIdentitySettingsResponsePtrInput `pulumi:"managedIdentity"`
+	// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (UpstreamAuthSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamAuthSettingsResponse)(nil)).Elem()
+}
+
+func (i UpstreamAuthSettingsResponseArgs) ToUpstreamAuthSettingsResponseOutput() UpstreamAuthSettingsResponseOutput {
+	return i.ToUpstreamAuthSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i UpstreamAuthSettingsResponseArgs) ToUpstreamAuthSettingsResponseOutputWithContext(ctx context.Context) UpstreamAuthSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamAuthSettingsResponseOutput)
+}
+
+func (i UpstreamAuthSettingsResponseArgs) ToUpstreamAuthSettingsResponsePtrOutput() UpstreamAuthSettingsResponsePtrOutput {
+	return i.ToUpstreamAuthSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamAuthSettingsResponseArgs) ToUpstreamAuthSettingsResponsePtrOutputWithContext(ctx context.Context) UpstreamAuthSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamAuthSettingsResponseOutput).ToUpstreamAuthSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// UpstreamAuthSettingsResponsePtrInput is an input type that accepts UpstreamAuthSettingsResponseArgs, UpstreamAuthSettingsResponsePtr and UpstreamAuthSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `UpstreamAuthSettingsResponsePtrInput` via:
+//
+//          UpstreamAuthSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UpstreamAuthSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToUpstreamAuthSettingsResponsePtrOutput() UpstreamAuthSettingsResponsePtrOutput
+	ToUpstreamAuthSettingsResponsePtrOutputWithContext(context.Context) UpstreamAuthSettingsResponsePtrOutput
+}
+
+type upstreamAuthSettingsResponsePtrType UpstreamAuthSettingsResponseArgs
+
+func UpstreamAuthSettingsResponsePtr(v *UpstreamAuthSettingsResponseArgs) UpstreamAuthSettingsResponsePtrInput {
+	return (*upstreamAuthSettingsResponsePtrType)(v)
+}
+
+func (*upstreamAuthSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamAuthSettingsResponse)(nil)).Elem()
+}
+
+func (i *upstreamAuthSettingsResponsePtrType) ToUpstreamAuthSettingsResponsePtrOutput() UpstreamAuthSettingsResponsePtrOutput {
+	return i.ToUpstreamAuthSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamAuthSettingsResponsePtrType) ToUpstreamAuthSettingsResponsePtrOutputWithContext(ctx context.Context) UpstreamAuthSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamAuthSettingsResponsePtrOutput)
+}
+
+// Upstream auth settings.
+type UpstreamAuthSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (UpstreamAuthSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamAuthSettingsResponse)(nil)).Elem()
+}
+
+func (o UpstreamAuthSettingsResponseOutput) ToUpstreamAuthSettingsResponseOutput() UpstreamAuthSettingsResponseOutput {
+	return o
+}
+
+func (o UpstreamAuthSettingsResponseOutput) ToUpstreamAuthSettingsResponseOutputWithContext(ctx context.Context) UpstreamAuthSettingsResponseOutput {
+	return o
+}
+
+func (o UpstreamAuthSettingsResponseOutput) ToUpstreamAuthSettingsResponsePtrOutput() UpstreamAuthSettingsResponsePtrOutput {
+	return o.ToUpstreamAuthSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamAuthSettingsResponseOutput) ToUpstreamAuthSettingsResponsePtrOutputWithContext(ctx context.Context) UpstreamAuthSettingsResponsePtrOutput {
+	return o.ApplyT(func(v UpstreamAuthSettingsResponse) *UpstreamAuthSettingsResponse {
+		return &v
+	}).(UpstreamAuthSettingsResponsePtrOutput)
+}
+
+// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+func (o UpstreamAuthSettingsResponseOutput) ManagedIdentity() ManagedIdentitySettingsResponsePtrOutput {
+	return o.ApplyT(func(v UpstreamAuthSettingsResponse) *ManagedIdentitySettingsResponse { return v.ManagedIdentity }).(ManagedIdentitySettingsResponsePtrOutput)
+}
+
+// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+func (o UpstreamAuthSettingsResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamAuthSettingsResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type UpstreamAuthSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamAuthSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamAuthSettingsResponse)(nil)).Elem()
+}
+
+func (o UpstreamAuthSettingsResponsePtrOutput) ToUpstreamAuthSettingsResponsePtrOutput() UpstreamAuthSettingsResponsePtrOutput {
+	return o
+}
+
+func (o UpstreamAuthSettingsResponsePtrOutput) ToUpstreamAuthSettingsResponsePtrOutputWithContext(ctx context.Context) UpstreamAuthSettingsResponsePtrOutput {
+	return o
+}
+
+func (o UpstreamAuthSettingsResponsePtrOutput) Elem() UpstreamAuthSettingsResponseOutput {
+	return o.ApplyT(func(v *UpstreamAuthSettingsResponse) UpstreamAuthSettingsResponse { return *v }).(UpstreamAuthSettingsResponseOutput)
+}
+
+// Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+func (o UpstreamAuthSettingsResponsePtrOutput) ManagedIdentity() ManagedIdentitySettingsResponsePtrOutput {
+	return o.ApplyT(func(v *UpstreamAuthSettingsResponse) *ManagedIdentitySettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedIdentity
+	}).(ManagedIdentitySettingsResponsePtrOutput)
+}
+
+// Gets or sets the type of auth. None or ManagedIdentity is supported now.
+func (o UpstreamAuthSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamAuthSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Upstream template item settings. It defines the Upstream URL of the incoming requests.
 // The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
 type UpstreamTemplate struct {
+	// Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+	Auth *UpstreamAuthSettings `pulumi:"auth"`
 	// Gets or sets the matching pattern for category names. If not set, it matches any category.
 	// There are 3 kind of patterns supported:
 	//     1. "*", it to matches any category name
@@ -2965,6 +4152,8 @@ type UpstreamTemplateInput interface {
 // Upstream template item settings. It defines the Upstream URL of the incoming requests.
 // The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
 type UpstreamTemplateArgs struct {
+	// Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+	Auth UpstreamAuthSettingsPtrInput `pulumi:"auth"`
 	// Gets or sets the matching pattern for category names. If not set, it matches any category.
 	// There are 3 kind of patterns supported:
 	//     1. "*", it to matches any category name
@@ -3041,6 +4230,11 @@ func (o UpstreamTemplateOutput) ToUpstreamTemplateOutputWithContext(ctx context.
 	return o
 }
 
+// Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+func (o UpstreamTemplateOutput) Auth() UpstreamAuthSettingsPtrOutput {
+	return o.ApplyT(func(v UpstreamTemplate) *UpstreamAuthSettings { return v.Auth }).(UpstreamAuthSettingsPtrOutput)
+}
+
 // Gets or sets the matching pattern for category names. If not set, it matches any category.
 // There are 3 kind of patterns supported:
 //     1. "*", it to matches any category name
@@ -3097,6 +4291,8 @@ func (o UpstreamTemplateArrayOutput) Index(i pulumi.IntInput) UpstreamTemplateOu
 // Upstream template item settings. It defines the Upstream URL of the incoming requests.
 // The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
 type UpstreamTemplateResponse struct {
+	// Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+	Auth *UpstreamAuthSettingsResponse `pulumi:"auth"`
 	// Gets or sets the matching pattern for category names. If not set, it matches any category.
 	// There are 3 kind of patterns supported:
 	//     1. "*", it to matches any category name
@@ -3134,6 +4330,8 @@ type UpstreamTemplateResponseInput interface {
 // Upstream template item settings. It defines the Upstream URL of the incoming requests.
 // The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
 type UpstreamTemplateResponseArgs struct {
+	// Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+	Auth UpstreamAuthSettingsResponsePtrInput `pulumi:"auth"`
 	// Gets or sets the matching pattern for category names. If not set, it matches any category.
 	// There are 3 kind of patterns supported:
 	//     1. "*", it to matches any category name
@@ -3210,6 +4408,11 @@ func (o UpstreamTemplateResponseOutput) ToUpstreamTemplateResponseOutputWithCont
 	return o
 }
 
+// Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+func (o UpstreamTemplateResponseOutput) Auth() UpstreamAuthSettingsResponsePtrOutput {
+	return o.ApplyT(func(v UpstreamTemplateResponse) *UpstreamAuthSettingsResponse { return v.Auth }).(UpstreamAuthSettingsResponsePtrOutput)
+}
+
 // Gets or sets the matching pattern for category names. If not set, it matches any category.
 // There are 3 kind of patterns supported:
 //     1. "*", it to matches any category name
@@ -3263,7 +4466,124 @@ func (o UpstreamTemplateResponseArrayOutput) Index(i pulumi.IntInput) UpstreamTe
 	}).(UpstreamTemplateResponseOutput)
 }
 
+// Properties of user assigned identity.
+type UserAssignedIdentityPropertyResponse struct {
+	// Get the client id for the user assigned identity
+	ClientId string `pulumi:"clientId"`
+	// Get the principal id for the user assigned identity
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// UserAssignedIdentityPropertyResponseInput is an input type that accepts UserAssignedIdentityPropertyResponseArgs and UserAssignedIdentityPropertyResponseOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityPropertyResponseInput` via:
+//
+//          UserAssignedIdentityPropertyResponseArgs{...}
+type UserAssignedIdentityPropertyResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityPropertyResponseOutput() UserAssignedIdentityPropertyResponseOutput
+	ToUserAssignedIdentityPropertyResponseOutputWithContext(context.Context) UserAssignedIdentityPropertyResponseOutput
+}
+
+// Properties of user assigned identity.
+type UserAssignedIdentityPropertyResponseArgs struct {
+	// Get the client id for the user assigned identity
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Get the principal id for the user assigned identity
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserAssignedIdentityPropertyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityPropertyResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityPropertyResponseArgs) ToUserAssignedIdentityPropertyResponseOutput() UserAssignedIdentityPropertyResponseOutput {
+	return i.ToUserAssignedIdentityPropertyResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityPropertyResponseArgs) ToUserAssignedIdentityPropertyResponseOutputWithContext(ctx context.Context) UserAssignedIdentityPropertyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityPropertyResponseOutput)
+}
+
+// UserAssignedIdentityPropertyResponseMapInput is an input type that accepts UserAssignedIdentityPropertyResponseMap and UserAssignedIdentityPropertyResponseMapOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityPropertyResponseMapInput` via:
+//
+//          UserAssignedIdentityPropertyResponseMap{ "key": UserAssignedIdentityPropertyResponseArgs{...} }
+type UserAssignedIdentityPropertyResponseMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityPropertyResponseMapOutput() UserAssignedIdentityPropertyResponseMapOutput
+	ToUserAssignedIdentityPropertyResponseMapOutputWithContext(context.Context) UserAssignedIdentityPropertyResponseMapOutput
+}
+
+type UserAssignedIdentityPropertyResponseMap map[string]UserAssignedIdentityPropertyResponseInput
+
+func (UserAssignedIdentityPropertyResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityPropertyResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityPropertyResponseMap) ToUserAssignedIdentityPropertyResponseMapOutput() UserAssignedIdentityPropertyResponseMapOutput {
+	return i.ToUserAssignedIdentityPropertyResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityPropertyResponseMap) ToUserAssignedIdentityPropertyResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityPropertyResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityPropertyResponseMapOutput)
+}
+
+// Properties of user assigned identity.
+type UserAssignedIdentityPropertyResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityPropertyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityPropertyResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityPropertyResponseOutput) ToUserAssignedIdentityPropertyResponseOutput() UserAssignedIdentityPropertyResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityPropertyResponseOutput) ToUserAssignedIdentityPropertyResponseOutputWithContext(ctx context.Context) UserAssignedIdentityPropertyResponseOutput {
+	return o
+}
+
+// Get the client id for the user assigned identity
+func (o UserAssignedIdentityPropertyResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityPropertyResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Get the principal id for the user assigned identity
+func (o UserAssignedIdentityPropertyResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityPropertyResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityPropertyResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityPropertyResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityPropertyResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityPropertyResponseMapOutput) ToUserAssignedIdentityPropertyResponseMapOutput() UserAssignedIdentityPropertyResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityPropertyResponseMapOutput) ToUserAssignedIdentityPropertyResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityPropertyResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityPropertyResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityPropertyResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityPropertyResponse {
+		return vs[0].(map[string]UserAssignedIdentityPropertyResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityPropertyResponseOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(ManagedIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedIdentitySettingsOutput{})
+	pulumi.RegisterOutputType(ManagedIdentitySettingsPtrOutput{})
+	pulumi.RegisterOutputType(ManagedIdentitySettingsResponseOutput{})
+	pulumi.RegisterOutputType(ManagedIdentitySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkACLOutput{})
 	pulumi.RegisterOutputType(NetworkACLPtrOutput{})
 	pulumi.RegisterOutputType(NetworkACLResponseOutput{})
@@ -3302,8 +4622,18 @@ func init() {
 	pulumi.RegisterOutputType(SignalRNetworkACLsPtrOutput{})
 	pulumi.RegisterOutputType(SignalRNetworkACLsResponseOutput{})
 	pulumi.RegisterOutputType(SignalRNetworkACLsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SignalRTlsSettingsOutput{})
+	pulumi.RegisterOutputType(SignalRTlsSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SignalRTlsSettingsResponseOutput{})
+	pulumi.RegisterOutputType(SignalRTlsSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(UpstreamAuthSettingsOutput{})
+	pulumi.RegisterOutputType(UpstreamAuthSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UpstreamAuthSettingsResponseOutput{})
+	pulumi.RegisterOutputType(UpstreamAuthSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(UpstreamTemplateOutput{})
 	pulumi.RegisterOutputType(UpstreamTemplateArrayOutput{})
 	pulumi.RegisterOutputType(UpstreamTemplateResponseOutput{})
 	pulumi.RegisterOutputType(UpstreamTemplateResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityPropertyResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityPropertyResponseMapOutput{})
 }

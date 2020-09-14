@@ -10,6 +10,140 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Creator resource properties
+type CreatorPropertiesResponse struct {
+	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+	ProvisioningState *string `pulumi:"provisioningState"`
+}
+
+// CreatorPropertiesResponseInput is an input type that accepts CreatorPropertiesResponseArgs and CreatorPropertiesResponseOutput values.
+// You can construct a concrete instance of `CreatorPropertiesResponseInput` via:
+//
+//          CreatorPropertiesResponseArgs{...}
+type CreatorPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToCreatorPropertiesResponseOutput() CreatorPropertiesResponseOutput
+	ToCreatorPropertiesResponseOutputWithContext(context.Context) CreatorPropertiesResponseOutput
+}
+
+// Creator resource properties
+type CreatorPropertiesResponseArgs struct {
+	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+}
+
+func (CreatorPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreatorPropertiesResponse)(nil)).Elem()
+}
+
+func (i CreatorPropertiesResponseArgs) ToCreatorPropertiesResponseOutput() CreatorPropertiesResponseOutput {
+	return i.ToCreatorPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i CreatorPropertiesResponseArgs) ToCreatorPropertiesResponseOutputWithContext(ctx context.Context) CreatorPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesResponseOutput)
+}
+
+func (i CreatorPropertiesResponseArgs) ToCreatorPropertiesResponsePtrOutput() CreatorPropertiesResponsePtrOutput {
+	return i.ToCreatorPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CreatorPropertiesResponseArgs) ToCreatorPropertiesResponsePtrOutputWithContext(ctx context.Context) CreatorPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesResponseOutput).ToCreatorPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// CreatorPropertiesResponsePtrInput is an input type that accepts CreatorPropertiesResponseArgs, CreatorPropertiesResponsePtr and CreatorPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `CreatorPropertiesResponsePtrInput` via:
+//
+//          CreatorPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CreatorPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToCreatorPropertiesResponsePtrOutput() CreatorPropertiesResponsePtrOutput
+	ToCreatorPropertiesResponsePtrOutputWithContext(context.Context) CreatorPropertiesResponsePtrOutput
+}
+
+type creatorPropertiesResponsePtrType CreatorPropertiesResponseArgs
+
+func CreatorPropertiesResponsePtr(v *CreatorPropertiesResponseArgs) CreatorPropertiesResponsePtrInput {
+	return (*creatorPropertiesResponsePtrType)(v)
+}
+
+func (*creatorPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreatorPropertiesResponse)(nil)).Elem()
+}
+
+func (i *creatorPropertiesResponsePtrType) ToCreatorPropertiesResponsePtrOutput() CreatorPropertiesResponsePtrOutput {
+	return i.ToCreatorPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *creatorPropertiesResponsePtrType) ToCreatorPropertiesResponsePtrOutputWithContext(ctx context.Context) CreatorPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesResponsePtrOutput)
+}
+
+// Creator resource properties
+type CreatorPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (CreatorPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreatorPropertiesResponse)(nil)).Elem()
+}
+
+func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponseOutput() CreatorPropertiesResponseOutput {
+	return o
+}
+
+func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponseOutputWithContext(ctx context.Context) CreatorPropertiesResponseOutput {
+	return o
+}
+
+func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponsePtrOutput() CreatorPropertiesResponsePtrOutput {
+	return o.ToCreatorPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponsePtrOutputWithContext(ctx context.Context) CreatorPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v CreatorPropertiesResponse) *CreatorPropertiesResponse {
+		return &v
+	}).(CreatorPropertiesResponsePtrOutput)
+}
+
+// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+func (o CreatorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreatorPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+type CreatorPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CreatorPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreatorPropertiesResponse)(nil)).Elem()
+}
+
+func (o CreatorPropertiesResponsePtrOutput) ToCreatorPropertiesResponsePtrOutput() CreatorPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CreatorPropertiesResponsePtrOutput) ToCreatorPropertiesResponsePtrOutputWithContext(ctx context.Context) CreatorPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CreatorPropertiesResponsePtrOutput) Elem() CreatorPropertiesResponseOutput {
+	return o.ApplyT(func(v *CreatorPropertiesResponse) CreatorPropertiesResponse { return *v }).(CreatorPropertiesResponseOutput)
+}
+
+// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+func (o CreatorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CreatorPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
 // Additional Map account properties
 type MapsAccountPropertiesResponse struct {
 	// A unique identifier for the maps account
@@ -141,6 +275,140 @@ func (o MapsAccountPropertiesResponsePtrOutput) XMsClientId() pulumi.StringPtrOu
 			return nil
 		}
 		return v.XMsClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private Atlas resource properties
+type PrivateAtlasPropertiesResponse struct {
+	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+	ProvisioningState *string `pulumi:"provisioningState"`
+}
+
+// PrivateAtlasPropertiesResponseInput is an input type that accepts PrivateAtlasPropertiesResponseArgs and PrivateAtlasPropertiesResponseOutput values.
+// You can construct a concrete instance of `PrivateAtlasPropertiesResponseInput` via:
+//
+//          PrivateAtlasPropertiesResponseArgs{...}
+type PrivateAtlasPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPrivateAtlasPropertiesResponseOutput() PrivateAtlasPropertiesResponseOutput
+	ToPrivateAtlasPropertiesResponseOutputWithContext(context.Context) PrivateAtlasPropertiesResponseOutput
+}
+
+// Private Atlas resource properties
+type PrivateAtlasPropertiesResponseArgs struct {
+	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+}
+
+func (PrivateAtlasPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateAtlasPropertiesResponse)(nil)).Elem()
+}
+
+func (i PrivateAtlasPropertiesResponseArgs) ToPrivateAtlasPropertiesResponseOutput() PrivateAtlasPropertiesResponseOutput {
+	return i.ToPrivateAtlasPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateAtlasPropertiesResponseArgs) ToPrivateAtlasPropertiesResponseOutputWithContext(ctx context.Context) PrivateAtlasPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateAtlasPropertiesResponseOutput)
+}
+
+func (i PrivateAtlasPropertiesResponseArgs) ToPrivateAtlasPropertiesResponsePtrOutput() PrivateAtlasPropertiesResponsePtrOutput {
+	return i.ToPrivateAtlasPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateAtlasPropertiesResponseArgs) ToPrivateAtlasPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateAtlasPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateAtlasPropertiesResponseOutput).ToPrivateAtlasPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateAtlasPropertiesResponsePtrInput is an input type that accepts PrivateAtlasPropertiesResponseArgs, PrivateAtlasPropertiesResponsePtr and PrivateAtlasPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateAtlasPropertiesResponsePtrInput` via:
+//
+//          PrivateAtlasPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateAtlasPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateAtlasPropertiesResponsePtrOutput() PrivateAtlasPropertiesResponsePtrOutput
+	ToPrivateAtlasPropertiesResponsePtrOutputWithContext(context.Context) PrivateAtlasPropertiesResponsePtrOutput
+}
+
+type privateAtlasPropertiesResponsePtrType PrivateAtlasPropertiesResponseArgs
+
+func PrivateAtlasPropertiesResponsePtr(v *PrivateAtlasPropertiesResponseArgs) PrivateAtlasPropertiesResponsePtrInput {
+	return (*privateAtlasPropertiesResponsePtrType)(v)
+}
+
+func (*privateAtlasPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateAtlasPropertiesResponse)(nil)).Elem()
+}
+
+func (i *privateAtlasPropertiesResponsePtrType) ToPrivateAtlasPropertiesResponsePtrOutput() PrivateAtlasPropertiesResponsePtrOutput {
+	return i.ToPrivateAtlasPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateAtlasPropertiesResponsePtrType) ToPrivateAtlasPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateAtlasPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateAtlasPropertiesResponsePtrOutput)
+}
+
+// Private Atlas resource properties
+type PrivateAtlasPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateAtlasPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateAtlasPropertiesResponse)(nil)).Elem()
+}
+
+func (o PrivateAtlasPropertiesResponseOutput) ToPrivateAtlasPropertiesResponseOutput() PrivateAtlasPropertiesResponseOutput {
+	return o
+}
+
+func (o PrivateAtlasPropertiesResponseOutput) ToPrivateAtlasPropertiesResponseOutputWithContext(ctx context.Context) PrivateAtlasPropertiesResponseOutput {
+	return o
+}
+
+func (o PrivateAtlasPropertiesResponseOutput) ToPrivateAtlasPropertiesResponsePtrOutput() PrivateAtlasPropertiesResponsePtrOutput {
+	return o.ToPrivateAtlasPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateAtlasPropertiesResponseOutput) ToPrivateAtlasPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateAtlasPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PrivateAtlasPropertiesResponse) *PrivateAtlasPropertiesResponse {
+		return &v
+	}).(PrivateAtlasPropertiesResponsePtrOutput)
+}
+
+// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+func (o PrivateAtlasPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateAtlasPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+type PrivateAtlasPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateAtlasPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateAtlasPropertiesResponse)(nil)).Elem()
+}
+
+func (o PrivateAtlasPropertiesResponsePtrOutput) ToPrivateAtlasPropertiesResponsePtrOutput() PrivateAtlasPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PrivateAtlasPropertiesResponsePtrOutput) ToPrivateAtlasPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateAtlasPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PrivateAtlasPropertiesResponsePtrOutput) Elem() PrivateAtlasPropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateAtlasPropertiesResponse) PrivateAtlasPropertiesResponse { return *v }).(PrivateAtlasPropertiesResponseOutput)
+}
+
+// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+func (o PrivateAtlasPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateAtlasPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -431,11 +699,246 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(CreatorPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(CreatorPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MapsAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MapsAccountPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateAtlasPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PrivateAtlasPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

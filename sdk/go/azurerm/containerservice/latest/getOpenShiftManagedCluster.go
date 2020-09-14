@@ -37,6 +37,8 @@ type LookupOpenShiftManagedClusterResult struct {
 	Location string `pulumi:"location"`
 	// Configuration for OpenShift master VMs.
 	MasterPoolProfile *OpenShiftManagedClusterMasterPoolProfileResponse `pulumi:"masterPoolProfile"`
+	// Configures Log Analytics integration.
+	MonitorProfile *OpenShiftManagedClusterMonitorProfileResponse `pulumi:"monitorProfile"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Configuration for OpenShift networking.
@@ -47,8 +49,10 @@ type LookupOpenShiftManagedClusterResult struct {
 	Plan *PurchasePlanResponse `pulumi:"plan"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Service generated FQDN for OpenShift API server.
+	// Service generated FQDN or private IP for OpenShift API server.
 	PublicHostname string `pulumi:"publicHostname"`
+	// Allows node rotation
+	RefreshCluster *bool `pulumi:"refreshCluster"`
 	// Configuration for OpenShift router(s).
 	RouterProfiles []OpenShiftRouterProfileResponse `pulumi:"routerProfiles"`
 	// Resource tags

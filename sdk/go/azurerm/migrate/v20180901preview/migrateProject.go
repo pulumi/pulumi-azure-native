@@ -40,6 +40,12 @@ func NewMigrateProject(ctx *pulumi.Context,
 	if args == nil {
 		args = &MigrateProjectArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:migrate/latest:MigrateProject"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MigrateProject
 	err := ctx.RegisterResource("azurerm:migrate/v20180901preview:MigrateProject", name, args, &resource, opts...)
 	if err != nil {

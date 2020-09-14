@@ -51,6 +51,9 @@ func NewGraphQuery(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:resourcegraph/latest:GraphQuery"),
+		},
+		{
 			Type: pulumi.String("azurerm:resourcegraph/v20200401preview:GraphQuery"),
 		},
 	})

@@ -162,6 +162,8 @@ type machineExtensionArgs struct {
 	ExtensionName string `pulumi:"extensionName"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// The machine extension instance view.
+	InstanceView *MachineExtensionPropertiesInstanceView `pulumi:"instanceView"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the machine where the extension should be created or updated.
@@ -190,6 +192,8 @@ type MachineExtensionArgs struct {
 	ExtensionName pulumi.StringInput
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
+	// The machine extension instance view.
+	InstanceView MachineExtensionPropertiesInstanceViewPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The name of the machine where the extension should be created or updated.

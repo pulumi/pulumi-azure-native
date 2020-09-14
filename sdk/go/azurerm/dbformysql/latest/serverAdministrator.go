@@ -151,7 +151,7 @@ type serverAdministratorArgs struct {
 	AdministratorType string `pulumi:"administratorType"`
 	// The server administrator login account name.
 	Login string `pulumi:"login"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
@@ -167,7 +167,7 @@ type ServerAdministratorArgs struct {
 	AdministratorType pulumi.StringInput
 	// The server administrator login account name.
 	Login pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput

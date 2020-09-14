@@ -64,6 +64,12 @@ func NewProject(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProjectArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:machinelearningexperimentation/latest:Project"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Project
 	err := ctx.RegisterResource("azurerm:machinelearningexperimentation/v20170501preview:Project", name, args, &resource, opts...)
 	if err != nil {

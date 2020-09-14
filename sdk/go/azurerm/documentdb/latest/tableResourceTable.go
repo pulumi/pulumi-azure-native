@@ -47,6 +47,8 @@ import (
 type TableResourceTable struct {
 	pulumi.CustomResourceState
 
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the ARM resource.
@@ -120,6 +122,8 @@ func GetTableResourceTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableResourceTable resources.
 type tableResourceTableState struct {
+	// Identity for the resource.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the ARM resource.
@@ -133,6 +137,8 @@ type tableResourceTableState struct {
 }
 
 type TableResourceTableState struct {
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// The name of the ARM resource.
@@ -152,6 +158,8 @@ func (TableResourceTableState) ElementType() reflect.Type {
 type tableResourceTableArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
+	// Identity for the resource.
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
@@ -170,6 +178,8 @@ type tableResourceTableArgs struct {
 type TableResourceTableArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
+	// Identity for the resource.
+	Identity ManagedServiceIdentityPtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.

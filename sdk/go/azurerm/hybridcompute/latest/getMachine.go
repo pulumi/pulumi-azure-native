@@ -62,6 +62,8 @@ type LookupMachineResult struct {
 	OsSku string `pulumi:"osSku"`
 	// The version of Operating System running on the hybrid machine.
 	OsVersion string `pulumi:"osVersion"`
+	// List of private link scoped resources associated with this machine.
+	PrivateLinkScopedResources []string `pulumi:"privateLinkScopedResources"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The status of the hybrid machine agent.

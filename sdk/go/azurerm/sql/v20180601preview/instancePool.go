@@ -56,6 +56,12 @@ func NewInstancePool(ctx *pulumi.Context,
 	if args == nil {
 		args = &InstancePoolArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/latest:InstancePool"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource InstancePool
 	err := ctx.RegisterResource("azurerm:sql/v20180601preview:InstancePool", name, args, &resource, opts...)
 	if err != nil {

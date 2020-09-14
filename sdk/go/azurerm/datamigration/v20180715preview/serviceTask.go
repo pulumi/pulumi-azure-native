@@ -39,6 +39,12 @@ func NewServiceTask(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServiceTaskArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datamigration/latest:ServiceTask"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServiceTask
 	err := ctx.RegisterResource("azurerm:datamigration/v20180715preview:ServiceTask", name, args, &resource, opts...)
 	if err != nil {

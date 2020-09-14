@@ -46,6 +46,9 @@ func NewStep(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:deploymentmanager/latest:Step"),
+		},
+		{
 			Type: pulumi.String("azurerm:deploymentmanager/v20180901preview:Step"),
 		},
 	})

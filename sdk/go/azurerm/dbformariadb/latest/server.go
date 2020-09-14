@@ -149,16 +149,14 @@ type Server struct {
 	EarliestRestoreDate pulumi.StringPtrOutput `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringPtrOutput `pulumi:"fullyQualifiedDomainName"`
+	// The Azure Active Directory identity of the server.
+	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId pulumi.StringPtrOutput `pulumi:"masterServerId"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// List of private endpoint connections on a server
-	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a master server can have.
 	ReplicaCapacity pulumi.IntPtrOutput `pulumi:"replicaCapacity"`
 	// The replication role of the server.
@@ -234,16 +232,14 @@ type serverState struct {
 	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
+	// The Azure Active Directory identity of the server.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId *string `pulumi:"masterServerId"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// List of private endpoint connections on a server
-	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a master server can have.
 	ReplicaCapacity *int `pulumi:"replicaCapacity"`
 	// The replication role of the server.
@@ -271,16 +267,14 @@ type ServerState struct {
 	EarliestRestoreDate pulumi.StringPtrInput
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringPtrInput
+	// The Azure Active Directory identity of the server.
+	Identity ResourceIdentityResponsePtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The master server id of a replica server.
 	MasterServerId pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// List of private endpoint connections on a server
-	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayInput
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput
 	// The maximum number of replicas that a master server can have.
 	ReplicaCapacity pulumi.IntPtrInput
 	// The replication role of the server.
@@ -310,7 +304,7 @@ type serverArgs struct {
 	Location string `pulumi:"location"`
 	// Properties of the server.
 	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
@@ -326,7 +320,7 @@ type ServerArgs struct {
 	Location pulumi.StringInput
 	// Properties of the server.
 	Properties pulumi.Input
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput

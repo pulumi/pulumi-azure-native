@@ -190,7 +190,7 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// Determines the type of application which send the create user request. Default is legacy portal.
+	// Determines the type of application which send the create user request. Default is old publisher portal.
 	AppType *string `pulumi:"appType"`
 	// Determines the type of confirmation e-mail that will be sent to the newly created user.
 	Confirmation *string `pulumi:"confirmation"`
@@ -204,8 +204,6 @@ type userArgs struct {
 	LastName string `pulumi:"lastName"`
 	// Optional note about a user set by the administrator.
 	Note *string `pulumi:"note"`
-	// Send an Email notification to the User.
-	Notify *bool `pulumi:"notify"`
 	// User Password. If no value is provided, a default password is generated.
 	Password *string `pulumi:"password"`
 	// The name of the resource group.
@@ -220,7 +218,7 @@ type userArgs struct {
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// Determines the type of application which send the create user request. Default is legacy portal.
+	// Determines the type of application which send the create user request. Default is old publisher portal.
 	AppType pulumi.StringPtrInput
 	// Determines the type of confirmation e-mail that will be sent to the newly created user.
 	Confirmation pulumi.StringPtrInput
@@ -234,8 +232,6 @@ type UserArgs struct {
 	LastName pulumi.StringInput
 	// Optional note about a user set by the administrator.
 	Note pulumi.StringPtrInput
-	// Send an Email notification to the User.
-	Notify pulumi.BoolPtrInput
 	// User Password. If no value is provided, a default password is generated.
 	Password pulumi.StringPtrInput
 	// The name of the resource group.

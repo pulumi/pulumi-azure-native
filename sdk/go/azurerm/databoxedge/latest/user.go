@@ -34,7 +34,6 @@ import (
 // 			},
 // 			Name:              pulumi.String("user1"),
 // 			ResourceGroupName: pulumi.String("GroupForEdgeAutomation"),
-// 			ShareAccessRights: databoxedge.ShareAccessRightArray{},
 // 			UserType:          pulumi.String("Share"),
 // 		})
 // 		if err != nil {
@@ -153,8 +152,6 @@ type userArgs struct {
 	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// List of shares that the user has rights on. This field should not be specified during user creation.
-	ShareAccessRights []ShareAccessRight `pulumi:"shareAccessRights"`
 	// Type of the user.
 	UserType string `pulumi:"userType"`
 }
@@ -169,8 +166,6 @@ type UserArgs struct {
 	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
-	// List of shares that the user has rights on. This field should not be specified during user creation.
-	ShareAccessRights ShareAccessRightArrayInput
 	// Type of the user.
 	UserType pulumi.StringInput
 }

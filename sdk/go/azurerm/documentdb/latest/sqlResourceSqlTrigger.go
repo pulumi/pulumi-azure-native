@@ -50,6 +50,8 @@ import (
 type SqlResourceSqlTrigger struct {
 	pulumi.CustomResourceState
 
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the ARM resource.
@@ -128,6 +130,8 @@ func GetSqlResourceSqlTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlResourceSqlTrigger resources.
 type sqlResourceSqlTriggerState struct {
+	// Identity for the resource.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the ARM resource.
@@ -140,6 +144,8 @@ type sqlResourceSqlTriggerState struct {
 }
 
 type SqlResourceSqlTriggerState struct {
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// The name of the ARM resource.
@@ -162,6 +168,8 @@ type sqlResourceSqlTriggerArgs struct {
 	ContainerName string `pulumi:"containerName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
+	// Identity for the resource.
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
@@ -184,6 +192,8 @@ type SqlResourceSqlTriggerArgs struct {
 	ContainerName pulumi.StringInput
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
+	// Identity for the resource.
+	Identity ManagedServiceIdentityPtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.

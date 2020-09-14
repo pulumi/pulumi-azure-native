@@ -59,6 +59,12 @@ func NewWorkloadGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkloadGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/latest:WorkloadGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkloadGroup
 	err := ctx.RegisterResource("azurerm:sql/v20190601preview:WorkloadGroup", name, args, &resource, opts...)
 	if err != nil {

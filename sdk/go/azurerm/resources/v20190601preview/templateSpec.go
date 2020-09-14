@@ -45,6 +45,12 @@ func NewTemplateSpec(ctx *pulumi.Context,
 	if args == nil {
 		args = &TemplateSpecArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:resources/latest:TemplateSpec"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TemplateSpec
 	err := ctx.RegisterResource("azurerm:resources/v20190601preview:TemplateSpec", name, args, &resource, opts...)
 	if err != nil {

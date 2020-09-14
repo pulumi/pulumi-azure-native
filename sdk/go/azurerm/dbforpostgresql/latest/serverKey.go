@@ -45,7 +45,7 @@ type ServerKey struct {
 
 	// The key creation date.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Kind of encryption protector used to protect the key.
+	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -108,7 +108,7 @@ func GetServerKey(ctx *pulumi.Context,
 type serverKeyState struct {
 	// The key creation date.
 	CreationDate *string `pulumi:"creationDate"`
-	// Kind of encryption protector used to protect the key.
+	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind *string `pulumi:"kind"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
@@ -123,7 +123,7 @@ type serverKeyState struct {
 type ServerKeyState struct {
 	// The key creation date.
 	CreationDate pulumi.StringPtrInput
-	// Kind of encryption protector used to protect the key.
+	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
@@ -142,7 +142,7 @@ func (ServerKeyState) ElementType() reflect.Type {
 type serverKeyArgs struct {
 	// The name of the PostgreSQL Server key to be operated on (updated or created).
 	KeyName string `pulumi:"keyName"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The key type like 'AzureKeyVault'.
 	ServerKeyType string `pulumi:"serverKeyType"`
@@ -156,7 +156,7 @@ type serverKeyArgs struct {
 type ServerKeyArgs struct {
 	// The name of the PostgreSQL Server key to be operated on (updated or created).
 	KeyName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The key type like 'AzureKeyVault'.
 	ServerKeyType pulumi.StringInput

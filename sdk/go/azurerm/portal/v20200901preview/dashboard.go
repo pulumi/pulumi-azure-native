@@ -45,6 +45,9 @@ func NewDashboard(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:portal/latest:Dashboard"),
+		},
+		{
 			Type: pulumi.String("azurerm:portal/v20150801preview:Dashboard"),
 		},
 		{

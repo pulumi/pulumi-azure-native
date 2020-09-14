@@ -53,6 +53,12 @@ func NewSourceControl(ctx *pulumi.Context,
 	if args == nil {
 		args = &SourceControlArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:SourceControl"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SourceControl
 	err := ctx.RegisterResource("azurerm:automation/v20170515preview:SourceControl", name, args, &resource, opts...)
 	if err != nil {

@@ -45,6 +45,12 @@ func NewDataConnector(ctx *pulumi.Context,
 	if args == nil {
 		args = &DataConnectorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:securityinsights/latest:DataConnector"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataConnector
 	err := ctx.RegisterResource("azurerm:securityinsights/v20190101preview:DataConnector", name, args, &resource, opts...)
 	if err != nil {

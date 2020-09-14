@@ -27,6 +27,8 @@ type LookupDatabaseAccountArgs struct {
 type LookupDatabaseAccountResult struct {
 	// API specific properties.
 	ApiProperties *ApiPropertiesResponse `pulumi:"apiProperties"`
+	// The object representing the policy for taking backups on an account.
+	BackupPolicy interface{} `pulumi:"backupPolicy"`
 	// List of Cosmos DB capabilities for the account
 	Capabilities []CapabilityResponse `pulumi:"capabilities"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -35,6 +37,8 @@ type LookupDatabaseAccountResult struct {
 	ConsistencyPolicy *ConsistencyPolicyResponse `pulumi:"consistencyPolicy"`
 	// The CORS policy for the Cosmos DB database account.
 	Cors []CorsPolicyResponse `pulumi:"cors"`
+	// Enum to indicate the mode of account creation.
+	CreateMode *string `pulumi:"createMode"`
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -53,6 +57,10 @@ type LookupDatabaseAccountResult struct {
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// An array that contains the regions ordered by their failover priorities.
 	FailoverPolicies []FailoverPolicyResponse `pulumi:"failoverPolicies"`
+	// Identity for the resource.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// A unique identifier assigned to the database account
+	InstanceId string `pulumi:"instanceId"`
 	// List of IpRules.
 	IpRules []IpAddressOrRangeResponse `pulumi:"ipRules"`
 	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -75,6 +83,10 @@ type LookupDatabaseAccountResult struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// An array that contains of the read locations enabled for the Cosmos DB account.
 	ReadLocations []LocationResponse `pulumi:"readLocations"`
+	// Parameters to indicate the information about the restore.
+	RestoreParameters *RestoreParametersResponse `pulumi:"restoreParameters"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Azure resource.

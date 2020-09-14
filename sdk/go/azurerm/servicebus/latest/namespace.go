@@ -49,8 +49,10 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// The time the namespace was created.
+	// The time the namespace was created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Properties of BYOK Encryption description
+	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
 	// The Geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Identifier for Azure Insights metrics
@@ -61,7 +63,7 @@ type Namespace struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
 	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
-	// Properties of Sku
+	// Properties of SKU
 	Sku SBSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -69,6 +71,8 @@ type Namespace struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The time the namespace was updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -123,8 +127,10 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// The time the namespace was created.
+	// The time the namespace was created
 	CreatedAt *string `pulumi:"createdAt"`
+	// Properties of BYOK Encryption description
+	Encryption *EncryptionResponse `pulumi:"encryption"`
 	// The Geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Identifier for Azure Insights metrics
@@ -135,7 +141,7 @@ type namespaceState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
 	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
-	// Properties of Sku
+	// Properties of SKU
 	Sku *SBSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -143,11 +149,15 @@ type namespaceState struct {
 	Type *string `pulumi:"type"`
 	// The time the namespace was updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
+	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type NamespaceState struct {
-	// The time the namespace was created.
+	// The time the namespace was created
 	CreatedAt pulumi.StringPtrInput
+	// Properties of BYOK Encryption description
+	Encryption EncryptionResponsePtrInput
 	// The Geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Identifier for Azure Insights metrics
@@ -158,7 +168,7 @@ type NamespaceState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Endpoint you can use to perform Service Bus operations.
 	ServiceBusEndpoint pulumi.StringPtrInput
-	// Properties of Sku
+	// Properties of SKU
 	Sku SBSkuResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
@@ -166,6 +176,8 @@ type NamespaceState struct {
 	Type pulumi.StringPtrInput
 	// The time the namespace was updated.
 	UpdatedAt pulumi.StringPtrInput
+	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -173,30 +185,38 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
+	// Properties of BYOK Encryption description
+	Encryption *Encryption `pulumi:"encryption"`
 	// The Geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Properties of Sku
+	// Properties of SKU
 	Sku *SBSku `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
+	// Properties of BYOK Encryption description
+	Encryption EncryptionPtrInput
 	// The Geo-location where the resource lives
 	Location pulumi.StringInput
 	// The namespace name.
 	NamespaceName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
-	// Properties of Sku
+	// Properties of SKU
 	Sku SBSkuPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {

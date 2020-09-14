@@ -135,7 +135,7 @@ type firewallRuleArgs struct {
 	EndIpAddress string `pulumi:"endIpAddress"`
 	// The name of the server firewall rule.
 	FirewallRuleName string `pulumi:"firewallRuleName"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
@@ -149,7 +149,7 @@ type FirewallRuleArgs struct {
 	EndIpAddress pulumi.StringInput
 	// The name of the server firewall rule.
 	FirewallRuleName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput

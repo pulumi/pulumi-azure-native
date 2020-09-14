@@ -54,6 +54,12 @@ func NewDedicatedHsm(ctx *pulumi.Context,
 	if args == nil {
 		args = &DedicatedHsmArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:hardwaresecuritymodules/latest:DedicatedHsm"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DedicatedHsm
 	err := ctx.RegisterResource("azurerm:hardwaresecuritymodules/v20181031preview:DedicatedHsm", name, args, &resource, opts...)
 	if err != nil {

@@ -46,6 +46,12 @@ func NewServerKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerKeyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:dbforpostgresql/latest:ServerKey"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerKey
 	err := ctx.RegisterResource("azurerm:dbforpostgresql/v20200214privatepreview:ServerKey", name, args, &resource, opts...)
 	if err != nil {

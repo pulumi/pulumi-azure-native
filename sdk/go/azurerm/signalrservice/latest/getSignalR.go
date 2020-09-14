@@ -38,9 +38,8 @@ type LookupSignalRResult struct {
 	Features []SignalRFeatureResponse `pulumi:"features"`
 	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
 	HostName string `pulumi:"hostName"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix *string `pulumi:"hostNamePrefix"`
+	// The managed identity response
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind *string `pulumi:"kind"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
@@ -61,6 +60,8 @@ type LookupSignalRResult struct {
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// TLS settings.
+	Tls *SignalRTlsSettingsResponse `pulumi:"tls"`
 	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
 	Type string `pulumi:"type"`
 	// Upstream settings when the Azure SignalR is in server-less mode.

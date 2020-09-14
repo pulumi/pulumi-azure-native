@@ -51,6 +51,12 @@ func NewManagedNetworkGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedNetworkGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:managednetwork/latest:ManagedNetworkGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedNetworkGroup
 	err := ctx.RegisterResource("azurerm:managednetwork/v20190601preview:ManagedNetworkGroup", name, args, &resource, opts...)
 	if err != nil {

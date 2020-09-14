@@ -33,6 +33,9 @@ func NewTenantConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:portal/latest:TenantConfiguration"),
+		},
+		{
 			Type: pulumi.String("azurerm:portal/v20190101preview:TenantConfiguration"),
 		},
 	})

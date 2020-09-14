@@ -65,6 +65,8 @@ import (
 type MongoDBResourceMongoDBCollection struct {
 	pulumi.CustomResourceState
 
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the ARM resource.
@@ -141,6 +143,8 @@ func GetMongoDBResourceMongoDBCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MongoDBResourceMongoDBCollection resources.
 type mongoDBResourceMongoDBCollectionState struct {
+	// Identity for the resource.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the ARM resource.
@@ -154,6 +158,8 @@ type mongoDBResourceMongoDBCollectionState struct {
 }
 
 type MongoDBResourceMongoDBCollectionState struct {
+	// Identity for the resource.
+	Identity ManagedServiceIdentityResponsePtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// The name of the ARM resource.
@@ -177,6 +183,8 @@ type mongoDBResourceMongoDBCollectionArgs struct {
 	CollectionName string `pulumi:"collectionName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
+	// Identity for the resource.
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
@@ -197,6 +205,8 @@ type MongoDBResourceMongoDBCollectionArgs struct {
 	CollectionName pulumi.StringInput
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
+	// Identity for the resource.
+	Identity ManagedServiceIdentityPtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.

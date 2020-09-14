@@ -45,6 +45,12 @@ func NewThreatIntelligenceIndicator(ctx *pulumi.Context,
 	if args == nil {
 		args = &ThreatIntelligenceIndicatorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:securityinsights/latest:ThreatIntelligenceIndicator"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ThreatIntelligenceIndicator
 	err := ctx.RegisterResource("azurerm:securityinsights/v20190101preview:ThreatIntelligenceIndicator", name, args, &resource, opts...)
 	if err != nil {

@@ -131,7 +131,7 @@ type databaseArgs struct {
 	Collation *string `pulumi:"collation"`
 	// The name of the database.
 	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
@@ -145,7 +145,7 @@ type DatabaseArgs struct {
 	Collation pulumi.StringPtrInput
 	// The name of the database.
 	DatabaseName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput

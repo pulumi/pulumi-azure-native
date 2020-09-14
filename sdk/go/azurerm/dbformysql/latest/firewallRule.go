@@ -13,7 +13,7 @@ import (
 // Represents a server firewall rule.
 //
 // ## Example Usage
-// ### FirewallRuleCreate
+// ### Create a firewall rule
 //
 // ```go
 // package main
@@ -76,10 +76,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:dbformysql/v20171201:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azurerm:dbformysql/v20171201preview:FirewallRule"),
+			Type: pulumi.String("azurerm:dbformysql/v20200701privatepreview:FirewallRule"),
 		},
 	})
 	opts = append(opts, aliases)

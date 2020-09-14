@@ -860,6 +860,1669 @@ func (o AssessmentStatusResponsePtrOutput) Description() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionEventHub struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType string `pulumi:"actionType"`
+	// The target Event Hub connection string (it will not be included in any response).
+	ConnectionString *string `pulumi:"connectionString"`
+	// The target Event Hub Azure Resource ID.
+	EventHubResourceId *string `pulumi:"eventHubResourceId"`
+}
+
+// AutomationActionEventHubInput is an input type that accepts AutomationActionEventHubArgs and AutomationActionEventHubOutput values.
+// You can construct a concrete instance of `AutomationActionEventHubInput` via:
+//
+//          AutomationActionEventHubArgs{...}
+type AutomationActionEventHubInput interface {
+	pulumi.Input
+
+	ToAutomationActionEventHubOutput() AutomationActionEventHubOutput
+	ToAutomationActionEventHubOutputWithContext(context.Context) AutomationActionEventHubOutput
+}
+
+// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionEventHubArgs struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The target Event Hub connection string (it will not be included in any response).
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
+	// The target Event Hub Azure Resource ID.
+	EventHubResourceId pulumi.StringPtrInput `pulumi:"eventHubResourceId"`
+}
+
+func (AutomationActionEventHubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionEventHub)(nil)).Elem()
+}
+
+func (i AutomationActionEventHubArgs) ToAutomationActionEventHubOutput() AutomationActionEventHubOutput {
+	return i.ToAutomationActionEventHubOutputWithContext(context.Background())
+}
+
+func (i AutomationActionEventHubArgs) ToAutomationActionEventHubOutputWithContext(ctx context.Context) AutomationActionEventHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionEventHubOutput)
+}
+
+// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionEventHubOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionEventHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionEventHub)(nil)).Elem()
+}
+
+func (o AutomationActionEventHubOutput) ToAutomationActionEventHubOutput() AutomationActionEventHubOutput {
+	return o
+}
+
+func (o AutomationActionEventHubOutput) ToAutomationActionEventHubOutputWithContext(ctx context.Context) AutomationActionEventHubOutput {
+	return o
+}
+
+// The type of the action that will be triggered by the Automation
+func (o AutomationActionEventHubOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionEventHub) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The target Event Hub connection string (it will not be included in any response).
+func (o AutomationActionEventHubOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionEventHub) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The target Event Hub Azure Resource ID.
+func (o AutomationActionEventHubOutput) EventHubResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionEventHub) *string { return v.EventHubResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionEventHubResponse struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType string `pulumi:"actionType"`
+	// The target Event Hub connection string (it will not be included in any response).
+	ConnectionString *string `pulumi:"connectionString"`
+	// The target Event Hub Azure Resource ID.
+	EventHubResourceId *string `pulumi:"eventHubResourceId"`
+	// The target Event Hub SAS policy name.
+	SasPolicyName string `pulumi:"sasPolicyName"`
+}
+
+// AutomationActionEventHubResponseInput is an input type that accepts AutomationActionEventHubResponseArgs and AutomationActionEventHubResponseOutput values.
+// You can construct a concrete instance of `AutomationActionEventHubResponseInput` via:
+//
+//          AutomationActionEventHubResponseArgs{...}
+type AutomationActionEventHubResponseInput interface {
+	pulumi.Input
+
+	ToAutomationActionEventHubResponseOutput() AutomationActionEventHubResponseOutput
+	ToAutomationActionEventHubResponseOutputWithContext(context.Context) AutomationActionEventHubResponseOutput
+}
+
+// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionEventHubResponseArgs struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The target Event Hub connection string (it will not be included in any response).
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
+	// The target Event Hub Azure Resource ID.
+	EventHubResourceId pulumi.StringPtrInput `pulumi:"eventHubResourceId"`
+	// The target Event Hub SAS policy name.
+	SasPolicyName pulumi.StringInput `pulumi:"sasPolicyName"`
+}
+
+func (AutomationActionEventHubResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionEventHubResponse)(nil)).Elem()
+}
+
+func (i AutomationActionEventHubResponseArgs) ToAutomationActionEventHubResponseOutput() AutomationActionEventHubResponseOutput {
+	return i.ToAutomationActionEventHubResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationActionEventHubResponseArgs) ToAutomationActionEventHubResponseOutputWithContext(ctx context.Context) AutomationActionEventHubResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionEventHubResponseOutput)
+}
+
+// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionEventHubResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionEventHubResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionEventHubResponse)(nil)).Elem()
+}
+
+func (o AutomationActionEventHubResponseOutput) ToAutomationActionEventHubResponseOutput() AutomationActionEventHubResponseOutput {
+	return o
+}
+
+func (o AutomationActionEventHubResponseOutput) ToAutomationActionEventHubResponseOutputWithContext(ctx context.Context) AutomationActionEventHubResponseOutput {
+	return o
+}
+
+// The type of the action that will be triggered by the Automation
+func (o AutomationActionEventHubResponseOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionEventHubResponse) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The target Event Hub connection string (it will not be included in any response).
+func (o AutomationActionEventHubResponseOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionEventHubResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The target Event Hub Azure Resource ID.
+func (o AutomationActionEventHubResponseOutput) EventHubResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionEventHubResponse) *string { return v.EventHubResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The target Event Hub SAS policy name.
+func (o AutomationActionEventHubResponseOutput) SasPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionEventHubResponse) string { return v.SasPolicyName }).(pulumi.StringOutput)
+}
+
+// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+type AutomationActionLogicApp struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType string `pulumi:"actionType"`
+	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
+	// The Logic App trigger URI endpoint (it will not be included in any response).
+	Uri *string `pulumi:"uri"`
+}
+
+// AutomationActionLogicAppInput is an input type that accepts AutomationActionLogicAppArgs and AutomationActionLogicAppOutput values.
+// You can construct a concrete instance of `AutomationActionLogicAppInput` via:
+//
+//          AutomationActionLogicAppArgs{...}
+type AutomationActionLogicAppInput interface {
+	pulumi.Input
+
+	ToAutomationActionLogicAppOutput() AutomationActionLogicAppOutput
+	ToAutomationActionLogicAppOutputWithContext(context.Context) AutomationActionLogicAppOutput
+}
+
+// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+type AutomationActionLogicAppArgs struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
+	// The Logic App trigger URI endpoint (it will not be included in any response).
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (AutomationActionLogicAppArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionLogicApp)(nil)).Elem()
+}
+
+func (i AutomationActionLogicAppArgs) ToAutomationActionLogicAppOutput() AutomationActionLogicAppOutput {
+	return i.ToAutomationActionLogicAppOutputWithContext(context.Background())
+}
+
+func (i AutomationActionLogicAppArgs) ToAutomationActionLogicAppOutputWithContext(ctx context.Context) AutomationActionLogicAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionLogicAppOutput)
+}
+
+// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+type AutomationActionLogicAppOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionLogicAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionLogicApp)(nil)).Elem()
+}
+
+func (o AutomationActionLogicAppOutput) ToAutomationActionLogicAppOutput() AutomationActionLogicAppOutput {
+	return o
+}
+
+func (o AutomationActionLogicAppOutput) ToAutomationActionLogicAppOutputWithContext(ctx context.Context) AutomationActionLogicAppOutput {
+	return o
+}
+
+// The type of the action that will be triggered by the Automation
+func (o AutomationActionLogicAppOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionLogicApp) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+func (o AutomationActionLogicAppOutput) LogicAppResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionLogicApp) *string { return v.LogicAppResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The Logic App trigger URI endpoint (it will not be included in any response).
+func (o AutomationActionLogicAppOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionLogicApp) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+type AutomationActionLogicAppResponse struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType string `pulumi:"actionType"`
+	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
+	// The Logic App trigger URI endpoint (it will not be included in any response).
+	Uri *string `pulumi:"uri"`
+}
+
+// AutomationActionLogicAppResponseInput is an input type that accepts AutomationActionLogicAppResponseArgs and AutomationActionLogicAppResponseOutput values.
+// You can construct a concrete instance of `AutomationActionLogicAppResponseInput` via:
+//
+//          AutomationActionLogicAppResponseArgs{...}
+type AutomationActionLogicAppResponseInput interface {
+	pulumi.Input
+
+	ToAutomationActionLogicAppResponseOutput() AutomationActionLogicAppResponseOutput
+	ToAutomationActionLogicAppResponseOutputWithContext(context.Context) AutomationActionLogicAppResponseOutput
+}
+
+// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+type AutomationActionLogicAppResponseArgs struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
+	// The Logic App trigger URI endpoint (it will not be included in any response).
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (AutomationActionLogicAppResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionLogicAppResponse)(nil)).Elem()
+}
+
+func (i AutomationActionLogicAppResponseArgs) ToAutomationActionLogicAppResponseOutput() AutomationActionLogicAppResponseOutput {
+	return i.ToAutomationActionLogicAppResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationActionLogicAppResponseArgs) ToAutomationActionLogicAppResponseOutputWithContext(ctx context.Context) AutomationActionLogicAppResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionLogicAppResponseOutput)
+}
+
+// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+type AutomationActionLogicAppResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionLogicAppResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionLogicAppResponse)(nil)).Elem()
+}
+
+func (o AutomationActionLogicAppResponseOutput) ToAutomationActionLogicAppResponseOutput() AutomationActionLogicAppResponseOutput {
+	return o
+}
+
+func (o AutomationActionLogicAppResponseOutput) ToAutomationActionLogicAppResponseOutputWithContext(ctx context.Context) AutomationActionLogicAppResponseOutput {
+	return o
+}
+
+// The type of the action that will be triggered by the Automation
+func (o AutomationActionLogicAppResponseOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionLogicAppResponse) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+func (o AutomationActionLogicAppResponseOutput) LogicAppResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionLogicAppResponse) *string { return v.LogicAppResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The Logic App trigger URI endpoint (it will not be included in any response).
+func (o AutomationActionLogicAppResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionLogicAppResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionWorkspace struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType string `pulumi:"actionType"`
+	// The fully qualified Log Analytics Workspace Azure Resource ID.
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
+}
+
+// AutomationActionWorkspaceInput is an input type that accepts AutomationActionWorkspaceArgs and AutomationActionWorkspaceOutput values.
+// You can construct a concrete instance of `AutomationActionWorkspaceInput` via:
+//
+//          AutomationActionWorkspaceArgs{...}
+type AutomationActionWorkspaceInput interface {
+	pulumi.Input
+
+	ToAutomationActionWorkspaceOutput() AutomationActionWorkspaceOutput
+	ToAutomationActionWorkspaceOutputWithContext(context.Context) AutomationActionWorkspaceOutput
+}
+
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionWorkspaceArgs struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The fully qualified Log Analytics Workspace Azure Resource ID.
+	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
+}
+
+func (AutomationActionWorkspaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionWorkspace)(nil)).Elem()
+}
+
+func (i AutomationActionWorkspaceArgs) ToAutomationActionWorkspaceOutput() AutomationActionWorkspaceOutput {
+	return i.ToAutomationActionWorkspaceOutputWithContext(context.Background())
+}
+
+func (i AutomationActionWorkspaceArgs) ToAutomationActionWorkspaceOutputWithContext(ctx context.Context) AutomationActionWorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionWorkspaceOutput)
+}
+
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionWorkspaceOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionWorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionWorkspace)(nil)).Elem()
+}
+
+func (o AutomationActionWorkspaceOutput) ToAutomationActionWorkspaceOutput() AutomationActionWorkspaceOutput {
+	return o
+}
+
+func (o AutomationActionWorkspaceOutput) ToAutomationActionWorkspaceOutputWithContext(ctx context.Context) AutomationActionWorkspaceOutput {
+	return o
+}
+
+// The type of the action that will be triggered by the Automation
+func (o AutomationActionWorkspaceOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionWorkspace) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The fully qualified Log Analytics Workspace Azure Resource ID.
+func (o AutomationActionWorkspaceOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionWorkspace) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionWorkspaceResponse struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType string `pulumi:"actionType"`
+	// The fully qualified Log Analytics Workspace Azure Resource ID.
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
+}
+
+// AutomationActionWorkspaceResponseInput is an input type that accepts AutomationActionWorkspaceResponseArgs and AutomationActionWorkspaceResponseOutput values.
+// You can construct a concrete instance of `AutomationActionWorkspaceResponseInput` via:
+//
+//          AutomationActionWorkspaceResponseArgs{...}
+type AutomationActionWorkspaceResponseInput interface {
+	pulumi.Input
+
+	ToAutomationActionWorkspaceResponseOutput() AutomationActionWorkspaceResponseOutput
+	ToAutomationActionWorkspaceResponseOutputWithContext(context.Context) AutomationActionWorkspaceResponseOutput
+}
+
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionWorkspaceResponseArgs struct {
+	// The type of the action that will be triggered by the Automation
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The fully qualified Log Analytics Workspace Azure Resource ID.
+	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
+}
+
+func (AutomationActionWorkspaceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionWorkspaceResponse)(nil)).Elem()
+}
+
+func (i AutomationActionWorkspaceResponseArgs) ToAutomationActionWorkspaceResponseOutput() AutomationActionWorkspaceResponseOutput {
+	return i.ToAutomationActionWorkspaceResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationActionWorkspaceResponseArgs) ToAutomationActionWorkspaceResponseOutputWithContext(ctx context.Context) AutomationActionWorkspaceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionWorkspaceResponseOutput)
+}
+
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionWorkspaceResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionWorkspaceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionWorkspaceResponse)(nil)).Elem()
+}
+
+func (o AutomationActionWorkspaceResponseOutput) ToAutomationActionWorkspaceResponseOutput() AutomationActionWorkspaceResponseOutput {
+	return o
+}
+
+func (o AutomationActionWorkspaceResponseOutput) ToAutomationActionWorkspaceResponseOutputWithContext(ctx context.Context) AutomationActionWorkspaceResponseOutput {
+	return o
+}
+
+// The type of the action that will be triggered by the Automation
+func (o AutomationActionWorkspaceResponseOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionWorkspaceResponse) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The fully qualified Log Analytics Workspace Azure Resource ID.
+func (o AutomationActionWorkspaceResponseOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionWorkspaceResponse) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+type AutomationRuleSet struct {
+	Rules []AutomationTriggeringRule `pulumi:"rules"`
+}
+
+// AutomationRuleSetInput is an input type that accepts AutomationRuleSetArgs and AutomationRuleSetOutput values.
+// You can construct a concrete instance of `AutomationRuleSetInput` via:
+//
+//          AutomationRuleSetArgs{...}
+type AutomationRuleSetInput interface {
+	pulumi.Input
+
+	ToAutomationRuleSetOutput() AutomationRuleSetOutput
+	ToAutomationRuleSetOutputWithContext(context.Context) AutomationRuleSetOutput
+}
+
+// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+type AutomationRuleSetArgs struct {
+	Rules AutomationTriggeringRuleArrayInput `pulumi:"rules"`
+}
+
+func (AutomationRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleSet)(nil)).Elem()
+}
+
+func (i AutomationRuleSetArgs) ToAutomationRuleSetOutput() AutomationRuleSetOutput {
+	return i.ToAutomationRuleSetOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleSetArgs) ToAutomationRuleSetOutputWithContext(ctx context.Context) AutomationRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetOutput)
+}
+
+// AutomationRuleSetArrayInput is an input type that accepts AutomationRuleSetArray and AutomationRuleSetArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleSetArrayInput` via:
+//
+//          AutomationRuleSetArray{ AutomationRuleSetArgs{...} }
+type AutomationRuleSetArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleSetArrayOutput() AutomationRuleSetArrayOutput
+	ToAutomationRuleSetArrayOutputWithContext(context.Context) AutomationRuleSetArrayOutput
+}
+
+type AutomationRuleSetArray []AutomationRuleSetInput
+
+func (AutomationRuleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleSet)(nil)).Elem()
+}
+
+func (i AutomationRuleSetArray) ToAutomationRuleSetArrayOutput() AutomationRuleSetArrayOutput {
+	return i.ToAutomationRuleSetArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleSetArray) ToAutomationRuleSetArrayOutputWithContext(ctx context.Context) AutomationRuleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetArrayOutput)
+}
+
+// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+type AutomationRuleSetOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleSet)(nil)).Elem()
+}
+
+func (o AutomationRuleSetOutput) ToAutomationRuleSetOutput() AutomationRuleSetOutput {
+	return o
+}
+
+func (o AutomationRuleSetOutput) ToAutomationRuleSetOutputWithContext(ctx context.Context) AutomationRuleSetOutput {
+	return o
+}
+
+func (o AutomationRuleSetOutput) Rules() AutomationTriggeringRuleArrayOutput {
+	return o.ApplyT(func(v AutomationRuleSet) []AutomationTriggeringRule { return v.Rules }).(AutomationTriggeringRuleArrayOutput)
+}
+
+type AutomationRuleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleSet)(nil)).Elem()
+}
+
+func (o AutomationRuleSetArrayOutput) ToAutomationRuleSetArrayOutput() AutomationRuleSetArrayOutput {
+	return o
+}
+
+func (o AutomationRuleSetArrayOutput) ToAutomationRuleSetArrayOutputWithContext(ctx context.Context) AutomationRuleSetArrayOutput {
+	return o
+}
+
+func (o AutomationRuleSetArrayOutput) Index(i pulumi.IntInput) AutomationRuleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleSet {
+		return vs[0].([]AutomationRuleSet)[vs[1].(int)]
+	}).(AutomationRuleSetOutput)
+}
+
+// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+type AutomationRuleSetResponse struct {
+	Rules []AutomationTriggeringRuleResponse `pulumi:"rules"`
+}
+
+// AutomationRuleSetResponseInput is an input type that accepts AutomationRuleSetResponseArgs and AutomationRuleSetResponseOutput values.
+// You can construct a concrete instance of `AutomationRuleSetResponseInput` via:
+//
+//          AutomationRuleSetResponseArgs{...}
+type AutomationRuleSetResponseInput interface {
+	pulumi.Input
+
+	ToAutomationRuleSetResponseOutput() AutomationRuleSetResponseOutput
+	ToAutomationRuleSetResponseOutputWithContext(context.Context) AutomationRuleSetResponseOutput
+}
+
+// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+type AutomationRuleSetResponseArgs struct {
+	Rules AutomationTriggeringRuleResponseArrayInput `pulumi:"rules"`
+}
+
+func (AutomationRuleSetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleSetResponse)(nil)).Elem()
+}
+
+func (i AutomationRuleSetResponseArgs) ToAutomationRuleSetResponseOutput() AutomationRuleSetResponseOutput {
+	return i.ToAutomationRuleSetResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleSetResponseArgs) ToAutomationRuleSetResponseOutputWithContext(ctx context.Context) AutomationRuleSetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetResponseOutput)
+}
+
+// AutomationRuleSetResponseArrayInput is an input type that accepts AutomationRuleSetResponseArray and AutomationRuleSetResponseArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleSetResponseArrayInput` via:
+//
+//          AutomationRuleSetResponseArray{ AutomationRuleSetResponseArgs{...} }
+type AutomationRuleSetResponseArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleSetResponseArrayOutput() AutomationRuleSetResponseArrayOutput
+	ToAutomationRuleSetResponseArrayOutputWithContext(context.Context) AutomationRuleSetResponseArrayOutput
+}
+
+type AutomationRuleSetResponseArray []AutomationRuleSetResponseInput
+
+func (AutomationRuleSetResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleSetResponse)(nil)).Elem()
+}
+
+func (i AutomationRuleSetResponseArray) ToAutomationRuleSetResponseArrayOutput() AutomationRuleSetResponseArrayOutput {
+	return i.ToAutomationRuleSetResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleSetResponseArray) ToAutomationRuleSetResponseArrayOutputWithContext(ctx context.Context) AutomationRuleSetResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetResponseArrayOutput)
+}
+
+// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+type AutomationRuleSetResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleSetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleSetResponse)(nil)).Elem()
+}
+
+func (o AutomationRuleSetResponseOutput) ToAutomationRuleSetResponseOutput() AutomationRuleSetResponseOutput {
+	return o
+}
+
+func (o AutomationRuleSetResponseOutput) ToAutomationRuleSetResponseOutputWithContext(ctx context.Context) AutomationRuleSetResponseOutput {
+	return o
+}
+
+func (o AutomationRuleSetResponseOutput) Rules() AutomationTriggeringRuleResponseArrayOutput {
+	return o.ApplyT(func(v AutomationRuleSetResponse) []AutomationTriggeringRuleResponse { return v.Rules }).(AutomationTriggeringRuleResponseArrayOutput)
+}
+
+type AutomationRuleSetResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleSetResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleSetResponse)(nil)).Elem()
+}
+
+func (o AutomationRuleSetResponseArrayOutput) ToAutomationRuleSetResponseArrayOutput() AutomationRuleSetResponseArrayOutput {
+	return o
+}
+
+func (o AutomationRuleSetResponseArrayOutput) ToAutomationRuleSetResponseArrayOutputWithContext(ctx context.Context) AutomationRuleSetResponseArrayOutput {
+	return o
+}
+
+func (o AutomationRuleSetResponseArrayOutput) Index(i pulumi.IntInput) AutomationRuleSetResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleSetResponse {
+		return vs[0].([]AutomationRuleSetResponse)[vs[1].(int)]
+	}).(AutomationRuleSetResponseOutput)
+}
+
+// A single automation scope.
+type AutomationScope struct {
+	// The resources scope description.
+	Description *string `pulumi:"description"`
+	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+	ScopePath *string `pulumi:"scopePath"`
+}
+
+// AutomationScopeInput is an input type that accepts AutomationScopeArgs and AutomationScopeOutput values.
+// You can construct a concrete instance of `AutomationScopeInput` via:
+//
+//          AutomationScopeArgs{...}
+type AutomationScopeInput interface {
+	pulumi.Input
+
+	ToAutomationScopeOutput() AutomationScopeOutput
+	ToAutomationScopeOutputWithContext(context.Context) AutomationScopeOutput
+}
+
+// A single automation scope.
+type AutomationScopeArgs struct {
+	// The resources scope description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+	ScopePath pulumi.StringPtrInput `pulumi:"scopePath"`
+}
+
+func (AutomationScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationScope)(nil)).Elem()
+}
+
+func (i AutomationScopeArgs) ToAutomationScopeOutput() AutomationScopeOutput {
+	return i.ToAutomationScopeOutputWithContext(context.Background())
+}
+
+func (i AutomationScopeArgs) ToAutomationScopeOutputWithContext(ctx context.Context) AutomationScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeOutput)
+}
+
+// AutomationScopeArrayInput is an input type that accepts AutomationScopeArray and AutomationScopeArrayOutput values.
+// You can construct a concrete instance of `AutomationScopeArrayInput` via:
+//
+//          AutomationScopeArray{ AutomationScopeArgs{...} }
+type AutomationScopeArrayInput interface {
+	pulumi.Input
+
+	ToAutomationScopeArrayOutput() AutomationScopeArrayOutput
+	ToAutomationScopeArrayOutputWithContext(context.Context) AutomationScopeArrayOutput
+}
+
+type AutomationScopeArray []AutomationScopeInput
+
+func (AutomationScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationScope)(nil)).Elem()
+}
+
+func (i AutomationScopeArray) ToAutomationScopeArrayOutput() AutomationScopeArrayOutput {
+	return i.ToAutomationScopeArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationScopeArray) ToAutomationScopeArrayOutputWithContext(ctx context.Context) AutomationScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeArrayOutput)
+}
+
+// A single automation scope.
+type AutomationScopeOutput struct{ *pulumi.OutputState }
+
+func (AutomationScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationScope)(nil)).Elem()
+}
+
+func (o AutomationScopeOutput) ToAutomationScopeOutput() AutomationScopeOutput {
+	return o
+}
+
+func (o AutomationScopeOutput) ToAutomationScopeOutputWithContext(ctx context.Context) AutomationScopeOutput {
+	return o
+}
+
+// The resources scope description.
+func (o AutomationScopeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationScope) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+func (o AutomationScopeOutput) ScopePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationScope) *string { return v.ScopePath }).(pulumi.StringPtrOutput)
+}
+
+type AutomationScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationScope)(nil)).Elem()
+}
+
+func (o AutomationScopeArrayOutput) ToAutomationScopeArrayOutput() AutomationScopeArrayOutput {
+	return o
+}
+
+func (o AutomationScopeArrayOutput) ToAutomationScopeArrayOutputWithContext(ctx context.Context) AutomationScopeArrayOutput {
+	return o
+}
+
+func (o AutomationScopeArrayOutput) Index(i pulumi.IntInput) AutomationScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationScope {
+		return vs[0].([]AutomationScope)[vs[1].(int)]
+	}).(AutomationScopeOutput)
+}
+
+// A single automation scope.
+type AutomationScopeResponse struct {
+	// The resources scope description.
+	Description *string `pulumi:"description"`
+	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+	ScopePath *string `pulumi:"scopePath"`
+}
+
+// AutomationScopeResponseInput is an input type that accepts AutomationScopeResponseArgs and AutomationScopeResponseOutput values.
+// You can construct a concrete instance of `AutomationScopeResponseInput` via:
+//
+//          AutomationScopeResponseArgs{...}
+type AutomationScopeResponseInput interface {
+	pulumi.Input
+
+	ToAutomationScopeResponseOutput() AutomationScopeResponseOutput
+	ToAutomationScopeResponseOutputWithContext(context.Context) AutomationScopeResponseOutput
+}
+
+// A single automation scope.
+type AutomationScopeResponseArgs struct {
+	// The resources scope description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+	ScopePath pulumi.StringPtrInput `pulumi:"scopePath"`
+}
+
+func (AutomationScopeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationScopeResponse)(nil)).Elem()
+}
+
+func (i AutomationScopeResponseArgs) ToAutomationScopeResponseOutput() AutomationScopeResponseOutput {
+	return i.ToAutomationScopeResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationScopeResponseArgs) ToAutomationScopeResponseOutputWithContext(ctx context.Context) AutomationScopeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeResponseOutput)
+}
+
+// AutomationScopeResponseArrayInput is an input type that accepts AutomationScopeResponseArray and AutomationScopeResponseArrayOutput values.
+// You can construct a concrete instance of `AutomationScopeResponseArrayInput` via:
+//
+//          AutomationScopeResponseArray{ AutomationScopeResponseArgs{...} }
+type AutomationScopeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAutomationScopeResponseArrayOutput() AutomationScopeResponseArrayOutput
+	ToAutomationScopeResponseArrayOutputWithContext(context.Context) AutomationScopeResponseArrayOutput
+}
+
+type AutomationScopeResponseArray []AutomationScopeResponseInput
+
+func (AutomationScopeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationScopeResponse)(nil)).Elem()
+}
+
+func (i AutomationScopeResponseArray) ToAutomationScopeResponseArrayOutput() AutomationScopeResponseArrayOutput {
+	return i.ToAutomationScopeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationScopeResponseArray) ToAutomationScopeResponseArrayOutputWithContext(ctx context.Context) AutomationScopeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeResponseArrayOutput)
+}
+
+// A single automation scope.
+type AutomationScopeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationScopeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationScopeResponse)(nil)).Elem()
+}
+
+func (o AutomationScopeResponseOutput) ToAutomationScopeResponseOutput() AutomationScopeResponseOutput {
+	return o
+}
+
+func (o AutomationScopeResponseOutput) ToAutomationScopeResponseOutputWithContext(ctx context.Context) AutomationScopeResponseOutput {
+	return o
+}
+
+// The resources scope description.
+func (o AutomationScopeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationScopeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+func (o AutomationScopeResponseOutput) ScopePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationScopeResponse) *string { return v.ScopePath }).(pulumi.StringPtrOutput)
+}
+
+type AutomationScopeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationScopeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationScopeResponse)(nil)).Elem()
+}
+
+func (o AutomationScopeResponseArrayOutput) ToAutomationScopeResponseArrayOutput() AutomationScopeResponseArrayOutput {
+	return o
+}
+
+func (o AutomationScopeResponseArrayOutput) ToAutomationScopeResponseArrayOutputWithContext(ctx context.Context) AutomationScopeResponseArrayOutput {
+	return o
+}
+
+func (o AutomationScopeResponseArrayOutput) Index(i pulumi.IntInput) AutomationScopeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationScopeResponse {
+		return vs[0].([]AutomationScopeResponse)[vs[1].(int)]
+	}).(AutomationScopeResponseOutput)
+}
+
+// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+type AutomationSource struct {
+	// A valid event source type.
+	EventSource *string `pulumi:"eventSource"`
+	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+	RuleSets []AutomationRuleSet `pulumi:"ruleSets"`
+}
+
+// AutomationSourceInput is an input type that accepts AutomationSourceArgs and AutomationSourceOutput values.
+// You can construct a concrete instance of `AutomationSourceInput` via:
+//
+//          AutomationSourceArgs{...}
+type AutomationSourceInput interface {
+	pulumi.Input
+
+	ToAutomationSourceOutput() AutomationSourceOutput
+	ToAutomationSourceOutputWithContext(context.Context) AutomationSourceOutput
+}
+
+// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+type AutomationSourceArgs struct {
+	// A valid event source type.
+	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
+	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+	RuleSets AutomationRuleSetArrayInput `pulumi:"ruleSets"`
+}
+
+func (AutomationSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationSource)(nil)).Elem()
+}
+
+func (i AutomationSourceArgs) ToAutomationSourceOutput() AutomationSourceOutput {
+	return i.ToAutomationSourceOutputWithContext(context.Background())
+}
+
+func (i AutomationSourceArgs) ToAutomationSourceOutputWithContext(ctx context.Context) AutomationSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceOutput)
+}
+
+// AutomationSourceArrayInput is an input type that accepts AutomationSourceArray and AutomationSourceArrayOutput values.
+// You can construct a concrete instance of `AutomationSourceArrayInput` via:
+//
+//          AutomationSourceArray{ AutomationSourceArgs{...} }
+type AutomationSourceArrayInput interface {
+	pulumi.Input
+
+	ToAutomationSourceArrayOutput() AutomationSourceArrayOutput
+	ToAutomationSourceArrayOutputWithContext(context.Context) AutomationSourceArrayOutput
+}
+
+type AutomationSourceArray []AutomationSourceInput
+
+func (AutomationSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationSource)(nil)).Elem()
+}
+
+func (i AutomationSourceArray) ToAutomationSourceArrayOutput() AutomationSourceArrayOutput {
+	return i.ToAutomationSourceArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationSourceArray) ToAutomationSourceArrayOutputWithContext(ctx context.Context) AutomationSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceArrayOutput)
+}
+
+// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+type AutomationSourceOutput struct{ *pulumi.OutputState }
+
+func (AutomationSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationSource)(nil)).Elem()
+}
+
+func (o AutomationSourceOutput) ToAutomationSourceOutput() AutomationSourceOutput {
+	return o
+}
+
+func (o AutomationSourceOutput) ToAutomationSourceOutputWithContext(ctx context.Context) AutomationSourceOutput {
+	return o
+}
+
+// A valid event source type.
+func (o AutomationSourceOutput) EventSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationSource) *string { return v.EventSource }).(pulumi.StringPtrOutput)
+}
+
+// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+func (o AutomationSourceOutput) RuleSets() AutomationRuleSetArrayOutput {
+	return o.ApplyT(func(v AutomationSource) []AutomationRuleSet { return v.RuleSets }).(AutomationRuleSetArrayOutput)
+}
+
+type AutomationSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationSource)(nil)).Elem()
+}
+
+func (o AutomationSourceArrayOutput) ToAutomationSourceArrayOutput() AutomationSourceArrayOutput {
+	return o
+}
+
+func (o AutomationSourceArrayOutput) ToAutomationSourceArrayOutputWithContext(ctx context.Context) AutomationSourceArrayOutput {
+	return o
+}
+
+func (o AutomationSourceArrayOutput) Index(i pulumi.IntInput) AutomationSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationSource {
+		return vs[0].([]AutomationSource)[vs[1].(int)]
+	}).(AutomationSourceOutput)
+}
+
+// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+type AutomationSourceResponse struct {
+	// A valid event source type.
+	EventSource *string `pulumi:"eventSource"`
+	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+	RuleSets []AutomationRuleSetResponse `pulumi:"ruleSets"`
+}
+
+// AutomationSourceResponseInput is an input type that accepts AutomationSourceResponseArgs and AutomationSourceResponseOutput values.
+// You can construct a concrete instance of `AutomationSourceResponseInput` via:
+//
+//          AutomationSourceResponseArgs{...}
+type AutomationSourceResponseInput interface {
+	pulumi.Input
+
+	ToAutomationSourceResponseOutput() AutomationSourceResponseOutput
+	ToAutomationSourceResponseOutputWithContext(context.Context) AutomationSourceResponseOutput
+}
+
+// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+type AutomationSourceResponseArgs struct {
+	// A valid event source type.
+	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
+	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+	RuleSets AutomationRuleSetResponseArrayInput `pulumi:"ruleSets"`
+}
+
+func (AutomationSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationSourceResponse)(nil)).Elem()
+}
+
+func (i AutomationSourceResponseArgs) ToAutomationSourceResponseOutput() AutomationSourceResponseOutput {
+	return i.ToAutomationSourceResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationSourceResponseArgs) ToAutomationSourceResponseOutputWithContext(ctx context.Context) AutomationSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceResponseOutput)
+}
+
+// AutomationSourceResponseArrayInput is an input type that accepts AutomationSourceResponseArray and AutomationSourceResponseArrayOutput values.
+// You can construct a concrete instance of `AutomationSourceResponseArrayInput` via:
+//
+//          AutomationSourceResponseArray{ AutomationSourceResponseArgs{...} }
+type AutomationSourceResponseArrayInput interface {
+	pulumi.Input
+
+	ToAutomationSourceResponseArrayOutput() AutomationSourceResponseArrayOutput
+	ToAutomationSourceResponseArrayOutputWithContext(context.Context) AutomationSourceResponseArrayOutput
+}
+
+type AutomationSourceResponseArray []AutomationSourceResponseInput
+
+func (AutomationSourceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationSourceResponse)(nil)).Elem()
+}
+
+func (i AutomationSourceResponseArray) ToAutomationSourceResponseArrayOutput() AutomationSourceResponseArrayOutput {
+	return i.ToAutomationSourceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationSourceResponseArray) ToAutomationSourceResponseArrayOutputWithContext(ctx context.Context) AutomationSourceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceResponseArrayOutput)
+}
+
+// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+type AutomationSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationSourceResponse)(nil)).Elem()
+}
+
+func (o AutomationSourceResponseOutput) ToAutomationSourceResponseOutput() AutomationSourceResponseOutput {
+	return o
+}
+
+func (o AutomationSourceResponseOutput) ToAutomationSourceResponseOutputWithContext(ctx context.Context) AutomationSourceResponseOutput {
+	return o
+}
+
+// A valid event source type.
+func (o AutomationSourceResponseOutput) EventSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationSourceResponse) *string { return v.EventSource }).(pulumi.StringPtrOutput)
+}
+
+// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+func (o AutomationSourceResponseOutput) RuleSets() AutomationRuleSetResponseArrayOutput {
+	return o.ApplyT(func(v AutomationSourceResponse) []AutomationRuleSetResponse { return v.RuleSets }).(AutomationRuleSetResponseArrayOutput)
+}
+
+type AutomationSourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationSourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationSourceResponse)(nil)).Elem()
+}
+
+func (o AutomationSourceResponseArrayOutput) ToAutomationSourceResponseArrayOutput() AutomationSourceResponseArrayOutput {
+	return o
+}
+
+func (o AutomationSourceResponseArrayOutput) ToAutomationSourceResponseArrayOutputWithContext(ctx context.Context) AutomationSourceResponseArrayOutput {
+	return o
+}
+
+func (o AutomationSourceResponseArrayOutput) Index(i pulumi.IntInput) AutomationSourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationSourceResponse {
+		return vs[0].([]AutomationSourceResponse)[vs[1].(int)]
+	}).(AutomationSourceResponseOutput)
+}
+
+// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+type AutomationTriggeringRule struct {
+	// The expected value.
+	ExpectedValue *string `pulumi:"expectedValue"`
+	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+	Operator *string `pulumi:"operator"`
+	// The JPath of the entity model property that should be checked.
+	PropertyJPath *string `pulumi:"propertyJPath"`
+	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+	PropertyType *string `pulumi:"propertyType"`
+}
+
+// AutomationTriggeringRuleInput is an input type that accepts AutomationTriggeringRuleArgs and AutomationTriggeringRuleOutput values.
+// You can construct a concrete instance of `AutomationTriggeringRuleInput` via:
+//
+//          AutomationTriggeringRuleArgs{...}
+type AutomationTriggeringRuleInput interface {
+	pulumi.Input
+
+	ToAutomationTriggeringRuleOutput() AutomationTriggeringRuleOutput
+	ToAutomationTriggeringRuleOutputWithContext(context.Context) AutomationTriggeringRuleOutput
+}
+
+// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+type AutomationTriggeringRuleArgs struct {
+	// The expected value.
+	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
+	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The JPath of the entity model property that should be checked.
+	PropertyJPath pulumi.StringPtrInput `pulumi:"propertyJPath"`
+	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+	PropertyType pulumi.StringPtrInput `pulumi:"propertyType"`
+}
+
+func (AutomationTriggeringRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationTriggeringRule)(nil)).Elem()
+}
+
+func (i AutomationTriggeringRuleArgs) ToAutomationTriggeringRuleOutput() AutomationTriggeringRuleOutput {
+	return i.ToAutomationTriggeringRuleOutputWithContext(context.Background())
+}
+
+func (i AutomationTriggeringRuleArgs) ToAutomationTriggeringRuleOutputWithContext(ctx context.Context) AutomationTriggeringRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleOutput)
+}
+
+// AutomationTriggeringRuleArrayInput is an input type that accepts AutomationTriggeringRuleArray and AutomationTriggeringRuleArrayOutput values.
+// You can construct a concrete instance of `AutomationTriggeringRuleArrayInput` via:
+//
+//          AutomationTriggeringRuleArray{ AutomationTriggeringRuleArgs{...} }
+type AutomationTriggeringRuleArrayInput interface {
+	pulumi.Input
+
+	ToAutomationTriggeringRuleArrayOutput() AutomationTriggeringRuleArrayOutput
+	ToAutomationTriggeringRuleArrayOutputWithContext(context.Context) AutomationTriggeringRuleArrayOutput
+}
+
+type AutomationTriggeringRuleArray []AutomationTriggeringRuleInput
+
+func (AutomationTriggeringRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationTriggeringRule)(nil)).Elem()
+}
+
+func (i AutomationTriggeringRuleArray) ToAutomationTriggeringRuleArrayOutput() AutomationTriggeringRuleArrayOutput {
+	return i.ToAutomationTriggeringRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationTriggeringRuleArray) ToAutomationTriggeringRuleArrayOutputWithContext(ctx context.Context) AutomationTriggeringRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleArrayOutput)
+}
+
+// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+type AutomationTriggeringRuleOutput struct{ *pulumi.OutputState }
+
+func (AutomationTriggeringRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationTriggeringRule)(nil)).Elem()
+}
+
+func (o AutomationTriggeringRuleOutput) ToAutomationTriggeringRuleOutput() AutomationTriggeringRuleOutput {
+	return o
+}
+
+func (o AutomationTriggeringRuleOutput) ToAutomationTriggeringRuleOutputWithContext(ctx context.Context) AutomationTriggeringRuleOutput {
+	return o
+}
+
+// The expected value.
+func (o AutomationTriggeringRuleOutput) ExpectedValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
+}
+
+// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+func (o AutomationTriggeringRuleOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The JPath of the entity model property that should be checked.
+func (o AutomationTriggeringRuleOutput) PropertyJPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.PropertyJPath }).(pulumi.StringPtrOutput)
+}
+
+// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+func (o AutomationTriggeringRuleOutput) PropertyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.PropertyType }).(pulumi.StringPtrOutput)
+}
+
+type AutomationTriggeringRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationTriggeringRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationTriggeringRule)(nil)).Elem()
+}
+
+func (o AutomationTriggeringRuleArrayOutput) ToAutomationTriggeringRuleArrayOutput() AutomationTriggeringRuleArrayOutput {
+	return o
+}
+
+func (o AutomationTriggeringRuleArrayOutput) ToAutomationTriggeringRuleArrayOutputWithContext(ctx context.Context) AutomationTriggeringRuleArrayOutput {
+	return o
+}
+
+func (o AutomationTriggeringRuleArrayOutput) Index(i pulumi.IntInput) AutomationTriggeringRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationTriggeringRule {
+		return vs[0].([]AutomationTriggeringRule)[vs[1].(int)]
+	}).(AutomationTriggeringRuleOutput)
+}
+
+// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+type AutomationTriggeringRuleResponse struct {
+	// The expected value.
+	ExpectedValue *string `pulumi:"expectedValue"`
+	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+	Operator *string `pulumi:"operator"`
+	// The JPath of the entity model property that should be checked.
+	PropertyJPath *string `pulumi:"propertyJPath"`
+	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+	PropertyType *string `pulumi:"propertyType"`
+}
+
+// AutomationTriggeringRuleResponseInput is an input type that accepts AutomationTriggeringRuleResponseArgs and AutomationTriggeringRuleResponseOutput values.
+// You can construct a concrete instance of `AutomationTriggeringRuleResponseInput` via:
+//
+//          AutomationTriggeringRuleResponseArgs{...}
+type AutomationTriggeringRuleResponseInput interface {
+	pulumi.Input
+
+	ToAutomationTriggeringRuleResponseOutput() AutomationTriggeringRuleResponseOutput
+	ToAutomationTriggeringRuleResponseOutputWithContext(context.Context) AutomationTriggeringRuleResponseOutput
+}
+
+// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+type AutomationTriggeringRuleResponseArgs struct {
+	// The expected value.
+	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
+	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The JPath of the entity model property that should be checked.
+	PropertyJPath pulumi.StringPtrInput `pulumi:"propertyJPath"`
+	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+	PropertyType pulumi.StringPtrInput `pulumi:"propertyType"`
+}
+
+func (AutomationTriggeringRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationTriggeringRuleResponse)(nil)).Elem()
+}
+
+func (i AutomationTriggeringRuleResponseArgs) ToAutomationTriggeringRuleResponseOutput() AutomationTriggeringRuleResponseOutput {
+	return i.ToAutomationTriggeringRuleResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationTriggeringRuleResponseArgs) ToAutomationTriggeringRuleResponseOutputWithContext(ctx context.Context) AutomationTriggeringRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleResponseOutput)
+}
+
+// AutomationTriggeringRuleResponseArrayInput is an input type that accepts AutomationTriggeringRuleResponseArray and AutomationTriggeringRuleResponseArrayOutput values.
+// You can construct a concrete instance of `AutomationTriggeringRuleResponseArrayInput` via:
+//
+//          AutomationTriggeringRuleResponseArray{ AutomationTriggeringRuleResponseArgs{...} }
+type AutomationTriggeringRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToAutomationTriggeringRuleResponseArrayOutput() AutomationTriggeringRuleResponseArrayOutput
+	ToAutomationTriggeringRuleResponseArrayOutputWithContext(context.Context) AutomationTriggeringRuleResponseArrayOutput
+}
+
+type AutomationTriggeringRuleResponseArray []AutomationTriggeringRuleResponseInput
+
+func (AutomationTriggeringRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationTriggeringRuleResponse)(nil)).Elem()
+}
+
+func (i AutomationTriggeringRuleResponseArray) ToAutomationTriggeringRuleResponseArrayOutput() AutomationTriggeringRuleResponseArrayOutput {
+	return i.ToAutomationTriggeringRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationTriggeringRuleResponseArray) ToAutomationTriggeringRuleResponseArrayOutputWithContext(ctx context.Context) AutomationTriggeringRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleResponseArrayOutput)
+}
+
+// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+type AutomationTriggeringRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationTriggeringRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationTriggeringRuleResponse)(nil)).Elem()
+}
+
+func (o AutomationTriggeringRuleResponseOutput) ToAutomationTriggeringRuleResponseOutput() AutomationTriggeringRuleResponseOutput {
+	return o
+}
+
+func (o AutomationTriggeringRuleResponseOutput) ToAutomationTriggeringRuleResponseOutputWithContext(ctx context.Context) AutomationTriggeringRuleResponseOutput {
+	return o
+}
+
+// The expected value.
+func (o AutomationTriggeringRuleResponseOutput) ExpectedValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRuleResponse) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
+}
+
+// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+func (o AutomationTriggeringRuleResponseOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRuleResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The JPath of the entity model property that should be checked.
+func (o AutomationTriggeringRuleResponseOutput) PropertyJPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRuleResponse) *string { return v.PropertyJPath }).(pulumi.StringPtrOutput)
+}
+
+// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+func (o AutomationTriggeringRuleResponseOutput) PropertyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRuleResponse) *string { return v.PropertyType }).(pulumi.StringPtrOutput)
+}
+
+type AutomationTriggeringRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationTriggeringRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationTriggeringRuleResponse)(nil)).Elem()
+}
+
+func (o AutomationTriggeringRuleResponseArrayOutput) ToAutomationTriggeringRuleResponseArrayOutput() AutomationTriggeringRuleResponseArrayOutput {
+	return o
+}
+
+func (o AutomationTriggeringRuleResponseArrayOutput) ToAutomationTriggeringRuleResponseArrayOutputWithContext(ctx context.Context) AutomationTriggeringRuleResponseArrayOutput {
+	return o
+}
+
+func (o AutomationTriggeringRuleResponseArrayOutput) Index(i pulumi.IntInput) AutomationTriggeringRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationTriggeringRuleResponse {
+		return vs[0].([]AutomationTriggeringRuleResponse)[vs[1].(int)]
+	}).(AutomationTriggeringRuleResponseOutput)
+}
+
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsProperties struct {
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Assumed role ID is an identifier that you can use to create temporary security credentials.
+	AwsAssumeRoleArn string `pulumi:"awsAssumeRoleArn"`
+	// A unique identifier that is required when you assume a role in another account.
+	AwsExternalId string `pulumi:"awsExternalId"`
+}
+
+// AwAssumeRoleAuthenticationDetailsPropertiesInput is an input type that accepts AwAssumeRoleAuthenticationDetailsPropertiesArgs and AwAssumeRoleAuthenticationDetailsPropertiesOutput values.
+// You can construct a concrete instance of `AwAssumeRoleAuthenticationDetailsPropertiesInput` via:
+//
+//          AwAssumeRoleAuthenticationDetailsPropertiesArgs{...}
+type AwAssumeRoleAuthenticationDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToAwAssumeRoleAuthenticationDetailsPropertiesOutput() AwAssumeRoleAuthenticationDetailsPropertiesOutput
+	ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesOutput
+}
+
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesArgs struct {
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Assumed role ID is an identifier that you can use to create temporary security credentials.
+	AwsAssumeRoleArn pulumi.StringInput `pulumi:"awsAssumeRoleArn"`
+	// A unique identifier that is required when you assume a role in another account.
+	AwsExternalId pulumi.StringInput `pulumi:"awsExternalId"`
+}
+
+func (AwAssumeRoleAuthenticationDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwAssumeRoleAuthenticationDetailsProperties)(nil)).Elem()
+}
+
+func (i AwAssumeRoleAuthenticationDetailsPropertiesArgs) ToAwAssumeRoleAuthenticationDetailsPropertiesOutput() AwAssumeRoleAuthenticationDetailsPropertiesOutput {
+	return i.ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i AwAssumeRoleAuthenticationDetailsPropertiesArgs) ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(ctx context.Context) AwAssumeRoleAuthenticationDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesOutput)
+}
+
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AwAssumeRoleAuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwAssumeRoleAuthenticationDetailsProperties)(nil)).Elem()
+}
+
+func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) ToAwAssumeRoleAuthenticationDetailsPropertiesOutput() AwAssumeRoleAuthenticationDetailsPropertiesOutput {
+	return o
+}
+
+func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(ctx context.Context) AwAssumeRoleAuthenticationDetailsPropertiesOutput {
+	return o
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Assumed role ID is an identifier that you can use to create temporary security credentials.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AwsAssumeRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AwsAssumeRoleArn }).(pulumi.StringOutput)
+}
+
+// A unique identifier that is required when you assume a role in another account.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AwsExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AwsExternalId }).(pulumi.StringOutput)
+}
+
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesResponse struct {
+	// The ID of the cloud account
+	AccountId string `pulumi:"accountId"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Assumed role ID is an identifier that you can use to create temporary security credentials.
+	AwsAssumeRoleArn string `pulumi:"awsAssumeRoleArn"`
+	// A unique identifier that is required when you assume a role in another account.
+	AwsExternalId string `pulumi:"awsExternalId"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions []string `pulumi:"grantedPermissions"`
+}
+
+// AwAssumeRoleAuthenticationDetailsPropertiesResponseInput is an input type that accepts AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs and AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput values.
+// You can construct a concrete instance of `AwAssumeRoleAuthenticationDetailsPropertiesResponseInput` via:
+//
+//          AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs{...}
+type AwAssumeRoleAuthenticationDetailsPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutput() AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput
+	ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput
+}
+
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs struct {
+	// The ID of the cloud account
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Assumed role ID is an identifier that you can use to create temporary security credentials.
+	AwsAssumeRoleArn pulumi.StringInput `pulumi:"awsAssumeRoleArn"`
+	// A unique identifier that is required when you assume a role in another account.
+	AwsExternalId pulumi.StringInput `pulumi:"awsExternalId"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+}
+
+func (AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwAssumeRoleAuthenticationDetailsPropertiesResponse)(nil)).Elem()
+}
+
+func (i AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs) ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutput() AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput {
+	return i.ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs) ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(ctx context.Context) AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput)
+}
+
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwAssumeRoleAuthenticationDetailsPropertiesResponse)(nil)).Elem()
+}
+
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutput() AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput {
+	return o
+}
+
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(ctx context.Context) AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput {
+	return o
+}
+
+// The ID of the cloud account
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// State of the multi-cloud connector
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string {
+		return v.AuthenticationProvisioningState
+	}).(pulumi.StringOutput)
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Assumed role ID is an identifier that you can use to create temporary security credentials.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AwsAssumeRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AwsAssumeRoleArn }).(pulumi.StringOutput)
+}
+
+// A unique identifier that is required when you assume a role in another account.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AwsExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AwsExternalId }).(pulumi.StringOutput)
+}
+
+// The permissions detected in the cloud account.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsProperties struct {
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Public key element of the AWS credential object (write only)
+	AwsAccessKeyId string `pulumi:"awsAccessKeyId"`
+	// Secret key element of the AWS credential object (write only)
+	AwsSecretAccessKey string `pulumi:"awsSecretAccessKey"`
+}
+
+// AwsCredsAuthenticationDetailsPropertiesInput is an input type that accepts AwsCredsAuthenticationDetailsPropertiesArgs and AwsCredsAuthenticationDetailsPropertiesOutput values.
+// You can construct a concrete instance of `AwsCredsAuthenticationDetailsPropertiesInput` via:
+//
+//          AwsCredsAuthenticationDetailsPropertiesArgs{...}
+type AwsCredsAuthenticationDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToAwsCredsAuthenticationDetailsPropertiesOutput() AwsCredsAuthenticationDetailsPropertiesOutput
+	ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesOutput
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesArgs struct {
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Public key element of the AWS credential object (write only)
+	AwsAccessKeyId pulumi.StringInput `pulumi:"awsAccessKeyId"`
+	// Secret key element of the AWS credential object (write only)
+	AwsSecretAccessKey pulumi.StringInput `pulumi:"awsSecretAccessKey"`
+}
+
+func (AwsCredsAuthenticationDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCredsAuthenticationDetailsProperties)(nil)).Elem()
+}
+
+func (i AwsCredsAuthenticationDetailsPropertiesArgs) ToAwsCredsAuthenticationDetailsPropertiesOutput() AwsCredsAuthenticationDetailsPropertiesOutput {
+	return i.ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i AwsCredsAuthenticationDetailsPropertiesArgs) ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(ctx context.Context) AwsCredsAuthenticationDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesOutput)
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AwsCredsAuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCredsAuthenticationDetailsProperties)(nil)).Elem()
+}
+
+func (o AwsCredsAuthenticationDetailsPropertiesOutput) ToAwsCredsAuthenticationDetailsPropertiesOutput() AwsCredsAuthenticationDetailsPropertiesOutput {
+	return o
+}
+
+func (o AwsCredsAuthenticationDetailsPropertiesOutput) ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(ctx context.Context) AwsCredsAuthenticationDetailsPropertiesOutput {
+	return o
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+func (o AwsCredsAuthenticationDetailsPropertiesOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Public key element of the AWS credential object (write only)
+func (o AwsCredsAuthenticationDetailsPropertiesOutput) AwsAccessKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AwsAccessKeyId }).(pulumi.StringOutput)
+}
+
+// Secret key element of the AWS credential object (write only)
+func (o AwsCredsAuthenticationDetailsPropertiesOutput) AwsSecretAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AwsSecretAccessKey }).(pulumi.StringOutput)
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesResponse struct {
+	// The ID of the cloud account
+	AccountId string `pulumi:"accountId"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Public key element of the AWS credential object (write only)
+	AwsAccessKeyId string `pulumi:"awsAccessKeyId"`
+	// Secret key element of the AWS credential object (write only)
+	AwsSecretAccessKey string `pulumi:"awsSecretAccessKey"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions []string `pulumi:"grantedPermissions"`
+}
+
+// AwsCredsAuthenticationDetailsPropertiesResponseInput is an input type that accepts AwsCredsAuthenticationDetailsPropertiesResponseArgs and AwsCredsAuthenticationDetailsPropertiesResponseOutput values.
+// You can construct a concrete instance of `AwsCredsAuthenticationDetailsPropertiesResponseInput` via:
+//
+//          AwsCredsAuthenticationDetailsPropertiesResponseArgs{...}
+type AwsCredsAuthenticationDetailsPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToAwsCredsAuthenticationDetailsPropertiesResponseOutput() AwsCredsAuthenticationDetailsPropertiesResponseOutput
+	ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesResponseOutput
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesResponseArgs struct {
+	// The ID of the cloud account
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Public key element of the AWS credential object (write only)
+	AwsAccessKeyId pulumi.StringInput `pulumi:"awsAccessKeyId"`
+	// Secret key element of the AWS credential object (write only)
+	AwsSecretAccessKey pulumi.StringInput `pulumi:"awsSecretAccessKey"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+}
+
+func (AwsCredsAuthenticationDetailsPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCredsAuthenticationDetailsPropertiesResponse)(nil)).Elem()
+}
+
+func (i AwsCredsAuthenticationDetailsPropertiesResponseArgs) ToAwsCredsAuthenticationDetailsPropertiesResponseOutput() AwsCredsAuthenticationDetailsPropertiesResponseOutput {
+	return i.ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i AwsCredsAuthenticationDetailsPropertiesResponseArgs) ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(ctx context.Context) AwsCredsAuthenticationDetailsPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesResponseOutput)
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (AwsCredsAuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCredsAuthenticationDetailsPropertiesResponse)(nil)).Elem()
+}
+
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) ToAwsCredsAuthenticationDetailsPropertiesResponseOutput() AwsCredsAuthenticationDetailsPropertiesResponseOutput {
+	return o
+}
+
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(ctx context.Context) AwsCredsAuthenticationDetailsPropertiesResponseOutput {
+	return o
+}
+
+// The ID of the cloud account
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// State of the multi-cloud connector
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string {
+		return v.AuthenticationProvisioningState
+	}).(pulumi.StringOutput)
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Public key element of the AWS credential object (write only)
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AwsAccessKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AwsAccessKeyId }).(pulumi.StringOutput)
+}
+
+// Secret key element of the AWS credential object (write only)
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AwsSecretAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AwsSecretAccessKey }).(pulumi.StringOutput)
+}
+
+// The permissions detected in the cloud account.
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
+}
+
 // Details of the Azure resource that was assessed
 type AzureResourceDetails struct {
 	// The platform where the assessed resource resides
@@ -1240,6 +2903,773 @@ func (o DenylistCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) Den
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DenylistCustomAlertRuleResponse {
 		return vs[0].([]DenylistCustomAlertRuleResponse)[vs[1].(int)]
 	}).(DenylistCustomAlertRuleResponseOutput)
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsProperties struct {
+	// Auth provider x509 certificate url field of the API key (write only)
+	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
+	// Auth Uri field of the API key (write only)
+	AuthUri string `pulumi:"authUri"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Client email field of the API key (write only)
+	ClientEmail string `pulumi:"clientEmail"`
+	// Client Id field of the API key (write only)
+	ClientId string `pulumi:"clientId"`
+	// Client x509 certificate url field of the API key (write only)
+	ClientX509CertUrl string `pulumi:"clientX509CertUrl"`
+	// The Organization ID of the GCP cloud account
+	OrganizationId string `pulumi:"organizationId"`
+	// Private key field of the API key (write only)
+	PrivateKey string `pulumi:"privateKey"`
+	// Private key Id field of the API key (write only)
+	PrivateKeyId string `pulumi:"privateKeyId"`
+	// Project Id field of the API key (write only)
+	ProjectId string `pulumi:"projectId"`
+	// Token Uri field of the API key (write only)
+	TokenUri string `pulumi:"tokenUri"`
+	// Type field of the API key (write only)
+	Type string `pulumi:"type"`
+}
+
+// GcpCredentialsDetailsPropertiesInput is an input type that accepts GcpCredentialsDetailsPropertiesArgs and GcpCredentialsDetailsPropertiesOutput values.
+// You can construct a concrete instance of `GcpCredentialsDetailsPropertiesInput` via:
+//
+//          GcpCredentialsDetailsPropertiesArgs{...}
+type GcpCredentialsDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToGcpCredentialsDetailsPropertiesOutput() GcpCredentialsDetailsPropertiesOutput
+	ToGcpCredentialsDetailsPropertiesOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesOutput
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsPropertiesArgs struct {
+	// Auth provider x509 certificate url field of the API key (write only)
+	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
+	// Auth Uri field of the API key (write only)
+	AuthUri pulumi.StringInput `pulumi:"authUri"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Client email field of the API key (write only)
+	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
+	// Client Id field of the API key (write only)
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Client x509 certificate url field of the API key (write only)
+	ClientX509CertUrl pulumi.StringInput `pulumi:"clientX509CertUrl"`
+	// The Organization ID of the GCP cloud account
+	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
+	// Private key field of the API key (write only)
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	// Private key Id field of the API key (write only)
+	PrivateKeyId pulumi.StringInput `pulumi:"privateKeyId"`
+	// Project Id field of the API key (write only)
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+	// Token Uri field of the API key (write only)
+	TokenUri pulumi.StringInput `pulumi:"tokenUri"`
+	// Type field of the API key (write only)
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GcpCredentialsDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpCredentialsDetailsProperties)(nil)).Elem()
+}
+
+func (i GcpCredentialsDetailsPropertiesArgs) ToGcpCredentialsDetailsPropertiesOutput() GcpCredentialsDetailsPropertiesOutput {
+	return i.ToGcpCredentialsDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i GcpCredentialsDetailsPropertiesArgs) ToGcpCredentialsDetailsPropertiesOutputWithContext(ctx context.Context) GcpCredentialsDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesOutput)
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GcpCredentialsDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpCredentialsDetailsProperties)(nil)).Elem()
+}
+
+func (o GcpCredentialsDetailsPropertiesOutput) ToGcpCredentialsDetailsPropertiesOutput() GcpCredentialsDetailsPropertiesOutput {
+	return o
+}
+
+func (o GcpCredentialsDetailsPropertiesOutput) ToGcpCredentialsDetailsPropertiesOutputWithContext(ctx context.Context) GcpCredentialsDetailsPropertiesOutput {
+	return o
+}
+
+// Auth provider x509 certificate url field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) AuthProviderX509CertUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthProviderX509CertUrl }).(pulumi.StringOutput)
+}
+
+// Auth Uri field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) AuthUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthUri }).(pulumi.StringOutput)
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+func (o GcpCredentialsDetailsPropertiesOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Client email field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) ClientEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientEmail }).(pulumi.StringOutput)
+}
+
+// Client Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Client x509 certificate url field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) ClientX509CertUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientX509CertUrl }).(pulumi.StringOutput)
+}
+
+// The Organization ID of the GCP cloud account
+func (o GcpCredentialsDetailsPropertiesOutput) OrganizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+// Private key field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+// Private key Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) PrivateKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.PrivateKeyId }).(pulumi.StringOutput)
+}
+
+// Project Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// Token Uri field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) TokenUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.TokenUri }).(pulumi.StringOutput)
+}
+
+// Type field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsPropertiesResponse struct {
+	// Auth provider x509 certificate url field of the API key (write only)
+	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
+	// Auth Uri field of the API key (write only)
+	AuthUri string `pulumi:"authUri"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Client email field of the API key (write only)
+	ClientEmail string `pulumi:"clientEmail"`
+	// Client Id field of the API key (write only)
+	ClientId string `pulumi:"clientId"`
+	// Client x509 certificate url field of the API key (write only)
+	ClientX509CertUrl string `pulumi:"clientX509CertUrl"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions []string `pulumi:"grantedPermissions"`
+	// The Organization ID of the GCP cloud account
+	OrganizationId string `pulumi:"organizationId"`
+	// Private key field of the API key (write only)
+	PrivateKey string `pulumi:"privateKey"`
+	// Private key Id field of the API key (write only)
+	PrivateKeyId string `pulumi:"privateKeyId"`
+	// Project Id field of the API key (write only)
+	ProjectId string `pulumi:"projectId"`
+	// Token Uri field of the API key (write only)
+	TokenUri string `pulumi:"tokenUri"`
+	// Type field of the API key (write only)
+	Type string `pulumi:"type"`
+}
+
+// GcpCredentialsDetailsPropertiesResponseInput is an input type that accepts GcpCredentialsDetailsPropertiesResponseArgs and GcpCredentialsDetailsPropertiesResponseOutput values.
+// You can construct a concrete instance of `GcpCredentialsDetailsPropertiesResponseInput` via:
+//
+//          GcpCredentialsDetailsPropertiesResponseArgs{...}
+type GcpCredentialsDetailsPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToGcpCredentialsDetailsPropertiesResponseOutput() GcpCredentialsDetailsPropertiesResponseOutput
+	ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesResponseOutput
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsPropertiesResponseArgs struct {
+	// Auth provider x509 certificate url field of the API key (write only)
+	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
+	// Auth Uri field of the API key (write only)
+	AuthUri pulumi.StringInput `pulumi:"authUri"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Client email field of the API key (write only)
+	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
+	// Client Id field of the API key (write only)
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Client x509 certificate url field of the API key (write only)
+	ClientX509CertUrl pulumi.StringInput `pulumi:"clientX509CertUrl"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+	// The Organization ID of the GCP cloud account
+	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
+	// Private key field of the API key (write only)
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	// Private key Id field of the API key (write only)
+	PrivateKeyId pulumi.StringInput `pulumi:"privateKeyId"`
+	// Project Id field of the API key (write only)
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+	// Token Uri field of the API key (write only)
+	TokenUri pulumi.StringInput `pulumi:"tokenUri"`
+	// Type field of the API key (write only)
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GcpCredentialsDetailsPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpCredentialsDetailsPropertiesResponse)(nil)).Elem()
+}
+
+func (i GcpCredentialsDetailsPropertiesResponseArgs) ToGcpCredentialsDetailsPropertiesResponseOutput() GcpCredentialsDetailsPropertiesResponseOutput {
+	return i.ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i GcpCredentialsDetailsPropertiesResponseArgs) ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(ctx context.Context) GcpCredentialsDetailsPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesResponseOutput)
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (GcpCredentialsDetailsPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpCredentialsDetailsPropertiesResponse)(nil)).Elem()
+}
+
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ToGcpCredentialsDetailsPropertiesResponseOutput() GcpCredentialsDetailsPropertiesResponseOutput {
+	return o
+}
+
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(ctx context.Context) GcpCredentialsDetailsPropertiesResponseOutput {
+	return o
+}
+
+// Auth provider x509 certificate url field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthProviderX509CertUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthProviderX509CertUrl }).(pulumi.StringOutput)
+}
+
+// Auth Uri field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthUri }).(pulumi.StringOutput)
+}
+
+// State of the multi-cloud connector
+func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthenticationProvisioningState }).(pulumi.StringOutput)
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Client email field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientEmail }).(pulumi.StringOutput)
+}
+
+// Client Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Client x509 certificate url field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientX509CertUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientX509CertUrl }).(pulumi.StringOutput)
+}
+
+// The permissions detected in the cloud account.
+func (o GcpCredentialsDetailsPropertiesResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
+}
+
+// The Organization ID of the GCP cloud account
+func (o GcpCredentialsDetailsPropertiesResponseOutput) OrganizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+// Private key field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+// Private key Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) PrivateKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.PrivateKeyId }).(pulumi.StringOutput)
+}
+
+// Project Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// Token Uri field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) TokenUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.TokenUri }).(pulumi.StringOutput)
+}
+
+// Type field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Settings for hybrid compute management
+type HybridComputeSettingsProperties struct {
+	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+	AutoProvision string `pulumi:"autoProvision"`
+	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+	ProxyServer *ProxyServerProperties `pulumi:"proxyServer"`
+	// The location where the meta data of machines will be stored
+	Region *string `pulumi:"region"`
+	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// An object to access resources that are secured by an Azure AD tenant.
+	ServicePrincipal *ServicePrincipalProperties `pulumi:"servicePrincipal"`
+}
+
+// HybridComputeSettingsPropertiesInput is an input type that accepts HybridComputeSettingsPropertiesArgs and HybridComputeSettingsPropertiesOutput values.
+// You can construct a concrete instance of `HybridComputeSettingsPropertiesInput` via:
+//
+//          HybridComputeSettingsPropertiesArgs{...}
+type HybridComputeSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToHybridComputeSettingsPropertiesOutput() HybridComputeSettingsPropertiesOutput
+	ToHybridComputeSettingsPropertiesOutputWithContext(context.Context) HybridComputeSettingsPropertiesOutput
+}
+
+// Settings for hybrid compute management
+type HybridComputeSettingsPropertiesArgs struct {
+	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+	AutoProvision pulumi.StringInput `pulumi:"autoProvision"`
+	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+	ProxyServer ProxyServerPropertiesPtrInput `pulumi:"proxyServer"`
+	// The location where the meta data of machines will be stored
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// An object to access resources that are secured by an Azure AD tenant.
+	ServicePrincipal ServicePrincipalPropertiesPtrInput `pulumi:"servicePrincipal"`
+}
+
+func (HybridComputeSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridComputeSettingsProperties)(nil)).Elem()
+}
+
+func (i HybridComputeSettingsPropertiesArgs) ToHybridComputeSettingsPropertiesOutput() HybridComputeSettingsPropertiesOutput {
+	return i.ToHybridComputeSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i HybridComputeSettingsPropertiesArgs) ToHybridComputeSettingsPropertiesOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesOutput)
+}
+
+func (i HybridComputeSettingsPropertiesArgs) ToHybridComputeSettingsPropertiesPtrOutput() HybridComputeSettingsPropertiesPtrOutput {
+	return i.ToHybridComputeSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i HybridComputeSettingsPropertiesArgs) ToHybridComputeSettingsPropertiesPtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesOutput).ToHybridComputeSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// HybridComputeSettingsPropertiesPtrInput is an input type that accepts HybridComputeSettingsPropertiesArgs, HybridComputeSettingsPropertiesPtr and HybridComputeSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `HybridComputeSettingsPropertiesPtrInput` via:
+//
+//          HybridComputeSettingsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type HybridComputeSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToHybridComputeSettingsPropertiesPtrOutput() HybridComputeSettingsPropertiesPtrOutput
+	ToHybridComputeSettingsPropertiesPtrOutputWithContext(context.Context) HybridComputeSettingsPropertiesPtrOutput
+}
+
+type hybridComputeSettingsPropertiesPtrType HybridComputeSettingsPropertiesArgs
+
+func HybridComputeSettingsPropertiesPtr(v *HybridComputeSettingsPropertiesArgs) HybridComputeSettingsPropertiesPtrInput {
+	return (*hybridComputeSettingsPropertiesPtrType)(v)
+}
+
+func (*hybridComputeSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HybridComputeSettingsProperties)(nil)).Elem()
+}
+
+func (i *hybridComputeSettingsPropertiesPtrType) ToHybridComputeSettingsPropertiesPtrOutput() HybridComputeSettingsPropertiesPtrOutput {
+	return i.ToHybridComputeSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *hybridComputeSettingsPropertiesPtrType) ToHybridComputeSettingsPropertiesPtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesPtrOutput)
+}
+
+// Settings for hybrid compute management
+type HybridComputeSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (HybridComputeSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridComputeSettingsProperties)(nil)).Elem()
+}
+
+func (o HybridComputeSettingsPropertiesOutput) ToHybridComputeSettingsPropertiesOutput() HybridComputeSettingsPropertiesOutput {
+	return o
+}
+
+func (o HybridComputeSettingsPropertiesOutput) ToHybridComputeSettingsPropertiesOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesOutput {
+	return o
+}
+
+func (o HybridComputeSettingsPropertiesOutput) ToHybridComputeSettingsPropertiesPtrOutput() HybridComputeSettingsPropertiesPtrOutput {
+	return o.ToHybridComputeSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o HybridComputeSettingsPropertiesOutput) ToHybridComputeSettingsPropertiesPtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsProperties) *HybridComputeSettingsProperties {
+		return &v
+	}).(HybridComputeSettingsPropertiesPtrOutput)
+}
+
+// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+func (o HybridComputeSettingsPropertiesOutput) AutoProvision() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridComputeSettingsProperties) string { return v.AutoProvision }).(pulumi.StringOutput)
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+func (o HybridComputeSettingsPropertiesOutput) ProxyServer() ProxyServerPropertiesPtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsProperties) *ProxyServerProperties { return v.ProxyServer }).(ProxyServerPropertiesPtrOutput)
+}
+
+// The location where the meta data of machines will be stored
+func (o HybridComputeSettingsPropertiesOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsProperties) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+func (o HybridComputeSettingsPropertiesOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsProperties) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// An object to access resources that are secured by an Azure AD tenant.
+func (o HybridComputeSettingsPropertiesOutput) ServicePrincipal() ServicePrincipalPropertiesPtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsProperties) *ServicePrincipalProperties { return v.ServicePrincipal }).(ServicePrincipalPropertiesPtrOutput)
+}
+
+type HybridComputeSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (HybridComputeSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HybridComputeSettingsProperties)(nil)).Elem()
+}
+
+func (o HybridComputeSettingsPropertiesPtrOutput) ToHybridComputeSettingsPropertiesPtrOutput() HybridComputeSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o HybridComputeSettingsPropertiesPtrOutput) ToHybridComputeSettingsPropertiesPtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o HybridComputeSettingsPropertiesPtrOutput) Elem() HybridComputeSettingsPropertiesOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsProperties) HybridComputeSettingsProperties { return *v }).(HybridComputeSettingsPropertiesOutput)
+}
+
+// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+func (o HybridComputeSettingsPropertiesPtrOutput) AutoProvision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoProvision
+	}).(pulumi.StringPtrOutput)
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+func (o HybridComputeSettingsPropertiesPtrOutput) ProxyServer() ProxyServerPropertiesPtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsProperties) *ProxyServerProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ProxyServer
+	}).(ProxyServerPropertiesPtrOutput)
+}
+
+// The location where the meta data of machines will be stored
+func (o HybridComputeSettingsPropertiesPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+func (o HybridComputeSettingsPropertiesPtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object to access resources that are secured by an Azure AD tenant.
+func (o HybridComputeSettingsPropertiesPtrOutput) ServicePrincipal() ServicePrincipalPropertiesPtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsProperties) *ServicePrincipalProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ServicePrincipal
+	}).(ServicePrincipalPropertiesPtrOutput)
+}
+
+// Settings for hybrid compute management
+type HybridComputeSettingsPropertiesResponse struct {
+	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+	AutoProvision string `pulumi:"autoProvision"`
+	// State of the service principal and its secret
+	HybridComputeProvisioningState string `pulumi:"hybridComputeProvisioningState"`
+	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+	ProxyServer *ProxyServerPropertiesResponse `pulumi:"proxyServer"`
+	// The location where the meta data of machines will be stored
+	Region *string `pulumi:"region"`
+	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// An object to access resources that are secured by an Azure AD tenant.
+	ServicePrincipal *ServicePrincipalPropertiesResponse `pulumi:"servicePrincipal"`
+}
+
+// HybridComputeSettingsPropertiesResponseInput is an input type that accepts HybridComputeSettingsPropertiesResponseArgs and HybridComputeSettingsPropertiesResponseOutput values.
+// You can construct a concrete instance of `HybridComputeSettingsPropertiesResponseInput` via:
+//
+//          HybridComputeSettingsPropertiesResponseArgs{...}
+type HybridComputeSettingsPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToHybridComputeSettingsPropertiesResponseOutput() HybridComputeSettingsPropertiesResponseOutput
+	ToHybridComputeSettingsPropertiesResponseOutputWithContext(context.Context) HybridComputeSettingsPropertiesResponseOutput
+}
+
+// Settings for hybrid compute management
+type HybridComputeSettingsPropertiesResponseArgs struct {
+	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+	AutoProvision pulumi.StringInput `pulumi:"autoProvision"`
+	// State of the service principal and its secret
+	HybridComputeProvisioningState pulumi.StringInput `pulumi:"hybridComputeProvisioningState"`
+	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+	ProxyServer ProxyServerPropertiesResponsePtrInput `pulumi:"proxyServer"`
+	// The location where the meta data of machines will be stored
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// An object to access resources that are secured by an Azure AD tenant.
+	ServicePrincipal ServicePrincipalPropertiesResponsePtrInput `pulumi:"servicePrincipal"`
+}
+
+func (HybridComputeSettingsPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridComputeSettingsPropertiesResponse)(nil)).Elem()
+}
+
+func (i HybridComputeSettingsPropertiesResponseArgs) ToHybridComputeSettingsPropertiesResponseOutput() HybridComputeSettingsPropertiesResponseOutput {
+	return i.ToHybridComputeSettingsPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i HybridComputeSettingsPropertiesResponseArgs) ToHybridComputeSettingsPropertiesResponseOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesResponseOutput)
+}
+
+func (i HybridComputeSettingsPropertiesResponseArgs) ToHybridComputeSettingsPropertiesResponsePtrOutput() HybridComputeSettingsPropertiesResponsePtrOutput {
+	return i.ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i HybridComputeSettingsPropertiesResponseArgs) ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesResponseOutput).ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// HybridComputeSettingsPropertiesResponsePtrInput is an input type that accepts HybridComputeSettingsPropertiesResponseArgs, HybridComputeSettingsPropertiesResponsePtr and HybridComputeSettingsPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `HybridComputeSettingsPropertiesResponsePtrInput` via:
+//
+//          HybridComputeSettingsPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type HybridComputeSettingsPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToHybridComputeSettingsPropertiesResponsePtrOutput() HybridComputeSettingsPropertiesResponsePtrOutput
+	ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(context.Context) HybridComputeSettingsPropertiesResponsePtrOutput
+}
+
+type hybridComputeSettingsPropertiesResponsePtrType HybridComputeSettingsPropertiesResponseArgs
+
+func HybridComputeSettingsPropertiesResponsePtr(v *HybridComputeSettingsPropertiesResponseArgs) HybridComputeSettingsPropertiesResponsePtrInput {
+	return (*hybridComputeSettingsPropertiesResponsePtrType)(v)
+}
+
+func (*hybridComputeSettingsPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HybridComputeSettingsPropertiesResponse)(nil)).Elem()
+}
+
+func (i *hybridComputeSettingsPropertiesResponsePtrType) ToHybridComputeSettingsPropertiesResponsePtrOutput() HybridComputeSettingsPropertiesResponsePtrOutput {
+	return i.ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *hybridComputeSettingsPropertiesResponsePtrType) ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesResponsePtrOutput)
+}
+
+// Settings for hybrid compute management
+type HybridComputeSettingsPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (HybridComputeSettingsPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridComputeSettingsPropertiesResponse)(nil)).Elem()
+}
+
+func (o HybridComputeSettingsPropertiesResponseOutput) ToHybridComputeSettingsPropertiesResponseOutput() HybridComputeSettingsPropertiesResponseOutput {
+	return o
+}
+
+func (o HybridComputeSettingsPropertiesResponseOutput) ToHybridComputeSettingsPropertiesResponseOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesResponseOutput {
+	return o
+}
+
+func (o HybridComputeSettingsPropertiesResponseOutput) ToHybridComputeSettingsPropertiesResponsePtrOutput() HybridComputeSettingsPropertiesResponsePtrOutput {
+	return o.ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o HybridComputeSettingsPropertiesResponseOutput) ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *HybridComputeSettingsPropertiesResponse {
+		return &v
+	}).(HybridComputeSettingsPropertiesResponsePtrOutput)
+}
+
+// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+func (o HybridComputeSettingsPropertiesResponseOutput) AutoProvision() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) string { return v.AutoProvision }).(pulumi.StringOutput)
+}
+
+// State of the service principal and its secret
+func (o HybridComputeSettingsPropertiesResponseOutput) HybridComputeProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) string { return v.HybridComputeProvisioningState }).(pulumi.StringOutput)
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+func (o HybridComputeSettingsPropertiesResponseOutput) ProxyServer() ProxyServerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *ProxyServerPropertiesResponse { return v.ProxyServer }).(ProxyServerPropertiesResponsePtrOutput)
+}
+
+// The location where the meta data of machines will be stored
+func (o HybridComputeSettingsPropertiesResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+func (o HybridComputeSettingsPropertiesResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// An object to access resources that are secured by an Azure AD tenant.
+func (o HybridComputeSettingsPropertiesResponseOutput) ServicePrincipal() ServicePrincipalPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *ServicePrincipalPropertiesResponse {
+		return v.ServicePrincipal
+	}).(ServicePrincipalPropertiesResponsePtrOutput)
+}
+
+type HybridComputeSettingsPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (HybridComputeSettingsPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HybridComputeSettingsPropertiesResponse)(nil)).Elem()
+}
+
+func (o HybridComputeSettingsPropertiesResponsePtrOutput) ToHybridComputeSettingsPropertiesResponsePtrOutput() HybridComputeSettingsPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o HybridComputeSettingsPropertiesResponsePtrOutput) ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o HybridComputeSettingsPropertiesResponsePtrOutput) Elem() HybridComputeSettingsPropertiesResponseOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) HybridComputeSettingsPropertiesResponse { return *v }).(HybridComputeSettingsPropertiesResponseOutput)
+}
+
+// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+func (o HybridComputeSettingsPropertiesResponsePtrOutput) AutoProvision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoProvision
+	}).(pulumi.StringPtrOutput)
+}
+
+// State of the service principal and its secret
+func (o HybridComputeSettingsPropertiesResponsePtrOutput) HybridComputeProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HybridComputeProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+func (o HybridComputeSettingsPropertiesResponsePtrOutput) ProxyServer() ProxyServerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *ProxyServerPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ProxyServer
+	}).(ProxyServerPropertiesResponsePtrOutput)
+}
+
+// The location where the meta data of machines will be stored
+func (o HybridComputeSettingsPropertiesResponsePtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+func (o HybridComputeSettingsPropertiesResponsePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object to access resources that are secured by an Azure AD tenant.
+func (o HybridComputeSettingsPropertiesResponsePtrOutput) ServicePrincipal() ServicePrincipalPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *ServicePrincipalPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ServicePrincipal
+	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
 type JitNetworkAccessPolicyVirtualMachine struct {
@@ -3378,6 +5808,312 @@ func (o ProtectionModeResponsePtrOutput) Script() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+type ProxyServerProperties struct {
+	// Proxy server IP
+	Ip *string `pulumi:"ip"`
+	// Proxy server port
+	Port *string `pulumi:"port"`
+}
+
+// ProxyServerPropertiesInput is an input type that accepts ProxyServerPropertiesArgs and ProxyServerPropertiesOutput values.
+// You can construct a concrete instance of `ProxyServerPropertiesInput` via:
+//
+//          ProxyServerPropertiesArgs{...}
+type ProxyServerPropertiesInput interface {
+	pulumi.Input
+
+	ToProxyServerPropertiesOutput() ProxyServerPropertiesOutput
+	ToProxyServerPropertiesOutputWithContext(context.Context) ProxyServerPropertiesOutput
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+type ProxyServerPropertiesArgs struct {
+	// Proxy server IP
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// Proxy server port
+	Port pulumi.StringPtrInput `pulumi:"port"`
+}
+
+func (ProxyServerPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyServerProperties)(nil)).Elem()
+}
+
+func (i ProxyServerPropertiesArgs) ToProxyServerPropertiesOutput() ProxyServerPropertiesOutput {
+	return i.ToProxyServerPropertiesOutputWithContext(context.Background())
+}
+
+func (i ProxyServerPropertiesArgs) ToProxyServerPropertiesOutputWithContext(ctx context.Context) ProxyServerPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesOutput)
+}
+
+func (i ProxyServerPropertiesArgs) ToProxyServerPropertiesPtrOutput() ProxyServerPropertiesPtrOutput {
+	return i.ToProxyServerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ProxyServerPropertiesArgs) ToProxyServerPropertiesPtrOutputWithContext(ctx context.Context) ProxyServerPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesOutput).ToProxyServerPropertiesPtrOutputWithContext(ctx)
+}
+
+// ProxyServerPropertiesPtrInput is an input type that accepts ProxyServerPropertiesArgs, ProxyServerPropertiesPtr and ProxyServerPropertiesPtrOutput values.
+// You can construct a concrete instance of `ProxyServerPropertiesPtrInput` via:
+//
+//          ProxyServerPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ProxyServerPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToProxyServerPropertiesPtrOutput() ProxyServerPropertiesPtrOutput
+	ToProxyServerPropertiesPtrOutputWithContext(context.Context) ProxyServerPropertiesPtrOutput
+}
+
+type proxyServerPropertiesPtrType ProxyServerPropertiesArgs
+
+func ProxyServerPropertiesPtr(v *ProxyServerPropertiesArgs) ProxyServerPropertiesPtrInput {
+	return (*proxyServerPropertiesPtrType)(v)
+}
+
+func (*proxyServerPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyServerProperties)(nil)).Elem()
+}
+
+func (i *proxyServerPropertiesPtrType) ToProxyServerPropertiesPtrOutput() ProxyServerPropertiesPtrOutput {
+	return i.ToProxyServerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *proxyServerPropertiesPtrType) ToProxyServerPropertiesPtrOutputWithContext(ctx context.Context) ProxyServerPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesPtrOutput)
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+type ProxyServerPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ProxyServerPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyServerProperties)(nil)).Elem()
+}
+
+func (o ProxyServerPropertiesOutput) ToProxyServerPropertiesOutput() ProxyServerPropertiesOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesOutput) ToProxyServerPropertiesOutputWithContext(ctx context.Context) ProxyServerPropertiesOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesOutput) ToProxyServerPropertiesPtrOutput() ProxyServerPropertiesPtrOutput {
+	return o.ToProxyServerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ProxyServerPropertiesOutput) ToProxyServerPropertiesPtrOutputWithContext(ctx context.Context) ProxyServerPropertiesPtrOutput {
+	return o.ApplyT(func(v ProxyServerProperties) *ProxyServerProperties {
+		return &v
+	}).(ProxyServerPropertiesPtrOutput)
+}
+
+// Proxy server IP
+func (o ProxyServerPropertiesOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyServerProperties) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// Proxy server port
+func (o ProxyServerPropertiesOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyServerProperties) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+type ProxyServerPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ProxyServerPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyServerProperties)(nil)).Elem()
+}
+
+func (o ProxyServerPropertiesPtrOutput) ToProxyServerPropertiesPtrOutput() ProxyServerPropertiesPtrOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesPtrOutput) ToProxyServerPropertiesPtrOutputWithContext(ctx context.Context) ProxyServerPropertiesPtrOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesPtrOutput) Elem() ProxyServerPropertiesOutput {
+	return o.ApplyT(func(v *ProxyServerProperties) ProxyServerProperties { return *v }).(ProxyServerPropertiesOutput)
+}
+
+// Proxy server IP
+func (o ProxyServerPropertiesPtrOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyServerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ip
+	}).(pulumi.StringPtrOutput)
+}
+
+// Proxy server port
+func (o ProxyServerPropertiesPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyServerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+type ProxyServerPropertiesResponse struct {
+	// Proxy server IP
+	Ip *string `pulumi:"ip"`
+	// Proxy server port
+	Port *string `pulumi:"port"`
+}
+
+// ProxyServerPropertiesResponseInput is an input type that accepts ProxyServerPropertiesResponseArgs and ProxyServerPropertiesResponseOutput values.
+// You can construct a concrete instance of `ProxyServerPropertiesResponseInput` via:
+//
+//          ProxyServerPropertiesResponseArgs{...}
+type ProxyServerPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToProxyServerPropertiesResponseOutput() ProxyServerPropertiesResponseOutput
+	ToProxyServerPropertiesResponseOutputWithContext(context.Context) ProxyServerPropertiesResponseOutput
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+type ProxyServerPropertiesResponseArgs struct {
+	// Proxy server IP
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// Proxy server port
+	Port pulumi.StringPtrInput `pulumi:"port"`
+}
+
+func (ProxyServerPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyServerPropertiesResponse)(nil)).Elem()
+}
+
+func (i ProxyServerPropertiesResponseArgs) ToProxyServerPropertiesResponseOutput() ProxyServerPropertiesResponseOutput {
+	return i.ToProxyServerPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ProxyServerPropertiesResponseArgs) ToProxyServerPropertiesResponseOutputWithContext(ctx context.Context) ProxyServerPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesResponseOutput)
+}
+
+func (i ProxyServerPropertiesResponseArgs) ToProxyServerPropertiesResponsePtrOutput() ProxyServerPropertiesResponsePtrOutput {
+	return i.ToProxyServerPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProxyServerPropertiesResponseArgs) ToProxyServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ProxyServerPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesResponseOutput).ToProxyServerPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ProxyServerPropertiesResponsePtrInput is an input type that accepts ProxyServerPropertiesResponseArgs, ProxyServerPropertiesResponsePtr and ProxyServerPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ProxyServerPropertiesResponsePtrInput` via:
+//
+//          ProxyServerPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ProxyServerPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToProxyServerPropertiesResponsePtrOutput() ProxyServerPropertiesResponsePtrOutput
+	ToProxyServerPropertiesResponsePtrOutputWithContext(context.Context) ProxyServerPropertiesResponsePtrOutput
+}
+
+type proxyServerPropertiesResponsePtrType ProxyServerPropertiesResponseArgs
+
+func ProxyServerPropertiesResponsePtr(v *ProxyServerPropertiesResponseArgs) ProxyServerPropertiesResponsePtrInput {
+	return (*proxyServerPropertiesResponsePtrType)(v)
+}
+
+func (*proxyServerPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyServerPropertiesResponse)(nil)).Elem()
+}
+
+func (i *proxyServerPropertiesResponsePtrType) ToProxyServerPropertiesResponsePtrOutput() ProxyServerPropertiesResponsePtrOutput {
+	return i.ToProxyServerPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *proxyServerPropertiesResponsePtrType) ToProxyServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ProxyServerPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesResponsePtrOutput)
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+type ProxyServerPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ProxyServerPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyServerPropertiesResponse)(nil)).Elem()
+}
+
+func (o ProxyServerPropertiesResponseOutput) ToProxyServerPropertiesResponseOutput() ProxyServerPropertiesResponseOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesResponseOutput) ToProxyServerPropertiesResponseOutputWithContext(ctx context.Context) ProxyServerPropertiesResponseOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesResponseOutput) ToProxyServerPropertiesResponsePtrOutput() ProxyServerPropertiesResponsePtrOutput {
+	return o.ToProxyServerPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProxyServerPropertiesResponseOutput) ToProxyServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ProxyServerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ProxyServerPropertiesResponse) *ProxyServerPropertiesResponse {
+		return &v
+	}).(ProxyServerPropertiesResponsePtrOutput)
+}
+
+// Proxy server IP
+func (o ProxyServerPropertiesResponseOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyServerPropertiesResponse) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// Proxy server port
+func (o ProxyServerPropertiesResponseOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyServerPropertiesResponse) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+type ProxyServerPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProxyServerPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyServerPropertiesResponse)(nil)).Elem()
+}
+
+func (o ProxyServerPropertiesResponsePtrOutput) ToProxyServerPropertiesResponsePtrOutput() ProxyServerPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesResponsePtrOutput) ToProxyServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ProxyServerPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesResponsePtrOutput) Elem() ProxyServerPropertiesResponseOutput {
+	return o.ApplyT(func(v *ProxyServerPropertiesResponse) ProxyServerPropertiesResponse { return *v }).(ProxyServerPropertiesResponseOutput)
+}
+
+// Proxy server IP
+func (o ProxyServerPropertiesResponsePtrOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyServerPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ip
+	}).(pulumi.StringPtrOutput)
+}
+
+// Proxy server port
+func (o ProxyServerPropertiesResponsePtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyServerPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
 // Represents the publisher information of a process/rule
 type PublisherInfo struct {
 	// The "OriginalName" field taken from the file's version resource
@@ -3982,6 +6718,206 @@ func (o RecommendationConfigurationPropertiesResponseArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendationConfigurationPropertiesResponse {
 		return vs[0].([]RecommendationConfigurationPropertiesResponse)[vs[1].(int)]
 	}).(RecommendationConfigurationPropertiesResponseOutput)
+}
+
+// A more specific scope used to identify the alerts to suppress.
+type ScopeElement struct {
+	// The alert entity type to suppress by.
+	Field *string `pulumi:"field"`
+}
+
+// ScopeElementInput is an input type that accepts ScopeElementArgs and ScopeElementOutput values.
+// You can construct a concrete instance of `ScopeElementInput` via:
+//
+//          ScopeElementArgs{...}
+type ScopeElementInput interface {
+	pulumi.Input
+
+	ToScopeElementOutput() ScopeElementOutput
+	ToScopeElementOutputWithContext(context.Context) ScopeElementOutput
+}
+
+// A more specific scope used to identify the alerts to suppress.
+type ScopeElementArgs struct {
+	// The alert entity type to suppress by.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+}
+
+func (ScopeElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeElement)(nil)).Elem()
+}
+
+func (i ScopeElementArgs) ToScopeElementOutput() ScopeElementOutput {
+	return i.ToScopeElementOutputWithContext(context.Background())
+}
+
+func (i ScopeElementArgs) ToScopeElementOutputWithContext(ctx context.Context) ScopeElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementOutput)
+}
+
+// ScopeElementArrayInput is an input type that accepts ScopeElementArray and ScopeElementArrayOutput values.
+// You can construct a concrete instance of `ScopeElementArrayInput` via:
+//
+//          ScopeElementArray{ ScopeElementArgs{...} }
+type ScopeElementArrayInput interface {
+	pulumi.Input
+
+	ToScopeElementArrayOutput() ScopeElementArrayOutput
+	ToScopeElementArrayOutputWithContext(context.Context) ScopeElementArrayOutput
+}
+
+type ScopeElementArray []ScopeElementInput
+
+func (ScopeElementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScopeElement)(nil)).Elem()
+}
+
+func (i ScopeElementArray) ToScopeElementArrayOutput() ScopeElementArrayOutput {
+	return i.ToScopeElementArrayOutputWithContext(context.Background())
+}
+
+func (i ScopeElementArray) ToScopeElementArrayOutputWithContext(ctx context.Context) ScopeElementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementArrayOutput)
+}
+
+// A more specific scope used to identify the alerts to suppress.
+type ScopeElementOutput struct{ *pulumi.OutputState }
+
+func (ScopeElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeElement)(nil)).Elem()
+}
+
+func (o ScopeElementOutput) ToScopeElementOutput() ScopeElementOutput {
+	return o
+}
+
+func (o ScopeElementOutput) ToScopeElementOutputWithContext(ctx context.Context) ScopeElementOutput {
+	return o
+}
+
+// The alert entity type to suppress by.
+func (o ScopeElementOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScopeElement) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+type ScopeElementArrayOutput struct{ *pulumi.OutputState }
+
+func (ScopeElementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScopeElement)(nil)).Elem()
+}
+
+func (o ScopeElementArrayOutput) ToScopeElementArrayOutput() ScopeElementArrayOutput {
+	return o
+}
+
+func (o ScopeElementArrayOutput) ToScopeElementArrayOutputWithContext(ctx context.Context) ScopeElementArrayOutput {
+	return o
+}
+
+func (o ScopeElementArrayOutput) Index(i pulumi.IntInput) ScopeElementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScopeElement {
+		return vs[0].([]ScopeElement)[vs[1].(int)]
+	}).(ScopeElementOutput)
+}
+
+// A more specific scope used to identify the alerts to suppress.
+type ScopeElementResponse struct {
+	// The alert entity type to suppress by.
+	Field *string `pulumi:"field"`
+}
+
+// ScopeElementResponseInput is an input type that accepts ScopeElementResponseArgs and ScopeElementResponseOutput values.
+// You can construct a concrete instance of `ScopeElementResponseInput` via:
+//
+//          ScopeElementResponseArgs{...}
+type ScopeElementResponseInput interface {
+	pulumi.Input
+
+	ToScopeElementResponseOutput() ScopeElementResponseOutput
+	ToScopeElementResponseOutputWithContext(context.Context) ScopeElementResponseOutput
+}
+
+// A more specific scope used to identify the alerts to suppress.
+type ScopeElementResponseArgs struct {
+	// The alert entity type to suppress by.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+}
+
+func (ScopeElementResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeElementResponse)(nil)).Elem()
+}
+
+func (i ScopeElementResponseArgs) ToScopeElementResponseOutput() ScopeElementResponseOutput {
+	return i.ToScopeElementResponseOutputWithContext(context.Background())
+}
+
+func (i ScopeElementResponseArgs) ToScopeElementResponseOutputWithContext(ctx context.Context) ScopeElementResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementResponseOutput)
+}
+
+// ScopeElementResponseArrayInput is an input type that accepts ScopeElementResponseArray and ScopeElementResponseArrayOutput values.
+// You can construct a concrete instance of `ScopeElementResponseArrayInput` via:
+//
+//          ScopeElementResponseArray{ ScopeElementResponseArgs{...} }
+type ScopeElementResponseArrayInput interface {
+	pulumi.Input
+
+	ToScopeElementResponseArrayOutput() ScopeElementResponseArrayOutput
+	ToScopeElementResponseArrayOutputWithContext(context.Context) ScopeElementResponseArrayOutput
+}
+
+type ScopeElementResponseArray []ScopeElementResponseInput
+
+func (ScopeElementResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScopeElementResponse)(nil)).Elem()
+}
+
+func (i ScopeElementResponseArray) ToScopeElementResponseArrayOutput() ScopeElementResponseArrayOutput {
+	return i.ToScopeElementResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ScopeElementResponseArray) ToScopeElementResponseArrayOutputWithContext(ctx context.Context) ScopeElementResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementResponseArrayOutput)
+}
+
+// A more specific scope used to identify the alerts to suppress.
+type ScopeElementResponseOutput struct{ *pulumi.OutputState }
+
+func (ScopeElementResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeElementResponse)(nil)).Elem()
+}
+
+func (o ScopeElementResponseOutput) ToScopeElementResponseOutput() ScopeElementResponseOutput {
+	return o
+}
+
+func (o ScopeElementResponseOutput) ToScopeElementResponseOutputWithContext(ctx context.Context) ScopeElementResponseOutput {
+	return o
+}
+
+// The alert entity type to suppress by.
+func (o ScopeElementResponseOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScopeElementResponse) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+type ScopeElementResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ScopeElementResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScopeElementResponse)(nil)).Elem()
+}
+
+func (o ScopeElementResponseArrayOutput) ToScopeElementResponseArrayOutput() ScopeElementResponseArrayOutput {
+	return o
+}
+
+func (o ScopeElementResponseArrayOutput) ToScopeElementResponseArrayOutputWithContext(ctx context.Context) ScopeElementResponseArrayOutput {
+	return o
+}
+
+func (o ScopeElementResponseArrayOutput) Index(i pulumi.IntInput) ScopeElementResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScopeElementResponse {
+		return vs[0].([]ScopeElementResponse)[vs[1].(int)]
+	}).(ScopeElementResponseOutput)
 }
 
 // Describes the partner that created the assessment
@@ -5291,6 +8227,884 @@ func (o SecurityAssessmentPartnerDataResponsePtrOutput) Secret() pulumi.StringPt
 		}
 		return &v.Secret
 	}).(pulumi.StringPtrOutput)
+}
+
+// Defines whether to send email notifications about new security alerts
+type SecurityContactPropertiesResponseAlertNotifications struct {
+	// Defines the minimal alert severity which will be sent as email notifications
+	MinimalSeverity *string `pulumi:"minimalSeverity"`
+	// Defines if email notifications will be sent about new security alerts
+	State *string `pulumi:"state"`
+}
+
+// SecurityContactPropertiesResponseAlertNotificationsInput is an input type that accepts SecurityContactPropertiesResponseAlertNotificationsArgs and SecurityContactPropertiesResponseAlertNotificationsOutput values.
+// You can construct a concrete instance of `SecurityContactPropertiesResponseAlertNotificationsInput` via:
+//
+//          SecurityContactPropertiesResponseAlertNotificationsArgs{...}
+type SecurityContactPropertiesResponseAlertNotificationsInput interface {
+	pulumi.Input
+
+	ToSecurityContactPropertiesResponseAlertNotificationsOutput() SecurityContactPropertiesResponseAlertNotificationsOutput
+	ToSecurityContactPropertiesResponseAlertNotificationsOutputWithContext(context.Context) SecurityContactPropertiesResponseAlertNotificationsOutput
+}
+
+// Defines whether to send email notifications about new security alerts
+type SecurityContactPropertiesResponseAlertNotificationsArgs struct {
+	// Defines the minimal alert severity which will be sent as email notifications
+	MinimalSeverity pulumi.StringPtrInput `pulumi:"minimalSeverity"`
+	// Defines if email notifications will be sent about new security alerts
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (SecurityContactPropertiesResponseAlertNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesResponseAlertNotifications)(nil)).Elem()
+}
+
+func (i SecurityContactPropertiesResponseAlertNotificationsArgs) ToSecurityContactPropertiesResponseAlertNotificationsOutput() SecurityContactPropertiesResponseAlertNotificationsOutput {
+	return i.ToSecurityContactPropertiesResponseAlertNotificationsOutputWithContext(context.Background())
+}
+
+func (i SecurityContactPropertiesResponseAlertNotificationsArgs) ToSecurityContactPropertiesResponseAlertNotificationsOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseAlertNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesResponseAlertNotificationsOutput)
+}
+
+func (i SecurityContactPropertiesResponseAlertNotificationsArgs) ToSecurityContactPropertiesResponseAlertNotificationsPtrOutput() SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
+	return i.ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityContactPropertiesResponseAlertNotificationsArgs) ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesResponseAlertNotificationsOutput).ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(ctx)
+}
+
+// SecurityContactPropertiesResponseAlertNotificationsPtrInput is an input type that accepts SecurityContactPropertiesResponseAlertNotificationsArgs, SecurityContactPropertiesResponseAlertNotificationsPtr and SecurityContactPropertiesResponseAlertNotificationsPtrOutput values.
+// You can construct a concrete instance of `SecurityContactPropertiesResponseAlertNotificationsPtrInput` via:
+//
+//          SecurityContactPropertiesResponseAlertNotificationsArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityContactPropertiesResponseAlertNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityContactPropertiesResponseAlertNotificationsPtrOutput() SecurityContactPropertiesResponseAlertNotificationsPtrOutput
+	ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(context.Context) SecurityContactPropertiesResponseAlertNotificationsPtrOutput
+}
+
+type securityContactPropertiesResponseAlertNotificationsPtrType SecurityContactPropertiesResponseAlertNotificationsArgs
+
+func SecurityContactPropertiesResponseAlertNotificationsPtr(v *SecurityContactPropertiesResponseAlertNotificationsArgs) SecurityContactPropertiesResponseAlertNotificationsPtrInput {
+	return (*securityContactPropertiesResponseAlertNotificationsPtrType)(v)
+}
+
+func (*securityContactPropertiesResponseAlertNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityContactPropertiesResponseAlertNotifications)(nil)).Elem()
+}
+
+func (i *securityContactPropertiesResponseAlertNotificationsPtrType) ToSecurityContactPropertiesResponseAlertNotificationsPtrOutput() SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
+	return i.ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityContactPropertiesResponseAlertNotificationsPtrType) ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesResponseAlertNotificationsPtrOutput)
+}
+
+// Defines whether to send email notifications about new security alerts
+type SecurityContactPropertiesResponseAlertNotificationsOutput struct{ *pulumi.OutputState }
+
+func (SecurityContactPropertiesResponseAlertNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesResponseAlertNotifications)(nil)).Elem()
+}
+
+func (o SecurityContactPropertiesResponseAlertNotificationsOutput) ToSecurityContactPropertiesResponseAlertNotificationsOutput() SecurityContactPropertiesResponseAlertNotificationsOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesResponseAlertNotificationsOutput) ToSecurityContactPropertiesResponseAlertNotificationsOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseAlertNotificationsOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesResponseAlertNotificationsOutput) ToSecurityContactPropertiesResponseAlertNotificationsPtrOutput() SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
+	return o.ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityContactPropertiesResponseAlertNotificationsOutput) ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesResponseAlertNotifications) *SecurityContactPropertiesResponseAlertNotifications {
+		return &v
+	}).(SecurityContactPropertiesResponseAlertNotificationsPtrOutput)
+}
+
+// Defines the minimal alert severity which will be sent as email notifications
+func (o SecurityContactPropertiesResponseAlertNotificationsOutput) MinimalSeverity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesResponseAlertNotifications) *string { return v.MinimalSeverity }).(pulumi.StringPtrOutput)
+}
+
+// Defines if email notifications will be sent about new security alerts
+func (o SecurityContactPropertiesResponseAlertNotificationsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesResponseAlertNotifications) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type SecurityContactPropertiesResponseAlertNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityContactPropertiesResponseAlertNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityContactPropertiesResponseAlertNotifications)(nil)).Elem()
+}
+
+func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) ToSecurityContactPropertiesResponseAlertNotificationsPtrOutput() SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) Elem() SecurityContactPropertiesResponseAlertNotificationsOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesResponseAlertNotifications) SecurityContactPropertiesResponseAlertNotifications {
+		return *v
+	}).(SecurityContactPropertiesResponseAlertNotificationsOutput)
+}
+
+// Defines the minimal alert severity which will be sent as email notifications
+func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) MinimalSeverity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesResponseAlertNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimalSeverity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines if email notifications will be sent about new security alerts
+func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesResponseAlertNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+type SecurityContactPropertiesResponseNotificationsByRole struct {
+	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+	Roles []string `pulumi:"roles"`
+	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	State *string `pulumi:"state"`
+}
+
+// SecurityContactPropertiesResponseNotificationsByRoleInput is an input type that accepts SecurityContactPropertiesResponseNotificationsByRoleArgs and SecurityContactPropertiesResponseNotificationsByRoleOutput values.
+// You can construct a concrete instance of `SecurityContactPropertiesResponseNotificationsByRoleInput` via:
+//
+//          SecurityContactPropertiesResponseNotificationsByRoleArgs{...}
+type SecurityContactPropertiesResponseNotificationsByRoleInput interface {
+	pulumi.Input
+
+	ToSecurityContactPropertiesResponseNotificationsByRoleOutput() SecurityContactPropertiesResponseNotificationsByRoleOutput
+	ToSecurityContactPropertiesResponseNotificationsByRoleOutputWithContext(context.Context) SecurityContactPropertiesResponseNotificationsByRoleOutput
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+type SecurityContactPropertiesResponseNotificationsByRoleArgs struct {
+	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (SecurityContactPropertiesResponseNotificationsByRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesResponseNotificationsByRole)(nil)).Elem()
+}
+
+func (i SecurityContactPropertiesResponseNotificationsByRoleArgs) ToSecurityContactPropertiesResponseNotificationsByRoleOutput() SecurityContactPropertiesResponseNotificationsByRoleOutput {
+	return i.ToSecurityContactPropertiesResponseNotificationsByRoleOutputWithContext(context.Background())
+}
+
+func (i SecurityContactPropertiesResponseNotificationsByRoleArgs) ToSecurityContactPropertiesResponseNotificationsByRoleOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseNotificationsByRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesResponseNotificationsByRoleOutput)
+}
+
+func (i SecurityContactPropertiesResponseNotificationsByRoleArgs) ToSecurityContactPropertiesResponseNotificationsByRolePtrOutput() SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
+	return i.ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityContactPropertiesResponseNotificationsByRoleArgs) ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesResponseNotificationsByRoleOutput).ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(ctx)
+}
+
+// SecurityContactPropertiesResponseNotificationsByRolePtrInput is an input type that accepts SecurityContactPropertiesResponseNotificationsByRoleArgs, SecurityContactPropertiesResponseNotificationsByRolePtr and SecurityContactPropertiesResponseNotificationsByRolePtrOutput values.
+// You can construct a concrete instance of `SecurityContactPropertiesResponseNotificationsByRolePtrInput` via:
+//
+//          SecurityContactPropertiesResponseNotificationsByRoleArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityContactPropertiesResponseNotificationsByRolePtrInput interface {
+	pulumi.Input
+
+	ToSecurityContactPropertiesResponseNotificationsByRolePtrOutput() SecurityContactPropertiesResponseNotificationsByRolePtrOutput
+	ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(context.Context) SecurityContactPropertiesResponseNotificationsByRolePtrOutput
+}
+
+type securityContactPropertiesResponseNotificationsByRolePtrType SecurityContactPropertiesResponseNotificationsByRoleArgs
+
+func SecurityContactPropertiesResponseNotificationsByRolePtr(v *SecurityContactPropertiesResponseNotificationsByRoleArgs) SecurityContactPropertiesResponseNotificationsByRolePtrInput {
+	return (*securityContactPropertiesResponseNotificationsByRolePtrType)(v)
+}
+
+func (*securityContactPropertiesResponseNotificationsByRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityContactPropertiesResponseNotificationsByRole)(nil)).Elem()
+}
+
+func (i *securityContactPropertiesResponseNotificationsByRolePtrType) ToSecurityContactPropertiesResponseNotificationsByRolePtrOutput() SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
+	return i.ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(context.Background())
+}
+
+func (i *securityContactPropertiesResponseNotificationsByRolePtrType) ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesResponseNotificationsByRolePtrOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+type SecurityContactPropertiesResponseNotificationsByRoleOutput struct{ *pulumi.OutputState }
+
+func (SecurityContactPropertiesResponseNotificationsByRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesResponseNotificationsByRole)(nil)).Elem()
+}
+
+func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) ToSecurityContactPropertiesResponseNotificationsByRoleOutput() SecurityContactPropertiesResponseNotificationsByRoleOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) ToSecurityContactPropertiesResponseNotificationsByRoleOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseNotificationsByRoleOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) ToSecurityContactPropertiesResponseNotificationsByRolePtrOutput() SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
+	return o.ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesResponseNotificationsByRole) *SecurityContactPropertiesResponseNotificationsByRole {
+		return &v
+	}).(SecurityContactPropertiesResponseNotificationsByRolePtrOutput)
+}
+
+// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesResponseNotificationsByRole) []string { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesResponseNotificationsByRole) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type SecurityContactPropertiesResponseNotificationsByRolePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityContactPropertiesResponseNotificationsByRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityContactPropertiesResponseNotificationsByRole)(nil)).Elem()
+}
+
+func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) ToSecurityContactPropertiesResponseNotificationsByRolePtrOutput() SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) Elem() SecurityContactPropertiesResponseNotificationsByRoleOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesResponseNotificationsByRole) SecurityContactPropertiesResponseNotificationsByRole {
+		return *v
+	}).(SecurityContactPropertiesResponseNotificationsByRoleOutput)
+}
+
+// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesResponseNotificationsByRole) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Roles
+	}).(pulumi.StringArrayOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityContactPropertiesResponseNotificationsByRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the service principal.
+type ServicePrincipalProperties struct {
+	// Application id of service principal.
+	ApplicationId *string `pulumi:"applicationId"`
+	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+	Secret *string `pulumi:"secret"`
+}
+
+// ServicePrincipalPropertiesInput is an input type that accepts ServicePrincipalPropertiesArgs and ServicePrincipalPropertiesOutput values.
+// You can construct a concrete instance of `ServicePrincipalPropertiesInput` via:
+//
+//          ServicePrincipalPropertiesArgs{...}
+type ServicePrincipalPropertiesInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPropertiesOutput() ServicePrincipalPropertiesOutput
+	ToServicePrincipalPropertiesOutputWithContext(context.Context) ServicePrincipalPropertiesOutput
+}
+
+// Details of the service principal.
+type ServicePrincipalPropertiesArgs struct {
+	// Application id of service principal.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+}
+
+func (ServicePrincipalPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalProperties)(nil)).Elem()
+}
+
+func (i ServicePrincipalPropertiesArgs) ToServicePrincipalPropertiesOutput() ServicePrincipalPropertiesOutput {
+	return i.ToServicePrincipalPropertiesOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalPropertiesArgs) ToServicePrincipalPropertiesOutputWithContext(ctx context.Context) ServicePrincipalPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesOutput)
+}
+
+func (i ServicePrincipalPropertiesArgs) ToServicePrincipalPropertiesPtrOutput() ServicePrincipalPropertiesPtrOutput {
+	return i.ToServicePrincipalPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalPropertiesArgs) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesOutput).ToServicePrincipalPropertiesPtrOutputWithContext(ctx)
+}
+
+// ServicePrincipalPropertiesPtrInput is an input type that accepts ServicePrincipalPropertiesArgs, ServicePrincipalPropertiesPtr and ServicePrincipalPropertiesPtrOutput values.
+// You can construct a concrete instance of `ServicePrincipalPropertiesPtrInput` via:
+//
+//          ServicePrincipalPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ServicePrincipalPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPropertiesPtrOutput() ServicePrincipalPropertiesPtrOutput
+	ToServicePrincipalPropertiesPtrOutputWithContext(context.Context) ServicePrincipalPropertiesPtrOutput
+}
+
+type servicePrincipalPropertiesPtrType ServicePrincipalPropertiesArgs
+
+func ServicePrincipalPropertiesPtr(v *ServicePrincipalPropertiesArgs) ServicePrincipalPropertiesPtrInput {
+	return (*servicePrincipalPropertiesPtrType)(v)
+}
+
+func (*servicePrincipalPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalProperties)(nil)).Elem()
+}
+
+func (i *servicePrincipalPropertiesPtrType) ToServicePrincipalPropertiesPtrOutput() ServicePrincipalPropertiesPtrOutput {
+	return i.ToServicePrincipalPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *servicePrincipalPropertiesPtrType) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesPtrOutput)
+}
+
+// Details of the service principal.
+type ServicePrincipalPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalProperties)(nil)).Elem()
+}
+
+func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesOutput() ServicePrincipalPropertiesOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesOutputWithContext(ctx context.Context) ServicePrincipalPropertiesOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutput() ServicePrincipalPropertiesPtrOutput {
+	return o.ToServicePrincipalPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalProperties) *ServicePrincipalProperties {
+		return &v
+	}).(ServicePrincipalPropertiesPtrOutput)
+}
+
+// Application id of service principal.
+func (o ServicePrincipalPropertiesOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalProperties) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+func (o ServicePrincipalPropertiesOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalProperties) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+type ServicePrincipalPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalProperties)(nil)).Elem()
+}
+
+func (o ServicePrincipalPropertiesPtrOutput) ToServicePrincipalPropertiesPtrOutput() ServicePrincipalPropertiesPtrOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesPtrOutput) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesPtrOutput) Elem() ServicePrincipalPropertiesOutput {
+	return o.ApplyT(func(v *ServicePrincipalProperties) ServicePrincipalProperties { return *v }).(ServicePrincipalPropertiesOutput)
+}
+
+// Application id of service principal.
+func (o ServicePrincipalPropertiesPtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+func (o ServicePrincipalPropertiesPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the service principal.
+type ServicePrincipalPropertiesResponse struct {
+	// Application id of service principal.
+	ApplicationId *string `pulumi:"applicationId"`
+	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+	Secret *string `pulumi:"secret"`
+}
+
+// ServicePrincipalPropertiesResponseInput is an input type that accepts ServicePrincipalPropertiesResponseArgs and ServicePrincipalPropertiesResponseOutput values.
+// You can construct a concrete instance of `ServicePrincipalPropertiesResponseInput` via:
+//
+//          ServicePrincipalPropertiesResponseArgs{...}
+type ServicePrincipalPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPropertiesResponseOutput() ServicePrincipalPropertiesResponseOutput
+	ToServicePrincipalPropertiesResponseOutputWithContext(context.Context) ServicePrincipalPropertiesResponseOutput
+}
+
+// Details of the service principal.
+type ServicePrincipalPropertiesResponseArgs struct {
+	// Application id of service principal.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+}
+
+func (ServicePrincipalPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalPropertiesResponse)(nil)).Elem()
+}
+
+func (i ServicePrincipalPropertiesResponseArgs) ToServicePrincipalPropertiesResponseOutput() ServicePrincipalPropertiesResponseOutput {
+	return i.ToServicePrincipalPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalPropertiesResponseArgs) ToServicePrincipalPropertiesResponseOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesResponseOutput)
+}
+
+func (i ServicePrincipalPropertiesResponseArgs) ToServicePrincipalPropertiesResponsePtrOutput() ServicePrincipalPropertiesResponsePtrOutput {
+	return i.ToServicePrincipalPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalPropertiesResponseArgs) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesResponseOutput).ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ServicePrincipalPropertiesResponsePtrInput is an input type that accepts ServicePrincipalPropertiesResponseArgs, ServicePrincipalPropertiesResponsePtr and ServicePrincipalPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ServicePrincipalPropertiesResponsePtrInput` via:
+//
+//          ServicePrincipalPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServicePrincipalPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPropertiesResponsePtrOutput() ServicePrincipalPropertiesResponsePtrOutput
+	ToServicePrincipalPropertiesResponsePtrOutputWithContext(context.Context) ServicePrincipalPropertiesResponsePtrOutput
+}
+
+type servicePrincipalPropertiesResponsePtrType ServicePrincipalPropertiesResponseArgs
+
+func ServicePrincipalPropertiesResponsePtr(v *ServicePrincipalPropertiesResponseArgs) ServicePrincipalPropertiesResponsePtrInput {
+	return (*servicePrincipalPropertiesResponsePtrType)(v)
+}
+
+func (*servicePrincipalPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalPropertiesResponse)(nil)).Elem()
+}
+
+func (i *servicePrincipalPropertiesResponsePtrType) ToServicePrincipalPropertiesResponsePtrOutput() ServicePrincipalPropertiesResponsePtrOutput {
+	return i.ToServicePrincipalPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *servicePrincipalPropertiesResponsePtrType) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesResponsePtrOutput)
+}
+
+// Details of the service principal.
+type ServicePrincipalPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalPropertiesResponse)(nil)).Elem()
+}
+
+func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesResponseOutput() ServicePrincipalPropertiesResponseOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesResponseOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponseOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesResponsePtrOutput() ServicePrincipalPropertiesResponsePtrOutput {
+	return o.ToServicePrincipalPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) *ServicePrincipalPropertiesResponse {
+		return &v
+	}).(ServicePrincipalPropertiesResponsePtrOutput)
+}
+
+// Application id of service principal.
+func (o ServicePrincipalPropertiesResponseOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+func (o ServicePrincipalPropertiesResponseOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+type ServicePrincipalPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalPropertiesResponse)(nil)).Elem()
+}
+
+func (o ServicePrincipalPropertiesResponsePtrOutput) ToServicePrincipalPropertiesResponsePtrOutput() ServicePrincipalPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesResponsePtrOutput) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesResponsePtrOutput) Elem() ServicePrincipalPropertiesResponseOutput {
+	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) ServicePrincipalPropertiesResponse { return *v }).(ServicePrincipalPropertiesResponseOutput)
+}
+
+// Application id of service principal.
+func (o ServicePrincipalPropertiesResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+func (o ServicePrincipalPropertiesResponsePtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type SuppressionAlertsScope struct {
+	// All the conditions inside need to be true in order to suppress the alert
+	AllOf []ScopeElement `pulumi:"allOf"`
+}
+
+// SuppressionAlertsScopeInput is an input type that accepts SuppressionAlertsScopeArgs and SuppressionAlertsScopeOutput values.
+// You can construct a concrete instance of `SuppressionAlertsScopeInput` via:
+//
+//          SuppressionAlertsScopeArgs{...}
+type SuppressionAlertsScopeInput interface {
+	pulumi.Input
+
+	ToSuppressionAlertsScopeOutput() SuppressionAlertsScopeOutput
+	ToSuppressionAlertsScopeOutputWithContext(context.Context) SuppressionAlertsScopeOutput
+}
+
+type SuppressionAlertsScopeArgs struct {
+	// All the conditions inside need to be true in order to suppress the alert
+	AllOf ScopeElementArrayInput `pulumi:"allOf"`
+}
+
+func (SuppressionAlertsScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionAlertsScope)(nil)).Elem()
+}
+
+func (i SuppressionAlertsScopeArgs) ToSuppressionAlertsScopeOutput() SuppressionAlertsScopeOutput {
+	return i.ToSuppressionAlertsScopeOutputWithContext(context.Background())
+}
+
+func (i SuppressionAlertsScopeArgs) ToSuppressionAlertsScopeOutputWithContext(ctx context.Context) SuppressionAlertsScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopeOutput)
+}
+
+func (i SuppressionAlertsScopeArgs) ToSuppressionAlertsScopePtrOutput() SuppressionAlertsScopePtrOutput {
+	return i.ToSuppressionAlertsScopePtrOutputWithContext(context.Background())
+}
+
+func (i SuppressionAlertsScopeArgs) ToSuppressionAlertsScopePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopeOutput).ToSuppressionAlertsScopePtrOutputWithContext(ctx)
+}
+
+// SuppressionAlertsScopePtrInput is an input type that accepts SuppressionAlertsScopeArgs, SuppressionAlertsScopePtr and SuppressionAlertsScopePtrOutput values.
+// You can construct a concrete instance of `SuppressionAlertsScopePtrInput` via:
+//
+//          SuppressionAlertsScopeArgs{...}
+//
+//  or:
+//
+//          nil
+type SuppressionAlertsScopePtrInput interface {
+	pulumi.Input
+
+	ToSuppressionAlertsScopePtrOutput() SuppressionAlertsScopePtrOutput
+	ToSuppressionAlertsScopePtrOutputWithContext(context.Context) SuppressionAlertsScopePtrOutput
+}
+
+type suppressionAlertsScopePtrType SuppressionAlertsScopeArgs
+
+func SuppressionAlertsScopePtr(v *SuppressionAlertsScopeArgs) SuppressionAlertsScopePtrInput {
+	return (*suppressionAlertsScopePtrType)(v)
+}
+
+func (*suppressionAlertsScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuppressionAlertsScope)(nil)).Elem()
+}
+
+func (i *suppressionAlertsScopePtrType) ToSuppressionAlertsScopePtrOutput() SuppressionAlertsScopePtrOutput {
+	return i.ToSuppressionAlertsScopePtrOutputWithContext(context.Background())
+}
+
+func (i *suppressionAlertsScopePtrType) ToSuppressionAlertsScopePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopePtrOutput)
+}
+
+type SuppressionAlertsScopeOutput struct{ *pulumi.OutputState }
+
+func (SuppressionAlertsScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionAlertsScope)(nil)).Elem()
+}
+
+func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopeOutput() SuppressionAlertsScopeOutput {
+	return o
+}
+
+func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopeOutputWithContext(ctx context.Context) SuppressionAlertsScopeOutput {
+	return o
+}
+
+func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopePtrOutput() SuppressionAlertsScopePtrOutput {
+	return o.ToSuppressionAlertsScopePtrOutputWithContext(context.Background())
+}
+
+func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopePtrOutput {
+	return o.ApplyT(func(v SuppressionAlertsScope) *SuppressionAlertsScope {
+		return &v
+	}).(SuppressionAlertsScopePtrOutput)
+}
+
+// All the conditions inside need to be true in order to suppress the alert
+func (o SuppressionAlertsScopeOutput) AllOf() ScopeElementArrayOutput {
+	return o.ApplyT(func(v SuppressionAlertsScope) []ScopeElement { return v.AllOf }).(ScopeElementArrayOutput)
+}
+
+type SuppressionAlertsScopePtrOutput struct{ *pulumi.OutputState }
+
+func (SuppressionAlertsScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuppressionAlertsScope)(nil)).Elem()
+}
+
+func (o SuppressionAlertsScopePtrOutput) ToSuppressionAlertsScopePtrOutput() SuppressionAlertsScopePtrOutput {
+	return o
+}
+
+func (o SuppressionAlertsScopePtrOutput) ToSuppressionAlertsScopePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopePtrOutput {
+	return o
+}
+
+func (o SuppressionAlertsScopePtrOutput) Elem() SuppressionAlertsScopeOutput {
+	return o.ApplyT(func(v *SuppressionAlertsScope) SuppressionAlertsScope { return *v }).(SuppressionAlertsScopeOutput)
+}
+
+// All the conditions inside need to be true in order to suppress the alert
+func (o SuppressionAlertsScopePtrOutput) AllOf() ScopeElementArrayOutput {
+	return o.ApplyT(func(v *SuppressionAlertsScope) []ScopeElement {
+		if v == nil {
+			return nil
+		}
+		return v.AllOf
+	}).(ScopeElementArrayOutput)
+}
+
+type SuppressionAlertsScopeResponse struct {
+	// All the conditions inside need to be true in order to suppress the alert
+	AllOf []ScopeElementResponse `pulumi:"allOf"`
+}
+
+// SuppressionAlertsScopeResponseInput is an input type that accepts SuppressionAlertsScopeResponseArgs and SuppressionAlertsScopeResponseOutput values.
+// You can construct a concrete instance of `SuppressionAlertsScopeResponseInput` via:
+//
+//          SuppressionAlertsScopeResponseArgs{...}
+type SuppressionAlertsScopeResponseInput interface {
+	pulumi.Input
+
+	ToSuppressionAlertsScopeResponseOutput() SuppressionAlertsScopeResponseOutput
+	ToSuppressionAlertsScopeResponseOutputWithContext(context.Context) SuppressionAlertsScopeResponseOutput
+}
+
+type SuppressionAlertsScopeResponseArgs struct {
+	// All the conditions inside need to be true in order to suppress the alert
+	AllOf ScopeElementResponseArrayInput `pulumi:"allOf"`
+}
+
+func (SuppressionAlertsScopeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionAlertsScopeResponse)(nil)).Elem()
+}
+
+func (i SuppressionAlertsScopeResponseArgs) ToSuppressionAlertsScopeResponseOutput() SuppressionAlertsScopeResponseOutput {
+	return i.ToSuppressionAlertsScopeResponseOutputWithContext(context.Background())
+}
+
+func (i SuppressionAlertsScopeResponseArgs) ToSuppressionAlertsScopeResponseOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopeResponseOutput)
+}
+
+func (i SuppressionAlertsScopeResponseArgs) ToSuppressionAlertsScopeResponsePtrOutput() SuppressionAlertsScopeResponsePtrOutput {
+	return i.ToSuppressionAlertsScopeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SuppressionAlertsScopeResponseArgs) ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopeResponseOutput).ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx)
+}
+
+// SuppressionAlertsScopeResponsePtrInput is an input type that accepts SuppressionAlertsScopeResponseArgs, SuppressionAlertsScopeResponsePtr and SuppressionAlertsScopeResponsePtrOutput values.
+// You can construct a concrete instance of `SuppressionAlertsScopeResponsePtrInput` via:
+//
+//          SuppressionAlertsScopeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SuppressionAlertsScopeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSuppressionAlertsScopeResponsePtrOutput() SuppressionAlertsScopeResponsePtrOutput
+	ToSuppressionAlertsScopeResponsePtrOutputWithContext(context.Context) SuppressionAlertsScopeResponsePtrOutput
+}
+
+type suppressionAlertsScopeResponsePtrType SuppressionAlertsScopeResponseArgs
+
+func SuppressionAlertsScopeResponsePtr(v *SuppressionAlertsScopeResponseArgs) SuppressionAlertsScopeResponsePtrInput {
+	return (*suppressionAlertsScopeResponsePtrType)(v)
+}
+
+func (*suppressionAlertsScopeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuppressionAlertsScopeResponse)(nil)).Elem()
+}
+
+func (i *suppressionAlertsScopeResponsePtrType) ToSuppressionAlertsScopeResponsePtrOutput() SuppressionAlertsScopeResponsePtrOutput {
+	return i.ToSuppressionAlertsScopeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *suppressionAlertsScopeResponsePtrType) ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopeResponsePtrOutput)
+}
+
+type SuppressionAlertsScopeResponseOutput struct{ *pulumi.OutputState }
+
+func (SuppressionAlertsScopeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionAlertsScopeResponse)(nil)).Elem()
+}
+
+func (o SuppressionAlertsScopeResponseOutput) ToSuppressionAlertsScopeResponseOutput() SuppressionAlertsScopeResponseOutput {
+	return o
+}
+
+func (o SuppressionAlertsScopeResponseOutput) ToSuppressionAlertsScopeResponseOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponseOutput {
+	return o
+}
+
+func (o SuppressionAlertsScopeResponseOutput) ToSuppressionAlertsScopeResponsePtrOutput() SuppressionAlertsScopeResponsePtrOutput {
+	return o.ToSuppressionAlertsScopeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SuppressionAlertsScopeResponseOutput) ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponsePtrOutput {
+	return o.ApplyT(func(v SuppressionAlertsScopeResponse) *SuppressionAlertsScopeResponse {
+		return &v
+	}).(SuppressionAlertsScopeResponsePtrOutput)
+}
+
+// All the conditions inside need to be true in order to suppress the alert
+func (o SuppressionAlertsScopeResponseOutput) AllOf() ScopeElementResponseArrayOutput {
+	return o.ApplyT(func(v SuppressionAlertsScopeResponse) []ScopeElementResponse { return v.AllOf }).(ScopeElementResponseArrayOutput)
+}
+
+type SuppressionAlertsScopeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SuppressionAlertsScopeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuppressionAlertsScopeResponse)(nil)).Elem()
+}
+
+func (o SuppressionAlertsScopeResponsePtrOutput) ToSuppressionAlertsScopeResponsePtrOutput() SuppressionAlertsScopeResponsePtrOutput {
+	return o
+}
+
+func (o SuppressionAlertsScopeResponsePtrOutput) ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponsePtrOutput {
+	return o
+}
+
+func (o SuppressionAlertsScopeResponsePtrOutput) Elem() SuppressionAlertsScopeResponseOutput {
+	return o.ApplyT(func(v *SuppressionAlertsScopeResponse) SuppressionAlertsScopeResponse { return *v }).(SuppressionAlertsScopeResponseOutput)
+}
+
+// All the conditions inside need to be true in order to suppress the alert
+func (o SuppressionAlertsScopeResponsePtrOutput) AllOf() ScopeElementResponseArrayOutput {
+	return o.ApplyT(func(v *SuppressionAlertsScopeResponse) []ScopeElementResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AllOf
+	}).(ScopeElementResponseArrayOutput)
 }
 
 // A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
@@ -6646,12 +10460,44 @@ func init() {
 	pulumi.RegisterOutputType(AssessmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(AutomationActionEventHubOutput{})
+	pulumi.RegisterOutputType(AutomationActionEventHubResponseOutput{})
+	pulumi.RegisterOutputType(AutomationActionLogicAppOutput{})
+	pulumi.RegisterOutputType(AutomationActionLogicAppResponseOutput{})
+	pulumi.RegisterOutputType(AutomationActionWorkspaceOutput{})
+	pulumi.RegisterOutputType(AutomationActionWorkspaceResponseOutput{})
+	pulumi.RegisterOutputType(AutomationRuleSetOutput{})
+	pulumi.RegisterOutputType(AutomationRuleSetArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleSetResponseOutput{})
+	pulumi.RegisterOutputType(AutomationRuleSetResponseArrayOutput{})
+	pulumi.RegisterOutputType(AutomationScopeOutput{})
+	pulumi.RegisterOutputType(AutomationScopeArrayOutput{})
+	pulumi.RegisterOutputType(AutomationScopeResponseOutput{})
+	pulumi.RegisterOutputType(AutomationScopeResponseArrayOutput{})
+	pulumi.RegisterOutputType(AutomationSourceOutput{})
+	pulumi.RegisterOutputType(AutomationSourceArrayOutput{})
+	pulumi.RegisterOutputType(AutomationSourceResponseOutput{})
+	pulumi.RegisterOutputType(AutomationSourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(AutomationTriggeringRuleOutput{})
+	pulumi.RegisterOutputType(AutomationTriggeringRuleArrayOutput{})
+	pulumi.RegisterOutputType(AutomationTriggeringRuleResponseOutput{})
+	pulumi.RegisterOutputType(AutomationTriggeringRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(AwAssumeRoleAuthenticationDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(AwsCredsAuthenticationDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(AwsCredsAuthenticationDetailsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AzureResourceDetailsOutput{})
 	pulumi.RegisterOutputType(AzureResourceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleOutput{})
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleArrayOutput{})
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleResponseOutput{})
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(GcpCredentialsDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(GcpCredentialsDetailsPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineResponseOutput{})
@@ -6682,6 +10528,10 @@ func init() {
 	pulumi.RegisterOutputType(ProtectionModePtrOutput{})
 	pulumi.RegisterOutputType(ProtectionModeResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionModeResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProxyServerPropertiesOutput{})
+	pulumi.RegisterOutputType(ProxyServerPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ProxyServerPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ProxyServerPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PublisherInfoOutput{})
 	pulumi.RegisterOutputType(PublisherInfoPtrOutput{})
 	pulumi.RegisterOutputType(PublisherInfoResponseOutput{})
@@ -6690,6 +10540,10 @@ func init() {
 	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(ScopeElementOutput{})
+	pulumi.RegisterOutputType(ScopeElementArrayOutput{})
+	pulumi.RegisterOutputType(ScopeElementResponseOutput{})
+	pulumi.RegisterOutputType(ScopeElementResponseArrayOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentMetadataPartnerDataOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentMetadataPartnerDataPtrOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentMetadataPartnerDataResponseOutput{})
@@ -6702,6 +10556,18 @@ func init() {
 	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataPtrOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataResponseOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecurityContactPropertiesResponseAlertNotificationsOutput{})
+	pulumi.RegisterOutputType(SecurityContactPropertiesResponseAlertNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityContactPropertiesResponseNotificationsByRoleOutput{})
+	pulumi.RegisterOutputType(SecurityContactPropertiesResponseNotificationsByRolePtrOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalPropertiesOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SuppressionAlertsScopeOutput{})
+	pulumi.RegisterOutputType(SuppressionAlertsScopePtrOutput{})
+	pulumi.RegisterOutputType(SuppressionAlertsScopeResponseOutput{})
+	pulumi.RegisterOutputType(SuppressionAlertsScopeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleArrayOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleResponseOutput{})

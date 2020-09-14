@@ -38,6 +38,12 @@ func NewWorkflowAccessKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkflowAccessKeyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/latest:WorkflowAccessKey"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkflowAccessKey
 	err := ctx.RegisterResource("azurerm:logic/v20150201preview:WorkflowAccessKey", name, args, &resource, opts...)
 	if err != nil {

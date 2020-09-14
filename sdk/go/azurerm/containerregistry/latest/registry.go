@@ -52,6 +52,14 @@ type Registry struct {
 	AdminUserEnabled pulumi.BoolPtrOutput `pulumi:"adminUserEnabled"`
 	// The creation date of the container registry in ISO8601 format.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// Enable a single data endpoint per region for serving data.
+	DataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"dataEndpointEnabled"`
+	// List of host names that will serve data when dataEndpointEnabled is true.
+	DataEndpointHostNames pulumi.StringArrayOutput `pulumi:"dataEndpointHostNames"`
+	// The encryption settings of container registry.
+	Encryption EncryptionPropertyResponsePtrOutput `pulumi:"encryption"`
+	// The identity of the container registry.
+	Identity IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
@@ -62,8 +70,12 @@ type Registry struct {
 	NetworkRuleSet NetworkRuleSetResponsePtrOutput `pulumi:"networkRuleSet"`
 	// The policies for a container registry.
 	Policies PoliciesResponsePtrOutput `pulumi:"policies"`
+	// List of private endpoint connections for a container registry.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// The provisioning state of the container registry at the time the operation was called.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Whether or not public network access is allowed for the container registry.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The SKU of the container registry.
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
@@ -141,6 +153,14 @@ type registryState struct {
 	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
 	// The creation date of the container registry in ISO8601 format.
 	CreationDate *string `pulumi:"creationDate"`
+	// Enable a single data endpoint per region for serving data.
+	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
+	// List of host names that will serve data when dataEndpointEnabled is true.
+	DataEndpointHostNames []string `pulumi:"dataEndpointHostNames"`
+	// The encryption settings of container registry.
+	Encryption *EncryptionPropertyResponse `pulumi:"encryption"`
+	// The identity of the container registry.
+	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
@@ -151,8 +171,12 @@ type registryState struct {
 	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
 	// The policies for a container registry.
 	Policies *PoliciesResponse `pulumi:"policies"`
+	// List of private endpoint connections for a container registry.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state of the container registry at the time the operation was called.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Whether or not public network access is allowed for the container registry.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The SKU of the container registry.
 	Sku *SkuResponse `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
@@ -170,6 +194,14 @@ type RegistryState struct {
 	AdminUserEnabled pulumi.BoolPtrInput
 	// The creation date of the container registry in ISO8601 format.
 	CreationDate pulumi.StringPtrInput
+	// Enable a single data endpoint per region for serving data.
+	DataEndpointEnabled pulumi.BoolPtrInput
+	// List of host names that will serve data when dataEndpointEnabled is true.
+	DataEndpointHostNames pulumi.StringArrayInput
+	// The encryption settings of container registry.
+	Encryption EncryptionPropertyResponsePtrInput
+	// The identity of the container registry.
+	Identity IdentityPropertiesResponsePtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
 	// The URL that can be used to log into the container registry.
@@ -180,8 +212,12 @@ type RegistryState struct {
 	NetworkRuleSet NetworkRuleSetResponsePtrInput
 	// The policies for a container registry.
 	Policies PoliciesResponsePtrInput
+	// List of private endpoint connections for a container registry.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// The provisioning state of the container registry at the time the operation was called.
 	ProvisioningState pulumi.StringPtrInput
+	// Whether or not public network access is allowed for the container registry.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The SKU of the container registry.
 	Sku SkuResponsePtrInput
 	// The status of the container registry at the time the operation was called.
@@ -201,12 +237,20 @@ func (RegistryState) ElementType() reflect.Type {
 type registryArgs struct {
 	// The value that indicates whether the admin user is enabled.
 	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
+	// Enable a single data endpoint per region for serving data.
+	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
+	// The encryption settings of container registry.
+	Encryption *EncryptionProperty `pulumi:"encryption"`
+	// The identity of the container registry.
+	Identity *IdentityProperties `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The network rule set for a container registry.
 	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
 	// The policies for a container registry.
 	Policies *Policies `pulumi:"policies"`
+	// Whether or not public network access is allowed for the container registry.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
@@ -223,12 +267,20 @@ type registryArgs struct {
 type RegistryArgs struct {
 	// The value that indicates whether the admin user is enabled.
 	AdminUserEnabled pulumi.BoolPtrInput
+	// Enable a single data endpoint per region for serving data.
+	DataEndpointEnabled pulumi.BoolPtrInput
+	// The encryption settings of container registry.
+	Encryption EncryptionPropertyPtrInput
+	// The identity of the container registry.
+	Identity IdentityPropertiesPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
 	// The network rule set for a container registry.
 	NetworkRuleSet NetworkRuleSetPtrInput
 	// The policies for a container registry.
 	Policies PoliciesPtrInput
+	// Whether or not public network access is allowed for the container registry.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the resource group to which the container registry belongs.

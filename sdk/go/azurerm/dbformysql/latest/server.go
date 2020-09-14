@@ -13,46 +13,14 @@ import (
 // Represents a server.
 //
 // ## Example Usage
-// ### Create a database as a point in time restore
-//
-// ```go
-// package main
-//
-// import (
-// 	dbformysql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbformysql/latest"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dbformysql.NewServer(ctx, "server", &dbformysql.ServerArgs{
-// 			Location:          pulumi.String("brazilsouth"),
-// 			ResourceGroupName: pulumi.String("TargetResourceGroup"),
-// 			ServerName:        pulumi.String("targetserver"),
-// 			Sku: &dbformysql.SkuArgs{
-// 				Capacity: pulumi.Int(2),
-// 				Family:   pulumi.String("Gen5"),
-// 				Name:     pulumi.String("GP_Gen5_2"),
-// 				Tier:     pulumi.String("GeneralPurpose"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"ElasticServer": pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 // ### Create a new server
 //
 // ```go
 // package main
 //
 // import (
+// 	"fmt"
+//
 // 	dbformysql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbformysql/latest"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
@@ -60,14 +28,21 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := dbformysql.NewServer(ctx, "server", &dbformysql.ServerArgs{
-// 			Location:          pulumi.String("westus"),
-// 			ResourceGroupName: pulumi.String("testrg"),
-// 			ServerName:        pulumi.String("mysqltestsvc4"),
+// 			AdministratorLogin:         pulumi.String("cloudsa"),
+// 			AdministratorLoginPassword: pulumi.String(fmt.Sprintf("%v%v%v", "pass", "$", "w0rd")),
+// 			CreateMode:                 pulumi.String("Default"),
+// 			Location:                   pulumi.String("westus"),
+// 			ResourceGroupName:          pulumi.String("testrg"),
+// 			ServerName:                 pulumi.String("mysqltestsvc4"),
 // 			Sku: &dbformysql.SkuArgs{
-// 				Capacity: pulumi.Int(2),
-// 				Family:   pulumi.String("Gen5"),
-// 				Name:     pulumi.String("GP_Gen5_2"),
-// 				Tier:     pulumi.String("GeneralPurpose"),
+// 				Name: pulumi.String("Standard_D14_v2"),
+// 				Tier: pulumi.String("GeneralPurpose"),
+// 			},
+// 			SslEnforcement: pulumi.String("Enabled"),
+// 			StorageProfile: &dbformysql.StorageProfileArgs{
+// 				BackupRetentionDays: pulumi.Int(7),
+// 				StorageIops:         pulumi.Int(200),
+// 				StorageMB:           pulumi.Int(128000),
 // 			},
 // 			Tags: pulumi.StringMap{
 // 				"ElasticServer": pulumi.String("1"),
@@ -94,9 +69,11 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := dbformysql.NewServer(ctx, "server", &dbformysql.ServerArgs{
+// 			CreateMode:        pulumi.String("Replica"),
 // 			Location:          pulumi.String("westus"),
 // 			ResourceGroupName: pulumi.String("TargetResourceGroup"),
 // 			ServerName:        pulumi.String("targetserver"),
+// 			SourceServerId:    pulumi.String("/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/PrimaryResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/primaryserver"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -106,7 +83,7 @@ import (
 // }
 //
 // ```
-// ### Create a server as a geo restore
+// ### Create a server as a point in time restore
 //
 // ```go
 // package main
@@ -119,15 +96,16 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := dbformysql.NewServer(ctx, "server", &dbformysql.ServerArgs{
-// 			Location:          pulumi.String("westus"),
-// 			ResourceGroupName: pulumi.String("TargetResourceGroup"),
-// 			ServerName:        pulumi.String("targetserver"),
+// 			CreateMode:         pulumi.String("PointInTimeRestore"),
+// 			Location:           pulumi.String("brazilsouth"),
+// 			ResourceGroupName:  pulumi.String("TargetResourceGroup"),
+// 			RestorePointInTime: pulumi.String("2017-12-14T00:00:37.467Z"),
+// 			ServerName:         pulumi.String("targetserver"),
 // 			Sku: &dbformysql.SkuArgs{
-// 				Capacity: pulumi.Int(2),
-// 				Family:   pulumi.String("Gen5"),
-// 				Name:     pulumi.String("GP_Gen5_2"),
-// 				Tier:     pulumi.String("GeneralPurpose"),
+// 				Name: pulumi.String("Standard_D14_v2"),
+// 				Tier: pulumi.String("GeneralPurpose"),
 // 			},
+// 			SourceServerId: pulumi.String("/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver"),
 // 			Tags: pulumi.StringMap{
 // 				"ElasticServer": pulumi.String("1"),
 // 			},
@@ -145,44 +123,58 @@ type Server struct {
 
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// Status showing whether the server data encryption is enabled with customer-managed keys.
+	// The password of the administrator login (required for server creation).
+	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
+	// availability Zone information of the server.
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	// Status showing whether the data encryption is enabled with customer-managed keys.
 	ByokEnforcement pulumi.StringOutput `pulumi:"byokEnforcement"`
+	// The mode to create a new MySQL server.
+	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments DelegatedSubnetArgumentsResponsePtrOutput `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate pulumi.StringPtrOutput `pulumi:"earliestRestoreDate"`
+	EarliestRestoreDate pulumi.StringOutput `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName pulumi.StringPtrOutput `pulumi:"fullyQualifiedDomainName"`
+	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
+	// Enable HA or not for a server.
+	HaEnabled pulumi.StringPtrOutput `pulumi:"haEnabled"`
+	// The state of a HA server.
+	HaState pulumi.StringOutput `pulumi:"haState"`
 	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption pulumi.StringPtrOutput `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The master server id of a replica server.
-	MasterServerId pulumi.StringPtrOutput `pulumi:"masterServerId"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
+	// Maintenance window of a server.
+	MaintenanceWindow MaintenanceWindowResponsePtrOutput `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// List of private endpoint connections on a server
-	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// The maximum number of replicas that a master server can have.
-	ReplicaCapacity pulumi.IntPtrOutput `pulumi:"replicaCapacity"`
-	// The replication role of the server.
+	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
+	// The maximum number of replicas that a primary server can have.
+	ReplicaCapacity pulumi.IntOutput `pulumi:"replicaCapacity"`
+	// The replication role.
 	ReplicationRole pulumi.StringPtrOutput `pulumi:"replicationRole"`
+	// Restore point creation time (ISO8601 format), specifying the time to restore from.
+	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The source MySQL server id.
+	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement pulumi.StringPtrOutput `pulumi:"sslEnforcement"`
+	// availability Zone information of the server.
+	StandbyAvailabilityZone pulumi.StringOutput `pulumi:"standbyAvailabilityZone"`
+	// The state of a server.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Storage profile of a server.
 	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// A state of a server that is visible to user.
-	UserVisibleState pulumi.StringPtrOutput `pulumi:"userVisibleState"`
 	// Server version.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
@@ -192,9 +184,6 @@ func NewServer(ctx *pulumi.Context,
 	name string, args *ServerArgs, opts ...pulumi.ResourceOption) (*Server, error) {
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -207,10 +196,7 @@ func NewServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:dbformysql/v20171201:Server"),
-		},
-		{
-			Type: pulumi.String("azurerm:dbformysql/v20171201preview:Server"),
+			Type: pulumi.String("azurerm:dbformysql/v20200701privatepreview:Server"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -238,44 +224,58 @@ func GetServer(ctx *pulumi.Context,
 type serverState struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// Status showing whether the server data encryption is enabled with customer-managed keys.
+	// The password of the administrator login (required for server creation).
+	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// availability Zone information of the server.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Status showing whether the data encryption is enabled with customer-managed keys.
 	ByokEnforcement *string `pulumi:"byokEnforcement"`
+	// The mode to create a new MySQL server.
+	CreateMode *string `pulumi:"createMode"`
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments *DelegatedSubnetArgumentsResponse `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
 	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
+	// Enable HA or not for a server.
+	HaEnabled *string `pulumi:"haEnabled"`
+	// The state of a HA server.
+	HaState *string `pulumi:"haState"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *IdentityResponse `pulumi:"identity"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// The master server id of a replica server.
-	MasterServerId *string `pulumi:"masterServerId"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
+	// Maintenance window of a server.
+	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// List of private endpoint connections on a server
-	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The maximum number of replicas that a master server can have.
+	// The maximum number of replicas that a primary server can have.
 	ReplicaCapacity *int `pulumi:"replicaCapacity"`
-	// The replication role of the server.
+	// The replication role.
 	ReplicationRole *string `pulumi:"replicationRole"`
+	// Restore point creation time (ISO8601 format), specifying the time to restore from.
+	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
+	// The source MySQL server id.
+	SourceServerId *string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
+	// availability Zone information of the server.
+	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
+	// The state of a server.
+	State *string `pulumi:"state"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
-	// A state of a server that is visible to user.
-	UserVisibleState *string `pulumi:"userVisibleState"`
 	// Server version.
 	Version *string `pulumi:"version"`
 }
@@ -283,44 +283,58 @@ type serverState struct {
 type ServerState struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrInput
-	// Status showing whether the server data encryption is enabled with customer-managed keys.
+	// The password of the administrator login (required for server creation).
+	AdministratorLoginPassword pulumi.StringPtrInput
+	// availability Zone information of the server.
+	AvailabilityZone pulumi.StringPtrInput
+	// Status showing whether the data encryption is enabled with customer-managed keys.
 	ByokEnforcement pulumi.StringPtrInput
+	// The mode to create a new MySQL server.
+	CreateMode pulumi.StringPtrInput
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments DelegatedSubnetArgumentsResponsePtrInput
 	// Earliest restore point creation time (ISO8601 format)
 	EarliestRestoreDate pulumi.StringPtrInput
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringPtrInput
+	// Enable HA or not for a server.
+	HaEnabled pulumi.StringPtrInput
+	// The state of a HA server.
+	HaState pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityResponsePtrInput
+	Identity IdentityResponsePtrInput
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// The master server id of a replica server.
-	MasterServerId pulumi.StringPtrInput
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion pulumi.StringPtrInput
+	// Maintenance window of a server.
+	MaintenanceWindow MaintenanceWindowResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// List of private endpoint connections on a server
-	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayInput
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess pulumi.StringPtrInput
-	// The maximum number of replicas that a master server can have.
+	// The maximum number of replicas that a primary server can have.
 	ReplicaCapacity pulumi.IntPtrInput
-	// The replication role of the server.
+	// The replication role.
 	ReplicationRole pulumi.StringPtrInput
+	// Restore point creation time (ISO8601 format), specifying the time to restore from.
+	RestorePointInTime pulumi.StringPtrInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrInput
+	// The source MySQL server id.
+	SourceServerId pulumi.StringPtrInput
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement pulumi.StringPtrInput
+	// availability Zone information of the server.
+	StandbyAvailabilityZone pulumi.StringPtrInput
+	// The state of a server.
+	State pulumi.StringPtrInput
 	// Storage profile of a server.
 	StorageProfile StorageProfileResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
-	// A state of a server that is visible to user.
-	UserVisibleState pulumi.StringPtrInput
 	// Server version.
 	Version pulumi.StringPtrInput
 }
@@ -330,38 +344,90 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
+	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin *string `pulumi:"administratorLogin"`
+	// The password of the administrator login (required for server creation).
+	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// availability Zone information of the server.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The mode to create a new MySQL server.
+	CreateMode *string `pulumi:"createMode"`
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments *DelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
+	// Enable HA or not for a server.
+	HaEnabled *string `pulumi:"haEnabled"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentity `pulumi:"identity"`
-	// The location the resource resides in.
+	Identity *Identity `pulumi:"identity"`
+	// Status showing whether the server enabled infrastructure encryption.
+	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// Properties of the server.
-	Properties interface{} `pulumi:"properties"`
+	// Maintenance window of a server.
+	MaintenanceWindow *MaintenanceWindow `pulumi:"maintenanceWindow"`
+	// The replication role.
+	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Restore point creation time (ISO8601 format), specifying the time to restore from.
+	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// The SKU (pricing tier) of the server.
 	Sku *Sku `pulumi:"sku"`
-	// Application-specific metadata in the form of key-value pairs.
+	// The source MySQL server id.
+	SourceServerId *string `pulumi:"sourceServerId"`
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement *string `pulumi:"sslEnforcement"`
+	// Storage profile of a server.
+	StorageProfile *StorageProfile `pulumi:"storageProfile"`
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Server version.
+	Version *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
+	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin pulumi.StringPtrInput
+	// The password of the administrator login (required for server creation).
+	AdministratorLoginPassword pulumi.StringPtrInput
+	// availability Zone information of the server.
+	AvailabilityZone pulumi.StringPtrInput
+	// The mode to create a new MySQL server.
+	CreateMode pulumi.StringPtrInput
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments DelegatedSubnetArgumentsPtrInput
+	// Enable HA or not for a server.
+	HaEnabled pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityPtrInput
-	// The location the resource resides in.
+	Identity IdentityPtrInput
+	// Status showing whether the server enabled infrastructure encryption.
+	InfrastructureEncryption pulumi.StringPtrInput
+	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// Properties of the server.
-	Properties pulumi.Input
+	// Maintenance window of a server.
+	MaintenanceWindow MaintenanceWindowPtrInput
+	// The replication role.
+	ReplicationRole pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Restore point creation time (ISO8601 format), specifying the time to restore from.
+	RestorePointInTime pulumi.StringPtrInput
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuPtrInput
-	// Application-specific metadata in the form of key-value pairs.
+	// The source MySQL server id.
+	SourceServerId pulumi.StringPtrInput
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement pulumi.StringPtrInput
+	// Storage profile of a server.
+	StorageProfile StorageProfilePtrInput
+	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Server version.
+	Version pulumi.StringPtrInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {

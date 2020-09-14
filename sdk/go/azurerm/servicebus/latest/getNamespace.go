@@ -25,8 +25,10 @@ type LookupNamespaceArgs struct {
 
 // Description of a namespace resource.
 type LookupNamespaceResult struct {
-	// The time the namespace was created.
+	// The time the namespace was created
 	CreatedAt string `pulumi:"createdAt"`
+	// Properties of BYOK Encryption description
+	Encryption *EncryptionResponse `pulumi:"encryption"`
 	// The Geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Identifier for Azure Insights metrics
@@ -37,7 +39,7 @@ type LookupNamespaceResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
 	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
-	// Properties of Sku
+	// Properties of SKU
 	Sku *SBSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -45,4 +47,6 @@ type LookupNamespaceResult struct {
 	Type string `pulumi:"type"`
 	// The time the namespace was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
+	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }

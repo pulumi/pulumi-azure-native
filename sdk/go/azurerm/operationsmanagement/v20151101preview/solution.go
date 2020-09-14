@@ -40,6 +40,12 @@ func NewSolution(ctx *pulumi.Context,
 	if args == nil {
 		args = &SolutionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationsmanagement/latest:Solution"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Solution
 	err := ctx.RegisterResource("azurerm:operationsmanagement/v20151101preview:Solution", name, args, &resource, opts...)
 	if err != nil {

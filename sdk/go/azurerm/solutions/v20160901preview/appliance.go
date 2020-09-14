@@ -61,6 +61,12 @@ func NewAppliance(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApplianceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:solutions/latest:Appliance"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Appliance
 	err := ctx.RegisterResource("azurerm:solutions/v20160901preview:Appliance", name, args, &resource, opts...)
 	if err != nil {

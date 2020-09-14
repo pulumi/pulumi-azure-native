@@ -46,6 +46,12 @@ func NewIoTSpace(ctx *pulumi.Context,
 	if args == nil {
 		args = &IoTSpaceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:iotspaces/latest:IoTSpace"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IoTSpace
 	err := ctx.RegisterResource("azurerm:iotspaces/v20171001preview:IoTSpace", name, args, &resource, opts...)
 	if err != nil {

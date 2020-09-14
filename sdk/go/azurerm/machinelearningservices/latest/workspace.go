@@ -37,8 +37,11 @@ import (
 // 				},
 // 				Status: pulumi.String("Enabled"),
 // 			},
-// 			FriendlyName:      pulumi.String("HelloName"),
-// 			HbiWorkspace:      pulumi.Bool(false),
+// 			FriendlyName: pulumi.String("HelloName"),
+// 			HbiWorkspace: pulumi.Bool(false),
+// 			Identity: &machinelearningservices.IdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 			KeyVault:          pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv"),
 // 			Location:          pulumi.String("eastus2euap"),
 // 			ResourceGroupName: pulumi.String("workspace-1234"),
@@ -93,8 +96,6 @@ type Workspace struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Specifies the name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The notebook info of Azure ML workspace.
-	NotebookInfo NotebookResourceInfoResponseOutput `pulumi:"notebookInfo"`
 	// The list of private endpoint connections in the workspace.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Count of private connections in the workspace
@@ -221,8 +222,6 @@ type workspaceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the resource.
 	Name *string `pulumi:"name"`
-	// The notebook info of Azure ML workspace.
-	NotebookInfo *NotebookResourceInfoResponse `pulumi:"notebookInfo"`
 	// The list of private endpoint connections in the workspace.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Count of private connections in the workspace
@@ -274,8 +273,6 @@ type WorkspaceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the resource.
 	Name pulumi.StringPtrInput
-	// The notebook info of Azure ML workspace.
-	NotebookInfo NotebookResourceInfoResponsePtrInput
 	// The list of private endpoint connections in the workspace.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Count of private connections in the workspace

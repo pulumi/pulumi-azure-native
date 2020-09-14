@@ -29,7 +29,6 @@ import (
 // 			ApplicationDefinitionId: pulumi.String("/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef"),
 // 			ApplicationName:         pulumi.String("myManagedApplication"),
 // 			Kind:                    pulumi.String("ServiceCatalog"),
-// 			Location:                pulumi.String("East US 2"),
 // 			ManagedResourceGroupId:  pulumi.String("/subscriptions/subid/resourceGroups/myManagedRG"),
 // 			ResourceGroupName:       pulumi.String("rg"),
 // 		})

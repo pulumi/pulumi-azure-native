@@ -40,6 +40,12 @@ func NewArtifact(ctx *pulumi.Context,
 	if args == nil {
 		args = &ArtifactArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:blueprint/latest:Artifact"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Artifact
 	err := ctx.RegisterResource("azurerm:blueprint/v20181101preview:Artifact", name, args, &resource, opts...)
 	if err != nil {

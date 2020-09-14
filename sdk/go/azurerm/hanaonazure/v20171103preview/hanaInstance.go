@@ -56,6 +56,12 @@ func NewHanaInstance(ctx *pulumi.Context,
 	if args == nil {
 		args = &HanaInstanceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:hanaonazure/latest:HanaInstance"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HanaInstance
 	err := ctx.RegisterResource("azurerm:hanaonazure/v20171103preview:HanaInstance", name, args, &resource, opts...)
 	if err != nil {
