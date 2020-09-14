@@ -92,29 +92,43 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 	singleVersion := AzureProviders{}
 
 	for providerName, allVersionMap := range providers {
-		previewAndLatestResources := calculateLatestVersions(allVersionMap, false /* invokes */, true /* preview */)
-		previewResources := map[string]*ResourceSpec{}
-		for resourceName, resource := range previewAndLatestResources {
-			if strings.Contains(resource.Swagger.Info.Version, "preview") {
-				previewResources[resourceName] = resource
-			}
-		}
-
-		previewAndLatestInvokes := calculateLatestVersions(allVersionMap, true /* invokes */, true /* preview */)
-		previewInvokes := map[string]*ResourceSpec{}
-		for resourceName, invoke := range previewAndLatestInvokes {
-			if strings.Contains(invoke.Swagger.Info.Version, "preview") {
-				previewInvokes[resourceName] = invoke
-			}
-		}
-
-		singleVersion[providerName] = ProviderVersions{
+		versions := ProviderVersions{
 			"latest": allVersionMap["latest"],
-			"preview": VersionResources{
-				Resources: previewResources,
-				Invokes:   previewInvokes,
-			},
 		}
+
+		findVersion := func(resource *ResourceSpec) *VersionResources {
+			apiVersion := "v" + strings.ReplaceAll(resource.Swagger.Info.Version, "-", "")
+			if !strings.Contains(apiVersion, "preview") {
+				return nil
+			}
+			version, ok := versions[apiVersion]
+			if !ok {
+				version = VersionResources{
+					Resources: map[string]*ResourceSpec{},
+					Invokes:   map[string]*ResourceSpec{},
+				}
+				versions[apiVersion] = version
+			}
+			return &version
+		}
+
+		previewResources := calculateLatestVersions(allVersionMap, false /* invokes */, true /* preview */)
+		for resourceName, resource := range previewResources {
+			version := findVersion(resource)
+			if version != nil {
+				version.Resources[resourceName] = resource
+			}
+		}
+
+		previewInvokes := calculateLatestVersions(allVersionMap, true /* invokes */, true /* preview */)
+		for resourceName, invoke := range previewInvokes {
+			version := findVersion(invoke)
+			if version != nil {
+				version.Invokes[resourceName] = invoke
+			}
+		}
+
+		singleVersion[providerName] = versions
 	}
 
 	return singleVersion
