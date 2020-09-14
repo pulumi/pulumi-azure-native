@@ -947,14 +947,52 @@ func (m *moduleGenerator) getOneOfValues(property *pschema.PropertySpec) (values
 }
 
 func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
+	resolvedSchema, err := context.ResolveSchema(schema)
+	if err != nil {
+		return nil, err
+	}
+
 	description := schema.Description
 	if description == "" {
-		resolvedSchema, err := context.ResolveSchema(schema)
-		if err != nil {
-			return nil, err
-		}
-
 		description = resolvedSchema.Description
+	}
+
+	// Handle enums
+	enumExtension, ok := resolvedSchema.Extensions[extensionEnum].(map[string]interface{})
+	if ok && resolvedSchema.Enum != nil {
+		var enumName string
+		enumSpec := &pschema.EnumTypeSpec{
+			Enum: []*pschema.EnumValueSpec{},
+		}
+		if name, ok := enumExtension["name"].(string); ok {
+			enumName = name
+		}
+		if values, ok := enumExtension["values"].([]interface{}); ok {
+			for _, val := range values {
+				if val, ok := val.(map[string]interface{}); ok {
+					enumVal := &pschema.EnumValueSpec{
+						Value: val["value"],
+					}
+					if name, ok := val["name"].(string); ok {
+						enumVal.Name = name
+					}
+					if description, ok := val["description"].(string); ok {
+						enumVal.Description = description
+					}
+					enumSpec.Enum = append(enumSpec.Enum, enumVal)
+				}
+			}
+		} else {
+			for _, val := range resolvedSchema.Enum {
+				enumVal := &pschema.EnumValueSpec{Value: val}
+				enumSpec.Enum = append(enumSpec.Enum, enumVal)
+			}
+		}
+		tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, m.module, enumName)
+		if _, ok := m.visitedTypes[tok]; !ok {
+			m.visitedTypes[tok] = true
+			m.pkg.Types[tok] = enumSpec
+		}
 	}
 
 	typeSpec, err := m.genTypeSpec(name, schema, context, isOutput)
