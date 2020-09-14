@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Storage.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storage/v20190601:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:ObjectReplicationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

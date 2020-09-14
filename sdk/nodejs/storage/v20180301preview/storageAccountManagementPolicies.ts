@@ -90,7 +90,7 @@ export class StorageAccountManagementPolicies extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20181101:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20190401:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20190601:StorageAccountManagementPolicies" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20181101:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20190401:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20190601:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20200801preview:StorageAccountManagementPolicies" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccountManagementPolicies.__pulumiType, name, inputs, opts);
     }

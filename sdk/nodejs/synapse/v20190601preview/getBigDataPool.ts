@@ -57,6 +57,10 @@ export interface GetBigDataPoolResult {
      */
     readonly defaultSparkLogFolder?: string;
     /**
+     * Whether compute isolation is required or not.
+     */
+    readonly isComputeIsolationEnabled?: boolean;
+    /**
      * Library version requirements
      */
     readonly libraryRequirements?: outputs.synapse.v20190601preview.LibraryRequirementsResponse;

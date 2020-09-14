@@ -76,6 +76,9 @@ func NewBlobContainer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storage/v20190601:BlobContainer"),
 		},
+		{
+			Type: pulumi.String("azurerm:storage/v20200801preview:BlobContainer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BlobContainer

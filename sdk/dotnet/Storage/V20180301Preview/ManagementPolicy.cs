@@ -67,6 +67,7 @@ namespace Pulumi.AzureRM.Storage.V20180301Preview
                     new Pulumi.Alias { Type = "azurerm:storage/v20181101:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190401:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190601:ManagementPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:ManagementPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

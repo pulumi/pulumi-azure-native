@@ -65,7 +65,7 @@ class Input(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:streamanalytics/v20160301:Input")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:streamanalytics/v20160301:Input"), pulumi.Alias(type_="azurerm:streamanalytics/v20170401preview:Input")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Input, __self__).__init__(
             'azurerm:streamanalytics/latest:Input',

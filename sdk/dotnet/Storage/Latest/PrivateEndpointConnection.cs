@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.Storage.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storage/v20190601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

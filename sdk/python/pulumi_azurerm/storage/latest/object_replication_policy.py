@@ -75,7 +75,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['policy_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/v20190601:ObjectReplicationPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/v20190601:ObjectReplicationPolicy"), pulumi.Alias(type_="azurerm:storage/v20200801preview:ObjectReplicationPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ObjectReplicationPolicy, __self__).__init__(
             'azurerm:storage/latest:ObjectReplicationPolicy',

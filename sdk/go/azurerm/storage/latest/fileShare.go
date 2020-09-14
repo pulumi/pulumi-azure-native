@@ -70,6 +70,9 @@ func NewFileShare(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storage/v20190601:FileShare"),
 		},
+		{
+			Type: pulumi.String("azurerm:storage/v20200801preview:FileShare"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FileShare

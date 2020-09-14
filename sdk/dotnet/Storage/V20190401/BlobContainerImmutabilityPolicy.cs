@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.Storage.V20190401
                     new Pulumi.Alias { Type = "azurerm:storage/v20180701:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20181101:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190601:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:BlobContainerImmutabilityPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
