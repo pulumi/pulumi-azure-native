@@ -35,12 +35,10 @@ func main() {
 
 	azureProviders := openapi.Providers()
 
-	result, err := gen.PulumiSchema(azureProviders)
-	if err != nil {
-		panic(err)
-	}
+	result := gen.PulumiSchema(azureProviders)
 
 	for _, language := range strings.Split(languages, ",") {
+		var err error
 		switch language {
 		case "schema":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azurerm")
@@ -92,10 +90,10 @@ var pulumiSchema = %#v
 		return errors.Wrap(err, "saving metadata")
 	}
 
-	if err = emitFile(outDir, "schema-docs.json", docsJSON); err != nil {
+	if err = emitFile(outDir, "schema.json", docsJSON); err != nil {
 		return err
 	}
-	return emitFile(outDir, "schema.json", schemaJSON)
+	return emitFile(outDir, "schema-full.json", schemaJSON)
 }
 
 func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string) error {

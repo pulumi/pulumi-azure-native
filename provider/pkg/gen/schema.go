@@ -39,14 +39,14 @@ const goBasePath = "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 type PulumiSchemaGenResult struct {
 	// PkgSpec is the complete schema
 	PkgSpec *pschema.PackageSpec
-	// Metadata is the complete metadata
-	Metadata *provider.AzureAPIMetadata
 	// DocsSpec is the docs relevant subset of PkgSpec
 	DocsSpec *pschema.PackageSpec
+	// Metadata is the complete metadata
+	Metadata *provider.AzureAPIMetadata
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders) (PulumiSchemaGenResult, error) {
+func PulumiSchema(providerMap openapi.AzureProviders) (PulumiSchemaGenResult) {
 	pkg := newPackageSpec()
 	docsPkg := newPackageSpec()
 
@@ -77,7 +77,6 @@ func PulumiSchema(providerMap openapi.AzureProviders) (PulumiSchemaGenResult, er
 		}
 		sort.Strings(versions)
 
-		latestVersions := getLatestVersions(versions, versionMap)
 		for _, version := range versions {
 			// Only want package spec and examples for latest versions in docs
 			pkgForVersion := newPackageSpec()
@@ -120,7 +119,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (PulumiSchemaGenResult, er
 			}
 
 			mergePackageSpec(pkg, pkgForVersion)
-			if latestVersions.Has(version) {
+			if version == "latest" {
 				mergePackageSpec(docsPkg, pkgForVersion)
 			}
 		}
@@ -373,30 +372,6 @@ func mergePackageSpec(dst, src *pschema.PackageSpec) {
 	for k, v := range src.Language {
 		dst.Language[k] = v
 	}
-}
-
-// getLatestVersions finds the versions to include in docs/examples.
-// Docs will only have the newest stable version or if there are no
-// stable versions, the newest preview
-func getLatestVersions(sortedVersions []string, versionMap openapi.ProviderVersions) codegen.StringSet {
-	latestVersions := codegen.NewStringSet()
-	var latestPreview string
-	if _, hasLatest := versionMap["latest"]; hasLatest {
-		latestVersions.Add("latest")
-	} else {
-		for i := len(sortedVersions) - 1; i >= 0; i-- {
-			if !strings.Contains(sortedVersions[i], "preview") {
-				latestVersions.Add(sortedVersions[i])
-				break
-			} else if latestPreview == "" {
-				latestPreview = sortedVersions[i]
-			}
-		}
-	}
-	if len(latestVersions) == 0 && latestPreview != "" {
-		latestVersions.Add(latestPreview)
-	}
-	return latestVersions
 }
 
 // Microsoft-specific API extension constants.
