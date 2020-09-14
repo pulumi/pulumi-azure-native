@@ -83,8 +83,8 @@ jobs:
         run: make init_submodules
       - name: Build codegen binaries
         run: make codegen
-      - name: Build Schema
-        run: make generate_schema
+      - name: Build Schema and SDKs
+        run: make generate
       - name: Build provider binary
         run: make provider
       - name: Check worktree clean
@@ -94,6 +94,34 @@ jobs:
         with:
           name: pulumi-${{ env.PROVIDER }}
           path: ${{ github.workspace }}/bin
+      - name: Compress NodeJS SDK folder
+        run: tar -zcf sdk/nodejs.tar.gz -C sdk/nodejs .
+      - name: Upload NodeJS artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: nodejs-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/nodejs.tar.gz
+      - name: Compress DotNet SDK folder
+        run: tar -zcf sdk/dotnet.tar.gz -C sdk/dotnet .
+      - name: Upload DotNet artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dotnet-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/dotnet.tar.gz
+      - name: Compress Python SDK folder
+        run: tar -zcf sdk/python.tar.gz -C sdk/python .
+      - name: Upload Python artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: python-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/python.tar.gz
+      - name: Compress Go SDK folder
+        run: tar -zcf sdk/go.tar.gz -C sdk/go .
+      - name: Upload Go artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: go-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/go.tar.gz
       - name: Test Provider Library
         run: make test_provider
   build_sdks:
@@ -149,21 +177,17 @@ jobs:
       - name: Restore binary perms
         run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
           -exec chmod +x {} \;
-      - name: Initialize submodules
-        run: make init_submodules
-      - name: Generate SDK
-        run: make generate_${{ matrix.language }}
+      - name: Download SDK
+        uses: actions/download-artifact@v2
+        with:
+          name: ${{ matrix.language  }}-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk
+      - name: Uncompress SDK folder
+        run: tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{ github.workspace}}/sdk/${{ matrix.language}}
       - name: Build SDK
         run: make build_${{ matrix.language }}
       - name: Check worktree clean
         run: ./ci-scripts/ci/check-worktree-is-clean
-      - name: Compress SDK folder
-        run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: ${{ matrix.language  }}-sdk.tar.gz
-          path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
   test:
     name: test
     needs: build_sdks

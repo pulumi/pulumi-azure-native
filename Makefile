@@ -30,15 +30,10 @@ ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
-local_generate::
-	echo "Generating Pulumi schema..."
+generate::
+	echo "Generating Pulumi schema and language SDKs..."
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,go,dotnet,python ${VERSION}
-	echo "Finished generating schema."
-
-generate_schema::
-	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs ${VERSION}
-	echo "Finished generating schema."
+	echo "Finished generating schema and language SDKs."
 
 codegen::
 	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN))
@@ -112,7 +107,7 @@ install_nodejs_sdk::
 test::
 	cd examples && go test -v -tags=all -timeout 2h
 
-build:: init_submodules clean codegen local_generate provider build_sdks install_sdks
+build:: init_submodules clean codegen generate provider build_sdks install_sdks
 build_sdks: build_nodejs build_dotnet build_python build_go
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 
