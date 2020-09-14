@@ -52,12 +52,10 @@ func main() {
 
 	azureProviders := openapi.Providers()
 
-	result, err := gen.PulumiSchema(azureProviders)
-	if err != nil {
-		panic(err)
-	}
+	result := gen.PulumiSchema(azureProviders)
 
 	handleSchema := func() {
+		var err error
 		outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azurerm")
 		if err = emitSchema(result.PkgSpec, result.DocsSpec, *version, outdir); err != nil {
 			panic(err)
@@ -71,6 +69,7 @@ func main() {
 	langs := strings.Split(languages, ",")
 
 	if *generateExamples {
+		var err error
 		// Note - Requires a provider executable in PATH
 		err = gen.Examples(result.PkgSpec, result.DocsSpec, result.Metadata, result.Examples, langs)
 		if err != nil {
@@ -82,6 +81,7 @@ func main() {
 
 	// Generate SDK after examples so they get rendered as part of the SDK
 	if *generateSDK {
+		var err error
 		pkgSpec := result.PkgSpec
 		for _, language := range langs {
 			outdir := path.Join(".", "sdk", language)
@@ -131,10 +131,10 @@ var pulumiSchema = %#v
 		return errors.Wrap(err, "saving metadata")
 	}
 
-	if err := emitFile(outDir, "schema-docs.json", docsJSON); err != nil {
+	if err := emitFile(outDir, "schema.json", docsJSON); err != nil {
 		return err
 	}
-	return emitFile(outDir, "schema.json", schemaJSON)
+	return emitFile(outDir, "schema-full.json", schemaJSON)
 }
 
 func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string) error {
