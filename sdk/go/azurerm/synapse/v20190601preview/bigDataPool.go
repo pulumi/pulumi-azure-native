@@ -22,6 +22,8 @@ type BigDataPool struct {
 	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrOutput `pulumi:"defaultSparkLogFolder"`
+	// Whether compute isolation is required or not.
+	IsComputeIsolationEnabled pulumi.BoolPtrOutput `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements
 	LibraryRequirements LibraryRequirementsResponsePtrOutput `pulumi:"libraryRequirements"`
 	// The geo-location where the resource lives
@@ -94,6 +96,8 @@ type bigDataPoolState struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
+	// Whether compute isolation is required or not.
+	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements
 	LibraryRequirements *LibraryRequirementsResponse `pulumi:"libraryRequirements"`
 	// The geo-location where the resource lives
@@ -127,6 +131,8 @@ type BigDataPoolState struct {
 	CreationDate pulumi.StringPtrInput
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrInput
+	// Whether compute isolation is required or not.
+	IsComputeIsolationEnabled pulumi.BoolPtrInput
 	// Library version requirements
 	LibraryRequirements LibraryRequirementsResponsePtrInput
 	// The geo-location where the resource lives
@@ -168,6 +174,8 @@ type bigDataPoolArgs struct {
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Whether to stop any running jobs in the Big Data pool
 	Force *bool `pulumi:"force"`
+	// Whether compute isolation is required or not.
+	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements
 	LibraryRequirements *LibraryRequirements `pulumi:"libraryRequirements"`
 	// The geo-location where the resource lives
@@ -206,6 +214,8 @@ type BigDataPoolArgs struct {
 	DefaultSparkLogFolder pulumi.StringPtrInput
 	// Whether to stop any running jobs in the Big Data pool
 	Force pulumi.BoolPtrInput
+	// Whether compute isolation is required or not.
+	IsComputeIsolationEnabled pulumi.BoolPtrInput
 	// Library version requirements
 	LibraryRequirements LibraryRequirementsPtrInput
 	// The geo-location where the resource lives

@@ -23,6 +23,7 @@ class BigDataPool(pulumi.CustomResource):
                  creation_date: Optional[pulumi.Input[str]] = None,
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  force: Optional[pulumi.Input[bool]] = None,
+                 is_compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirements: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[float]] = None,
@@ -48,6 +49,7 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[str] creation_date: The time when the Big Data pool was created.
         :param pulumi.Input[str] default_spark_log_folder: The default folder where Spark logs will be written.
         :param pulumi.Input[bool] force: Whether to stop any running jobs in the Big Data pool
+        :param pulumi.Input[bool] is_compute_isolation_enabled: Whether compute isolation is required or not.
         :param pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']] library_requirements: Library version requirements
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] node_count: The number of nodes in the Big Data pool.
@@ -85,6 +87,7 @@ class BigDataPool(pulumi.CustomResource):
             __props__['creation_date'] = creation_date
             __props__['default_spark_log_folder'] = default_spark_log_folder
             __props__['force'] = force
+            __props__['is_compute_isolation_enabled'] = is_compute_isolation_enabled
             __props__['library_requirements'] = library_requirements
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -159,6 +162,14 @@ class BigDataPool(pulumi.CustomResource):
         The default folder where Spark logs will be written.
         """
         return pulumi.get(self, "default_spark_log_folder")
+
+    @property
+    @pulumi.getter(name="isComputeIsolationEnabled")
+    def is_compute_isolation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether compute isolation is required or not.
+        """
+        return pulumi.get(self, "is_compute_isolation_enabled")
 
     @property
     @pulumi.getter(name="libraryRequirements")

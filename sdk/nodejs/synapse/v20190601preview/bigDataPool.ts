@@ -53,6 +53,10 @@ export class BigDataPool extends pulumi.CustomResource {
      */
     public readonly defaultSparkLogFolder!: pulumi.Output<string | undefined>;
     /**
+     * Whether compute isolation is required or not.
+     */
+    public readonly isComputeIsolationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Library version requirements
      */
     public readonly libraryRequirements!: pulumi.Output<outputs.synapse.v20190601preview.LibraryRequirementsResponse | undefined>;
@@ -125,6 +129,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["creationDate"] = args ? args.creationDate : undefined;
             inputs["defaultSparkLogFolder"] = args ? args.defaultSparkLogFolder : undefined;
             inputs["force"] = args ? args.force : undefined;
+            inputs["isComputeIsolationEnabled"] = args ? args.isComputeIsolationEnabled : undefined;
             inputs["libraryRequirements"] = args ? args.libraryRequirements : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["nodeCount"] = args ? args.nodeCount : undefined;
@@ -143,6 +148,7 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["autoScale"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["defaultSparkLogFolder"] = undefined /*out*/;
+            inputs["isComputeIsolationEnabled"] = undefined /*out*/;
             inputs["libraryRequirements"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -194,6 +200,10 @@ export interface BigDataPoolArgs {
      * Whether to stop any running jobs in the Big Data pool
      */
     readonly force?: pulumi.Input<boolean>;
+    /**
+     * Whether compute isolation is required or not.
+     */
+    readonly isComputeIsolationEnabled?: pulumi.Input<boolean>;
     /**
      * Library version requirements
      */

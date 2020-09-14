@@ -41,6 +41,9 @@ func NewFunction(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:streamanalytics/latest:Function"),
 		},
+		{
+			Type: pulumi.String("azurerm:streamanalytics/v20170401preview:Function"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Function

@@ -20,7 +20,7 @@ class GetBigDataPoolResult:
     """
     A Big Data pool
     """
-    def __init__(__self__, auto_pause=None, auto_scale=None, creation_date=None, default_spark_log_folder=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
+    def __init__(__self__, auto_pause=None, auto_scale=None, creation_date=None, default_spark_log_folder=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
         if auto_pause and not isinstance(auto_pause, dict):
             raise TypeError("Expected argument 'auto_pause' to be a dict")
         pulumi.set(__self__, "auto_pause", auto_pause)
@@ -33,6 +33,9 @@ class GetBigDataPoolResult:
         if default_spark_log_folder and not isinstance(default_spark_log_folder, str):
             raise TypeError("Expected argument 'default_spark_log_folder' to be a str")
         pulumi.set(__self__, "default_spark_log_folder", default_spark_log_folder)
+        if is_compute_isolation_enabled and not isinstance(is_compute_isolation_enabled, bool):
+            raise TypeError("Expected argument 'is_compute_isolation_enabled' to be a bool")
+        pulumi.set(__self__, "is_compute_isolation_enabled", is_compute_isolation_enabled)
         if library_requirements and not isinstance(library_requirements, dict):
             raise TypeError("Expected argument 'library_requirements' to be a dict")
         pulumi.set(__self__, "library_requirements", library_requirements)
@@ -98,6 +101,14 @@ class GetBigDataPoolResult:
         The default folder where Spark logs will be written.
         """
         return pulumi.get(self, "default_spark_log_folder")
+
+    @property
+    @pulumi.getter(name="isComputeIsolationEnabled")
+    def is_compute_isolation_enabled(self) -> Optional[bool]:
+        """
+        Whether compute isolation is required or not.
+        """
+        return pulumi.get(self, "is_compute_isolation_enabled")
 
     @property
     @pulumi.getter(name="libraryRequirements")
@@ -198,6 +209,7 @@ class AwaitableGetBigDataPoolResult(GetBigDataPoolResult):
             auto_scale=self.auto_scale,
             creation_date=self.creation_date,
             default_spark_log_folder=self.default_spark_log_folder,
+            is_compute_isolation_enabled=self.is_compute_isolation_enabled,
             library_requirements=self.library_requirements,
             location=self.location,
             name=self.name,
@@ -237,6 +249,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
         auto_scale=__ret__.auto_scale,
         creation_date=__ret__.creation_date,
         default_spark_log_folder=__ret__.default_spark_log_folder,
+        is_compute_isolation_enabled=__ret__.is_compute_isolation_enabled,
         library_requirements=__ret__.library_requirements,
         location=__ret__.location,
         name=__ret__.name,

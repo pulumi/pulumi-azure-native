@@ -238,6 +238,7 @@ namespace Pulumi.AzureRM.Storage.V20190601
                     new Pulumi.Alias { Type = "azurerm:storage/v20180701:StorageAccount"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20181101:StorageAccount"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190401:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
