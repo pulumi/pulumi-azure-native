@@ -96,7 +96,7 @@ var pulumiSchema = %#v
 		return errors.Wrap(err, "saving metadata")
 	}
 
-	return emitFile(outDir, "schema.json", schemaJSON)
+	return emitFile(outDir, "schema-full.json", schemaJSON)
 }
 
 // emitDocsSchema writes the Pulumi schema JSON to the 'schema-docs.json' file in the given directory.
@@ -109,7 +109,7 @@ func emitDocsSchema(pkgSpec schema.PackageSpec, version, outDir string) error {
 	// Ensure the spec is stamped with a version.
 	pkgSpec.Version = version
 
-	return emitFile(outDir, "schema-docs.json", schemaJSON)
+	return emitFile(outDir, "schema.json", schemaJSON)
 }
 
 func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string) error {
