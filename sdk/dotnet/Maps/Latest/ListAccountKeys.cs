@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.Maps.Latest
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Resource Group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;

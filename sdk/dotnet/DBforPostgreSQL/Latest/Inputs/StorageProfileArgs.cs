@@ -22,18 +22,6 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest.Inputs
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// Enable Geo-redundant or not for server backup.
-        /// </summary>
-        [Input("geoRedundantBackup")]
-        public Input<string>? GeoRedundantBackup { get; set; }
-
-        /// <summary>
-        /// Enable Storage Auto Grow.
-        /// </summary>
-        [Input("storageAutogrow")]
-        public Input<string>? StorageAutogrow { get; set; }
-
-        /// <summary>
         /// Max storage allowed for a server.
         /// </summary>
         [Input("storageMB")]

@@ -80,7 +80,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200301:LinkedWorkspace"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200501preview:LinkedWorkspace"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200515preview:LinkedWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

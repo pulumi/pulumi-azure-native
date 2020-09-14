@@ -46,25 +46,17 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class GetFirewallRuleResult
     {
         /// <summary>
-        /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
         /// </summary>
-        public readonly string EndIpAddress;
-        /// <summary>
-        /// Kind of server that contains this firewall rule.
-        /// </summary>
-        public readonly string Kind;
-        /// <summary>
-        /// Location of the server that contains this firewall rule.
-        /// </summary>
-        public readonly string Location;
+        public readonly string? EndIpAddress;
         /// <summary>
         /// Resource name.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
-        /// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        /// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
         /// </summary>
-        public readonly string StartIpAddress;
+        public readonly string? StartIpAddress;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -72,21 +64,15 @@ namespace Pulumi.AzureRM.Sql.Latest
 
         [OutputConstructor]
         private GetFirewallRuleResult(
-            string endIpAddress,
+            string? endIpAddress,
 
-            string kind,
+            string? name,
 
-            string location,
-
-            string name,
-
-            string startIpAddress,
+            string? startIpAddress,
 
             string type)
         {
             EndIpAddress = endIpAddress;
-            Kind = kind;
-            Location = location;
             Name = name;
             StartIpAddress = startIpAddress;
             Type = type;

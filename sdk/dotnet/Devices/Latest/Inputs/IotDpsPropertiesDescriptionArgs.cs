@@ -33,6 +33,12 @@ namespace Pulumi.AzureRM.Devices.Latest.Inputs
             set => _authorizationPolicies = value;
         }
 
+        /// <summary>
+        /// The encryption properties for the IoT DPS instance.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertiesDescriptionArgs>? Encryption { get; set; }
+
         [Input("iotHubs")]
         private InputList<Inputs.IotHubDefinitionDescriptionArgs>? _iotHubs;
 

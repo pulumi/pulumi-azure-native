@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class GetServerAzureADAdministratorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the server administrator resource.
+        /// The name of server active directory administrator.
         /// </summary>
         [Input("administratorName", required: true)]
         public string AdministratorName { get; set; } = null!;
@@ -46,11 +46,15 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class GetServerAzureADAdministratorResult
     {
         /// <summary>
-        /// The type of administrator.
+        /// Type of the sever administrator.
         /// </summary>
         public readonly string AdministratorType;
         /// <summary>
-        /// The server administrator login value.
+        /// Azure Active Directory only Authentication enabled.
+        /// </summary>
+        public readonly bool AzureADOnlyAuthentication;
+        /// <summary>
+        /// Login name of the server administrator.
         /// </summary>
         public readonly string Login;
         /// <summary>
@@ -58,13 +62,13 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The server administrator Sid (Secure ID).
+        /// SID (object ID) of the server administrator.
         /// </summary>
         public readonly string Sid;
         /// <summary>
-        /// The server Active Directory Administrator tenant id.
+        /// Tenant ID of the administrator.
         /// </summary>
-        public readonly string TenantId;
+        public readonly string? TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -74,17 +78,20 @@ namespace Pulumi.AzureRM.Sql.Latest
         private GetServerAzureADAdministratorResult(
             string administratorType,
 
+            bool azureADOnlyAuthentication,
+
             string login,
 
             string name,
 
             string sid,
 
-            string tenantId,
+            string? tenantId,
 
             string type)
         {
             AdministratorType = administratorType;
+            AzureADOnlyAuthentication = azureADOnlyAuthentication;
             Login = login;
             Name = name;
             Sid = sid;

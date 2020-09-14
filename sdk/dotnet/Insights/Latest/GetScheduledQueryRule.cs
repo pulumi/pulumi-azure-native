@@ -39,86 +39,104 @@ namespace Pulumi.AzureRM.Insights.Latest
     [OutputType]
     public sealed class GetScheduledQueryRuleResult
     {
+        public readonly ImmutableArray<Outputs.ActionResponseResult> Actions;
         /// <summary>
-        /// Action needs to be taken on rule execution.
+        /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
-        public readonly Union<Outputs.AlertingActionResponseResult, Outputs.LogToMetricActionResponseResult> Action;
+        public readonly Outputs.ScheduledQueryRuleCriteriaResponseResult? Criteria;
         /// <summary>
-        /// The description of the Log Search rule.
+        /// The description of the scheduled query rule.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
-        public readonly string? Enabled;
+        public readonly bool? Enabled;
         /// <summary>
-        /// Last time the rule was updated in IS08601 format.
+        /// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         /// </summary>
-        public readonly string LastUpdatedTime;
+        public readonly string? EvaluationFrequency;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Azure resource name
+        /// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+        /// </summary>
+        public readonly string? MuteActionsDuration;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the scheduled query rule
+        /// The list of resource id's that this scheduled query rule is scoped to.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly ImmutableArray<string> Scopes;
         /// <summary>
-        /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        /// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         /// </summary>
-        public readonly Outputs.ScheduleResponseResult? Schedule;
+        public readonly double? Severity;
         /// <summary>
-        /// Data Source against which rule will Query Data
-        /// </summary>
-        public readonly Outputs.SourceResponseResult Source;
-        /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Azure resource type
+        /// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+        /// </summary>
+        public readonly ImmutableArray<string> TargetResourceTypes;
+        /// <summary>
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+        /// </summary>
+        public readonly string? WindowSize;
 
         [OutputConstructor]
         private GetScheduledQueryRuleResult(
-            Union<Outputs.AlertingActionResponseResult, Outputs.LogToMetricActionResponseResult> action,
+            ImmutableArray<Outputs.ActionResponseResult> actions,
+
+            Outputs.ScheduledQueryRuleCriteriaResponseResult? criteria,
 
             string? description,
 
-            string? enabled,
+            bool? enabled,
 
-            string lastUpdatedTime,
+            string? evaluationFrequency,
 
             string location,
 
+            string? muteActionsDuration,
+
             string name,
 
-            string provisioningState,
+            ImmutableArray<string> scopes,
 
-            Outputs.ScheduleResponseResult? schedule,
-
-            Outputs.SourceResponseResult source,
+            double? severity,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            ImmutableArray<string> targetResourceTypes,
+
+            string type,
+
+            string? windowSize)
         {
-            Action = action;
+            Actions = actions;
+            Criteria = criteria;
             Description = description;
             Enabled = enabled;
-            LastUpdatedTime = lastUpdatedTime;
+            EvaluationFrequency = evaluationFrequency;
             Location = location;
+            MuteActionsDuration = muteActionsDuration;
             Name = name;
-            ProvisioningState = provisioningState;
-            Schedule = schedule;
-            Source = source;
+            Scopes = scopes;
+            Severity = severity;
             Tags = tags;
+            TargetResourceTypes = targetResourceTypes;
             Type = type;
+            WindowSize = windowSize;
         }
     }
 }

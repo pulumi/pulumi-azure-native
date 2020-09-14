@@ -13,37 +13,6 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
     /// Represents a server.
     /// 
     /// ## Example Usage
-    /// ### Create a database as a point in time restore
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var server = new AzureRM.DBforMySQL.Latest.Server("server", new AzureRM.DBforMySQL.Latest.ServerArgs
-    ///         {
-    ///             Location = "brazilsouth",
-    ///             ResourceGroupName = "TargetResourceGroup",
-    ///             ServerName = "targetserver",
-    ///             Sku = new AzureRM.DBforMySQL.Latest.Inputs.SkuArgs
-    ///             {
-    ///                 Capacity = 2,
-    ///                 Family = "Gen5",
-    ///                 Name = "GP_Gen5_2",
-    ///                 Tier = "GeneralPurpose",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "ElasticServer", "1" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// ### Create a new server
     /// ```csharp
     /// using Pulumi;
@@ -55,15 +24,23 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
     ///     {
     ///         var server = new AzureRM.DBforMySQL.Latest.Server("server", new AzureRM.DBforMySQL.Latest.ServerArgs
     ///         {
+    ///             AdministratorLogin = "cloudsa",
+    ///             AdministratorLoginPassword = "pass$w0rd",
+    ///             CreateMode = "Default",
     ///             Location = "westus",
     ///             ResourceGroupName = "testrg",
     ///             ServerName = "mysqltestsvc4",
     ///             Sku = new AzureRM.DBforMySQL.Latest.Inputs.SkuArgs
     ///             {
-    ///                 Capacity = 2,
-    ///                 Family = "Gen5",
-    ///                 Name = "GP_Gen5_2",
+    ///                 Name = "Standard_D14_v2",
     ///                 Tier = "GeneralPurpose",
+    ///             },
+    ///             SslEnforcement = "Enabled",
+    ///             StorageProfile = new AzureRM.DBforMySQL.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 BackupRetentionDays = 7,
+    ///                 StorageIops = 200,
+    ///                 StorageMB = 128000,
     ///             },
     ///             Tags = 
     ///             {
@@ -86,16 +63,18 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
     ///     {
     ///         var server = new AzureRM.DBforMySQL.Latest.Server("server", new AzureRM.DBforMySQL.Latest.ServerArgs
     ///         {
+    ///             CreateMode = "Replica",
     ///             Location = "westus",
     ///             ResourceGroupName = "TargetResourceGroup",
     ///             ServerName = "targetserver",
+    ///             SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/PrimaryResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/primaryserver",
     ///         });
     ///     }
     /// 
     /// }
     /// 
     /// ```
-    /// ### Create a server as a geo restore
+    /// ### Create a server as a point in time restore
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -106,16 +85,17 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
     ///     {
     ///         var server = new AzureRM.DBforMySQL.Latest.Server("server", new AzureRM.DBforMySQL.Latest.ServerArgs
     ///         {
-    ///             Location = "westus",
+    ///             CreateMode = "PointInTimeRestore",
+    ///             Location = "brazilsouth",
     ///             ResourceGroupName = "TargetResourceGroup",
+    ///             RestorePointInTime = "2017-12-14T00:00:37.467Z",
     ///             ServerName = "targetserver",
     ///             Sku = new AzureRM.DBforMySQL.Latest.Inputs.SkuArgs
     ///             {
-    ///                 Capacity = 2,
-    ///                 Family = "Gen5",
-    ///                 Name = "GP_Gen5_2",
+    ///                 Name = "Standard_D14_v2",
     ///                 Tier = "GeneralPurpose",
     ///             },
+    ///             SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
     ///             Tags = 
     ///             {
     ///                 { "ElasticServer", "1" },
@@ -136,28 +116,64 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// Status showing whether the server data encryption is enabled with customer-managed keys.
+        /// The password of the administrator login (required for server creation).
+        /// </summary>
+        [Output("administratorLoginPassword")]
+        public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// availability Zone information of the server.
+        /// </summary>
+        [Output("availabilityZone")]
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// Status showing whether the data encryption is enabled with customer-managed keys.
         /// </summary>
         [Output("byokEnforcement")]
         public Output<string> ByokEnforcement { get; private set; } = null!;
 
         /// <summary>
+        /// The mode to create a new MySQL server.
+        /// </summary>
+        [Output("createMode")]
+        public Output<string?> CreateMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Delegated subnet arguments.
+        /// </summary>
+        [Output("delegatedSubnetArguments")]
+        public Output<Outputs.DelegatedSubnetArgumentsResponseResult?> DelegatedSubnetArguments { get; private set; } = null!;
+
+        /// <summary>
         /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
         [Output("earliestRestoreDate")]
-        public Output<string?> EarliestRestoreDate { get; private set; } = null!;
+        public Output<string> EarliestRestoreDate { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
         [Output("fullyQualifiedDomainName")]
-        public Output<string?> FullyQualifiedDomainName { get; private set; } = null!;
+        public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable HA or not for a server.
+        /// </summary>
+        [Output("haEnabled")]
+        public Output<string?> HaEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of a HA server.
+        /// </summary>
+        [Output("haState")]
+        public Output<string> HaState { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Status showing whether the server enabled infrastructure encryption.
@@ -172,16 +188,10 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The master server id of a replica server.
+        /// Maintenance window of a server.
         /// </summary>
-        [Output("masterServerId")]
-        public Output<string?> MasterServerId { get; private set; } = null!;
-
-        /// <summary>
-        /// Enforce a minimal Tls version for the server.
-        /// </summary>
-        [Output("minimalTlsVersion")]
-        public Output<string?> MinimalTlsVersion { get; private set; } = null!;
+        [Output("maintenanceWindow")]
+        public Output<Outputs.MaintenanceWindowResponseResult?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -190,28 +200,28 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of private endpoint connections on a server
-        /// </summary>
-        [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
-
-        /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Output("publicNetworkAccess")]
-        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of replicas that a master server can have.
+        /// The maximum number of replicas that a primary server can have.
         /// </summary>
         [Output("replicaCapacity")]
-        public Output<int?> ReplicaCapacity { get; private set; } = null!;
+        public Output<int> ReplicaCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The replication role of the server.
+        /// The replication role.
         /// </summary>
         [Output("replicationRole")]
         public Output<string?> ReplicationRole { get; private set; } = null!;
+
+        /// <summary>
+        /// Restore point creation time (ISO8601 format), specifying the time to restore from.
+        /// </summary>
+        [Output("restorePointInTime")]
+        public Output<string?> RestorePointInTime { get; private set; } = null!;
 
         /// <summary>
         /// The SKU (pricing tier) of the server.
@@ -220,10 +230,28 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The source MySQL server id.
+        /// </summary>
+        [Output("sourceServerId")]
+        public Output<string?> SourceServerId { get; private set; } = null!;
+
+        /// <summary>
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Output("sslEnforcement")]
         public Output<string?> SslEnforcement { get; private set; } = null!;
+
+        /// <summary>
+        /// availability Zone information of the server.
+        /// </summary>
+        [Output("standbyAvailabilityZone")]
+        public Output<string> StandbyAvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of a server.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Storage profile of a server.
@@ -242,12 +270,6 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// A state of a server that is visible to user.
-        /// </summary>
-        [Output("userVisibleState")]
-        public Output<string?> UserVisibleState { get; private set; } = null!;
 
         /// <summary>
         /// Server version.
@@ -280,8 +302,7 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:Server"},
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201preview:Server"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20200701privatepreview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -306,28 +327,82 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        /// </summary>
+        [Input("administratorLogin")]
+        public Input<string>? AdministratorLogin { get; set; }
+
+        /// <summary>
+        /// The password of the administrator login (required for server creation).
+        /// </summary>
+        [Input("administratorLoginPassword")]
+        public Input<string>? AdministratorLoginPassword { get; set; }
+
+        /// <summary>
+        /// availability Zone information of the server.
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
+
+        /// <summary>
+        /// The mode to create a new MySQL server.
+        /// </summary>
+        [Input("createMode")]
+        public Input<string>? CreateMode { get; set; }
+
+        /// <summary>
+        /// Delegated subnet arguments.
+        /// </summary>
+        [Input("delegatedSubnetArguments")]
+        public Input<Inputs.DelegatedSubnetArgumentsArgs>? DelegatedSubnetArguments { get; set; }
+
+        /// <summary>
+        /// Enable HA or not for a server.
+        /// </summary>
+        [Input("haEnabled")]
+        public Input<string>? HaEnabled { get; set; }
+
+        /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The location the resource resides in.
+        /// Status showing whether the server enabled infrastructure encryption.
+        /// </summary>
+        [Input("infrastructureEncryption")]
+        public Input<string>? InfrastructureEncryption { get; set; }
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the server.
+        /// Maintenance window of a server.
         /// </summary>
-        [Input("properties", required: true)]
-        public InputUnion<Inputs.ServerPropertiesForDefaultCreateArgs, InputUnion<Inputs.ServerPropertiesForGeoRestoreArgs, InputUnion<Inputs.ServerPropertiesForReplicaArgs, Inputs.ServerPropertiesForRestoreArgs>>> Properties { get; set; } = null!;
+        [Input("maintenanceWindow")]
+        public Input<Inputs.MaintenanceWindowArgs>? MaintenanceWindow { get; set; }
+
+        /// <summary>
+        /// The replication role.
+        /// </summary>
+        [Input("replicationRole")]
+        public Input<string>? ReplicationRole { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Restore point creation time (ISO8601 format), specifying the time to restore from.
+        /// </summary>
+        [Input("restorePointInTime")]
+        public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
         /// The name of the server.
@@ -341,17 +416,41 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
+        /// <summary>
+        /// The source MySQL server id.
+        /// </summary>
+        [Input("sourceServerId")]
+        public Input<string>? SourceServerId { get; set; }
+
+        /// <summary>
+        /// Enable ssl enforcement or not when connect to server.
+        /// </summary>
+        [Input("sslEnforcement")]
+        public Input<string>? SslEnforcement { get; set; }
+
+        /// <summary>
+        /// Storage profile of a server.
+        /// </summary>
+        [Input("storageProfile")]
+        public Input<Inputs.StorageProfileArgs>? StorageProfile { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Application-specific metadata in the form of key-value pairs.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Server version.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public ServerArgs()
         {

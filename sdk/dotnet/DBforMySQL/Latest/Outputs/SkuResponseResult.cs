@@ -14,42 +14,21 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest.Outputs
     public sealed class SkuResponseResult
     {
         /// <summary>
-        /// The scale up/out capacity, representing server's compute units.
-        /// </summary>
-        public readonly int? Capacity;
-        /// <summary>
-        /// The family of hardware.
-        /// </summary>
-        public readonly string? Family;
-        /// <summary>
-        /// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+        /// The name of the sku, e.g. Standard_D32s_v3.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The size code, to be interpreted by resource as appropriate.
+        /// The tier of the particular SKU, e.g. GeneralPurpose.
         /// </summary>
-        public readonly string? Size;
-        /// <summary>
-        /// The tier of the particular SKU, e.g. Basic.
-        /// </summary>
-        public readonly string? Tier;
+        public readonly string Tier;
 
         [OutputConstructor]
         private SkuResponseResult(
-            int? capacity,
-
-            string? family,
-
             string name,
 
-            string? size,
-
-            string? tier)
+            string tier)
         {
-            Capacity = capacity;
-            Family = family;
             Name = name;
-            Size = size;
             Tier = tier;
         }
     }

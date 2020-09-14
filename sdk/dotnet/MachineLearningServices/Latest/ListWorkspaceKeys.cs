@@ -41,7 +41,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     {
         public readonly string AppInsightsInstrumentationKey;
         public readonly Outputs.RegistryListCredentialsResultResponseResult ContainerRegistryCredentials;
-        public readonly Outputs.NotebookListCredentialsResultResponseResult? NotebookAccessKeys;
         public readonly string UserStorageKey;
         public readonly string UserStorageResourceId;
 
@@ -51,15 +50,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
 
             Outputs.RegistryListCredentialsResultResponseResult containerRegistryCredentials,
 
-            Outputs.NotebookListCredentialsResultResponseResult? notebookAccessKeys,
-
             string userStorageKey,
 
             string userStorageResourceId)
         {
             AppInsightsInstrumentationKey = appInsightsInstrumentationKey;
             ContainerRegistryCredentials = containerRegistryCredentials;
-            NotebookAccessKeys = notebookAccessKeys;
             UserStorageKey = userStorageKey;
             UserStorageResourceId = userStorageResourceId;
         }

@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Sql.Latest
 {
     /// <summary>
-    /// Represents a database elastic pool.
+    /// An elastic pool.
     /// 
     /// ## Example Usage
-    /// ### Create elastic pool max
+    /// ### Create or update elastic pool with all parameter
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -24,22 +24,28 @@ namespace Pulumi.AzureRM.Sql.Latest
     ///     {
     ///         var elasticPool = new AzureRM.Sql.Latest.ElasticPool("elasticPool", new AzureRM.Sql.Latest.ElasticPoolArgs
     ///         {
-    ///             DatabaseDtuMax = 5,
-    ///             DatabaseDtuMin = 0,
-    ///             Dtu = 50,
-    ///             Edition = "Basic",
     ///             ElasticPoolName = "sqlcrudtest-8102",
     ///             Location = "Japan East",
+    ///             PerDatabaseSettings = new AzureRM.Sql.Latest.Inputs.ElasticPoolPerDatabaseSettingsArgs
+    ///             {
+    ///                 MaxCapacity = 2,
+    ///                 MinCapacity = 0.25,
+    ///             },
     ///             ResourceGroupName = "sqlcrudtest-2369",
     ///             ServerName = "sqlcrudtest-8069",
-    ///             StorageMB = 5000,
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Name = "GP_Gen4_2",
+    ///                 Tier = "GeneralPurpose",
+    ///             },
     ///         });
     ///     }
     /// 
     /// }
     /// 
     /// ```
-    /// ### Create elastic pool min
+    /// ### Create or update elastic pool with minimum parameters
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -70,34 +76,16 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum DTU any one database can consume.
-        /// </summary>
-        [Output("databaseDtuMax")]
-        public Output<int?> DatabaseDtuMax { get; private set; } = null!;
-
-        /// <summary>
-        /// The minimum DTU all databases are guaranteed.
-        /// </summary>
-        [Output("databaseDtuMin")]
-        public Output<int?> DatabaseDtuMin { get; private set; } = null!;
-
-        /// <summary>
-        /// The total shared DTU for the database elastic pool.
-        /// </summary>
-        [Output("dtu")]
-        public Output<int?> Dtu { get; private set; } = null!;
-
-        /// <summary>
-        /// The edition of the elastic pool.
-        /// </summary>
-        [Output("edition")]
-        public Output<string?> Edition { get; private set; } = null!;
-
-        /// <summary>
-        /// Kind of elastic pool.  This is metadata used for the Azure portal experience.
+        /// Kind of elastic pool. This is metadata used for the Azure portal experience.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// The license type to apply for this elastic pool.
+        /// </summary>
+        [Output("licenseType")]
+        public Output<string?> LicenseType { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -106,22 +94,40 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The storage limit for the database elastic pool in bytes.
+        /// </summary>
+        [Output("maxSizeBytes")]
+        public Output<int?> MaxSizeBytes { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The per database settings for the elastic pool.
+        /// </summary>
+        [Output("perDatabaseSettings")]
+        public Output<Outputs.ElasticPoolPerDatabaseSettingsResponseResult?> PerDatabaseSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The elastic pool SKU.
+        /// 
+        /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+        /// 
+        /// ```azurecli
+        /// az sql elastic-pool list-editions -l &lt;location&gt; -o table
+        /// ````
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// The state of the elastic pool.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets storage limit for the database elastic pool in MB.
-        /// </summary>
-        [Output("storageMB")]
-        public Output<int?> StorageMB { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -136,7 +142,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -192,40 +198,34 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class ElasticPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum DTU any one database can consume.
-        /// </summary>
-        [Input("databaseDtuMax")]
-        public Input<int>? DatabaseDtuMax { get; set; }
-
-        /// <summary>
-        /// The minimum DTU all databases are guaranteed.
-        /// </summary>
-        [Input("databaseDtuMin")]
-        public Input<int>? DatabaseDtuMin { get; set; }
-
-        /// <summary>
-        /// The total shared DTU for the database elastic pool.
-        /// </summary>
-        [Input("dtu")]
-        public Input<int>? Dtu { get; set; }
-
-        /// <summary>
-        /// The edition of the elastic pool.
-        /// </summary>
-        [Input("edition")]
-        public Input<string>? Edition { get; set; }
-
-        /// <summary>
-        /// The name of the elastic pool to be operated on (updated or created).
+        /// The name of the elastic pool.
         /// </summary>
         [Input("elasticPoolName", required: true)]
         public Input<string> ElasticPoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The license type to apply for this elastic pool.
+        /// </summary>
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
 
         /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The storage limit for the database elastic pool in bytes.
+        /// </summary>
+        [Input("maxSizeBytes")]
+        public Input<int>? MaxSizeBytes { get; set; }
+
+        /// <summary>
+        /// The per database settings for the elastic pool.
+        /// </summary>
+        [Input("perDatabaseSettings")]
+        public Input<Inputs.ElasticPoolPerDatabaseSettingsArgs>? PerDatabaseSettings { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -240,10 +240,16 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// Gets storage limit for the database elastic pool in MB.
+        /// The elastic pool SKU.
+        /// 
+        /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+        /// 
+        /// ```azurecli
+        /// az sql elastic-pool list-editions -l &lt;location&gt; -o table
+        /// ````
         /// </summary>
-        [Input("storageMB")]
-        public Input<int>? StorageMB { get; set; }
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -258,7 +264,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         }
 
         /// <summary>
-        /// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

@@ -61,10 +61,9 @@ namespace Pulumi.AzureRM.SignalRService.Latest
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// Prefix for the hostName of the SignalR service. Retained for future use.
-        /// The hostname will be of format: &amp;lt;hostNamePrefix&amp;gt;.service.signalr.net.
+        /// The managed identity response
         /// </summary>
-        public readonly string? HostNamePrefix;
+        public readonly Outputs.ManagedIdentityResponseResult? Identity;
         /// <summary>
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         /// </summary>
@@ -106,6 +105,10 @@ namespace Pulumi.AzureRM.SignalRService.Latest
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// TLS settings.
+        /// </summary>
+        public readonly Outputs.SignalRTlsSettingsResponseResult? Tls;
+        /// <summary>
         /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
         /// </summary>
         public readonly string Type;
@@ -128,7 +131,7 @@ namespace Pulumi.AzureRM.SignalRService.Latest
 
             string hostName,
 
-            string? hostNamePrefix,
+            Outputs.ManagedIdentityResponseResult? identity,
 
             string? kind,
 
@@ -150,6 +153,8 @@ namespace Pulumi.AzureRM.SignalRService.Latest
 
             ImmutableDictionary<string, string>? tags,
 
+            Outputs.SignalRTlsSettingsResponseResult? tls,
+
             string type,
 
             Outputs.ServerlessUpstreamSettingsResponseResult? upstream,
@@ -160,7 +165,7 @@ namespace Pulumi.AzureRM.SignalRService.Latest
             ExternalIP = externalIP;
             Features = features;
             HostName = hostName;
-            HostNamePrefix = hostNamePrefix;
+            Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;
@@ -171,6 +176,7 @@ namespace Pulumi.AzureRM.SignalRService.Latest
             ServerPort = serverPort;
             Sku = sku;
             Tags = tags;
+            Tls = tls;
             Type = type;
             Upstream = upstream;
             Version = version;

@@ -46,13 +46,21 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     public sealed class ListRunLogSasUrlResult
     {
         /// <summary>
+        /// The link to logs in registry for a run on a azure container registry.
+        /// </summary>
+        public readonly string? LogArtifactLink;
+        /// <summary>
         /// The link to logs for a run on a azure container registry.
         /// </summary>
         public readonly string? LogLink;
 
         [OutputConstructor]
-        private ListRunLogSasUrlResult(string? logLink)
+        private ListRunLogSasUrlResult(
+            string? logArtifactLink,
+
+            string? logLink)
         {
+            LogArtifactLink = logArtifactLink;
             LogLink = logLink;
         }
     }

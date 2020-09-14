@@ -14,85 +14,22 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
     public sealed class MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseResult
     {
         /// <summary>
-        /// Provides data integrity validation result between the source and target tables that are migrated.
-        /// </summary>
-        public readonly Outputs.DataIntegrityValidationResultResponseResult DataIntegrityValidationResult;
-        /// <summary>
-        /// Validation end time
-        /// </summary>
-        public readonly string EndedOn;
-        /// <summary>
         /// Result identifier
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Migration Identifier
-        /// </summary>
-        public readonly string MigrationId;
-        /// <summary>
-        /// Results of some of the query execution result between source and target database
-        /// </summary>
-        public readonly Outputs.QueryAnalysisValidationResultResponseResult QueryAnalysisValidationResult;
-        /// <summary>
         /// Result type
         /// </summary>
         public readonly string ResultType;
-        /// <summary>
-        /// Provides schema comparison result between source and target database
-        /// </summary>
-        public readonly Outputs.SchemaComparisonValidationResultResponseResult SchemaValidationResult;
-        /// <summary>
-        /// Name of the source database
-        /// </summary>
-        public readonly string SourceDatabaseName;
-        /// <summary>
-        /// Validation start time
-        /// </summary>
-        public readonly string StartedOn;
-        /// <summary>
-        /// Current status of validation at the database level
-        /// </summary>
-        public readonly string Status;
-        /// <summary>
-        /// Name of the target database
-        /// </summary>
-        public readonly string TargetDatabaseName;
 
         [OutputConstructor]
         private MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseResult(
-            Outputs.DataIntegrityValidationResultResponseResult dataIntegrityValidationResult,
-
-            string endedOn,
-
             string id,
 
-            string migrationId,
-
-            Outputs.QueryAnalysisValidationResultResponseResult queryAnalysisValidationResult,
-
-            string resultType,
-
-            Outputs.SchemaComparisonValidationResultResponseResult schemaValidationResult,
-
-            string sourceDatabaseName,
-
-            string startedOn,
-
-            string status,
-
-            string targetDatabaseName)
+            string resultType)
         {
-            DataIntegrityValidationResult = dataIntegrityValidationResult;
-            EndedOn = endedOn;
             Id = id;
-            MigrationId = migrationId;
-            QueryAnalysisValidationResult = queryAnalysisValidationResult;
             ResultType = resultType;
-            SchemaValidationResult = schemaValidationResult;
-            SourceDatabaseName = sourceDatabaseName;
-            StartedOn = startedOn;
-            Status = status;
-            TargetDatabaseName = targetDatabaseName;
         }
     }
 }

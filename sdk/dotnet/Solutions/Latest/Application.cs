@@ -27,7 +27,6 @@ namespace Pulumi.AzureRM.Solutions.Latest
     ///             ApplicationDefinitionId = "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
     ///             ApplicationName = "myManagedApplication",
     ///             Kind = "ServiceCatalog",
-    ///             Location = "East US 2",
     ///             ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
     ///             ResourceGroupName = "rg",
     ///         });

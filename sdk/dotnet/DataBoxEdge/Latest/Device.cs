@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
     ///         var device = new AzureRM.DataBoxEdge.Latest.Device("device", new AzureRM.DataBoxEdge.Latest.DeviceArgs
     ///         {
     ///             DeviceName = "testedgedevice",
-    ///             Location = "eastus",
+    ///             Location = "WUS",
     ///             ResourceGroupName = "GroupForEdgeAutomation",
     ///             Sku = new AzureRM.DataBoxEdge.Latest.Inputs.SkuArgs
     ///             {

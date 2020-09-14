@@ -16,6 +16,24 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Inputs
     public sealed class AmlComputePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        /// </summary>
+        [Input("enableNodePublicIp")]
+        public Input<bool>? EnableNodePublicIp { get; set; }
+
+        /// <summary>
+        /// Network is isolated or not
+        /// </summary>
+        [Input("isolatedNetwork")]
+        public Input<bool>? IsolatedNetwork { get; set; }
+
+        /// <summary>
+        /// Compute OS Type
+        /// </summary>
+        [Input("osType")]
+        public Input<string>? OsType { get; set; }
+
+        /// <summary>
         /// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         /// </summary>
         [Input("remoteLoginPortPublicAccess")]
@@ -38,6 +56,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Inputs
         /// </summary>
         [Input("userAccountCredentials")]
         public Input<Inputs.UserAccountCredentialsArgs>? UserAccountCredentials { get; set; }
+
+        /// <summary>
+        /// Virtual Machine image for AML Compute - windows only
+        /// </summary>
+        [Input("virtualMachineImage")]
+        public Input<Inputs.VirtualMachineImageArgs>? VirtualMachineImage { get; set; }
 
         /// <summary>
         /// Virtual Machine priority

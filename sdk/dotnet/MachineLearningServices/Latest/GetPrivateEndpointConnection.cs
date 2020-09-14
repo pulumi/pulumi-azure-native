@@ -46,7 +46,15 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
-        /// Friendly name of the private endpoint connection.
+        /// The identity of the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponseResult? Identity;
+        /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
+        /// Specifies the name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -62,12 +70,24 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
-        /// Resource type of private endpoint connection.
+        /// The sku of the workspace.
+        /// </summary>
+        public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// Contains resource tags defined as key/value pairs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Specifies the type of the resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            Outputs.IdentityResponseResult? identity,
+
+            string? location,
+
             string name,
 
             Outputs.PrivateEndpointResponseResult? privateEndpoint,
@@ -76,12 +96,20 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
 
             string? provisioningState,
 
+            Outputs.SkuResponseResult? sku,
+
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
+            Identity = identity;
+            Location = location;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            Sku = sku;
+            Tags = tags;
             Type = type;
         }
     }

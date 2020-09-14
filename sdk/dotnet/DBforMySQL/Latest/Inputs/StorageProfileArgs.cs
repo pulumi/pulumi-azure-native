@@ -22,16 +22,16 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest.Inputs
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// Enable Geo-redundant or not for server backup.
-        /// </summary>
-        [Input("geoRedundantBackup")]
-        public Input<string>? GeoRedundantBackup { get; set; }
-
-        /// <summary>
         /// Enable Storage Auto Grow.
         /// </summary>
         [Input("storageAutogrow")]
         public Input<string>? StorageAutogrow { get; set; }
+
+        /// <summary>
+        /// Storage IOPS for a server.
+        /// </summary>
+        [Input("storageIops")]
+        public Input<int>? StorageIops { get; set; }
 
         /// <summary>
         /// Max storage allowed for a server.

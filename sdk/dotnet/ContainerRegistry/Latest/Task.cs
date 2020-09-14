@@ -33,7 +33,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///             {
     ///                 Type = "SystemAssigned",
     ///             },
+    ///             IsSystemTask = false,
     ///             Location = "eastus",
+    ///             LogTemplate = "acr/tasks:{{.Run.OS}}",
     ///             Platform = new AzureRM.ContainerRegistry.Latest.Inputs.PlatformPropertiesArgs
     ///             {
     ///                 Architecture = "amd64",
@@ -42,9 +44,32 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///             RegistryName = "myRegistry",
     ///             ResourceGroupName = "myResourceGroup",
     ///             Status = "Enabled",
-    ///             Step = new AzureRM.ContainerRegistry.Latest.Inputs.TaskStepPropertiesArgs
+    ///             Step = 
     ///             {
-    ///                 ContextPath = "src",
+    ///                 { "arguments", 
+    ///                 {
+    ///                     new AzureRM.ContainerRegistry.Latest.Inputs.ArgumentArgs
+    ///                     {
+    ///                         IsSecret = false,
+    ///                         Name = "mytestargument",
+    ///                         Value = "mytestvalue",
+    ///                     },
+    ///                     new AzureRM.ContainerRegistry.Latest.Inputs.ArgumentArgs
+    ///                     {
+    ///                         IsSecret = true,
+    ///                         Name = "mysecrettestargument",
+    ///                         Value = "mysecrettestvalue",
+    ///                     },
+    ///                 } },
+    ///                 { "contextPath", "src" },
+    ///                 { "dockerFilePath", "src/DockerFile" },
+    ///                 { "imageNames", 
+    ///                 {
+    ///                     "azurerest:testtag",
+    ///                 } },
+    ///                 { "isPushEnabled", true },
+    ///                 { "noCache", false },
+    ///                 { "type", "Docker" },
     ///             },
     ///             Tags = 
     ///             {
@@ -57,6 +82,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///                 {
     ///                     BaseImageTriggerType = "Runtime",
     ///                     Name = "myBaseImageTrigger",
+    ///                     UpdateTriggerEndpoint = "https://user:pass@mycicd.webhook.com?token=foo",
+    ///                     UpdateTriggerPayloadType = "Token",
     ///                 },
     ///                 SourceTriggers = 
     ///                 {
@@ -95,6 +122,34 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     /// }
     /// 
     /// ```
+    /// ### Tasks_Create_QuickTask
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var task = new AzureRM.ContainerRegistry.Latest.Task("task", new AzureRM.ContainerRegistry.Latest.TaskArgs
+    ///         {
+    ///             IsSystemTask = true,
+    ///             Location = "eastus",
+    ///             LogTemplate = "acr/tasks:{{.Run.OS}}",
+    ///             RegistryName = "myRegistry",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Status = "Enabled",
+    ///             Tags = 
+    ///             {
+    ///                 { "testkey", "value" },
+    ///             },
+    ///             TaskName = "quicktask",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// ### Tasks_Create_WithSystemAndUserIdentities
     /// ```csharp
     /// using Pulumi;
@@ -118,6 +173,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///                     { "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2",  },
     ///                 },
     ///             },
+    ///             IsSystemTask = false,
     ///             Location = "eastus",
     ///             Platform = new AzureRM.ContainerRegistry.Latest.Inputs.PlatformPropertiesArgs
     ///             {
@@ -127,9 +183,32 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///             RegistryName = "myRegistry",
     ///             ResourceGroupName = "myResourceGroup",
     ///             Status = "Enabled",
-    ///             Step = new AzureRM.ContainerRegistry.Latest.Inputs.TaskStepPropertiesArgs
+    ///             Step = 
     ///             {
-    ///                 ContextPath = "src",
+    ///                 { "arguments", 
+    ///                 {
+    ///                     new AzureRM.ContainerRegistry.Latest.Inputs.ArgumentArgs
+    ///                     {
+    ///                         IsSecret = false,
+    ///                         Name = "mytestargument",
+    ///                         Value = "mytestvalue",
+    ///                     },
+    ///                     new AzureRM.ContainerRegistry.Latest.Inputs.ArgumentArgs
+    ///                     {
+    ///                         IsSecret = true,
+    ///                         Name = "mysecrettestargument",
+    ///                         Value = "mysecrettestvalue",
+    ///                     },
+    ///                 } },
+    ///                 { "contextPath", "src" },
+    ///                 { "dockerFilePath", "src/DockerFile" },
+    ///                 { "imageNames", 
+    ///                 {
+    ///                     "azurerest:testtag",
+    ///                 } },
+    ///                 { "isPushEnabled", true },
+    ///                 { "noCache", false },
+    ///                 { "type", "Docker" },
     ///             },
     ///             Tags = 
     ///             {
@@ -142,6 +221,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///                 {
     ///                     BaseImageTriggerType = "Runtime",
     ///                     Name = "myBaseImageTrigger",
+    ///                     UpdateTriggerEndpoint = "https://user:pass@mycicd.webhook.com?token=foo",
+    ///                     UpdateTriggerPayloadType = "Default",
     ///                 },
     ///                 SourceTriggers = 
     ///                 {
@@ -204,6 +285,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///                     { "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2",  },
     ///                 },
     ///             },
+    ///             IsSystemTask = false,
     ///             Location = "eastus",
     ///             Platform = new AzureRM.ContainerRegistry.Latest.Inputs.PlatformPropertiesArgs
     ///             {
@@ -213,9 +295,32 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///             RegistryName = "myRegistry",
     ///             ResourceGroupName = "myResourceGroup",
     ///             Status = "Enabled",
-    ///             Step = new AzureRM.ContainerRegistry.Latest.Inputs.TaskStepPropertiesArgs
+    ///             Step = 
     ///             {
-    ///                 ContextPath = "src",
+    ///                 { "arguments", 
+    ///                 {
+    ///                     new AzureRM.ContainerRegistry.Latest.Inputs.ArgumentArgs
+    ///                     {
+    ///                         IsSecret = false,
+    ///                         Name = "mytestargument",
+    ///                         Value = "mytestvalue",
+    ///                     },
+    ///                     new AzureRM.ContainerRegistry.Latest.Inputs.ArgumentArgs
+    ///                     {
+    ///                         IsSecret = true,
+    ///                         Name = "mysecrettestargument",
+    ///                         Value = "mysecrettestvalue",
+    ///                     },
+    ///                 } },
+    ///                 { "contextPath", "src" },
+    ///                 { "dockerFilePath", "src/DockerFile" },
+    ///                 { "imageNames", 
+    ///                 {
+    ///                     "azurerest:testtag",
+    ///                 } },
+    ///                 { "isPushEnabled", true },
+    ///                 { "noCache", false },
+    ///                 { "type", "Docker" },
     ///             },
     ///             Tags = 
     ///             {
@@ -228,6 +333,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///                 {
     ///                     BaseImageTriggerType = "Runtime",
     ///                     Name = "myBaseImageTrigger",
+    ///                     UpdateTriggerEndpoint = "https://user:pass@mycicd.webhook.com?token=foo",
+    ///                     UpdateTriggerPayloadType = "Default",
     ///                 },
     ///                 SourceTriggers = 
     ///                 {
@@ -285,6 +392,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///             {
     ///                 Type = "SystemAssigned",
     ///             },
+    ///             IsSystemTask = false,
     ///             Location = "eastus",
     ///             Platform = new AzureRM.ContainerRegistry.Latest.Inputs.PlatformPropertiesArgs
     ///             {
@@ -294,9 +402,32 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
     ///             RegistryName = "myRegistry",
     ///             ResourceGroupName = "myResourceGroup",
     ///             Status = "Enabled",
-    ///             Step = new AzureRM.ContainerRegistry.Latest.Inputs.TaskStepPropertiesArgs
+    ///             Step = 
     ///             {
-    ///                 ContextPath = "src",
+    ///                 { "arguments", 
+    ///                 {
+    ///                     new AzureRM.ContainerRegistry.Latest.Inputs.ArgumentArgs
+    ///                     {
+    ///                         IsSecret = false,
+    ///                         Name = "mytestargument",
+    ///                         Value = "mytestvalue",
+    ///                     },
+    ///                     new AzureRM.ContainerRegistry.Latest.Inputs.ArgumentArgs
+    ///                     {
+    ///                         IsSecret = true,
+    ///                         Name = "mysecrettestargument",
+    ///                         Value = "mysecrettestvalue",
+    ///                     },
+    ///                 } },
+    ///                 { "contextPath", "src" },
+    ///                 { "dockerFilePath", "src/DockerFile" },
+    ///                 { "imageNames", 
+    ///                 {
+    ///                     "azurerest:testtag",
+    ///                 } },
+    ///                 { "isPushEnabled", true },
+    ///                 { "noCache", false },
+    ///                 { "type", "Docker" },
     ///             },
     ///             Tags = 
     ///             {
@@ -357,6 +488,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         public Output<Outputs.AgentPropertiesResponseResult?> AgentConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The dedicated agent pool for the task.
+        /// </summary>
+        [Output("agentPoolName")]
+        public Output<string?> AgentPoolName { get; private set; } = null!;
+
+        /// <summary>
         /// The creation date of task.
         /// </summary>
         [Output("creationDate")]
@@ -375,10 +512,22 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         public Output<Outputs.IdentityPropertiesResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The value of this property indicates whether the task resource is system task or not.
+        /// </summary>
+        [Output("isSystemTask")]
+        public Output<bool?> IsSystemTask { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The template that describes the repository and tag information for run log artifact.
+        /// </summary>
+        [Output("logTemplate")]
+        public Output<string?> LogTemplate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -390,7 +539,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// The platform properties against which the run has to happen.
         /// </summary>
         [Output("platform")]
-        public Output<Outputs.PlatformPropertiesResponseResult> Platform { get; private set; } = null!;
+        public Output<Outputs.PlatformPropertiesResponseResult?> Platform { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the task.
@@ -408,7 +557,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// The properties of a task step.
         /// </summary>
         [Output("step")]
-        public Output<Union<Outputs.DockerBuildStepResponseResult, Union<Outputs.EncodedTaskStepResponseResult, Outputs.FileTaskStepResponseResult>>> Step { get; private set; } = null!;
+        public Output<Union<Outputs.DockerBuildStepResponseResult, Union<Outputs.EncodedTaskStepResponseResult, Outputs.FileTaskStepResponseResult>>?> Step { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -492,6 +641,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         public Input<Inputs.AgentPropertiesArgs>? AgentConfiguration { get; set; }
 
         /// <summary>
+        /// The dedicated agent pool for the task.
+        /// </summary>
+        [Input("agentPoolName")]
+        public Input<string>? AgentPoolName { get; set; }
+
+        /// <summary>
         /// The properties that describes a set of credentials that will be used when this run is invoked.
         /// </summary>
         [Input("credentials")]
@@ -504,16 +659,28 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         public Input<Inputs.IdentityPropertiesArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The value of this property indicates whether the task resource is system task or not.
+        /// </summary>
+        [Input("isSystemTask")]
+        public Input<bool>? IsSystemTask { get; set; }
+
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// The template that describes the repository and tag information for run log artifact.
+        /// </summary>
+        [Input("logTemplate")]
+        public Input<string>? LogTemplate { get; set; }
+
+        /// <summary>
         /// The platform properties against which the run has to happen.
         /// </summary>
-        [Input("platform", required: true)]
-        public Input<Inputs.PlatformPropertiesArgs> Platform { get; set; } = null!;
+        [Input("platform")]
+        public Input<Inputs.PlatformPropertiesArgs>? Platform { get; set; }
 
         /// <summary>
         /// The name of the container registry.
@@ -536,8 +703,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// <summary>
         /// The properties of a task step.
         /// </summary>
-        [Input("step", required: true)]
-        public Input<Inputs.TaskStepPropertiesArgs> Step { get; set; } = null!;
+        [Input("step")]
+        public InputUnion<Inputs.DockerBuildStepArgs, InputUnion<Inputs.EncodedTaskStepArgs, Inputs.FileTaskStepArgs>>? Step { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

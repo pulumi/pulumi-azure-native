@@ -25,6 +25,14 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest.Outputs
         /// The current status of trigger.
         /// </summary>
         public readonly string? Status;
+        /// <summary>
+        /// The endpoint URL for receiving update triggers.
+        /// </summary>
+        public readonly string? UpdateTriggerEndpoint;
+        /// <summary>
+        /// Type of Payload body for Base image update triggers.
+        /// </summary>
+        public readonly string? UpdateTriggerPayloadType;
 
         [OutputConstructor]
         private BaseImageTriggerResponseResult(
@@ -32,11 +40,17 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest.Outputs
 
             string name,
 
-            string? status)
+            string? status,
+
+            string? updateTriggerEndpoint,
+
+            string? updateTriggerPayloadType)
         {
             BaseImageTriggerType = baseImageTriggerType;
             Name = name;
             Status = status;
+            UpdateTriggerEndpoint = updateTriggerEndpoint;
+            UpdateTriggerPayloadType = updateTriggerPayloadType;
         }
     }
 }

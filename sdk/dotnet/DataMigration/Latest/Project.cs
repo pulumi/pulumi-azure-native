@@ -73,7 +73,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest
         /// Information for connecting to source
         /// </summary>
         [Output("sourceConnectionInfo")]
-        public Output<Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>?> SourceConnectionInfo { get; private set; } = null!;
+        public Output<Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MongoDbConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.OracleConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>>>?> SourceConnectionInfo { get; private set; } = null!;
 
         /// <summary>
         /// Source platform for the project
@@ -91,7 +91,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest
         /// Information for connecting to target
         /// </summary>
         [Output("targetConnectionInfo")]
-        public Output<Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>?> TargetConnectionInfo { get; private set; } = null!;
+        public Output<Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MongoDbConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.OracleConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>>>?> TargetConnectionInfo { get; private set; } = null!;
 
         /// <summary>
         /// Target platform for the project
@@ -198,7 +198,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest
         /// Information for connecting to source
         /// </summary>
         [Input("sourceConnectionInfo")]
-        public InputUnion<Inputs.MiSqlConnectionInfoArgs, InputUnion<Inputs.MySqlConnectionInfoArgs, InputUnion<Inputs.PostgreSqlConnectionInfoArgs, Inputs.SqlConnectionInfoArgs>>>? SourceConnectionInfo { get; set; }
+        public InputUnion<Inputs.MiSqlConnectionInfoArgs, InputUnion<Inputs.MongoDbConnectionInfoArgs, InputUnion<Inputs.MySqlConnectionInfoArgs, InputUnion<Inputs.OracleConnectionInfoArgs, InputUnion<Inputs.PostgreSqlConnectionInfoArgs, Inputs.SqlConnectionInfoArgs>>>>>? SourceConnectionInfo { get; set; }
 
         /// <summary>
         /// Source platform for the project
@@ -222,7 +222,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest
         /// Information for connecting to target
         /// </summary>
         [Input("targetConnectionInfo")]
-        public InputUnion<Inputs.MiSqlConnectionInfoArgs, InputUnion<Inputs.MySqlConnectionInfoArgs, InputUnion<Inputs.PostgreSqlConnectionInfoArgs, Inputs.SqlConnectionInfoArgs>>>? TargetConnectionInfo { get; set; }
+        public InputUnion<Inputs.MiSqlConnectionInfoArgs, InputUnion<Inputs.MongoDbConnectionInfoArgs, InputUnion<Inputs.MySqlConnectionInfoArgs, InputUnion<Inputs.OracleConnectionInfoArgs, InputUnion<Inputs.PostgreSqlConnectionInfoArgs, Inputs.SqlConnectionInfoArgs>>>>>? TargetConnectionInfo { get; set; }
 
         /// <summary>
         /// Target platform for the project

@@ -35,7 +35,6 @@ namespace Pulumi.AzureRM.Solutions.Latest
     ///             },
     ///             Description = "myManagedApplicationDef description",
     ///             DisplayName = "myManagedApplicationDef",
-    ///             Location = "East US 2",
     ///             LockLevel = "None",
     ///             PackageFileUri = "https://path/to/packagezipfile",
     ///             ResourceGroupName = "rg",
@@ -155,6 +154,12 @@ namespace Pulumi.AzureRM.Solutions.Latest
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage account id for bring your own storage scenario.
+        /// </summary>
+        [Output("storageAccountId")]
+        public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -363,6 +368,12 @@ namespace Pulumi.AzureRM.Solutions.Latest
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// The storage account id for bring your own storage scenario.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureRM.Insights.Latest.Inputs
 {
 
     /// <summary>
-    /// Specifies the criteria for converting log to metric.
+    /// Dimension splitting and filtering definition
     /// </summary>
     public sealed class DimensionArgs : Pulumi.ResourceArgs
     {

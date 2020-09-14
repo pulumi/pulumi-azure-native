@@ -123,6 +123,7 @@ namespace Pulumi.AzureRM.Intune.V20150114PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:intune/latest:IoMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azurerm:intune/v20150114preview:IoMAMPolicyByName"},
                 },
             };

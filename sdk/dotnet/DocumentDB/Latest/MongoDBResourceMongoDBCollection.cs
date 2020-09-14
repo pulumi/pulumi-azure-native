@@ -68,6 +68,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
     public partial class MongoDBResourceMongoDBCollection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         [Output("location")]
@@ -167,6 +173,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

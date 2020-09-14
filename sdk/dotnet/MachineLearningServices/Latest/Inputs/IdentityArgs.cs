@@ -18,8 +18,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Inputs
         /// <summary>
         /// The identity type.
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public IdentityArgs()
         {

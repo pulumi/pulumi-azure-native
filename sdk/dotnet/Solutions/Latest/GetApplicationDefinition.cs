@@ -112,6 +112,10 @@ namespace Pulumi.AzureRM.Solutions.Latest
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
         /// <summary>
+        /// The storage account id for bring your own storage scenario.
+        /// </summary>
+        public readonly string? StorageAccountId;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureRM.Solutions.Latest
 
             Outputs.SkuResponseResult? sku,
 
+            string? storageAccountId,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -180,6 +186,7 @@ namespace Pulumi.AzureRM.Solutions.Latest
             PackageFileUri = packageFileUri;
             Policies = policies;
             Sku = sku;
+            StorageAccountId = storageAccountId;
             Tags = tags;
             Type = type;
         }

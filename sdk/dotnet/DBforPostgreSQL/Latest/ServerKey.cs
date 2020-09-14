@@ -45,7 +45,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// Kind of encryption protector used to protect the key.
+        /// Kind of encryption protector. This is metadata used for the Azure portal experience.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
         public Input<string> KeyName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

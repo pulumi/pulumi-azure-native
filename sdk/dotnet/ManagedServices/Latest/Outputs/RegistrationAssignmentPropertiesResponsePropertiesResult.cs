@@ -22,6 +22,10 @@ namespace Pulumi.AzureRM.ManagedServices.Latest.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EligibleAuthorizationResponseResult> EligibleAuthorizations;
+        /// <summary>
         /// Id of the managedBy tenant.
         /// </summary>
         public readonly string? ManagedByTenantId;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureRM.ManagedServices.Latest.Outputs
 
             string? description,
 
+            ImmutableArray<Outputs.EligibleAuthorizationResponseResult> eligibleAuthorizations,
+
             string? managedByTenantId,
 
             string? managedByTenantName,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureRM.ManagedServices.Latest.Outputs
         {
             Authorizations = authorizations;
             Description = description;
+            EligibleAuthorizations = eligibleAuthorizations;
             ManagedByTenantId = managedByTenantId;
             ManagedByTenantName = managedByTenantName;
             ManageeTenantId = manageeTenantId;

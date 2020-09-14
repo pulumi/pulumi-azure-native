@@ -96,10 +96,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The notebook info of Azure ML workspace.
-        /// </summary>
-        public readonly Outputs.NotebookResourceInfoResponseResult NotebookInfo;
-        /// <summary>
         /// The list of private endpoint connections in the workspace.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
@@ -170,8 +166,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
 
             string name,
 
-            Outputs.NotebookResourceInfoResponseResult notebookInfo,
-
             ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
 
             int privateLinkCount,
@@ -206,7 +200,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
             KeyVault = keyVault;
             Location = location;
             Name = name;
-            NotebookInfo = notebookInfo;
             PrivateEndpointConnections = privateEndpointConnections;
             PrivateLinkCount = privateLinkCount;
             ProvisioningState = provisioningState;

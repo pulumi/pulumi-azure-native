@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190924Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:desktopvirtualization/latest:Workspace"},
                     new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20190123preview:Workspace"},
                     new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20191210preview:Workspace"},
                 },

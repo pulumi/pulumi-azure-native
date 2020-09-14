@@ -53,6 +53,10 @@ namespace Pulumi.AzureRM.SignalRService.Latest
     ///                     Value = "False",
     ///                 },
     ///             },
+    ///             Identity = new AzureRM.SignalRService.Latest.Inputs.ManagedIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///             Kind = "SignalR",
     ///             Location = "eastus",
     ///             NetworkACLs = new AzureRM.SignalRService.Latest.Inputs.SignalRNetworkACLsArgs
@@ -89,12 +93,24 @@ namespace Pulumi.AzureRM.SignalRService.Latest
     ///             {
     ///                 { "key1", "value1" },
     ///             },
+    ///             Tls = new AzureRM.SignalRService.Latest.Inputs.SignalRTlsSettingsArgs
+    ///             {
+    ///                 ClientCertEnabled = false,
+    ///             },
     ///             Upstream = new AzureRM.SignalRService.Latest.Inputs.ServerlessUpstreamSettingsArgs
     ///             {
     ///                 Templates = 
     ///                 {
     ///                     new AzureRM.SignalRService.Latest.Inputs.UpstreamTemplateArgs
     ///                     {
+    ///                         Auth = new AzureRM.SignalRService.Latest.Inputs.UpstreamAuthSettingsArgs
+    ///                         {
+    ///                             ManagedIdentity = new AzureRM.SignalRService.Latest.Inputs.ManagedIdentitySettingsArgs
+    ///                             {
+    ///                                 Resource = "api://example",
+    ///                             },
+    ///                             Type = "ManagedIdentity",
+    ///                         },
     ///                         CategoryPattern = "*",
     ///                         EventPattern = "connect,disconnect",
     ///                         HubPattern = "*",
@@ -141,11 +157,10 @@ namespace Pulumi.AzureRM.SignalRService.Latest
         public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
-        /// Prefix for the hostName of the SignalR service. Retained for future use.
-        /// The hostname will be of format: &amp;lt;hostNamePrefix&amp;gt;.service.signalr.net.
+        /// The managed identity response
         /// </summary>
-        [Output("hostNamePrefix")]
-        public Output<string?> HostNamePrefix { get; private set; } = null!;
+        [Output("identity")]
+        public Output<Outputs.ManagedIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
@@ -206,6 +221,12 @@ namespace Pulumi.AzureRM.SignalRService.Latest
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// TLS settings.
+        /// </summary>
+        [Output("tls")]
+        public Output<Outputs.SignalRTlsSettingsResponseResult?> Tls { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
@@ -301,11 +322,10 @@ namespace Pulumi.AzureRM.SignalRService.Latest
         }
 
         /// <summary>
-        /// Prefix for the hostName of the SignalR service. Retained for future use.
-        /// The hostname will be of format: &amp;lt;hostNamePrefix&amp;gt;.service.signalr.net.
+        /// The managed identity response
         /// </summary>
-        [Input("hostNamePrefix")]
-        public Input<string>? HostNamePrefix { get; set; }
+        [Input("identity")]
+        public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
@@ -354,6 +374,12 @@ namespace Pulumi.AzureRM.SignalRService.Latest
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// TLS settings.
+        /// </summary>
+        [Input("tls")]
+        public Input<Inputs.SignalRTlsSettingsArgs>? Tls { get; set; }
 
         /// <summary>
         /// Upstream settings when the Azure SignalR is in server-less mode.

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Sql.Latest
 {
     /// <summary>
-    /// Represents a server firewall rule.
+    /// A server firewall rule.
     /// 
     /// ## Example Usage
     /// ### Create a firewall rule max/min
@@ -61,34 +61,22 @@ namespace Pulumi.AzureRM.Sql.Latest
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
         /// </summary>
         [Output("endIpAddress")]
-        public Output<string> EndIpAddress { get; private set; } = null!;
-
-        /// <summary>
-        /// Kind of server that contains this firewall rule.
-        /// </summary>
-        [Output("kind")]
-        public Output<string> Kind { get; private set; } = null!;
-
-        /// <summary>
-        /// Location of the server that contains this firewall rule.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> EndIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        /// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
         /// </summary>
         [Output("startIpAddress")]
-        public Output<string> StartIpAddress { get; private set; } = null!;
+        public Output<string?> StartIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -147,16 +135,22 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
         /// </summary>
-        [Input("endIpAddress", required: true)]
-        public Input<string> EndIpAddress { get; set; } = null!;
+        [Input("endIpAddress")]
+        public Input<string>? EndIpAddress { get; set; }
 
         /// <summary>
         /// The name of the firewall rule.
         /// </summary>
         [Input("firewallRuleName", required: true)]
         public Input<string> FirewallRuleName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource name.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -171,10 +165,10 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        /// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
         /// </summary>
-        [Input("startIpAddress", required: true)]
-        public Input<string> StartIpAddress { get; set; } = null!;
+        [Input("startIpAddress")]
+        public Input<string>? StartIpAddress { get; set; }
 
         public FirewallRuleArgs()
         {

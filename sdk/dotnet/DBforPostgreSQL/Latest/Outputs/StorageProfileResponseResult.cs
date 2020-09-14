@@ -18,14 +18,6 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest.Outputs
         /// </summary>
         public readonly int? BackupRetentionDays;
         /// <summary>
-        /// Enable Geo-redundant or not for server backup.
-        /// </summary>
-        public readonly string? GeoRedundantBackup;
-        /// <summary>
-        /// Enable Storage Auto Grow.
-        /// </summary>
-        public readonly string? StorageAutogrow;
-        /// <summary>
         /// Max storage allowed for a server.
         /// </summary>
         public readonly int? StorageMB;
@@ -34,15 +26,9 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest.Outputs
         private StorageProfileResponseResult(
             int? backupRetentionDays,
 
-            string? geoRedundantBackup,
-
-            string? storageAutogrow,
-
             int? storageMB)
         {
             BackupRetentionDays = backupRetentionDays;
-            GeoRedundantBackup = geoRedundantBackup;
-            StorageAutogrow = storageAutogrow;
             StorageMB = storageMB;
         }
     }

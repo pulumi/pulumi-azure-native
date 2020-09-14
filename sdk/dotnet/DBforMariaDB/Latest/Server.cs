@@ -148,6 +148,12 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
         public Output<string?> FullyQualifiedDomainName { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure Active Directory identity of the server.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -164,18 +170,6 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// List of private endpoint connections on a server
-        /// </summary>
-        [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        /// </summary>
-        [Output("publicNetworkAccess")]
-        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of replicas that a master server can have.
@@ -294,7 +288,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
         public InputUnion<Inputs.ServerPropertiesForDefaultCreateArgs, InputUnion<Inputs.ServerPropertiesForGeoRestoreArgs, InputUnion<Inputs.ServerPropertiesForReplicaArgs, Inputs.ServerPropertiesForRestoreArgs>>> Properties { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

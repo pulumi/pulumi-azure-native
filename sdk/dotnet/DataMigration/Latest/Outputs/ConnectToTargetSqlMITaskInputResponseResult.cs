@@ -14,14 +14,36 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
     public sealed class ConnectToTargetSqlMITaskInputResponseResult
     {
         /// <summary>
+        /// Flag for whether to collect agent jobs from target SQL MI server.
+        /// </summary>
+        public readonly bool? CollectAgentJobs;
+        /// <summary>
+        /// Flag for whether to collect logins from target SQL MI server.
+        /// </summary>
+        public readonly bool? CollectLogins;
+        /// <summary>
         /// Connection information for target SQL Server
         /// </summary>
         public readonly Outputs.SqlConnectionInfoResponseResult TargetConnectionInfo;
+        /// <summary>
+        /// Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
+        /// </summary>
+        public readonly bool? ValidateSsisCatalogOnly;
 
         [OutputConstructor]
-        private ConnectToTargetSqlMITaskInputResponseResult(Outputs.SqlConnectionInfoResponseResult targetConnectionInfo)
+        private ConnectToTargetSqlMITaskInputResponseResult(
+            bool? collectAgentJobs,
+
+            bool? collectLogins,
+
+            Outputs.SqlConnectionInfoResponseResult targetConnectionInfo,
+
+            bool? validateSsisCatalogOnly)
         {
+            CollectAgentJobs = collectAgentJobs;
+            CollectLogins = collectLogins;
             TargetConnectionInfo = targetConnectionInfo;
+            ValidateSsisCatalogOnly = validateSsisCatalogOnly;
         }
     }
 }

@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:security/latest:SecurityContact"},
                     new Pulumi.Alias { Type = "azurerm:security/v20170801preview:SecurityContact"},
                 },
             };

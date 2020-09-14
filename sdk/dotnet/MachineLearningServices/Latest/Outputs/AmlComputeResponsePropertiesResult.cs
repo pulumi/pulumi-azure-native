@@ -26,13 +26,25 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly int CurrentNodeCount;
         /// <summary>
+        /// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        /// </summary>
+        public readonly bool? EnableNodePublicIp;
+        /// <summary>
         /// Collection of errors encountered by various compute nodes during node setup.
         /// </summary>
         public readonly ImmutableArray<Outputs.MachineLearningServiceErrorResponseResult> Errors;
         /// <summary>
+        /// Network is isolated or not
+        /// </summary>
+        public readonly bool? IsolatedNetwork;
+        /// <summary>
         /// Counts of various node states on the compute.
         /// </summary>
         public readonly Outputs.NodeStateCountsResponseResult NodeStateCounts;
+        /// <summary>
+        /// Compute OS Type
+        /// </summary>
+        public readonly string? OsType;
         /// <summary>
         /// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         /// </summary>
@@ -54,6 +66,10 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly Outputs.UserAccountCredentialsResponseResult? UserAccountCredentials;
         /// <summary>
+        /// Virtual Machine image for AML Compute - windows only
+        /// </summary>
+        public readonly Outputs.VirtualMachineImageResponseResult? VirtualMachineImage;
+        /// <summary>
         /// Virtual Machine priority
         /// </summary>
         public readonly string? VmPriority;
@@ -70,9 +86,15 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
 
             int currentNodeCount,
 
+            bool? enableNodePublicIp,
+
             ImmutableArray<Outputs.MachineLearningServiceErrorResponseResult> errors,
 
+            bool? isolatedNetwork,
+
             Outputs.NodeStateCountsResponseResult nodeStateCounts,
+
+            string? osType,
 
             string? remoteLoginPortPublicAccess,
 
@@ -84,6 +106,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
 
             Outputs.UserAccountCredentialsResponseResult? userAccountCredentials,
 
+            Outputs.VirtualMachineImageResponseResult? virtualMachineImage,
+
             string? vmPriority,
 
             string? vmSize)
@@ -91,13 +115,17 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
             AllocationState = allocationState;
             AllocationStateTransitionTime = allocationStateTransitionTime;
             CurrentNodeCount = currentNodeCount;
+            EnableNodePublicIp = enableNodePublicIp;
             Errors = errors;
+            IsolatedNetwork = isolatedNetwork;
             NodeStateCounts = nodeStateCounts;
+            OsType = osType;
             RemoteLoginPortPublicAccess = remoteLoginPortPublicAccess;
             ScaleSettings = scaleSettings;
             Subnet = subnet;
             TargetNodeCount = targetNodeCount;
             UserAccountCredentials = userAccountCredentials;
+            VirtualMachineImage = virtualMachineImage;
             VmPriority = vmPriority;
             VmSize = vmSize;
         }

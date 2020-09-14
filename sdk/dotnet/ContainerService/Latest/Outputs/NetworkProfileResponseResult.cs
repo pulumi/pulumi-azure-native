@@ -14,9 +14,9 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
     public sealed class NetworkProfileResponseResult
     {
         /// <summary>
-        /// CIDR of the Vnet to peer.
+        /// CIDR of subnet used to create PLS needed for management of the cluster
         /// </summary>
-        public readonly string? PeerVnetId;
+        public readonly string? ManagementSubnetCidr;
         /// <summary>
         /// CIDR for the OpenShift Vnet.
         /// </summary>
@@ -28,13 +28,13 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
 
         [OutputConstructor]
         private NetworkProfileResponseResult(
-            string? peerVnetId,
+            string? managementSubnetCidr,
 
             string? vnetCidr,
 
             string? vnetId)
         {
-            PeerVnetId = peerVnetId;
+            ManagementSubnetCidr = managementSubnetCidr;
             VnetCidr = vnetCidr;
             VnetId = vnetId;
         }

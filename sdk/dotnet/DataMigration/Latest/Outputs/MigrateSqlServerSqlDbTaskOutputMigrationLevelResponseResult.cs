@@ -44,7 +44,11 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
         /// <summary>
         /// Migration Report Result, provides unique url for downloading your migration report.
         /// </summary>
-        public readonly Outputs.MigrationReportResultResponseResult MigrationReport;
+        public readonly Outputs.MigrationReportResultResponseResult? MigrationReportResult;
+        /// <summary>
+        /// Migration Validation Results
+        /// </summary>
+        public readonly Outputs.MigrationValidationResultResponseResult? MigrationValidationResult;
         /// <summary>
         /// Result type
         /// </summary>
@@ -94,7 +98,9 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
 
             string message,
 
-            Outputs.MigrationReportResultResponseResult migrationReport,
+            Outputs.MigrationReportResultResponseResult? migrationReportResult,
+
+            Outputs.MigrationValidationResultResponseResult? migrationValidationResult,
 
             string resultType,
 
@@ -119,7 +125,8 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
             ExceptionsAndWarnings = exceptionsAndWarnings;
             Id = id;
             Message = message;
-            MigrationReport = migrationReport;
+            MigrationReportResult = migrationReportResult;
+            MigrationValidationResult = migrationValidationResult;
             ResultType = resultType;
             SourceServerBrandVersion = sourceServerBrandVersion;
             SourceServerVersion = sourceServerVersion;

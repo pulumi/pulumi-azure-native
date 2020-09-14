@@ -13,7 +13,7 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
     /// Represents a server firewall rule.
     /// 
     /// ## Example Usage
-    /// ### FirewallRuleCreate
+    /// ### Create a firewall rule
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -87,8 +87,7 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:FirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20200701privatepreview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

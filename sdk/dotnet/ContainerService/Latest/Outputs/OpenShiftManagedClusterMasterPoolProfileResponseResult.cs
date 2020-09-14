@@ -14,17 +14,13 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
     public sealed class OpenShiftManagedClusterMasterPoolProfileResponseResult
     {
         /// <summary>
+        /// Defines further properties on the API.
+        /// </summary>
+        public readonly Outputs.OpenShiftAPIPropertiesResponseResult? ApiProperties;
+        /// <summary>
         /// Number of masters (VMs) to host docker containers. The default value is 3.
         /// </summary>
         public readonly int Count;
-        /// <summary>
-        /// Unique name of the master pool profile in the context of the subscription and resource group.
-        /// </summary>
-        public readonly string? Name;
-        /// <summary>
-        /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        /// </summary>
-        public readonly string? OsType;
         /// <summary>
         /// Subnet CIDR for the peering.
         /// </summary>
@@ -36,19 +32,16 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
 
         [OutputConstructor]
         private OpenShiftManagedClusterMasterPoolProfileResponseResult(
+            Outputs.OpenShiftAPIPropertiesResponseResult? apiProperties,
+
             int count,
-
-            string? name,
-
-            string? osType,
 
             string? subnetCidr,
 
             string vmSize)
         {
+            ApiProperties = apiProperties;
             Count = count;
-            Name = name;
-            OsType = osType;
             SubnetCidr = subnetCidr;
             VmSize = vmSize;
         }

@@ -60,6 +60,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+        /// </summary>
+        [Output("regionEndpointEnabled")]
+        public Output<bool?> RegionEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the replication at the time the operation was called.
         /// </summary>
         [Output("status")]
@@ -134,6 +140,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+        /// </summary>
+        [Input("regionEndpointEnabled")]
+        public Input<bool>? RegionEndpointEnabled { get; set; }
 
         /// <summary>
         /// The name of the container registry.

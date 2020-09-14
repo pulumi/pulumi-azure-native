@@ -22,6 +22,12 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Inputs
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
+        /// Whether to encrypt the connection
+        /// </summary>
+        [Input("encryptConnection")]
+        public Input<bool>? EncryptConnection { get; set; }
+
+        /// <summary>
         /// Password credential.
         /// </summary>
         [Input("password")]
@@ -38,6 +44,12 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Inputs
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to trust the server certificate
+        /// </summary>
+        [Input("trustServerCertificate")]
+        public Input<bool>? TrustServerCertificate { get; set; }
 
         /// <summary>
         /// Type of connection info

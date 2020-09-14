@@ -92,6 +92,10 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// </summary>
         public readonly string Kind;
         /// <summary>
+        /// The date which the component got migrated to LA, in ISO 8601 format.
+        /// </summary>
+        public readonly string LaMigrationDate;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -108,13 +112,21 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The network access type for accessing Application Insights ingestion.
+        /// </summary>
+        public readonly string? PublicNetworkAccessForIngestion;
+        /// <summary>
+        /// The network access type for accessing Application Insights query.
+        /// </summary>
+        public readonly string? PublicNetworkAccessForQuery;
+        /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         /// </summary>
         public readonly string? RequestSource;
         /// <summary>
         /// Retention period in days.
         /// </summary>
-        public readonly int? RetentionInDays;
+        public readonly int RetentionInDays;
         /// <summary>
         /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         /// </summary>
@@ -131,6 +143,10 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// Azure resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// ResourceId of the log analytics workspace which the data will be ingested to.
+        /// </summary>
+        public readonly string WorkspaceResourceId;
 
         [OutputConstructor]
         private GetComponentResult(
@@ -160,6 +176,8 @@ namespace Pulumi.AzureRM.Insights.Latest
 
             string kind,
 
+            string laMigrationDate,
+
             string location,
 
             string name,
@@ -168,9 +186,13 @@ namespace Pulumi.AzureRM.Insights.Latest
 
             string provisioningState,
 
+            string? publicNetworkAccessForIngestion,
+
+            string? publicNetworkAccessForQuery,
+
             string? requestSource,
 
-            int? retentionInDays,
+            int retentionInDays,
 
             double? samplingPercentage,
 
@@ -178,7 +200,9 @@ namespace Pulumi.AzureRM.Insights.Latest
 
             string tenantId,
 
-            string type)
+            string type,
+
+            string workspaceResourceId)
         {
             AppId = appId;
             ApplicationId = applicationId;
@@ -193,16 +217,20 @@ namespace Pulumi.AzureRM.Insights.Latest
             IngestionMode = ingestionMode;
             InstrumentationKey = instrumentationKey;
             Kind = kind;
+            LaMigrationDate = laMigrationDate;
             Location = location;
             Name = name;
             PrivateLinkScopedResources = privateLinkScopedResources;
             ProvisioningState = provisioningState;
+            PublicNetworkAccessForIngestion = publicNetworkAccessForIngestion;
+            PublicNetworkAccessForQuery = publicNetworkAccessForQuery;
             RequestSource = requestSource;
             RetentionInDays = retentionInDays;
             SamplingPercentage = samplingPercentage;
             Tags = tags;
             TenantId = tenantId;
             Type = type;
+            WorkspaceResourceId = workspaceResourceId;
         }
     }
 }

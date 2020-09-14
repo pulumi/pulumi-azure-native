@@ -34,12 +34,6 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest.Inputs
         public Input<string> CreateMode { get; set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
-
-        /// <summary>
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]

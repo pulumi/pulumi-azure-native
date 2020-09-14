@@ -40,13 +40,41 @@ namespace Pulumi.AzureRM.Authorization.Latest
     public sealed class GetRoleAssignmentResult
     {
         /// <summary>
+        /// The Delegation flag for the role assignment
+        /// </summary>
+        public readonly bool? CanDelegate;
+        /// <summary>
+        /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        /// </summary>
+        public readonly string? Condition;
+        /// <summary>
+        /// Version of the condition. Currently accepted value is '2.0'
+        /// </summary>
+        public readonly string? ConditionVersion;
+        /// <summary>
+        /// Description of role assignment
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The role assignment name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Role assignment properties.
+        /// The principal ID.
         /// </summary>
-        public readonly Outputs.RoleAssignmentPropertiesWithScopeResponseResult Properties;
+        public readonly string? PrincipalId;
+        /// <summary>
+        /// The principal type of the assigned principal ID.
+        /// </summary>
+        public readonly string? PrincipalType;
+        /// <summary>
+        /// The role definition ID.
+        /// </summary>
+        public readonly string? RoleDefinitionId;
+        /// <summary>
+        /// The role assignment scope.
+        /// </summary>
+        public readonly string? Scope;
         /// <summary>
         /// The role assignment type.
         /// </summary>
@@ -54,14 +82,35 @@ namespace Pulumi.AzureRM.Authorization.Latest
 
         [OutputConstructor]
         private GetRoleAssignmentResult(
+            bool? canDelegate,
+
+            string? condition,
+
+            string? conditionVersion,
+
+            string? description,
+
             string name,
 
-            Outputs.RoleAssignmentPropertiesWithScopeResponseResult properties,
+            string? principalId,
+
+            string? principalType,
+
+            string? roleDefinitionId,
+
+            string? scope,
 
             string type)
         {
+            CanDelegate = canDelegate;
+            Condition = condition;
+            ConditionVersion = conditionVersion;
+            Description = description;
             Name = name;
-            Properties = properties;
+            PrincipalId = principalId;
+            PrincipalType = principalType;
+            RoleDefinitionId = roleDefinitionId;
+            Scope = scope;
             Type = type;
         }
     }

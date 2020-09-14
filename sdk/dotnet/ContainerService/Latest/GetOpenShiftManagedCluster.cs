@@ -64,6 +64,10 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         /// </summary>
         public readonly Outputs.OpenShiftManagedClusterMasterPoolProfileResponseResult? MasterPoolProfile;
         /// <summary>
+        /// Configures Log Analytics integration.
+        /// </summary>
+        public readonly Outputs.OpenShiftManagedClusterMonitorProfileResponseResult? MonitorProfile;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -84,9 +88,13 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Service generated FQDN for OpenShift API server.
+        /// Service generated FQDN or private IP for OpenShift API server.
         /// </summary>
         public readonly string PublicHostname;
+        /// <summary>
+        /// Allows node rotation
+        /// </summary>
+        public readonly bool? RefreshCluster;
         /// <summary>
         /// Configuration for OpenShift router(s).
         /// </summary>
@@ -114,6 +122,8 @@ namespace Pulumi.AzureRM.ContainerService.Latest
 
             Outputs.OpenShiftManagedClusterMasterPoolProfileResponseResult? masterPoolProfile,
 
+            Outputs.OpenShiftManagedClusterMonitorProfileResponseResult? monitorProfile,
+
             string name,
 
             Outputs.NetworkProfileResponseResult? networkProfile,
@@ -125,6 +135,8 @@ namespace Pulumi.AzureRM.ContainerService.Latest
             string provisioningState,
 
             string publicHostname,
+
+            bool? refreshCluster,
 
             ImmutableArray<Outputs.OpenShiftRouterProfileResponseResult> routerProfiles,
 
@@ -138,12 +150,14 @@ namespace Pulumi.AzureRM.ContainerService.Latest
             Fqdn = fqdn;
             Location = location;
             MasterPoolProfile = masterPoolProfile;
+            MonitorProfile = monitorProfile;
             Name = name;
             NetworkProfile = networkProfile;
             OpenShiftVersion = openShiftVersion;
             Plan = plan;
             ProvisioningState = provisioningState;
             PublicHostname = publicHostname;
+            RefreshCluster = refreshCluster;
             RouterProfiles = routerProfiles;
             Tags = tags;
             Type = type;

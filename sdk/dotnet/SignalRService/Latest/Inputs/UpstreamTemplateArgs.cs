@@ -17,6 +17,12 @@ namespace Pulumi.AzureRM.SignalRService.Latest.Inputs
     public sealed class UpstreamTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets the auth settings for an upstream. If not set, no auth is used for upstream messages.
+        /// </summary>
+        [Input("auth")]
+        public Input<Inputs.UpstreamAuthSettingsArgs>? Auth { get; set; }
+
+        /// <summary>
         /// Gets or sets the matching pattern for category names. If not set, it matches any category.
         /// There are 3 kind of patterns supported:
         ///     1. "*", it to matches any category name

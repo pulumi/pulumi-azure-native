@@ -33,6 +33,18 @@ namespace Pulumi.AzureRM.ManagedServices.Latest.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("eligibleAuthorizations")]
+        private InputList<Inputs.EligibleAuthorizationArgs>? _eligibleAuthorizations;
+
+        /// <summary>
+        /// Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        /// </summary>
+        public InputList<Inputs.EligibleAuthorizationArgs> EligibleAuthorizations
+        {
+            get => _eligibleAuthorizations ?? (_eligibleAuthorizations = new InputList<Inputs.EligibleAuthorizationArgs>());
+            set => _eligibleAuthorizations = value;
+        }
+
         /// <summary>
         /// Id of the managedBy tenant.
         /// </summary>

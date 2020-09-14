@@ -25,16 +25,15 @@ namespace Pulumi.AzureRM.Insights.Latest
     ///         var workbook = new AzureRM.Insights.Latest.Workbook("workbook", new AzureRM.Insights.Latest.WorkbookArgs
     ///         {
     ///             Category = "workbook",
+    ///             DisplayName = "Blah Blah Blah",
+    ///             Kind = "shared",
     ///             Location = "west us",
-    ///             Name = "deadb33f-8bee-4d3b-a059-9be8dac93960",
     ///             ResourceGroupName = "my-resource-group",
     ///             ResourceName = "deadb33f-8bee-4d3b-a059-9be8dac93960",
     ///             SerializedData = "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":\"{\"json\":\"## New workbook\\r\\n---\\r\\n\\r\\nWelcome to your new workbook.  This area will display text formatted as markdown.\\r\\n\\r\\n\\r\\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\"}\",\"halfWidth\":null,\"conditionalVisibility\":null},{\"type\":3,\"content\":\"{\"version\":\"KqlItem/1.0\",\"query\":\"union withsource=TableName *\\n| summarize Count=count() by TableName\\n| render barchart\",\"showQuery\":false,\"size\":1,\"aggregation\":0,\"showAnnotations\":false}\",\"halfWidth\":null,\"conditionalVisibility\":null}],\"isLocked\":false}",
-    ///             SharedTypeKind = "shared",
-    ///             SourceResourceId = "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/MyGroup/providers/Microsoft.Web/sites/MyTestApp-CodeLens",
-    ///             Tags = {},
+    ///             SourceId = "/subscriptions/ad2f1a83-caac-4e21-9d2a-9ca3f87105e2/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/MyTestApp-CodeLens1",
     ///             UserId = "userId",
-    ///             WorkbookId = "deadb33f-8bee-4d3b-a059-9be8dac93960",
+    ///             Version = "ME",
     ///         });
     ///     }
     /// 
@@ -51,6 +50,12 @@ namespace Pulumi.AzureRM.Insights.Latest
         public Output<string> Category { get; private set; } = null!;
 
         /// <summary>
+        /// The user-defined name (display name) of the workbook.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Output("kind")]
@@ -60,10 +65,10 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// Resource location
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -73,18 +78,6 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// </summary>
         [Output("serializedData")]
         public Output<string> SerializedData { get; private set; } = null!;
-
-        /// <summary>
-        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-        /// </summary>
-        [Output("sharedTypeKind")]
-        public Output<string> SharedTypeKind { get; private set; } = null!;
-
-        /// <summary>
-        /// Optional resourceId for a source resource.
-        /// </summary>
-        [Output("sourceResourceId")]
-        public Output<string?> SourceResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -111,16 +104,10 @@ namespace Pulumi.AzureRM.Insights.Latest
         public Output<string> UserId { get; private set; } = null!;
 
         /// <summary>
-        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        /// Workbook version
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
-
-        /// <summary>
-        /// Internally assigned unique id of the workbook definition.
-        /// </summary>
-        [Output("workbookId")]
-        public Output<string> WorkbookId { get; private set; } = null!;
 
 
         /// <summary>
@@ -179,6 +166,12 @@ namespace Pulumi.AzureRM.Insights.Latest
         public Input<string> Category { get; set; } = null!;
 
         /// <summary>
+        /// The user-defined name (display name) of the workbook.
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind")]
@@ -187,14 +180,8 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// <summary>
         /// Resource location
         /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The user-defined name of the workbook.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -215,16 +202,10 @@ namespace Pulumi.AzureRM.Insights.Latest
         public Input<string> SerializedData { get; set; } = null!;
 
         /// <summary>
-        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// Azure Resource Id that will fetch all related workbooks.
         /// </summary>
-        [Input("sharedTypeKind", required: true)]
-        public Input<string> SharedTypeKind { get; set; } = null!;
-
-        /// <summary>
-        /// Optional resourceId for a source resource.
-        /// </summary>
-        [Input("sourceResourceId")]
-        public Input<string>? SourceResourceId { get; set; }
+        [Input("sourceId", required: true)]
+        public Input<string> SourceId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -245,16 +226,10 @@ namespace Pulumi.AzureRM.Insights.Latest
         public Input<string> UserId { get; set; } = null!;
 
         /// <summary>
-        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        /// Workbook version
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
-
-        /// <summary>
-        /// Internally assigned unique id of the workbook definition.
-        /// </summary>
-        [Input("workbookId", required: true)]
-        public Input<string> WorkbookId { get; set; } = null!;
 
         public WorkbookArgs()
         {

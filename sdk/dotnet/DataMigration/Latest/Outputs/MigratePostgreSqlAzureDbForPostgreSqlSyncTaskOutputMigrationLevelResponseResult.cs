@@ -30,6 +30,10 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
         /// </summary>
         public readonly string SourceServer;
         /// <summary>
+        /// Source server type.
+        /// </summary>
+        public readonly string SourceServerType;
+        /// <summary>
         /// Source server version
         /// </summary>
         public readonly string SourceServerVersion;
@@ -38,9 +42,17 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
         /// </summary>
         public readonly string StartedOn;
         /// <summary>
+        /// Migration status
+        /// </summary>
+        public readonly string State;
+        /// <summary>
         /// Target server name
         /// </summary>
         public readonly string TargetServer;
+        /// <summary>
+        /// Target server type.
+        /// </summary>
+        public readonly string TargetServerType;
         /// <summary>
         /// Target server version
         /// </summary>
@@ -56,11 +68,17 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
 
             string sourceServer,
 
+            string sourceServerType,
+
             string sourceServerVersion,
 
             string startedOn,
 
+            string state,
+
             string targetServer,
+
+            string targetServerType,
 
             string targetServerVersion)
         {
@@ -68,9 +86,12 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
             Id = id;
             ResultType = resultType;
             SourceServer = sourceServer;
+            SourceServerType = sourceServerType;
             SourceServerVersion = sourceServerVersion;
             StartedOn = startedOn;
+            State = state;
             TargetServer = targetServer;
+            TargetServerType = targetServerType;
             TargetServerVersion = targetServerVersion;
         }
     }

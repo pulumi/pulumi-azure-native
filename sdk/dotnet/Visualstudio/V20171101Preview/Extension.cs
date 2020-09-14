@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.Visualstudio.V20171101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:visualstudio/latest:Extension"},
                     new Pulumi.Alias { Type = "azurerm:visualstudio/v20140401preview:Extension"},
                 },
             };

@@ -18,6 +18,10 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
         /// </summary>
         public readonly string AgentJobs;
         /// <summary>
+        /// Mapping from database name to TDE certificate name, if applicable
+        /// </summary>
+        public readonly string DatabaseTdeCertificateMapping;
+        /// <summary>
         /// Source databases as a map from database name to database id
         /// </summary>
         public readonly string Databases;
@@ -50,6 +54,8 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
         private ConnectToSourceSqlServerTaskOutputTaskLevelResponseResult(
             string agentJobs,
 
+            string databaseTdeCertificateMapping,
+
             string databases,
 
             string id,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
             ImmutableArray<Outputs.ReportableExceptionResponseResult> validationErrors)
         {
             AgentJobs = agentJobs;
+            DatabaseTdeCertificateMapping = databaseTdeCertificateMapping;
             Databases = databases;
             Id = id;
             Logins = logins;

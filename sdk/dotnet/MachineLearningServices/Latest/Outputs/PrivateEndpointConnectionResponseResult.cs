@@ -14,11 +14,19 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
     public sealed class PrivateEndpointConnectionResponseResult
     {
         /// <summary>
-        /// ResourceId of the private endpoint connection.
+        /// Specifies the resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Friendly name of the private endpoint connection.
+        /// The identity of the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponseResult? Identity;
+        /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
+        /// Specifies the name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -34,13 +42,25 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
-        /// Resource type of private endpoint connection.
+        /// The sku of the workspace.
+        /// </summary>
+        public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// Contains resource tags defined as key/value pairs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Specifies the type of the resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponseResult(
             string id,
+
+            Outputs.IdentityResponseResult? identity,
+
+            string? location,
 
             string name,
 
@@ -50,13 +70,21 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
 
             string? provisioningState,
 
+            Outputs.SkuResponseResult? sku,
+
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
             Id = id;
+            Identity = identity;
+            Location = location;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            Sku = sku;
+            Tags = tags;
             Type = type;
         }
     }

@@ -44,6 +44,10 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// </summary>
         public readonly Outputs.ApiPropertiesResponseResult? ApiProperties;
         /// <summary>
+        /// The object representing the policy for taking backups on an account.
+        /// </summary>
+        public readonly Union<Outputs.ContinuousModeBackupPolicyResponseResult, Outputs.PeriodicModeBackupPolicyResponseResult>? BackupPolicy;
+        /// <summary>
         /// List of Cosmos DB capabilities for the account
         /// </summary>
         public readonly ImmutableArray<Outputs.CapabilityResponseResult> Capabilities;
@@ -59,6 +63,10 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// The CORS policy for the Cosmos DB database account.
         /// </summary>
         public readonly ImmutableArray<Outputs.CorsPolicyResponseResult> Cors;
+        /// <summary>
+        /// Enum to indicate the mode of account creation.
+        /// </summary>
+        public readonly string? CreateMode;
         /// <summary>
         /// The offer type for the Cosmos DB database account. Default value: Standard.
         /// </summary>
@@ -95,6 +103,14 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// An array that contains the regions ordered by their failover priorities.
         /// </summary>
         public readonly ImmutableArray<Outputs.FailoverPolicyResponseResult> FailoverPolicies;
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponseResult? Identity;
+        /// <summary>
+        /// A unique identifier assigned to the database account
+        /// </summary>
+        public readonly string InstanceId;
         /// <summary>
         /// List of IpRules.
         /// </summary>
@@ -140,6 +156,14 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.LocationResponseResult> ReadLocations;
         /// <summary>
+        /// Parameters to indicate the information about the restore.
+        /// </summary>
+        public readonly Outputs.RestoreParametersResponseResult? RestoreParameters;
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponseResult SystemData;
+        /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -160,6 +184,8 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         private GetDatabaseAccountResult(
             Outputs.ApiPropertiesResponseResult? apiProperties,
 
+            Union<Outputs.ContinuousModeBackupPolicyResponseResult, Outputs.PeriodicModeBackupPolicyResponseResult>? backupPolicy,
+
             ImmutableArray<Outputs.CapabilityResponseResult> capabilities,
 
             string? connectorOffer,
@@ -167,6 +193,8 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
             Outputs.ConsistencyPolicyResponseResult? consistencyPolicy,
 
             ImmutableArray<Outputs.CorsPolicyResponseResult> cors,
+
+            string? createMode,
 
             string databaseAccountOfferType,
 
@@ -185,6 +213,10 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
             bool? enableMultipleWriteLocations,
 
             ImmutableArray<Outputs.FailoverPolicyResponseResult> failoverPolicies,
+
+            Outputs.ManagedServiceIdentityResponseResult? identity,
+
+            string instanceId,
 
             ImmutableArray<Outputs.IpAddressOrRangeResponseResult> ipRules,
 
@@ -208,6 +240,10 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
 
             ImmutableArray<Outputs.LocationResponseResult> readLocations,
 
+            Outputs.RestoreParametersResponseResult? restoreParameters,
+
+            Outputs.SystemDataResponseResult systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -217,10 +253,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
             ImmutableArray<Outputs.LocationResponseResult> writeLocations)
         {
             ApiProperties = apiProperties;
+            BackupPolicy = backupPolicy;
             Capabilities = capabilities;
             ConnectorOffer = connectorOffer;
             ConsistencyPolicy = consistencyPolicy;
             Cors = cors;
+            CreateMode = createMode;
             DatabaseAccountOfferType = databaseAccountOfferType;
             DisableKeyBasedMetadataWriteAccess = disableKeyBasedMetadataWriteAccess;
             DocumentEndpoint = documentEndpoint;
@@ -230,6 +268,8 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
             EnableFreeTier = enableFreeTier;
             EnableMultipleWriteLocations = enableMultipleWriteLocations;
             FailoverPolicies = failoverPolicies;
+            Identity = identity;
+            InstanceId = instanceId;
             IpRules = ipRules;
             IsVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
             KeyVaultKeyUri = keyVaultKeyUri;
@@ -241,6 +281,8 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             ReadLocations = readLocations;
+            RestoreParameters = restoreParameters;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VirtualNetworkRules = virtualNetworkRules;

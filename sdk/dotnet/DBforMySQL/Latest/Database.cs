@@ -13,7 +13,7 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
     /// Represents a Database.
     /// 
     /// ## Example Usage
-    /// ### DatabaseCreate
+    /// ### Create a database
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -87,8 +87,7 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:Database"},
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201preview:Database"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20200701privatepreview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

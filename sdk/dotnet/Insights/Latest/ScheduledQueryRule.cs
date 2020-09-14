@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Insights.Latest
 {
     /// <summary>
-    /// The Log Search Rule resource.
+    /// The scheduled query rule resource.
     /// 
     /// ## Example Usage
-    /// ### Create or Update rule - AlertingAction
+    /// ### Create or update a scheduled query rule for Single Resource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -24,110 +24,79 @@ namespace Pulumi.AzureRM.Insights.Latest
     ///     {
     ///         var scheduledQueryRule = new AzureRM.Insights.Latest.ScheduledQueryRule("scheduledQueryRule", new AzureRM.Insights.Latest.ScheduledQueryRuleArgs
     ///         {
-    ///             Action = 
+    ///             Actions = 
     ///             {
-    ///                 { "aznsAction", new AzureRM.Insights.Latest.Inputs.AzNsActionGroupArgs
+    ///                 new AzureRM.Insights.Latest.Inputs.ActionArgs
     ///                 {
-    ///                     ActionGroup = {},
-    ///                     CustomWebhookPayload = "{}",
-    ///                     EmailSubject = "Email Header",
-    ///                 } },
-    ///                 { "odata.type", "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction" },
-    ///                 { "severity", "1" },
-    ///                 { "trigger", new AzureRM.Insights.Latest.Inputs.TriggerConditionArgs
-    ///                 {
-    ///                     MetricTrigger = new AzureRM.Insights.Latest.Inputs.LogMetricTriggerArgs
+    ///                     ActionGroupId = "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+    ///                     WebHookProperties = 
     ///                     {
-    ///                         MetricColumn = "Computer",
-    ///                         MetricTriggerType = "Consecutive",
-    ///                         Threshold = 5,
-    ///                         ThresholdOperator = "GreaterThan",
+    ///                         { "key11", "value11" },
+    ///                         { "key12", "value12" },
     ///                     },
-    ///                     Threshold = 3,
-    ///                     ThresholdOperator = "GreaterThan",
-    ///                 } },
-    ///             },
-    ///             Description = "log alert description",
-    ///             Enabled = "true",
-    ///             Location = "eastus",
-    ///             ResourceGroupName = "Rac46PostSwapRG",
-    ///             RuleName = "logalertfoo",
-    ///             Schedule = new AzureRM.Insights.Latest.Inputs.ScheduleArgs
-    ///             {
-    ///                 FrequencyInMinutes = 15,
-    ///                 TimeWindowInMinutes = 15,
-    ///             },
-    ///             Source = new AzureRM.Insights.Latest.Inputs.SourceArgs
-    ///             {
-    ///                 DataSourceId = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
-    ///                 Query = "Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)",
-    ///                 QueryType = "ResultCount",
-    ///             },
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Create or Update rule - AlertingAction with Cross-Resource
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var scheduledQueryRule = new AzureRM.Insights.Latest.ScheduledQueryRule("scheduledQueryRule", new AzureRM.Insights.Latest.ScheduledQueryRuleArgs
-    ///         {
-    ///             Action = 
-    ///             {
-    ///                 { "aznsAction", new AzureRM.Insights.Latest.Inputs.AzNsActionGroupArgs
-    ///                 {
-    ///                     ActionGroup = 
-    ///                     {
-    ///                         "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/actiongroups/test-ag",
-    ///                     },
-    ///                     EmailSubject = "Cross Resource Mail!!",
-    ///                 } },
-    ///                 { "odata.type", "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction" },
-    ///                 { "severity", "3" },
-    ///                 { "trigger", new AzureRM.Insights.Latest.Inputs.TriggerConditionArgs
-    ///                 {
-    ///                     Threshold = 5000,
-    ///                     ThresholdOperator = "GreaterThan",
-    ///                 } },
-    ///             },
-    ///             Description = "Sample Cross Resource alert",
-    ///             Enabled = "true",
-    ///             Location = "eastus",
-    ///             ResourceGroupName = "Rac46PostSwapRG",
-    ///             RuleName = "SampleCrossResourceAlert",
-    ///             Schedule = new AzureRM.Insights.Latest.Inputs.ScheduleArgs
-    ///             {
-    ///                 FrequencyInMinutes = 60,
-    ///                 TimeWindowInMinutes = 60,
-    ///             },
-    ///             Source = new AzureRM.Insights.Latest.Inputs.SourceArgs
-    ///             {
-    ///                 AuthorizedResources = 
-    ///                 {
-    ///                     "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
-    ///                     "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
     ///                 },
-    ///                 DataSourceId = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
-    ///                 Query = "union requests, workspace(\"sampleWorkspace\").Update",
-    ///                 QueryType = "ResultCount",
     ///             },
-    ///             Tags = ,
+    ///             Criteria = new AzureRM.Insights.Latest.Inputs.ScheduledQueryRuleCriteriaArgs
+    ///             {
+    ///                 AllOf = 
+    ///                 {
+    ///                     new AzureRM.Insights.Latest.Inputs.ConditionArgs
+    ///                     {
+    ///                         Dimensions = 
+    ///                         {
+    ///                             new AzureRM.Insights.Latest.Inputs.DimensionArgs
+    ///                             {
+    ///                                 Name = "ComputerIp",
+    ///                                 Operator = "Exclude",
+    ///                                 Values = 
+    ///                                 {
+    ///                                     "192.168.1.1",
+    ///                                 },
+    ///                             },
+    ///                             new AzureRM.Insights.Latest.Inputs.DimensionArgs
+    ///                             {
+    ///                                 Name = "OSType",
+    ///                                 Operator = "Include",
+    ///                                 Values = 
+    ///                                 {
+    ///                                     "*",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         FailingPeriods = new AzureRM.Insights.Latest.Inputs.ConditionFailingPeriodsArgs
+    ///                         {
+    ///                             MinFailingPeriodsToAlert = 1,
+    ///                             NumberOfEvaluationPeriods = 1,
+    ///                         },
+    ///                         MetricMeasureColumn = "% Processor Time",
+    ///                         Operator = "GreaterThan",
+    ///                         Query = "Perf | where ObjectName == \"Processor\"",
+    ///                         ResourceIdColumn = "resourceId",
+    ///                         Threshold = 70,
+    ///                         TimeAggregation = "Average",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Description = "Performance rule",
+    ///             Enabled = true,
+    ///             EvaluationFrequency = "PT5M",
+    ///             Location = "eastus",
+    ///             MuteActionsDuration = "PT30M",
+    ///             ResourceGroupName = "QueryResourceGroupName",
+    ///             RuleName = "perf",
+    ///             Scopes = 
+    ///             {
+    ///                 "/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///             },
+    ///             Severity = 4,
+    ///             WindowSize = "PT10M",
     ///         });
     ///     }
     /// 
     /// }
     /// 
     /// ```
-    /// ### Create or Update rule - LogToMetricAction
+    /// ### Create or update a scheduled query rule on Resource group(s)
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -138,28 +107,141 @@ namespace Pulumi.AzureRM.Insights.Latest
     ///     {
     ///         var scheduledQueryRule = new AzureRM.Insights.Latest.ScheduledQueryRule("scheduledQueryRule", new AzureRM.Insights.Latest.ScheduledQueryRuleArgs
     ///         {
-    ///             Action = 
+    ///             Actions = 
     ///             {
-    ///                 { "criteria", 
+    ///                 new AzureRM.Insights.Latest.Inputs.ActionArgs
     ///                 {
-    ///                     new AzureRM.Insights.Latest.Inputs.CriteriaArgs
+    ///                     ActionGroupId = "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+    ///                     WebHookProperties = 
+    ///                     {
+    ///                         { "key11", "value11" },
+    ///                         { "key12", "value12" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Criteria = new AzureRM.Insights.Latest.Inputs.ScheduledQueryRuleCriteriaArgs
+    ///             {
+    ///                 AllOf = 
+    ///                 {
+    ///                     new AzureRM.Insights.Latest.Inputs.ConditionArgs
     ///                     {
     ///                         Dimensions = {},
-    ///                         MetricName = "Average_% Idle Time",
+    ///                         FailingPeriods = new AzureRM.Insights.Latest.Inputs.ConditionFailingPeriodsArgs
+    ///                         {
+    ///                             MinFailingPeriodsToAlert = 1,
+    ///                             NumberOfEvaluationPeriods = 1,
+    ///                         },
+    ///                         Operator = "GreaterThan",
+    ///                         Query = "Heartbeat",
+    ///                         Threshold = 360,
+    ///                         TimeAggregation = "Count",
     ///                     },
-    ///                 } },
-    ///                 { "odata.type", "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction" },
+    ///                 },
     ///             },
-    ///             Description = "log to metric description",
-    ///             Enabled = "true",
-    ///             Location = "West Europe",
-    ///             ResourceGroupName = "alertsweu",
-    ///             RuleName = "logtometricfoo",
-    ///             Source = new AzureRM.Insights.Latest.Inputs.SourceArgs
+    ///             Description = "Health check rule",
+    ///             Enabled = true,
+    ///             EvaluationFrequency = "PT5M",
+    ///             Location = "eastus",
+    ///             MuteActionsDuration = "PT30M",
+    ///             ResourceGroupName = "QueryResourceGroupName",
+    ///             RuleName = "heartbeat",
+    ///             Scopes = 
     ///             {
-    ///                 DataSourceId = "/subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/Microsoft.OperationalInsights/workspaces/alertsweu",
+    ///                 "/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1",
     ///             },
-    ///             Tags = ,
+    ///             Severity = 4,
+    ///             TargetResourceTypes = 
+    ///             {
+    ///                 "Microsoft.Compute/virtualMachines",
+    ///             },
+    ///             WindowSize = "PT10M",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create or update a scheduled query rule on Subscription
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var scheduledQueryRule = new AzureRM.Insights.Latest.ScheduledQueryRule("scheduledQueryRule", new AzureRM.Insights.Latest.ScheduledQueryRuleArgs
+    ///         {
+    ///             Actions = 
+    ///             {
+    ///                 new AzureRM.Insights.Latest.Inputs.ActionArgs
+    ///                 {
+    ///                     ActionGroupId = "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+    ///                     WebHookProperties = 
+    ///                     {
+    ///                         { "key11", "value11" },
+    ///                         { "key12", "value12" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Criteria = new AzureRM.Insights.Latest.Inputs.ScheduledQueryRuleCriteriaArgs
+    ///             {
+    ///                 AllOf = 
+    ///                 {
+    ///                     new AzureRM.Insights.Latest.Inputs.ConditionArgs
+    ///                     {
+    ///                         Dimensions = 
+    ///                         {
+    ///                             new AzureRM.Insights.Latest.Inputs.DimensionArgs
+    ///                             {
+    ///                                 Name = "ComputerIp",
+    ///                                 Operator = "Exclude",
+    ///                                 Values = 
+    ///                                 {
+    ///                                     "192.168.1.1",
+    ///                                 },
+    ///                             },
+    ///                             new AzureRM.Insights.Latest.Inputs.DimensionArgs
+    ///                             {
+    ///                                 Name = "OSType",
+    ///                                 Operator = "Include",
+    ///                                 Values = 
+    ///                                 {
+    ///                                     "*",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         FailingPeriods = new AzureRM.Insights.Latest.Inputs.ConditionFailingPeriodsArgs
+    ///                         {
+    ///                             MinFailingPeriodsToAlert = 1,
+    ///                             NumberOfEvaluationPeriods = 1,
+    ///                         },
+    ///                         MetricMeasureColumn = "% Processor Time",
+    ///                         Operator = "GreaterThan",
+    ///                         Query = "Perf | where ObjectName == \"Processor\"",
+    ///                         ResourceIdColumn = "resourceId",
+    ///                         Threshold = 70,
+    ///                         TimeAggregation = "Average",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Description = "Performance rule",
+    ///             Enabled = true,
+    ///             EvaluationFrequency = "PT5M",
+    ///             Location = "eastus",
+    ///             MuteActionsDuration = "PT30M",
+    ///             ResourceGroupName = "QueryResourceGroupName",
+    ///             RuleName = "perf",
+    ///             Scopes = 
+    ///             {
+    ///                 "/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147",
+    ///             },
+    ///             Severity = 4,
+    ///             TargetResourceTypes = 
+    ///             {
+    ///                 "Microsoft.Compute/virtualMachines",
+    ///             },
+    ///             WindowSize = "PT10M",
     ///         });
     ///     }
     /// 
@@ -169,71 +251,86 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// </summary>
     public partial class ScheduledQueryRule : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Action needs to be taken on rule execution.
-        /// </summary>
-        [Output("action")]
-        public Output<Union<Outputs.AlertingActionResponseResult, Outputs.LogToMetricActionResponseResult>> Action { get; private set; } = null!;
+        [Output("actions")]
+        public Output<ImmutableArray<Outputs.ActionResponseResult>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the Log Search rule.
+        /// The rule criteria that defines the conditions of the scheduled query rule.
+        /// </summary>
+        [Output("criteria")]
+        public Output<Outputs.ScheduledQueryRuleCriteriaResponseResult?> Criteria { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the scheduled query rule.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
         [Output("enabled")]
-        public Output<string?> Enabled { get; private set; } = null!;
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Last time the rule was updated in IS08601 format.
+        /// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         /// </summary>
-        [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
+        [Output("evaluationFrequency")]
+        public Output<string?> EvaluationFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+        /// </summary>
+        [Output("muteActionsDuration")]
+        public Output<string?> MuteActionsDuration { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the scheduled query rule
+        /// The list of resource id's that this scheduled query rule is scoped to.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("scopes")]
+        public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        /// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         /// </summary>
-        [Output("schedule")]
-        public Output<Outputs.ScheduleResponseResult?> Schedule { get; private set; } = null!;
+        [Output("severity")]
+        public Output<double?> Severity { get; private set; } = null!;
 
         /// <summary>
-        /// Data Source against which rule will Query Data
-        /// </summary>
-        [Output("source")]
-        public Output<Outputs.SourceResponseResult> Source { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+        /// </summary>
+        [Output("targetResourceTypes")]
+        public Output<ImmutableArray<string>> TargetResourceTypes { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+        /// </summary>
+        [Output("windowSize")]
+        public Output<string?> WindowSize { get; private set; } = null!;
 
 
         /// <summary>
@@ -285,29 +382,49 @@ namespace Pulumi.AzureRM.Insights.Latest
 
     public sealed class ScheduledQueryRuleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Action needs to be taken on rule execution.
-        /// </summary>
-        [Input("action", required: true)]
-        public InputUnion<Inputs.AlertingActionArgs, Inputs.LogToMetricActionArgs> Action { get; set; } = null!;
+        [Input("actions")]
+        private InputList<Inputs.ActionArgs>? _actions;
+        public InputList<Inputs.ActionArgs> Actions
+        {
+            get => _actions ?? (_actions = new InputList<Inputs.ActionArgs>());
+            set => _actions = value;
+        }
 
         /// <summary>
-        /// The description of the Log Search rule.
+        /// The rule criteria that defines the conditions of the scheduled query rule.
+        /// </summary>
+        [Input("criteria")]
+        public Input<Inputs.ScheduledQueryRuleCriteriaArgs>? Criteria { get; set; }
+
+        /// <summary>
+        /// The description of the scheduled query rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
         [Input("enabled")]
-        public Input<string>? Enabled { get; set; }
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
+        /// </summary>
+        [Input("evaluationFrequency")]
+        public Input<string>? EvaluationFrequency { get; set; }
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+        /// </summary>
+        [Input("muteActionsDuration")]
+        public Input<string>? MuteActionsDuration { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -321,29 +438,53 @@ namespace Pulumi.AzureRM.Insights.Latest
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
-        /// <summary>
-        /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-        /// </summary>
-        [Input("schedule")]
-        public Input<Inputs.ScheduleArgs>? Schedule { get; set; }
+        [Input("scopes")]
+        private InputList<string>? _scopes;
 
         /// <summary>
-        /// Data Source against which rule will Query Data
+        /// The list of resource id's that this scheduled query rule is scoped to.
         /// </summary>
-        [Input("source", required: true)]
-        public Input<Inputs.SourceArgs> Source { get; set; } = null!;
+        public InputList<string> Scopes
+        {
+            get => _scopes ?? (_scopes = new InputList<string>());
+            set => _scopes = value;
+        }
+
+        /// <summary>
+        /// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
+        /// </summary>
+        [Input("severity")]
+        public Input<double>? Severity { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("targetResourceTypes")]
+        private InputList<string>? _targetResourceTypes;
+
+        /// <summary>
+        /// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+        /// </summary>
+        public InputList<string> TargetResourceTypes
+        {
+            get => _targetResourceTypes ?? (_targetResourceTypes = new InputList<string>());
+            set => _targetResourceTypes = value;
+        }
+
+        /// <summary>
+        /// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+        /// </summary>
+        [Input("windowSize")]
+        public Input<string>? WindowSize { get; set; }
 
         public ScheduledQueryRuleArgs()
         {

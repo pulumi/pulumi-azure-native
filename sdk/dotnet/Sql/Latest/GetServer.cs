@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class GetServerResult
     {
         /// <summary>
-        /// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        /// Administrator username for the server. Once created it cannot be changed.
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
@@ -48,19 +48,15 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// </summary>
         public readonly string? AdministratorLoginPassword;
         /// <summary>
-        /// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-        /// </summary>
-        public readonly string ExternalAdministratorLogin;
-        /// <summary>
-        /// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-        /// </summary>
-        public readonly string ExternalAdministratorSid;
-        /// <summary>
         /// The fully qualified domain name of the server.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
         /// <summary>
-        /// Kind of sql server.  This is metadata used for the Azure portal experience.
+        /// The Azure Active Directory identity of the server.
+        /// </summary>
+        public readonly Outputs.ResourceIdentityResponseResult? Identity;
+        /// <summary>
+        /// Kind of sql server. This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
         /// <summary>
@@ -68,9 +64,21 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        /// </summary>
+        public readonly string? MinimalTlsVersion;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of private endpoint connections on a server
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        /// <summary>
+        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The state of the server.
         /// </summary>
@@ -94,17 +102,21 @@ namespace Pulumi.AzureRM.Sql.Latest
 
             string? administratorLoginPassword,
 
-            string externalAdministratorLogin,
-
-            string externalAdministratorSid,
-
             string fullyQualifiedDomainName,
+
+            Outputs.ResourceIdentityResponseResult? identity,
 
             string kind,
 
             string location,
 
+            string? minimalTlsVersion,
+
             string name,
+
+            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> privateEndpointConnections,
+
+            string? publicNetworkAccess,
 
             string state,
 
@@ -116,12 +128,14 @@ namespace Pulumi.AzureRM.Sql.Latest
         {
             AdministratorLogin = administratorLogin;
             AdministratorLoginPassword = administratorLoginPassword;
-            ExternalAdministratorLogin = externalAdministratorLogin;
-            ExternalAdministratorSid = externalAdministratorSid;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            Identity = identity;
             Kind = kind;
             Location = location;
+            MinimalTlsVersion = minimalTlsVersion;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
+            PublicNetworkAccess = publicNetworkAccess;
             State = state;
             Tags = tags;
             Type = type;

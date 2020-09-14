@@ -31,6 +31,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     ///             RequestSource = "rest",
     ///             ResourceGroupName = "my-resource-group",
     ///             ResourceName = "my-component",
+    ///             WorkspaceResourceId = "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
     ///         });
     ///     }
     /// 
@@ -145,6 +146,12 @@ namespace Pulumi.AzureRM.Insights.Latest
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
+        /// The date which the component got migrated to LA, in ISO 8601 format.
+        /// </summary>
+        [Output("laMigrationDate")]
+        public Output<string> LaMigrationDate { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -169,6 +176,18 @@ namespace Pulumi.AzureRM.Insights.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The network access type for accessing Application Insights ingestion.
+        /// </summary>
+        [Output("publicNetworkAccessForIngestion")]
+        public Output<string?> PublicNetworkAccessForIngestion { get; private set; } = null!;
+
+        /// <summary>
+        /// The network access type for accessing Application Insights query.
+        /// </summary>
+        [Output("publicNetworkAccessForQuery")]
+        public Output<string?> PublicNetworkAccessForQuery { get; private set; } = null!;
+
+        /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         /// </summary>
         [Output("requestSource")]
@@ -178,7 +197,7 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// Retention period in days.
         /// </summary>
         [Output("retentionInDays")]
-        public Output<int?> RetentionInDays { get; private set; } = null!;
+        public Output<int> RetentionInDays { get; private set; } = null!;
 
         /// <summary>
         /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
@@ -203,6 +222,12 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// ResourceId of the log analytics workspace which the data will be ingested to.
+        /// </summary>
+        [Output("workspaceResourceId")]
+        public Output<string> WorkspaceResourceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -304,6 +329,18 @@ namespace Pulumi.AzureRM.Insights.Latest
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// The network access type for accessing Application Insights ingestion.
+        /// </summary>
+        [Input("publicNetworkAccessForIngestion")]
+        public Input<string>? PublicNetworkAccessForIngestion { get; set; }
+
+        /// <summary>
+        /// The network access type for accessing Application Insights query.
+        /// </summary>
+        [Input("publicNetworkAccessForQuery")]
+        public Input<string>? PublicNetworkAccessForQuery { get; set; }
+
+        /// <summary>
         /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         /// </summary>
         [Input("requestSource")]
@@ -322,12 +359,6 @@ namespace Pulumi.AzureRM.Insights.Latest
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// Retention period in days.
-        /// </summary>
-        [Input("retentionInDays")]
-        public Input<int>? RetentionInDays { get; set; }
-
-        /// <summary>
         /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         /// </summary>
         [Input("samplingPercentage")]
@@ -344,6 +375,12 @@ namespace Pulumi.AzureRM.Insights.Latest
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// ResourceId of the log analytics workspace which the data will be ingested to.
+        /// </summary>
+        [Input("workspaceResourceId", required: true)]
+        public Input<string> WorkspaceResourceId { get; set; } = null!;
 
         public ComponentArgs()
         {

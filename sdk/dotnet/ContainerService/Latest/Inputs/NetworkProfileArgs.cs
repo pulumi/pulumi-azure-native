@@ -16,10 +16,10 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Inputs
     public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// CIDR of the Vnet to peer.
+        /// CIDR of subnet used to create PLS needed for management of the cluster
         /// </summary>
-        [Input("peerVnetId")]
-        public Input<string>? PeerVnetId { get; set; }
+        [Input("managementSubnetCidr")]
+        public Input<string>? ManagementSubnetCidr { get; set; }
 
         /// <summary>
         /// CIDR for the OpenShift Vnet.

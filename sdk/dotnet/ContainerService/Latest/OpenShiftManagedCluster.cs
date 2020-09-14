@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     ///             {
     ///                 new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
     ///                 {
-    ///                     Count = 2,
+    ///                     Count = 3,
     ///                     Name = "infra",
     ///                     OsType = "Linux",
     ///                     Role = "infra",
@@ -66,11 +66,18 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     ///             Location = "location1",
     ///             MasterPoolProfile = new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterMasterPoolProfileArgs
     ///             {
+    ///                 ApiProperties = new AzureRM.ContainerService.Latest.Inputs.OpenShiftAPIPropertiesArgs
+    ///                 {
+    ///                     PrivateApiServer = false,
+    ///                 },
     ///                 Count = 3,
-    ///                 Name = "master",
-    ///                 OsType = "Linux",
     ///                 SubnetCidr = "10.0.0.0/24",
     ///                 VmSize = "Standard_D4s_v3",
+    ///             },
+    ///             MonitorProfile = new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterMonitorProfileArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 WorkspaceResourceID = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
     ///             },
     ///             NetworkProfile = new AzureRM.ContainerService.Latest.Inputs.NetworkProfileArgs
     ///             {
@@ -79,6 +86,99 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     ///             OpenShiftVersion = "v3.11",
     ///             ResourceGroupName = "rg1",
     ///             ResourceName = "clustername1",
+    ///             RouterProfiles = 
+    ///             {
+    ///                 new AzureRM.ContainerService.Latest.Inputs.OpenShiftRouterProfileArgs
+    ///                 {
+    ///                     Name = "default",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "archv2", "" },
+    ///                 { "tier", "production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create/Update Private OpenShift Managed Cluster
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var openShiftManagedCluster = new AzureRM.ContainerService.Latest.OpenShiftManagedCluster("openShiftManagedCluster", new AzureRM.ContainerService.Latest.OpenShiftManagedClusterArgs
+    ///         {
+    ///             AgentPoolProfiles = 
+    ///             {
+    ///                 new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+    ///                 {
+    ///                     Count = 3,
+    ///                     Name = "infra",
+    ///                     OsType = "Linux",
+    ///                     Role = "infra",
+    ///                     SubnetCidr = "10.0.0.0/24",
+    ///                     VmSize = "Standard_D4s_v3",
+    ///                 },
+    ///                 new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+    ///                 {
+    ///                     Count = 4,
+    ///                     Name = "compute",
+    ///                     OsType = "Linux",
+    ///                     Role = "compute",
+    ///                     SubnetCidr = "10.0.0.0/24",
+    ///                     VmSize = "Standard_D4s_v3",
+    ///                 },
+    ///             },
+    ///             AuthProfile = new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterAuthProfileArgs
+    ///             {
+    ///                 IdentityProviders = 
+    ///                 {
+    ///                     new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterIdentityProviderArgs
+    ///                     {
+    ///                         Name = "Azure AD",
+    ///                         Provider = new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterAADIdentityProviderArgs
+    ///                         {
+    ///                             ClientId = "clientId",
+    ///                             CustomerAdminGroupId = "customerAdminGroupId",
+    ///                             Kind = "AADIdentityProvider",
+    ///                             Secret = "secret",
+    ///                             TenantId = "tenantId",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Location = "location1",
+    ///             MasterPoolProfile = new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterMasterPoolProfileArgs
+    ///             {
+    ///                 ApiProperties = new AzureRM.ContainerService.Latest.Inputs.OpenShiftAPIPropertiesArgs
+    ///                 {
+    ///                     PrivateApiServer = true,
+    ///                 },
+    ///                 Count = 3,
+    ///                 SubnetCidr = "10.0.0.0/24",
+    ///                 VmSize = "Standard_D4s_v3",
+    ///             },
+    ///             MonitorProfile = new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterMonitorProfileArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 WorkspaceResourceID = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+    ///             },
+    ///             NetworkProfile = new AzureRM.ContainerService.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 ManagementSubnetCidr = "10.0.1.0/24",
+    ///                 VnetCidr = "10.0.0.0/8",
+    ///             },
+    ///             OpenShiftVersion = "v3.11",
+    ///             RefreshCluster = true,
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "privateclustername1",
     ///             RouterProfiles = 
     ///             {
     ///                 new AzureRM.ContainerService.Latest.Inputs.OpenShiftRouterProfileArgs
@@ -137,6 +237,12 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         public Output<Outputs.OpenShiftManagedClusterMasterPoolProfileResponseResult?> MasterPoolProfile { get; private set; } = null!;
 
         /// <summary>
+        /// Configures Log Analytics integration.
+        /// </summary>
+        [Output("monitorProfile")]
+        public Output<Outputs.OpenShiftManagedClusterMonitorProfileResponseResult?> MonitorProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
@@ -167,10 +273,16 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Service generated FQDN for OpenShift API server.
+        /// Service generated FQDN or private IP for OpenShift API server.
         /// </summary>
         [Output("publicHostname")]
         public Output<string> PublicHostname { get; private set; } = null!;
+
+        /// <summary>
+        /// Allows node rotation
+        /// </summary>
+        [Output("refreshCluster")]
+        public Output<bool?> RefreshCluster { get; private set; } = null!;
 
         /// <summary>
         /// Configuration for OpenShift router(s).
@@ -273,6 +385,12 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         public Input<Inputs.OpenShiftManagedClusterMasterPoolProfileArgs>? MasterPoolProfile { get; set; }
 
         /// <summary>
+        /// Configures Log Analytics integration.
+        /// </summary>
+        [Input("monitorProfile")]
+        public Input<Inputs.OpenShiftManagedClusterMonitorProfileArgs>? MonitorProfile { get; set; }
+
+        /// <summary>
         /// Configuration for OpenShift networking.
         /// </summary>
         [Input("networkProfile")]
@@ -289,6 +407,12 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         /// </summary>
         [Input("plan")]
         public Input<Inputs.PurchasePlanArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// Allows node rotation
+        /// </summary>
+        [Input("refreshCluster")]
+        public Input<bool>? RefreshCluster { get; set; }
 
         /// <summary>
         /// The name of the resource group.

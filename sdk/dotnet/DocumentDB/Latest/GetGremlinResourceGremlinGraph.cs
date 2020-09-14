@@ -52,6 +52,10 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
     public sealed class GetGremlinResourceGremlinGraphResult
     {
         /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponseResult? Identity;
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         public readonly string? Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
 
         [OutputConstructor]
         private GetGremlinResourceGremlinGraphResult(
+            Outputs.ManagedServiceIdentityResponseResult? identity,
+
             string? location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
 
             string type)
         {
+            Identity = identity;
             Location = location;
             Name = name;
             Options = options;

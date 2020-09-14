@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Sql.Latest
 {
     /// <summary>
-    /// An server Active Directory Administrator.
+    /// Azure Active Directory administrator.
     /// 
     /// ## Example Usage
-    /// ### Create/Update a server administrator
+    /// ### Creates or updates an existing Azure Active Directory administrator.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     ///     {
     ///         var serverAzureADAdministrator = new AzureRM.Sql.Latest.ServerAzureADAdministrator("serverAzureADAdministrator", new AzureRM.Sql.Latest.ServerAzureADAdministratorArgs
     ///         {
-    ///             AdministratorName = "activeDirectory",
+    ///             AdministratorName = "ActiveDirectory",
     ///             AdministratorType = "ActiveDirectory",
     ///             Login = "bob@contoso.com",
     ///             ResourceGroupName = "sqlcrudtest-4799",
@@ -41,13 +41,19 @@ namespace Pulumi.AzureRM.Sql.Latest
     public partial class ServerAzureADAdministrator : Pulumi.CustomResource
     {
         /// <summary>
-        /// The type of administrator.
+        /// Type of the sever administrator.
         /// </summary>
         [Output("administratorType")]
         public Output<string> AdministratorType { get; private set; } = null!;
 
         /// <summary>
-        /// The server administrator login value.
+        /// Azure Active Directory only Authentication enabled.
+        /// </summary>
+        [Output("azureADOnlyAuthentication")]
+        public Output<bool> AzureADOnlyAuthentication { get; private set; } = null!;
+
+        /// <summary>
+        /// Login name of the server administrator.
         /// </summary>
         [Output("login")]
         public Output<string> Login { get; private set; } = null!;
@@ -59,16 +65,16 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The server administrator Sid (Secure ID).
+        /// SID (object ID) of the server administrator.
         /// </summary>
         [Output("sid")]
         public Output<string> Sid { get; private set; } = null!;
 
         /// <summary>
-        /// The server Active Directory Administrator tenant id.
+        /// Tenant ID of the administrator.
         /// </summary>
         [Output("tenantId")]
-        public Output<string> TenantId { get; private set; } = null!;
+        public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -128,19 +134,19 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class ServerAzureADAdministratorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the server administrator resource.
+        /// The name of server active directory administrator.
         /// </summary>
         [Input("administratorName", required: true)]
         public Input<string> AdministratorName { get; set; } = null!;
 
         /// <summary>
-        /// The type of administrator.
+        /// Type of the sever administrator.
         /// </summary>
         [Input("administratorType", required: true)]
         public Input<string> AdministratorType { get; set; } = null!;
 
         /// <summary>
-        /// The server administrator login value.
+        /// Login name of the server administrator.
         /// </summary>
         [Input("login", required: true)]
         public Input<string> Login { get; set; } = null!;
@@ -158,16 +164,16 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// The server administrator Sid (Secure ID).
+        /// SID (object ID) of the server administrator.
         /// </summary>
         [Input("sid", required: true)]
         public Input<string> Sid { get; set; } = null!;
 
         /// <summary>
-        /// The server Active Directory Administrator tenant id.
+        /// Tenant ID of the administrator.
         /// </summary>
-        [Input("tenantId", required: true)]
-        public Input<string> TenantId { get; set; } = null!;
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         public ServerAzureADAdministratorArgs()
         {

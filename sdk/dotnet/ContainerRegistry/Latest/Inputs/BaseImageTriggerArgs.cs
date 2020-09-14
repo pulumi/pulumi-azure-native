@@ -33,6 +33,18 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest.Inputs
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// The endpoint URL for receiving update triggers.
+        /// </summary>
+        [Input("updateTriggerEndpoint")]
+        public Input<string>? UpdateTriggerEndpoint { get; set; }
+
+        /// <summary>
+        /// Type of Payload body for Base image update triggers.
+        /// </summary>
+        [Input("updateTriggerPayloadType")]
+        public Input<string>? UpdateTriggerPayloadType { get; set; }
+
         public BaseImageTriggerArgs()
         {
         }

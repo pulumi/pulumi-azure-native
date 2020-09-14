@@ -157,7 +157,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines the type of application which send the create user request. Default is legacy portal.
+        /// Determines the type of application which send the create user request. Default is old publisher portal.
         /// </summary>
         [Input("appType")]
         public Input<string>? AppType { get; set; }
@@ -203,12 +203,6 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         /// </summary>
         [Input("note")]
         public Input<string>? Note { get; set; }
-
-        /// <summary>
-        /// Send an Email notification to the User.
-        /// </summary>
-        [Input("notify")]
-        public Input<bool>? Notify { get; set; }
 
         /// <summary>
         /// User Password. If no value is provided, a default password is generated.

@@ -48,6 +48,22 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
+        /// Enable a single data endpoint per region for serving data.
+        /// </summary>
+        public readonly bool? DataEndpointEnabled;
+        /// <summary>
+        /// List of host names that will serve data when dataEndpointEnabled is true.
+        /// </summary>
+        public readonly ImmutableArray<string> DataEndpointHostNames;
+        /// <summary>
+        /// The encryption settings of container registry.
+        /// </summary>
+        public readonly Outputs.EncryptionPropertyResponseResult? Encryption;
+        /// <summary>
+        /// The identity of the container registry.
+        /// </summary>
+        public readonly Outputs.IdentityPropertiesResponseResult? Identity;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -68,9 +84,17 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// </summary>
         public readonly Outputs.PoliciesResponseResult? Policies;
         /// <summary>
+        /// List of private endpoint connections for a container registry.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        /// <summary>
         /// The provisioning state of the container registry at the time the operation was called.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Whether or not public network access is allowed for the container registry.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The SKU of the container registry.
         /// </summary>
@@ -98,6 +122,14 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
 
             string creationDate,
 
+            bool? dataEndpointEnabled,
+
+            ImmutableArray<string> dataEndpointHostNames,
+
+            Outputs.EncryptionPropertyResponseResult? encryption,
+
+            Outputs.IdentityPropertiesResponseResult? identity,
+
             string location,
 
             string loginServer,
@@ -108,7 +140,11 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
 
             Outputs.PoliciesResponseResult? policies,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             Outputs.SkuResponseResult sku,
 
@@ -122,12 +158,18 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         {
             AdminUserEnabled = adminUserEnabled;
             CreationDate = creationDate;
+            DataEndpointEnabled = dataEndpointEnabled;
+            DataEndpointHostNames = dataEndpointHostNames;
+            Encryption = encryption;
+            Identity = identity;
             Location = location;
             LoginServer = loginServer;
             Name = name;
             NetworkRuleSet = networkRuleSet;
             Policies = policies;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             Status = status;
             StorageAccount = storageAccount;

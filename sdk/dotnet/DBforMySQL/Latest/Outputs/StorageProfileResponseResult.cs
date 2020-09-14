@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest.Outputs
         /// </summary>
         public readonly int? BackupRetentionDays;
         /// <summary>
-        /// Enable Geo-redundant or not for server backup.
-        /// </summary>
-        public readonly string? GeoRedundantBackup;
-        /// <summary>
         /// Enable Storage Auto Grow.
         /// </summary>
         public readonly string? StorageAutogrow;
+        /// <summary>
+        /// Storage IOPS for a server.
+        /// </summary>
+        public readonly int? StorageIops;
         /// <summary>
         /// Max storage allowed for a server.
         /// </summary>
@@ -34,15 +34,15 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest.Outputs
         private StorageProfileResponseResult(
             int? backupRetentionDays,
 
-            string? geoRedundantBackup,
-
             string? storageAutogrow,
+
+            int? storageIops,
 
             int? storageMB)
         {
             BackupRetentionDays = backupRetentionDays;
-            GeoRedundantBackup = geoRedundantBackup;
             StorageAutogrow = storageAutogrow;
+            StorageIops = storageIops;
             StorageMB = storageMB;
         }
     }

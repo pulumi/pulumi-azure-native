@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:sql/latest:SyncGroup"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20150501preview:SyncGroup"},
                 },
             };

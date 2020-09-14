@@ -44,65 +44,78 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// Status showing whether the server data encryption is enabled with customer-managed keys.
+        /// The administrator login password (required for server creation).
+        /// </summary>
+        public readonly string? AdministratorLoginPassword;
+        /// <summary>
+        /// availability Zone information of the server.
+        /// </summary>
+        public readonly string? AvailabilityZone;
+        /// <summary>
+        /// Status showing whether the data encryption is enabled with customer-managed keys.
         /// </summary>
         public readonly string ByokEnforcement;
         /// <summary>
-        /// Earliest restore point creation time (ISO8601 format)
+        /// The mode to create a new PostgreSQL server.
         /// </summary>
-        public readonly string? EarliestRestoreDate;
+        public readonly string? CreateMode;
+        public readonly Outputs.ServerPropertiesResponseDelegatedSubnetArgumentsResult? DelegatedSubnetArguments;
+        /// <summary>
+        /// The display name of a server.
+        /// </summary>
+        public readonly string? DisplayName;
         /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
-        public readonly string? FullyQualifiedDomainName;
+        public readonly string FullyQualifiedDomainName;
+        /// <summary>
+        /// stand by count value can be either enabled or disabled
+        /// </summary>
+        public readonly string? HaEnabled;
+        /// <summary>
+        /// A state of a HA server that is visible to user.
+        /// </summary>
+        public readonly string HaState;
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponseResult? Identity;
-        /// <summary>
-        /// Status showing whether the server enabled infrastructure encryption.
-        /// </summary>
-        public readonly string? InfrastructureEncryption;
+        public readonly Outputs.IdentityResponseResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The master server id of a replica server.
+        /// Maintenance window of a server.
         /// </summary>
-        public readonly string? MasterServerId;
-        /// <summary>
-        /// Enforce a minimal Tls version for the server.
-        /// </summary>
-        public readonly string? MinimalTlsVersion;
+        public readonly Outputs.MaintenanceWindowResponseResult? MaintenanceWindow;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of private endpoint connections on a server
+        /// Restore point creation time (ISO8601 format), specifying the time to restore from.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly string? PointInTimeUTC;
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// public network access is enabled or not
         /// </summary>
-        public readonly string? PublicNetworkAccess;
-        /// <summary>
-        /// The maximum number of replicas that a master server can have.
-        /// </summary>
-        public readonly int? ReplicaCapacity;
-        /// <summary>
-        /// The replication role of the server.
-        /// </summary>
-        public readonly string? ReplicationRole;
+        public readonly string PublicNetworkAccess;
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
         /// <summary>
-        /// Enable ssl enforcement or not when connect to server.
+        /// The source PostgreSQL server name to restore from.
         /// </summary>
-        public readonly string? SslEnforcement;
+        public readonly string? SourceServerName;
+        /// <summary>
+        /// availability Zone information of the server.
+        /// </summary>
+        public readonly string StandbyAvailabilityZone;
+        /// <summary>
+        /// A state of a server that is visible to user.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// Storage profile of a server.
         /// </summary>
@@ -116,11 +129,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// A state of a server that is visible to user.
-        /// </summary>
-        public readonly string? UserVisibleState;
-        /// <summary>
-        /// Server version.
+        /// PostgreSQL Server version.
         /// </summary>
         public readonly string? Version;
 
@@ -128,35 +137,43 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
         private GetServerResult(
             string? administratorLogin,
 
+            string? administratorLoginPassword,
+
+            string? availabilityZone,
+
             string byokEnforcement,
 
-            string? earliestRestoreDate,
+            string? createMode,
 
-            string? fullyQualifiedDomainName,
+            Outputs.ServerPropertiesResponseDelegatedSubnetArgumentsResult? delegatedSubnetArguments,
 
-            Outputs.ResourceIdentityResponseResult? identity,
+            string? displayName,
 
-            string? infrastructureEncryption,
+            string fullyQualifiedDomainName,
+
+            string? haEnabled,
+
+            string haState,
+
+            Outputs.IdentityResponseResult? identity,
 
             string location,
 
-            string? masterServerId,
-
-            string? minimalTlsVersion,
+            Outputs.MaintenanceWindowResponseResult? maintenanceWindow,
 
             string name,
 
-            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            string? pointInTimeUTC,
 
-            string? publicNetworkAccess,
-
-            int? replicaCapacity,
-
-            string? replicationRole,
+            string publicNetworkAccess,
 
             Outputs.SkuResponseResult? sku,
 
-            string? sslEnforcement,
+            string? sourceServerName,
+
+            string standbyAvailabilityZone,
+
+            string state,
 
             Outputs.StorageProfileResponseResult? storageProfile,
 
@@ -164,30 +181,31 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
 
             string type,
 
-            string? userVisibleState,
-
             string? version)
         {
             AdministratorLogin = administratorLogin;
+            AdministratorLoginPassword = administratorLoginPassword;
+            AvailabilityZone = availabilityZone;
             ByokEnforcement = byokEnforcement;
-            EarliestRestoreDate = earliestRestoreDate;
+            CreateMode = createMode;
+            DelegatedSubnetArguments = delegatedSubnetArguments;
+            DisplayName = displayName;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            HaEnabled = haEnabled;
+            HaState = haState;
             Identity = identity;
-            InfrastructureEncryption = infrastructureEncryption;
             Location = location;
-            MasterServerId = masterServerId;
-            MinimalTlsVersion = minimalTlsVersion;
+            MaintenanceWindow = maintenanceWindow;
             Name = name;
-            PrivateEndpointConnections = privateEndpointConnections;
+            PointInTimeUTC = pointInTimeUTC;
             PublicNetworkAccess = publicNetworkAccess;
-            ReplicaCapacity = replicaCapacity;
-            ReplicationRole = replicationRole;
             Sku = sku;
-            SslEnforcement = sslEnforcement;
+            SourceServerName = sourceServerName;
+            StandbyAvailabilityZone = standbyAvailabilityZone;
+            State = state;
             StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
-            UserVisibleState = userVisibleState;
             Version = version;
         }
     }

@@ -57,6 +57,7 @@ namespace Pulumi.AzureRM.Portal.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:portal/latest:TenantConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:portal/v20190101preview:TenantConfiguration"},
                 },
             };

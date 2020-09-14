@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.Maps.Latest
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Resource Group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -40,11 +40,11 @@ namespace Pulumi.AzureRM.Maps.Latest
     public sealed class GetAccountResult
     {
         /// <summary>
-        /// The location of the resource.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the Maps Account, which is unique within a Resource Group.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -56,11 +56,15 @@ namespace Pulumi.AzureRM.Maps.Latest
         /// </summary>
         public readonly Outputs.SkuResponseResult Sku;
         /// <summary>
-        /// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        /// The system meta data relating to this resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly Outputs.SystemDataResponseResult SystemData;
         /// <summary>
-        /// Azure resource type.
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
 
@@ -74,7 +78,9 @@ namespace Pulumi.AzureRM.Maps.Latest
 
             Outputs.SkuResponseResult sku,
 
-            ImmutableDictionary<string, string> tags,
+            Outputs.SystemDataResponseResult systemData,
+
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {
@@ -82,6 +88,7 @@ namespace Pulumi.AzureRM.Maps.Latest
             Name = name;
             Properties = properties;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

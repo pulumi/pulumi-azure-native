@@ -47,10 +47,28 @@ namespace Pulumi.AzureRM.EventHub.Latest
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
+        /// Cluster ARM ID of the Namespace.
+        /// </summary>
+        [Output("clusterArmId")]
+        public Output<string?> ClusterArmId { get; private set; } = null!;
+
+        /// <summary>
         /// The time the Namespace was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponseResult?> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of BYOK Identity description
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
@@ -124,6 +142,12 @@ namespace Pulumi.AzureRM.EventHub.Latest
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Namespace resource with the given unique name, arguments, and options.
@@ -177,6 +201,24 @@ namespace Pulumi.AzureRM.EventHub.Latest
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Cluster ARM ID of the Namespace.
+        /// </summary>
+        [Input("clusterArmId")]
+        public Input<string>? ClusterArmId { get; set; }
+
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Properties of BYOK Identity description
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
         [Input("isAutoInflateEnabled")]
@@ -229,6 +271,12 @@ namespace Pulumi.AzureRM.EventHub.Latest
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public NamespaceArgs()
         {

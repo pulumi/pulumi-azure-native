@@ -24,9 +24,9 @@ namespace Pulumi.AzureRM.Relay.Latest
     ///     {
     ///         var @namespace = new AzureRM.Relay.Latest.Namespace("namespace", new AzureRM.Relay.Latest.NamespaceArgs
     ///         {
-    ///             Location = "West US",
-    ///             NamespaceName = "sdk-RelayNamespace-01",
-    ///             ResourceGroupName = "RG-eg",
+    ///             Location = "South Central US",
+    ///             NamespaceName = "sdk-Namespace-5849",
+    ///             ResourceGroupName = "ArunMonocle",
     ///             Sku = new AzureRM.Relay.Latest.Inputs.SkuArgs
     ///             {
     ///                 Name = "Standard",

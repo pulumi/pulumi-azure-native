@@ -22,6 +22,18 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Inputs
         public Input<string>? ApplicationSharingPolicy { get; set; }
 
         /// <summary>
+        /// The Compute Instance Authorization type. Available values are personal (default).
+        /// </summary>
+        [Input("computeInstanceAuthorizationType")]
+        public Input<string>? ComputeInstanceAuthorizationType { get; set; }
+
+        /// <summary>
+        /// Settings for a personal compute instance.
+        /// </summary>
+        [Input("personalComputeInstanceSettings")]
+        public Input<Inputs.PersonalComputeInstanceSettingsArgs>? PersonalComputeInstanceSettings { get; set; }
+
+        /// <summary>
         /// Specifies policy and settings for SSH access.
         /// </summary>
         [Input("sshSettings")]

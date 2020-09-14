@@ -18,39 +18,18 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Migration Identifier
-        /// </summary>
-        public readonly string MigrationId;
-        /// <summary>
         /// Result type
         /// </summary>
         public readonly string ResultType;
-        /// <summary>
-        /// Current status of validation at the migration level. Status from the database validation result status will be aggregated here.
-        /// </summary>
-        public readonly string Status;
-        /// <summary>
-        /// Validation summary results for each database
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.MigrationValidationDatabaseSummaryResultResponseResult>? SummaryResults;
 
         [OutputConstructor]
         private MigrateSqlServerSqlDbTaskOutputValidationResultResponseResult(
             string id,
 
-            string migrationId,
-
-            string resultType,
-
-            string status,
-
-            ImmutableDictionary<string, Outputs.MigrationValidationDatabaseSummaryResultResponseResult>? summaryResults)
+            string resultType)
         {
             Id = id;
-            MigrationId = migrationId;
             ResultType = resultType;
-            Status = status;
-            SummaryResults = summaryResults;
         }
     }
 }

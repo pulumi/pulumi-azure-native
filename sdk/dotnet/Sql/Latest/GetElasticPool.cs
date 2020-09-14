@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class GetElasticPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the elastic pool to be retrieved.
+        /// The name of the elastic pool.
         /// </summary>
         [Input("elasticPoolName", required: true)]
         public string ElasticPoolName { get; set; } = null!;
@@ -50,41 +50,43 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
-        /// The maximum DTU any one database can consume.
-        /// </summary>
-        public readonly int? DatabaseDtuMax;
-        /// <summary>
-        /// The minimum DTU all databases are guaranteed.
-        /// </summary>
-        public readonly int? DatabaseDtuMin;
-        /// <summary>
-        /// The total shared DTU for the database elastic pool.
-        /// </summary>
-        public readonly int? Dtu;
-        /// <summary>
-        /// The edition of the elastic pool.
-        /// </summary>
-        public readonly string? Edition;
-        /// <summary>
-        /// Kind of elastic pool.  This is metadata used for the Azure portal experience.
+        /// Kind of elastic pool. This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
+        /// <summary>
+        /// The license type to apply for this elastic pool.
+        /// </summary>
+        public readonly string? LicenseType;
         /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The storage limit for the database elastic pool in bytes.
+        /// </summary>
+        public readonly int? MaxSizeBytes;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The per database settings for the elastic pool.
+        /// </summary>
+        public readonly Outputs.ElasticPoolPerDatabaseSettingsResponseResult? PerDatabaseSettings;
+        /// <summary>
+        /// The elastic pool SKU.
+        /// 
+        /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+        /// 
+        /// ```azurecli
+        /// az sql elastic-pool list-editions -l &lt;location&gt; -o table
+        /// ````
+        /// </summary>
+        public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
         /// The state of the elastic pool.
         /// </summary>
         public readonly string State;
-        /// <summary>
-        /// Gets storage limit for the database elastic pool in MB.
-        /// </summary>
-        public readonly int? StorageMB;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -94,7 +96,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         /// </summary>
         public readonly bool? ZoneRedundant;
 
@@ -102,23 +104,21 @@ namespace Pulumi.AzureRM.Sql.Latest
         private GetElasticPoolResult(
             string creationDate,
 
-            int? databaseDtuMax,
-
-            int? databaseDtuMin,
-
-            int? dtu,
-
-            string? edition,
-
             string kind,
+
+            string? licenseType,
 
             string location,
 
+            int? maxSizeBytes,
+
             string name,
 
-            string state,
+            Outputs.ElasticPoolPerDatabaseSettingsResponseResult? perDatabaseSettings,
 
-            int? storageMB,
+            Outputs.SkuResponseResult? sku,
+
+            string state,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -127,15 +127,14 @@ namespace Pulumi.AzureRM.Sql.Latest
             bool? zoneRedundant)
         {
             CreationDate = creationDate;
-            DatabaseDtuMax = databaseDtuMax;
-            DatabaseDtuMin = databaseDtuMin;
-            Dtu = dtu;
-            Edition = edition;
             Kind = kind;
+            LicenseType = licenseType;
             Location = location;
+            MaxSizeBytes = maxSizeBytes;
             Name = name;
+            PerDatabaseSettings = perDatabaseSettings;
+            Sku = sku;
             State = state;
-            StorageMB = storageMB;
             Tags = tags;
             Type = type;
             ZoneRedundant = zoneRedundant;

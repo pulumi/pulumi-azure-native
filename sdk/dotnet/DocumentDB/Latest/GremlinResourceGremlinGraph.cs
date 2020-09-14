@@ -100,6 +100,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
     public partial class GremlinResourceGremlinGraph : Pulumi.CustomResource
     {
         /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         [Output("location")]
@@ -199,6 +205,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// </summary>
         [Input("graphName", required: true)]
         public Input<string> GraphName { get; set; } = null!;
+
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

@@ -50,6 +50,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// </summary>
         public readonly Outputs.AgentPropertiesResponseResult? AgentConfiguration;
         /// <summary>
+        /// The dedicated agent pool for the task.
+        /// </summary>
+        public readonly string? AgentPoolName;
+        /// <summary>
         /// The creation date of task.
         /// </summary>
         public readonly string CreationDate;
@@ -62,9 +66,17 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// </summary>
         public readonly Outputs.IdentityPropertiesResponseResult? Identity;
         /// <summary>
+        /// The value of this property indicates whether the task resource is system task or not.
+        /// </summary>
+        public readonly bool? IsSystemTask;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The template that describes the repository and tag information for run log artifact.
+        /// </summary>
+        public readonly string? LogTemplate;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -72,7 +84,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// <summary>
         /// The platform properties against which the run has to happen.
         /// </summary>
-        public readonly Outputs.PlatformPropertiesResponseResult Platform;
+        public readonly Outputs.PlatformPropertiesResponseResult? Platform;
         /// <summary>
         /// The provisioning state of the task.
         /// </summary>
@@ -84,7 +96,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// <summary>
         /// The properties of a task step.
         /// </summary>
-        public readonly Union<Outputs.DockerBuildStepResponseResult, Union<Outputs.EncodedTaskStepResponseResult, Outputs.FileTaskStepResponseResult>> Step;
+        public readonly Union<Outputs.DockerBuildStepResponseResult, Union<Outputs.EncodedTaskStepResponseResult, Outputs.FileTaskStepResponseResult>>? Step;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -106,23 +118,29 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         private ListTaskDetailsResult(
             Outputs.AgentPropertiesResponseResult? agentConfiguration,
 
+            string? agentPoolName,
+
             string creationDate,
 
             Outputs.CredentialsResponseResult? credentials,
 
             Outputs.IdentityPropertiesResponseResult? identity,
 
+            bool? isSystemTask,
+
             string location,
+
+            string? logTemplate,
 
             string name,
 
-            Outputs.PlatformPropertiesResponseResult platform,
+            Outputs.PlatformPropertiesResponseResult? platform,
 
             string provisioningState,
 
             string? status,
 
-            Union<Outputs.DockerBuildStepResponseResult, Union<Outputs.EncodedTaskStepResponseResult, Outputs.FileTaskStepResponseResult>> step,
+            Union<Outputs.DockerBuildStepResponseResult, Union<Outputs.EncodedTaskStepResponseResult, Outputs.FileTaskStepResponseResult>>? step,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -133,10 +151,13 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
             string type)
         {
             AgentConfiguration = agentConfiguration;
+            AgentPoolName = agentPoolName;
             CreationDate = creationDate;
             Credentials = credentials;
             Identity = identity;
+            IsSystemTask = isSystemTask;
             Location = location;
+            LogTemplate = logTemplate;
             Name = name;
             Platform = platform;
             ProvisioningState = provisioningState;

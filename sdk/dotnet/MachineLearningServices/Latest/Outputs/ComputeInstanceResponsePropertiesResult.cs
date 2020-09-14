@@ -22,6 +22,10 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ComputeInstanceApplicationResponseResult> Applications;
         /// <summary>
+        /// The Compute Instance Authorization type. Available values are personal (default).
+        /// </summary>
+        public readonly string? ComputeInstanceAuthorizationType;
+        /// <summary>
         /// Describes all connectivity endpoints available for this ComputeInstance.
         /// </summary>
         public readonly Outputs.ComputeInstanceConnectivityEndpointsResponseResult ConnectivityEndpoints;
@@ -33,6 +37,14 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
         /// Collection of errors encountered on this ComputeInstance.
         /// </summary>
         public readonly ImmutableArray<Outputs.MachineLearningServiceErrorResponseResult> Errors;
+        /// <summary>
+        /// The last operation on ComputeInstance.
+        /// </summary>
+        public readonly Outputs.ComputeInstanceLastOperationResponseResult LastOperation;
+        /// <summary>
+        /// Settings for a personal compute instance.
+        /// </summary>
+        public readonly Outputs.PersonalComputeInstanceSettingsResponseResult? PersonalComputeInstanceSettings;
         /// <summary>
         /// Specifies policy and settings for SSH access.
         /// </summary>
@@ -56,11 +68,17 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
 
             ImmutableArray<Outputs.ComputeInstanceApplicationResponseResult> applications,
 
+            string? computeInstanceAuthorizationType,
+
             Outputs.ComputeInstanceConnectivityEndpointsResponseResult connectivityEndpoints,
 
             Outputs.ComputeInstanceCreatedByResponseResult createdBy,
 
             ImmutableArray<Outputs.MachineLearningServiceErrorResponseResult> errors,
+
+            Outputs.ComputeInstanceLastOperationResponseResult lastOperation,
+
+            Outputs.PersonalComputeInstanceSettingsResponseResult? personalComputeInstanceSettings,
 
             Outputs.ComputeInstanceSshSettingsResponseResult? sshSettings,
 
@@ -72,9 +90,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest.Outputs
         {
             ApplicationSharingPolicy = applicationSharingPolicy;
             Applications = applications;
+            ComputeInstanceAuthorizationType = computeInstanceAuthorizationType;
             ConnectivityEndpoints = connectivityEndpoints;
             CreatedBy = createdBy;
             Errors = errors;
+            LastOperation = lastOperation;
+            PersonalComputeInstanceSettings = personalComputeInstanceSettings;
             SshSettings = sshSettings;
             State = state;
             Subnet = subnet;

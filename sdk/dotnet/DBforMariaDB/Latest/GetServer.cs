@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
     public sealed class GetServerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -52,6 +52,10 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
         /// </summary>
         public readonly string? FullyQualifiedDomainName;
         /// <summary>
+        /// The Azure Active Directory identity of the server.
+        /// </summary>
+        public readonly Outputs.ResourceIdentityResponseResult? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -63,14 +67,6 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// List of private endpoint connections on a server
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
-        /// <summary>
-        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        /// </summary>
-        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The maximum number of replicas that a master server can have.
         /// </summary>
@@ -116,15 +112,13 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
 
             string? fullyQualifiedDomainName,
 
+            Outputs.ResourceIdentityResponseResult? identity,
+
             string location,
 
             string? masterServerId,
 
             string name,
-
-            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> privateEndpointConnections,
-
-            string? publicNetworkAccess,
 
             int? replicaCapacity,
 
@@ -147,11 +141,10 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
             AdministratorLogin = administratorLogin;
             EarliestRestoreDate = earliestRestoreDate;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            Identity = identity;
             Location = location;
             MasterServerId = masterServerId;
             Name = name;
-            PrivateEndpointConnections = privateEndpointConnections;
-            PublicNetworkAccess = publicNetworkAccess;
             ReplicaCapacity = replicaCapacity;
             ReplicationRole = replicationRole;
             Sku = sku;

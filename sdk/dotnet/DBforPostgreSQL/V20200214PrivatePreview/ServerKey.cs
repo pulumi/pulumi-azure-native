@@ -73,6 +73,10 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/latest:ServerKey"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

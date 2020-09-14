@@ -47,10 +47,16 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
-        /// The time the namespace was created.
+        /// The time the namespace was created
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponseResult?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// The Geo-location where the resource lives
@@ -83,7 +89,7 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
         public Output<string> ServiceBusEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of Sku
+        /// Properties of SKU
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SBSkuResponseResult?> Sku { get; private set; } = null!;
@@ -105,6 +111,12 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>
@@ -159,6 +171,12 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The Geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]
@@ -177,7 +195,7 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of Sku
+        /// Properties of SKU
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SBSkuArgs>? Sku { get; set; }
@@ -193,6 +211,12 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public NamespaceArgs()
         {

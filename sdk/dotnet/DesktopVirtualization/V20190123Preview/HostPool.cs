@@ -147,6 +147,7 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190123Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:desktopvirtualization/latest:HostPool"},
                     new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20190924preview:HostPool"},
                     new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20191210preview:HostPool"},
                 },

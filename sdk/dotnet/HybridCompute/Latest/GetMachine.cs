@@ -115,6 +115,10 @@ namespace Pulumi.AzureRM.HybridCompute.Latest
         /// </summary>
         public readonly string OsVersion;
         /// <summary>
+        /// List of private link scoped resources associated with this machine.
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateLinkScopedResources;
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
@@ -177,6 +181,8 @@ namespace Pulumi.AzureRM.HybridCompute.Latest
 
             string osVersion,
 
+            ImmutableArray<string> privateLinkScopedResources,
+
             string provisioningState,
 
             string status,
@@ -207,6 +213,7 @@ namespace Pulumi.AzureRM.HybridCompute.Latest
             OsProfile = osProfile;
             OsSku = osSku;
             OsVersion = osVersion;
+            PrivateLinkScopedResources = privateLinkScopedResources;
             ProvisioningState = provisioningState;
             Status = status;
             Tags = tags;

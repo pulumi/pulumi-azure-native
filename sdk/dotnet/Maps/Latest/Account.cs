@@ -45,13 +45,13 @@ namespace Pulumi.AzureRM.Maps.Latest
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
-        /// The location of the resource.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Maps Account, which is unique within a Resource Group.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -69,13 +69,19 @@ namespace Pulumi.AzureRM.Maps.Latest
         public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        /// The system meta data relating to this resource.
         /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponseResult> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type.
+        /// Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -144,7 +150,7 @@ namespace Pulumi.AzureRM.Maps.Latest
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Resource Group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -159,7 +165,7 @@ namespace Pulumi.AzureRM.Maps.Latest
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         /// </summary>
         public InputMap<string> Tags
         {

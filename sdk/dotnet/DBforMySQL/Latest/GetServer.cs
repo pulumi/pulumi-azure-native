@@ -44,21 +44,45 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// Status showing whether the server data encryption is enabled with customer-managed keys.
+        /// The password of the administrator login (required for server creation).
+        /// </summary>
+        public readonly string? AdministratorLoginPassword;
+        /// <summary>
+        /// availability Zone information of the server.
+        /// </summary>
+        public readonly string? AvailabilityZone;
+        /// <summary>
+        /// Status showing whether the data encryption is enabled with customer-managed keys.
         /// </summary>
         public readonly string ByokEnforcement;
         /// <summary>
+        /// The mode to create a new MySQL server.
+        /// </summary>
+        public readonly string? CreateMode;
+        /// <summary>
+        /// Delegated subnet arguments.
+        /// </summary>
+        public readonly Outputs.DelegatedSubnetArgumentsResponseResult? DelegatedSubnetArguments;
+        /// <summary>
         /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
-        public readonly string? EarliestRestoreDate;
+        public readonly string EarliestRestoreDate;
         /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
-        public readonly string? FullyQualifiedDomainName;
+        public readonly string FullyQualifiedDomainName;
+        /// <summary>
+        /// Enable HA or not for a server.
+        /// </summary>
+        public readonly string? HaEnabled;
+        /// <summary>
+        /// The state of a HA server.
+        /// </summary>
+        public readonly string HaState;
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponseResult? Identity;
         /// <summary>
         /// Status showing whether the server enabled infrastructure encryption.
         /// </summary>
@@ -68,41 +92,49 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The master server id of a replica server.
+        /// Maintenance window of a server.
         /// </summary>
-        public readonly string? MasterServerId;
-        /// <summary>
-        /// Enforce a minimal Tls version for the server.
-        /// </summary>
-        public readonly string? MinimalTlsVersion;
+        public readonly Outputs.MaintenanceWindowResponseResult? MaintenanceWindow;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of private endpoint connections on a server
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
-        /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
-        public readonly string? PublicNetworkAccess;
+        public readonly string PublicNetworkAccess;
         /// <summary>
-        /// The maximum number of replicas that a master server can have.
+        /// The maximum number of replicas that a primary server can have.
         /// </summary>
-        public readonly int? ReplicaCapacity;
+        public readonly int ReplicaCapacity;
         /// <summary>
-        /// The replication role of the server.
+        /// The replication role.
         /// </summary>
         public readonly string? ReplicationRole;
+        /// <summary>
+        /// Restore point creation time (ISO8601 format), specifying the time to restore from.
+        /// </summary>
+        public readonly string? RestorePointInTime;
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
         /// <summary>
+        /// The source MySQL server id.
+        /// </summary>
+        public readonly string? SourceServerId;
+        /// <summary>
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         public readonly string? SslEnforcement;
+        /// <summary>
+        /// availability Zone information of the server.
+        /// </summary>
+        public readonly string StandbyAvailabilityZone;
+        /// <summary>
+        /// The state of a server.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// Storage profile of a server.
         /// </summary>
@@ -116,10 +148,6 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// A state of a server that is visible to user.
-        /// </summary>
-        public readonly string? UserVisibleState;
-        /// <summary>
         /// Server version.
         /// </summary>
         public readonly string? Version;
@@ -128,35 +156,51 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
         private GetServerResult(
             string? administratorLogin,
 
+            string? administratorLoginPassword,
+
+            string? availabilityZone,
+
             string byokEnforcement,
 
-            string? earliestRestoreDate,
+            string? createMode,
 
-            string? fullyQualifiedDomainName,
+            Outputs.DelegatedSubnetArgumentsResponseResult? delegatedSubnetArguments,
 
-            Outputs.ResourceIdentityResponseResult? identity,
+            string earliestRestoreDate,
+
+            string fullyQualifiedDomainName,
+
+            string? haEnabled,
+
+            string haState,
+
+            Outputs.IdentityResponseResult? identity,
 
             string? infrastructureEncryption,
 
             string location,
 
-            string? masterServerId,
-
-            string? minimalTlsVersion,
+            Outputs.MaintenanceWindowResponseResult? maintenanceWindow,
 
             string name,
 
-            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            string publicNetworkAccess,
 
-            string? publicNetworkAccess,
-
-            int? replicaCapacity,
+            int replicaCapacity,
 
             string? replicationRole,
 
+            string? restorePointInTime,
+
             Outputs.SkuResponseResult? sku,
 
+            string? sourceServerId,
+
             string? sslEnforcement,
+
+            string standbyAvailabilityZone,
+
+            string state,
 
             Outputs.StorageProfileResponseResult? storageProfile,
 
@@ -164,30 +208,35 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
 
             string type,
 
-            string? userVisibleState,
-
             string? version)
         {
             AdministratorLogin = administratorLogin;
+            AdministratorLoginPassword = administratorLoginPassword;
+            AvailabilityZone = availabilityZone;
             ByokEnforcement = byokEnforcement;
+            CreateMode = createMode;
+            DelegatedSubnetArguments = delegatedSubnetArguments;
             EarliestRestoreDate = earliestRestoreDate;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            HaEnabled = haEnabled;
+            HaState = haState;
             Identity = identity;
             InfrastructureEncryption = infrastructureEncryption;
             Location = location;
-            MasterServerId = masterServerId;
-            MinimalTlsVersion = minimalTlsVersion;
+            MaintenanceWindow = maintenanceWindow;
             Name = name;
-            PrivateEndpointConnections = privateEndpointConnections;
             PublicNetworkAccess = publicNetworkAccess;
             ReplicaCapacity = replicaCapacity;
             ReplicationRole = replicationRole;
+            RestorePointInTime = restorePointInTime;
             Sku = sku;
+            SourceServerId = sourceServerId;
             SslEnforcement = sslEnforcement;
+            StandbyAvailabilityZone = standbyAvailabilityZone;
+            State = state;
             StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
-            UserVisibleState = userVisibleState;
             Version = version;
         }
     }

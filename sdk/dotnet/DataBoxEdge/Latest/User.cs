@@ -33,7 +33,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
     ///             },
     ///             Name = "user1",
     ///             ResourceGroupName = "GroupForEdgeAutomation",
-    ///             ShareAccessRights = {},
     ///             UserType = "Share",
     ///         });
     ///     }
@@ -149,18 +148,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("shareAccessRights")]
-        private InputList<Inputs.ShareAccessRightArgs>? _shareAccessRights;
-
-        /// <summary>
-        /// List of shares that the user has rights on. This field should not be specified during user creation.
-        /// </summary>
-        public InputList<Inputs.ShareAccessRightArgs> ShareAccessRights
-        {
-            get => _shareAccessRights ?? (_shareAccessRights = new InputList<Inputs.ShareAccessRightArgs>());
-            set => _shareAccessRights = value;
-        }
 
         /// <summary>
         /// Type of the user.

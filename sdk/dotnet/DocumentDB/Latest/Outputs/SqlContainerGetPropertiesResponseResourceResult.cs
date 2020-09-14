@@ -14,10 +14,6 @@ namespace Pulumi.AzureRM.DocumentDB.Latest.Outputs
     public sealed class SqlContainerGetPropertiesResponseResourceResult
     {
         /// <summary>
-        /// Analytical TTL.
-        /// </summary>
-        public readonly int? AnalyticalStorageTtl;
-        /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
         public readonly Outputs.ConflictResolutionPolicyResponseResult? ConflictResolutionPolicy;
@@ -56,8 +52,6 @@ namespace Pulumi.AzureRM.DocumentDB.Latest.Outputs
 
         [OutputConstructor]
         private SqlContainerGetPropertiesResponseResourceResult(
-            int? analyticalStorageTtl,
-
             Outputs.ConflictResolutionPolicyResponseResult? conflictResolutionPolicy,
 
             int? defaultTtl,
@@ -76,7 +70,6 @@ namespace Pulumi.AzureRM.DocumentDB.Latest.Outputs
 
             Outputs.UniqueKeyPolicyResponseResult? uniqueKeyPolicy)
         {
-            AnalyticalStorageTtl = analyticalStorageTtl;
             ConflictResolutionPolicy = conflictResolutionPolicy;
             DefaultTtl = defaultTtl;
             Etag = etag;

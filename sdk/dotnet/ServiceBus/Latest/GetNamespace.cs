@@ -40,9 +40,13 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
     public sealed class GetNamespaceResult
     {
         /// <summary>
-        /// The time the namespace was created.
+        /// The time the namespace was created
         /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        public readonly Outputs.EncryptionResponseResult? Encryption;
         /// <summary>
         /// The Geo-location where the resource lives
         /// </summary>
@@ -64,7 +68,7 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
         /// </summary>
         public readonly string ServiceBusEndpoint;
         /// <summary>
-        /// Properties of Sku
+        /// Properties of SKU
         /// </summary>
         public readonly Outputs.SBSkuResponseResult? Sku;
         /// <summary>
@@ -79,10 +83,16 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
         /// The time the namespace was updated.
         /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        /// </summary>
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private GetNamespaceResult(
             string createdAt,
+
+            Outputs.EncryptionResponseResult? encryption,
 
             string location,
 
@@ -100,9 +110,12 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
 
             string type,
 
-            string updatedAt)
+            string updatedAt,
+
+            bool? zoneRedundant)
         {
             CreatedAt = createdAt;
+            Encryption = encryption;
             Location = location;
             MetricId = metricId;
             Name = name;
@@ -112,6 +125,7 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
             Tags = tags;
             Type = type;
             UpdatedAt = updatedAt;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

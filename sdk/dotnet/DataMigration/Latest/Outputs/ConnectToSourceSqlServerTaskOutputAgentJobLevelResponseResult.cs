@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The state of the original AgentJob.
+        /// The state of the original Agent Job.
         /// </summary>
         public readonly bool IsEnabled;
         /// <summary>
-        /// The type of AgentJob.
+        /// The type of Agent Job.
         /// </summary>
         public readonly string JobCategory;
         /// <summary>
-        /// The owner of the AgentJob
+        /// The owner of the Agent Job
         /// </summary>
         public readonly string JobOwner;
         /// <summary>
-        /// UTC Date and time when the AgentJob was last executed.
+        /// UTC Date and time when the Agent Job was last executed.
         /// </summary>
         public readonly string LastExecutedOn;
         /// <summary>
@@ -38,13 +38,17 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
         /// </summary>
         public readonly Outputs.MigrationEligibilityInfoResponseResult MigrationEligibility;
         /// <summary>
-        /// AgentJob name
+        /// Agent Job name
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// Type of result - database level or task level
         /// </summary>
         public readonly string ResultType;
+        /// <summary>
+        /// Validation errors
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ReportableExceptionResponseResult> ValidationErrors;
 
         [OutputConstructor]
         private ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseResult(
@@ -62,7 +66,9 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
 
             string name,
 
-            string resultType)
+            string resultType,
+
+            ImmutableArray<Outputs.ReportableExceptionResponseResult> validationErrors)
         {
             Id = id;
             IsEnabled = isEnabled;
@@ -72,6 +78,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Outputs
             MigrationEligibility = migrationEligibility;
             Name = name;
             ResultType = resultType;
+            ValidationErrors = validationErrors;
         }
     }
 }

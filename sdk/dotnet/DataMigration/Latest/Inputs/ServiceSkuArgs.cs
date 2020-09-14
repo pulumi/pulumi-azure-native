@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest.Inputs
         public Input<string>? Size { get; set; }
 
         /// <summary>
-        /// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
+        /// The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }

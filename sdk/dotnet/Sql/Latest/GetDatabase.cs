@@ -19,16 +19,10 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the database to be retrieved.
+        /// The name of the database.
         /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
-
-        /// <summary>
-        /// A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.
-        /// </summary>
-        [Input("expand")]
-        public string? Expand { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -52,13 +46,17 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class GetDatabaseResult
     {
         /// <summary>
-        /// The collation of the database. If createMode is not Default, this value is ignored.
+        /// Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+        /// </summary>
+        public readonly int? AutoPauseDelay;
+        /// <summary>
+        /// Collation of the metadata catalog.
+        /// </summary>
+        public readonly string? CatalogCollation;
+        /// <summary>
+        /// The collation of the database.
         /// </summary>
         public readonly string? Collation;
-        /// <summary>
-        /// The containment state of the database.
-        /// </summary>
-        public readonly int ContainmentState;
         /// <summary>
         /// Specifies the mode of database creation.
         /// 
@@ -66,7 +64,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// 
         /// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
         /// 
-        /// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+        /// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
         /// 
         /// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
         /// 
@@ -76,7 +74,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// 
         /// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
         /// 
-        /// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+        /// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         /// </summary>
         public readonly string? CreateMode;
         /// <summary>
@@ -84,9 +82,13 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
-        /// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
+        /// The current service level objective name of the database.
         /// </summary>
-        public readonly string CurrentServiceObjectiveId;
+        public readonly string CurrentServiceObjectiveName;
+        /// <summary>
+        /// The name and tier of the SKU.
+        /// </summary>
+        public readonly Outputs.SkuResponseResult CurrentSku;
         /// <summary>
         /// The ID of the database.
         /// </summary>
@@ -100,63 +102,91 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// </summary>
         public readonly string EarliestRestoreDate;
         /// <summary>
-        /// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-        /// 
-        /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-        /// 
-        /// ```azurecli
-        /// az sql db list-editions -l &lt;location&gt; -o table
-        /// ````
-        /// 
-        /// ```powershell
-        /// Get-AzSqlServerServiceObjective -Location &lt;location&gt;
-        /// ````
+        /// The resource identifier of the elastic pool containing this database.
         /// </summary>
-        public readonly string? Edition;
+        public readonly string? ElasticPoolId;
         /// <summary>
-        /// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-        /// </summary>
-        public readonly string? ElasticPoolName;
-        /// <summary>
-        /// The resource identifier of the failover group containing this database.
+        /// Failover Group resource identifier that this database belongs to.
         /// </summary>
         public readonly string FailoverGroupId;
         /// <summary>
-        /// Kind of database.  This is metadata used for the Azure portal experience.
+        /// Kind of database. This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
+        /// <summary>
+        /// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
+        /// </summary>
+        public readonly string? LicenseType;
         /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
+        /// The resource identifier of the long term retention backup associated with create operation of this database.
         /// </summary>
-        public readonly string? MaxSizeBytes;
+        public readonly string? LongTermRetentionBackupResourceId;
+        /// <summary>
+        /// Resource that manages the database.
+        /// </summary>
+        public readonly string ManagedBy;
+        /// <summary>
+        /// The max log size for this database.
+        /// </summary>
+        public readonly int MaxLogSizeBytes;
+        /// <summary>
+        /// The max size of the database expressed in bytes.
+        /// </summary>
+        public readonly int? MaxSizeBytes;
+        /// <summary>
+        /// Minimal capacity that database will always have allocated, if not paused
+        /// </summary>
+        public readonly double? MinCapacity;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+        /// The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
+        /// </summary>
+        public readonly string PausedDate;
+        /// <summary>
+        /// The number of readonly secondary replicas associated with the database.
+        /// </summary>
+        public readonly int? ReadReplicaCount;
+        /// <summary>
+        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
         /// </summary>
         public readonly string? ReadScale;
         /// <summary>
-        /// The recommended indices for this database.
+        /// The resource identifier of the recoverable database associated with create operation of this database.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RecommendedIndexResponseResult> RecommendedIndex;
+        public readonly string? RecoverableDatabaseId;
         /// <summary>
-        /// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
+        /// The resource identifier of the recovery point associated with create operation of this database.
         /// </summary>
-        public readonly string? RecoveryServicesRecoveryPointResourceId;
+        public readonly string? RecoveryServicesRecoveryPointId;
         /// <summary>
-        /// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-        /// 
-        /// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
+        /// The requested service level objective name of the database.
         /// </summary>
-        public readonly string? RequestedServiceObjectiveId;
+        public readonly string RequestedServiceObjectiveName;
         /// <summary>
-        /// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+        /// The resource identifier of the restorable dropped database associated with create operation of this database.
+        /// </summary>
+        public readonly string? RestorableDroppedDatabaseId;
+        /// <summary>
+        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+        /// </summary>
+        public readonly string? RestorePointInTime;
+        /// <summary>
+        /// The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
+        /// </summary>
+        public readonly string ResumedDate;
+        /// <summary>
+        /// The name of the sample schema to apply when creating this database.
+        /// </summary>
+        public readonly string? SampleName;
+        /// <summary>
+        /// The database SKU.
         /// 
         /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
         /// 
@@ -168,29 +198,13 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// Get-AzSqlServerServiceObjective -Location &lt;location&gt;
         /// ````
         /// </summary>
-        public readonly string? RequestedServiceObjectiveName;
+        public readonly Outputs.SkuResponseResult? Sku;
         /// <summary>
-        /// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-        /// </summary>
-        public readonly string? RestorePointInTime;
-        /// <summary>
-        /// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-        /// </summary>
-        public readonly string? SampleName;
-        /// <summary>
-        /// The current service level objective of the database.
-        /// </summary>
-        public readonly string ServiceLevelObjective;
-        /// <summary>
-        /// The list of service tier advisors for this database. Expanded property
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceTierAdvisorResponseResult> ServiceTierAdvisors;
-        /// <summary>
-        /// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
+        /// Specifies the time that the database was deleted.
         /// </summary>
         public readonly string? SourceDatabaseDeletionDate;
         /// <summary>
-        /// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
+        /// The resource identifier of the source database associated with create operation of this database.
         /// </summary>
         public readonly string? SourceDatabaseId;
         /// <summary>
@@ -198,13 +212,13 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        /// </summary>
+        public readonly string? StorageAccountType;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// The transparent data encryption info for this database.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TransparentDataEncryptionResponseResult> TransparentDataEncryption;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -216,15 +230,19 @@ namespace Pulumi.AzureRM.Sql.Latest
 
         [OutputConstructor]
         private GetDatabaseResult(
-            string? collation,
+            int? autoPauseDelay,
 
-            int containmentState,
+            string? catalogCollation,
+
+            string? collation,
 
             string? createMode,
 
             string creationDate,
 
-            string currentServiceObjectiveId,
+            string currentServiceObjectiveName,
+
+            Outputs.SkuResponseResult currentSku,
 
             string databaseId,
 
@@ -232,37 +250,49 @@ namespace Pulumi.AzureRM.Sql.Latest
 
             string earliestRestoreDate,
 
-            string? edition,
-
-            string? elasticPoolName,
+            string? elasticPoolId,
 
             string failoverGroupId,
 
             string kind,
 
+            string? licenseType,
+
             string location,
 
-            string? maxSizeBytes,
+            string? longTermRetentionBackupResourceId,
+
+            string managedBy,
+
+            int maxLogSizeBytes,
+
+            int? maxSizeBytes,
+
+            double? minCapacity,
 
             string name,
 
+            string pausedDate,
+
+            int? readReplicaCount,
+
             string? readScale,
 
-            ImmutableArray<Outputs.RecommendedIndexResponseResult> recommendedIndex,
+            string? recoverableDatabaseId,
 
-            string? recoveryServicesRecoveryPointResourceId,
+            string? recoveryServicesRecoveryPointId,
 
-            string? requestedServiceObjectiveId,
+            string requestedServiceObjectiveName,
 
-            string? requestedServiceObjectiveName,
+            string? restorableDroppedDatabaseId,
 
             string? restorePointInTime,
 
+            string resumedDate,
+
             string? sampleName,
 
-            string serviceLevelObjective,
-
-            ImmutableArray<Outputs.ServiceTierAdvisorResponseResult> serviceTierAdvisors,
+            Outputs.SkuResponseResult? sku,
 
             string? sourceDatabaseDeletionDate,
 
@@ -270,43 +300,51 @@ namespace Pulumi.AzureRM.Sql.Latest
 
             string status,
 
-            ImmutableDictionary<string, string>? tags,
+            string? storageAccountType,
 
-            ImmutableArray<Outputs.TransparentDataEncryptionResponseResult> transparentDataEncryption,
+            ImmutableDictionary<string, string>? tags,
 
             string type,
 
             bool? zoneRedundant)
         {
+            AutoPauseDelay = autoPauseDelay;
+            CatalogCollation = catalogCollation;
             Collation = collation;
-            ContainmentState = containmentState;
             CreateMode = createMode;
             CreationDate = creationDate;
-            CurrentServiceObjectiveId = currentServiceObjectiveId;
+            CurrentServiceObjectiveName = currentServiceObjectiveName;
+            CurrentSku = currentSku;
             DatabaseId = databaseId;
             DefaultSecondaryLocation = defaultSecondaryLocation;
             EarliestRestoreDate = earliestRestoreDate;
-            Edition = edition;
-            ElasticPoolName = elasticPoolName;
+            ElasticPoolId = elasticPoolId;
             FailoverGroupId = failoverGroupId;
             Kind = kind;
+            LicenseType = licenseType;
             Location = location;
+            LongTermRetentionBackupResourceId = longTermRetentionBackupResourceId;
+            ManagedBy = managedBy;
+            MaxLogSizeBytes = maxLogSizeBytes;
             MaxSizeBytes = maxSizeBytes;
+            MinCapacity = minCapacity;
             Name = name;
+            PausedDate = pausedDate;
+            ReadReplicaCount = readReplicaCount;
             ReadScale = readScale;
-            RecommendedIndex = recommendedIndex;
-            RecoveryServicesRecoveryPointResourceId = recoveryServicesRecoveryPointResourceId;
-            RequestedServiceObjectiveId = requestedServiceObjectiveId;
+            RecoverableDatabaseId = recoverableDatabaseId;
+            RecoveryServicesRecoveryPointId = recoveryServicesRecoveryPointId;
             RequestedServiceObjectiveName = requestedServiceObjectiveName;
+            RestorableDroppedDatabaseId = restorableDroppedDatabaseId;
             RestorePointInTime = restorePointInTime;
+            ResumedDate = resumedDate;
             SampleName = sampleName;
-            ServiceLevelObjective = serviceLevelObjective;
-            ServiceTierAdvisors = serviceTierAdvisors;
+            Sku = sku;
             SourceDatabaseDeletionDate = sourceDatabaseDeletionDate;
             SourceDatabaseId = sourceDatabaseId;
             Status = status;
+            StorageAccountType = storageAccountType;
             Tags = tags;
-            TransparentDataEncryption = transparentDataEncryption;
             Type = type;
             ZoneRedundant = zoneRedundant;
         }

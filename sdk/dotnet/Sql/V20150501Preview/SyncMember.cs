@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:sql/latest:SyncMember"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20190601preview:SyncMember"},
                 },
             };

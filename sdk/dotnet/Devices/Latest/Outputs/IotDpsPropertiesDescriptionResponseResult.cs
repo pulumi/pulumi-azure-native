@@ -26,6 +26,10 @@ namespace Pulumi.AzureRM.Devices.Latest.Outputs
         /// </summary>
         public readonly string DeviceProvisioningHostName;
         /// <summary>
+        /// The encryption properties for the IoT DPS instance.
+        /// </summary>
+        public readonly Outputs.EncryptionPropertiesDescriptionResponseResult? Encryption;
+        /// <summary>
         /// Unique identifier of this provisioning service.
         /// </summary>
         public readonly string IdScope;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureRM.Devices.Latest.Outputs
 
             string deviceProvisioningHostName,
 
+            Outputs.EncryptionPropertiesDescriptionResponseResult? encryption,
+
             string idScope,
 
             ImmutableArray<Outputs.IotHubDefinitionDescriptionResponseResult> iotHubs,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureRM.Devices.Latest.Outputs
             AllocationPolicy = allocationPolicy;
             AuthorizationPolicies = authorizationPolicies;
             DeviceProvisioningHostName = deviceProvisioningHostName;
+            Encryption = encryption;
             IdScope = idScope;
             IotHubs = iotHubs;
             IpFilterRules = ipFilterRules;

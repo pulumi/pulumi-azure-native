@@ -25,66 +25,14 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
     ///         var databaseAccount = new AzureRM.DocumentDB.Latest.DatabaseAccount("databaseAccount", new AzureRM.DocumentDB.Latest.DatabaseAccountArgs
     ///         {
     ///             AccountName = "ddb1",
-    ///             ApiProperties = new AzureRM.DocumentDB.Latest.Inputs.ApiPropertiesArgs
+    ///             Identity = new AzureRM.DocumentDB.Latest.Inputs.ManagedServiceIdentityArgs
     ///             {
-    ///                 ServerVersion = "3.2",
+    ///                 Type = "SystemAssigned,UserAssigned",
     ///             },
-    ///             ConsistencyPolicy = new AzureRM.DocumentDB.Latest.Inputs.ConsistencyPolicyArgs
-    ///             {
-    ///                 DefaultConsistencyLevel = "BoundedStaleness",
-    ///                 MaxIntervalInSeconds = 10,
-    ///                 MaxStalenessPrefix = 200,
-    ///             },
-    ///             Cors = 
-    ///             {
-    ///                 new AzureRM.DocumentDB.Latest.Inputs.CorsPolicyArgs
-    ///                 {
-    ///                     AllowedOrigins = "https://test",
-    ///                 },
-    ///             },
-    ///             DatabaseAccountOfferType = "Standard",
-    ///             EnableAnalyticalStorage = true,
-    ///             EnableFreeTier = false,
-    ///             IpRules = 
-    ///             {
-    ///                 new AzureRM.DocumentDB.Latest.Inputs.IpAddressOrRangeArgs
-    ///                 {
-    ///                     IpAddressOrRange = "23.43.230.120",
-    ///                 },
-    ///                 new AzureRM.DocumentDB.Latest.Inputs.IpAddressOrRangeArgs
-    ///                 {
-    ///                     IpAddressOrRange = "110.12.240.0/12",
-    ///                 },
-    ///             },
-    ///             IsVirtualNetworkFilterEnabled = true,
-    ///             KeyVaultKeyUri = "https://myKeyVault.vault.azure.net",
     ///             Kind = "MongoDB",
     ///             Location = "westus",
-    ///             Locations = 
-    ///             {
-    ///                 new AzureRM.DocumentDB.Latest.Inputs.LocationArgs
-    ///                 {
-    ///                     FailoverPriority = 0,
-    ///                     IsZoneRedundant = false,
-    ///                     LocationName = "southcentralus",
-    ///                 },
-    ///                 new AzureRM.DocumentDB.Latest.Inputs.LocationArgs
-    ///                 {
-    ///                     FailoverPriority = 1,
-    ///                     IsZoneRedundant = false,
-    ///                     LocationName = "eastus",
-    ///                 },
-    ///             },
     ///             ResourceGroupName = "rg1",
     ///             Tags = ,
-    ///             VirtualNetworkRules = 
-    ///             {
-    ///                 new AzureRM.DocumentDB.Latest.Inputs.VirtualNetworkRuleArgs
-    ///                 {
-    ///                     Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
-    ///                     IgnoreMissingVNetServiceEndpoint = false,
-    ///                 },
-    ///             },
     ///         });
     ///     }
     /// 
@@ -103,18 +51,30 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
     ///         var databaseAccount = new AzureRM.DocumentDB.Latest.DatabaseAccount("databaseAccount", new AzureRM.DocumentDB.Latest.DatabaseAccountArgs
     ///         {
     ///             AccountName = "ddb1",
-    ///             DatabaseAccountOfferType = "Standard",
     ///             Location = "westus",
-    ///             Locations = 
-    ///             {
-    ///                 new AzureRM.DocumentDB.Latest.Inputs.LocationArgs
-    ///                 {
-    ///                     FailoverPriority = 0,
-    ///                     IsZoneRedundant = false,
-    ///                     LocationName = "southcentralus",
-    ///                 },
-    ///             },
     ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### CosmosDBRestoreDatabaseAccountCreateUpdate.json
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var databaseAccount = new AzureRM.DocumentDB.Latest.DatabaseAccount("databaseAccount", new AzureRM.DocumentDB.Latest.DatabaseAccountArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             Kind = "GlobalDocumentDB",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
     ///         });
     ///     }
     /// 
@@ -129,6 +89,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// </summary>
         [Output("apiProperties")]
         public Output<Outputs.ApiPropertiesResponseResult?> ApiProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// The object representing the policy for taking backups on an account.
+        /// </summary>
+        [Output("backupPolicy")]
+        public Output<Union<Outputs.ContinuousModeBackupPolicyResponseResult, Outputs.PeriodicModeBackupPolicyResponseResult>?> BackupPolicy { get; private set; } = null!;
 
         /// <summary>
         /// List of Cosmos DB capabilities for the account
@@ -153,6 +119,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// </summary>
         [Output("cors")]
         public Output<ImmutableArray<Outputs.CorsPolicyResponseResult>> Cors { get; private set; } = null!;
+
+        /// <summary>
+        /// Enum to indicate the mode of account creation.
+        /// </summary>
+        [Output("createMode")]
+        public Output<string?> CreateMode { get; private set; } = null!;
 
         /// <summary>
         /// The offer type for the Cosmos DB database account. Default value: Standard.
@@ -207,6 +179,18 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// </summary>
         [Output("failoverPolicies")]
         public Output<ImmutableArray<Outputs.FailoverPolicyResponseResult>> FailoverPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// A unique identifier assigned to the database account
+        /// </summary>
+        [Output("instanceId")]
+        public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
         /// List of IpRules.
@@ -273,6 +257,18 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// </summary>
         [Output("readLocations")]
         public Output<ImmutableArray<Outputs.LocationResponseResult>> ReadLocations { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameters to indicate the information about the restore.
+        /// </summary>
+        [Output("restoreParameters")]
+        public Output<Outputs.RestoreParametersResponseResult?> RestoreParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponseResult> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -363,112 +359,10 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// API specific properties. Currently, supported only for MongoDB API.
+        /// Identity for the resource.
         /// </summary>
-        [Input("apiProperties")]
-        public Input<Inputs.ApiPropertiesArgs>? ApiProperties { get; set; }
-
-        [Input("capabilities")]
-        private InputList<Inputs.CapabilityArgs>? _capabilities;
-
-        /// <summary>
-        /// List of Cosmos DB capabilities for the account
-        /// </summary>
-        public InputList<Inputs.CapabilityArgs> Capabilities
-        {
-            get => _capabilities ?? (_capabilities = new InputList<Inputs.CapabilityArgs>());
-            set => _capabilities = value;
-        }
-
-        /// <summary>
-        /// The cassandra connector offer type for the Cosmos DB database C* account.
-        /// </summary>
-        [Input("connectorOffer")]
-        public Input<string>? ConnectorOffer { get; set; }
-
-        /// <summary>
-        /// The consistency policy for the Cosmos DB account.
-        /// </summary>
-        [Input("consistencyPolicy")]
-        public Input<Inputs.ConsistencyPolicyArgs>? ConsistencyPolicy { get; set; }
-
-        [Input("cors")]
-        private InputList<Inputs.CorsPolicyArgs>? _cors;
-
-        /// <summary>
-        /// The CORS policy for the Cosmos DB database account.
-        /// </summary>
-        public InputList<Inputs.CorsPolicyArgs> Cors
-        {
-            get => _cors ?? (_cors = new InputList<Inputs.CorsPolicyArgs>());
-            set => _cors = value;
-        }
-
-        /// <summary>
-        /// The offer type for the database
-        /// </summary>
-        [Input("databaseAccountOfferType", required: true)]
-        public Input<string> DatabaseAccountOfferType { get; set; } = null!;
-
-        /// <summary>
-        /// Disable write operations on metadata resources (databases, containers, throughput) via account keys
-        /// </summary>
-        [Input("disableKeyBasedMetadataWriteAccess")]
-        public Input<bool>? DisableKeyBasedMetadataWriteAccess { get; set; }
-
-        /// <summary>
-        /// Flag to indicate whether to enable storage analytics.
-        /// </summary>
-        [Input("enableAnalyticalStorage")]
-        public Input<bool>? EnableAnalyticalStorage { get; set; }
-
-        /// <summary>
-        /// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-        /// </summary>
-        [Input("enableAutomaticFailover")]
-        public Input<bool>? EnableAutomaticFailover { get; set; }
-
-        /// <summary>
-        /// Enables the cassandra connector on the Cosmos DB C* account
-        /// </summary>
-        [Input("enableCassandraConnector")]
-        public Input<bool>? EnableCassandraConnector { get; set; }
-
-        /// <summary>
-        /// Flag to indicate whether Free Tier is enabled.
-        /// </summary>
-        [Input("enableFreeTier")]
-        public Input<bool>? EnableFreeTier { get; set; }
-
-        /// <summary>
-        /// Enables the account to write in multiple locations
-        /// </summary>
-        [Input("enableMultipleWriteLocations")]
-        public Input<bool>? EnableMultipleWriteLocations { get; set; }
-
-        [Input("ipRules")]
-        private InputList<Inputs.IpAddressOrRangeArgs>? _ipRules;
-
-        /// <summary>
-        /// List of IpRules.
-        /// </summary>
-        public InputList<Inputs.IpAddressOrRangeArgs> IpRules
-        {
-            get => _ipRules ?? (_ipRules = new InputList<Inputs.IpAddressOrRangeArgs>());
-            set => _ipRules = value;
-        }
-
-        /// <summary>
-        /// Flag to indicate whether to enable/disable Virtual Network ACL rules.
-        /// </summary>
-        [Input("isVirtualNetworkFilterEnabled")]
-        public Input<bool>? IsVirtualNetworkFilterEnabled { get; set; }
-
-        /// <summary>
-        /// The URI of the key vault
-        /// </summary>
-        [Input("keyVaultKeyUri")]
-        public Input<string>? KeyVaultKeyUri { get; set; }
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Indicates the type of database account. This can only be set at database account creation.
@@ -482,23 +376,11 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("locations", required: true)]
-        private InputList<Inputs.LocationArgs>? _locations;
-
         /// <summary>
-        /// An array that contains the georeplication locations enabled for the Cosmos DB account.
+        /// Properties to create and update Azure Cosmos DB database accounts.
         /// </summary>
-        public InputList<Inputs.LocationArgs> Locations
-        {
-            get => _locations ?? (_locations = new InputList<Inputs.LocationArgs>());
-            set => _locations = value;
-        }
-
-        /// <summary>
-        /// Whether requests from Public Network are allowed
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        [Input("properties", required: true)]
+        public InputUnion<Inputs.DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs, Inputs.RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -516,18 +398,6 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("virtualNetworkRules")]
-        private InputList<Inputs.VirtualNetworkRuleArgs>? _virtualNetworkRules;
-
-        /// <summary>
-        /// List of Virtual Network ACL rules configured for the Cosmos DB account.
-        /// </summary>
-        public InputList<Inputs.VirtualNetworkRuleArgs> VirtualNetworkRules
-        {
-            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.VirtualNetworkRuleArgs>());
-            set => _virtualNetworkRules = value;
         }
 
         public DatabaseAccountArgs()

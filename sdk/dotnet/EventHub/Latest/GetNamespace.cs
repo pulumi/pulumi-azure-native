@@ -40,9 +40,21 @@ namespace Pulumi.AzureRM.EventHub.Latest
     public sealed class GetNamespaceResult
     {
         /// <summary>
+        /// Cluster ARM ID of the Namespace.
+        /// </summary>
+        public readonly string? ClusterArmId;
+        /// <summary>
         /// The time the Namespace was created.
         /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        public readonly Outputs.EncryptionResponseResult? Encryption;
+        /// <summary>
+        /// Properties of BYOK Identity description
+        /// </summary>
+        public readonly Outputs.IdentityResponseResult? Identity;
         /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
@@ -91,10 +103,20 @@ namespace Pulumi.AzureRM.EventHub.Latest
         /// The time the Namespace was updated.
         /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        /// </summary>
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private GetNamespaceResult(
+            string? clusterArmId,
+
             string createdAt,
+
+            Outputs.EncryptionResponseResult? encryption,
+
+            Outputs.IdentityResponseResult? identity,
 
             bool? isAutoInflateEnabled,
 
@@ -118,9 +140,14 @@ namespace Pulumi.AzureRM.EventHub.Latest
 
             string type,
 
-            string updatedAt)
+            string updatedAt,
+
+            bool? zoneRedundant)
         {
+            ClusterArmId = clusterArmId;
             CreatedAt = createdAt;
+            Encryption = encryption;
+            Identity = identity;
             IsAutoInflateEnabled = isAutoInflateEnabled;
             KafkaEnabled = kafkaEnabled;
             Location = location;
@@ -133,6 +160,7 @@ namespace Pulumi.AzureRM.EventHub.Latest
             Tags = tags;
             Type = type;
             UpdatedAt = updatedAt;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

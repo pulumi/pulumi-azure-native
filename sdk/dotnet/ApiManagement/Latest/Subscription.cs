@@ -118,7 +118,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+        /// Optional subscription comment added by an administrator.
         /// </summary>
         [Output("stateComment")]
         public Output<string?> StateComment { get; private set; } = null!;
@@ -190,12 +190,6 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         /// </summary>
         [Input("allowTracing")]
         public Input<bool>? AllowTracing { get; set; }
-
-        /// <summary>
-        /// Determines the type of application which send the create user request. Default is legacy publisher portal.
-        /// </summary>
-        [Input("appType")]
-        public Input<string>? AppType { get; set; }
 
         /// <summary>
         /// Subscription name.

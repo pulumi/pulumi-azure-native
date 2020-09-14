@@ -39,6 +39,10 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     ///             },
     ///             FriendlyName = "HelloName",
     ///             HbiWorkspace = false,
+    ///             Identity = new AzureRM.MachineLearningServices.Latest.Inputs.IdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///             KeyVault = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
     ///             Location = "eastus2euap",
     ///             ResourceGroupName = "workspace-1234",
@@ -148,12 +152,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The notebook info of Azure ML workspace.
-        /// </summary>
-        [Output("notebookInfo")]
-        public Output<Outputs.NotebookResourceInfoResponseResult> NotebookInfo { get; private set; } = null!;
 
         /// <summary>
         /// The list of private endpoint connections in the workspace.

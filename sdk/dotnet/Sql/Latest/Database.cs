@@ -10,10 +10,88 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Sql.Latest
 {
     /// <summary>
-    /// Represents a database.
+    /// A database resource.
     /// 
     /// ## Example Usage
-    /// ### Create a database as a copy
+    /// ### Creates a VCore database by specifying service objective name.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             DatabaseName = "testdb",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Family = "Gen4",
+    ///                 Name = "BC",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a VCore database by specifying sku name and capacity.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             DatabaseName = "testdb",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Name = "BC_Gen4",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a data warehouse by specifying service objective name.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             DatabaseName = "testdw",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "DW1000c",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a database as a copy.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -25,18 +103,23 @@ namespace Pulumi.AzureRM.Sql.Latest
     ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
     ///         {
     ///             CreateMode = "Copy",
-    ///             DatabaseName = "testdb",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-4799",
-    ///             ServerName = "sqlcrudtest-6440",
-    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+    ///             DatabaseName = "dbcopy",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
     ///         });
     ///     }
     /// 
     /// }
     /// 
     /// ```
-    /// ### Create a database as a dropped database restore to a specific point in time
+    /// ### Creates a database as an on-line secondary.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -47,90 +130,24 @@ namespace Pulumi.AzureRM.Sql.Latest
     ///     {
     ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
     ///         {
-    ///             CreateMode = "Restore",
+    ///             CreateMode = "Secondary",
     ///             DatabaseName = "testdb",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-8412",
-    ///             RestorePointInTime = "2017-05-20T21:24:37.467Z",
-    ///             ServerName = "sqlcrudtest-3584",
-    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/restorableDroppedDatabases/sourcedb,131403269876900000",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb",
     ///         });
     ///     }
     /// 
     /// }
     /// 
     /// ```
-    /// ### Create a database as a dropped database restore to deletion time
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
-    ///         {
-    ///             CreateMode = "Restore",
-    ///             DatabaseName = "testdb",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-8412",
-    ///             ServerName = "sqlcrudtest-3584",
-    ///             SourceDatabaseDeletionDate = "2017-05-27T02:49:47.69Z",
-    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/sourcedb",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Create a database as a geo restore
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
-    ///         {
-    ///             CreateMode = "Recovery",
-    ///             DatabaseName = "testdb",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-8412",
-    ///             ServerName = "sqlcrudtest-3584",
-    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/recoverableDatabases/sourcedb",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Create a database as a non-readable secondary
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
-    ///         {
-    ///             CreateMode = "NonReadableSecondary",
-    ///             DatabaseName = "testdb",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-4799",
-    ///             ServerName = "sqlcrudtest-6440",
-    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Create a database as a point in time restore
+    /// ### Creates a database from PointInTimeRestore.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -142,19 +159,24 @@ namespace Pulumi.AzureRM.Sql.Latest
     ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
     ///         {
     ///             CreateMode = "PointInTimeRestore",
-    ///             DatabaseName = "testdb",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-8412",
-    ///             RestorePointInTime = "2017-02-16T21:24:37.467Z",
-    ///             ServerName = "sqlcrudtest-3584",
-    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+    ///             DatabaseName = "dbpitr",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             RestorePointInTime = "2017-07-14T05:35:31.503Z",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
     ///         });
     ///     }
     /// 
     /// }
     /// 
     /// ```
-    /// ### Create a database as an online secondary
+    /// ### Creates a database from recoverableDatabaseId.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -165,19 +187,24 @@ namespace Pulumi.AzureRM.Sql.Latest
     ///     {
     ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
     ///         {
-    ///             CreateMode = "OnlineSecondary",
-    ///             DatabaseName = "testdb",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-4799",
-    ///             ServerName = "sqlcrudtest-6440",
-    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+    ///             CreateMode = "Restore",
+    ///             DatabaseName = "dbrestore",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             RestorableDroppedDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/restorableDroppedDatabases/testdb2,131444841315030000",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
     ///         });
     ///     }
     /// 
     /// }
     /// 
     /// ```
-    /// ### Create a database from a long term retention backup
+    /// ### Creates a database from restore with database deletion time.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -188,19 +215,53 @@ namespace Pulumi.AzureRM.Sql.Latest
     ///     {
     ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
     ///         {
-    ///             CreateMode = "RestoreLongTermRetentionBackup",
-    ///             DatabaseName = "testdb",
-    ///             Location = "Japan East",
-    ///             RecoveryServicesRecoveryPointResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/AzureSqlContainer;Sql;sqlcrudtest-8412;testsvr/protectedItems/AzureSqlDb;dsName;testdb;9dafcc99-7c84-4727-88ee-1a4fdb89afd7/RecoveryPoints/16043455089734",
-    ///             ResourceGroupName = "sqlcrudtest-8412",
-    ///             ServerName = "sqlcrudtest-3584",
+    ///             CreateMode = "Restore",
+    ///             DatabaseName = "dbrestore",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             SourceDatabaseDeletionDate = "2017-07-14T06:41:06.613Z",
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
     ///         });
     ///     }
     /// 
     /// }
     /// 
     /// ```
-    /// ### Create a database max
+    /// ### Creates a database from restore with restorableDroppedDatabaseId.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             CreateMode = "Copy",
+    ///             DatabaseName = "dbcopy",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a database with default mode.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -214,22 +275,22 @@ namespace Pulumi.AzureRM.Sql.Latest
     ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
     ///             CreateMode = "Default",
     ///             DatabaseName = "testdb",
-    ///             Edition = "Standard",
-    ///             Location = "Japan East",
-    ///             MaxSizeBytes = "268435456000",
-    ///             ReadScale = "Disabled",
-    ///             RequestedServiceObjectiveId = "f1173c43-91bd-4aaa-973c-54e79e15235b",
-    ///             RequestedServiceObjectiveName = "S0",
-    ///             ResourceGroupName = "sqlcrudtest-4799",
-    ///             SampleName = "AdventureWorksLT",
-    ///             ServerName = "sqlcrudtest-6440",
+    ///             Location = "southeastasia",
+    ///             MaxSizeBytes = 1073741824,
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
+    ///             Sku = new AzureRM.Sql.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
     ///         });
     ///     }
     /// 
     /// }
     /// 
     /// ```
-    /// ### Create a database min
+    /// ### Creates a database with minimum number of parameters.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -241,59 +302,9 @@ namespace Pulumi.AzureRM.Sql.Latest
     ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
     ///         {
     ///             DatabaseName = "testdb",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-4799",
-    ///             ServerName = "sqlcrudtest-5961",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Update a database max
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
-    ///         {
-    ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
-    ///             CreateMode = "Default",
-    ///             DatabaseName = "testdb",
-    ///             Edition = "Standard",
-    ///             Location = "Japan East",
-    ///             MaxSizeBytes = "268435456000",
-    ///             ReadScale = "Disabled",
-    ///             RequestedServiceObjectiveId = "f1173c43-91bd-4aaa-973c-54e79e15235b",
-    ///             RequestedServiceObjectiveName = "S0",
-    ///             ResourceGroupName = "sqlcrudtest-4799",
-    ///             ServerName = "sqlcrudtest-5961",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Update a database's elastic pool'
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
-    ///         {
-    ///             DatabaseName = "testdb",
-    ///             ElasticPoolName = "7537",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-4799",
-    ///             ServerName = "sqlcrudtest-6440",
+    ///             Location = "southeastasia",
+    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///             ServerName = "testsvr",
     ///         });
     ///     }
     /// 
@@ -304,16 +315,22 @@ namespace Pulumi.AzureRM.Sql.Latest
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
-        /// The collation of the database. If createMode is not Default, this value is ignored.
+        /// Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+        /// </summary>
+        [Output("autoPauseDelay")]
+        public Output<int?> AutoPauseDelay { get; private set; } = null!;
+
+        /// <summary>
+        /// Collation of the metadata catalog.
+        /// </summary>
+        [Output("catalogCollation")]
+        public Output<string?> CatalogCollation { get; private set; } = null!;
+
+        /// <summary>
+        /// The collation of the database.
         /// </summary>
         [Output("collation")]
         public Output<string?> Collation { get; private set; } = null!;
-
-        /// <summary>
-        /// The containment state of the database.
-        /// </summary>
-        [Output("containmentState")]
-        public Output<int> ContainmentState { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the mode of database creation.
@@ -322,7 +339,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// 
         /// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
         /// 
-        /// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+        /// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
         /// 
         /// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
         /// 
@@ -332,7 +349,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// 
         /// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
         /// 
-        /// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+        /// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -344,10 +361,16 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
+        /// The current service level objective name of the database.
         /// </summary>
-        [Output("currentServiceObjectiveId")]
-        public Output<string> CurrentServiceObjectiveId { get; private set; } = null!;
+        [Output("currentServiceObjectiveName")]
+        public Output<string> CurrentServiceObjectiveName { get; private set; } = null!;
+
+        /// <summary>
+        /// The name and tier of the SKU.
+        /// </summary>
+        [Output("currentSku")]
+        public Output<Outputs.SkuResponseResult> CurrentSku { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the database.
@@ -368,38 +391,28 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Output<string> EarliestRestoreDate { get; private set; } = null!;
 
         /// <summary>
-        /// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-        /// 
-        /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-        /// 
-        /// ```azurecli
-        /// az sql db list-editions -l &lt;location&gt; -o table
-        /// ````
-        /// 
-        /// ```powershell
-        /// Get-AzSqlServerServiceObjective -Location &lt;location&gt;
-        /// ````
+        /// The resource identifier of the elastic pool containing this database.
         /// </summary>
-        [Output("edition")]
-        public Output<string?> Edition { get; private set; } = null!;
+        [Output("elasticPoolId")]
+        public Output<string?> ElasticPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-        /// </summary>
-        [Output("elasticPoolName")]
-        public Output<string?> ElasticPoolName { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource identifier of the failover group containing this database.
+        /// Failover Group resource identifier that this database belongs to.
         /// </summary>
         [Output("failoverGroupId")]
         public Output<string> FailoverGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Kind of database.  This is metadata used for the Azure portal experience.
+        /// Kind of database. This is metadata used for the Azure portal experience.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
+        /// </summary>
+        [Output("licenseType")]
+        public Output<string?> LicenseType { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -408,10 +421,34 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
+        /// The resource identifier of the long term retention backup associated with create operation of this database.
+        /// </summary>
+        [Output("longTermRetentionBackupResourceId")]
+        public Output<string?> LongTermRetentionBackupResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource that manages the database.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string> ManagedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The max log size for this database.
+        /// </summary>
+        [Output("maxLogSizeBytes")]
+        public Output<int> MaxLogSizeBytes { get; private set; } = null!;
+
+        /// <summary>
+        /// The max size of the database expressed in bytes.
         /// </summary>
         [Output("maxSizeBytes")]
-        public Output<string?> MaxSizeBytes { get; private set; } = null!;
+        public Output<int?> MaxSizeBytes { get; private set; } = null!;
+
+        /// <summary>
+        /// Minimal capacity that database will always have allocated, if not paused
+        /// </summary>
+        [Output("minCapacity")]
+        public Output<double?> MinCapacity { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -420,33 +457,67 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+        /// The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
+        /// </summary>
+        [Output("pausedDate")]
+        public Output<string> PausedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of readonly secondary replicas associated with the database.
+        /// </summary>
+        [Output("readReplicaCount")]
+        public Output<int?> ReadReplicaCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
         /// </summary>
         [Output("readScale")]
         public Output<string?> ReadScale { get; private set; } = null!;
 
         /// <summary>
-        /// The recommended indices for this database.
+        /// The resource identifier of the recoverable database associated with create operation of this database.
         /// </summary>
-        [Output("recommendedIndex")]
-        public Output<ImmutableArray<Outputs.RecommendedIndexResponseResult>> RecommendedIndex { get; private set; } = null!;
+        [Output("recoverableDatabaseId")]
+        public Output<string?> RecoverableDatabaseId { get; private set; } = null!;
 
         /// <summary>
-        /// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
+        /// The resource identifier of the recovery point associated with create operation of this database.
         /// </summary>
-        [Output("recoveryServicesRecoveryPointResourceId")]
-        public Output<string?> RecoveryServicesRecoveryPointResourceId { get; private set; } = null!;
+        [Output("recoveryServicesRecoveryPointId")]
+        public Output<string?> RecoveryServicesRecoveryPointId { get; private set; } = null!;
 
         /// <summary>
-        /// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-        /// 
-        /// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
+        /// The requested service level objective name of the database.
         /// </summary>
-        [Output("requestedServiceObjectiveId")]
-        public Output<string?> RequestedServiceObjectiveId { get; private set; } = null!;
+        [Output("requestedServiceObjectiveName")]
+        public Output<string> RequestedServiceObjectiveName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+        /// The resource identifier of the restorable dropped database associated with create operation of this database.
+        /// </summary>
+        [Output("restorableDroppedDatabaseId")]
+        public Output<string?> RestorableDroppedDatabaseId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+        /// </summary>
+        [Output("restorePointInTime")]
+        public Output<string?> RestorePointInTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
+        /// </summary>
+        [Output("resumedDate")]
+        public Output<string> ResumedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the sample schema to apply when creating this database.
+        /// </summary>
+        [Output("sampleName")]
+        public Output<string?> SampleName { get; private set; } = null!;
+
+        /// <summary>
+        /// The database SKU.
         /// 
         /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
         /// 
@@ -458,41 +529,17 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// Get-AzSqlServerServiceObjective -Location &lt;location&gt;
         /// ````
         /// </summary>
-        [Output("requestedServiceObjectiveName")]
-        public Output<string?> RequestedServiceObjectiveName { get; private set; } = null!;
+        [Output("sku")]
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-        /// </summary>
-        [Output("restorePointInTime")]
-        public Output<string?> RestorePointInTime { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-        /// </summary>
-        [Output("sampleName")]
-        public Output<string?> SampleName { get; private set; } = null!;
-
-        /// <summary>
-        /// The current service level objective of the database.
-        /// </summary>
-        [Output("serviceLevelObjective")]
-        public Output<string> ServiceLevelObjective { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of service tier advisors for this database. Expanded property
-        /// </summary>
-        [Output("serviceTierAdvisors")]
-        public Output<ImmutableArray<Outputs.ServiceTierAdvisorResponseResult>> ServiceTierAdvisors { get; private set; } = null!;
-
-        /// <summary>
-        /// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
+        /// Specifies the time that the database was deleted.
         /// </summary>
         [Output("sourceDatabaseDeletionDate")]
         public Output<string?> SourceDatabaseDeletionDate { get; private set; } = null!;
 
         /// <summary>
-        /// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
+        /// The resource identifier of the source database associated with create operation of this database.
         /// </summary>
         [Output("sourceDatabaseId")]
         public Output<string?> SourceDatabaseId { get; private set; } = null!;
@@ -504,16 +551,16 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        /// </summary>
+        [Output("storageAccountType")]
+        public Output<string?> StorageAccountType { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// The transparent data encryption info for this database.
-        /// </summary>
-        [Output("transparentDataEncryption")]
-        public Output<ImmutableArray<Outputs.TransparentDataEncryptionResponseResult>> TransparentDataEncryption { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -580,7 +627,19 @@ namespace Pulumi.AzureRM.Sql.Latest
     public sealed class DatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The collation of the database. If createMode is not Default, this value is ignored.
+        /// Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+        /// </summary>
+        [Input("autoPauseDelay")]
+        public Input<int>? AutoPauseDelay { get; set; }
+
+        /// <summary>
+        /// Collation of the metadata catalog.
+        /// </summary>
+        [Input("catalogCollation")]
+        public Input<string>? CatalogCollation { get; set; }
+
+        /// <summary>
+        /// The collation of the database.
         /// </summary>
         [Input("collation")]
         public Input<string>? Collation { get; set; }
@@ -592,7 +651,7 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// 
         /// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
         /// 
-        /// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+        /// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
         /// 
         /// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
         /// 
@@ -602,38 +661,28 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// 
         /// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
         /// 
-        /// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+        /// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// The name of the database to be operated on (updated or created).
+        /// The name of the database.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-        /// 
-        /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-        /// 
-        /// ```azurecli
-        /// az sql db list-editions -l &lt;location&gt; -o table
-        /// ````
-        /// 
-        /// ```powershell
-        /// Get-AzSqlServerServiceObjective -Location &lt;location&gt;
-        /// ````
+        /// The resource identifier of the elastic pool containing this database.
         /// </summary>
-        [Input("edition")]
-        public Input<string>? Edition { get; set; }
+        [Input("elasticPoolId")]
+        public Input<string>? ElasticPoolId { get; set; }
 
         /// <summary>
-        /// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
+        /// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         /// </summary>
-        [Input("elasticPoolName")]
-        public Input<string>? ElasticPoolName { get; set; }
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -642,46 +691,46 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
+        /// The resource identifier of the long term retention backup associated with create operation of this database.
         /// </summary>
-        [Input("maxSizeBytes")]
-        public Input<string>? MaxSizeBytes { get; set; }
+        [Input("longTermRetentionBackupResourceId")]
+        public Input<string>? LongTermRetentionBackupResourceId { get; set; }
 
         /// <summary>
-        /// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+        /// The max size of the database expressed in bytes.
+        /// </summary>
+        [Input("maxSizeBytes")]
+        public Input<int>? MaxSizeBytes { get; set; }
+
+        /// <summary>
+        /// Minimal capacity that database will always have allocated, if not paused
+        /// </summary>
+        [Input("minCapacity")]
+        public Input<double>? MinCapacity { get; set; }
+
+        /// <summary>
+        /// The number of readonly secondary replicas associated with the database.
+        /// </summary>
+        [Input("readReplicaCount")]
+        public Input<int>? ReadReplicaCount { get; set; }
+
+        /// <summary>
+        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
         /// </summary>
         [Input("readScale")]
         public Input<string>? ReadScale { get; set; }
 
         /// <summary>
-        /// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
+        /// The resource identifier of the recoverable database associated with create operation of this database.
         /// </summary>
-        [Input("recoveryServicesRecoveryPointResourceId")]
-        public Input<string>? RecoveryServicesRecoveryPointResourceId { get; set; }
+        [Input("recoverableDatabaseId")]
+        public Input<string>? RecoverableDatabaseId { get; set; }
 
         /// <summary>
-        /// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-        /// 
-        /// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
+        /// The resource identifier of the recovery point associated with create operation of this database.
         /// </summary>
-        [Input("requestedServiceObjectiveId")]
-        public Input<string>? RequestedServiceObjectiveId { get; set; }
-
-        /// <summary>
-        /// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
-        /// 
-        /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-        /// 
-        /// ```azurecli
-        /// az sql db list-editions -l &lt;location&gt; -o table
-        /// ````
-        /// 
-        /// ```powershell
-        /// Get-AzSqlServerServiceObjective -Location &lt;location&gt;
-        /// ````
-        /// </summary>
-        [Input("requestedServiceObjectiveName")]
-        public Input<string>? RequestedServiceObjectiveName { get; set; }
+        [Input("recoveryServicesRecoveryPointId")]
+        public Input<string>? RecoveryServicesRecoveryPointId { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -690,13 +739,19 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
+        /// The resource identifier of the restorable dropped database associated with create operation of this database.
+        /// </summary>
+        [Input("restorableDroppedDatabaseId")]
+        public Input<string>? RestorableDroppedDatabaseId { get; set; }
+
+        /// <summary>
+        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
-        /// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
+        /// The name of the sample schema to apply when creating this database.
         /// </summary>
         [Input("sampleName")]
         public Input<string>? SampleName { get; set; }
@@ -708,16 +763,38 @@ namespace Pulumi.AzureRM.Sql.Latest
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
+        /// The database SKU.
+        /// 
+        /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
+        /// 
+        /// ```azurecli
+        /// az sql db list-editions -l &lt;location&gt; -o table
+        /// ````
+        /// 
+        /// ```powershell
+        /// Get-AzSqlServerServiceObjective -Location &lt;location&gt;
+        /// ````
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// Specifies the time that the database was deleted.
         /// </summary>
         [Input("sourceDatabaseDeletionDate")]
         public Input<string>? SourceDatabaseDeletionDate { get; set; }
 
         /// <summary>
-        /// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
+        /// The resource identifier of the source database associated with create operation of this database.
         /// </summary>
         [Input("sourceDatabaseId")]
         public Input<string>? SourceDatabaseId { get; set; }
+
+        /// <summary>
+        /// The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+        /// </summary>
+        [Input("storageAccountType")]
+        public Input<string>? StorageAccountType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -58,6 +58,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+        /// </summary>
+        public readonly bool? RegionEndpointEnabled;
+        /// <summary>
         /// The status of the replication at the time the operation was called.
         /// </summary>
         public readonly Outputs.StatusResponseResult Status;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
 
             string provisioningState,
 
+            bool? regionEndpointEnabled,
+
             Outputs.StatusResponseResult status,
 
             ImmutableDictionary<string, string>? tags,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            RegionEndpointEnabled = regionEndpointEnabled;
             Status = status;
             Tags = tags;
             Type = type;
