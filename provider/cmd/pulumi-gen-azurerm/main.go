@@ -52,9 +52,10 @@ func main() {
 		case "docs":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azurerm")
 			docsProviders := openapi.SingleVersion(azureProviders)
-			docsPkgSpec, _, err := gen.PulumiSchema(docsProviders)
+			var docsPkgSpec *schema.PackageSpec
+			docsPkgSpec, _, err = gen.PulumiSchema(docsProviders)
 			if err != nil {
-				panic(err)
+				break
 			}
 			err = emitDocsSchema(*docsPkgSpec, version, outdir)
 		default:
