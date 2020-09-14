@@ -20,15 +20,15 @@ type Tokenizer struct {
 	basicTokenizer         *basicTokenizer
 }
 
-func FromString(stringValue string) *Tokenizer {
+func fromString(stringValue string) *Tokenizer {
 	contract.Assert(stringValue != "")
 	contract.Assert(1 <= len(stringValue))
 	contract.Assert(isQuoteCharacter(stringValue[0]))
 
 	initialQuoteCharacter := stringValue[0]
-	trimmedLength := len(stringValue) - 1
+	trimmedLength := len(stringValue)
 	if strings.HasSuffix(stringValue, string(initialQuoteCharacter)) {
-		trimmedLength = len(stringValue) - 2
+		trimmedLength = len(stringValue) - 1
 	}
 	trimmedString := stringValue[1:trimmedLength]
 
@@ -102,11 +102,7 @@ func (t *Tokenizer) ReadToken() *Token {
 			t.nextBasicToken()
 			break
 
-		case space:
-		case tab:
-		case carriageReturn:
-		case newLine:
-		case carriageReturnNewLine:
+		case space, tab, carriageReturn, newLine, carriageReturnNewLine:
 			ws := readWhitespace(t.basicTokenizer)
 			var strs []stringable
 			for _, w := range ws {
@@ -141,8 +137,7 @@ func (t *Tokenizer) ReadToken() *Token {
 			t.current = &curr
 			break
 
-		case dash:
-		case digits:
+		case dash, digits:
 			ns := readNumber(t.basicTokenizer)
 			var strs []stringable
 			for _, n := range ns {
@@ -191,19 +186,19 @@ func (t *Tokenizer) skipWhitespace() {
 	}
 }
 
-type TokenType int
+type TokenType string
 
 const (
-	LeftSquareBracket TokenType = iota
-	RightSquareBracket
-	LeftParenthesis
-	RightParenthesis
-	QuotedString
-	Comma
-	Whitespace
-	Literal
-	Period
-	Number
+	LeftSquareBracket  TokenType = "LeftSquareBracket"
+	RightSquareBracket TokenType = "RightSquareBracket"
+	LeftParenthesis    TokenType = "LeftParenthesis"
+	RightParenthesis   TokenType = "RightParenthesis"
+	QuotedString       TokenType = "QuotedString"
+	Comma              TokenType = "Comma"
+	Whitespace         TokenType = "Whitespave"
+	Literal            TokenType = "Literal"
+	Period             TokenType = "Period"
+	Number             TokenType = "Number"
 )
 
 func NewToken(tokenType TokenType, startIndex int, stringValue string) Token {

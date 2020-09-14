@@ -302,6 +302,9 @@ func (t *basicTokenizer) readWhile(condition func(character byte) bool) string {
 
 	for !eof {
 		res, eof = t.currentCharacter()
+		if !condition(res) {
+			break
+		}
 		result += string(res)
 		t.nextCharacter()
 	}
@@ -317,16 +320,12 @@ func readWhitespace(iterator TokenIterator) []*basicToken {
 
 	for {
 		current := iterator.Current()
-		if current != nil {
+		if current == nil {
 			return whitespaceTokens
 		}
 
 		switch current.getType() {
-		case space:
-		case tab:
-		case carriageReturn:
-		case newLine:
-		case carriageReturnNewLine:
+		case space, tab, carriageReturn, newLine, carriageReturnNewLine:
 			whitespaceTokens = append(whitespaceTokens, current)
 			iterator.MoveNext()
 			current = iterator.Current()

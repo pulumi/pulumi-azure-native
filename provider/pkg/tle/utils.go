@@ -36,13 +36,13 @@ func readQuotedTLEString(iterator TokenIterator) []*basicToken {
 	current := iterator.Current()
 	contract.Assert(current != nil)
 	contract.Assert(current.getType() == singleQuote)
-	quotedStringTokens := []*basicToken{*current}
+	quotedStringTokens := []*basicToken{current}
 	iterator.MoveNext()
 
 	escaped := false
 	for iterator.Current() != nil {
 		current = iterator.Current()
-		quotedStringTokens = append(quotedStringTokens, *current)
+		quotedStringTokens = append(quotedStringTokens, current)
 
 		if escaped {
 			escaped = false
@@ -73,24 +73,23 @@ func readQuotedTLEString(iterator TokenIterator) []*basicToken {
 	return quotedStringTokens
 }
 
-
 func unquote(value string) string {
-    if (value == "") {
-        return "";
-    }
+	if value == "" {
+		return ""
+	}
 
-    if strings.HasPrefix(value, "\"") {
-        if strings.HasSuffix(value, "\"") {
-			return value[1: len(value) - 1]
+	if strings.HasPrefix(value, "\"") {
+		if strings.HasSuffix(value, "\"") {
+			return value[1 : len(value)-1]
 		} else {
 			return value[1:]
 		}
-    } else if (strings.HasPrefix(value, "'")) {
-        if strings.HasSuffix(value, "'") {
-			return value[1: len(value) - 1]
+	} else if strings.HasPrefix(value, "'") {
+		if strings.HasSuffix(value, "'") {
+			return value[1 : len(value)-1]
 		}
 		return value[1:]
-    }
+	}
 
-    return value
+	return value
 }

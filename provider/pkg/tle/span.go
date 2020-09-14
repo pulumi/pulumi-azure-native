@@ -11,12 +11,12 @@ type Span struct {
 	length     int
 }
 
-type ContainsBehavior int
+type ContainsBehavior string
 
 const (
-	strict ContainsBehavior = iota
-	extended
-	enclosed
+	strict   ContainsBehavior = "strict"
+	extended ContainsBehavior = "extended"
+	enclosed ContainsBehavior = "enclosed"
 )
 
 /**
@@ -78,7 +78,7 @@ func (s Span) contains(index int, containsBehavior ContainsBehavior) bool {
 		return s.startIndex+1 <= index && index <= s.endIndex()
 
 	default:
-		contract.Failf("Unexpected containsBehavior %s", containsBehavior)
+		contract.Failf("Unexpected containsBehavior %v", containsBehavior)
 	}
 	return false
 }
@@ -160,9 +160,8 @@ func (s Span) intersect(rhs *Span) *Span {
 func intersect(lhs *Span, rhs *Span) *Span {
 	if lhs != nil {
 		return lhs.intersect(rhs)
-	} else {
-		return nil
 	}
+	return nil
 }
 
 func (s Span) translate(movement int) Span {

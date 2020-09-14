@@ -8,13 +8,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/common/util/contract"
 )
 
-type Value interface {
-	Span() *Span
+type Visitor interface {
+	VisitArrayAccessValue(*ArrayAccessValue) error
+	VisitFunctionCall(*FunctionCallValue) error
+	VisitNumber(*NumberValue) error
+	VisitPropertyAccess(*PropertyAccessValue) error
+	VisitStringValue(*StringValue) error
 }
 
-func NewStringValue(token Token) StringValue {
+type Value interface {
+	Span() *Span
+	Accept(visitor Visitor) error
+}
+
+func NewStringValue(token Token) *StringValue {
 	contract.Assert(token.GetType() == QuotedString)
-	return StringValue{
+	return &StringValue{
 		token: token,
 	}
 }
@@ -23,51 +32,56 @@ type StringValue struct {
 	token Token
 }
 
-func (s StringValue) Span() *Span {
+func (s *StringValue) Accept(visitor Visitor) error {
+	return visitor.VisitStringValue(s)
+}
+
+func (s *StringValue) Span() *Span {
 	return &s.token.span
 }
 
 // NewNumberValue creates a new NumberValue
-func NewNumberValue(token Token) NumberValue {
+func NewNumberValue(token Token) *NumberValue {
 	contract.Assert(token.GetType() == Number)
-	return NumberValue{token}
+	return &NumberValue{token}
 }
 
 type NumberValue struct {
 	token Token
 }
 
-func (n NumberValue) Span() *Span {
+func (n *NumberValue) Span() *Span {
 	return &n.token.span
 }
 
-func NewPropertyAccess(source Value, periodToken Token, nameToken *Token) *PropertyAccess {
-	return &PropertyAccess{
+func (n *NumberValue) Accept(v Visitor) error {
+	return v.VisitNumber(n)
+}
+
+func NewPropertyAccessValue(source Value, periodToken Token, nameToken Token) *PropertyAccessValue {
+	return &PropertyAccessValue{
 		source:      source,
 		periodToken: periodToken,
 		nameToken:   nameToken,
 	}
 }
 
-type PropertyAccess struct {
+type PropertyAccessValue struct {
 	source      Value
 	periodToken Token
-	nameToken   *Token
+	nameToken   Token
 }
 
-func (p *PropertyAccess) Span() *Span {
+func (p *PropertyAccessValue) Span() *Span {
 	result := p.source.Span()
-
-	if p.nameToken != nil {
-		result = result.union(&p.nameToken.span)
-	} else {
-		result = result.union(&p.periodToken.span)
-	}
-
-	return result
+	return result.union(&p.nameToken.span)
 }
 
-func NewArrayAccessValue(source Value, leftSquareBracketToken Token, indexValue Value, rightSquareBracketToken *Token) *ArrayAccessValue {
+func (p *PropertyAccessValue) Accept(v Visitor) error {
+	return v.VisitPropertyAccess(p)
+}
+
+func NewArrayAccessValue(source Value, leftSquareBracketToken Token, indexValue Value, rightSquareBracketToken Token) *ArrayAccessValue {
 	return &ArrayAccessValue{
 		source:                  source,
 		leftSquareBracketToken:  leftSquareBracketToken,
@@ -80,54 +94,41 @@ type ArrayAccessValue struct {
 	source                  Value
 	leftSquareBracketToken  Token
 	indexValue              Value
-	rightSquareBracketToken *Token
+	rightSquareBracketToken Token
 }
 
 func (a *ArrayAccessValue) Span() *Span {
 	result := a.source.Span()
-
-	if a.rightSquareBracketToken != nil {
-		result = union(result, &a.rightSquareBracketToken.span)
-	} else if a.indexValue != nil {
-		result = union(result, a.indexValue.Span())
-	} else {
-		result = union(result, &a.leftSquareBracketToken.span)
-	}
-
-	return result
+	return union(result, &a.rightSquareBracketToken.span)
 }
 
-func NewFunctionCallValue(namespaceToken, periodToken, leftParenthesisToken *Token, nameToken *Token, commaTokens []*Token, argumentExpressions []Value, rightParanthesis *Token) *FunctionCallValue {
-	return &FunctionCallValue{
-		namespaceToken:        namespaceToken,
-		periodToken:           periodToken,
-		nameToken:             nameToken,
-		leftParenthesisToken:  leftParenthesisToken,
-		commaTokens:           commaTokens,
-		argumentExpressions:   argumentExpressions,
-		rightParenthesisToken: rightParanthesis,
-	}
+func (a *ArrayAccessValue) Accept(v Visitor) error {
+	return v.VisitArrayAccessValue(a)
 }
 
 type FunctionCallValue struct {
-	namespaceToken        *Token
-	periodToken           *Token
-	nameToken             *Token
-	leftParenthesisToken  *Token
-	commaTokens           []*Token
-	argumentExpressions   []Value
-	rightParenthesisToken *Token
+	NamespaceToken        *Token
+	PeriodToken           *Token
+	NameToken             *Token
+	LeftParenthesisToken  *Token
+	CommaTokens           []*Token
+	ArgumentExpressions   []Value
+	RightParenthesisToken *Token
 }
 
-func (f FunctionCallValue) Span() *Span {
+func (f *FunctionCallValue) Span() *Span {
 	return union(f.argumentListSpan(), f.fullNameSpan())
 }
 
-func (f FunctionCallValue) fullNameSpan() *Span {
-	u := union(&f.namespaceToken.span, &f.periodToken.span)
+func (f *FunctionCallValue) Accept(visitor Visitor) error {
+	return visitor.VisitFunctionCall(f)
+}
+
+func (f *FunctionCallValue) fullNameSpan() *Span {
+	u := union(&f.NamespaceToken.span, &f.PeriodToken.span)
 
 	result :=
-		union(u, &f.nameToken.span)
+		union(u, &f.NameToken.span)
 
 		//Should have had at least one of a namespace or a name, therefore span should be non-empty
 	contract.Assert(result != nil)
@@ -138,14 +139,14 @@ func (f FunctionCallValue) fullNameSpan() *Span {
 func (f *FunctionCallValue) argumentListSpan() *Span {
 	var result *Span
 
-	if f.leftParenthesisToken != nil {
-		result = &f.leftParenthesisToken.span
+	if f.LeftParenthesisToken != nil {
+		result = &f.LeftParenthesisToken.span
 
-		if f.rightParenthesisToken != nil {
-			result = result.union(&f.rightParenthesisToken.span)
-		} else if len(f.argumentExpressions) > 0 || len(f.commaTokens) > 0 {
-			for i := len(f.argumentExpressions) - 1; 0 <= i; i-- {
-				arg := f.argumentExpressions[i]
+		if f.RightParenthesisToken != nil {
+			result = result.union(&f.RightParenthesisToken.span)
+		} else if len(f.ArgumentExpressions) > 0 || len(f.CommaTokens) > 0 {
+			for i := len(f.ArgumentExpressions) - 1; 0 <= i; i-- {
+				arg := f.ArgumentExpressions[i]
 				if arg != nil {
 					span := arg.Span()
 					result = result.union(span)
@@ -153,8 +154,8 @@ func (f *FunctionCallValue) argumentListSpan() *Span {
 				}
 			}
 
-			if 0 < len(f.commaTokens) {
-				result = result.union(&f.commaTokens[len(f.commaTokens)-1].span)
+			if 0 < len(f.CommaTokens) {
+				result = result.union(&f.CommaTokens[len(f.CommaTokens)-1].span)
 			}
 		}
 	}
@@ -162,7 +163,82 @@ func (f *FunctionCallValue) argumentListSpan() *Span {
 	return result
 }
 
-func ParseExpression(tokenizer *Tokenizer) (Value, error) {
+type TLEParseResult struct {
+	LeftSquareBracketToken  *Token
+	Expression              Value
+	RightSquareBracketToken *Token
+}
+
+func Parse(quotedStringValue string) (*TLEParseResult, error) {
+	contract.Assert(1 <= len(quotedStringValue)) // TLE strings must be at least 1 character
+	// The first character in the TLE string to parse must be a quote character
+	contract.Assert(isQuoteCharacter(quotedStringValue[0]))
+
+	var leftSquareBracketToken *Token
+	var expression Value
+	var rightSquareBracketToken *Token
+	if 3 <= len(quotedStringValue) && quotedStringValue[1:2] == "[[" {
+		expression = NewStringValue(CreateQuotedString(0, quotedStringValue))
+	} else {
+		tokenizer := fromString(quotedStringValue)
+		tokenizer.Next()
+
+		if tokenizer.Current() == nil || tokenizer.Current().GetType() != LeftSquareBracket {
+			// This is just a plain old string (no brackets). Mark its expression as being
+			// the string value.
+			expression = NewStringValue(CreateQuotedString(0, quotedStringValue))
+		} else {
+			leftSquareBracketToken = tokenizer.Current()
+			tokenizer.Next()
+
+			if tokenizer.Current() != nil &&
+				tokenizer.Current().GetType() != Literal &&
+				tokenizer.Current().GetType() != RightSquareBracket {
+				return nil, fmt.Errorf("Expected a literal value: %s:%v", quotedStringValue, tokenizer.Current().Span().getStartIndex())
+			}
+
+			var err error
+			expression, err = parseExpression(tokenizer)
+			if err != nil {
+				return nil, fmt.Errorf("failed to parse expression '%s': %w", quotedStringValue, err)
+			}
+
+			for tokenizer.Current() != nil {
+				if tokenizer.Current().GetType() == RightSquareBracket {
+					rightSquareBracketToken = tokenizer.Current()
+					tokenizer.Next()
+					break
+				} else {
+					return nil, fmt.Errorf("nxpected end of string: %s:%v", quotedStringValue, tokenizer.Current().Span().getStartIndex())
+				}
+			}
+
+			if rightSquareBracketToken != nil {
+				if tokenizer.Current() != nil {
+					return nil, fmt.Errorf("nothing should exist after the closing ']' except for whitespace, %s:%v", quotedStringValue, tokenizer.Current().Span().getStartIndex())
+				}
+			} else {
+				return nil, fmt.Errorf("expected a right square bracket (']'), %s:%v", quotedStringValue, len(quotedStringValue)-1)
+			}
+
+			if expression == nil {
+				errorSpan := &leftSquareBracketToken.span
+				if rightSquareBracketToken != nil {
+					errorSpan = union(errorSpan, &rightSquareBracketToken.span)
+				}
+				return nil, fmt.Errorf("expected a function of property expression, %s:%v", quotedStringValue, errorSpan.getStartIndex())
+			}
+		}
+	}
+
+	return &TLEParseResult{
+		LeftSquareBracketToken:  leftSquareBracketToken,
+		Expression:              expression,
+		RightSquareBracketToken: rightSquareBracketToken,
+	}, nil
+}
+
+func parseExpression(tokenizer *Tokenizer) (Value, error) {
 	var expression Value
 	if tokenizer.Current() != nil {
 		var rootExpression Value // Initial expression
@@ -186,7 +262,6 @@ func ParseExpression(tokenizer *Tokenizer) (Value, error) {
 			tokenizer.Next()
 		} else if tokenType != RightSquareBracket && tokenType != Comma {
 			return nil, fmt.Errorf("template language expressions must start with a function: %d", token.span.getStartIndex())
-			tokenizer.Next()
 		}
 
 		if rootExpression == nil {
@@ -226,18 +301,15 @@ func ParseExpression(tokenizer *Tokenizer) (Value, error) {
 			}
 
 			if propertyNameToken == nil {
-				// tslint:disable-next-line: no-non-null-assertion // Asserted
 				return nil, fmt.Errorf("expected a literal value in span at %d", errorSpan.getStartIndex())
 			}
 
-			// We go ahead and create a property access expression whether the property name
-			//   was correctly given or not, so we can have proper intellisense/etc.
-			expression = NewPropertyAccess(expression, *periodToken, propertyNameToken)
+			expression = NewPropertyAccessValue(expression, *periodToken, *propertyNameToken)
 		} else if tokenizer.Current().GetType() == LeftSquareBracket {
 			leftSquareBracketToken := tokenizer.Current()
 			tokenizer.Next()
 
-			indexValue, err := ParseExpression(tokenizer)
+			indexValue, err := parseExpression(tokenizer)
 			if err != nil {
 				return nil, err
 			}
@@ -248,7 +320,10 @@ func ParseExpression(tokenizer *Tokenizer) (Value, error) {
 				tokenizer.Next()
 			}
 
-			expression = NewArrayAccessValue(expression, *leftSquareBracketToken, indexValue, rightSquareBracketToken)
+			if leftSquareBracketToken == nil || rightSquareBracketToken == nil {
+				return nil, fmt.Errorf("malformed array offset specification near: %d", indexValue.Span().getStartIndex())
+			}
+			expression = NewArrayAccessValue(expression, *leftSquareBracketToken, indexValue, *rightSquareBracketToken)
 		} else {
 			break
 		}
@@ -279,7 +354,7 @@ func parseFunctionCall(tokenizer *Tokenizer) (*FunctionCallValue, error) {
 			nameToken = tokenizer.Current()
 			tokenizer.Next()
 		} else {
-			return nil, fmt.Errorf("Expected user-defined function name: %s", periodToken.Span().getStartIndex())
+			return nil, fmt.Errorf("Expected user-defined function name: %v", periodToken.Span().getStartIndex())
 		}
 	} else {
 		nameToken = firstToken
@@ -289,9 +364,7 @@ func parseFunctionCall(tokenizer *Tokenizer) (*FunctionCallValue, error) {
 	var commaTokens []*Token
 	var argumentExpressions []Value
 
-	// tslint:disable-next-line: strict-boolean-expressions
 	if tokenizer.Current() != nil {
-		// tslint:disable-next-line: strict-boolean-expressions // False positive
 		for tokenizer.Current() != nil {
 			if tokenizer.Current().GetType() == LeftParenthesis {
 				leftParenthesisToken = tokenizer.Current()
@@ -301,7 +374,6 @@ func parseFunctionCall(tokenizer *Tokenizer) (*FunctionCallValue, error) {
 				return nil, fmt.Errorf("Missing function argument list: %d", nameToken.Span().getStartIndex())
 			} else {
 				return nil, fmt.Errorf("Expected the end of the string: %d", nameToken.Span().getStartIndex())
-				tokenizer.Next()
 			}
 		}
 	} else {
@@ -316,12 +388,12 @@ func parseFunctionCall(tokenizer *Tokenizer) (*FunctionCallValue, error) {
 			if tokenizer.Current().GetType() == RightParenthesis || tokenizer.Current().GetType() == RightSquareBracket {
 				break
 			} else if expectingArgument {
-				expression, err := ParseExpression(tokenizer)
+				expression, err := parseExpression(tokenizer)
 				if err != nil {
 					return nil, err
 				}
 				if expression == nil && tokenizer.HasCurrent() && tokenizer.Current().GetType() == Comma {
-					return nil, fmt.Errorf("Expected a constant string, function, or property expression.")
+					return nil, errors.New("expected a constant string, function, or property expression")
 				}
 				argumentExpressions = append(argumentExpressions, expression)
 				expectingArgument = false
@@ -330,8 +402,7 @@ func parseFunctionCall(tokenizer *Tokenizer) (*FunctionCallValue, error) {
 				commaTokens = append(commaTokens, tokenizer.Current())
 				tokenizer.Next()
 			} else {
-				return nil, errors.New("Expected a comma (',').")
-				tokenizer.Next()
+				return nil, errors.New("expected a comma (',')")
 			}
 		}
 	} else if leftParenthesisToken != nil {
@@ -353,5 +424,13 @@ func parseFunctionCall(tokenizer *Tokenizer) (*FunctionCallValue, error) {
 		}
 	}
 
-	return NewFunctionCallValue(namespaceToken, periodToken, nameToken, leftParenthesisToken, commaTokens, argumentExpressions, rightParanthesisToken), nil
+	return &FunctionCallValue{
+		NamespaceToken:        namespaceToken,
+		PeriodToken:           periodToken,
+		NameToken:             nameToken,
+		LeftParenthesisToken:  leftParenthesisToken,
+		CommaTokens:           commaTokens,
+		ArgumentExpressions:   argumentExpressions,
+		RightParenthesisToken: rightParanthesisToken,
+	}, nil
 }
