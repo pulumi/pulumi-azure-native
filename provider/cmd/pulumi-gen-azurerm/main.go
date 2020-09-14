@@ -57,6 +57,10 @@ func main() {
 			if err != nil {
 				break
 			}
+			err = gen.Examples(docsPkgSpec, meta, []string{"nodejs","dotnet","python"})
+			if err != nil {
+				break
+			}
 			err = emitDocsSchema(*docsPkgSpec, version, outdir)
 		default:
 			outdir := path.Join(".", "sdk", language)
