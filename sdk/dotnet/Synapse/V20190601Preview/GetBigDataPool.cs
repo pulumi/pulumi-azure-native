@@ -62,6 +62,10 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// </summary>
         public readonly string? DefaultSparkLogFolder;
         /// <summary>
+        /// Whether compute isolation is required or not.
+        /// </summary>
+        public readonly bool? IsComputeIsolationEnabled;
+        /// <summary>
         /// Library version requirements
         /// </summary>
         public readonly Outputs.LibraryRequirementsResponseResult? LibraryRequirements;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 
             string? defaultSparkLogFolder,
 
+            bool? isComputeIsolationEnabled,
+
             Outputs.LibraryRequirementsResponseResult? libraryRequirements,
 
             string location,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
             AutoScale = autoScale;
             CreationDate = creationDate;
             DefaultSparkLogFolder = defaultSparkLogFolder;
+            IsComputeIsolationEnabled = isComputeIsolationEnabled;
             LibraryRequirements = libraryRequirements;
             Location = location;
             Name = name;

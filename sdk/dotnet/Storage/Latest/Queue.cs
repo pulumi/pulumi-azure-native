@@ -61,6 +61,7 @@ namespace Pulumi.AzureRM.Storage.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storage/v20190601:Queue"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

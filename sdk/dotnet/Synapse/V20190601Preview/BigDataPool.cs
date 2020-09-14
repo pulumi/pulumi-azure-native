@@ -39,6 +39,12 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         public Output<string?> DefaultSparkLogFolder { get; private set; } = null!;
 
         /// <summary>
+        /// Whether compute isolation is required or not.
+        /// </summary>
+        [Output("isComputeIsolationEnabled")]
+        public Output<bool?> IsComputeIsolationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Library version requirements
         /// </summary>
         [Output("libraryRequirements")]
@@ -184,6 +190,12 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
+
+        /// <summary>
+        /// Whether compute isolation is required or not.
+        /// </summary>
+        [Input("isComputeIsolationEnabled")]
+        public Input<bool>? IsComputeIsolationEnabled { get; set; }
 
         /// <summary>
         /// Library version requirements

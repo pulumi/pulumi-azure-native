@@ -5,7 +5,7 @@
     <Authors>Pulumi Corp.</Authors>
     <Company>Pulumi Corp.</Company>
     <Description>A Pulumi package for creating and managing Azure resources.</Description>
-    <PackageLicenseExpression>TODO</PackageLicenseExpression>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://pulumi.com</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pulumi/pulumi-azurerm</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>

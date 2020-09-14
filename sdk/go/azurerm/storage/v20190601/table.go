@@ -41,6 +41,9 @@ func NewTable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storage/latest:Table"),
 		},
+		{
+			Type: pulumi.String("azurerm:storage/v20200801preview:Table"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Table

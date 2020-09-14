@@ -35,6 +35,8 @@ type LookupBigDataPoolResult struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
+	// Whether compute isolation is required or not.
+	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements
 	LibraryRequirements *LibraryRequirementsResponse `pulumi:"libraryRequirements"`
 	// The geo-location where the resource lives

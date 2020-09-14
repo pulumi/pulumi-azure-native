@@ -127,6 +127,9 @@ func NewStorageAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storage/v20190601:StorageAccount"),
 		},
+		{
+			Type: pulumi.String("azurerm:storage/v20200801preview:StorageAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccount

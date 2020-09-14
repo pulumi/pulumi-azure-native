@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:streamanalytics/v20160301:Function"},
+                    new Pulumi.Alias { Type = "azurerm:streamanalytics/v20170401preview:Function"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

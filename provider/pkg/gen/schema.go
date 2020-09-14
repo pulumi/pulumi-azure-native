@@ -35,10 +35,9 @@ import (
 func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureAPIMetadata, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azurerm",
-		Version:     "0.1.0", // TODO
 		Description: "A Pulumi package for creating and managing Azure resources.",
-		License:     "TODO",
-		Keywords:    []string{"pulumi", "azure"},
+		License:     "Apache-2.0",
+		Keywords:    []string{"pulumi", "azure", "azurerm"},
 		Homepage:    "https://pulumi.com",
 		Repository:  "https://github.com/pulumi/pulumi-azurerm",
 		Config: pschema.ConfigSpec{
@@ -282,7 +281,11 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		"dependencies": map[string]string{
 			"@pulumi/pulumi": "^2.0.0",
 		},
-		"readme": pkg.Description, // TODO: add a proper readme.
+		"readme": `The AzureRM provider package offers support for all Azure Resource Manager (ARM)
+resources and their properties. Resources are exposed as types from modules based on Azure Resource
+Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
+allows you to programmatically declare instances of any Azure resource and any supported resource
+version using infrastructure as code, which Pulumi then uses to drive the ARM API.`,
 	})
 
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
@@ -290,6 +293,11 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		"requires": map[string]string{
 			"pulumi": ">=2.0.0,<3.0.0",
 		},
+		"readme": `The AzureRM provider package offers support for all Azure Resource Manager (ARM)
+resources and their properties. Resources are exposed as types from modules based on Azure Resource
+Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
+allows you to programmatically declare instances of any Azure resource and any supported resource
+version using infrastructure as code, which Pulumi then uses to drive the ARM API.`,
 	})
 
 	pkg.Language["csharp"] = rawMessage(map[string]interface{}{

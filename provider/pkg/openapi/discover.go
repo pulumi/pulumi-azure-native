@@ -32,9 +32,9 @@ type ResourceSpec struct {
 	CompatibleVersions []string
 }
 
-// Providers finds all Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
-// collected per Azure Provider and API Version.
-func Providers() AzureProviders {
+// AllVersions finds all Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
+// collected per Azure Provider and API Version - for all API versions.
+func AllVersions() AzureProviders {
 	swaggerSpecLocations, err := swaggerLocations()
 	if err != nil {
 		panic(err)
@@ -84,6 +84,54 @@ func Providers() AzureProviders {
 	}
 
 	return providers
+}
+
+// SingleVersion returns only a single (latest or preview) version of each resource from the full list of resource
+// versions.
+func SingleVersion(providers AzureProviders) AzureProviders {
+	singleVersion := AzureProviders{}
+
+	for providerName, allVersionMap := range providers {
+		versions := ProviderVersions{
+			"latest": allVersionMap["latest"],
+		}
+
+		findVersion := func(resource *ResourceSpec) *VersionResources {
+			apiVersion := "v" + strings.ReplaceAll(resource.Swagger.Info.Version, "-", "")
+			if !strings.Contains(apiVersion, "preview") {
+				return nil
+			}
+			version, ok := versions[apiVersion]
+			if !ok {
+				version = VersionResources{
+					Resources: map[string]*ResourceSpec{},
+					Invokes:   map[string]*ResourceSpec{},
+				}
+				versions[apiVersion] = version
+			}
+			return &version
+		}
+
+		previewResources := calculateLatestVersions(allVersionMap, false /* invokes */, true /* preview */)
+		for resourceName, resource := range previewResources {
+			version := findVersion(resource)
+			if version != nil {
+				version.Resources[resourceName] = resource
+			}
+		}
+
+		previewInvokes := calculateLatestVersions(allVersionMap, true /* invokes */, true /* preview */)
+		for resourceName, invoke := range previewInvokes {
+			version := findVersion(invoke)
+			if version != nil {
+				version.Invokes[resourceName] = invoke
+			}
+		}
+
+		singleVersion[providerName] = versions
+	}
+
+	return singleVersion
 }
 
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.

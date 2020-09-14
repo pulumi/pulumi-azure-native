@@ -32,12 +32,12 @@ ensure:: init_submodules
 
 local_generate::
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,go,dotnet,python
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,go,dotnet,python ${VERSION}
 	echo "Finished generating schema."
 
 generate_schema::
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs ${VERSION}
 	echo "Finished generating schema."
 
 codegen::
@@ -53,8 +53,9 @@ lint_provider:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 generate_nodejs::
-	$(WORKING_DIR)/bin/$(CODEGEN) nodejs
+	$(WORKING_DIR)/bin/$(CODEGEN) nodejs ${VERSION}
 
+build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
@@ -63,8 +64,9 @@ build_nodejs::
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 generate_python::
-	$(WORKING_DIR)/bin/$(CODEGEN) python
+	$(WORKING_DIR)/bin/$(CODEGEN) python ${VERSION}
 
+build_python:: VERSION := $(shell pulumictl get version --language python)
 build_python::
 	cd sdk/python/ && \
         cp ../../README.md . && \
@@ -75,15 +77,17 @@ build_python::
         cd ./bin && python3 setup.py build sdist
 
 generate_dotnet::
-	$(WORKING_DIR)/bin/$(CODEGEN) dotnet
+	$(WORKING_DIR)/bin/$(CODEGEN) dotnet ${VERSION}
 
+build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
 		echo "${VERSION:v%=%}" >version.txt && \
-		dotnet build
+		echo "${DOTNET_VERSION}" >version.txt && \
+		dotnet build /p:Version=${DOTNET_VERSION}
 
 generate_go::
-	$(WORKING_DIR)/bin/$(CODEGEN) go
+	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
 
 build_go::
 

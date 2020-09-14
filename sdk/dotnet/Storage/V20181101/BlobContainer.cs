@@ -123,6 +123,7 @@ namespace Pulumi.AzureRM.Storage.V20181101
                     new Pulumi.Alias { Type = "azurerm:storage/v20180701:BlobContainer"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190401:BlobContainer"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190601:BlobContainer"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:BlobContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

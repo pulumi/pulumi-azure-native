@@ -70,7 +70,7 @@ class Output(pulumi.CustomResource):
             __props__['diagnostics'] = None
             __props__['etag'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:streamanalytics/v20160301:Output")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:streamanalytics/v20160301:Output"), pulumi.Alias(type_="azurerm:streamanalytics/v20170401preview:Output")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Output, __self__).__init__(
             'azurerm:streamanalytics/latest:Output',
