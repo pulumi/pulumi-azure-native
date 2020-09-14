@@ -32,9 +32,9 @@ type ResourceSpec struct {
 	CompatibleVersions []string
 }
 
-// Providers finds all Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
-// collected per Azure Provider and API Version.
-func Providers() AzureProviders {
+// AllVersions finds all Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
+// collected per Azure Provider and API Version - for all API versions.
+func AllVersions() AzureProviders {
 	swaggerSpecLocations, err := swaggerLocations()
 	if err != nil {
 		panic(err)
@@ -84,6 +84,40 @@ func Providers() AzureProviders {
 	}
 
 	return providers
+}
+
+// SingleVersion returns only a single (latest or preview) version of each resource from the full list of resource
+// versions.
+func SingleVersion(providers AzureProviders) AzureProviders {
+	singleVersion := AzureProviders{}
+
+	for providerName, allVersionMap := range providers {
+		previewAndLatestResources := calculateLatestVersions(allVersionMap, false /* invokes */, true /* preview */)
+		previewResources := map[string]*ResourceSpec{}
+		for resourceName, resource := range previewAndLatestResources {
+			if strings.Contains(resource.Swagger.Info.Version, "preview") {
+				previewResources[resourceName] = resource
+			}
+		}
+
+		previewAndLatestInvokes := calculateLatestVersions(allVersionMap, true /* invokes */, true /* preview */)
+		previewInvokes := map[string]*ResourceSpec{}
+		for resourceName, invoke := range previewAndLatestInvokes {
+			if strings.Contains(invoke.Swagger.Info.Version, "preview") {
+				previewInvokes[resourceName] = invoke
+			}
+		}
+
+		singleVersion[providerName] = ProviderVersions{
+			"latest": allVersionMap["latest"],
+			"preview": VersionResources{
+				Resources: previewResources,
+				Invokes:   previewInvokes,
+			},
+		}
+	}
+
+	return singleVersion
 }
 
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.

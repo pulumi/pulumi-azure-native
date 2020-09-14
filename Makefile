@@ -32,12 +32,12 @@ ensure:: init_submodules
 
 local_generate::
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,go,dotnet,python ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,go,dotnet,python ${VERSION}
 	echo "Finished generating schema."
 
 generate_schema::
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs ${VERSION}
 	echo "Finished generating schema."
 
 codegen::
