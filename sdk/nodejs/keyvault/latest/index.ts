@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getManagedHsm";
 export * from "./getPrivateEndpointConnection";
 export * from "./getVault";
+export * from "./managedHsm";
 export * from "./privateEndpointConnection";
 export * from "./vault";

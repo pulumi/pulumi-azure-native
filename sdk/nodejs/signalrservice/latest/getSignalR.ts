@@ -57,10 +57,9 @@ export interface GetSignalRResult {
      */
     readonly hostName: string;
     /**
-     * Prefix for the hostName of the SignalR service. Retained for future use.
-     * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+     * The managed identity response
      */
-    readonly hostNamePrefix?: string;
+    readonly identity?: outputs.signalrservice.latest.ManagedIdentityResponse;
     /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */
@@ -101,6 +100,10 @@ export interface GetSignalRResult {
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * TLS settings.
+     */
+    readonly tls?: outputs.signalrservice.latest.SignalRTlsSettingsResponse;
     /**
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */

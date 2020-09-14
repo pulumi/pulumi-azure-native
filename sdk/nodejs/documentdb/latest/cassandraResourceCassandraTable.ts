@@ -73,6 +73,10 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
     }
 
     /**
+     * Identity for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.documentdb.latest.ManagedServiceIdentityResponse | undefined>;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -120,6 +124,7 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tableName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["keyspaceName"] = args ? args.keyspaceName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["options"] = args ? args.options : undefined;
@@ -130,6 +135,7 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["options"] = undefined /*out*/;
@@ -158,6 +164,10 @@ export interface CassandraResourceCassandraTableArgs {
      * Cosmos DB database account name.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * Identity for the resource.
+     */
+    readonly identity?: pulumi.Input<inputs.documentdb.latest.ManagedServiceIdentity>;
     /**
      * Cosmos DB keyspace name.
      */

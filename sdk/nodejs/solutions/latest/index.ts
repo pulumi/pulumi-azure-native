@@ -2,8 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./appliance";
+export * from "./applianceDefinition";
 export * from "./application";
 export * from "./applicationDefinition";
+export * from "./getAppliance";
+export * from "./getApplianceDefinition";
 export * from "./getApplication";
 export * from "./getApplicationDefinition";
 export * from "./getJitRequest";

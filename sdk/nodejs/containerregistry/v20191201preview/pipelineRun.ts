@@ -104,6 +104,8 @@ export class PipelineRun extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/latest:PipelineRun" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PipelineRun.__pulumiType, name, inputs, opts);
     }
 }

@@ -60,6 +60,10 @@ export interface GetOpenShiftManagedClusterResult {
      */
     readonly masterPoolProfile?: outputs.containerservice.latest.OpenShiftManagedClusterMasterPoolProfileResponse;
     /**
+     * Configures Log Analytics integration.
+     */
+    readonly monitorProfile?: outputs.containerservice.latest.OpenShiftManagedClusterMonitorProfileResponse;
+    /**
      * Resource name
      */
     readonly name: string;
@@ -80,9 +84,13 @@ export interface GetOpenShiftManagedClusterResult {
      */
     readonly provisioningState: string;
     /**
-     * Service generated FQDN for OpenShift API server.
+     * Service generated FQDN or private IP for OpenShift API server.
      */
     readonly publicHostname: string;
+    /**
+     * Allows node rotation
+     */
+    readonly refreshCluster?: boolean;
     /**
      * Configuration for OpenShift router(s).
      */

@@ -53,6 +53,10 @@ export interface GetReplicationResult {
      */
     readonly provisioningState: string;
     /**
+     * Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+     */
+    readonly regionEndpointEnabled?: boolean;
+    /**
      * The status of the replication at the time the operation was called.
      */
     readonly status: outputs.containerregistry.latest.StatusResponse;

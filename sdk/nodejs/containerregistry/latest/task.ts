@@ -24,7 +24,9 @@ import * as utilities from "../../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     isSystemTask: false,
  *     location: "eastus",
+ *     logTemplate: "acr/tasks:{{.Run.OS}}",
  *     platform: {
  *         architecture: "amd64",
  *         os: "Linux",
@@ -33,7 +35,24 @@ import * as utilities from "../../utilities";
  *     resourceGroupName: "myResourceGroup",
  *     status: "Enabled",
  *     step: {
+ *         arguments: [
+ *             {
+ *                 isSecret: false,
+ *                 name: "mytestargument",
+ *                 value: "mytestvalue",
+ *             },
+ *             {
+ *                 isSecret: true,
+ *                 name: "mysecrettestargument",
+ *                 value: "mysecrettestvalue",
+ *             },
+ *         ],
  *         contextPath: "src",
+ *         dockerFilePath: "src/DockerFile",
+ *         imageNames: ["azurerest:testtag"],
+ *         isPushEnabled: true,
+ *         noCache: false,
+ *         type: "Docker",
  *     },
  *     tags: {
  *         testkey: "value",
@@ -43,6 +62,8 @@ import * as utilities from "../../utilities";
  *         baseImageTrigger: {
  *             baseImageTriggerType: "Runtime",
  *             name: "myBaseImageTrigger",
+ *             updateTriggerEndpoint: "https://user:pass@mycicd.webhook.com?token=foo",
+ *             updateTriggerPayloadType: "Token",
  *         },
  *         sourceTriggers: [{
  *             name: "mySourceTrigger",
@@ -65,6 +86,26 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
+ * ### Tasks_Create_QuickTask
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const task = new azurerm.containerregistry.latest.Task("task", {
+ *     isSystemTask: true,
+ *     location: "eastus",
+ *     logTemplate: "acr/tasks:{{.Run.OS}}",
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     status: "Enabled",
+ *     tags: {
+ *         testkey: "value",
+ *     },
+ *     taskName: "quicktask",
+ * });
+ *
+ * ```
  * ### Tasks_Create_WithSystemAndUserIdentities
  *
  * ```typescript
@@ -81,6 +122,7 @@ import * as utilities from "../../utilities";
  *             "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
  *         },
  *     },
+ *     isSystemTask: false,
  *     location: "eastus",
  *     platform: {
  *         architecture: "amd64",
@@ -90,7 +132,24 @@ import * as utilities from "../../utilities";
  *     resourceGroupName: "myResourceGroup",
  *     status: "Enabled",
  *     step: {
+ *         arguments: [
+ *             {
+ *                 isSecret: false,
+ *                 name: "mytestargument",
+ *                 value: "mytestvalue",
+ *             },
+ *             {
+ *                 isSecret: true,
+ *                 name: "mysecrettestargument",
+ *                 value: "mysecrettestvalue",
+ *             },
+ *         ],
  *         contextPath: "src",
+ *         dockerFilePath: "src/DockerFile",
+ *         imageNames: ["azurerest:testtag"],
+ *         isPushEnabled: true,
+ *         noCache: false,
+ *         type: "Docker",
  *     },
  *     tags: {
  *         testkey: "value",
@@ -100,6 +159,8 @@ import * as utilities from "../../utilities";
  *         baseImageTrigger: {
  *             baseImageTriggerType: "Runtime",
  *             name: "myBaseImageTrigger",
+ *             updateTriggerEndpoint: "https://user:pass@mycicd.webhook.com?token=foo",
+ *             updateTriggerPayloadType: "Default",
  *         },
  *         sourceTriggers: [{
  *             name: "mySourceTrigger",
@@ -139,6 +200,7 @@ import * as utilities from "../../utilities";
  *             "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
  *         },
  *     },
+ *     isSystemTask: false,
  *     location: "eastus",
  *     platform: {
  *         architecture: "amd64",
@@ -148,7 +210,24 @@ import * as utilities from "../../utilities";
  *     resourceGroupName: "myResourceGroup",
  *     status: "Enabled",
  *     step: {
+ *         arguments: [
+ *             {
+ *                 isSecret: false,
+ *                 name: "mytestargument",
+ *                 value: "mytestvalue",
+ *             },
+ *             {
+ *                 isSecret: true,
+ *                 name: "mysecrettestargument",
+ *                 value: "mysecrettestvalue",
+ *             },
+ *         ],
  *         contextPath: "src",
+ *         dockerFilePath: "src/DockerFile",
+ *         imageNames: ["azurerest:testtag"],
+ *         isPushEnabled: true,
+ *         noCache: false,
+ *         type: "Docker",
  *     },
  *     tags: {
  *         testkey: "value",
@@ -158,6 +237,8 @@ import * as utilities from "../../utilities";
  *         baseImageTrigger: {
  *             baseImageTriggerType: "Runtime",
  *             name: "myBaseImageTrigger",
+ *             updateTriggerEndpoint: "https://user:pass@mycicd.webhook.com?token=foo",
+ *             updateTriggerPayloadType: "Default",
  *         },
  *         sourceTriggers: [{
  *             name: "mySourceTrigger",
@@ -193,6 +274,7 @@ import * as utilities from "../../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     isSystemTask: false,
  *     location: "eastus",
  *     platform: {
  *         architecture: "amd64",
@@ -202,7 +284,24 @@ import * as utilities from "../../utilities";
  *     resourceGroupName: "myResourceGroup",
  *     status: "Enabled",
  *     step: {
+ *         arguments: [
+ *             {
+ *                 isSecret: false,
+ *                 name: "mytestargument",
+ *                 value: "mytestvalue",
+ *             },
+ *             {
+ *                 isSecret: true,
+ *                 name: "mysecrettestargument",
+ *                 value: "mysecrettestvalue",
+ *             },
+ *         ],
  *         contextPath: "src",
+ *         dockerFilePath: "src/DockerFile",
+ *         imageNames: ["azurerest:testtag"],
+ *         isPushEnabled: true,
+ *         noCache: false,
+ *         type: "Docker",
  *     },
  *     tags: {
  *         testkey: "value",
@@ -267,6 +366,10 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly agentConfiguration!: pulumi.Output<outputs.containerregistry.latest.AgentPropertiesResponse | undefined>;
     /**
+     * The dedicated agent pool for the task.
+     */
+    public readonly agentPoolName!: pulumi.Output<string | undefined>;
+    /**
      * The creation date of task.
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
@@ -279,9 +382,17 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.containerregistry.latest.IdentityPropertiesResponse | undefined>;
     /**
+     * The value of this property indicates whether the task resource is system task or not.
+     */
+    public readonly isSystemTask!: pulumi.Output<boolean | undefined>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The template that describes the repository and tag information for run log artifact.
+     */
+    public readonly logTemplate!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
@@ -289,7 +400,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * The platform properties against which the run has to happen.
      */
-    public readonly platform!: pulumi.Output<outputs.containerregistry.latest.PlatformPropertiesResponse>;
+    public readonly platform!: pulumi.Output<outputs.containerregistry.latest.PlatformPropertiesResponse | undefined>;
     /**
      * The provisioning state of the task.
      */
@@ -301,7 +412,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * The properties of a task step.
      */
-    public readonly step!: pulumi.Output<outputs.containerregistry.latest.DockerBuildStepResponse | outputs.containerregistry.latest.EncodedTaskStepResponse | outputs.containerregistry.latest.FileTaskStepResponse>;
+    public readonly step!: pulumi.Output<outputs.containerregistry.latest.DockerBuildStepResponse | outputs.containerregistry.latest.EncodedTaskStepResponse | outputs.containerregistry.latest.FileTaskStepResponse | undefined>;
     /**
      * The tags of the resource.
      */
@@ -332,25 +443,22 @@ export class Task extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.platform === undefined) {
-                throw new Error("Missing required property 'platform'");
-            }
             if (!args || args.registryName === undefined) {
                 throw new Error("Missing required property 'registryName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.step === undefined) {
-                throw new Error("Missing required property 'step'");
-            }
             if (!args || args.taskName === undefined) {
                 throw new Error("Missing required property 'taskName'");
             }
             inputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
+            inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
             inputs["credentials"] = args ? args.credentials : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["isSystemTask"] = args ? args.isSystemTask : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["logTemplate"] = args ? args.logTemplate : undefined;
             inputs["platform"] = args ? args.platform : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -366,10 +474,13 @@ export class Task extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["agentConfiguration"] = undefined /*out*/;
+            inputs["agentPoolName"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["credentials"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
+            inputs["isSystemTask"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["logTemplate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["platform"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -402,6 +513,10 @@ export interface TaskArgs {
      */
     readonly agentConfiguration?: pulumi.Input<inputs.containerregistry.latest.AgentProperties>;
     /**
+     * The dedicated agent pool for the task.
+     */
+    readonly agentPoolName?: pulumi.Input<string>;
+    /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
     readonly credentials?: pulumi.Input<inputs.containerregistry.latest.Credentials>;
@@ -410,13 +525,21 @@ export interface TaskArgs {
      */
     readonly identity?: pulumi.Input<inputs.containerregistry.latest.IdentityProperties>;
     /**
+     * The value of this property indicates whether the task resource is system task or not.
+     */
+    readonly isSystemTask?: pulumi.Input<boolean>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: pulumi.Input<string>;
     /**
+     * The template that describes the repository and tag information for run log artifact.
+     */
+    readonly logTemplate?: pulumi.Input<string>;
+    /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform: pulumi.Input<inputs.containerregistry.latest.PlatformProperties>;
+    readonly platform?: pulumi.Input<inputs.containerregistry.latest.PlatformProperties>;
     /**
      * The name of the container registry.
      */
@@ -432,7 +555,7 @@ export interface TaskArgs {
     /**
      * The properties of a task step.
      */
-    readonly step: pulumi.Input<inputs.containerregistry.latest.TaskStepProperties>;
+    readonly step?: pulumi.Input<inputs.containerregistry.latest.DockerBuildStep | inputs.containerregistry.latest.EncodedTaskStep | inputs.containerregistry.latest.FileTaskStep>;
     /**
      * The tags of the resource.
      */

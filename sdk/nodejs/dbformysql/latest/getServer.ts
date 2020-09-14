@@ -40,21 +40,45 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * Status showing whether the server data encryption is enabled with customer-managed keys.
+     * The password of the administrator login (required for server creation).
+     */
+    readonly administratorLoginPassword?: string;
+    /**
+     * availability Zone information of the server.
+     */
+    readonly availabilityZone?: string;
+    /**
+     * Status showing whether the data encryption is enabled with customer-managed keys.
      */
     readonly byokEnforcement: string;
     /**
+     * The mode to create a new MySQL server.
+     */
+    readonly createMode?: string;
+    /**
+     * Delegated subnet arguments.
+     */
+    readonly delegatedSubnetArguments?: outputs.dbformysql.latest.DelegatedSubnetArgumentsResponse;
+    /**
      * Earliest restore point creation time (ISO8601 format)
      */
-    readonly earliestRestoreDate?: string;
+    readonly earliestRestoreDate: string;
     /**
      * The fully qualified domain name of a server.
      */
-    readonly fullyQualifiedDomainName?: string;
+    readonly fullyQualifiedDomainName: string;
+    /**
+     * Enable HA or not for a server.
+     */
+    readonly haEnabled?: string;
+    /**
+     * The state of a HA server.
+     */
+    readonly haState: string;
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.dbformysql.latest.ResourceIdentityResponse;
+    readonly identity?: outputs.dbformysql.latest.IdentityResponse;
     /**
      * Status showing whether the server enabled infrastructure encryption.
      */
@@ -64,41 +88,49 @@ export interface GetServerResult {
      */
     readonly location: string;
     /**
-     * The master server id of a replica server.
+     * Maintenance window of a server.
      */
-    readonly masterServerId?: string;
-    /**
-     * Enforce a minimal Tls version for the server.
-     */
-    readonly minimalTlsVersion?: string;
+    readonly maintenanceWindow?: outputs.dbformysql.latest.MaintenanceWindowResponse;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * List of private endpoint connections on a server
-     */
-    readonly privateEndpointConnections: outputs.dbformysql.latest.ServerPrivateEndpointConnectionResponse[];
-    /**
      * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    readonly publicNetworkAccess?: string;
+    readonly publicNetworkAccess: string;
     /**
-     * The maximum number of replicas that a master server can have.
+     * The maximum number of replicas that a primary server can have.
      */
-    readonly replicaCapacity?: number;
+    readonly replicaCapacity: number;
     /**
-     * The replication role of the server.
+     * The replication role.
      */
     readonly replicationRole?: string;
+    /**
+     * Restore point creation time (ISO8601 format), specifying the time to restore from.
+     */
+    readonly restorePointInTime?: string;
     /**
      * The SKU (pricing tier) of the server.
      */
     readonly sku?: outputs.dbformysql.latest.SkuResponse;
     /**
+     * The source MySQL server id.
+     */
+    readonly sourceServerId?: string;
+    /**
      * Enable ssl enforcement or not when connect to server.
      */
     readonly sslEnforcement?: string;
+    /**
+     * availability Zone information of the server.
+     */
+    readonly standbyAvailabilityZone: string;
+    /**
+     * The state of a server.
+     */
+    readonly state: string;
     /**
      * Storage profile of a server.
      */
@@ -111,10 +143,6 @@ export interface GetServerResult {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
-    /**
-     * A state of a server that is visible to user.
-     */
-    readonly userVisibleState?: string;
     /**
      * Server version.
      */

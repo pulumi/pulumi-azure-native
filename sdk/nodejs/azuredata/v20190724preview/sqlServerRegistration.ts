@@ -115,7 +115,7 @@ export class SqlServerRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:azuredata/v20170301preview:SqlServerRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:azuredata/latest:SqlServerRegistration" }, { type: "azurerm:azuredata/v20170301preview:SqlServerRegistration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlServerRegistration.__pulumiType, name, inputs, opts);
     }

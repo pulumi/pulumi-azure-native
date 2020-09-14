@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Represents a server firewall rule.
  *
  * ## Example Usage
- * ### FirewallRuleCreate
+ * ### Create a firewall rule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -113,7 +113,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/v20171201:FirewallRule" }, { type: "azurerm:dbformysql/v20171201preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/v20200701privatepreview:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

@@ -2,12 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./budget";
+export * from "./cloudConnector";
+export * from "./connector";
 export * from "./export";
+export * from "./getBudget";
+export * from "./getCloudConnector";
+export * from "./getConnector";
 export * from "./getExport";
+export * from "./getReport";
+export * from "./getReportByResourceGroupName";
 export * from "./getReportConfig";
 export * from "./getReportConfigByResourceGroupName";
 export * from "./getView";
 export * from "./getViewByScope";
+export * from "./report";
+export * from "./reportByResourceGroupName";
 export * from "./reportConfig";
 export * from "./reportConfigByResourceGroupName";
 export * from "./view";

@@ -24,7 +24,6 @@ import * as utilities from "../../utilities";
  *     }],
  *     description: "myManagedApplicationDef description",
  *     displayName: "myManagedApplicationDef",
- *     location: "East US 2",
  *     lockLevel: "None",
  *     packageFileUri: "https://path/to/packagezipfile",
  *     resourceGroupName: "rg",
@@ -132,6 +131,10 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.solutions.latest.SkuResponse | undefined>;
     /**
+     * The storage account id for bring your own storage scenario.
+     */
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -178,6 +181,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             inputs["policies"] = args ? args.policies : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -200,6 +204,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             inputs["packageFileUri"] = undefined /*out*/;
             inputs["policies"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["storageAccountId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -296,6 +301,10 @@ export interface ApplicationDefinitionArgs {
      * The SKU of the resource.
      */
     readonly sku?: pulumi.Input<inputs.solutions.latest.Sku>;
+    /**
+     * The storage account id for bring your own storage scenario.
+     */
+    readonly storageAccountId?: pulumi.Input<string>;
     /**
      * Resource tags
      */

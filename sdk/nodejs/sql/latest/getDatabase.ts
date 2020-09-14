@@ -16,7 +16,6 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
     }
     return pulumi.runtime.invoke("azurerm:sql/latest:getDatabase", {
         "databaseName": args.databaseName,
-        "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -24,13 +23,9 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetDatabaseArgs {
     /**
-     * The name of the database to be retrieved.
+     * The name of the database.
      */
     readonly databaseName: string;
-    /**
-     * A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.
-     */
-    readonly expand?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -42,35 +37,39 @@ export interface GetDatabaseArgs {
 }
 
 /**
- * Represents a database.
+ * A database resource.
  */
 export interface GetDatabaseResult {
     /**
-     * The collation of the database. If createMode is not Default, this value is ignored.
+     * Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+     */
+    readonly autoPauseDelay?: number;
+    /**
+     * Collation of the metadata catalog.
+     */
+    readonly catalogCollation?: string;
+    /**
+     * The collation of the database.
      */
     readonly collation?: string;
     /**
-     * The containment state of the database.
-     */
-    readonly containmentState: number;
-    /**
      * Specifies the mode of database creation.
-     *
+     * 
      * Default: regular database creation.
-     *
+     * 
      * Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-     *
-     * OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-     *
+     * 
+     * Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+     * 
      * PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-     *
+     * 
      * Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-     *
+     * 
      * Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-     *
+     * 
      * RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-     *
-     * Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+     * 
+     * Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
     readonly createMode?: string;
     /**
@@ -78,9 +77,13 @@ export interface GetDatabaseResult {
      */
     readonly creationDate: string;
     /**
-     * The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
+     * The current service level objective name of the database.
      */
-    readonly currentServiceObjectiveId: string;
+    readonly currentServiceObjectiveName: string;
+    /**
+     * The name and tier of the SKU.
+     */
+    readonly currentSku: outputs.sql.latest.SkuResponse;
     /**
      * The ID of the database.
      */
@@ -94,63 +97,91 @@ export interface GetDatabaseResult {
      */
     readonly earliestRestoreDate: string;
     /**
-     * The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-     * 
-     * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-     * 
-     * ```azurecli
-     * az sql db list-editions -l <location> -o table
-     * ````
-     * 
-     * ```powershell
-     * Get-AzSqlServerServiceObjective -Location <location>
-     * ````
+     * The resource identifier of the elastic pool containing this database.
      */
-    readonly edition?: string;
+    readonly elasticPoolId?: string;
     /**
-     * The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-     */
-    readonly elasticPoolName?: string;
-    /**
-     * The resource identifier of the failover group containing this database.
+     * Failover Group resource identifier that this database belongs to.
      */
     readonly failoverGroupId: string;
     /**
-     * Kind of database.  This is metadata used for the Azure portal experience.
+     * Kind of database. This is metadata used for the Azure portal experience.
      */
     readonly kind: string;
+    /**
+     * The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
+     */
+    readonly licenseType?: string;
     /**
      * Resource location.
      */
     readonly location: string;
     /**
-     * The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
+     * The resource identifier of the long term retention backup associated with create operation of this database.
      */
-    readonly maxSizeBytes?: string;
+    readonly longTermRetentionBackupResourceId?: string;
+    /**
+     * Resource that manages the database.
+     */
+    readonly managedBy: string;
+    /**
+     * The max log size for this database.
+     */
+    readonly maxLogSizeBytes: number;
+    /**
+     * The max size of the database expressed in bytes.
+     */
+    readonly maxSizeBytes?: number;
+    /**
+     * Minimal capacity that database will always have allocated, if not paused
+     */
+    readonly minCapacity?: number;
     /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+     * The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
+     */
+    readonly pausedDate: string;
+    /**
+     * The number of readonly secondary replicas associated with the database.
+     */
+    readonly readReplicaCount?: number;
+    /**
+     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
      */
     readonly readScale?: string;
     /**
-     * The recommended indices for this database.
+     * The resource identifier of the recoverable database associated with create operation of this database.
      */
-    readonly recommendedIndex: outputs.sql.latest.RecommendedIndexResponse[];
+    readonly recoverableDatabaseId?: string;
     /**
-     * Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
+     * The resource identifier of the recovery point associated with create operation of this database.
      */
-    readonly recoveryServicesRecoveryPointResourceId?: string;
+    readonly recoveryServicesRecoveryPointId?: string;
     /**
-     * The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-     * 
-     * The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
+     * The requested service level objective name of the database.
      */
-    readonly requestedServiceObjectiveId?: string;
+    readonly requestedServiceObjectiveName: string;
     /**
-     * The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+     * The resource identifier of the restorable dropped database associated with create operation of this database.
+     */
+    readonly restorableDroppedDatabaseId?: string;
+    /**
+     * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+     */
+    readonly restorePointInTime?: string;
+    /**
+     * The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
+     */
+    readonly resumedDate: string;
+    /**
+     * The name of the sample schema to apply when creating this database.
+     */
+    readonly sampleName?: string;
+    /**
+     * The database SKU.
      * 
      * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
      * 
@@ -162,29 +193,13 @@ export interface GetDatabaseResult {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly requestedServiceObjectiveName?: string;
+    readonly sku?: outputs.sql.latest.SkuResponse;
     /**
-     * Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-     */
-    readonly restorePointInTime?: string;
-    /**
-     * Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-     */
-    readonly sampleName?: string;
-    /**
-     * The current service level objective of the database.
-     */
-    readonly serviceLevelObjective: string;
-    /**
-     * The list of service tier advisors for this database. Expanded property
-     */
-    readonly serviceTierAdvisors: outputs.sql.latest.ServiceTierAdvisorResponse[];
-    /**
-     * Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
+     * Specifies the time that the database was deleted.
      */
     readonly sourceDatabaseDeletionDate?: string;
     /**
-     * Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
+     * The resource identifier of the source database associated with create operation of this database.
      */
     readonly sourceDatabaseId?: string;
     /**
@@ -192,13 +207,13 @@ export interface GetDatabaseResult {
      */
     readonly status: string;
     /**
+     * The storage account type used to store backups for this database. Currently the only supported option is GRS (GeoRedundantStorage).
+     */
+    readonly storageAccountType?: string;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * The transparent data encryption info for this database.
-     */
-    readonly transparentDataEncryption: outputs.sql.latest.TransparentDataEncryptionResponse[];
     /**
      * Resource type.
      */

@@ -71,7 +71,7 @@ export interface GetMachineResult {
     /**
      * Machine Extensions information
      */
-    readonly extensions: outputs.hybridcompute.latest.MachineExtensionInstanceViewResponse[];
+    readonly extensions?: outputs.hybridcompute.latest.MachineExtensionInstanceViewResponse[];
     readonly identity?: outputs.hybridcompute.latest.MachineResponseIdentity;
     /**
      * The time of the last status change.
@@ -109,6 +109,10 @@ export interface GetMachineResult {
      * The version of Operating System running on the hybrid machine.
      */
     readonly osVersion: string;
+    /**
+     * List of private link scoped resources associated with this machine.
+     */
+    readonly privateLinkScopedResources: string[];
     /**
      * The provisioning state, which only appears in the response.
      */

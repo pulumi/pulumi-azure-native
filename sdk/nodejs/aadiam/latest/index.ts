@@ -2,5 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./azureADMetric";
 export * from "./diagnosticSetting";
 export * from "./getDiagnosticSetting";
+export * from "./getazureADMetric";
+export * from "./getprivateLinkForAzureAd";
+export * from "./privateLinkForAzureAd";

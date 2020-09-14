@@ -17,18 +17,12 @@ import * as utilities from "../../utilities";
  * import * as azurerm from "@pulumi/azurerm";
  *
  * const server = new azurerm.dbforpostgresql.latest.Server("server", {
- *     location: "brazilsouth",
- *     resourceGroupName: "TargetResourceGroup",
- *     serverName: "targetserver",
- *     sku: {
- *         capacity: 2,
- *         family: "Gen5",
- *         name: "B_Gen5_2",
- *         tier: "Basic",
- *     },
- *     tags: {
- *         ElasticServer: "1",
- *     },
+ *     createMode: "PointInTimeRestore",
+ *     location: "westus",
+ *     pointInTimeUTC: "2020-06-30T23:41:49.000Z",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "pgtestsvc4",
+ *     sourceServerName: "sourcePgServerName",
  * });
  *
  * ```
@@ -39,59 +33,28 @@ import * as utilities from "../../utilities";
  * import * as azurerm from "@pulumi/azurerm";
  *
  * const server = new azurerm.dbforpostgresql.latest.Server("server", {
+ *     administratorLogin: "cloudsa",
+ *     administratorLoginPassword: "password",
+ *     availabilityZone: "1",
+ *     delegatedSubnetArguments: {
+ *         subnetArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+ *     },
+ *     haEnabled: "Enabled",
  *     location: "westus",
- *     resourceGroupName: "TestGroup",
+ *     resourceGroupName: "testrg",
  *     serverName: "pgtestsvc4",
  *     sku: {
- *         capacity: 2,
- *         family: "Gen5",
- *         name: "B_Gen5_2",
- *         tier: "Basic",
+ *         name: "Standard_D4s_v3",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storageProfile: {
+ *         backupRetentionDays: 7,
+ *         storageMB: 524288,
  *     },
  *     tags: {
  *         ElasticServer: "1",
  *     },
- * });
- *
- * ```
- * ### Create a replica server
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const server = new azurerm.dbforpostgresql.latest.Server("server", {
- *     location: "westcentralus",
- *     resourceGroupName: "TestGroup_WestCentralUS",
- *     serverName: "testserver-replica1",
- *     sku: {
- *         capacity: 2,
- *         family: "Gen5",
- *         name: "GP_Gen5_2",
- *         tier: "GeneralPurpose",
- *     },
- * });
- *
- * ```
- * ### Create a server as a geo restore
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const server = new azurerm.dbforpostgresql.latest.Server("server", {
- *     location: "westus",
- *     resourceGroupName: "TargetResourceGroup",
- *     serverName: "targetserver",
- *     sku: {
- *         capacity: 2,
- *         family: "Gen5",
- *         name: "GP_Gen5_2",
- *         tier: "GeneralPurpose",
- *     },
- *     tags: {
- *         ElasticServer: "1",
- *     },
+ *     version: "12",
  * });
  *
  * ```
@@ -126,71 +89,84 @@ export class Server extends pulumi.CustomResource {
     /**
      * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
      */
-    public /*out*/ readonly administratorLogin!: pulumi.Output<string | undefined>;
+    public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * Status showing whether the server data encryption is enabled with customer-managed keys.
+     * The administrator login password (required for server creation).
+     */
+    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    /**
+     * availability Zone information of the server.
+     */
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    /**
+     * Status showing whether the data encryption is enabled with customer-managed keys.
      */
     public /*out*/ readonly byokEnforcement!: pulumi.Output<string>;
     /**
-     * Earliest restore point creation time (ISO8601 format)
+     * The mode to create a new PostgreSQL server.
      */
-    public /*out*/ readonly earliestRestoreDate!: pulumi.Output<string | undefined>;
+    public readonly createMode!: pulumi.Output<string | undefined>;
+    public readonly delegatedSubnetArguments!: pulumi.Output<outputs.dbforpostgresql.latest.ServerPropertiesResponseDelegatedSubnetArguments | undefined>;
+    /**
+     * The display name of a server.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * The fully qualified domain name of a server.
      */
-    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
+    /**
+     * stand by count value can be either enabled or disabled
+     */
+    public readonly haEnabled!: pulumi.Output<string | undefined>;
+    /**
+     * A state of a HA server that is visible to user.
+     */
+    public /*out*/ readonly haState!: pulumi.Output<string>;
     /**
      * The Azure Active Directory identity of the server.
      */
-    public readonly identity!: pulumi.Output<outputs.dbforpostgresql.latest.ResourceIdentityResponse | undefined>;
-    /**
-     * Status showing whether the server enabled infrastructure encryption.
-     */
-    public /*out*/ readonly infrastructureEncryption!: pulumi.Output<string | undefined>;
+    public readonly identity!: pulumi.Output<outputs.dbforpostgresql.latest.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The master server id of a replica server.
+     * Maintenance window of a server.
      */
-    public /*out*/ readonly masterServerId!: pulumi.Output<string | undefined>;
-    /**
-     * Enforce a minimal Tls version for the server.
-     */
-    public /*out*/ readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
+    public readonly maintenanceWindow!: pulumi.Output<outputs.dbforpostgresql.latest.MaintenanceWindowResponse | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * List of private endpoint connections on a server
+     * Restore point creation time (ISO8601 format), specifying the time to restore from.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.dbforpostgresql.latest.ServerPrivateEndpointConnectionResponse[]>;
+    public readonly pointInTimeUTC!: pulumi.Output<string | undefined>;
     /**
-     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     * public network access is enabled or not
      */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
-    /**
-     * The maximum number of replicas that a master server can have.
-     */
-    public /*out*/ readonly replicaCapacity!: pulumi.Output<number | undefined>;
-    /**
-     * The replication role of the server.
-     */
-    public /*out*/ readonly replicationRole!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
     /**
      * The SKU (pricing tier) of the server.
      */
     public readonly sku!: pulumi.Output<outputs.dbforpostgresql.latest.SkuResponse | undefined>;
     /**
-     * Enable ssl enforcement or not when connect to server.
+     * The source PostgreSQL server name to restore from.
      */
-    public /*out*/ readonly sslEnforcement!: pulumi.Output<string | undefined>;
+    public readonly sourceServerName!: pulumi.Output<string | undefined>;
+    /**
+     * availability Zone information of the server.
+     */
+    public /*out*/ readonly standbyAvailabilityZone!: pulumi.Output<string>;
+    /**
+     * A state of a server that is visible to user.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Storage profile of a server.
      */
-    public /*out*/ readonly storageProfile!: pulumi.Output<outputs.dbforpostgresql.latest.StorageProfileResponse | undefined>;
+    public readonly storageProfile!: pulumi.Output<outputs.dbforpostgresql.latest.StorageProfileResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -200,13 +176,9 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * A state of a server that is visible to user.
+     * PostgreSQL Server version.
      */
-    public /*out*/ readonly userVisibleState!: pulumi.Output<string | undefined>;
-    /**
-     * Server version.
-     */
-    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -221,60 +193,62 @@ export class Server extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
+            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            inputs["createMode"] = args ? args.createMode : undefined;
+            inputs["delegatedSubnetArguments"] = args ? args.delegatedSubnetArguments : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["haEnabled"] = args ? args.haEnabled : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            inputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["sourceServerName"] = args ? args.sourceServerName : undefined;
+            inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["administratorLogin"] = undefined /*out*/;
+            inputs["version"] = args ? args.version : undefined;
             inputs["byokEnforcement"] = undefined /*out*/;
-            inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            inputs["infrastructureEncryption"] = undefined /*out*/;
-            inputs["masterServerId"] = undefined /*out*/;
-            inputs["minimalTlsVersion"] = undefined /*out*/;
+            inputs["haState"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["replicaCapacity"] = undefined /*out*/;
-            inputs["replicationRole"] = undefined /*out*/;
-            inputs["sslEnforcement"] = undefined /*out*/;
-            inputs["storageProfile"] = undefined /*out*/;
+            inputs["standbyAvailabilityZone"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["userVisibleState"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
+            inputs["administratorLoginPassword"] = undefined /*out*/;
+            inputs["availabilityZone"] = undefined /*out*/;
             inputs["byokEnforcement"] = undefined /*out*/;
-            inputs["earliestRestoreDate"] = undefined /*out*/;
+            inputs["createMode"] = undefined /*out*/;
+            inputs["delegatedSubnetArguments"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["haEnabled"] = undefined /*out*/;
+            inputs["haState"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
-            inputs["infrastructureEncryption"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["masterServerId"] = undefined /*out*/;
-            inputs["minimalTlsVersion"] = undefined /*out*/;
+            inputs["maintenanceWindow"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["pointInTimeUTC"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["replicaCapacity"] = undefined /*out*/;
-            inputs["replicationRole"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
-            inputs["sslEnforcement"] = undefined /*out*/;
+            inputs["sourceServerName"] = undefined /*out*/;
+            inputs["standbyAvailabilityZone"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["storageProfile"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["userVisibleState"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
@@ -284,7 +258,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbforpostgresql/v20171201:Server" }, { type: "azurerm:dbforpostgresql/v20171201preview:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbforpostgresql/v20200214privatepreview:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }
@@ -295,17 +269,46 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerArgs {
     /**
+     * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+     */
+    readonly administratorLogin?: pulumi.Input<string>;
+    /**
+     * The administrator login password (required for server creation).
+     */
+    readonly administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * availability Zone information of the server.
+     */
+    readonly availabilityZone?: pulumi.Input<string>;
+    /**
+     * The mode to create a new PostgreSQL server.
+     */
+    readonly createMode?: pulumi.Input<string>;
+    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.latest.ServerPropertiesDelegatedSubnetArguments>;
+    /**
+     * The display name of a server.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
+     * stand by count value can be either enabled or disabled
+     */
+    readonly haEnabled?: pulumi.Input<string>;
+    /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.dbforpostgresql.latest.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.dbforpostgresql.latest.Identity>;
     /**
-     * The location the resource resides in.
+     * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Properties of the server.
+     * Maintenance window of a server.
      */
-    readonly properties: pulumi.Input<inputs.dbforpostgresql.latest.ServerPropertiesForDefaultCreate | inputs.dbforpostgresql.latest.ServerPropertiesForGeoRestore | inputs.dbforpostgresql.latest.ServerPropertiesForReplica | inputs.dbforpostgresql.latest.ServerPropertiesForRestore>;
+    readonly maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.latest.MaintenanceWindow>;
+    /**
+     * Restore point creation time (ISO8601 format), specifying the time to restore from.
+     */
+    readonly pointInTimeUTC?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -319,7 +322,19 @@ export interface ServerArgs {
      */
     readonly sku?: pulumi.Input<inputs.dbforpostgresql.latest.Sku>;
     /**
-     * Application-specific metadata in the form of key-value pairs.
+     * The source PostgreSQL server name to restore from.
+     */
+    readonly sourceServerName?: pulumi.Input<string>;
+    /**
+     * Storage profile of a server.
+     */
+    readonly storageProfile?: pulumi.Input<inputs.dbforpostgresql.latest.StorageProfile>;
+    /**
+     * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * PostgreSQL Server version.
+     */
+    readonly version?: pulumi.Input<string>;
 }

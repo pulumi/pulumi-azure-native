@@ -40,6 +40,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly apiProperties?: outputs.documentdb.latest.ApiPropertiesResponse;
     /**
+     * The object representing the policy for taking backups on an account.
+     */
+    readonly backupPolicy?: outputs.documentdb.latest.ContinuousModeBackupPolicyResponse | outputs.documentdb.latest.PeriodicModeBackupPolicyResponse;
+    /**
      * List of Cosmos DB capabilities for the account
      */
     readonly capabilities?: outputs.documentdb.latest.CapabilityResponse[];
@@ -55,6 +59,10 @@ export interface GetDatabaseAccountResult {
      * The CORS policy for the Cosmos DB database account.
      */
     readonly cors?: outputs.documentdb.latest.CorsPolicyResponse[];
+    /**
+     * Enum to indicate the mode of account creation.
+     */
+    readonly createMode?: string;
     /**
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
@@ -91,6 +99,14 @@ export interface GetDatabaseAccountResult {
      * An array that contains the regions ordered by their failover priorities.
      */
     readonly failoverPolicies: outputs.documentdb.latest.FailoverPolicyResponse[];
+    /**
+     * Identity for the resource.
+     */
+    readonly identity?: outputs.documentdb.latest.ManagedServiceIdentityResponse;
+    /**
+     * A unique identifier assigned to the database account
+     */
+    readonly instanceId: string;
     /**
      * List of IpRules.
      */
@@ -135,6 +151,14 @@ export interface GetDatabaseAccountResult {
      * An array that contains of the read locations enabled for the Cosmos DB account.
      */
     readonly readLocations: outputs.documentdb.latest.LocationResponse[];
+    /**
+     * Parameters to indicate the information about the restore.
+     */
+    readonly restoreParameters?: outputs.documentdb.latest.RestoreParametersResponse;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.documentdb.latest.SystemDataResponse;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */

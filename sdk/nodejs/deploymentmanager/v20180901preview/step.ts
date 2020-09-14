@@ -100,7 +100,7 @@ export class Step extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:deploymentmanager/v20191101preview:Step" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:deploymentmanager/latest:Step" }, { type: "azurerm:deploymentmanager/v20191101preview:Step" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Step.__pulumiType, name, inputs, opts);
     }

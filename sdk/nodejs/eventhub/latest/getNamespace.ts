@@ -36,9 +36,21 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
+     * Cluster ARM ID of the Namespace.
+     */
+    readonly clusterArmId?: string;
+    /**
      * The time the Namespace was created.
      */
     readonly createdAt: string;
+    /**
+     * Properties of BYOK Encryption description
+     */
+    readonly encryption?: outputs.eventhub.latest.EncryptionResponse;
+    /**
+     * Properties of BYOK Identity description
+     */
+    readonly identity?: outputs.eventhub.latest.IdentityResponse;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
@@ -87,4 +99,8 @@ export interface GetNamespaceResult {
      * The time the Namespace was updated.
      */
     readonly updatedAt: string;
+    /**
+     * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+     */
+    readonly zoneRedundant?: boolean;
 }

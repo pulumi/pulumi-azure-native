@@ -50,6 +50,7 @@ export * from "./getWebAppVnetConnection";
 export * from "./getWebAppVnetConnectionSlot";
 export * from "./listAppServicePlanHybridConnectionKeys";
 export * from "./listConnectionConsentLinks";
+export * from "./listConnectionKeys";
 export * from "./listCustomApiWsdlInterfaces";
 export * from "./listSiteIdentifiersAssignedToHostName";
 export * from "./listStaticSiteBuildFunctionAppSettings";

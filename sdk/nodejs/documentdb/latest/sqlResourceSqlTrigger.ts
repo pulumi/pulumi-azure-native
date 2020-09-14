@@ -61,6 +61,10 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
     }
 
     /**
+     * Identity for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.documentdb.latest.ManagedServiceIdentityResponse | undefined>;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -112,6 +116,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["containerName"] = args ? args.containerName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
@@ -121,6 +126,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["resource"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface SqlResourceSqlTriggerArgs {
      * Cosmos DB database name.
      */
     readonly databaseName: pulumi.Input<string>;
+    /**
+     * Identity for the resource.
+     */
+    readonly identity?: pulumi.Input<inputs.documentdb.latest.ManagedServiceIdentity>;
     /**
      * The location of the resource group to which the resource belongs.
      */

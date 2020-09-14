@@ -112,6 +112,8 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:costmanagement/latest:ReportByResourceGroupName" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReportByResourceGroupName.__pulumiType, name, inputs, opts);
     }
 }

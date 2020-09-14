@@ -102,7 +102,7 @@ export class LinkedWorkspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/v20200301:LinkedWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/v20200501preview:LinkedWorkspace" }, { type: "azurerm:machinelearningservices/v20200515preview:LinkedWorkspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedWorkspace.__pulumiType, name, inputs, opts);
     }

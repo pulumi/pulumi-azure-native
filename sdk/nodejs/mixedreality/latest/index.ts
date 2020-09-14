@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getRemoteRenderingAccount";
 export * from "./getSpatialAnchorsAccount";
+export * from "./listRemoteRenderingAccountKeys";
 export * from "./listSpatialAnchorsAccountKeys";
+export * from "./remoteRenderingAccount";
 export * from "./spatialAnchorsAccount";

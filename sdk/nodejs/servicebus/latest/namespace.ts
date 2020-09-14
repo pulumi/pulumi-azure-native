@@ -60,9 +60,13 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * The time the namespace was created.
+     * The time the namespace was created
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Properties of BYOK Encryption description
+     */
+    public readonly encryption!: pulumi.Output<outputs.servicebus.latest.EncryptionResponse | undefined>;
     /**
      * The Geo-location where the resource lives
      */
@@ -84,7 +88,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceBusEndpoint!: pulumi.Output<string>;
     /**
-     * Properties of Sku
+     * Properties of SKU
      */
     public readonly sku!: pulumi.Output<outputs.servicebus.latest.SBSkuResponse | undefined>;
     /**
@@ -99,6 +103,10 @@ export class Namespace extends pulumi.CustomResource {
      * The time the namespace was updated.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -119,11 +127,13 @@ export class Namespace extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["createdAt"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -133,6 +143,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["updatedAt"] = undefined /*out*/;
         } else {
             inputs["createdAt"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -142,6 +153,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
+            inputs["zoneRedundant"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -161,6 +173,10 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceArgs {
     /**
+     * Properties of BYOK Encryption description
+     */
+    readonly encryption?: pulumi.Input<inputs.servicebus.latest.Encryption>;
+    /**
      * The Geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
@@ -173,11 +189,15 @@ export interface NamespaceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Properties of Sku
+     * Properties of SKU
      */
     readonly sku?: pulumi.Input<inputs.servicebus.latest.SBSku>;
     /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+     */
+    readonly zoneRedundant?: pulumi.Input<boolean>;
 }

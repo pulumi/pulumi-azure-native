@@ -131,7 +131,6 @@ export class User extends pulumi.CustomResource {
             inputs["identities"] = args ? args.identities : undefined;
             inputs["lastName"] = args ? args.lastName : undefined;
             inputs["note"] = args ? args.note : undefined;
-            inputs["notify"] = args ? args.notify : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
@@ -171,7 +170,7 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserArgs {
     /**
-     * Determines the type of application which send the create user request. Default is legacy portal.
+     * Determines the type of application which send the create user request. Default is old publisher portal.
      */
     readonly appType?: pulumi.Input<string>;
     /**
@@ -198,10 +197,6 @@ export interface UserArgs {
      * Optional note about a user set by the administrator.
      */
     readonly note?: pulumi.Input<string>;
-    /**
-     * Send an Email notification to the User.
-     */
-    readonly notify?: pulumi.Input<boolean>;
     /**
      * User Password. If no value is provided, a default password is generated.
      */

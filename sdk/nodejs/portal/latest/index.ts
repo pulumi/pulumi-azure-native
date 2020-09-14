@@ -4,9 +4,13 @@
 // Export members:
 export * from "./console";
 export * from "./consoleWithLocation";
+export * from "./dashboard";
 export * from "./getConsole";
 export * from "./getConsoleWithLocation";
+export * from "./getDashboard";
+export * from "./getTenantConfiguration";
 export * from "./getUserSettings";
 export * from "./getUserSettingsWithLocation";
+export * from "./tenantConfiguration";
 export * from "./userSettings";
 export * from "./userSettingsWithLocation";

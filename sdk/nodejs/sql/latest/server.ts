@@ -2,32 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * Represents a server.
+ * An Azure SQL Database server.
  *
  * ## Example Usage
- * ### Create server max
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const server = new azurerm.sql.latest.Server("server", {
- *     administratorLogin: "dummylogin",
- *     administratorLoginPassword: "Un53cuRE!",
- *     location: "Japan East",
- *     resourceGroupName: "sqlcrudtest-7398",
- *     serverName: "sqlcrudtest-4645",
- *     tags: {
- *         tagKey1: "TagValue1",
- *     },
- *     version: "12.0",
- * });
- *
- * ```
- * ### Create server min
+ * ### Create server
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -71,7 +54,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+     * Administrator username for the server. Once created it cannot be changed.
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
@@ -79,19 +62,15 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
     /**
-     * The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-     */
-    public /*out*/ readonly externalAdministratorLogin!: pulumi.Output<string>;
-    /**
-     * The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-     */
-    public /*out*/ readonly externalAdministratorSid!: pulumi.Output<string>;
-    /**
      * The fully qualified domain name of the server.
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
     /**
-     * Kind of sql server.  This is metadata used for the Azure portal experience.
+     * The Azure Active Directory identity of the server.
+     */
+    public readonly identity!: pulumi.Output<outputs.sql.latest.ResourceIdentityResponse | undefined>;
+    /**
+     * Kind of sql server. This is metadata used for the Azure portal experience.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
@@ -99,9 +78,21 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+     */
+    public readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * List of private endpoint connections on a server
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.sql.latest.ServerPrivateEndpointConnectionResponse[]>;
+    /**
+     * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The state of the server.
      */
@@ -140,27 +131,31 @@ export class Server extends pulumi.CustomResource {
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
-            inputs["externalAdministratorLogin"] = undefined /*out*/;
-            inputs["externalAdministratorSid"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
             inputs["administratorLoginPassword"] = undefined /*out*/;
-            inputs["externalAdministratorLogin"] = undefined /*out*/;
-            inputs["externalAdministratorSid"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["minimalTlsVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -184,7 +179,7 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerArgs {
     /**
-     * Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+     * Administrator username for the server. Once created it cannot be changed.
      */
     readonly administratorLogin?: pulumi.Input<string>;
     /**
@@ -192,9 +187,21 @@ export interface ServerArgs {
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
     /**
+     * The Azure Active Directory identity of the server.
+     */
+    readonly identity?: pulumi.Input<inputs.sql.latest.ResourceIdentity>;
+    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+     */
+    readonly minimalTlsVersion?: pulumi.Input<string>;
+    /**
+     * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    readonly publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

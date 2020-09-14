@@ -95,7 +95,7 @@ export class ServiceTopology extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:deploymentmanager/v20191101preview:ServiceTopology" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:deploymentmanager/latest:ServiceTopology" }, { type: "azurerm:deploymentmanager/v20191101preview:ServiceTopology" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceTopology.__pulumiType, name, inputs, opts);
     }

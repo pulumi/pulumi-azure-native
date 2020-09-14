@@ -106,6 +106,8 @@ export class IoTSpace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:iotspaces/latest:IoTSpace" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IoTSpace.__pulumiType, name, inputs, opts);
     }
 }

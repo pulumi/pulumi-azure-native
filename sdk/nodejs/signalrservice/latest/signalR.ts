@@ -40,6 +40,9 @@ import * as utilities from "../../utilities";
  *             value: "False",
  *         },
  *     ],
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     kind: "SignalR",
  *     location: "eastus",
  *     networkACLs: {
@@ -62,8 +65,17 @@ import * as utilities from "../../utilities";
  *     tags: {
  *         key1: "value1",
  *     },
+ *     tls: {
+ *         clientCertEnabled: false,
+ *     },
  *     upstream: {
  *         templates: [{
+ *             auth: {
+ *                 managedIdentity: {
+ *                     resource: "api://example",
+ *                 },
+ *                 type: "ManagedIdentity",
+ *             },
  *             categoryPattern: "*",
  *             eventPattern: "connect,disconnect",
  *             hubPattern: "*",
@@ -123,10 +135,9 @@ export class SignalR extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
-     * Prefix for the hostName of the SignalR service. Retained for future use.
-     * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+     * The managed identity response
      */
-    public readonly hostNamePrefix!: pulumi.Output<string | undefined>;
+    public readonly identity!: pulumi.Output<outputs.signalrservice.latest.ManagedIdentityResponse | undefined>;
     /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */
@@ -168,6 +179,10 @@ export class SignalR extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * TLS settings.
+     */
+    public readonly tls!: pulumi.Output<outputs.signalrservice.latest.SignalRTlsSettingsResponse | undefined>;
+    /**
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -198,7 +213,7 @@ export class SignalR extends pulumi.CustomResource {
             }
             inputs["cors"] = args ? args.cors : undefined;
             inputs["features"] = args ? args.features : undefined;
-            inputs["hostNamePrefix"] = args ? args.hostNamePrefix : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["networkACLs"] = args ? args.networkACLs : undefined;
@@ -206,6 +221,7 @@ export class SignalR extends pulumi.CustomResource {
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tls"] = args ? args.tls : undefined;
             inputs["upstream"] = args ? args.upstream : undefined;
             inputs["externalIP"] = undefined /*out*/;
             inputs["hostName"] = undefined /*out*/;
@@ -221,7 +237,7 @@ export class SignalR extends pulumi.CustomResource {
             inputs["externalIP"] = undefined /*out*/;
             inputs["features"] = undefined /*out*/;
             inputs["hostName"] = undefined /*out*/;
-            inputs["hostNamePrefix"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -232,6 +248,7 @@ export class SignalR extends pulumi.CustomResource {
             inputs["serverPort"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["tls"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["upstream"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -267,10 +284,9 @@ export interface SignalRArgs {
      */
     readonly features?: pulumi.Input<pulumi.Input<inputs.signalrservice.latest.SignalRFeature>[]>;
     /**
-     * Prefix for the hostName of the SignalR service. Retained for future use.
-     * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+     * The managed identity response
      */
-    readonly hostNamePrefix?: pulumi.Input<string>;
+    readonly identity?: pulumi.Input<inputs.signalrservice.latest.ManagedIdentity>;
     /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */
@@ -299,6 +315,10 @@ export interface SignalRArgs {
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * TLS settings.
+     */
+    readonly tls?: pulumi.Input<inputs.signalrservice.latest.SignalRTlsSettings>;
     /**
      * Upstream settings when the Azure SignalR is in server-less mode.
      */

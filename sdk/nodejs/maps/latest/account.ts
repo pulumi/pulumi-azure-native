@@ -58,11 +58,11 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Maps Account, which is unique within a Resource Group.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -74,11 +74,15 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.maps.latest.SkuResponse>;
     /**
-     * Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+     * The system meta data relating to this resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.maps.latest.SystemDataResponse>;
     /**
-     * Azure resource type.
+     * Resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -111,12 +115,14 @@ export class Account extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -146,7 +152,7 @@ export interface AccountArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the Azure Resource Group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
@@ -154,7 +160,7 @@ export interface AccountArgs {
      */
     readonly sku: pulumi.Input<inputs.maps.latest.Sku>;
     /**
-     * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+     * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

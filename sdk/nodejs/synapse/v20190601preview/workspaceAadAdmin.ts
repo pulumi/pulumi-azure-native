@@ -98,6 +98,8 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:synapse/latest:WorkspaceAadAdmin" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceAadAdmin.__pulumiType, name, inputs, opts);
     }
 }

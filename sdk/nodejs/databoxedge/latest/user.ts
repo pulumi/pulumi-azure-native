@@ -25,7 +25,6 @@ import * as utilities from "../../utilities";
  *     },
  *     name: "user1",
  *     resourceGroupName: "GroupForEdgeAutomation",
- *     shareAccessRights: [],
  *     userType: "Share",
  * });
  *
@@ -69,7 +68,7 @@ export class User extends pulumi.CustomResource {
     /**
      * List of shares that the user has rights on. This field should not be specified during user creation.
      */
-    public readonly shareAccessRights!: pulumi.Output<outputs.databoxedge.latest.ShareAccessRightResponse[] | undefined>;
+    public /*out*/ readonly shareAccessRights!: pulumi.Output<outputs.databoxedge.latest.ShareAccessRightResponse[]>;
     /**
      * The hierarchical type of the object.
      */
@@ -105,8 +104,8 @@ export class User extends pulumi.CustomResource {
             inputs["encryptedPassword"] = args ? args.encryptedPassword : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareAccessRights"] = args ? args.shareAccessRights : undefined;
             inputs["userType"] = args ? args.userType : undefined;
+            inputs["shareAccessRights"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["encryptedPassword"] = undefined /*out*/;
@@ -148,10 +147,6 @@ export interface UserArgs {
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * List of shares that the user has rights on. This field should not be specified during user creation.
-     */
-    readonly shareAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.latest.ShareAccessRight>[]>;
     /**
      * Type of the user.
      */

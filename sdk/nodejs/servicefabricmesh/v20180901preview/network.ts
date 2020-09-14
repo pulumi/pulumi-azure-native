@@ -100,7 +100,7 @@ export class Network extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicefabricmesh/v20180701preview:Network" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:servicefabricmesh/latest:Network" }, { type: "azurerm:servicefabricmesh/v20180701preview:Network" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Network.__pulumiType, name, inputs, opts);
     }

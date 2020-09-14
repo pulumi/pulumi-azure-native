@@ -67,6 +67,22 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
+     * Enable a single data endpoint per region for serving data.
+     */
+    public readonly dataEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of host names that will serve data when dataEndpointEnabled is true.
+     */
+    public /*out*/ readonly dataEndpointHostNames!: pulumi.Output<string[]>;
+    /**
+     * The encryption settings of container registry.
+     */
+    public readonly encryption!: pulumi.Output<outputs.containerregistry.latest.EncryptionPropertyResponse | undefined>;
+    /**
+     * The identity of the container registry.
+     */
+    public readonly identity!: pulumi.Output<outputs.containerregistry.latest.IdentityPropertiesResponse | undefined>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -87,9 +103,17 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly policies!: pulumi.Output<outputs.containerregistry.latest.PoliciesResponse | undefined>;
     /**
+     * List of private endpoint connections for a container registry.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.containerregistry.latest.PrivateEndpointConnectionResponse[]>;
+    /**
      * The provisioning state of the container registry at the time the operation was called.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Whether or not public network access is allowed for the container registry.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The SKU of the container registry.
      */
@@ -134,29 +158,41 @@ export class Registry extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["adminUserEnabled"] = args ? args.adminUserEnabled : undefined;
+            inputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["policies"] = args ? args.policies : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["dataEndpointHostNames"] = undefined /*out*/;
             inputs["loginServer"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["adminUserEnabled"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["dataEndpointEnabled"] = undefined /*out*/;
+            inputs["dataEndpointHostNames"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["loginServer"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["networkRuleSet"] = undefined /*out*/;
             inputs["policies"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["storageAccount"] = undefined /*out*/;
@@ -185,6 +221,18 @@ export interface RegistryArgs {
      */
     readonly adminUserEnabled?: pulumi.Input<boolean>;
     /**
+     * Enable a single data endpoint per region for serving data.
+     */
+    readonly dataEndpointEnabled?: pulumi.Input<boolean>;
+    /**
+     * The encryption settings of container registry.
+     */
+    readonly encryption?: pulumi.Input<inputs.containerregistry.latest.EncryptionProperty>;
+    /**
+     * The identity of the container registry.
+     */
+    readonly identity?: pulumi.Input<inputs.containerregistry.latest.IdentityProperties>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: pulumi.Input<string>;
@@ -196,6 +244,10 @@ export interface RegistryArgs {
      * The policies for a container registry.
      */
     readonly policies?: pulumi.Input<inputs.containerregistry.latest.Policies>;
+    /**
+     * Whether or not public network access is allowed for the container registry.
+     */
+    readonly publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */

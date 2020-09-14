@@ -101,6 +101,8 @@ export class PrivateAtlase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:maps/latest:PrivateAtlase" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateAtlase.__pulumiType, name, inputs, opts);
     }
 }

@@ -23,7 +23,7 @@ export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOpt
 
 export interface GetElasticPoolArgs {
     /**
-     * The name of the elastic pool to be retrieved.
+     * The name of the elastic pool.
      */
     readonly elasticPoolName: string;
     /**
@@ -37,7 +37,7 @@ export interface GetElasticPoolArgs {
 }
 
 /**
- * Represents a database elastic pool.
+ * An elastic pool.
  */
 export interface GetElasticPoolResult {
     /**
@@ -45,41 +45,43 @@ export interface GetElasticPoolResult {
      */
     readonly creationDate: string;
     /**
-     * The maximum DTU any one database can consume.
-     */
-    readonly databaseDtuMax?: number;
-    /**
-     * The minimum DTU all databases are guaranteed.
-     */
-    readonly databaseDtuMin?: number;
-    /**
-     * The total shared DTU for the database elastic pool.
-     */
-    readonly dtu?: number;
-    /**
-     * The edition of the elastic pool.
-     */
-    readonly edition?: string;
-    /**
-     * Kind of elastic pool.  This is metadata used for the Azure portal experience.
+     * Kind of elastic pool. This is metadata used for the Azure portal experience.
      */
     readonly kind: string;
+    /**
+     * The license type to apply for this elastic pool.
+     */
+    readonly licenseType?: string;
     /**
      * Resource location.
      */
     readonly location: string;
     /**
+     * The storage limit for the database elastic pool in bytes.
+     */
+    readonly maxSizeBytes?: number;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
+     * The per database settings for the elastic pool.
+     */
+    readonly perDatabaseSettings?: outputs.sql.latest.ElasticPoolPerDatabaseSettingsResponse;
+    /**
+     * The elastic pool SKU.
+     * 
+     * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+     * 
+     * ```azurecli
+     * az sql elastic-pool list-editions -l <location> -o table
+     * ````
+     */
+    readonly sku?: outputs.sql.latest.SkuResponse;
+    /**
      * The state of the elastic pool.
      */
     readonly state: string;
-    /**
-     * Gets storage limit for the database elastic pool in MB.
-     */
-    readonly storageMB?: number;
     /**
      * Resource tags.
      */
@@ -89,7 +91,7 @@ export interface GetElasticPoolResult {
      */
     readonly type: string;
     /**
-     * Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+     * Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
      */
     readonly zoneRedundant?: boolean;
 }

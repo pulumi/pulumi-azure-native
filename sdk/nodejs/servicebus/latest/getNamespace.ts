@@ -36,9 +36,13 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
-     * The time the namespace was created.
+     * The time the namespace was created
      */
     readonly createdAt: string;
+    /**
+     * Properties of BYOK Encryption description
+     */
+    readonly encryption?: outputs.servicebus.latest.EncryptionResponse;
     /**
      * The Geo-location where the resource lives
      */
@@ -60,7 +64,7 @@ export interface GetNamespaceResult {
      */
     readonly serviceBusEndpoint: string;
     /**
-     * Properties of Sku
+     * Properties of SKU
      */
     readonly sku?: outputs.servicebus.latest.SBSkuResponse;
     /**
@@ -75,4 +79,8 @@ export interface GetNamespaceResult {
      * The time the namespace was updated.
      */
     readonly updatedAt: string;
+    /**
+     * Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+     */
+    readonly zoneRedundant?: boolean;
 }

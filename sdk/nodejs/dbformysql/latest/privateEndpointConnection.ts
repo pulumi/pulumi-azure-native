@@ -137,7 +137,7 @@ export interface PrivateEndpointConnectionArgs {
      */
     readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.dbformysql.latest.PrivateLinkServiceConnectionStateProperty>;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

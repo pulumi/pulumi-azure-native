@@ -32,57 +32,21 @@ import * as utilities from "../../utilities";
  *
  * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
  *     computeName: "compute123",
- *     identity: {
- *         type: "SystemAssigned,UserAssigned",
- *     },
  *     location: "eastus",
  *     properties: {
+ *         enableNodePublicIp: true,
+ *         isolatedNetwork: false,
+ *         osType: "Windows",
  *         remoteLoginPortPublicAccess: "NotSpecified",
  *         scaleSettings: {
  *             maxNodeCount: 1,
  *             minNodeCount: 0,
  *             nodeIdleTimeBeforeScaleDown: "PT5M",
  *         },
- *         vmPriority: "Dedicated",
- *         vmSize: "STANDARD_NC6",
- *     },
- *     resourceGroupName: "testrg123",
- *     workspaceName: "workspaces123",
- * });
- *
- * ```
- * ### Create a ComputeInstance Compute
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
- *     computeName: "compute123",
- *     location: "eastus",
- *     properties: {
- *         applicationSharingPolicy: "Personal",
- *         sshSettings: {
- *             sshPublicAccess: "Disabled",
+ *         virtualMachineImage: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition/versions/0.0.1",
  *         },
- *         subnet: "test-subnet-resource-id",
- *         vmSize: "STANDARD_NC6",
- *     },
- *     resourceGroupName: "testrg123",
- *     workspaceName: "workspaces123",
- * });
- *
- * ```
- * ### Create a ComputeInstance Compute with minimal inputs
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
- *     computeName: "compute123",
- *     location: "eastus",
- *     properties: {
+ *         vmPriority: "Dedicated",
  *         vmSize: "STANDARD_NC6",
  *     },
  *     resourceGroupName: "testrg123",
@@ -99,6 +63,52 @@ import * as utilities from "../../utilities";
  * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
  *     computeName: "compute123",
  *     location: "eastus",
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Create an ComputeInstance Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {
+ *         applicationSharingPolicy: "Personal",
+ *         computeInstanceAuthorizationType: "personal",
+ *         personalComputeInstanceSettings: {
+ *             assignedUser: {
+ *                 objectId: "00000000-0000-0000-0000-000000000000",
+ *                 tenantId: "00000000-0000-0000-0000-000000000000",
+ *             },
+ *         },
+ *         sshSettings: {
+ *             sshPublicAccess: "Disabled",
+ *         },
+ *         subnet: "test-subnet-resource-id",
+ *         vmSize: "STANDARD_NC6",
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Create an ComputeInstance Compute with minimal inputs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {
+ *         vmSize: "STANDARD_NC6",
+ *     },
  *     resourceGroupName: "testrg123",
  *     workspaceName: "workspaces123",
  * });
@@ -129,14 +139,11 @@ import * as utilities from "../../utilities";
  *
  * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
  *     computeName: "compute123",
- *     identity: {
- *         type: "SystemAssigned,UserAssigned",
- *     },
  *     location: "eastus",
  *     properties: {
  *         scaleSettings: {
- *             maxNodeCount: 1,
- *             minNodeCount: 0,
+ *             maxNodeCount: 4,
+ *             minNodeCount: 4,
  *             nodeIdleTimeBeforeScaleDown: "PT5M",
  *         },
  *     },

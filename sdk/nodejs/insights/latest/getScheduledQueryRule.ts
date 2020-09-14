@@ -32,51 +32,60 @@ export interface GetScheduledQueryRuleArgs {
 }
 
 /**
- * The Log Search Rule resource.
+ * The scheduled query rule resource.
  */
 export interface GetScheduledQueryRuleResult {
+    readonly actions?: outputs.insights.latest.ActionResponse[];
     /**
-     * Action needs to be taken on rule execution.
+     * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly action: outputs.insights.latest.AlertingActionResponse | outputs.insights.latest.LogToMetricActionResponse;
+    readonly criteria?: outputs.insights.latest.ScheduledQueryRuleCriteriaResponse;
     /**
-     * The description of the Log Search rule.
+     * The description of the scheduled query rule.
      */
     readonly description?: string;
     /**
-     * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+     * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    readonly enabled?: string;
+    readonly enabled?: boolean;
     /**
-     * Last time the rule was updated in IS08601 format.
+     * How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
      */
-    readonly lastUpdatedTime: string;
+    readonly evaluationFrequency?: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Azure resource name
+     * Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+     */
+    readonly muteActionsDuration?: string;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Provisioning state of the scheduled query rule
+     * The list of resource id's that this scheduled query rule is scoped to.
      */
-    readonly provisioningState: string;
+    readonly scopes?: string[];
     /**
-     * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+     * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
      */
-    readonly schedule?: outputs.insights.latest.ScheduleResponse;
+    readonly severity?: number;
     /**
-     * Data Source against which rule will Query Data
-     */
-    readonly source: outputs.insights.latest.SourceResponse;
-    /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Azure resource type
+     * List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+     */
+    readonly targetResourceTypes?: string[];
+    /**
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+     */
+    readonly windowSize?: string;
 }

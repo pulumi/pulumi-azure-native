@@ -36,13 +36,41 @@ export interface GetRoleAssignmentArgs {
  */
 export interface GetRoleAssignmentResult {
     /**
+     * The Delegation flag for the role assignment
+     */
+    readonly canDelegate?: boolean;
+    /**
+     * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+     */
+    readonly condition?: string;
+    /**
+     * Version of the condition. Currently accepted value is '2.0'
+     */
+    readonly conditionVersion?: string;
+    /**
+     * Description of role assignment
+     */
+    readonly description?: string;
+    /**
      * The role assignment name.
      */
     readonly name: string;
     /**
-     * Role assignment properties.
+     * The principal ID.
      */
-    readonly properties: outputs.authorization.latest.RoleAssignmentPropertiesWithScopeResponse;
+    readonly principalId?: string;
+    /**
+     * The principal type of the assigned principal ID.
+     */
+    readonly principalType?: string;
+    /**
+     * The role definition ID.
+     */
+    readonly roleDefinitionId?: string;
+    /**
+     * The role assignment scope.
+     */
+    readonly scope?: string;
     /**
      * The role assignment type.
      */

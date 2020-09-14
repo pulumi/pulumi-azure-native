@@ -105,7 +105,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string>;
     /**
-     * Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+     * Optional subscription comment added by an administrator.
      */
     public /*out*/ readonly stateComment!: pulumi.Output<string | undefined>;
     /**
@@ -139,7 +139,6 @@ export class Subscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sid'");
             }
             inputs["allowTracing"] = args ? args.allowTracing : undefined;
-            inputs["appType"] = args ? args.appType : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["notify"] = args ? args.notify : undefined;
             inputs["ownerId"] = args ? args.ownerId : undefined;
@@ -196,10 +195,6 @@ export interface SubscriptionArgs {
      * Determines whether tracing can be enabled
      */
     readonly allowTracing?: pulumi.Input<boolean>;
-    /**
-     * Determines the type of application which send the create user request. Default is legacy publisher portal.
-     */
-    readonly appType?: pulumi.Input<string>;
     /**
      * Subscription name.
      */

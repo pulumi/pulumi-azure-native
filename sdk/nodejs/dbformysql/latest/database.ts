@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Represents a Database.
  *
  * ## Example Usage
- * ### DatabaseCreate
+ * ### Create a database
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -107,7 +107,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/v20171201:Database" }, { type: "azurerm:dbformysql/v20171201preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/v20200701privatepreview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

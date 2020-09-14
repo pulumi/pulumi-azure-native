@@ -2,9 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./file";
+export * from "./getFile";
 export * from "./getProject";
 export * from "./getService";
+export * from "./getServiceTask";
 export * from "./getTask";
 export * from "./project";
 export * from "./service";
+export * from "./serviceTask";
 export * from "./task";

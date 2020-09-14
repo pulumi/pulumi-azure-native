@@ -51,6 +51,10 @@ export interface GetSqlResourceSqlUserDefinedFunctionArgs {
  */
 export interface GetSqlResourceSqlUserDefinedFunctionResult {
     /**
+     * Identity for the resource.
+     */
+    readonly identity?: outputs.documentdb.latest.ManagedServiceIdentityResponse;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     readonly location?: string;

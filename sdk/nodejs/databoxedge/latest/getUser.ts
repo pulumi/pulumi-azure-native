@@ -51,7 +51,7 @@ export interface GetUserResult {
     /**
      * List of shares that the user has rights on. This field should not be specified during user creation.
      */
-    readonly shareAccessRights?: outputs.databoxedge.latest.ShareAccessRightResponse[];
+    readonly shareAccessRights: outputs.databoxedge.latest.ShareAccessRightResponse[];
     /**
      * The hierarchical type of the object.
      */

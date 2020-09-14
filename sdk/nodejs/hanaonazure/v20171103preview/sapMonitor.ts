@@ -176,7 +176,7 @@ export class SapMonitor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hanaonazure/v20200207preview:SapMonitor" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:hanaonazure/latest:SapMonitor" }, { type: "azurerm:hanaonazure/v20200207preview:SapMonitor" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SapMonitor.__pulumiType, name, inputs, opts);
     }

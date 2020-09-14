@@ -44,6 +44,22 @@ export interface GetRegistryResult {
      */
     readonly creationDate: string;
     /**
+     * Enable a single data endpoint per region for serving data.
+     */
+    readonly dataEndpointEnabled?: boolean;
+    /**
+     * List of host names that will serve data when dataEndpointEnabled is true.
+     */
+    readonly dataEndpointHostNames: string[];
+    /**
+     * The encryption settings of container registry.
+     */
+    readonly encryption?: outputs.containerregistry.latest.EncryptionPropertyResponse;
+    /**
+     * The identity of the container registry.
+     */
+    readonly identity?: outputs.containerregistry.latest.IdentityPropertiesResponse;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: string;
@@ -64,9 +80,17 @@ export interface GetRegistryResult {
      */
     readonly policies?: outputs.containerregistry.latest.PoliciesResponse;
     /**
+     * List of private endpoint connections for a container registry.
+     */
+    readonly privateEndpointConnections: outputs.containerregistry.latest.PrivateEndpointConnectionResponse[];
+    /**
      * The provisioning state of the container registry at the time the operation was called.
      */
     readonly provisioningState: string;
+    /**
+     * Whether or not public network access is allowed for the container registry.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * The SKU of the container registry.
      */

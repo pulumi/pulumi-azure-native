@@ -113,6 +113,8 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:SubscriptionDiagnosticSetting" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SubscriptionDiagnosticSetting.__pulumiType, name, inputs, opts);
     }
 }

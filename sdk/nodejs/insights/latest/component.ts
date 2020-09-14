@@ -24,6 +24,7 @@ import * as utilities from "../../utilities";
  *     requestSource: "rest",
  *     resourceGroupName: "my-resource-group",
  *     resourceName: "my-component",
+ *     workspaceResourceId: "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
  * });
  *
  * ```
@@ -126,6 +127,10 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string>;
     /**
+     * The date which the component got migrated to LA, in ISO 8601 format.
+     */
+    public /*out*/ readonly laMigrationDate!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -142,13 +147,21 @@ export class Component extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The network access type for accessing Application Insights ingestion.
+     */
+    public readonly publicNetworkAccessForIngestion!: pulumi.Output<string | undefined>;
+    /**
+     * The network access type for accessing Application Insights query.
+     */
+    public readonly publicNetworkAccessForQuery!: pulumi.Output<string | undefined>;
+    /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
     public readonly requestSource!: pulumi.Output<string | undefined>;
     /**
      * Retention period in days.
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly retentionInDays!: pulumi.Output<number>;
     /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */
@@ -165,6 +178,10 @@ export class Component extends pulumi.CustomResource {
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * ResourceId of the log analytics workspace which the data will be ingested to.
+     */
+    public readonly workspaceResourceId!: pulumi.Output<string>;
 
     /**
      * Create a Component resource with the given unique name, arguments, and options.
@@ -191,6 +208,9 @@ export class Component extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
+            if (!args || args.workspaceResourceId === undefined) {
+                throw new Error("Missing required property 'workspaceResourceId'");
+            }
             inputs["applicationType"] = args ? args.applicationType : undefined;
             inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
             inputs["flowType"] = args ? args.flowType : undefined;
@@ -199,21 +219,25 @@ export class Component extends pulumi.CustomResource {
             inputs["ingestionMode"] = args ? args.ingestionMode : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
+            inputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
             inputs["requestSource"] = args ? args.requestSource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
             inputs["appId"] = undefined /*out*/;
             inputs["applicationId"] = undefined /*out*/;
             inputs["connectionString"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["hockeyAppToken"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
+            inputs["laMigrationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["retentionInDays"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -230,16 +254,20 @@ export class Component extends pulumi.CustomResource {
             inputs["ingestionMode"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
+            inputs["laMigrationDate"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccessForIngestion"] = undefined /*out*/;
+            inputs["publicNetworkAccessForQuery"] = undefined /*out*/;
             inputs["requestSource"] = undefined /*out*/;
             inputs["retentionInDays"] = undefined /*out*/;
             inputs["samplingPercentage"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["workspaceResourceId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -291,6 +319,14 @@ export interface ComponentArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * The network access type for accessing Application Insights ingestion.
+     */
+    readonly publicNetworkAccessForIngestion?: pulumi.Input<string>;
+    /**
+     * The network access type for accessing Application Insights query.
+     */
+    readonly publicNetworkAccessForQuery?: pulumi.Input<string>;
+    /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
     readonly requestSource?: pulumi.Input<string>;
@@ -303,10 +339,6 @@ export interface ComponentArgs {
      */
     readonly resourceName: pulumi.Input<string>;
     /**
-     * Retention period in days.
-     */
-    readonly retentionInDays?: pulumi.Input<number>;
-    /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */
     readonly samplingPercentage?: pulumi.Input<number>;
@@ -314,4 +346,8 @@ export interface ComponentArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * ResourceId of the log analytics workspace which the data will be ingested to.
+     */
+    readonly workspaceResourceId: pulumi.Input<string>;
 }

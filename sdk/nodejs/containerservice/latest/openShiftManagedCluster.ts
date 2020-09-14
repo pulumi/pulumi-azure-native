@@ -19,7 +19,7 @@ import * as utilities from "../../utilities";
  * const openShiftManagedCluster = new azurerm.containerservice.latest.OpenShiftManagedCluster("openShiftManagedCluster", {
  *     agentPoolProfiles: [
  *         {
- *             count: 2,
+ *             count: 3,
  *             name: "infra",
  *             osType: "Linux",
  *             role: "infra",
@@ -49,11 +49,16 @@ import * as utilities from "../../utilities";
  *     },
  *     location: "location1",
  *     masterPoolProfile: {
+ *         apiProperties: {
+ *             privateApiServer: false,
+ *         },
  *         count: 3,
- *         name: "master",
- *         osType: "Linux",
  *         subnetCidr: "10.0.0.0/24",
  *         vmSize: "Standard_D4s_v3",
+ *     },
+ *     monitorProfile: {
+ *         enabled: true,
+ *         workspaceResourceID: "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
  *     },
  *     networkProfile: {
  *         vnetCidr: "10.0.0.0/8",
@@ -61,6 +66,74 @@ import * as utilities from "../../utilities";
  *     openShiftVersion: "v3.11",
  *     resourceGroupName: "rg1",
  *     resourceName: "clustername1",
+ *     routerProfiles: [{
+ *         name: "default",
+ *     }],
+ *     tags: {
+ *         archv2: "",
+ *         tier: "production",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create/Update Private OpenShift Managed Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const openShiftManagedCluster = new azurerm.containerservice.latest.OpenShiftManagedCluster("openShiftManagedCluster", {
+ *     agentPoolProfiles: [
+ *         {
+ *             count: 3,
+ *             name: "infra",
+ *             osType: "Linux",
+ *             role: "infra",
+ *             subnetCidr: "10.0.0.0/24",
+ *             vmSize: "Standard_D4s_v3",
+ *         },
+ *         {
+ *             count: 4,
+ *             name: "compute",
+ *             osType: "Linux",
+ *             role: "compute",
+ *             subnetCidr: "10.0.0.0/24",
+ *             vmSize: "Standard_D4s_v3",
+ *         },
+ *     ],
+ *     authProfile: {
+ *         identityProviders: [{
+ *             name: "Azure AD",
+ *             provider: {
+ *                 clientId: "clientId",
+ *                 customerAdminGroupId: "customerAdminGroupId",
+ *                 kind: "AADIdentityProvider",
+ *                 secret: "secret",
+ *                 tenantId: "tenantId",
+ *             },
+ *         }],
+ *     },
+ *     location: "location1",
+ *     masterPoolProfile: {
+ *         apiProperties: {
+ *             privateApiServer: true,
+ *         },
+ *         count: 3,
+ *         subnetCidr: "10.0.0.0/24",
+ *         vmSize: "Standard_D4s_v3",
+ *     },
+ *     monitorProfile: {
+ *         enabled: true,
+ *         workspaceResourceID: "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+ *     },
+ *     networkProfile: {
+ *         managementSubnetCidr: "10.0.1.0/24",
+ *         vnetCidr: "10.0.0.0/8",
+ *     },
+ *     openShiftVersion: "v3.11",
+ *     refreshCluster: true,
+ *     resourceGroupName: "rg1",
+ *     resourceName: "privateclustername1",
  *     routerProfiles: [{
  *         name: "default",
  *     }],
@@ -124,6 +197,10 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      */
     public readonly masterPoolProfile!: pulumi.Output<outputs.containerservice.latest.OpenShiftManagedClusterMasterPoolProfileResponse | undefined>;
     /**
+     * Configures Log Analytics integration.
+     */
+    public readonly monitorProfile!: pulumi.Output<outputs.containerservice.latest.OpenShiftManagedClusterMonitorProfileResponse | undefined>;
+    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -144,9 +221,13 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Service generated FQDN for OpenShift API server.
+     * Service generated FQDN or private IP for OpenShift API server.
      */
     public /*out*/ readonly publicHostname!: pulumi.Output<string>;
+    /**
+     * Allows node rotation
+     */
+    public readonly refreshCluster!: pulumi.Output<boolean | undefined>;
     /**
      * Configuration for OpenShift router(s).
      */
@@ -186,9 +267,11 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
             inputs["authProfile"] = args ? args.authProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["masterPoolProfile"] = args ? args.masterPoolProfile : undefined;
+            inputs["monitorProfile"] = args ? args.monitorProfile : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["openShiftVersion"] = args ? args.openShiftVersion : undefined;
             inputs["plan"] = args ? args.plan : undefined;
+            inputs["refreshCluster"] = args ? args.refreshCluster : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["routerProfiles"] = args ? args.routerProfiles : undefined;
@@ -206,12 +289,14 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["masterPoolProfile"] = undefined /*out*/;
+            inputs["monitorProfile"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["networkProfile"] = undefined /*out*/;
             inputs["openShiftVersion"] = undefined /*out*/;
             inputs["plan"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicHostname"] = undefined /*out*/;
+            inputs["refreshCluster"] = undefined /*out*/;
             inputs["routerProfiles"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -250,6 +335,10 @@ export interface OpenShiftManagedClusterArgs {
      */
     readonly masterPoolProfile?: pulumi.Input<inputs.containerservice.latest.OpenShiftManagedClusterMasterPoolProfile>;
     /**
+     * Configures Log Analytics integration.
+     */
+    readonly monitorProfile?: pulumi.Input<inputs.containerservice.latest.OpenShiftManagedClusterMonitorProfile>;
+    /**
      * Configuration for OpenShift networking.
      */
     readonly networkProfile?: pulumi.Input<inputs.containerservice.latest.NetworkProfile>;
@@ -261,6 +350,10 @@ export interface OpenShiftManagedClusterArgs {
      * Define the resource plan as required by ARM for billing purposes
      */
     readonly plan?: pulumi.Input<inputs.containerservice.latest.PurchasePlan>;
+    /**
+     * Allows node rotation
+     */
+    readonly refreshCluster?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */

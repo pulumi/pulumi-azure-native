@@ -30,6 +30,9 @@ import * as utilities from "../../utilities";
  *     },
  *     friendlyName: "HelloName",
  *     hbiWorkspace: false,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     keyVault: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
  *     location: "eastus2euap",
  *     resourceGroupName: "workspace-1234",
@@ -130,10 +133,6 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The notebook info of Azure ML workspace.
-     */
-    public /*out*/ readonly notebookInfo!: pulumi.Output<outputs.machinelearningservices.latest.NotebookResourceInfoResponse>;
-    /**
      * The list of private endpoint connections in the workspace.
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.machinelearningservices.latest.PrivateEndpointConnectionResponse[]>;
@@ -210,7 +209,6 @@ export class Workspace extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["creationTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["notebookInfo"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["privateLinkCount"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -232,7 +230,6 @@ export class Workspace extends pulumi.CustomResource {
             inputs["keyVault"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["notebookInfo"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["privateLinkCount"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;

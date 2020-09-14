@@ -68,6 +68,10 @@ export class Replication extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+     */
+    public readonly regionEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The status of the replication at the time the operation was called.
      */
     public /*out*/ readonly status!: pulumi.Output<outputs.containerregistry.latest.StatusResponse>;
@@ -103,6 +107,7 @@ export class Replication extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
+            inputs["regionEndpointEnabled"] = args ? args.regionEndpointEnabled : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["replicationName"] = args ? args.replicationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -115,6 +120,7 @@ export class Replication extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["regionEndpointEnabled"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -140,6 +146,10 @@ export interface ReplicationArgs {
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+     */
+    readonly regionEndpointEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the container registry.
      */

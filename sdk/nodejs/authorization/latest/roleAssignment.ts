@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -17,7 +15,14 @@ import * as utilities from "../../utilities";
  * import * as azurerm from "@pulumi/azurerm";
  *
  * const roleAssignment = new azurerm.authorization.latest.RoleAssignment("roleAssignment", {
+ *     canDelegate: false,
+ *     condition: "@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+ *     conditionVersion: "1.0",
+ *     description: "Grants UserFoo role assignment bar in scope baz",
+ *     principalId: "d93a38bc-d029-4160-bfb0-fbda779ac214",
+ *     principalType: "User",
  *     roleAssignmentName: "roleAssignmentName",
+ *     roleDefinitionId: "/subscriptions/4004a9fd-d58e-48dc-aeb2-4a4aec58606f/providers/Microsoft.Authorization/roleDefinitions/de139f84-1756-47ae-9be6-808fbbe84772",
  *     scope: "scope",
  * });
  *
@@ -51,13 +56,41 @@ export class RoleAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * The Delegation flag for the role assignment
+     */
+    public readonly canDelegate!: pulumi.Output<boolean | undefined>;
+    /**
+     * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+     */
+    public readonly condition!: pulumi.Output<string | undefined>;
+    /**
+     * Version of the condition. Currently accepted value is '2.0'
+     */
+    public readonly conditionVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Description of role assignment
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * The role assignment name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Role assignment properties.
+     * The principal ID.
      */
-    public readonly properties!: pulumi.Output<outputs.authorization.latest.RoleAssignmentPropertiesWithScopeResponse>;
+    public readonly principalId!: pulumi.Output<string | undefined>;
+    /**
+     * The principal type of the assigned principal ID.
+     */
+    public readonly principalType!: pulumi.Output<string | undefined>;
+    /**
+     * The role definition ID.
+     */
+    public readonly roleDefinitionId!: pulumi.Output<string | undefined>;
+    /**
+     * The role assignment scope.
+     */
+    public readonly scope!: pulumi.Output<string | undefined>;
     /**
      * The role assignment type.
      */
@@ -73,23 +106,39 @@ export class RoleAssignment extends pulumi.CustomResource {
     constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.principalId === undefined) {
+                throw new Error("Missing required property 'principalId'");
             }
             if (!args || args.roleAssignmentName === undefined) {
                 throw new Error("Missing required property 'roleAssignmentName'");
             }
+            if (!args || args.roleDefinitionId === undefined) {
+                throw new Error("Missing required property 'roleDefinitionId'");
+            }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["canDelegate"] = args ? args.canDelegate : undefined;
+            inputs["condition"] = args ? args.condition : undefined;
+            inputs["conditionVersion"] = args ? args.conditionVersion : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["principalId"] = args ? args.principalId : undefined;
+            inputs["principalType"] = args ? args.principalType : undefined;
             inputs["roleAssignmentName"] = args ? args.roleAssignmentName : undefined;
+            inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["canDelegate"] = undefined /*out*/;
+            inputs["condition"] = undefined /*out*/;
+            inputs["conditionVersion"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["principalId"] = undefined /*out*/;
+            inputs["principalType"] = undefined /*out*/;
+            inputs["roleDefinitionId"] = undefined /*out*/;
+            inputs["scope"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,13 +159,37 @@ export class RoleAssignment extends pulumi.CustomResource {
  */
 export interface RoleAssignmentArgs {
     /**
-     * Role assignment properties.
+     * The delegation flag used for creating a role assignment
      */
-    readonly properties: pulumi.Input<inputs.authorization.latest.RoleAssignmentProperties>;
+    readonly canDelegate?: pulumi.Input<boolean>;
+    /**
+     * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+     */
+    readonly condition?: pulumi.Input<string>;
+    /**
+     * Version of the condition. Currently accepted value is '2.0'
+     */
+    readonly conditionVersion?: pulumi.Input<string>;
+    /**
+     * Description of role assignment
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+     */
+    readonly principalId: pulumi.Input<string>;
+    /**
+     * The principal type of the assigned principal ID.
+     */
+    readonly principalType?: pulumi.Input<string>;
     /**
      * The name of the role assignment to create. It can be any valid GUID.
      */
     readonly roleAssignmentName: pulumi.Input<string>;
+    /**
+     * The role definition ID used in the role assignment.
+     */
+    readonly roleDefinitionId: pulumi.Input<string>;
     /**
      * The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
      */

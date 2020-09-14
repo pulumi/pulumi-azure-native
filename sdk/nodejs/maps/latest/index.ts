@@ -3,5 +3,9 @@
 
 // Export members:
 export * from "./account";
+export * from "./creator";
 export * from "./getAccount";
+export * from "./getCreator";
+export * from "./getPrivateAtlase";
 export * from "./listAccountKeys";
+export * from "./privateAtlase";

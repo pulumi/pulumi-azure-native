@@ -93,7 +93,7 @@ export interface GetSubscriptionResult {
      */
     readonly state: string;
     /**
-     * Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+     * Optional subscription comment added by an administrator.
      */
     readonly stateComment?: string;
     /**

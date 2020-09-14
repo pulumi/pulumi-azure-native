@@ -178,6 +178,8 @@ export class BlockchainMember extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:blockchain/latest:BlockchainMember" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlockchainMember.__pulumiType, name, inputs, opts);
     }
 }

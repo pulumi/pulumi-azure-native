@@ -22,7 +22,7 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
 
 export interface GetServerArgs {
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: string;
     /**
@@ -48,6 +48,10 @@ export interface GetServerResult {
      */
     readonly fullyQualifiedDomainName?: string;
     /**
+     * The Azure Active Directory identity of the server.
+     */
+    readonly identity?: outputs.dbformariadb.latest.ResourceIdentityResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -59,14 +63,6 @@ export interface GetServerResult {
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * List of private endpoint connections on a server
-     */
-    readonly privateEndpointConnections: outputs.dbformariadb.latest.ServerPrivateEndpointConnectionResponse[];
-    /**
-     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-     */
-    readonly publicNetworkAccess?: string;
     /**
      * The maximum number of replicas that a master server can have.
      */

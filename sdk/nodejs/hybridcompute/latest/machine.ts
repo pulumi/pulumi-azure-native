@@ -67,7 +67,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Machine Extensions information
      */
-    public /*out*/ readonly extensions!: pulumi.Output<outputs.hybridcompute.latest.MachineExtensionInstanceViewResponse[]>;
+    public readonly extensions!: pulumi.Output<outputs.hybridcompute.latest.MachineExtensionInstanceViewResponse[] | undefined>;
     public readonly identity!: pulumi.Output<outputs.hybridcompute.latest.MachineResponseIdentity | undefined>;
     /**
      * The time of the last status change.
@@ -105,6 +105,10 @@ export class Machine extends pulumi.CustomResource {
      * The version of Operating System running on the hybrid machine.
      */
     public /*out*/ readonly osVersion!: pulumi.Output<string>;
+    /**
+     * List of private link scoped resources associated with this machine.
+     */
+    public /*out*/ readonly privateLinkScopedResources!: pulumi.Output<string[]>;
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -150,6 +154,7 @@ export class Machine extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
+            inputs["extensions"] = args ? args.extensions : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["locationData"] = args ? args.locationData : undefined;
@@ -163,13 +168,13 @@ export class Machine extends pulumi.CustomResource {
             inputs["dnsFqdn"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["errorDetails"] = undefined /*out*/;
-            inputs["extensions"] = undefined /*out*/;
             inputs["lastStatusChange"] = undefined /*out*/;
             inputs["machineFqdn"] = undefined /*out*/;
             inputs["osName"] = undefined /*out*/;
             inputs["osProfile"] = undefined /*out*/;
             inputs["osSku"] = undefined /*out*/;
             inputs["osVersion"] = undefined /*out*/;
+            inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -193,6 +198,7 @@ export class Machine extends pulumi.CustomResource {
             inputs["osProfile"] = undefined /*out*/;
             inputs["osSku"] = undefined /*out*/;
             inputs["osVersion"] = undefined /*out*/;
+            inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -221,6 +227,10 @@ export interface MachineArgs {
      * Public Key that the client provides to be used during initial resource onboarding
      */
     readonly clientPublicKey?: pulumi.Input<string>;
+    /**
+     * Machine Extensions information
+     */
+    readonly extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.latest.MachineExtensionInstanceView>[]>;
     readonly identity?: pulumi.Input<inputs.hybridcompute.latest.MachineIdentity>;
     /**
      * The geo-location where the resource lives

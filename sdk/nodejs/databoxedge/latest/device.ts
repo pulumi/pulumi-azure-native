@@ -18,7 +18,7 @@ import * as utilities from "../../utilities";
  *
  * const device = new azurerm.databoxedge.latest.Device("device", {
  *     deviceName: "testedgedevice",
- *     location: "eastus",
+ *     location: "WUS",
  *     resourceGroupName: "GroupForEdgeAutomation",
  *     sku: {
  *         name: "Edge",

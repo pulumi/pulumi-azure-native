@@ -112,6 +112,8 @@ export class ReportByBillingAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:billing/latest:ReportByBillingAccount" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReportByBillingAccount.__pulumiType, name, inputs, opts);
     }
 }

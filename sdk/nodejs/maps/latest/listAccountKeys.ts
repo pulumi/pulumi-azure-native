@@ -26,7 +26,7 @@ export interface ListAccountKeysArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the Azure Resource Group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }

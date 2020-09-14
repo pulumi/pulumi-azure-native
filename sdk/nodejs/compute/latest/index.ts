@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./availabilitySet";
+export * from "./configurationProfileAssignment";
 export * from "./dedicatedHost";
 export * from "./dedicatedHostGroup";
 export * from "./disk";
@@ -14,6 +15,7 @@ export * from "./galleryApplicationVersion";
 export * from "./galleryImage";
 export * from "./galleryImageVersion";
 export * from "./getAvailabilitySet";
+export * from "./getConfigurationProfileAssignment";
 export * from "./getDedicatedHost";
 export * from "./getDedicatedHostGroup";
 export * from "./getDisk";

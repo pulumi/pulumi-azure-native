@@ -41,6 +41,10 @@ export interface ListRunLogSasUrlArgs {
  */
 export interface ListRunLogSasUrlResult {
     /**
+     * The link to logs in registry for a run on a azure container registry.
+     */
+    readonly logArtifactLink?: string;
+    /**
      * The link to logs for a run on a azure container registry.
      */
     readonly logLink?: string;

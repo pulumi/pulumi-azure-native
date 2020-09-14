@@ -40,65 +40,78 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * Status showing whether the server data encryption is enabled with customer-managed keys.
+     * The administrator login password (required for server creation).
+     */
+    readonly administratorLoginPassword?: string;
+    /**
+     * availability Zone information of the server.
+     */
+    readonly availabilityZone?: string;
+    /**
+     * Status showing whether the data encryption is enabled with customer-managed keys.
      */
     readonly byokEnforcement: string;
     /**
-     * Earliest restore point creation time (ISO8601 format)
+     * The mode to create a new PostgreSQL server.
      */
-    readonly earliestRestoreDate?: string;
+    readonly createMode?: string;
+    readonly delegatedSubnetArguments?: outputs.dbforpostgresql.latest.ServerPropertiesResponseDelegatedSubnetArguments;
+    /**
+     * The display name of a server.
+     */
+    readonly displayName?: string;
     /**
      * The fully qualified domain name of a server.
      */
-    readonly fullyQualifiedDomainName?: string;
+    readonly fullyQualifiedDomainName: string;
+    /**
+     * stand by count value can be either enabled or disabled
+     */
+    readonly haEnabled?: string;
+    /**
+     * A state of a HA server that is visible to user.
+     */
+    readonly haState: string;
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.dbforpostgresql.latest.ResourceIdentityResponse;
-    /**
-     * Status showing whether the server enabled infrastructure encryption.
-     */
-    readonly infrastructureEncryption?: string;
+    readonly identity?: outputs.dbforpostgresql.latest.IdentityResponse;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * The master server id of a replica server.
+     * Maintenance window of a server.
      */
-    readonly masterServerId?: string;
-    /**
-     * Enforce a minimal Tls version for the server.
-     */
-    readonly minimalTlsVersion?: string;
+    readonly maintenanceWindow?: outputs.dbforpostgresql.latest.MaintenanceWindowResponse;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * List of private endpoint connections on a server
+     * Restore point creation time (ISO8601 format), specifying the time to restore from.
      */
-    readonly privateEndpointConnections: outputs.dbforpostgresql.latest.ServerPrivateEndpointConnectionResponse[];
+    readonly pointInTimeUTC?: string;
     /**
-     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     * public network access is enabled or not
      */
-    readonly publicNetworkAccess?: string;
-    /**
-     * The maximum number of replicas that a master server can have.
-     */
-    readonly replicaCapacity?: number;
-    /**
-     * The replication role of the server.
-     */
-    readonly replicationRole?: string;
+    readonly publicNetworkAccess: string;
     /**
      * The SKU (pricing tier) of the server.
      */
     readonly sku?: outputs.dbforpostgresql.latest.SkuResponse;
     /**
-     * Enable ssl enforcement or not when connect to server.
+     * The source PostgreSQL server name to restore from.
      */
-    readonly sslEnforcement?: string;
+    readonly sourceServerName?: string;
+    /**
+     * availability Zone information of the server.
+     */
+    readonly standbyAvailabilityZone: string;
+    /**
+     * A state of a server that is visible to user.
+     */
+    readonly state: string;
     /**
      * Storage profile of a server.
      */
@@ -112,11 +125,7 @@ export interface GetServerResult {
      */
     readonly type: string;
     /**
-     * A state of a server that is visible to user.
-     */
-    readonly userVisibleState?: string;
-    /**
-     * Server version.
+     * PostgreSQL Server version.
      */
     readonly version?: string;
 }

@@ -7,117 +7,154 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * The Log Search Rule resource.
+ * The scheduled query rule resource.
  *
  * ## Example Usage
- * ### Create or Update rule - AlertingAction
+ * ### Create or update a scheduled query rule for Single Resource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azurerm from "@pulumi/azurerm";
  *
  * const scheduledQueryRule = new azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule", {
- *     action: {
- *         aznsAction: {
- *             actionGroup: [],
- *             customWebhookPayload: "{}",
- *             emailSubject: "Email Header",
+ *     actions: [{
+ *         actionGroupId: "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+ *         webHookProperties: {
+ *             key11: "value11",
+ *             key12: "value12",
  *         },
- *         "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
- *         severity: "1",
- *         trigger: {
- *             metricTrigger: {
- *                 metricColumn: "Computer",
- *                 metricTriggerType: "Consecutive",
- *                 threshold: 5,
- *                 thresholdOperator: "GreaterThan",
+ *     }],
+ *     criteria: {
+ *         allOf: [{
+ *             dimensions: [
+ *                 {
+ *                     name: "ComputerIp",
+ *                     operator: "Exclude",
+ *                     values: ["192.168.1.1"],
+ *                 },
+ *                 {
+ *                     name: "OSType",
+ *                     operator: "Include",
+ *                     values: ["*"],
+ *                 },
+ *             ],
+ *             failingPeriods: {
+ *                 minFailingPeriodsToAlert: 1,
+ *                 numberOfEvaluationPeriods: 1,
  *             },
- *             threshold: 3,
- *             thresholdOperator: "GreaterThan",
- *         },
- *     },
- *     description: "log alert description",
- *     enabled: "true",
- *     location: "eastus",
- *     resourceGroupName: "Rac46PostSwapRG",
- *     ruleName: "logalertfoo",
- *     schedule: {
- *         frequencyInMinutes: 15,
- *         timeWindowInMinutes: 15,
- *     },
- *     source: {
- *         dataSourceId: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
- *         query: "Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)",
- *         queryType: "ResultCount",
- *     },
- *     tags: {},
- * });
- *
- * ```
- * ### Create or Update rule - AlertingAction with Cross-Resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const scheduledQueryRule = new azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule", {
- *     action: {
- *         aznsAction: {
- *             actionGroup: ["/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/actiongroups/test-ag"],
- *             emailSubject: "Cross Resource Mail!!",
- *         },
- *         "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
- *         severity: "3",
- *         trigger: {
- *             threshold: 5000,
- *             thresholdOperator: "GreaterThan",
- *         },
- *     },
- *     description: "Sample Cross Resource alert",
- *     enabled: "true",
- *     location: "eastus",
- *     resourceGroupName: "Rac46PostSwapRG",
- *     ruleName: "SampleCrossResourceAlert",
- *     schedule: {
- *         frequencyInMinutes: 60,
- *         timeWindowInMinutes: 60,
- *     },
- *     source: {
- *         authorizedResources: [
- *             "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
- *             "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
- *         ],
- *         dataSourceId: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
- *         query: "union requests, workspace(\"sampleWorkspace\").Update",
- *         queryType: "ResultCount",
- *     },
- *     tags: {},
- * });
- *
- * ```
- * ### Create or Update rule - LogToMetricAction
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const scheduledQueryRule = new azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule", {
- *     action: {
- *         criteria: [{
- *             dimensions: [],
- *             metricName: `Average_% Idle Time`,
+ *             metricMeasureColumn: `% Processor Time`,
+ *             operator: "GreaterThan",
+ *             query: "Perf | where ObjectName == \"Processor\"",
+ *             resourceIdColumn: "resourceId",
+ *             threshold: 70,
+ *             timeAggregation: "Average",
  *         }],
- *         "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
  *     },
- *     description: "log to metric description",
- *     enabled: "true",
- *     location: "West Europe",
- *     resourceGroupName: "alertsweu",
- *     ruleName: "logtometricfoo",
- *     source: {
- *         dataSourceId: "/subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/Microsoft.OperationalInsights/workspaces/alertsweu",
+ *     description: "Performance rule",
+ *     enabled: true,
+ *     evaluationFrequency: "PT5M",
+ *     location: "eastus",
+ *     muteActionsDuration: "PT30M",
+ *     resourceGroupName: "QueryResourceGroupName",
+ *     ruleName: "perf",
+ *     scopes: ["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1/providers/Microsoft.Compute/virtualMachines/vm1"],
+ *     severity: 4,
+ *     windowSize: "PT10M",
+ * });
+ *
+ * ```
+ * ### Create or update a scheduled query rule on Resource group(s)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const scheduledQueryRule = new azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule", {
+ *     actions: [{
+ *         actionGroupId: "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+ *         webHookProperties: {
+ *             key11: "value11",
+ *             key12: "value12",
+ *         },
+ *     }],
+ *     criteria: {
+ *         allOf: [{
+ *             dimensions: [],
+ *             failingPeriods: {
+ *                 minFailingPeriodsToAlert: 1,
+ *                 numberOfEvaluationPeriods: 1,
+ *             },
+ *             operator: "GreaterThan",
+ *             query: "Heartbeat",
+ *             threshold: 360,
+ *             timeAggregation: "Count",
+ *         }],
  *     },
- *     tags: {},
+ *     description: "Health check rule",
+ *     enabled: true,
+ *     evaluationFrequency: "PT5M",
+ *     location: "eastus",
+ *     muteActionsDuration: "PT30M",
+ *     resourceGroupName: "QueryResourceGroupName",
+ *     ruleName: "heartbeat",
+ *     scopes: ["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1"],
+ *     severity: 4,
+ *     targetResourceTypes: ["Microsoft.Compute/virtualMachines"],
+ *     windowSize: "PT10M",
+ * });
+ *
+ * ```
+ * ### Create or update a scheduled query rule on Subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const scheduledQueryRule = new azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule", {
+ *     actions: [{
+ *         actionGroupId: "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+ *         webHookProperties: {
+ *             key11: "value11",
+ *             key12: "value12",
+ *         },
+ *     }],
+ *     criteria: {
+ *         allOf: [{
+ *             dimensions: [
+ *                 {
+ *                     name: "ComputerIp",
+ *                     operator: "Exclude",
+ *                     values: ["192.168.1.1"],
+ *                 },
+ *                 {
+ *                     name: "OSType",
+ *                     operator: "Include",
+ *                     values: ["*"],
+ *                 },
+ *             ],
+ *             failingPeriods: {
+ *                 minFailingPeriodsToAlert: 1,
+ *                 numberOfEvaluationPeriods: 1,
+ *             },
+ *             metricMeasureColumn: `% Processor Time`,
+ *             operator: "GreaterThan",
+ *             query: "Perf | where ObjectName == \"Processor\"",
+ *             resourceIdColumn: "resourceId",
+ *             threshold: 70,
+ *             timeAggregation: "Average",
+ *         }],
+ *     },
+ *     description: "Performance rule",
+ *     enabled: true,
+ *     evaluationFrequency: "PT5M",
+ *     location: "eastus",
+ *     muteActionsDuration: "PT30M",
+ *     resourceGroupName: "QueryResourceGroupName",
+ *     ruleName: "perf",
+ *     scopes: ["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147"],
+ *     severity: 4,
+ *     targetResourceTypes: ["Microsoft.Compute/virtualMachines"],
+ *     windowSize: "PT10M",
  * });
  *
  * ```
@@ -149,50 +186,59 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScheduledQueryRule.__pulumiType;
     }
 
+    public readonly actions!: pulumi.Output<outputs.insights.latest.ActionResponse[] | undefined>;
     /**
-     * Action needs to be taken on rule execution.
+     * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    public readonly action!: pulumi.Output<outputs.insights.latest.AlertingActionResponse | outputs.insights.latest.LogToMetricActionResponse>;
+    public readonly criteria!: pulumi.Output<outputs.insights.latest.ScheduledQueryRuleCriteriaResponse | undefined>;
     /**
-     * The description of the Log Search rule.
+     * The description of the scheduled query rule.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+     * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    public readonly enabled!: pulumi.Output<string | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Last time the rule was updated in IS08601 format.
+     * How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public readonly evaluationFrequency!: pulumi.Output<string | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+     */
+    public readonly muteActionsDuration!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the scheduled query rule
+     * The list of resource id's that this scheduled query rule is scoped to.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly scopes!: pulumi.Output<string[] | undefined>;
     /**
-     * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+     * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
      */
-    public readonly schedule!: pulumi.Output<outputs.insights.latest.ScheduleResponse | undefined>;
+    public readonly severity!: pulumi.Output<number | undefined>;
     /**
-     * Data Source against which rule will Query Data
-     */
-    public readonly source!: pulumi.Output<outputs.insights.latest.SourceResponse>;
-    /**
-     * Resource tags
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Azure resource type
+     * List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+     */
+    public readonly targetResourceTypes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+     */
+    public readonly windowSize!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ScheduledQueryRule resource with the given unique name, arguments, and options.
@@ -204,9 +250,6 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.action === undefined) {
-                throw new Error("Missing required property 'action'");
-            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -216,34 +259,37 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             if (!args || args.ruleName === undefined) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            if (!args || args.source === undefined) {
-                throw new Error("Missing required property 'source'");
-            }
-            inputs["action"] = args ? args.action : undefined;
+            inputs["actions"] = args ? args.actions : undefined;
+            inputs["criteria"] = args ? args.criteria : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["muteActionsDuration"] = args ? args.muteActionsDuration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["source"] = args ? args.source : undefined;
+            inputs["scopes"] = args ? args.scopes : undefined;
+            inputs["severity"] = args ? args.severity : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
+            inputs["targetResourceTypes"] = args ? args.targetResourceTypes : undefined;
+            inputs["windowSize"] = args ? args.windowSize : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["action"] = undefined /*out*/;
+            inputs["actions"] = undefined /*out*/;
+            inputs["criteria"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
+            inputs["evaluationFrequency"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["muteActionsDuration"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
+            inputs["scopes"] = undefined /*out*/;
+            inputs["severity"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["targetResourceTypes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["windowSize"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -262,22 +308,31 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
  * The set of arguments for constructing a ScheduledQueryRule resource.
  */
 export interface ScheduledQueryRuleArgs {
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.latest.Action>[]>;
     /**
-     * Action needs to be taken on rule execution.
+     * The rule criteria that defines the conditions of the scheduled query rule.
      */
-    readonly action: pulumi.Input<inputs.insights.latest.AlertingAction | inputs.insights.latest.LogToMetricAction>;
+    readonly criteria?: pulumi.Input<inputs.insights.latest.ScheduledQueryRuleCriteria>;
     /**
-     * The description of the Log Search rule.
+     * The description of the scheduled query rule.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+     * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
-    readonly enabled?: pulumi.Input<string>;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
-     * Resource location
+     * How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
+     */
+    readonly evaluationFrequency?: pulumi.Input<string>;
+    /**
+     * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+     */
+    readonly muteActionsDuration?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -287,15 +342,23 @@ export interface ScheduledQueryRuleArgs {
      */
     readonly ruleName: pulumi.Input<string>;
     /**
-     * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+     * The list of resource id's that this scheduled query rule is scoped to.
      */
-    readonly schedule?: pulumi.Input<inputs.insights.latest.Schedule>;
+    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Data Source against which rule will Query Data
+     * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
      */
-    readonly source: pulumi.Input<inputs.insights.latest.Source>;
+    readonly severity?: pulumi.Input<number>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+     */
+    readonly targetResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+     */
+    readonly windowSize?: pulumi.Input<string>;
 }

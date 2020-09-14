@@ -41,7 +41,15 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * Friendly name of the private endpoint connection.
+     * The identity of the resource.
+     */
+    readonly identity?: outputs.machinelearningservices.latest.IdentityResponse;
+    /**
+     * Specifies the location of the resource.
+     */
+    readonly location?: string;
+    /**
+     * Specifies the name of the resource.
      */
     readonly name: string;
     /**
@@ -57,7 +65,15 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly provisioningState?: string;
     /**
-     * Resource type of private endpoint connection.
+     * The sku of the workspace.
+     */
+    readonly sku?: outputs.machinelearningservices.latest.SkuResponse;
+    /**
+     * Contains resource tags defined as key/value pairs.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * Specifies the type of the resource.
      */
     readonly type: string;
 }

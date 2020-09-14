@@ -46,6 +46,10 @@ export interface ListTaskDetailsResult {
      */
     readonly agentConfiguration?: outputs.containerregistry.latest.AgentPropertiesResponse;
     /**
+     * The dedicated agent pool for the task.
+     */
+    readonly agentPoolName?: string;
+    /**
      * The creation date of task.
      */
     readonly creationDate: string;
@@ -58,9 +62,17 @@ export interface ListTaskDetailsResult {
      */
     readonly identity?: outputs.containerregistry.latest.IdentityPropertiesResponse;
     /**
+     * The value of this property indicates whether the task resource is system task or not.
+     */
+    readonly isSystemTask?: boolean;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: string;
+    /**
+     * The template that describes the repository and tag information for run log artifact.
+     */
+    readonly logTemplate?: string;
     /**
      * The name of the resource.
      */
@@ -68,7 +80,7 @@ export interface ListTaskDetailsResult {
     /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform: outputs.containerregistry.latest.PlatformPropertiesResponse;
+    readonly platform?: outputs.containerregistry.latest.PlatformPropertiesResponse;
     /**
      * The provisioning state of the task.
      */
@@ -80,7 +92,7 @@ export interface ListTaskDetailsResult {
     /**
      * The properties of a task step.
      */
-    readonly step: outputs.containerregistry.latest.DockerBuildStepResponse | outputs.containerregistry.latest.EncodedTaskStepResponse | outputs.containerregistry.latest.FileTaskStepResponse;
+    readonly step?: outputs.containerregistry.latest.DockerBuildStepResponse | outputs.containerregistry.latest.EncodedTaskStepResponse | outputs.containerregistry.latest.FileTaskStepResponse;
     /**
      * The tags of the resource.
      */

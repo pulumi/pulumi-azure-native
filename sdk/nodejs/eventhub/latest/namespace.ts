@@ -60,9 +60,21 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
+     * Cluster ARM ID of the Namespace.
+     */
+    public readonly clusterArmId!: pulumi.Output<string | undefined>;
+    /**
      * The time the Namespace was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Properties of BYOK Encryption description
+     */
+    public readonly encryption!: pulumi.Output<outputs.eventhub.latest.EncryptionResponse | undefined>;
+    /**
+     * Properties of BYOK Identity description
+     */
+    public readonly identity!: pulumi.Output<outputs.eventhub.latest.IdentityResponse | undefined>;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
@@ -111,6 +123,10 @@ export class Namespace extends pulumi.CustomResource {
      * The time the Namespace was updated.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -128,6 +144,9 @@ export class Namespace extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["clusterArmId"] = args ? args.clusterArmId : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["isAutoInflateEnabled"] = args ? args.isAutoInflateEnabled : undefined;
             inputs["kafkaEnabled"] = args ? args.kafkaEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -136,6 +155,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["createdAt"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -144,7 +164,10 @@ export class Namespace extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         } else {
+            inputs["clusterArmId"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["isAutoInflateEnabled"] = undefined /*out*/;
             inputs["kafkaEnabled"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -157,6 +180,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
+            inputs["zoneRedundant"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -175,6 +199,18 @@ export class Namespace extends pulumi.CustomResource {
  * The set of arguments for constructing a Namespace resource.
  */
 export interface NamespaceArgs {
+    /**
+     * Cluster ARM ID of the Namespace.
+     */
+    readonly clusterArmId?: pulumi.Input<string>;
+    /**
+     * Properties of BYOK Encryption description
+     */
+    readonly encryption?: pulumi.Input<inputs.eventhub.latest.Encryption>;
+    /**
+     * Properties of BYOK Identity description
+     */
+    readonly identity?: pulumi.Input<inputs.eventhub.latest.Identity>;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
@@ -207,4 +243,8 @@ export interface NamespaceArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+     */
+    readonly zoneRedundant?: pulumi.Input<boolean>;
 }

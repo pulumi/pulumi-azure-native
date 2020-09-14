@@ -92,10 +92,6 @@ export interface GetWorkspaceResult {
      */
     readonly name: string;
     /**
-     * The notebook info of Azure ML workspace.
-     */
-    readonly notebookInfo: outputs.machinelearningservices.latest.NotebookResourceInfoResponse;
-    /**
      * The list of private endpoint connections in the workspace.
      */
     readonly privateEndpointConnections: outputs.machinelearningservices.latest.PrivateEndpointConnectionResponse[];

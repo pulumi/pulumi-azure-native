@@ -119,6 +119,8 @@ export class ImportPipeline extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/latest:ImportPipeline" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ImportPipeline.__pulumiType, name, inputs, opts);
     }
 }

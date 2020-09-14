@@ -108,6 +108,10 @@ export interface GetApplicationDefinitionResult {
      */
     readonly sku?: outputs.solutions.latest.SkuResponse;
     /**
+     * The storage account id for bring your own storage scenario.
+     */
+    readonly storageAccountId?: string;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};

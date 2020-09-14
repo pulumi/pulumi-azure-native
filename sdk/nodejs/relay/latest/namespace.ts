@@ -17,9 +17,9 @@ import * as utilities from "../../utilities";
  * import * as azurerm from "@pulumi/azurerm";
  *
  * const namespace = new azurerm.relay.latest.Namespace("namespace", {
- *     location: "West US",
- *     namespaceName: "sdk-RelayNamespace-01",
- *     resourceGroupName: "RG-eg",
+ *     location: "South Central US",
+ *     namespaceName: "sdk-Namespace-5849",
+ *     resourceGroupName: "ArunMonocle",
  *     sku: {
  *         name: "Standard",
  *         tier: "Standard",

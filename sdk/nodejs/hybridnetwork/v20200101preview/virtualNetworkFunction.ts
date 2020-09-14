@@ -154,6 +154,8 @@ export class VirtualNetworkFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:hybridnetwork/latest:VirtualNetworkFunction" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkFunction.__pulumiType, name, inputs, opts);
     }
 }

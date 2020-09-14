@@ -130,6 +130,10 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string | undefined>;
     /**
+     * The Azure Active Directory identity of the server.
+     */
+    public /*out*/ readonly identity!: pulumi.Output<outputs.dbformariadb.latest.ResourceIdentityResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -141,14 +145,6 @@ export class Server extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * List of private endpoint connections on a server
-     */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.dbformariadb.latest.ServerPrivateEndpointConnectionResponse[]>;
-    /**
-     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-     */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The maximum number of replicas that a master server can have.
      */
@@ -217,10 +213,9 @@ export class Server extends pulumi.CustomResource {
             inputs["administratorLogin"] = undefined /*out*/;
             inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["masterServerId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["replicaCapacity"] = undefined /*out*/;
             inputs["replicationRole"] = undefined /*out*/;
             inputs["sslEnforcement"] = undefined /*out*/;
@@ -232,11 +227,10 @@ export class Server extends pulumi.CustomResource {
             inputs["administratorLogin"] = undefined /*out*/;
             inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["masterServerId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["replicaCapacity"] = undefined /*out*/;
             inputs["replicationRole"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
@@ -273,7 +267,7 @@ export interface ServerArgs {
      */
     readonly properties: pulumi.Input<inputs.dbformariadb.latest.ServerPropertiesForDefaultCreate | inputs.dbformariadb.latest.ServerPropertiesForGeoRestore | inputs.dbformariadb.latest.ServerPropertiesForReplica | inputs.dbformariadb.latest.ServerPropertiesForRestore>;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

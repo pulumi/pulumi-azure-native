@@ -133,7 +133,7 @@ export class Rollout extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:deploymentmanager/v20180901preview:Rollout" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:deploymentmanager/latest:Rollout" }, { type: "azurerm:deploymentmanager/v20180901preview:Rollout" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Rollout.__pulumiType, name, inputs, opts);
     }

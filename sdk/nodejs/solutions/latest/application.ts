@@ -20,7 +20,6 @@ import * as utilities from "../../utilities";
  *     applicationDefinitionId: "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
  *     applicationName: "myManagedApplication",
  *     kind: "ServiceCatalog",
- *     location: "East US 2",
  *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
  *     resourceGroupName: "rg",
  * });

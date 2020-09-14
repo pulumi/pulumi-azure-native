@@ -26,7 +26,7 @@ export interface GetAccountArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the Azure Resource Group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }
@@ -36,11 +36,11 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * The name of the Maps Account, which is unique within a Resource Group.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -52,11 +52,15 @@ export interface GetAccountResult {
      */
     readonly sku: outputs.maps.latest.SkuResponse;
     /**
-     * Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+     * The system meta data relating to this resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly systemData: outputs.maps.latest.SystemDataResponse;
     /**
-     * Azure resource type.
+     * Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
 }
