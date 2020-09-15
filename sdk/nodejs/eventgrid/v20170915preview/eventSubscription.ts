@@ -23,7 +23,7 @@ export class EventSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:eventgrid/v20170915preview:EventSubscription';
+    public static readonly __pulumiType = 'azure-nextgen:eventgrid/v20170915preview:EventSubscription';
 
     /**
      * Returns true if the given object is an instance of EventSubscription.  This is designed to work even
@@ -106,7 +106,7 @@ export class EventSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:EventSubscription" }, { type: "azurerm:eventgrid/v20170615preview:EventSubscription" }, { type: "azurerm:eventgrid/v20180101:EventSubscription" }, { type: "azurerm:eventgrid/v20180501preview:EventSubscription" }, { type: "azurerm:eventgrid/v20180915preview:EventSubscription" }, { type: "azurerm:eventgrid/v20190101:EventSubscription" }, { type: "azurerm:eventgrid/v20190201preview:EventSubscription" }, { type: "azurerm:eventgrid/v20190601:EventSubscription" }, { type: "azurerm:eventgrid/v20200101preview:EventSubscription" }, { type: "azurerm:eventgrid/v20200401preview:EventSubscription" }, { type: "azurerm:eventgrid/v20200601:EventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/latest:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180101:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180501preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190101:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190601:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200601:EventSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventSubscription.__pulumiType, name, inputs, opts);
     }

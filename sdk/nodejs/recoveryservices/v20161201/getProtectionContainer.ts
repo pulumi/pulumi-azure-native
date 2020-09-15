@@ -14,7 +14,7 @@ export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:recoveryservices/v20161201:getProtectionContainer", {
+    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/v20161201:getProtectionContainer", {
         "containerName": args.containerName,
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,

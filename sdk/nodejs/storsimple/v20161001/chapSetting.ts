@@ -23,7 +23,7 @@ export class ChapSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storsimple/v20161001:ChapSetting';
+    public static readonly __pulumiType = 'azure-nextgen:storsimple/v20161001:ChapSetting';
 
     /**
      * Returns true if the given object is an instance of ChapSetting.  This is designed to work even
@@ -93,7 +93,7 @@ export class ChapSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/latest:ChapSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:ChapSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ChapSetting.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class Replication extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:containerregistry/v20170601preview:Replication';
+    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20170601preview:Replication';
 
     /**
      * Returns true if the given object is an instance of Replication.  This is designed to work even
@@ -107,7 +107,7 @@ export class Replication extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/latest:Replication" }, { type: "azurerm:containerregistry/v20171001:Replication" }, { type: "azurerm:containerregistry/v20190501:Replication" }, { type: "azurerm:containerregistry/v20191201preview:Replication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/latest:Replication" }, { type: "azure-nextgen:containerregistry/v20171001:Replication" }, { type: "azure-nextgen:containerregistry/v20190501:Replication" }, { type: "azure-nextgen:containerregistry/v20191201preview:Replication" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Replication.__pulumiType, name, inputs, opts);
     }

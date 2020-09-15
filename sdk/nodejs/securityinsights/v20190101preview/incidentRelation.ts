@@ -21,7 +21,7 @@ export class IncidentRelation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:securityinsights/v20190101preview:IncidentRelation';
+    public static readonly __pulumiType = 'azure-nextgen:securityinsights/v20190101preview:IncidentRelation';
 
     /**
      * Returns true if the given object is an instance of IncidentRelation.  This is designed to work even

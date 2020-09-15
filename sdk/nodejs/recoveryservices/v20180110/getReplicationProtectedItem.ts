@@ -14,7 +14,7 @@ export function getReplicationProtectedItem(args: GetReplicationProtectedItemArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:recoveryservices/v20180110:getReplicationProtectedItem", {
+    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/v20180110:getReplicationProtectedItem", {
         "fabricName": args.fabricName,
         "protectionContainerName": args.protectionContainerName,
         "replicatedProtectedItemName": args.replicatedProtectedItemName,

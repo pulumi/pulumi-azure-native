@@ -14,7 +14,7 @@ export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:securityinsights/v20190101preview:getIncident", {
+    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getIncident", {
         "incidentId": args.incidentId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,

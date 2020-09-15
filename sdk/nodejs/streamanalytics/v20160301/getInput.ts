@@ -14,7 +14,7 @@ export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:streamanalytics/v20160301:getInput", {
+    return pulumi.runtime.invoke("azure-nextgen:streamanalytics/v20160301:getInput", {
         "inputName": args.inputName,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

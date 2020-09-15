@@ -14,7 +14,7 @@ export function listSiteAppSettingsSlot(args: ListSiteAppSettingsSlotArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:listSiteAppSettingsSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:listSiteAppSettingsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

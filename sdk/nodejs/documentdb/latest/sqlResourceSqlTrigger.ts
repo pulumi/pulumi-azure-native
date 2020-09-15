@@ -23,7 +23,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:documentdb/latest:SqlResourceSqlTrigger';
+    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:SqlResourceSqlTrigger';
 
     /**
      * Returns true if the given object is an instance of SqlResourceSqlTrigger.  This is designed to work even
@@ -110,7 +110,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:SqlResourceSqlTrigger" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azurerm:documentdb/v20200301:SqlResourceSqlTrigger" }, { type: "azurerm:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azurerm:documentdb/v20200601preview:SqlResourceSqlTrigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlTrigger.__pulumiType, name, inputs, opts);
     }

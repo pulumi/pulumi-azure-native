@@ -14,7 +14,7 @@ export function getDiagnostic(args: GetDiagnosticArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/latest:getDiagnostic", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getDiagnostic", {
         "diagnosticId": args.diagnosticId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

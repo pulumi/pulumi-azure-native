@@ -14,7 +14,7 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:security/v20200101preview:getConnector", {
+    return pulumi.runtime.invoke("azure-nextgen:security/v20200101preview:getConnector", {
         "connectorName": args.connectorName,
     }, opts);
 }

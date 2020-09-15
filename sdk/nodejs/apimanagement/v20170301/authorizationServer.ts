@@ -23,7 +23,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20170301:AuthorizationServer';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20170301:AuthorizationServer';
 
     /**
      * Returns true if the given object is an instance of AuthorizationServer.  This is designed to work even
@@ -191,7 +191,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:AuthorizationServer" }, { type: "azurerm:apimanagement/v20160707:AuthorizationServer" }, { type: "azurerm:apimanagement/v20161010:AuthorizationServer" }, { type: "azurerm:apimanagement/v20180101:AuthorizationServer" }, { type: "azurerm:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azurerm:apimanagement/v20190101:AuthorizationServer" }, { type: "azurerm:apimanagement/v20191201:AuthorizationServer" }, { type: "azurerm:apimanagement/v20191201preview:AuthorizationServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201preview:AuthorizationServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AuthorizationServer.__pulumiType, name, inputs, opts);
     }

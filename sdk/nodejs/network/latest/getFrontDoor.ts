@@ -14,7 +14,7 @@ export function getFrontDoor(args: GetFrontDoorArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getFrontDoor", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getFrontDoor", {
         "frontDoorName": args.frontDoorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -14,7 +14,7 @@ export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getVirtualRouter", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualRouter", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "virtualRouterName": args.virtualRouterName,

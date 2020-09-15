@@ -23,7 +23,7 @@ export class DiskAccess extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/latest:DiskAccess';
+    public static readonly __pulumiType = 'azure-nextgen:compute/latest:DiskAccess';
 
     /**
      * Returns true if the given object is an instance of DiskAccess.  This is designed to work even
@@ -109,7 +109,7 @@ export class DiskAccess extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20200501:DiskAccess" }, { type: "azurerm:compute/v20200630:DiskAccess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20200501:DiskAccess" }, { type: "azure-nextgen:compute/v20200630:DiskAccess" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskAccess.__pulumiType, name, inputs, opts);
     }

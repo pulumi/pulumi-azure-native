@@ -14,7 +14,7 @@ export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:appplatform/latest:getBinding", {
+    return pulumi.runtime.invoke("azure-nextgen:appplatform/latest:getBinding", {
         "appName": args.appName,
         "bindingName": args.bindingName,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class PublishedBlueprint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:management/v20171111preview:PublishedBlueprint';
+    public static readonly __pulumiType = 'azure-nextgen:management/v20171111preview:PublishedBlueprint';
 
     /**
      * Returns true if the given object is an instance of PublishedBlueprint.  This is designed to work even

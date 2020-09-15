@@ -14,7 +14,7 @@ export function getManagementGroupSubscription(args: GetManagementGroupSubscript
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:management/v20200501:getManagementGroupSubscription", {
+    return pulumi.runtime.invoke("azure-nextgen:management/v20200501:getManagementGroupSubscription", {
         "groupId": args.groupId,
     }, opts);
 }

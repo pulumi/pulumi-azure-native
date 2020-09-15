@@ -14,7 +14,7 @@ export function listWorkflowCallbackUrl(args: ListWorkflowCallbackUrlArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/latest:listWorkflowCallbackUrl", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/latest:listWorkflowCallbackUrl", {
         "keyType": args.keyType,
         "notAfter": args.notAfter,
         "resourceGroupName": args.resourceGroupName,

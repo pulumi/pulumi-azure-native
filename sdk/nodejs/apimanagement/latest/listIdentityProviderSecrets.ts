@@ -14,7 +14,7 @@ export function listIdentityProviderSecrets(args: ListIdentityProviderSecretsArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/latest:listIdentityProviderSecrets", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:listIdentityProviderSecrets", {
         "identityProviderName": args.identityProviderName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

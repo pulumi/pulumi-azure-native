@@ -23,7 +23,7 @@ export class Assessment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:security/v20200101:Assessment';
+    public static readonly __pulumiType = 'azure-nextgen:security/v20200101:Assessment';
 
     /**
      * Returns true if the given object is an instance of Assessment.  This is designed to work even
@@ -124,7 +124,7 @@ export class Assessment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:security/latest:Assessment" }, { type: "azurerm:security/v20190101preview:Assessment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/latest:Assessment" }, { type: "azure-nextgen:security/v20190101preview:Assessment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Assessment.__pulumiType, name, inputs, opts);
     }

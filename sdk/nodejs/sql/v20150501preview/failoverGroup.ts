@@ -23,7 +23,7 @@ export class FailoverGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20150501preview:FailoverGroup';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20150501preview:FailoverGroup';
 
     /**
      * Returns true if the given object is an instance of FailoverGroup.  This is designed to work even

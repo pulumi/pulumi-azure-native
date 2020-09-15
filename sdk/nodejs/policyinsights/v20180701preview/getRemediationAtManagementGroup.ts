@@ -14,7 +14,7 @@ export function getRemediationAtManagementGroup(args: GetRemediationAtManagement
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:policyinsights/v20180701preview:getRemediationAtManagementGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:policyinsights/v20180701preview:getRemediationAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
         "managementGroupsNamespace": args.managementGroupsNamespace,
         "remediationName": args.remediationName,

@@ -21,7 +21,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/latest:Server';
+    public static readonly __pulumiType = 'azure-nextgen:sql/latest:Server';
 
     /**
      * Returns true if the given object is an instance of Server.  This is designed to work even
@@ -137,7 +137,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/v20140401:Server" }, { type: "azurerm:sql/v20150501preview:Server" }, { type: "azurerm:sql/v20190601preview:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20140401:Server" }, { type: "azure-nextgen:sql/v20150501preview:Server" }, { type: "azure-nextgen:sql/v20190601preview:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }

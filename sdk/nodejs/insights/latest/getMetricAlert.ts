@@ -14,7 +14,7 @@ export function getMetricAlert(args: GetMetricAlertArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights/latest:getMetricAlert", {
+    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getMetricAlert", {
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,
     }, opts);

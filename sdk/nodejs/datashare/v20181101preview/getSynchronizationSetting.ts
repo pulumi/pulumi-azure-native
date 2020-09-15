@@ -14,7 +14,7 @@ export function getSynchronizationSetting(args: GetSynchronizationSettingArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datashare/v20181101preview:getSynchronizationSetting", {
+    return pulumi.runtime.invoke("azure-nextgen:datashare/v20181101preview:getSynchronizationSetting", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareName": args.shareName,

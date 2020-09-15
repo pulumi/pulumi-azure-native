@@ -23,7 +23,7 @@ export class ImportPipeline extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:containerregistry/v20191201preview:ImportPipeline';
+    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20191201preview:ImportPipeline';
 
     /**
      * Returns true if the given object is an instance of ImportPipeline.  This is designed to work even

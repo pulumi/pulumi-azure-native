@@ -23,7 +23,7 @@ export class File extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datamigration/v20180715preview:File';
+    public static readonly __pulumiType = 'azure-nextgen:datamigration/v20180715preview:File';
 
     /**
      * Returns true if the given object is an instance of File.  This is designed to work even

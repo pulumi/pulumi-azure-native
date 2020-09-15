@@ -21,7 +21,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datashare/latest:SynchronizationSetting';
+    public static readonly __pulumiType = 'azure-nextgen:datashare/latest:SynchronizationSetting';
 
     /**
      * Returns true if the given object is an instance of SynchronizationSetting.  This is designed to work even
@@ -91,7 +91,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datashare/v20181101preview:SynchronizationSetting" }, { type: "azurerm:datashare/v20191101:SynchronizationSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20191101:SynchronizationSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SynchronizationSetting.__pulumiType, name, inputs, opts);
     }

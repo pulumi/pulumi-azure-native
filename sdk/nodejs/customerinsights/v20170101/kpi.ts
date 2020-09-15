@@ -23,7 +23,7 @@ export class Kpi extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:customerinsights/v20170101:Kpi';
+    public static readonly __pulumiType = 'azure-nextgen:customerinsights/v20170101:Kpi';
 
     /**
      * Returns true if the given object is an instance of Kpi.  This is designed to work even
@@ -208,7 +208,7 @@ export class Kpi extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/latest:Kpi" }, { type: "azurerm:customerinsights/v20170426:Kpi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/latest:Kpi" }, { type: "azure-nextgen:customerinsights/v20170426:Kpi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Kpi.__pulumiType, name, inputs, opts);
     }

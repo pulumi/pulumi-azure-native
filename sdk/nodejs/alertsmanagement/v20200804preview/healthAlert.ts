@@ -23,7 +23,7 @@ export class HealthAlert extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:alertsmanagement/v20200804preview:HealthAlert';
+    public static readonly __pulumiType = 'azure-nextgen:alertsmanagement/v20200804preview:HealthAlert';
 
     /**
      * Returns true if the given object is an instance of HealthAlert.  This is designed to work even

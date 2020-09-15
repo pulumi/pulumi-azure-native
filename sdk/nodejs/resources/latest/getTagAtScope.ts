@@ -14,7 +14,7 @@ export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:resources/latest:getTagAtScope", {
+    return pulumi.runtime.invoke("azure-nextgen:resources/latest:getTagAtScope", {
         "scope": args.scope,
     }, opts);
 }

@@ -23,7 +23,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:netapp/v20200201:Account';
+    public static readonly __pulumiType = 'azure-nextgen:netapp/v20200201:Account';
 
     /**
      * Returns true if the given object is an instance of Account.  This is designed to work even
@@ -103,7 +103,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:netapp/latest:Account" }, { type: "azurerm:netapp/v20170815:Account" }, { type: "azurerm:netapp/v20190501:Account" }, { type: "azurerm:netapp/v20190601:Account" }, { type: "azurerm:netapp/v20190701:Account" }, { type: "azurerm:netapp/v20190801:Account" }, { type: "azurerm:netapp/v20191001:Account" }, { type: "azurerm:netapp/v20191101:Account" }, { type: "azurerm:netapp/v20200601:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Account" }, { type: "azure-nextgen:netapp/v20170815:Account" }, { type: "azure-nextgen:netapp/v20190501:Account" }, { type: "azure-nextgen:netapp/v20190601:Account" }, { type: "azure-nextgen:netapp/v20190701:Account" }, { type: "azure-nextgen:netapp/v20190801:Account" }, { type: "azure-nextgen:netapp/v20191001:Account" }, { type: "azure-nextgen:netapp/v20191101:Account" }, { type: "azure-nextgen:netapp/v20200601:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

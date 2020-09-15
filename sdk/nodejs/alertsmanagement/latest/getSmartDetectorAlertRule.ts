@@ -14,7 +14,7 @@ export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:alertsmanagement/latest:getSmartDetectorAlertRule", {
+    return pulumi.runtime.invoke("azure-nextgen:alertsmanagement/latest:getSmartDetectorAlertRule", {
         "alertRuleName": args.alertRuleName,
         "expandDetector": args.expandDetector,
         "resourceGroupName": args.resourceGroupName,

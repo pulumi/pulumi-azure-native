@@ -23,7 +23,7 @@ export class Task extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datamigration/v20180315preview:Task';
+    public static readonly __pulumiType = 'azure-nextgen:datamigration/v20180315preview:Task';
 
     /**
      * Returns true if the given object is an instance of Task.  This is designed to work even
@@ -96,7 +96,7 @@ export class Task extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datamigration/latest:Task" }, { type: "azurerm:datamigration/v20171115preview:Task" }, { type: "azurerm:datamigration/v20180331preview:Task" }, { type: "azurerm:datamigration/v20180419:Task" }, { type: "azurerm:datamigration/v20180715preview:Task" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration/latest:Task" }, { type: "azure-nextgen:datamigration/v20171115preview:Task" }, { type: "azure-nextgen:datamigration/v20180331preview:Task" }, { type: "azure-nextgen:datamigration/v20180419:Task" }, { type: "azure-nextgen:datamigration/v20180715preview:Task" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Task.__pulumiType, name, inputs, opts);
     }

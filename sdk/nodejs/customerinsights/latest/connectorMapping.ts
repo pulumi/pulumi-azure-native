@@ -23,7 +23,7 @@ export class ConnectorMapping extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:customerinsights/latest:ConnectorMapping';
+    public static readonly __pulumiType = 'azure-nextgen:customerinsights/latest:ConnectorMapping';
 
     /**
      * Returns true if the given object is an instance of ConnectorMapping.  This is designed to work even
@@ -182,7 +182,7 @@ export class ConnectorMapping extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/v20170101:ConnectorMapping" }, { type: "azurerm:customerinsights/v20170426:ConnectorMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170101:ConnectorMapping" }, { type: "azure-nextgen:customerinsights/v20170426:ConnectorMapping" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectorMapping.__pulumiType, name, inputs, opts);
     }

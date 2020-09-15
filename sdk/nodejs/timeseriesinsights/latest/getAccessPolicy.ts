@@ -14,7 +14,7 @@ export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:timeseriesinsights/latest:getAccessPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:timeseriesinsights/latest:getAccessPolicy", {
         "accessPolicyName": args.accessPolicyName,
         "environmentName": args.environmentName,
         "resourceGroupName": args.resourceGroupName,

@@ -21,7 +21,7 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/latest:VirtualHubBgpConnection';
+    public static readonly __pulumiType = 'azure-nextgen:network/latest:VirtualHubBgpConnection';
 
     /**
      * Returns true if the given object is an instance of VirtualHubBgpConnection.  This is designed to work even
@@ -109,7 +109,7 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20200501:VirtualHubBgpConnection" }, { type: "azurerm:network/v20200601:VirtualHubBgpConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200501:VirtualHubBgpConnection" }, { type: "azure-nextgen:network/v20200601:VirtualHubBgpConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualHubBgpConnection.__pulumiType, name, inputs, opts);
     }

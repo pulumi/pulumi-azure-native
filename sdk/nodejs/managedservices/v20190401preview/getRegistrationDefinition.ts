@@ -14,7 +14,7 @@ export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:managedservices/v20190401preview:getRegistrationDefinition", {
+    return pulumi.runtime.invoke("azure-nextgen:managedservices/v20190401preview:getRegistrationDefinition", {
         "registrationDefinitionId": args.registrationDefinitionId,
         "scope": args.scope,
     }, opts);

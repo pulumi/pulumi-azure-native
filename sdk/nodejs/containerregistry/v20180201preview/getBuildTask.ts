@@ -14,7 +14,7 @@ export function getBuildTask(args: GetBuildTaskArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:containerregistry/v20180201preview:getBuildTask", {
+    return pulumi.runtime.invoke("azure-nextgen:containerregistry/v20180201preview:getBuildTask", {
         "buildTaskName": args.buildTaskName,
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

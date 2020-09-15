@@ -14,7 +14,7 @@ export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:servicebus/latest:getSubscription", {
+    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:getSubscription", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
         "subscriptionName": args.subscriptionName,

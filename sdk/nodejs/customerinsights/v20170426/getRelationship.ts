@@ -14,7 +14,7 @@ export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:customerinsights/v20170426:getRelationship", {
+    return pulumi.runtime.invoke("azure-nextgen:customerinsights/v20170426:getRelationship", {
         "hubName": args.hubName,
         "relationshipName": args.relationshipName,
         "resourceGroupName": args.resourceGroupName,

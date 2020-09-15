@@ -14,7 +14,7 @@ export function getManager(args: GetManagerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storsimple/latest:getManager", {
+    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getManager", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

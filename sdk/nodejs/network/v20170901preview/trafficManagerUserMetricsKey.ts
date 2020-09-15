@@ -21,7 +21,7 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20170901preview:TrafficManagerUserMetricsKey';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20170901preview:TrafficManagerUserMetricsKey';
 
     /**
      * Returns true if the given object is an instance of TrafficManagerUserMetricsKey.  This is designed to work even

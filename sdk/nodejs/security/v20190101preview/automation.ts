@@ -23,7 +23,7 @@ export class Automation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:security/v20190101preview:Automation';
+    public static readonly __pulumiType = 'azure-nextgen:security/v20190101preview:Automation';
 
     /**
      * Returns true if the given object is an instance of Automation.  This is designed to work even

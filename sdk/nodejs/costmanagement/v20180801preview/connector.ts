@@ -23,7 +23,7 @@ export class Connector extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:costmanagement/v20180801preview:Connector';
+    public static readonly __pulumiType = 'azure-nextgen:costmanagement/v20180801preview:Connector';
 
     /**
      * Returns true if the given object is an instance of Connector.  This is designed to work even

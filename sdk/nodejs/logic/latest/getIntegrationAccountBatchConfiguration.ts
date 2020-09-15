@@ -14,7 +14,7 @@ export function getIntegrationAccountBatchConfiguration(args: GetIntegrationAcco
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/latest:getIntegrationAccountBatchConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/latest:getIntegrationAccountBatchConfiguration", {
         "batchConfigurationName": args.batchConfigurationName,
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,

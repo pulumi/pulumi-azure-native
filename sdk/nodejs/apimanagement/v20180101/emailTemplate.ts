@@ -23,7 +23,7 @@ export class EmailTemplate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20180101:EmailTemplate';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20180101:EmailTemplate';
 
     /**
      * Returns true if the given object is an instance of EmailTemplate.  This is designed to work even
@@ -116,7 +116,7 @@ export class EmailTemplate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:EmailTemplate" }, { type: "azurerm:apimanagement/v20170301:EmailTemplate" }, { type: "azurerm:apimanagement/v20180601preview:EmailTemplate" }, { type: "azurerm:apimanagement/v20190101:EmailTemplate" }, { type: "azurerm:apimanagement/v20191201:EmailTemplate" }, { type: "azurerm:apimanagement/v20191201preview:EmailTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20170301:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20180601preview:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20190101:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20191201:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20191201preview:EmailTemplate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EmailTemplate.__pulumiType, name, inputs, opts);
     }

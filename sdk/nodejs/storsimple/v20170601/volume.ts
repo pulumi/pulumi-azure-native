@@ -21,7 +21,7 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storsimple/v20170601:Volume';
+    public static readonly __pulumiType = 'azure-nextgen:storsimple/v20170601:Volume';
 
     /**
      * Returns true if the given object is an instance of Volume.  This is designed to work even
@@ -161,7 +161,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/latest:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:Volume" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Volume.__pulumiType, name, inputs, opts);
     }

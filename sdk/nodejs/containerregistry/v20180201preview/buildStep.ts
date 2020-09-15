@@ -23,7 +23,7 @@ export class BuildStep extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:containerregistry/v20180201preview:BuildStep';
+    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20180201preview:BuildStep';
 
     /**
      * Returns true if the given object is an instance of BuildStep.  This is designed to work even

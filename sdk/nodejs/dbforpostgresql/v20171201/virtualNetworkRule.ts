@@ -21,7 +21,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:dbforpostgresql/v20171201:VirtualNetworkRule';
+    public static readonly __pulumiType = 'azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule';
 
     /**
      * Returns true if the given object is an instance of VirtualNetworkRule.  This is designed to work even
@@ -99,7 +99,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbforpostgresql/latest:VirtualNetworkRule" }, { type: "azurerm:dbforpostgresql/v20171201preview:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/latest:VirtualNetworkRule" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:VirtualNetworkRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }

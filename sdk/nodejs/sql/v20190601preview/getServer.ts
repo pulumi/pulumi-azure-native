@@ -14,7 +14,7 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20190601preview:getServer", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20190601preview:getServer", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);

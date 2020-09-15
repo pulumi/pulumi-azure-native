@@ -14,7 +14,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:servicebus/v20180101preview:getPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20180101preview:getPrivateEndpointConnection", {
         "namespaceName": args.namespaceName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

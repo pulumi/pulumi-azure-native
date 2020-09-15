@@ -21,7 +21,7 @@ export class Authorization extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:avs/latest:Authorization';
+    public static readonly __pulumiType = 'azure-nextgen:avs/latest:Authorization';
 
     /**
      * Returns true if the given object is an instance of Authorization.  This is designed to work even
@@ -96,7 +96,7 @@ export class Authorization extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:avs/v20200320:Authorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20200320:Authorization" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Authorization.__pulumiType, name, inputs, opts);
     }

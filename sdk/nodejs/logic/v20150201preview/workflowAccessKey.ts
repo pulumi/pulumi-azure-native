@@ -18,7 +18,7 @@ export class WorkflowAccessKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:logic/v20150201preview:WorkflowAccessKey';
+    public static readonly __pulumiType = 'azure-nextgen:logic/v20150201preview:WorkflowAccessKey';
 
     /**
      * Returns true if the given object is an instance of WorkflowAccessKey.  This is designed to work even

@@ -14,7 +14,7 @@ export function listSiteAppSettings(args: ListSiteAppSettingsArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:listSiteAppSettings", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:listSiteAppSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

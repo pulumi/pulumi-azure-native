@@ -23,7 +23,7 @@ export class Order extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:databoxedge/v20190801:Order';
+    public static readonly __pulumiType = 'azure-nextgen:databoxedge/v20190801:Order';
 
     /**
      * Returns true if the given object is an instance of Order.  This is designed to work even
@@ -124,7 +124,7 @@ export class Order extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Order" }, { type: "azurerm:databoxedge/v20190301:Order" }, { type: "azurerm:databoxedge/v20190701:Order" }, { type: "azurerm:databoxedge/v20200501preview:Order" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/latest:Order" }, { type: "azure-nextgen:databoxedge/v20190301:Order" }, { type: "azure-nextgen:databoxedge/v20190701:Order" }, { type: "azure-nextgen:databoxedge/v20200501preview:Order" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Order.__pulumiType, name, inputs, opts);
     }

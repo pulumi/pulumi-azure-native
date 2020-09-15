@@ -14,7 +14,7 @@ export function listScheduleApplicable(args: ListScheduleApplicableArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/v20180915:listScheduleApplicable", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20180915:listScheduleApplicable", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

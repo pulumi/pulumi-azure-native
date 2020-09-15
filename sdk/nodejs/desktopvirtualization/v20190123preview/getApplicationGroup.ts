@@ -14,7 +14,7 @@ export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:desktopvirtualization/v20190123preview:getApplicationGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:desktopvirtualization/v20190123preview:getApplicationGroup", {
         "applicationGroupName": args.applicationGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

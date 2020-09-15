@@ -23,7 +23,7 @@ export class ViewByScope extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:costmanagement/latest:ViewByScope';
+    public static readonly __pulumiType = 'azure-nextgen:costmanagement/latest:ViewByScope';
 
     /**
      * Returns true if the given object is an instance of ViewByScope.  This is designed to work even
@@ -159,7 +159,7 @@ export class ViewByScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:costmanagement/v20190401preview:ViewByScope" }, { type: "azurerm:costmanagement/v20191101:ViewByScope" }, { type: "azurerm:costmanagement/v20200601:ViewByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20191101:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20200601:ViewByScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ViewByScope.__pulumiType, name, inputs, opts);
     }

@@ -21,7 +21,7 @@ export class ScopeMap extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:containerregistry/v20190501preview:ScopeMap';
+    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20190501preview:ScopeMap';
 
     /**
      * Returns true if the given object is an instance of ScopeMap.  This is designed to work even

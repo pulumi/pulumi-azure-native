@@ -14,7 +14,7 @@ export function listPartnerContentCallbackUrl(args: ListPartnerContentCallbackUr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20160601:listPartnerContentCallbackUrl", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20160601:listPartnerContentCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,
         "notAfter": args.notAfter,

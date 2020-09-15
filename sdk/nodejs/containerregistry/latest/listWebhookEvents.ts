@@ -14,7 +14,7 @@ export function listWebhookEvents(args: ListWebhookEventsArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:containerregistry/latest:listWebhookEvents", {
+    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:listWebhookEvents", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "webhookName": args.webhookName,

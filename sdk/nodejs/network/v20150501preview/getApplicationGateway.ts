@@ -14,7 +14,7 @@ export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20150501preview:getApplicationGateway", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20150501preview:getApplicationGateway", {
         "applicationGatewayName": args.applicationGatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

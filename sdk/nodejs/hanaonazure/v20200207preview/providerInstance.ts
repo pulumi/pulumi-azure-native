@@ -21,7 +21,7 @@ export class ProviderInstance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hanaonazure/v20200207preview:ProviderInstance';
+    public static readonly __pulumiType = 'azure-nextgen:hanaonazure/v20200207preview:ProviderInstance';
 
     /**
      * Returns true if the given object is an instance of ProviderInstance.  This is designed to work even

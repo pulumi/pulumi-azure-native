@@ -23,7 +23,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:azuredata/v20190724preview:SqlServerInstance';
+    public static readonly __pulumiType = 'azure-nextgen:azuredata/v20190724preview:SqlServerInstance';
 
     /**
      * Returns true if the given object is an instance of SqlServerInstance.  This is designed to work even

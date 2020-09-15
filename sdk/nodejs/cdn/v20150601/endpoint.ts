@@ -23,7 +23,7 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:cdn/v20150601:Endpoint';
+    public static readonly __pulumiType = 'azure-nextgen:cdn/v20150601:Endpoint';
 
     /**
      * Returns true if the given object is an instance of Endpoint.  This is designed to work even
@@ -164,7 +164,7 @@ export class Endpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Endpoint" }, { type: "azurerm:cdn/v20160402:Endpoint" }, { type: "azurerm:cdn/v20161002:Endpoint" }, { type: "azurerm:cdn/v20170402:Endpoint" }, { type: "azurerm:cdn/v20171012:Endpoint" }, { type: "azurerm:cdn/v20190415:Endpoint" }, { type: "azurerm:cdn/v20190615:Endpoint" }, { type: "azurerm:cdn/v20190615preview:Endpoint" }, { type: "azurerm:cdn/v20191231:Endpoint" }, { type: "azurerm:cdn/v20200331:Endpoint" }, { type: "azurerm:cdn/v20200415:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:Endpoint" }, { type: "azure-nextgen:cdn/v20160402:Endpoint" }, { type: "azure-nextgen:cdn/v20161002:Endpoint" }, { type: "azure-nextgen:cdn/v20170402:Endpoint" }, { type: "azure-nextgen:cdn/v20171012:Endpoint" }, { type: "azure-nextgen:cdn/v20190415:Endpoint" }, { type: "azure-nextgen:cdn/v20190615:Endpoint" }, { type: "azure-nextgen:cdn/v20190615preview:Endpoint" }, { type: "azure-nextgen:cdn/v20191231:Endpoint" }, { type: "azure-nextgen:cdn/v20200331:Endpoint" }, { type: "azure-nextgen:cdn/v20200415:Endpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Endpoint.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:labservices/v20181015:getLab", {
+    return pulumi.runtime.invoke("azure-nextgen:labservices/v20181015:getLab", {
         "expand": args.expand,
         "labAccountName": args.labAccountName,
         "labName": args.labName,

@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("azurerm");
+let __config = new pulumi.Config("azure-nextgen");
 
 export let auxiliaryTenantIds: string[] | undefined = __config.getObject<string[]>("auxiliaryTenantIds");
 /**

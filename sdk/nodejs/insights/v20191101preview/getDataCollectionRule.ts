@@ -14,7 +14,7 @@ export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights/v20191101preview:getDataCollectionRule", {
+    return pulumi.runtime.invoke("azure-nextgen:insights/v20191101preview:getDataCollectionRule", {
         "dataCollectionRuleName": args.dataCollectionRuleName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

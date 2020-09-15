@@ -14,7 +14,7 @@ export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/v20160430preview:getVirtualMachine", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/v20160430preview:getVirtualMachine", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "vmName": args.vmName,

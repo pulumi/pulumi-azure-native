@@ -21,7 +21,7 @@ export class Database extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:dbforpostgresql/v20171201:Database';
+    public static readonly __pulumiType = 'azure-nextgen:dbforpostgresql/v20171201:Database';
 
     /**
      * Returns true if the given object is an instance of Database.  This is designed to work even
@@ -90,7 +90,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbforpostgresql/latest:Database" }, { type: "azurerm:dbforpostgresql/v20171201preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/latest:Database" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

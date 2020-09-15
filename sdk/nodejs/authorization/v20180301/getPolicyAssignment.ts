@@ -14,7 +14,7 @@ export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:authorization/v20180301:getPolicyAssignment", {
+    return pulumi.runtime.invoke("azure-nextgen:authorization/v20180301:getPolicyAssignment", {
         "policyAssignmentName": args.policyAssignmentName,
         "scope": args.scope,
     }, opts);

@@ -21,7 +21,7 @@ export class Project extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:machinelearningexperimentation/v20170501preview:Project';
+    public static readonly __pulumiType = 'azure-nextgen:machinelearningexperimentation/v20170501preview:Project';
 
     /**
      * Returns true if the given object is an instance of Project.  This is designed to work even

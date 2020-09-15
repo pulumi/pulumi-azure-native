@@ -14,7 +14,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:eventgrid/v20170915preview:getTopic", {
+    return pulumi.runtime.invoke("azure-nextgen:eventgrid/v20170915preview:getTopic", {
         "resourceGroupName": args.resourceGroupName,
         "topicName": args.topicName,
     }, opts);

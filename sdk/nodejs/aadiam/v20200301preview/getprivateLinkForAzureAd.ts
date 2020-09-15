@@ -14,7 +14,7 @@ export function getprivateLinkForAzureAd(args: GetprivateLinkForAzureAdArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:aadiam/v20200301preview:getprivateLinkForAzureAd", {
+    return pulumi.runtime.invoke("azure-nextgen:aadiam/v20200301preview:getprivateLinkForAzureAd", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

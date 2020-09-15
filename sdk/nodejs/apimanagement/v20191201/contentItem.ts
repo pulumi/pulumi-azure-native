@@ -21,7 +21,7 @@ export class ContentItem extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20191201:ContentItem';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20191201:ContentItem';
 
     /**
      * Returns true if the given object is an instance of ContentItem.  This is designed to work even
@@ -82,7 +82,7 @@ export class ContentItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ContentItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ContentItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContentItem.__pulumiType, name, inputs, opts);
     }

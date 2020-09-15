@@ -14,7 +14,7 @@ export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:aadiam/latest:getDiagnosticSetting", {
+    return pulumi.runtime.invoke("azure-nextgen:aadiam/latest:getDiagnosticSetting", {
         "name": args.name,
     }, opts);
 }

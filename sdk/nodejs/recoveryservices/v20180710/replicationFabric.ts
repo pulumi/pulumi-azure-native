@@ -23,7 +23,7 @@ export class ReplicationFabric extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:recoveryservices/v20180710:ReplicationFabric';
+    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/v20180710:ReplicationFabric';
 
     /**
      * Returns true if the given object is an instance of ReplicationFabric.  This is designed to work even
@@ -92,7 +92,7 @@ export class ReplicationFabric extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/latest:ReplicationFabric" }, { type: "azurerm:recoveryservices/v20160810:ReplicationFabric" }, { type: "azurerm:recoveryservices/v20180110:ReplicationFabric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationFabric" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationFabric.__pulumiType, name, inputs, opts);
     }

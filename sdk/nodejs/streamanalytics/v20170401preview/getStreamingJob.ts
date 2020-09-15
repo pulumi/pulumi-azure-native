@@ -14,7 +14,7 @@ export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:streamanalytics/v20170401preview:getStreamingJob", {
+    return pulumi.runtime.invoke("azure-nextgen:streamanalytics/v20170401preview:getStreamingJob", {
         "expand": args.expand,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

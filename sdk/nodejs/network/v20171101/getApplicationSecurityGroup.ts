@@ -14,7 +14,7 @@ export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20171101:getApplicationSecurityGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20171101:getApplicationSecurityGroup", {
         "applicationSecurityGroupName": args.applicationSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

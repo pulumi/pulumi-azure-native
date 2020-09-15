@@ -14,7 +14,7 @@ export function getSqlPool(args: GetSqlPoolArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:synapse/v20190601preview:getSqlPool", {
+    return pulumi.runtime.invoke("azure-nextgen:synapse/v20190601preview:getSqlPool", {
         "resourceGroupName": args.resourceGroupName,
         "sqlPoolName": args.sqlPoolName,
         "workspaceName": args.workspaceName,

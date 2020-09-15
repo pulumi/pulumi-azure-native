@@ -14,7 +14,7 @@ export function getDataConnection(args: GetDataConnectionArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:kusto/latest:getDataConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:kusto/latest:getDataConnection", {
         "clusterName": args.clusterName,
         "dataConnectionName": args.dataConnectionName,
         "databaseName": args.databaseName,

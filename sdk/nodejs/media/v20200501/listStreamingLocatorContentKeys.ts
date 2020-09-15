@@ -14,7 +14,7 @@ export function listStreamingLocatorContentKeys(args: ListStreamingLocatorConten
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:media/v20200501:listStreamingLocatorContentKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:media/v20200501:listStreamingLocatorContentKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "streamingLocatorName": args.streamingLocatorName,

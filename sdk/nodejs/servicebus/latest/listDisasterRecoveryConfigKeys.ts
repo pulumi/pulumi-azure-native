@@ -14,7 +14,7 @@ export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:servicebus/latest:listDisasterRecoveryConfigKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:listDisasterRecoveryConfigKeys", {
         "alias": args.alias,
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,

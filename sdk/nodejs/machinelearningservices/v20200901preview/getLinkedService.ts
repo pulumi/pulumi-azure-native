@@ -14,7 +14,7 @@ export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:machinelearningservices/v20200901preview:getLinkedService", {
+    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/v20200901preview:getLinkedService", {
         "linkName": args.linkName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

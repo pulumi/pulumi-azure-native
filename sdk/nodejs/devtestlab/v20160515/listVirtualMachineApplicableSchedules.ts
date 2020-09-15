@@ -14,7 +14,7 @@ export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineAp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/v20160515:listVirtualMachineApplicableSchedules", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20160515:listVirtualMachineApplicableSchedules", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

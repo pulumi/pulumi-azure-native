@@ -23,7 +23,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:databoxedge/latest:User';
+    public static readonly __pulumiType = 'azure-nextgen:databoxedge/latest:User';
 
     /**
      * Returns true if the given object is an instance of User.  This is designed to work even
@@ -100,7 +100,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/v20190301:User" }, { type: "azurerm:databoxedge/v20190701:User" }, { type: "azurerm:databoxedge/v20190801:User" }, { type: "azurerm:databoxedge/v20200501preview:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20190801:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(User.__pulumiType, name, inputs, opts);
     }

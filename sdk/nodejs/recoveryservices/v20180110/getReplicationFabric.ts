@@ -14,7 +14,7 @@ export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:recoveryservices/v20180110:getReplicationFabric", {
+    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/v20180110:getReplicationFabric", {
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

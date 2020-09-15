@@ -14,7 +14,7 @@ export function getIntegrationAccountSchema(args: GetIntegrationAccountSchemaArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/latest:getIntegrationAccountSchema", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/latest:getIntegrationAccountSchema", {
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "schemaName": args.schemaName,

@@ -21,7 +21,7 @@ export class AndroidMAMPolicyByName extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:intune/v20150114preview:AndroidMAMPolicyByName';
+    public static readonly __pulumiType = 'azure-nextgen:intune/v20150114preview:AndroidMAMPolicyByName';
 
     /**
      * Returns true if the given object is an instance of AndroidMAMPolicyByName.  This is designed to work even
@@ -149,7 +149,7 @@ export class AndroidMAMPolicyByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:intune/v20150114privatepreview:AndroidMAMPolicyByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AndroidMAMPolicyByName.__pulumiType, name, inputs, opts);
     }

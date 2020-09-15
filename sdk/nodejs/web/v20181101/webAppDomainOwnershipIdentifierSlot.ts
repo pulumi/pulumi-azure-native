@@ -21,7 +21,7 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20181101:WebAppDomainOwnershipIdentifierSlot';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifierSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppDomainOwnershipIdentifierSlot.  This is designed to work even
@@ -88,7 +88,7 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppDomainOwnershipIdentifierSlot" }, { type: "azurerm:web/v20160801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azurerm:web/v20180201:WebAppDomainOwnershipIdentifierSlot" }, { type: "azurerm:web/v20190801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azurerm:web/v20200601:WebAppDomainOwnershipIdentifierSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDomainOwnershipIdentifierSlot.__pulumiType, name, inputs, opts);
     }

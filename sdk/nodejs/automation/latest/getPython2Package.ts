@@ -14,7 +14,7 @@ export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:automation/latest:getPython2Package", {
+    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getPython2Package", {
         "automationAccountName": args.automationAccountName,
         "packageName": args.packageName,
         "resourceGroupName": args.resourceGroupName,

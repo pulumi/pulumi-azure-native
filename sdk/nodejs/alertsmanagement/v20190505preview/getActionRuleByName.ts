@@ -14,7 +14,7 @@ export function getActionRuleByName(args: GetActionRuleByNameArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:alertsmanagement/v20190505preview:getActionRuleByName", {
+    return pulumi.runtime.invoke("azure-nextgen:alertsmanagement/v20190505preview:getActionRuleByName", {
         "actionRuleName": args.actionRuleName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

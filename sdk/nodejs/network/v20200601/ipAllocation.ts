@@ -23,7 +23,7 @@ export class IpAllocation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20200601:IpAllocation';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20200601:IpAllocation';
 
     /**
      * Returns true if the given object is an instance of IpAllocation.  This is designed to work even
@@ -137,7 +137,7 @@ export class IpAllocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:IpAllocation" }, { type: "azurerm:network/v20200301:IpAllocation" }, { type: "azurerm:network/v20200401:IpAllocation" }, { type: "azurerm:network/v20200501:IpAllocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:IpAllocation" }, { type: "azure-nextgen:network/v20200301:IpAllocation" }, { type: "azure-nextgen:network/v20200401:IpAllocation" }, { type: "azure-nextgen:network/v20200501:IpAllocation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpAllocation.__pulumiType, name, inputs, opts);
     }

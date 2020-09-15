@@ -14,7 +14,7 @@ export function listRegistryBuildSourceUploadUrl(args: ListRegistryBuildSourceUp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:containerregistry/v20180901:listRegistryBuildSourceUploadUrl", {
+    return pulumi.runtime.invoke("azure-nextgen:containerregistry/v20180901:listRegistryBuildSourceUploadUrl", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

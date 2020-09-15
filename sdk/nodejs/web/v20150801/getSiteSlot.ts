@@ -14,7 +14,7 @@ export function getSiteSlot(args: GetSiteSlotArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:getSiteSlot", {
         "name": args.name,
         "propertiesToInclude": args.propertiesToInclude,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:devops/v20190701preview:Pipeline';
+    public static readonly __pulumiType = 'azure-nextgen:devops/v20190701preview:Pipeline';
 
     /**
      * Returns true if the given object is an instance of Pipeline.  This is designed to work even

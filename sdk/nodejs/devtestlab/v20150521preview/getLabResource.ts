@@ -14,7 +14,7 @@ export function getLabResource(args: GetLabResourceArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/v20150521preview:getLabResource", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20150521preview:getLabResource", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

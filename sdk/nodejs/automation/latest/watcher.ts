@@ -21,7 +21,7 @@ export class Watcher extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:automation/latest:Watcher';
+    public static readonly __pulumiType = 'azure-nextgen:automation/latest:Watcher';
 
     /**
      * Returns true if the given object is an instance of Watcher.  This is designed to work even
@@ -150,7 +150,7 @@ export class Watcher extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/v20151031:Watcher" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Watcher" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Watcher.__pulumiType, name, inputs, opts);
     }

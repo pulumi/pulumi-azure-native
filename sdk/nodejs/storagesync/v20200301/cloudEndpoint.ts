@@ -21,7 +21,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storagesync/v20200301:CloudEndpoint';
+    public static readonly __pulumiType = 'azure-nextgen:storagesync/v20200301:CloudEndpoint';
 
     /**
      * Returns true if the given object is an instance of CloudEndpoint.  This is designed to work even
@@ -136,7 +136,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:CloudEndpoint" }, { type: "azurerm:storagesync/v20170605preview:CloudEndpoint" }, { type: "azurerm:storagesync/v20180402:CloudEndpoint" }, { type: "azurerm:storagesync/v20180701:CloudEndpoint" }, { type: "azurerm:storagesync/v20181001:CloudEndpoint" }, { type: "azurerm:storagesync/v20190201:CloudEndpoint" }, { type: "azurerm:storagesync/v20190301:CloudEndpoint" }, { type: "azurerm:storagesync/v20190601:CloudEndpoint" }, { type: "azurerm:storagesync/v20191001:CloudEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagesync/latest:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20170605preview:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20180402:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20180701:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20181001:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20190201:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20190301:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20190601:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20191001:CloudEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CloudEndpoint.__pulumiType, name, inputs, opts);
     }

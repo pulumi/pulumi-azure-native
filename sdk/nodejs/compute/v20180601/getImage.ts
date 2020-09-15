@@ -14,7 +14,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/v20180601:getImage", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/v20180601:getImage", {
         "expand": args.expand,
         "imageName": args.imageName,
         "resourceGroupName": args.resourceGroupName,

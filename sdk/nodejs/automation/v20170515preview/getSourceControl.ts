@@ -14,7 +14,7 @@ export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:automation/v20170515preview:getSourceControl", {
+    return pulumi.runtime.invoke("azure-nextgen:automation/v20170515preview:getSourceControl", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "sourceControlName": args.sourceControlName,

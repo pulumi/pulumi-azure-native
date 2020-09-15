@@ -23,7 +23,7 @@ export class StorageInsightConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:operationalinsights/v20200801:StorageInsightConfig';
+    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/v20200801:StorageInsightConfig';
 
     /**
      * Returns true if the given object is an instance of StorageInsightConfig.  This is designed to work even
@@ -119,7 +119,7 @@ export class StorageInsightConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:StorageInsightConfig" }, { type: "azurerm:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azurerm:operationalinsights/v20200301preview:StorageInsightConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/v20200301preview:StorageInsightConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageInsightConfig.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getLabAccount(args: GetLabAccountArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:labservices/v20181015:getLabAccount", {
+    return pulumi.runtime.invoke("azure-nextgen:labservices/v20181015:getLabAccount", {
         "expand": args.expand,
         "labAccountName": args.labAccountName,
         "resourceGroupName": args.resourceGroupName,

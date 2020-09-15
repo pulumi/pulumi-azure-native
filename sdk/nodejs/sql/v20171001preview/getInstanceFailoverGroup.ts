@@ -14,7 +14,7 @@ export function getInstanceFailoverGroup(args: GetInstanceFailoverGroupArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20171001preview:getInstanceFailoverGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20171001preview:getInstanceFailoverGroup", {
         "failoverGroupName": args.failoverGroupName,
         "locationName": args.locationName,
         "resourceGroupName": args.resourceGroupName,

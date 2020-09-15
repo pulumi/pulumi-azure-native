@@ -23,7 +23,7 @@ export class ScheduleResource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:devtestlab/v20150521preview:ScheduleResource';
+    public static readonly __pulumiType = 'azure-nextgen:devtestlab/v20150521preview:ScheduleResource';
 
     /**
      * Returns true if the given object is an instance of ScheduleResource.  This is designed to work even
@@ -134,7 +134,7 @@ export class ScheduleResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:ScheduleResource" }, { type: "azurerm:devtestlab/v20160515:ScheduleResource" }, { type: "azurerm:devtestlab/v20180915:ScheduleResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:ScheduleResource" }, { type: "azure-nextgen:devtestlab/v20160515:ScheduleResource" }, { type: "azure-nextgen:devtestlab/v20180915:ScheduleResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScheduleResource.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class FlowLog extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20200501:FlowLog';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20200501:FlowLog';
 
     /**
      * Returns true if the given object is an instance of FlowLog.  This is designed to work even
@@ -153,7 +153,7 @@ export class FlowLog extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:FlowLog" }, { type: "azurerm:network/v20191101:FlowLog" }, { type: "azurerm:network/v20191201:FlowLog" }, { type: "azurerm:network/v20200301:FlowLog" }, { type: "azurerm:network/v20200401:FlowLog" }, { type: "azurerm:network/v20200601:FlowLog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:FlowLog" }, { type: "azure-nextgen:network/v20191101:FlowLog" }, { type: "azure-nextgen:network/v20191201:FlowLog" }, { type: "azure-nextgen:network/v20200301:FlowLog" }, { type: "azure-nextgen:network/v20200401:FlowLog" }, { type: "azure-nextgen:network/v20200601:FlowLog" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FlowLog.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20170301:getCertificate", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20170301:getCertificate", {
         "certificateId": args.certificateId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

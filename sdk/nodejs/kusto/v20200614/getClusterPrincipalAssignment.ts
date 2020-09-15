@@ -14,7 +14,7 @@ export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmen
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:kusto/v20200614:getClusterPrincipalAssignment", {
+    return pulumi.runtime.invoke("azure-nextgen:kusto/v20200614:getClusterPrincipalAssignment", {
         "clusterName": args.clusterName,
         "principalAssignmentName": args.principalAssignmentName,
         "resourceGroupName": args.resourceGroupName,

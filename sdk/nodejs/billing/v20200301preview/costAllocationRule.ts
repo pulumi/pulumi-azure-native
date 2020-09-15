@@ -23,7 +23,7 @@ export class CostAllocationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:billing/v20200301preview:CostAllocationRule';
+    public static readonly __pulumiType = 'azure-nextgen:billing/v20200301preview:CostAllocationRule';
 
     /**
      * Returns true if the given object is an instance of CostAllocationRule.  This is designed to work even

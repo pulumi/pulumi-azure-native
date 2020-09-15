@@ -21,7 +21,7 @@ export class Credential extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:automation/v20151031:Credential';
+    public static readonly __pulumiType = 'azure-nextgen:automation/v20151031:Credential';
 
     /**
      * Returns true if the given object is an instance of Credential.  This is designed to work even
@@ -112,7 +112,7 @@ export class Credential extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:Credential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/latest:Credential" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Credential.__pulumiType, name, inputs, opts);
     }

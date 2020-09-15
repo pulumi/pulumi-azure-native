@@ -23,7 +23,7 @@ export class TagAtScope extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:resources/latest:TagAtScope';
+    public static readonly __pulumiType = 'azure-nextgen:resources/latest:TagAtScope';
 
     /**
      * Returns true if the given object is an instance of TagAtScope.  This is designed to work even
@@ -81,7 +81,7 @@ export class TagAtScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:resources/v20191001:TagAtScope" }, { type: "azurerm:resources/v20200601:TagAtScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20191001:TagAtScope" }, { type: "azure-nextgen:resources/v20200601:TagAtScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagAtScope.__pulumiType, name, inputs, opts);
     }

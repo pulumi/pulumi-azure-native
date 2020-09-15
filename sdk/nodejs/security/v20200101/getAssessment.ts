@@ -14,7 +14,7 @@ export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:security/v20200101:getAssessment", {
+    return pulumi.runtime.invoke("azure-nextgen:security/v20200101:getAssessment", {
         "assessmentName": args.assessmentName,
         "expand": args.expand,
         "resourceId": args.resourceId,

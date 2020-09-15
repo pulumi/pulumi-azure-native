@@ -14,7 +14,7 @@ export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:securityinsights/v20190101preview:getWatchlist", {
+    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getWatchlist", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "watchlistAlias": args.watchlistAlias,

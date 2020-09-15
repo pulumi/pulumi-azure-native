@@ -23,7 +23,7 @@ export class Bookmark extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:operationalinsights/v20200101:Bookmark';
+    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/v20200101:Bookmark';
 
     /**
      * Returns true if the given object is an instance of Bookmark.  This is designed to work even
@@ -152,7 +152,7 @@ export class Bookmark extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:Bookmark" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:Bookmark" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Bookmark.__pulumiType, name, inputs, opts);
     }

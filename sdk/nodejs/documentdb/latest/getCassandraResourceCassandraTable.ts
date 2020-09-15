@@ -14,7 +14,7 @@ export function getCassandraResourceCassandraTable(args: GetCassandraResourceCas
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:documentdb/latest:getCassandraResourceCassandraTable", {
+    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getCassandraResourceCassandraTable", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,
         "resourceGroupName": args.resourceGroupName,

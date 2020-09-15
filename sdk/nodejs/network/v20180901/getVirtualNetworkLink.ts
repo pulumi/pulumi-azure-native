@@ -14,7 +14,7 @@ export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20180901:getVirtualNetworkLink", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20180901:getVirtualNetworkLink", {
         "privateZoneName": args.privateZoneName,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkLinkName": args.virtualNetworkLinkName,

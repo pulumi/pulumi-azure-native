@@ -14,7 +14,7 @@ export function getSoftwareUpdateConfigurationByName(args: GetSoftwareUpdateConf
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:automation/v20170515preview:getSoftwareUpdateConfigurationByName", {
+    return pulumi.runtime.invoke("azure-nextgen:automation/v20170515preview:getSoftwareUpdateConfigurationByName", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "softwareUpdateConfigurationName": args.softwareUpdateConfigurationName,

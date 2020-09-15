@@ -14,7 +14,7 @@ export function getMasterSite(args: GetMasterSiteArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:offazure/latest:getMasterSite", {
+    return pulumi.runtime.invoke("azure-nextgen:offazure/latest:getMasterSite", {
         "resourceGroupName": args.resourceGroupName,
         "siteName": args.siteName,
     }, opts);

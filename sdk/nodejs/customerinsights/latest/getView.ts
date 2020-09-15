@@ -14,7 +14,7 @@ export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:customerinsights/latest:getView", {
+    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getView", {
         "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,
         "userId": args.userId,

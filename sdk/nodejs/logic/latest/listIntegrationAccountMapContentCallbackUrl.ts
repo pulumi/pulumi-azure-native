@@ -14,7 +14,7 @@ export function listIntegrationAccountMapContentCallbackUrl(args: ListIntegratio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/latest:listIntegrationAccountMapContentCallbackUrl", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/latest:listIntegrationAccountMapContentCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,
         "mapName": args.mapName,

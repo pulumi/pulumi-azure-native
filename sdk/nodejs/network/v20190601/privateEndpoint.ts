@@ -23,7 +23,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20190601:PrivateEndpoint';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20190601:PrivateEndpoint';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpoint.  This is designed to work even
@@ -125,7 +125,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:PrivateEndpoint" }, { type: "azurerm:network/v20190401:PrivateEndpoint" }, { type: "azurerm:network/v20190701:PrivateEndpoint" }, { type: "azurerm:network/v20190801:PrivateEndpoint" }, { type: "azurerm:network/v20190901:PrivateEndpoint" }, { type: "azurerm:network/v20191101:PrivateEndpoint" }, { type: "azurerm:network/v20191201:PrivateEndpoint" }, { type: "azurerm:network/v20200301:PrivateEndpoint" }, { type: "azurerm:network/v20200401:PrivateEndpoint" }, { type: "azurerm:network/v20200501:PrivateEndpoint" }, { type: "azurerm:network/v20200601:PrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190401:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190701:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190801:PrivateEndpoint" }, { type: "azure-nextgen:network/v20190901:PrivateEndpoint" }, { type: "azure-nextgen:network/v20191101:PrivateEndpoint" }, { type: "azure-nextgen:network/v20191201:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200301:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200401:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200501:PrivateEndpoint" }, { type: "azure-nextgen:network/v20200601:PrivateEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpoint.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getApiIssueAttachment(args: GetApiIssueAttachmentArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20191201preview:getApiIssueAttachment", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20191201preview:getApiIssueAttachment", {
         "apiId": args.apiId,
         "attachmentId": args.attachmentId,
         "issueId": args.issueId,

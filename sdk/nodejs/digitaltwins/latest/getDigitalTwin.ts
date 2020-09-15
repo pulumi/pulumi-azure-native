@@ -14,7 +14,7 @@ export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:digitaltwins/latest:getDigitalTwin", {
+    return pulumi.runtime.invoke("azure-nextgen:digitaltwins/latest:getDigitalTwin", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

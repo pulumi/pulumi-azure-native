@@ -14,7 +14,7 @@ export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20200401:getIpAllocation", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20200401:getIpAllocation", {
         "expand": args.expand,
         "ipAllocationName": args.ipAllocationName,
         "resourceGroupName": args.resourceGroupName,

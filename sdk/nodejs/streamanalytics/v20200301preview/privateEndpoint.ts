@@ -23,7 +23,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:streamanalytics/v20200301preview:PrivateEndpoint';
+    public static readonly __pulumiType = 'azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpoint.  This is designed to work even

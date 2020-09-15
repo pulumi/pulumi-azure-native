@@ -23,7 +23,7 @@ export class PolicyExemption extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:authorization/v20200701preview:PolicyExemption';
+    public static readonly __pulumiType = 'azure-nextgen:authorization/v20200701preview:PolicyExemption';
 
     /**
      * Returns true if the given object is an instance of PolicyExemption.  This is designed to work even

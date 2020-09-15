@@ -21,7 +21,7 @@ export class WorkloadClassifier extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20190601preview:WorkloadClassifier';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20190601preview:WorkloadClassifier';
 
     /**
      * Returns true if the given object is an instance of WorkloadClassifier.  This is designed to work even

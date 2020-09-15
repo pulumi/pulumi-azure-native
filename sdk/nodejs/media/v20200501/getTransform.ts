@@ -14,7 +14,7 @@ export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:media/v20200501:getTransform", {
+    return pulumi.runtime.invoke("azure-nextgen:media/v20200501:getTransform", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "transformName": args.transformName,

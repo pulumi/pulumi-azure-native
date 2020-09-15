@@ -14,7 +14,7 @@ export function listCognitiveServicesAccountKeys(args: ListCognitiveServicesAcco
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

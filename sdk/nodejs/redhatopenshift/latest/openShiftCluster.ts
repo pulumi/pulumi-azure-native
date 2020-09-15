@@ -23,7 +23,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:redhatopenshift/latest:OpenShiftCluster';
+    public static readonly __pulumiType = 'azure-nextgen:redhatopenshift/latest:OpenShiftCluster';
 
     /**
      * Returns true if the given object is an instance of OpenShiftCluster.  This is designed to work even
@@ -145,7 +145,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:redhatopenshift/v20200430:OpenShiftCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OpenShiftCluster.__pulumiType, name, inputs, opts);
     }

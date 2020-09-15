@@ -14,7 +14,7 @@ export function listAuthorizationServerSecrets(args: ListAuthorizationServerSecr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20191201preview:listAuthorizationServerSecrets", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20191201preview:listAuthorizationServerSecrets", {
         "authsid": args.authsid,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

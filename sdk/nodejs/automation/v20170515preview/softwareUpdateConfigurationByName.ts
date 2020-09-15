@@ -23,7 +23,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:automation/v20170515preview:SoftwareUpdateConfigurationByName';
+    public static readonly __pulumiType = 'azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName';
 
     /**
      * Returns true if the given object is an instance of SoftwareUpdateConfigurationByName.  This is designed to work even

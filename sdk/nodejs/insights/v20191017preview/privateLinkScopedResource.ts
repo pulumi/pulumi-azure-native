@@ -21,7 +21,7 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/v20191017preview:PrivateLinkScopedResource';
+    public static readonly __pulumiType = 'azure-nextgen:insights/v20191017preview:PrivateLinkScopedResource';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkScopedResource.  This is designed to work even

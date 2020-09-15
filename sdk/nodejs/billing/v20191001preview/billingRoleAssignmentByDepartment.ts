@@ -21,7 +21,7 @@ export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:billing/v20191001preview:BillingRoleAssignmentByDepartment';
+    public static readonly __pulumiType = 'azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByDepartment';
 
     /**
      * Returns true if the given object is an instance of BillingRoleAssignmentByDepartment.  This is designed to work even

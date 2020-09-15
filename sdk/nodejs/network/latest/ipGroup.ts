@@ -23,7 +23,7 @@ export class IpGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/latest:IpGroup';
+    public static readonly __pulumiType = 'azure-nextgen:network/latest:IpGroup';
 
     /**
      * Returns true if the given object is an instance of IpGroup.  This is designed to work even
@@ -113,7 +113,7 @@ export class IpGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20190901:IpGroup" }, { type: "azurerm:network/v20191101:IpGroup" }, { type: "azurerm:network/v20191201:IpGroup" }, { type: "azurerm:network/v20200301:IpGroup" }, { type: "azurerm:network/v20200401:IpGroup" }, { type: "azurerm:network/v20200501:IpGroup" }, { type: "azurerm:network/v20200601:IpGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20190901:IpGroup" }, { type: "azure-nextgen:network/v20191101:IpGroup" }, { type: "azure-nextgen:network/v20191201:IpGroup" }, { type: "azure-nextgen:network/v20200301:IpGroup" }, { type: "azure-nextgen:network/v20200401:IpGroup" }, { type: "azure-nextgen:network/v20200501:IpGroup" }, { type: "azure-nextgen:network/v20200601:IpGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpGroup.__pulumiType, name, inputs, opts);
     }

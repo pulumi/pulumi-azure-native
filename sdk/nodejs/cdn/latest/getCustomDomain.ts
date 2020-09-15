@@ -14,7 +14,7 @@ export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:cdn/latest:getCustomDomain", {
+    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getCustomDomain", {
         "customDomainName": args.customDomainName,
         "endpointName": args.endpointName,
         "profileName": args.profileName,

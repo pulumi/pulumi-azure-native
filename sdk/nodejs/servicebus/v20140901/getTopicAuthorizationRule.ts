@@ -14,7 +14,7 @@ export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:servicebus/v20140901:getTopicAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20140901:getTopicAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

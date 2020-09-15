@@ -21,7 +21,7 @@ export class RedisFirewallRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:cache/v20160401:RedisFirewallRule';
+    public static readonly __pulumiType = 'azure-nextgen:cache/v20160401:RedisFirewallRule';
 
     /**
      * Returns true if the given object is an instance of RedisFirewallRule.  This is designed to work even
@@ -96,7 +96,7 @@ export class RedisFirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cache/latest:RedisFirewallRule" }, { type: "azurerm:cache/v20170201:RedisFirewallRule" }, { type: "azurerm:cache/v20171001:RedisFirewallRule" }, { type: "azurerm:cache/v20180301:RedisFirewallRule" }, { type: "azurerm:cache/v20190701:RedisFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20170201:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20171001:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20180301:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20190701:RedisFirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RedisFirewallRule.__pulumiType, name, inputs, opts);
     }

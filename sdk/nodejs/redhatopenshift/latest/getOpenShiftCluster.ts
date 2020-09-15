@@ -14,7 +14,7 @@ export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:redhatopenshift/latest:getOpenShiftCluster", {
+    return pulumi.runtime.invoke("azure-nextgen:redhatopenshift/latest:getOpenShiftCluster", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

@@ -14,7 +14,7 @@ export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:eventgrid/v20200601:getEventSubscription", {
+    return pulumi.runtime.invoke("azure-nextgen:eventgrid/v20200601:getEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,
     }, opts);

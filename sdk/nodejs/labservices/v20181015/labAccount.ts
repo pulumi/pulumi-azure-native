@@ -23,7 +23,7 @@ export class LabAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:labservices/v20181015:LabAccount';
+    public static readonly __pulumiType = 'azure-nextgen:labservices/v20181015:LabAccount';
 
     /**
      * Returns true if the given object is an instance of LabAccount.  This is designed to work even
@@ -118,7 +118,7 @@ export class LabAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:labservices/latest:LabAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices/latest:LabAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LabAccount.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function listWebAppAzureStorageAccounts(args: ListWebAppAzureStorageAccou
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20180201:listWebAppAzureStorageAccounts", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20180201:listWebAppAzureStorageAccounts", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

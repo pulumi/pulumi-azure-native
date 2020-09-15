@@ -14,7 +14,7 @@ export function getServiceEndpointPolicy(args: GetServiceEndpointPolicyArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getServiceEndpointPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getServiceEndpointPolicy", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "serviceEndpointPolicyName": args.serviceEndpointPolicyName,

@@ -14,7 +14,7 @@ export function getCertificateOrderCertificate(args: GetCertificateOrderCertific
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:certificateregistration/v20150801:getCertificateOrderCertificate", {
+    return pulumi.runtime.invoke("azure-nextgen:certificateregistration/v20150801:getCertificateOrderCertificate", {
         "certificateOrderName": args.certificateOrderName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

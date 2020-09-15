@@ -14,7 +14,7 @@ export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20200301:getNetworkVirtualAppliance", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20200301:getNetworkVirtualAppliance", {
         "expand": args.expand,
         "networkVirtualApplianceName": args.networkVirtualApplianceName,
         "resourceGroupName": args.resourceGroupName,

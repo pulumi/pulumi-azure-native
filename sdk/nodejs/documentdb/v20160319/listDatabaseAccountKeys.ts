@@ -14,7 +14,7 @@ export function listDatabaseAccountKeys(args: ListDatabaseAccountKeysArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:documentdb/v20160319:listDatabaseAccountKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:documentdb/v20160319:listDatabaseAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

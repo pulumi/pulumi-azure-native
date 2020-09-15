@@ -21,7 +21,7 @@ export class Backup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:netapp/latest:Backup';
+    public static readonly __pulumiType = 'azure-nextgen:netapp/latest:Backup';
 
     /**
      * Returns true if the given object is an instance of Backup.  This is designed to work even
@@ -125,7 +125,7 @@ export class Backup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:netapp/v20200601:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20200601:Backup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backup.__pulumiType, name, inputs, opts);
     }

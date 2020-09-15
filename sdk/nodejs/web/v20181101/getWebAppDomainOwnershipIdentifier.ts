@@ -14,7 +14,7 @@ export function getWebAppDomainOwnershipIdentifier(args: GetWebAppDomainOwnershi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20181101:getWebAppDomainOwnershipIdentifier", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20181101:getWebAppDomainOwnershipIdentifier", {
         "domainOwnershipIdentifierName": args.domainOwnershipIdentifierName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

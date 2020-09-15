@@ -14,7 +14,7 @@ export function getVirtualRouterPeering(args: GetVirtualRouterPeeringArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20191201:getVirtualRouterPeering", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20191201:getVirtualRouterPeering", {
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,
         "virtualRouterName": args.virtualRouterName,

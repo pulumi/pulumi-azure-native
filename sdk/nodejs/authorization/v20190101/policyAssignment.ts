@@ -23,7 +23,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:authorization/v20190101:PolicyAssignment';
+    public static readonly __pulumiType = 'azure-nextgen:authorization/v20190101:PolicyAssignment';
 
     /**
      * Returns true if the given object is an instance of PolicyAssignment.  This is designed to work even
@@ -135,7 +135,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:PolicyAssignment" }, { type: "azurerm:authorization/v20151001preview:PolicyAssignment" }, { type: "azurerm:authorization/v20151101:PolicyAssignment" }, { type: "azurerm:authorization/v20160401:PolicyAssignment" }, { type: "azurerm:authorization/v20161201:PolicyAssignment" }, { type: "azurerm:authorization/v20170601preview:PolicyAssignment" }, { type: "azurerm:authorization/v20180301:PolicyAssignment" }, { type: "azurerm:authorization/v20180501:PolicyAssignment" }, { type: "azurerm:authorization/v20190601:PolicyAssignment" }, { type: "azurerm:authorization/v20190901:PolicyAssignment" }, { type: "azurerm:authorization/v20200301:PolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/latest:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20151101:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20160401:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20161201:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180301:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180501:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190601:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190901:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20200301:PolicyAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyAssignment.__pulumiType, name, inputs, opts);
     }

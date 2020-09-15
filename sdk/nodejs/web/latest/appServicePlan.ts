@@ -23,7 +23,7 @@ export class AppServicePlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/latest:AppServicePlan';
+    public static readonly __pulumiType = 'azure-nextgen:web/latest:AppServicePlan';
 
     /**
      * Returns true if the given object is an instance of AppServicePlan.  This is designed to work even
@@ -217,7 +217,7 @@ export class AppServicePlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:AppServicePlan" }, { type: "azurerm:web/v20160901:AppServicePlan" }, { type: "azurerm:web/v20180201:AppServicePlan" }, { type: "azurerm:web/v20190801:AppServicePlan" }, { type: "azurerm:web/v20200601:AppServicePlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:AppServicePlan" }, { type: "azure-nextgen:web/v20160901:AppServicePlan" }, { type: "azure-nextgen:web/v20180201:AppServicePlan" }, { type: "azure-nextgen:web/v20190801:AppServicePlan" }, { type: "azure-nextgen:web/v20200601:AppServicePlan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServicePlan.__pulumiType, name, inputs, opts);
     }

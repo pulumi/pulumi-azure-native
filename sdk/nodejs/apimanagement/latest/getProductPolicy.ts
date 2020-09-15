@@ -14,7 +14,7 @@ export function getProductPolicy(args: GetProductPolicyArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/latest:getProductPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getProductPolicy", {
         "format": args.format,
         "policyId": args.policyId,
         "productId": args.productId,

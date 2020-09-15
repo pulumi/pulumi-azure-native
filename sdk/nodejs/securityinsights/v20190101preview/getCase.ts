@@ -14,7 +14,7 @@ export function getCase(args: GetCaseArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:securityinsights/v20190101preview:getCase", {
+    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getCase", {
         "caseId": args.caseId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:resources/v20160701:Deployment';
+    public static readonly __pulumiType = 'azure-nextgen:resources/v20160701:Deployment';
 
     /**
      * Returns true if the given object is an instance of Deployment.  This is designed to work even
@@ -76,7 +76,7 @@ export class Deployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:resources/latest:Deployment" }, { type: "azurerm:resources/v20151101:Deployment" }, { type: "azurerm:resources/v20160201:Deployment" }, { type: "azurerm:resources/v20160901:Deployment" }, { type: "azurerm:resources/v20170510:Deployment" }, { type: "azurerm:resources/v20180201:Deployment" }, { type: "azurerm:resources/v20180501:Deployment" }, { type: "azurerm:resources/v20190301:Deployment" }, { type: "azurerm:resources/v20190501:Deployment" }, { type: "azurerm:resources/v20190510:Deployment" }, { type: "azurerm:resources/v20190701:Deployment" }, { type: "azurerm:resources/v20190801:Deployment" }, { type: "azurerm:resources/v20191001:Deployment" }, { type: "azurerm:resources/v20200601:Deployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/latest:Deployment" }, { type: "azure-nextgen:resources/v20151101:Deployment" }, { type: "azure-nextgen:resources/v20160201:Deployment" }, { type: "azure-nextgen:resources/v20160901:Deployment" }, { type: "azure-nextgen:resources/v20170510:Deployment" }, { type: "azure-nextgen:resources/v20180201:Deployment" }, { type: "azure-nextgen:resources/v20180501:Deployment" }, { type: "azure-nextgen:resources/v20190301:Deployment" }, { type: "azure-nextgen:resources/v20190501:Deployment" }, { type: "azure-nextgen:resources/v20190510:Deployment" }, { type: "azure-nextgen:resources/v20190701:Deployment" }, { type: "azure-nextgen:resources/v20190801:Deployment" }, { type: "azure-nextgen:resources/v20191001:Deployment" }, { type: "azure-nextgen:resources/v20200601:Deployment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Deployment.__pulumiType, name, inputs, opts);
     }

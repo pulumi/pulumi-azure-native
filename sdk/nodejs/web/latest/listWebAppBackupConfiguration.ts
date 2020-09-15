@@ -14,7 +14,7 @@ export function listWebAppBackupConfiguration(args: ListWebAppBackupConfiguratio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listWebAppBackupConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppBackupConfiguration", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

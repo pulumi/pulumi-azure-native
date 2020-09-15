@@ -14,7 +14,7 @@ export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:managedidentity/latest:getUserAssignedIdentity", {
+    return pulumi.runtime.invoke("azure-nextgen:managedidentity/latest:getUserAssignedIdentity", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

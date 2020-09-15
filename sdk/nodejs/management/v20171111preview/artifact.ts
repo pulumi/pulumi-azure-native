@@ -21,7 +21,7 @@ export class Artifact extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:management/v20171111preview:Artifact';
+    public static readonly __pulumiType = 'azure-nextgen:management/v20171111preview:Artifact';
 
     /**
      * Returns true if the given object is an instance of Artifact.  This is designed to work even

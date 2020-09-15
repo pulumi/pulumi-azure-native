@@ -21,7 +21,7 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:management/v20190101:PolicyDefinitionAtManagementGroup';
+    public static readonly __pulumiType = 'azure-nextgen:management/v20190101:PolicyDefinitionAtManagementGroup';
 
     /**
      * Returns true if the given object is an instance of PolicyDefinitionAtManagementGroup.  This is designed to work even
@@ -116,7 +116,7 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:management/latest:PolicyDefinitionAtManagementGroup" }, { type: "azurerm:management/v20161201:PolicyDefinitionAtManagementGroup" }, { type: "azurerm:management/v20180301:PolicyDefinitionAtManagementGroup" }, { type: "azurerm:management/v20180501:PolicyDefinitionAtManagementGroup" }, { type: "azurerm:management/v20190601:PolicyDefinitionAtManagementGroup" }, { type: "azurerm:management/v20190901:PolicyDefinitionAtManagementGroup" }, { type: "azurerm:management/v20200301:PolicyDefinitionAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:management/latest:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20161201:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20180301:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20180501:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20190601:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20190901:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:management/v20200301:PolicyDefinitionAtManagementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyDefinitionAtManagementGroup.__pulumiType, name, inputs, opts);
     }

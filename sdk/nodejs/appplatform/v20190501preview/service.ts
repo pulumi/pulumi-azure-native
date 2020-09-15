@@ -23,7 +23,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:appplatform/v20190501preview:Service';
+    public static readonly __pulumiType = 'azure-nextgen:appplatform/v20190501preview:Service';
 
     /**
      * Returns true if the given object is an instance of Service.  This is designed to work even
@@ -100,7 +100,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:appplatform/latest:Service" }, { type: "azurerm:appplatform/v20200701:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/latest:Service" }, { type: "azure-nextgen:appplatform/v20200701:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

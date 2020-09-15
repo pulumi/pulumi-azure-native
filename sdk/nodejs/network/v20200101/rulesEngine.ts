@@ -23,7 +23,7 @@ export class RulesEngine extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20200101:RulesEngine';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20200101:RulesEngine';
 
     /**
      * Returns true if the given object is an instance of RulesEngine.  This is designed to work even
@@ -92,7 +92,7 @@ export class RulesEngine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:RulesEngine" }, { type: "azurerm:network/v20200401:RulesEngine" }, { type: "azurerm:network/v20200501:RulesEngine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:RulesEngine" }, { type: "azure-nextgen:network/v20200401:RulesEngine" }, { type: "azure-nextgen:network/v20200501:RulesEngine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RulesEngine.__pulumiType, name, inputs, opts);
     }

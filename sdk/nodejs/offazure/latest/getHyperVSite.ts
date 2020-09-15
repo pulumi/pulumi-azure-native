@@ -14,7 +14,7 @@ export function getHyperVSite(args: GetHyperVSiteArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:offazure/latest:getHyperVSite", {
+    return pulumi.runtime.invoke("azure-nextgen:offazure/latest:getHyperVSite", {
         "resourceGroupName": args.resourceGroupName,
         "siteName": args.siteName,
     }, opts);

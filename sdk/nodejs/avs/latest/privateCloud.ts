@@ -23,7 +23,7 @@ export class PrivateCloud extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:avs/latest:PrivateCloud';
+    public static readonly __pulumiType = 'azure-nextgen:avs/latest:PrivateCloud';
 
     /**
      * Returns true if the given object is an instance of PrivateCloud.  This is designed to work even
@@ -190,7 +190,7 @@ export class PrivateCloud extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:avs/v20190809preview:PrivateCloud" }, { type: "azurerm:avs/v20200320:PrivateCloud" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20190809preview:PrivateCloud" }, { type: "azure-nextgen:avs/v20200320:PrivateCloud" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateCloud.__pulumiType, name, inputs, opts);
     }

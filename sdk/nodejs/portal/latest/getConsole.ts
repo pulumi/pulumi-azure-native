@@ -14,7 +14,7 @@ export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:portal/latest:getConsole", {
+    return pulumi.runtime.invoke("azure-nextgen:portal/latest:getConsole", {
         "consoleName": args.consoleName,
     }, opts);
 }

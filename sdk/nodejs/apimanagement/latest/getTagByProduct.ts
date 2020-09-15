@@ -14,7 +14,7 @@ export function getTagByProduct(args: GetTagByProductArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/latest:getTagByProduct", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getTagByProduct", {
         "productId": args.productId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

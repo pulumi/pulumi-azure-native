@@ -23,7 +23,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:engagementfabric/v20180901preview:Account';
+    public static readonly __pulumiType = 'azure-nextgen:engagementfabric/v20180901preview:Account';
 
     /**
      * Returns true if the given object is an instance of Account.  This is designed to work even

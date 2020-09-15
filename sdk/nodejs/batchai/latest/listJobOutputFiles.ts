@@ -14,7 +14,7 @@ export function listJobOutputFiles(args: ListJobOutputFilesArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:batchai/latest:listJobOutputFiles", {
+    return pulumi.runtime.invoke("azure-nextgen:batchai/latest:listJobOutputFiles", {
         "directory": args.directory,
         "experimentName": args.experimentName,
         "jobName": args.jobName,

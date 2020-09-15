@@ -21,7 +21,7 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20180601preview:Policy';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20180601preview:Policy';
 
     /**
      * Returns true if the given object is an instance of Policy.  This is designed to work even
@@ -93,7 +93,7 @@ export class Policy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Policy" }, { type: "azurerm:apimanagement/v20170301:Policy" }, { type: "azurerm:apimanagement/v20180101:Policy" }, { type: "azurerm:apimanagement/v20190101:Policy" }, { type: "azurerm:apimanagement/v20191201:Policy" }, { type: "azurerm:apimanagement/v20191201preview:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Policy" }, { type: "azure-nextgen:apimanagement/v20170301:Policy" }, { type: "azure-nextgen:apimanagement/v20180101:Policy" }, { type: "azure-nextgen:apimanagement/v20190101:Policy" }, { type: "azure-nextgen:apimanagement/v20191201:Policy" }, { type: "azure-nextgen:apimanagement/v20191201preview:Policy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Policy.__pulumiType, name, inputs, opts);
     }

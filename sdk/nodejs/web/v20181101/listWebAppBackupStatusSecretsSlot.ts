@@ -14,7 +14,7 @@ export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSe
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20181101:listWebAppBackupStatusSecretsSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20181101:listWebAppBackupStatusSecretsSlot", {
         "backupId": args.backupId,
         "backupName": args.backupName,
         "backupSchedule": args.backupSchedule,

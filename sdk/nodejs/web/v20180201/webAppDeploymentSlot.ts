@@ -21,7 +21,7 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20180201:WebAppDeploymentSlot';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20180201:WebAppDeploymentSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppDeploymentSlot.  This is designed to work even
@@ -141,7 +141,7 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppDeploymentSlot" }, { type: "azurerm:web/v20150801:WebAppDeploymentSlot" }, { type: "azurerm:web/v20160801:WebAppDeploymentSlot" }, { type: "azurerm:web/v20181101:WebAppDeploymentSlot" }, { type: "azurerm:web/v20190801:WebAppDeploymentSlot" }, { type: "azurerm:web/v20200601:WebAppDeploymentSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDeploymentSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDeploymentSlot.__pulumiType, name, inputs, opts);
     }

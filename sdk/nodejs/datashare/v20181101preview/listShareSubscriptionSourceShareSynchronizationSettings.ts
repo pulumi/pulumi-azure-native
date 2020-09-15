@@ -14,7 +14,7 @@ export function listShareSubscriptionSourceShareSynchronizationSettings(args: Li
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datashare/v20181101preview:listShareSubscriptionSourceShareSynchronizationSettings", {
+    return pulumi.runtime.invoke("azure-nextgen:datashare/v20181101preview:listShareSubscriptionSourceShareSynchronizationSettings", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareSubscriptionName": args.shareSubscriptionName,

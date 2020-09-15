@@ -23,7 +23,7 @@ export class Cache extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storagecache/latest:Cache';
+    public static readonly __pulumiType = 'azure-nextgen:storagecache/latest:Cache';
 
     /**
      * Returns true if the given object is an instance of Cache.  This is designed to work even
@@ -154,7 +154,7 @@ export class Cache extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagecache/v20190801preview:Cache" }, { type: "azurerm:storagecache/v20191101:Cache" }, { type: "azurerm:storagecache/v20200301:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagecache/v20190801preview:Cache" }, { type: "azure-nextgen:storagecache/v20191101:Cache" }, { type: "azure-nextgen:storagecache/v20200301:Cache" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cache.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/latest:getAvailabilitySet", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getAvailabilitySet", {
         "availabilitySetName": args.availabilitySetName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

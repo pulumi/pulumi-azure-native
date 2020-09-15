@@ -14,7 +14,7 @@ export function getDeploymentAtSubscriptionScope(args: GetDeploymentAtSubscripti
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:resources/latest:getDeploymentAtSubscriptionScope", {
+    return pulumi.runtime.invoke("azure-nextgen:resources/latest:getDeploymentAtSubscriptionScope", {
         "deploymentName": args.deploymentName,
     }, opts);
 }

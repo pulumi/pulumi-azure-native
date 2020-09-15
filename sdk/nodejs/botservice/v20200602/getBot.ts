@@ -14,7 +14,7 @@ export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:botservice/v20200602:getBot", {
+    return pulumi.runtime.invoke("azure-nextgen:botservice/v20200602:getBot", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

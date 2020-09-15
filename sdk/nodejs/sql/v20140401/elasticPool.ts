@@ -21,7 +21,7 @@ export class ElasticPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20140401:ElasticPool';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20140401:ElasticPool';
 
     /**
      * Returns true if the given object is an instance of ElasticPool.  This is designed to work even
@@ -147,7 +147,7 @@ export class ElasticPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/latest:ElasticPool" }, { type: "azurerm:sql/v20171001preview:ElasticPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/latest:ElasticPool" }, { type: "azure-nextgen:sql/v20171001preview:ElasticPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ElasticPool.__pulumiType, name, inputs, opts);
     }

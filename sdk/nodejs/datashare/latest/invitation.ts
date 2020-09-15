@@ -21,7 +21,7 @@ export class Invitation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datashare/latest:Invitation';
+    public static readonly __pulumiType = 'azure-nextgen:datashare/latest:Invitation';
 
     /**
      * Returns true if the given object is an instance of Invitation.  This is designed to work even
@@ -138,7 +138,7 @@ export class Invitation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datashare/v20181101preview:Invitation" }, { type: "azurerm:datashare/v20191101:Invitation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:Invitation" }, { type: "azure-nextgen:datashare/v20191101:Invitation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Invitation.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getTaskRun(args: GetTaskRunArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:containerregistry/v20190601preview:getTaskRun", {
+    return pulumi.runtime.invoke("azure-nextgen:containerregistry/v20190601preview:getTaskRun", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "taskRunName": args.taskRunName,

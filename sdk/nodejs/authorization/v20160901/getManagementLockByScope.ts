@@ -14,7 +14,7 @@ export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:authorization/v20160901:getManagementLockByScope", {
+    return pulumi.runtime.invoke("azure-nextgen:authorization/v20160901:getManagementLockByScope", {
         "lockName": args.lockName,
         "scope": args.scope,
     }, opts);

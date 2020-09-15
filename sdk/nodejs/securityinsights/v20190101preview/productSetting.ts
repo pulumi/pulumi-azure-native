@@ -21,7 +21,7 @@ export class ProductSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:securityinsights/v20190101preview:ProductSetting';
+    public static readonly __pulumiType = 'azure-nextgen:securityinsights/v20190101preview:ProductSetting';
 
     /**
      * Returns true if the given object is an instance of ProductSetting.  This is designed to work even

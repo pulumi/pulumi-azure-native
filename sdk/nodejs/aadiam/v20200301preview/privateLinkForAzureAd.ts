@@ -21,7 +21,7 @@ export class PrivateLinkForAzureAd extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:aadiam/v20200301preview:privateLinkForAzureAd';
+    public static readonly __pulumiType = 'azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkForAzureAd.  This is designed to work even

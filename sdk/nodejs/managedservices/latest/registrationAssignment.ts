@@ -23,7 +23,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:managedservices/latest:RegistrationAssignment';
+    public static readonly __pulumiType = 'azure-nextgen:managedservices/latest:RegistrationAssignment';
 
     /**
      * Returns true if the given object is an instance of RegistrationAssignment.  This is designed to work even
@@ -82,7 +82,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azurerm:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azurerm:managedservices/v20190601:RegistrationAssignment" }, { type: "azurerm:managedservices/v20190901:RegistrationAssignment" }, { type: "azurerm:managedservices/v20200201preview:RegistrationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationAssignment" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegistrationAssignment.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getRouteFilterRule", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getRouteFilterRule", {
         "resourceGroupName": args.resourceGroupName,
         "routeFilterName": args.routeFilterName,
         "ruleName": args.ruleName,

@@ -21,7 +21,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:dbformysql/latest:ServerAdministrator';
+    public static readonly __pulumiType = 'azure-nextgen:dbformysql/latest:ServerAdministrator';
 
     /**
      * Returns true if the given object is an instance of ServerAdministrator.  This is designed to work even
@@ -110,7 +110,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/v20171201:ServerAdministrator" }, { type: "azurerm:dbformysql/v20171201preview:ServerAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20171201:ServerAdministrator" }, { type: "azure-nextgen:dbformysql/v20171201preview:ServerAdministrator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerAdministrator.__pulumiType, name, inputs, opts);
     }

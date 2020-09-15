@@ -21,7 +21,7 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20180201:WebAppSourceControlSlot';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20180201:WebAppSourceControlSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppSourceControlSlot.  This is designed to work even
@@ -113,7 +113,7 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppSourceControlSlot" }, { type: "azurerm:web/v20150801:WebAppSourceControlSlot" }, { type: "azurerm:web/v20160801:WebAppSourceControlSlot" }, { type: "azurerm:web/v20181101:WebAppSourceControlSlot" }, { type: "azurerm:web/v20190801:WebAppSourceControlSlot" }, { type: "azurerm:web/v20200601:WebAppSourceControlSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSourceControlSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSourceControlSlot.__pulumiType, name, inputs, opts);
     }

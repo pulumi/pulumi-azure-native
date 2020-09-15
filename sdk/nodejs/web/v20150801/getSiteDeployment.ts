@@ -14,7 +14,7 @@ export function getSiteDeployment(args: GetSiteDeploymentArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteDeployment", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:getSiteDeployment", {
         "id": args.id,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

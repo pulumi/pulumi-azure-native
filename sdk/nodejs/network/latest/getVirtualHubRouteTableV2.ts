@@ -14,7 +14,7 @@ export function getVirtualHubRouteTableV2(args: GetVirtualHubRouteTableV2Args, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getVirtualHubRouteTableV2", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualHubRouteTableV2", {
         "resourceGroupName": args.resourceGroupName,
         "routeTableName": args.routeTableName,
         "virtualHubName": args.virtualHubName,

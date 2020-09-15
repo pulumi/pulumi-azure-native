@@ -14,7 +14,7 @@ export function getPublishedBlueprint(args: GetPublishedBlueprintArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:management/v20171111preview:getPublishedBlueprint", {
+    return pulumi.runtime.invoke("azure-nextgen:management/v20171111preview:getPublishedBlueprint", {
         "blueprintName": args.blueprintName,
         "managementGroupName": args.managementGroupName,
         "versionId": args.versionId,

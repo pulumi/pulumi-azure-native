@@ -14,7 +14,7 @@ export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20200501:getVpnConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20200501:getVpnConnection", {
         "connectionName": args.connectionName,
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,

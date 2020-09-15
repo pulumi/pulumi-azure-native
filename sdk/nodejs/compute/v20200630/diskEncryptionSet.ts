@@ -23,7 +23,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/v20200630:DiskEncryptionSet';
+    public static readonly __pulumiType = 'azure-nextgen:compute/v20200630:DiskEncryptionSet';
 
     /**
      * Returns true if the given object is an instance of DiskEncryptionSet.  This is designed to work even
@@ -121,7 +121,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:DiskEncryptionSet" }, { type: "azurerm:compute/v20190701:DiskEncryptionSet" }, { type: "azurerm:compute/v20191101:DiskEncryptionSet" }, { type: "azurerm:compute/v20200501:DiskEncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20191101:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskEncryptionSet.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getIntegrationAccountMap(args: GetIntegrationAccountMapArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20180701preview:getIntegrationAccountMap", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20180701preview:getIntegrationAccountMap", {
         "integrationAccountName": args.integrationAccountName,
         "mapName": args.mapName,
         "resourceGroupName": args.resourceGroupName,

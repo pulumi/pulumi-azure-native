@@ -21,7 +21,7 @@ export class ShareSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datashare/v20181101preview:ShareSubscription';
+    public static readonly __pulumiType = 'azure-nextgen:datashare/v20181101preview:ShareSubscription';
 
     /**
      * Returns true if the given object is an instance of ShareSubscription.  This is designed to work even
@@ -159,7 +159,7 @@ export class ShareSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datashare/latest:ShareSubscription" }, { type: "azurerm:datashare/v20191101:ShareSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:ShareSubscription" }, { type: "azure-nextgen:datashare/v20191101:ShareSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ShareSubscription.__pulumiType, name, inputs, opts);
     }

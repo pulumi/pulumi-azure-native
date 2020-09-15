@@ -24,7 +24,7 @@ export class TaskRun extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:containerregistry/v20190601preview:TaskRun';
+    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20190601preview:TaskRun';
 
     /**
      * Returns true if the given object is an instance of TaskRun.  This is designed to work even

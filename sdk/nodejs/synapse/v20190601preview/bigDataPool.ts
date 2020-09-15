@@ -23,7 +23,7 @@ export class BigDataPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:synapse/v20190601preview:BigDataPool';
+    public static readonly __pulumiType = 'azure-nextgen:synapse/v20190601preview:BigDataPool';
 
     /**
      * Returns true if the given object is an instance of BigDataPool.  This is designed to work even

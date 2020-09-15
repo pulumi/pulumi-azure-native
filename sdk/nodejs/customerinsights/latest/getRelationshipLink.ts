@@ -14,7 +14,7 @@ export function getRelationshipLink(args: GetRelationshipLinkArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:customerinsights/latest:getRelationshipLink", {
+    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getRelationshipLink", {
         "hubName": args.hubName,
         "relationshipLinkName": args.relationshipLinkName,
         "resourceGroupName": args.resourceGroupName,

@@ -14,7 +14,7 @@ export function getbackupPolicy(args: GetbackupPolicyArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:netapp/latest:getbackupPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:netapp/latest:getbackupPolicy", {
         "accountName": args.accountName,
         "backupPolicyName": args.backupPolicyName,
         "resourceGroupName": args.resourceGroupName,

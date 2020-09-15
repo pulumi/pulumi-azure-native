@@ -21,7 +21,7 @@ export class DataSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datashare/latest:DataSet';
+    public static readonly __pulumiType = 'azure-nextgen:datashare/latest:DataSet';
 
     /**
      * Returns true if the given object is an instance of DataSet.  This is designed to work even
@@ -91,7 +91,7 @@ export class DataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datashare/v20181101preview:DataSet" }, { type: "azurerm:datashare/v20191101:DataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:DataSet" }, { type: "azure-nextgen:datashare/v20191101:DataSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataSet.__pulumiType, name, inputs, opts);
     }

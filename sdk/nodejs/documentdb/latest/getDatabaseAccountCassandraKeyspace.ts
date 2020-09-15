@@ -14,7 +14,7 @@ export function getDatabaseAccountCassandraKeyspace(args: GetDatabaseAccountCass
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:documentdb/latest:getDatabaseAccountCassandraKeyspace", {
+    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getDatabaseAccountCassandraKeyspace", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,
         "resourceGroupName": args.resourceGroupName,

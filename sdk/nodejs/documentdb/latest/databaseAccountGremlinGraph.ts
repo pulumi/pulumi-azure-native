@@ -23,7 +23,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:documentdb/latest:DatabaseAccountGremlinGraph';
+    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountGremlinGraph.  This is designed to work even
@@ -152,7 +152,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20150401:DatabaseAccountGremlinGraph" }, { type: "azurerm:documentdb/v20150408:DatabaseAccountGremlinGraph" }, { type: "azurerm:documentdb/v20151106:DatabaseAccountGremlinGraph" }, { type: "azurerm:documentdb/v20160319:DatabaseAccountGremlinGraph" }, { type: "azurerm:documentdb/v20160331:DatabaseAccountGremlinGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountGremlinGraph.__pulumiType, name, inputs, opts);
     }

@@ -21,7 +21,7 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:dbformysql/v20200701privatepreview:FirewallRule';
+    public static readonly __pulumiType = 'azure-nextgen:dbformysql/v20200701privatepreview:FirewallRule';
 
     /**
      * Returns true if the given object is an instance of FirewallRule.  This is designed to work even

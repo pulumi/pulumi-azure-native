@@ -14,7 +14,7 @@ export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:azurestack/latest:getRegistration", {
+    return pulumi.runtime.invoke("azure-nextgen:azurestack/latest:getRegistration", {
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,
     }, opts);

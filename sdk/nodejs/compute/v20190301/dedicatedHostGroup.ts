@@ -23,7 +23,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/v20190301:DedicatedHostGroup';
+    public static readonly __pulumiType = 'azure-nextgen:compute/v20190301:DedicatedHostGroup';
 
     /**
      * Returns true if the given object is an instance of DedicatedHostGroup.  This is designed to work even
@@ -112,7 +112,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:DedicatedHostGroup" }, { type: "azurerm:compute/v20190701:DedicatedHostGroup" }, { type: "azurerm:compute/v20191201:DedicatedHostGroup" }, { type: "azurerm:compute/v20200601:DedicatedHostGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20190701:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20191201:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20200601:DedicatedHostGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DedicatedHostGroup.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:batchai/v20180501:getExperiment", {
+    return pulumi.runtime.invoke("azure-nextgen:batchai/v20180501:getExperiment", {
         "experimentName": args.experimentName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

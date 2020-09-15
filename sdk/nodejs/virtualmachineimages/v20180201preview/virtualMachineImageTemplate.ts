@@ -20,7 +20,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate';
+    public static readonly __pulumiType = 'azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineImageTemplate.  This is designed to work even
@@ -130,7 +130,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:virtualmachineimages/latest:VirtualMachineImageTemplate" }, { type: "azurerm:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azurerm:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }, { type: "azurerm:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineImageTemplate.__pulumiType, name, inputs, opts);
     }

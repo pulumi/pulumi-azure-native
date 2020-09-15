@@ -21,7 +21,7 @@ export class Association extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:customproviders/v20180901preview:Association';
+    public static readonly __pulumiType = 'azure-nextgen:customproviders/v20180901preview:Association';
 
     /**
      * Returns true if the given object is an instance of Association.  This is designed to work even

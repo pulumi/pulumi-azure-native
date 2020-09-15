@@ -14,7 +14,7 @@ export function listAppServicePlanHybridConnectionKeys(args: ListAppServicePlanH
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20200601:listAppServicePlanHybridConnectionKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20200601:listAppServicePlanHybridConnectionKeys", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

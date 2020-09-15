@@ -23,7 +23,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:servicefabric/v20200301:Cluster';
+    public static readonly __pulumiType = 'azure-nextgen:servicefabric/v20200301:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -267,7 +267,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/latest:Cluster" }, { type: "azurerm:servicefabric/v20160901:Cluster" }, { type: "azurerm:servicefabric/v20170701preview:Cluster" }, { type: "azurerm:servicefabric/v20180201:Cluster" }, { type: "azurerm:servicefabric/v20190301:Cluster" }, { type: "azurerm:servicefabric/v20190301preview:Cluster" }, { type: "azurerm:servicefabric/v20190601preview:Cluster" }, { type: "azurerm:servicefabric/v20191101preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/latest:Cluster" }, { type: "azure-nextgen:servicefabric/v20160901:Cluster" }, { type: "azure-nextgen:servicefabric/v20170701preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20180201:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20190601preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20191101preview:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

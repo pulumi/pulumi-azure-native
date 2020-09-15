@@ -21,7 +21,7 @@ export class Product extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20180101:Product';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20180101:Product';
 
     /**
      * Returns true if the given object is an instance of Product.  This is designed to work even
@@ -123,7 +123,7 @@ export class Product extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Product" }, { type: "azurerm:apimanagement/v20160707:Product" }, { type: "azurerm:apimanagement/v20161010:Product" }, { type: "azurerm:apimanagement/v20170301:Product" }, { type: "azurerm:apimanagement/v20180601preview:Product" }, { type: "azurerm:apimanagement/v20190101:Product" }, { type: "azurerm:apimanagement/v20191201:Product" }, { type: "azurerm:apimanagement/v20191201preview:Product" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Product" }, { type: "azure-nextgen:apimanagement/v20160707:Product" }, { type: "azure-nextgen:apimanagement/v20161010:Product" }, { type: "azure-nextgen:apimanagement/v20170301:Product" }, { type: "azure-nextgen:apimanagement/v20180601preview:Product" }, { type: "azure-nextgen:apimanagement/v20190101:Product" }, { type: "azure-nextgen:apimanagement/v20191201:Product" }, { type: "azure-nextgen:apimanagement/v20191201preview:Product" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Product.__pulumiType, name, inputs, opts);
     }

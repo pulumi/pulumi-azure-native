@@ -21,7 +21,7 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20150801:ServerFarmRouteForVnet';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:ServerFarmRouteForVnet';
 
     /**
      * Returns true if the given object is an instance of ServerFarmRouteForVnet.  This is designed to work even
@@ -127,7 +127,7 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:ServerFarmRouteForVnet" }, { type: "azurerm:web/v20160901:ServerFarmRouteForVnet" }, { type: "azurerm:web/v20180201:ServerFarmRouteForVnet" }, { type: "azurerm:web/v20190801:ServerFarmRouteForVnet" }, { type: "azurerm:web/v20200601:ServerFarmRouteForVnet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20160901:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20180201:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20190801:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20200601:ServerFarmRouteForVnet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerFarmRouteForVnet.__pulumiType, name, inputs, opts);
     }

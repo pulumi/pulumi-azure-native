@@ -23,7 +23,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:changeanalysis/v20200401preview:ConfigurationProfile';
+    public static readonly __pulumiType = 'azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile';
 
     /**
      * Returns true if the given object is an instance of ConfigurationProfile.  This is designed to work even

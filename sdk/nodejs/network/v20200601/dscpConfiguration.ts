@@ -23,7 +23,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20200601:DscpConfiguration';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20200601:DscpConfiguration';
 
     /**
      * Returns true if the given object is an instance of DscpConfiguration.  This is designed to work even
@@ -155,7 +155,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:DscpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:DscpConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DscpConfiguration.__pulumiType, name, inputs, opts);
     }

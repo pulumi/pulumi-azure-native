@@ -23,7 +23,7 @@ export class NotificationHub extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:notificationhubs/latest:NotificationHub';
+    public static readonly __pulumiType = 'azure-nextgen:notificationhubs/latest:NotificationHub';
 
     /**
      * Returns true if the given object is an instance of NotificationHub.  This is designed to work even
@@ -146,7 +146,7 @@ export class NotificationHub extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:notificationhubs/v20140901:NotificationHub" }, { type: "azurerm:notificationhubs/v20160301:NotificationHub" }, { type: "azurerm:notificationhubs/v20170401:NotificationHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs/v20140901:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20160301:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHub" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotificationHub.__pulumiType, name, inputs, opts);
     }

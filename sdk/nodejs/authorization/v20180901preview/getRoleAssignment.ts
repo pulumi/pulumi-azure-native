@@ -14,7 +14,7 @@ export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:authorization/v20180901preview:getRoleAssignment", {
+    return pulumi.runtime.invoke("azure-nextgen:authorization/v20180901preview:getRoleAssignment", {
         "roleAssignmentName": args.roleAssignmentName,
         "scope": args.scope,
     }, opts);

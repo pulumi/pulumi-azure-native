@@ -14,7 +14,7 @@ export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20180601preview:getLogger", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20180601preview:getLogger", {
         "loggerId": args.loggerId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

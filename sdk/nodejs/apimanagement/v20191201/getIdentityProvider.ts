@@ -14,7 +14,7 @@ export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getIdentityProvider", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20191201:getIdentityProvider", {
         "identityProviderName": args.identityProviderName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

@@ -23,7 +23,7 @@ export class DedicatedHsm extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hardwaresecuritymodules/v20181031preview:DedicatedHsm';
+    public static readonly __pulumiType = 'azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm';
 
     /**
      * Returns true if the given object is an instance of DedicatedHsm.  This is designed to work even

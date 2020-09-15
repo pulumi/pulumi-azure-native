@@ -23,7 +23,7 @@ export class DeploymentScript extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:resources/v20191001preview:DeploymentScript';
+    public static readonly __pulumiType = 'azure-nextgen:resources/v20191001preview:DeploymentScript';
 
     /**
      * Returns true if the given object is an instance of DeploymentScript.  This is designed to work even

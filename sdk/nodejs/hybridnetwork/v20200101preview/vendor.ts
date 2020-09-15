@@ -23,7 +23,7 @@ export class Vendor extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hybridnetwork/v20200101preview:Vendor';
+    public static readonly __pulumiType = 'azure-nextgen:hybridnetwork/v20200101preview:Vendor';
 
     /**
      * Returns true if the given object is an instance of Vendor.  This is designed to work even

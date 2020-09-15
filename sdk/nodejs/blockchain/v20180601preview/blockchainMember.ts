@@ -23,7 +23,7 @@ export class BlockchainMember extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:blockchain/v20180601preview:BlockchainMember';
+    public static readonly __pulumiType = 'azure-nextgen:blockchain/v20180601preview:BlockchainMember';
 
     /**
      * Returns true if the given object is an instance of BlockchainMember.  This is designed to work even

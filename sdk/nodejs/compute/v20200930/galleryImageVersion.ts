@@ -23,7 +23,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/v20200930:GalleryImageVersion';
+    public static readonly __pulumiType = 'azure-nextgen:compute/v20200930:GalleryImageVersion';
 
     /**
      * Returns true if the given object is an instance of GalleryImageVersion.  This is designed to work even
@@ -126,7 +126,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:GalleryImageVersion" }, { type: "azurerm:compute/v20180601:GalleryImageVersion" }, { type: "azurerm:compute/v20190301:GalleryImageVersion" }, { type: "azurerm:compute/v20190701:GalleryImageVersion" }, { type: "azurerm:compute/v20191201:GalleryImageVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20180601:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20190301:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20190701:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20191201:GalleryImageVersion" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryImageVersion.__pulumiType, name, inputs, opts);
     }

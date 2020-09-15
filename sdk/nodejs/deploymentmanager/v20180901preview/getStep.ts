@@ -14,7 +14,7 @@ export function getStep(args: GetStepArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:deploymentmanager/v20180901preview:getStep", {
+    return pulumi.runtime.invoke("azure-nextgen:deploymentmanager/v20180901preview:getStep", {
         "resourceGroupName": args.resourceGroupName,
         "stepName": args.stepName,
     }, opts);

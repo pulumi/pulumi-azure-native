@@ -21,7 +21,7 @@ export class CustomDomain extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:cdn/v20170402:CustomDomain';
+    public static readonly __pulumiType = 'azure-nextgen:cdn/v20170402:CustomDomain';
 
     /**
      * Returns true if the given object is an instance of CustomDomain.  This is designed to work even
@@ -121,7 +121,7 @@ export class CustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:CustomDomain" }, { type: "azurerm:cdn/v20150601:CustomDomain" }, { type: "azurerm:cdn/v20160402:CustomDomain" }, { type: "azurerm:cdn/v20161002:CustomDomain" }, { type: "azurerm:cdn/v20171012:CustomDomain" }, { type: "azurerm:cdn/v20190415:CustomDomain" }, { type: "azurerm:cdn/v20190615:CustomDomain" }, { type: "azurerm:cdn/v20190615preview:CustomDomain" }, { type: "azurerm:cdn/v20191231:CustomDomain" }, { type: "azurerm:cdn/v20200331:CustomDomain" }, { type: "azurerm:cdn/v20200415:CustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:CustomDomain" }, { type: "azure-nextgen:cdn/v20150601:CustomDomain" }, { type: "azure-nextgen:cdn/v20160402:CustomDomain" }, { type: "azure-nextgen:cdn/v20161002:CustomDomain" }, { type: "azure-nextgen:cdn/v20171012:CustomDomain" }, { type: "azure-nextgen:cdn/v20190415:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615:CustomDomain" }, { type: "azure-nextgen:cdn/v20190615preview:CustomDomain" }, { type: "azure-nextgen:cdn/v20191231:CustomDomain" }, { type: "azure-nextgen:cdn/v20200331:CustomDomain" }, { type: "azure-nextgen:cdn/v20200415:CustomDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }

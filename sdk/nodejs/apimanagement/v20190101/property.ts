@@ -21,7 +21,7 @@ export class Property extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20190101:Property';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20190101:Property';
 
     /**
      * Returns true if the given object is an instance of Property.  This is designed to work even
@@ -108,7 +108,7 @@ export class Property extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Property" }, { type: "azurerm:apimanagement/v20160707:Property" }, { type: "azurerm:apimanagement/v20161010:Property" }, { type: "azurerm:apimanagement/v20170301:Property" }, { type: "azurerm:apimanagement/v20180101:Property" }, { type: "azurerm:apimanagement/v20180601preview:Property" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Property" }, { type: "azure-nextgen:apimanagement/v20160707:Property" }, { type: "azure-nextgen:apimanagement/v20161010:Property" }, { type: "azure-nextgen:apimanagement/v20170301:Property" }, { type: "azure-nextgen:apimanagement/v20180101:Property" }, { type: "azure-nextgen:apimanagement/v20180601preview:Property" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Property.__pulumiType, name, inputs, opts);
     }

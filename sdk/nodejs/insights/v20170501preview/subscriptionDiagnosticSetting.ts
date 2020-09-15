@@ -23,7 +23,7 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/v20170501preview:SubscriptionDiagnosticSetting';
+    public static readonly __pulumiType = 'azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting';
 
     /**
      * Returns true if the given object is an instance of SubscriptionDiagnosticSetting.  This is designed to work even

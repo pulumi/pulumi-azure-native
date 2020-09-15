@@ -14,7 +14,7 @@ export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:hybridcompute/latest:getMachineExtension", {
+    return pulumi.runtime.invoke("azure-nextgen:hybridcompute/latest:getMachineExtension", {
         "extensionName": args.extensionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

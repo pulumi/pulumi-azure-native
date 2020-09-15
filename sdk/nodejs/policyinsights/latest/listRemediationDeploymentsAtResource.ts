@@ -14,7 +14,7 @@ export function listRemediationDeploymentsAtResource(args: ListRemediationDeploy
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:policyinsights/latest:listRemediationDeploymentsAtResource", {
+    return pulumi.runtime.invoke("azure-nextgen:policyinsights/latest:listRemediationDeploymentsAtResource", {
         "remediationName": args.remediationName,
         "resourceId": args.resourceId,
         "top": args.top,

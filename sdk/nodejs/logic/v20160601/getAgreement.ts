@@ -14,7 +14,7 @@ export function getAgreement(args: GetAgreementArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20160601:getAgreement", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20160601:getAgreement", {
         "agreementName": args.agreementName,
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,

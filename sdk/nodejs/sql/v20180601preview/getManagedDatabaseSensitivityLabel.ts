@@ -14,7 +14,7 @@ export function getManagedDatabaseSensitivityLabel(args: GetManagedDatabaseSensi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20180601preview:getManagedDatabaseSensitivityLabel", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20180601preview:getManagedDatabaseSensitivityLabel", {
         "columnName": args.columnName,
         "databaseName": args.databaseName,
         "managedInstanceName": args.managedInstanceName,

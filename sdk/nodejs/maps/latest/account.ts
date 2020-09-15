@@ -23,7 +23,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:maps/latest:Account';
+    public static readonly __pulumiType = 'azure-nextgen:maps/latest:Account';
 
     /**
      * Returns true if the given object is an instance of Account.  This is designed to work even
@@ -106,7 +106,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:maps/v20170101preview:Account" }, { type: "azurerm:maps/v20180501:Account" }, { type: "azurerm:maps/v20200201preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:maps/v20170101preview:Account" }, { type: "azure-nextgen:maps/v20180501:Account" }, { type: "azure-nextgen:maps/v20200201preview:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

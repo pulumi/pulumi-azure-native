@@ -14,7 +14,7 @@ export function listStaticSiteSecrets(args: ListStaticSiteSecretsArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20200601:listStaticSiteSecrets", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20200601:listStaticSiteSecrets", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

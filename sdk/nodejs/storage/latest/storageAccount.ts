@@ -23,7 +23,7 @@ export class StorageAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storage/latest:StorageAccount';
+    public static readonly __pulumiType = 'azure-nextgen:storage/latest:StorageAccount';
 
     /**
      * Returns true if the given object is an instance of StorageAccount.  This is designed to work even
@@ -259,7 +259,7 @@ export class StorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/v20150501preview:StorageAccount" }, { type: "azurerm:storage/v20150615:StorageAccount" }, { type: "azurerm:storage/v20160101:StorageAccount" }, { type: "azurerm:storage/v20160501:StorageAccount" }, { type: "azurerm:storage/v20161201:StorageAccount" }, { type: "azurerm:storage/v20170601:StorageAccount" }, { type: "azurerm:storage/v20171001:StorageAccount" }, { type: "azurerm:storage/v20180201:StorageAccount" }, { type: "azurerm:storage/v20180301preview:StorageAccount" }, { type: "azurerm:storage/v20180701:StorageAccount" }, { type: "azurerm:storage/v20181101:StorageAccount" }, { type: "azurerm:storage/v20190401:StorageAccount" }, { type: "azurerm:storage/v20190601:StorageAccount" }, { type: "azurerm:storage/v20200801preview:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/v20150501preview:StorageAccount" }, { type: "azure-nextgen:storage/v20150615:StorageAccount" }, { type: "azure-nextgen:storage/v20160101:StorageAccount" }, { type: "azure-nextgen:storage/v20160501:StorageAccount" }, { type: "azure-nextgen:storage/v20161201:StorageAccount" }, { type: "azure-nextgen:storage/v20170601:StorageAccount" }, { type: "azure-nextgen:storage/v20171001:StorageAccount" }, { type: "azure-nextgen:storage/v20180201:StorageAccount" }, { type: "azure-nextgen:storage/v20180301preview:StorageAccount" }, { type: "azure-nextgen:storage/v20180701:StorageAccount" }, { type: "azure-nextgen:storage/v20181101:StorageAccount" }, { type: "azure-nextgen:storage/v20190401:StorageAccount" }, { type: "azure-nextgen:storage/v20190601:StorageAccount" }, { type: "azure-nextgen:storage/v20200801preview:StorageAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccount.__pulumiType, name, inputs, opts);
     }

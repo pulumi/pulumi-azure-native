@@ -21,7 +21,7 @@ export class Webhook extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:containerregistry/latest:Webhook';
+    public static readonly __pulumiType = 'azure-nextgen:containerregistry/latest:Webhook';
 
     /**
      * Returns true if the given object is an instance of Webhook.  This is designed to work even
@@ -125,7 +125,7 @@ export class Webhook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/v20170601preview:Webhook" }, { type: "azurerm:containerregistry/v20171001:Webhook" }, { type: "azurerm:containerregistry/v20190501:Webhook" }, { type: "azurerm:containerregistry/v20191201preview:Webhook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20170601preview:Webhook" }, { type: "azure-nextgen:containerregistry/v20171001:Webhook" }, { type: "azure-nextgen:containerregistry/v20190501:Webhook" }, { type: "azure-nextgen:containerregistry/v20191201preview:Webhook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Webhook.__pulumiType, name, inputs, opts);
     }

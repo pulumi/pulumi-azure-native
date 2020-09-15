@@ -14,7 +14,7 @@ export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:containerregistry/latest:getReplication", {
+    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:getReplication", {
         "registryName": args.registryName,
         "replicationName": args.replicationName,
         "resourceGroupName": args.resourceGroupName,

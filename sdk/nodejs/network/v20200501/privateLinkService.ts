@@ -23,7 +23,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20200501:PrivateLinkService';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20200501:PrivateLinkService';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkService.  This is designed to work even
@@ -155,7 +155,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:PrivateLinkService" }, { type: "azurerm:network/v20190401:PrivateLinkService" }, { type: "azurerm:network/v20190601:PrivateLinkService" }, { type: "azurerm:network/v20190701:PrivateLinkService" }, { type: "azurerm:network/v20190801:PrivateLinkService" }, { type: "azurerm:network/v20190901:PrivateLinkService" }, { type: "azurerm:network/v20191101:PrivateLinkService" }, { type: "azurerm:network/v20191201:PrivateLinkService" }, { type: "azurerm:network/v20200301:PrivateLinkService" }, { type: "azurerm:network/v20200401:PrivateLinkService" }, { type: "azurerm:network/v20200601:PrivateLinkService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:PrivateLinkService" }, { type: "azure-nextgen:network/v20190401:PrivateLinkService" }, { type: "azure-nextgen:network/v20190601:PrivateLinkService" }, { type: "azure-nextgen:network/v20190701:PrivateLinkService" }, { type: "azure-nextgen:network/v20190801:PrivateLinkService" }, { type: "azure-nextgen:network/v20190901:PrivateLinkService" }, { type: "azure-nextgen:network/v20191101:PrivateLinkService" }, { type: "azure-nextgen:network/v20191201:PrivateLinkService" }, { type: "azure-nextgen:network/v20200301:PrivateLinkService" }, { type: "azure-nextgen:network/v20200401:PrivateLinkService" }, { type: "azure-nextgen:network/v20200601:PrivateLinkService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateLinkService.__pulumiType, name, inputs, opts);
     }

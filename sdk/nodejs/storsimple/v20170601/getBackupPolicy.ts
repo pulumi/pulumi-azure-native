@@ -14,7 +14,7 @@ export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storsimple/v20170601:getBackupPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:storsimple/v20170601:getBackupPolicy", {
         "backupPolicyName": args.backupPolicyName,
         "deviceName": args.deviceName,
         "managerName": args.managerName,

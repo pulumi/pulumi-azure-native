@@ -14,7 +14,7 @@ export function getVpnSite(args: GetVpnSiteArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getVpnSite", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVpnSite", {
         "resourceGroupName": args.resourceGroupName,
         "vpnSiteName": args.vpnSiteName,
     }, opts);

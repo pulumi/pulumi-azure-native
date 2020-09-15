@@ -14,7 +14,7 @@ export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:resources/v20160901:getDeployment", {
+    return pulumi.runtime.invoke("azure-nextgen:resources/v20160901:getDeployment", {
         "deploymentName": args.deploymentName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

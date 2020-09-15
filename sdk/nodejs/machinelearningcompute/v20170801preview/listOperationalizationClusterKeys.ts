@@ -14,7 +14,7 @@ export function listOperationalizationClusterKeys(args: ListOperationalizationCl
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

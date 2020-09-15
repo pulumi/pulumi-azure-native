@@ -23,7 +23,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:appplatform/v20190501preview:Certificate';
+    public static readonly __pulumiType = 'azure-nextgen:appplatform/v20190501preview:Certificate';
 
     /**
      * Returns true if the given object is an instance of Certificate.  This is designed to work even
@@ -86,7 +86,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:appplatform/latest:Certificate" }, { type: "azurerm:appplatform/v20200701:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/latest:Certificate" }, { type: "azure-nextgen:appplatform/v20200701:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

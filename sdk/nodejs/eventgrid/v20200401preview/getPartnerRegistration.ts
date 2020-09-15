@@ -14,7 +14,7 @@ export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:eventgrid/v20200401preview:getPartnerRegistration", {
+    return pulumi.runtime.invoke("azure-nextgen:eventgrid/v20200401preview:getPartnerRegistration", {
         "partnerRegistrationName": args.partnerRegistrationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

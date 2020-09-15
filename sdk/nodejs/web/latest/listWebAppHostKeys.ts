@@ -14,7 +14,7 @@ export function listWebAppHostKeys(args: ListWebAppHostKeysArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listWebAppHostKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppHostKeys", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

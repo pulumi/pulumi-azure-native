@@ -14,7 +14,7 @@ export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:relay/latest:getHybridConnectionAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-nextgen:relay/latest:getHybridConnectionAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "hybridConnectionName": args.hybridConnectionName,
         "namespaceName": args.namespaceName,

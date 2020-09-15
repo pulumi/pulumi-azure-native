@@ -14,7 +14,7 @@ export function listWCFRelayKeys(args: ListWCFRelayKeysArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:relay/v20170401:listWCFRelayKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:relay/v20170401:listWCFRelayKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

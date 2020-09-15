@@ -14,7 +14,7 @@ export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20160601:getPartner", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20160601:getPartner", {
         "integrationAccountName": args.integrationAccountName,
         "partnerName": args.partnerName,
         "resourceGroupName": args.resourceGroupName,

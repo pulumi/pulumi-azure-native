@@ -14,7 +14,7 @@ export function getRedisLinkedServer(args: GetRedisLinkedServerArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:cache/v20170201:getRedisLinkedServer", {
+    return pulumi.runtime.invoke("azure-nextgen:cache/v20170201:getRedisLinkedServer", {
         "linkedServerName": args.linkedServerName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -14,7 +14,7 @@ export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:visualstudio/v20171101preview:getExtension", {
+    return pulumi.runtime.invoke("azure-nextgen:visualstudio/v20171101preview:getExtension", {
         "accountResourceName": args.accountResourceName,
         "extensionResourceName": args.extensionResourceName,
         "resourceGroupName": args.resourceGroupName,

@@ -21,7 +21,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20150501preview:VirtualNetworkRule';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20150501preview:VirtualNetworkRule';
 
     /**
      * Returns true if the given object is an instance of VirtualNetworkRule.  This is designed to work even

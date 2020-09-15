@@ -14,7 +14,7 @@ export function getSyncMember(args: GetSyncMemberArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20150501preview:getSyncMember", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20150501preview:getSyncMember", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

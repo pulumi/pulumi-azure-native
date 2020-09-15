@@ -23,7 +23,7 @@ export class PrivateAtlase extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:maps/v20200201preview:PrivateAtlase';
+    public static readonly __pulumiType = 'azure-nextgen:maps/v20200201preview:PrivateAtlase';
 
     /**
      * Returns true if the given object is an instance of PrivateAtlase.  This is designed to work even

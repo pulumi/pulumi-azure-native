@@ -21,7 +21,7 @@ export class Variable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:automation/latest:Variable';
+    public static readonly __pulumiType = 'azure-nextgen:automation/latest:Variable';
 
     /**
      * Returns true if the given object is an instance of Variable.  This is designed to work even
@@ -111,7 +111,7 @@ export class Variable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/v20151031:Variable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Variable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Variable.__pulumiType, name, inputs, opts);
     }

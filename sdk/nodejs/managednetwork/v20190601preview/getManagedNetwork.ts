@@ -14,7 +14,7 @@ export function getManagedNetwork(args: GetManagedNetworkArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:managednetwork/v20190601preview:getManagedNetwork", {
+    return pulumi.runtime.invoke("azure-nextgen:managednetwork/v20190601preview:getManagedNetwork", {
         "managedNetworkName": args.managedNetworkName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

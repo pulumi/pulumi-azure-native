@@ -23,7 +23,7 @@ export class CaseRelation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:securityinsights/v20190101preview:CaseRelation';
+    public static readonly __pulumiType = 'azure-nextgen:securityinsights/v20190101preview:CaseRelation';
 
     /**
      * Returns true if the given object is an instance of CaseRelation.  This is designed to work even

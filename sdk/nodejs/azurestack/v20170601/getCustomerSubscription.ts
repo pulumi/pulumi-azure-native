@@ -14,7 +14,7 @@ export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:azurestack/v20170601:getCustomerSubscription", {
+    return pulumi.runtime.invoke("azure-nextgen:azurestack/v20170601:getCustomerSubscription", {
         "customerSubscriptionName": args.customerSubscriptionName,
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,

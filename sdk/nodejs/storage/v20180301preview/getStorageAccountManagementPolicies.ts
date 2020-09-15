@@ -14,7 +14,7 @@ export function getStorageAccountManagementPolicies(args: GetStorageAccountManag
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storage/v20180301preview:getStorageAccountManagementPolicies", {
+    return pulumi.runtime.invoke("azure-nextgen:storage/v20180301preview:getStorageAccountManagementPolicies", {
         "accountName": args.accountName,
         "managementPolicyName": args.managementPolicyName,
         "resourceGroupName": args.resourceGroupName,

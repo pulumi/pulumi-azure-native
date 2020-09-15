@@ -14,7 +14,7 @@ export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:containerservice/latest:getOpenShiftManagedCluster", {
+    return pulumi.runtime.invoke("azure-nextgen:containerservice/latest:getOpenShiftManagedCluster", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

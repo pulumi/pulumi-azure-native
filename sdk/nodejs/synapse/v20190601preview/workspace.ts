@@ -23,7 +23,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:synapse/v20190601preview:Workspace';
+    public static readonly __pulumiType = 'azure-nextgen:synapse/v20190601preview:Workspace';
 
     /**
      * Returns true if the given object is an instance of Workspace.  This is designed to work even

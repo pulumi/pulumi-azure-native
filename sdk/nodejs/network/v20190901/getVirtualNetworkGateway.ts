@@ -14,7 +14,7 @@ export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20190901:getVirtualNetworkGateway", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20190901:getVirtualNetworkGateway", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
     }, opts);

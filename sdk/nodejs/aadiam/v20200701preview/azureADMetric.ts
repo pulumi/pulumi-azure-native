@@ -23,7 +23,7 @@ export class AzureADMetric extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:aadiam/v20200701preview:azureADMetric';
+    public static readonly __pulumiType = 'azure-nextgen:aadiam/v20200701preview:azureADMetric';
 
     /**
      * Returns true if the given object is an instance of AzureADMetric.  This is designed to work even

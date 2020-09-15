@@ -14,7 +14,7 @@ export function getWebAppSiteExtensionSlot(args: GetWebAppSiteExtensionSlotArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20181101:getWebAppSiteExtensionSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20181101:getWebAppSiteExtensionSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "siteExtensionId": args.siteExtensionId,

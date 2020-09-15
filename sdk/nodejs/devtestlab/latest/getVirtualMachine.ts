@@ -14,7 +14,7 @@ export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/latest:getVirtualMachine", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getVirtualMachine", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

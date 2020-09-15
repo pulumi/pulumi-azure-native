@@ -23,7 +23,7 @@ export class AgentPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:containerservice/v20200901:AgentPool';
+    public static readonly __pulumiType = 'azure-nextgen:containerservice/v20200901:AgentPool';
 
     /**
      * Returns true if the given object is an instance of AgentPool.  This is designed to work even
@@ -230,7 +230,7 @@ export class AgentPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerservice/latest:AgentPool" }, { type: "azurerm:containerservice/v20190201:AgentPool" }, { type: "azurerm:containerservice/v20190401:AgentPool" }, { type: "azurerm:containerservice/v20190601:AgentPool" }, { type: "azurerm:containerservice/v20190801:AgentPool" }, { type: "azurerm:containerservice/v20191001:AgentPool" }, { type: "azurerm:containerservice/v20191101:AgentPool" }, { type: "azurerm:containerservice/v20200101:AgentPool" }, { type: "azurerm:containerservice/v20200201:AgentPool" }, { type: "azurerm:containerservice/v20200301:AgentPool" }, { type: "azurerm:containerservice/v20200401:AgentPool" }, { type: "azurerm:containerservice/v20200601:AgentPool" }, { type: "azurerm:containerservice/v20200701:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/latest:AgentPool" }, { type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AgentPool.__pulumiType, name, inputs, opts);
     }

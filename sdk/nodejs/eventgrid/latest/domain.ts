@@ -23,7 +23,7 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:eventgrid/latest:Domain';
+    public static readonly __pulumiType = 'azure-nextgen:eventgrid/latest:Domain';
 
     /**
      * Returns true if the given object is an instance of Domain.  This is designed to work even
@@ -140,7 +140,7 @@ export class Domain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/v20180915preview:Domain" }, { type: "azurerm:eventgrid/v20190201preview:Domain" }, { type: "azurerm:eventgrid/v20190601:Domain" }, { type: "azurerm:eventgrid/v20200101preview:Domain" }, { type: "azurerm:eventgrid/v20200401preview:Domain" }, { type: "azurerm:eventgrid/v20200601:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/v20180915preview:Domain" }, { type: "azure-nextgen:eventgrid/v20190201preview:Domain" }, { type: "azure-nextgen:eventgrid/v20190601:Domain" }, { type: "azure-nextgen:eventgrid/v20200101preview:Domain" }, { type: "azure-nextgen:eventgrid/v20200401preview:Domain" }, { type: "azure-nextgen:eventgrid/v20200601:Domain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Domain.__pulumiType, name, inputs, opts);
     }

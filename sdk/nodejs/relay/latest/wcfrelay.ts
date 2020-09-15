@@ -21,7 +21,7 @@ export class WCFRelay extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:relay/latest:WCFRelay';
+    public static readonly __pulumiType = 'azure-nextgen:relay/latest:WCFRelay';
 
     /**
      * Returns true if the given object is an instance of WCFRelay.  This is designed to work even
@@ -126,7 +126,7 @@ export class WCFRelay extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:relay/v20160701:WCFRelay" }, { type: "azurerm:relay/v20170401:WCFRelay" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:relay/v20160701:WCFRelay" }, { type: "azure-nextgen:relay/v20170401:WCFRelay" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WCFRelay.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutab
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storage/latest:getBlobContainerImmutabilityPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getBlobContainerImmutabilityPolicy", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "immutabilityPolicyName": args.immutabilityPolicyName,

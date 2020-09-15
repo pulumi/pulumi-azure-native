@@ -23,7 +23,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/v20190701:AvailabilitySet';
+    public static readonly __pulumiType = 'azure-nextgen:compute/v20190701:AvailabilitySet';
 
     /**
      * Returns true if the given object is an instance of AvailabilitySet.  This is designed to work even
@@ -127,7 +127,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:AvailabilitySet" }, { type: "azurerm:compute/v20150615:AvailabilitySet" }, { type: "azurerm:compute/v20160330:AvailabilitySet" }, { type: "azurerm:compute/v20160430preview:AvailabilitySet" }, { type: "azurerm:compute/v20170330:AvailabilitySet" }, { type: "azurerm:compute/v20171201:AvailabilitySet" }, { type: "azurerm:compute/v20180401:AvailabilitySet" }, { type: "azurerm:compute/v20180601:AvailabilitySet" }, { type: "azurerm:compute/v20181001:AvailabilitySet" }, { type: "azurerm:compute/v20190301:AvailabilitySet" }, { type: "azurerm:compute/v20191201:AvailabilitySet" }, { type: "azurerm:compute/v20200601:AvailabilitySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:AvailabilitySet" }, { type: "azure-nextgen:compute/v20150615:AvailabilitySet" }, { type: "azure-nextgen:compute/v20160330:AvailabilitySet" }, { type: "azure-nextgen:compute/v20160430preview:AvailabilitySet" }, { type: "azure-nextgen:compute/v20170330:AvailabilitySet" }, { type: "azure-nextgen:compute/v20171201:AvailabilitySet" }, { type: "azure-nextgen:compute/v20180401:AvailabilitySet" }, { type: "azure-nextgen:compute/v20180601:AvailabilitySet" }, { type: "azure-nextgen:compute/v20181001:AvailabilitySet" }, { type: "azure-nextgen:compute/v20190301:AvailabilitySet" }, { type: "azure-nextgen:compute/v20191201:AvailabilitySet" }, { type: "azure-nextgen:compute/v20200601:AvailabilitySet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AvailabilitySet.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:devices/v20200401:Certificate';
+    public static readonly __pulumiType = 'azure-nextgen:devices/v20200401:Certificate';
 
     /**
      * Returns true if the given object is an instance of Certificate.  This is designed to work even
@@ -93,7 +93,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devices/latest:Certificate" }, { type: "azurerm:devices/v20170701:Certificate" }, { type: "azurerm:devices/v20180122:Certificate" }, { type: "azurerm:devices/v20180401:Certificate" }, { type: "azurerm:devices/v20181201preview:Certificate" }, { type: "azurerm:devices/v20190322:Certificate" }, { type: "azurerm:devices/v20190322preview:Certificate" }, { type: "azurerm:devices/v20190701preview:Certificate" }, { type: "azurerm:devices/v20191104:Certificate" }, { type: "azurerm:devices/v20200301:Certificate" }, { type: "azurerm:devices/v20200615:Certificate" }, { type: "azurerm:devices/v20200710preview:Certificate" }, { type: "azurerm:devices/v20200801:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/latest:Certificate" }, { type: "azure-nextgen:devices/v20170701:Certificate" }, { type: "azure-nextgen:devices/v20180122:Certificate" }, { type: "azure-nextgen:devices/v20180401:Certificate" }, { type: "azure-nextgen:devices/v20181201preview:Certificate" }, { type: "azure-nextgen:devices/v20190322:Certificate" }, { type: "azure-nextgen:devices/v20190322preview:Certificate" }, { type: "azure-nextgen:devices/v20190701preview:Certificate" }, { type: "azure-nextgen:devices/v20191104:Certificate" }, { type: "azure-nextgen:devices/v20200301:Certificate" }, { type: "azure-nextgen:devices/v20200615:Certificate" }, { type: "azure-nextgen:devices/v20200710preview:Certificate" }, { type: "azure-nextgen:devices/v20200801:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

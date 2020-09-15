@@ -14,7 +14,7 @@ export function getDeploymentAtScope(args: GetDeploymentAtScopeArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:resources/latest:getDeploymentAtScope", {
+    return pulumi.runtime.invoke("azure-nextgen:resources/latest:getDeploymentAtScope", {
         "deploymentName": args.deploymentName,
         "scope": args.scope,
     }, opts);

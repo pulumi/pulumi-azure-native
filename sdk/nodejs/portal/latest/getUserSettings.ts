@@ -14,7 +14,7 @@ export function getUserSettings(args: GetUserSettingsArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:portal/latest:getUserSettings", {
+    return pulumi.runtime.invoke("azure-nextgen:portal/latest:getUserSettings", {
         "userSettingsName": args.userSettingsName,
     }, opts);
 }

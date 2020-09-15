@@ -14,7 +14,7 @@ export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:powerbidedicated/latest:getCapacityDetails", {
+    return pulumi.runtime.invoke("azure-nextgen:powerbidedicated/latest:getCapacityDetails", {
         "dedicatedCapacityName": args.dedicatedCapacityName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

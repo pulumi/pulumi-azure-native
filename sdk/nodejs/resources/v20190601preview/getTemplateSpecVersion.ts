@@ -14,7 +14,7 @@ export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:resources/v20190601preview:getTemplateSpecVersion", {
+    return pulumi.runtime.invoke("azure-nextgen:resources/v20190601preview:getTemplateSpecVersion", {
         "resourceGroupName": args.resourceGroupName,
         "templateSpecName": args.templateSpecName,
         "templateSpecVersion": args.templateSpecVersion,

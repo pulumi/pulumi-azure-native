@@ -14,7 +14,7 @@ export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:iotcentral/v20180901:getApp", {
+    return pulumi.runtime.invoke("azure-nextgen:iotcentral/v20180901:getApp", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

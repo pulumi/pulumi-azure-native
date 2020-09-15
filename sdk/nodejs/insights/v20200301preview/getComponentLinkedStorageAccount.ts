@@ -14,7 +14,7 @@ export function getComponentLinkedStorageAccount(args: GetComponentLinkedStorage
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights/v20200301preview:getComponentLinkedStorageAccount", {
+    return pulumi.runtime.invoke("azure-nextgen:insights/v20200301preview:getComponentLinkedStorageAccount", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
         "storageType": args.storageType,

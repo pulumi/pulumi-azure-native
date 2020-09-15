@@ -14,7 +14,7 @@ export function listCustomApiWsdlInterfaces(args: ListCustomApiWsdlInterfacesArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listCustomApiWsdlInterfaces", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listCustomApiWsdlInterfaces", {
         "content": args.content,
         "importMethod": args.importMethod,
         "location": args.location,

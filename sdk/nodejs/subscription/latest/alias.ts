@@ -23,7 +23,7 @@ export class Alias extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:subscription/latest:Alias';
+    public static readonly __pulumiType = 'azure-nextgen:subscription/latest:Alias';
 
     /**
      * Returns true if the given object is an instance of Alias.  This is designed to work even
@@ -81,7 +81,7 @@ export class Alias extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:subscription/v20191001preview:Alias" }, { type: "azurerm:subscription/v20200901:Alias" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:subscription/v20191001preview:Alias" }, { type: "azure-nextgen:subscription/v20200901:Alias" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Alias.__pulumiType, name, inputs, opts);
     }

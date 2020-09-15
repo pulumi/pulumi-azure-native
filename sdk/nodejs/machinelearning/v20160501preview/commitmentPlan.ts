@@ -23,7 +23,7 @@ export class CommitmentPlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:machinelearning/v20160501preview:CommitmentPlan';
+    public static readonly __pulumiType = 'azure-nextgen:machinelearning/v20160501preview:CommitmentPlan';
 
     /**
      * Returns true if the given object is an instance of CommitmentPlan.  This is designed to work even

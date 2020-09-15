@@ -23,7 +23,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener';
+    public static readonly __pulumiType = 'azure-nextgen:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener';
 
     /**
      * Returns true if the given object is an instance of AvailabilityGroupListener.  This is designed to work even

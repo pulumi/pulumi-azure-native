@@ -14,7 +14,7 @@ export function getSyncAgent(args: GetSyncAgentArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20150501preview:getSyncAgent", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20150501preview:getSyncAgent", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
         "syncAgentName": args.syncAgentName,

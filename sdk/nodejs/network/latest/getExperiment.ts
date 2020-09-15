@@ -14,7 +14,7 @@ export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getExperiment", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getExperiment", {
         "experimentName": args.experimentName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

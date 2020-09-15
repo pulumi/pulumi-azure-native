@@ -21,7 +21,7 @@ export class WorkspaceSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:security/v20170801preview:WorkspaceSetting';
+    public static readonly __pulumiType = 'azure-nextgen:security/v20170801preview:WorkspaceSetting';
 
     /**
      * Returns true if the given object is an instance of WorkspaceSetting.  This is designed to work even

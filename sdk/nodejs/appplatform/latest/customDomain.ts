@@ -23,7 +23,7 @@ export class CustomDomain extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:appplatform/latest:CustomDomain';
+    public static readonly __pulumiType = 'azure-nextgen:appplatform/latest:CustomDomain';
 
     /**
      * Returns true if the given object is an instance of CustomDomain.  This is designed to work even
@@ -90,7 +90,7 @@ export class CustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:appplatform/v20190501preview:CustomDomain" }, { type: "azurerm:appplatform/v20200701:CustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/v20190501preview:CustomDomain" }, { type: "azure-nextgen:appplatform/v20200701:CustomDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }

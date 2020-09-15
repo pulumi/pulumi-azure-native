@@ -14,7 +14,7 @@ export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:databoxedge/latest:getBandwidthSchedule", {
+    return pulumi.runtime.invoke("azure-nextgen:databoxedge/latest:getBandwidthSchedule", {
         "deviceName": args.deviceName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

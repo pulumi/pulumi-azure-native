@@ -23,7 +23,7 @@ export class Budget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:costmanagement/v20190401preview:Budget';
+    public static readonly __pulumiType = 'azure-nextgen:costmanagement/v20190401preview:Budget';
 
     /**
      * Returns true if the given object is an instance of Budget.  This is designed to work even

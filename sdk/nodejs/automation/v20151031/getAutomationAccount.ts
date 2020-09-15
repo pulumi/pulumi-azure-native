@@ -14,7 +14,7 @@ export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:automation/v20151031:getAutomationAccount", {
+    return pulumi.runtime.invoke("azure-nextgen:automation/v20151031:getAutomationAccount", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -14,7 +14,7 @@ export function getBlockchainMember(args: GetBlockchainMemberArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:blockchain/v20180601preview:getBlockchainMember", {
+    return pulumi.runtime.invoke("azure-nextgen:blockchain/v20180601preview:getBlockchainMember", {
         "blockchainMemberName": args.blockchainMemberName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

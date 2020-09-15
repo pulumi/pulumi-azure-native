@@ -14,7 +14,7 @@ export function listWebAppSitePushSettings(args: ListWebAppSitePushSettingsArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listWebAppSitePushSettings", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppSitePushSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

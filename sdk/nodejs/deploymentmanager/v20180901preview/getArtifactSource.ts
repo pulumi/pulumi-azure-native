@@ -14,7 +14,7 @@ export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:deploymentmanager/v20180901preview:getArtifactSource", {
+    return pulumi.runtime.invoke("azure-nextgen:deploymentmanager/v20180901preview:getArtifactSource", {
         "artifactSourceName": args.artifactSourceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

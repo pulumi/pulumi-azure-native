@@ -14,7 +14,7 @@ export function listIotHubResourceKeysForKeyName(args: ListIotHubResourceKeysFor
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devices/v20181201preview:listIotHubResourceKeysForKeyName", {
+    return pulumi.runtime.invoke("azure-nextgen:devices/v20181201preview:listIotHubResourceKeysForKeyName", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

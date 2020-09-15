@@ -14,7 +14,7 @@ export function getBudgetByResourceGroupName(args: GetBudgetByResourceGroupNameA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:consumption/v20180131:getBudgetByResourceGroupName", {
+    return pulumi.runtime.invoke("azure-nextgen:consumption/v20180131:getBudgetByResourceGroupName", {
         "budgetName": args.budgetName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

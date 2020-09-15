@@ -14,7 +14,7 @@ export function listWebApplicationSettings(args: ListWebApplicationSettingsArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20181101:listWebApplicationSettings", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20181101:listWebApplicationSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

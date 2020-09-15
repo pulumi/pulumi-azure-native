@@ -14,7 +14,7 @@ export function listWebAppSyncFunctionTriggersSlot(args: ListWebAppSyncFunctionT
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listWebAppSyncFunctionTriggersSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppSyncFunctionTriggersSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

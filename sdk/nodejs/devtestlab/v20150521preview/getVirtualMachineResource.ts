@@ -14,7 +14,7 @@ export function getVirtualMachineResource(args: GetVirtualMachineResourceArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/v20150521preview:getVirtualMachineResource", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20150521preview:getVirtualMachineResource", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

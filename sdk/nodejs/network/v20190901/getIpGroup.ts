@@ -14,7 +14,7 @@ export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20190901:getIpGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20190901:getIpGroup", {
         "expand": args.expand,
         "ipGroupsName": args.ipGroupsName,
         "resourceGroupName": args.resourceGroupName,

@@ -14,7 +14,7 @@ export function getTenantConfiguration(args: GetTenantConfigurationArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:portal/v20190101preview:getTenantConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:portal/v20190101preview:getTenantConfiguration", {
         "configurationName": args.configurationName,
     }, opts);
 }

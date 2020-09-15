@@ -14,7 +14,7 @@ export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:aad/v20170101:getDomainService", {
+    return pulumi.runtime.invoke("azure-nextgen:aad/v20170101:getDomainService", {
         "domainServiceName": args.domainServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

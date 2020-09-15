@@ -23,7 +23,7 @@ export class ManagedCluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:servicefabric/v20200101preview:ManagedCluster';
+    public static readonly __pulumiType = 'azure-nextgen:servicefabric/v20200101preview:ManagedCluster';
 
     /**
      * Returns true if the given object is an instance of ManagedCluster.  This is designed to work even

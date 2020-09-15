@@ -14,7 +14,7 @@ export function listClusterLanguageExtensions(args: ListClusterLanguageExtension
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:kusto/v20200614:listClusterLanguageExtensions", {
+    return pulumi.runtime.invoke("azure-nextgen:kusto/v20200614:listClusterLanguageExtensions", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

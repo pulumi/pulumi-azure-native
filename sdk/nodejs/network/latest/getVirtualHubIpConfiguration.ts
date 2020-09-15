@@ -14,7 +14,7 @@ export function getVirtualHubIpConfiguration(args: GetVirtualHubIpConfigurationA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getVirtualHubIpConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualHubIpConfiguration", {
         "ipConfigName": args.ipConfigName,
         "resourceGroupName": args.resourceGroupName,
         "virtualHubName": args.virtualHubName,

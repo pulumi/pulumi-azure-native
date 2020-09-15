@@ -14,7 +14,7 @@ export function getWebAppDeployment(args: GetWebAppDeploymentArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:getWebAppDeployment", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppDeployment", {
         "id": args.id,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

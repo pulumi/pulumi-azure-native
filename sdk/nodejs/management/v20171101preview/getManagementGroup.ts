@@ -14,7 +14,7 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:management/v20171101preview:getManagementGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:management/v20171101preview:getManagementGroup", {
         "expand": args.expand,
         "groupId": args.groupId,
         "recurse": args.recurse,

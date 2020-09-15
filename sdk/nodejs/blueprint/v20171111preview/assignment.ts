@@ -23,7 +23,7 @@ export class Assignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:blueprint/v20171111preview:Assignment';
+    public static readonly __pulumiType = 'azure-nextgen:blueprint/v20171111preview:Assignment';
 
     /**
      * Returns true if the given object is an instance of Assignment.  This is designed to work even

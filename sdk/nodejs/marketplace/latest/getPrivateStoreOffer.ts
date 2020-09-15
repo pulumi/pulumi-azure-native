@@ -14,7 +14,7 @@ export function getPrivateStoreOffer(args: GetPrivateStoreOfferArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:marketplace/latest:getPrivateStoreOffer", {
+    return pulumi.runtime.invoke("azure-nextgen:marketplace/latest:getPrivateStoreOffer", {
         "offerId": args.offerId,
         "privateStoreId": args.privateStoreId,
     }, opts);

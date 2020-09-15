@@ -14,7 +14,7 @@ export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:domainregistration/v20190801:listTopLevelDomainAgreements", {
+    return pulumi.runtime.invoke("azure-nextgen:domainregistration/v20190801:listTopLevelDomainAgreements", {
         "forTransfer": args.forTransfer,
         "includePrivacy": args.includePrivacy,
         "name": args.name,

@@ -14,7 +14,7 @@ export function getConfigurationProfilePreference(args: GetConfigurationProfileP
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:automanage/v20200630preview:getConfigurationProfilePreference", {
+    return pulumi.runtime.invoke("azure-nextgen:automanage/v20200630preview:getConfigurationProfilePreference", {
         "configurationProfilePreferenceName": args.configurationProfilePreferenceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

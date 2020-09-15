@@ -21,7 +21,7 @@ export class NotebookProxy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:notebooks/v20191011preview:NotebookProxy';
+    public static readonly __pulumiType = 'azure-nextgen:notebooks/v20191011preview:NotebookProxy';
 
     /**
      * Returns true if the given object is an instance of NotebookProxy.  This is designed to work even

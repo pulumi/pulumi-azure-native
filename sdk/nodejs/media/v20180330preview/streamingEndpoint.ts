@@ -23,7 +23,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:media/v20180330preview:StreamingEndpoint';
+    public static readonly __pulumiType = 'azure-nextgen:media/v20180330preview:StreamingEndpoint';
 
     /**
      * Returns true if the given object is an instance of StreamingEndpoint.  This is designed to work even
@@ -189,7 +189,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:StreamingEndpoint" }, { type: "azurerm:media/v20180601preview:StreamingEndpoint" }, { type: "azurerm:media/v20180701:StreamingEndpoint" }, { type: "azurerm:media/v20190501preview:StreamingEndpoint" }, { type: "azurerm:media/v20200501:StreamingEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/latest:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180601preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180701:StreamingEndpoint" }, { type: "azure-nextgen:media/v20190501preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20200501:StreamingEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StreamingEndpoint.__pulumiType, name, inputs, opts);
     }

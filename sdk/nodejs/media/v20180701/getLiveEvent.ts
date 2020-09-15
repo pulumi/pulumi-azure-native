@@ -14,7 +14,7 @@ export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:media/v20180701:getLiveEvent", {
+    return pulumi.runtime.invoke("azure-nextgen:media/v20180701:getLiveEvent", {
         "accountName": args.accountName,
         "liveEventName": args.liveEventName,
         "resourceGroupName": args.resourceGroupName,

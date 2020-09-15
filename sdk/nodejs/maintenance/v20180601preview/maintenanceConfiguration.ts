@@ -21,7 +21,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:maintenance/v20180601preview:MaintenanceConfiguration';
+    public static readonly __pulumiType = 'azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration';
 
     /**
      * Returns true if the given object is an instance of MaintenanceConfiguration.  This is designed to work even
@@ -104,7 +104,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:maintenance/latest:MaintenanceConfiguration" }, { type: "azurerm:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azurerm:maintenance/v20200701preview:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:maintenance/latest:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MaintenanceConfiguration.__pulumiType, name, inputs, opts);
     }

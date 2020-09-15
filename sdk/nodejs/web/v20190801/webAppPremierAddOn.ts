@@ -21,7 +21,7 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20190801:WebAppPremierAddOn';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20190801:WebAppPremierAddOn';
 
     /**
      * Returns true if the given object is an instance of WebAppPremierAddOn.  This is designed to work even
@@ -128,7 +128,7 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppPremierAddOn" }, { type: "azurerm:web/v20150801:WebAppPremierAddOn" }, { type: "azurerm:web/v20160801:WebAppPremierAddOn" }, { type: "azurerm:web/v20180201:WebAppPremierAddOn" }, { type: "azurerm:web/v20181101:WebAppPremierAddOn" }, { type: "azurerm:web/v20200601:WebAppPremierAddOn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20150801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20160801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20180201:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20181101:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20200601:WebAppPremierAddOn" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPremierAddOn.__pulumiType, name, inputs, opts);
     }

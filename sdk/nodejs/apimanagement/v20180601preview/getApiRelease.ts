@@ -14,7 +14,7 @@ export function getApiRelease(args: GetApiReleaseArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20180601preview:getApiRelease", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20180601preview:getApiRelease", {
         "apiId": args.apiId,
         "releaseId": args.releaseId,
         "resourceGroupName": args.resourceGroupName,

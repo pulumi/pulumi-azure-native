@@ -14,7 +14,7 @@ export function getWebService(args: GetWebServiceArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:machinelearning/v20170101:getWebService", {
+    return pulumi.runtime.invoke("azure-nextgen:machinelearning/v20170101:getWebService", {
         "region": args.region,
         "resourceGroupName": args.resourceGroupName,
         "webServiceName": args.webServiceName,

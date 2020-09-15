@@ -14,7 +14,7 @@ export function getExpressRouteConnection(args: GetExpressRouteConnectionArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getExpressRouteConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getExpressRouteConnection", {
         "connectionName": args.connectionName,
         "expressRouteGatewayName": args.expressRouteGatewayName,
         "resourceGroupName": args.resourceGroupName,

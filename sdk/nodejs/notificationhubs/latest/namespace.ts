@@ -23,7 +23,7 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:notificationhubs/latest:Namespace';
+    public static readonly __pulumiType = 'azure-nextgen:notificationhubs/latest:Namespace';
 
     /**
      * Returns true if the given object is an instance of Namespace.  This is designed to work even
@@ -175,7 +175,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:notificationhubs/v20140901:Namespace" }, { type: "azurerm:notificationhubs/v20160301:Namespace" }, { type: "azurerm:notificationhubs/v20170401:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs/v20140901:Namespace" }, { type: "azure-nextgen:notificationhubs/v20160301:Namespace" }, { type: "azure-nextgen:notificationhubs/v20170401:Namespace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Namespace.__pulumiType, name, inputs, opts);
     }

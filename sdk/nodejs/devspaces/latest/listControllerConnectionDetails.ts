@@ -14,7 +14,7 @@ export function listControllerConnectionDetails(args: ListControllerConnectionDe
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devspaces/latest:listControllerConnectionDetails", {
+    return pulumi.runtime.invoke("azure-nextgen:devspaces/latest:listControllerConnectionDetails", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "targetContainerHostResourceId": args.targetContainerHostResourceId,

@@ -14,7 +14,7 @@ export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storage/v20180301preview:getStorageAccount", {
+    return pulumi.runtime.invoke("azure-nextgen:storage/v20180301preview:getStorageAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

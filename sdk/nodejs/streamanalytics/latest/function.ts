@@ -23,7 +23,7 @@ export class Function extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:streamanalytics/latest:Function';
+    public static readonly __pulumiType = 'azure-nextgen:streamanalytics/latest:Function';
 
     /**
      * Returns true if the given object is an instance of Function.  This is designed to work even
@@ -86,7 +86,7 @@ export class Function extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:streamanalytics/v20160301:Function" }, { type: "azurerm:streamanalytics/v20170401preview:Function" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics/v20160301:Function" }, { type: "azure-nextgen:streamanalytics/v20170401preview:Function" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Function.__pulumiType, name, inputs, opts);
     }

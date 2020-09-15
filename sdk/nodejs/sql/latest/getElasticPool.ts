@@ -14,7 +14,7 @@ export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/latest:getElasticPool", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/latest:getElasticPool", {
         "elasticPoolName": args.elasticPoolName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

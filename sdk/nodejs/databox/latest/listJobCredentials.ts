@@ -14,7 +14,7 @@ export function listJobCredentials(args: ListJobCredentialsArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:databox/latest:listJobCredentials", {
+    return pulumi.runtime.invoke("azure-nextgen:databox/latest:listJobCredentials", {
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

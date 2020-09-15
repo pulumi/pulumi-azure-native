@@ -14,7 +14,7 @@ export function getManagedHostingEnvironment(args: GetManagedHostingEnvironmentA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:getManagedHostingEnvironment", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:getManagedHostingEnvironment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -14,7 +14,7 @@ export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20180601preview:getManagedInstance", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20180601preview:getManagedInstance", {
         "managedInstanceName": args.managedInstanceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

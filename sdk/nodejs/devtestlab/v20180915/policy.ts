@@ -21,7 +21,7 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:devtestlab/v20180915:Policy';
+    public static readonly __pulumiType = 'azure-nextgen:devtestlab/v20180915:Policy';
 
     /**
      * Returns true if the given object is an instance of Policy.  This is designed to work even
@@ -147,7 +147,7 @@ export class Policy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:Policy" }, { type: "azurerm:devtestlab/v20150521preview:Policy" }, { type: "azurerm:devtestlab/v20160515:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:Policy" }, { type: "azure-nextgen:devtestlab/v20150521preview:Policy" }, { type: "azure-nextgen:devtestlab/v20160515:Policy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Policy.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20180201:AppServiceEnvironment';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20180201:AppServiceEnvironment';
 
     /**
      * Returns true if the given object is an instance of AppServiceEnvironment.  This is designed to work even
@@ -326,7 +326,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:AppServiceEnvironment" }, { type: "azurerm:web/v20150801:AppServiceEnvironment" }, { type: "azurerm:web/v20160901:AppServiceEnvironment" }, { type: "azurerm:web/v20190801:AppServiceEnvironment" }, { type: "azurerm:web/v20200601:AppServiceEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20150801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20160901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20190801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200601:AppServiceEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceEnvironment.__pulumiType, name, inputs, opts);
     }

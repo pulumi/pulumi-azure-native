@@ -14,7 +14,7 @@ export function getSharedPrivateLinkResource(args: GetSharedPrivateLinkResourceA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:search/v20200801preview:getSharedPrivateLinkResource", {
+    return pulumi.runtime.invoke("azure-nextgen:search/v20200801preview:getSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,
         "sharedPrivateLinkResourceName": args.sharedPrivateLinkResourceName,

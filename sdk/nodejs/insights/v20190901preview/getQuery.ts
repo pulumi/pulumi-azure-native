@@ -14,7 +14,7 @@ export function getQuery(args: GetQueryArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights/v20190901preview:getQuery", {
+    return pulumi.runtime.invoke("azure-nextgen:insights/v20190901preview:getQuery", {
         "id": args.id,
         "queryPackName": args.queryPackName,
         "resourceGroupName": args.resourceGroupName,

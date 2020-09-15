@@ -14,7 +14,7 @@ export function getVMwareCollector(args: GetVMwareCollectorArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:migrate/latest:getVMwareCollector", {
+    return pulumi.runtime.invoke("azure-nextgen:migrate/latest:getVMwareCollector", {
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,
         "vmWareCollectorName": args.vmWareCollectorName,

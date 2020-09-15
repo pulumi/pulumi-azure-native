@@ -14,7 +14,7 @@ export function getPrivateDnsZoneGroup(args: GetPrivateDnsZoneGroupArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20200601:getPrivateDnsZoneGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20200601:getPrivateDnsZoneGroup", {
         "privateDnsZoneGroupName": args.privateDnsZoneGroupName,
         "privateEndpointName": args.privateEndpointName,
         "resourceGroupName": args.resourceGroupName,

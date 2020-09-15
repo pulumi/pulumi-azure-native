@@ -21,7 +21,7 @@ export class StorageAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:databoxedge/latest:StorageAccount';
+    public static readonly __pulumiType = 'azure-nextgen:databoxedge/latest:StorageAccount';
 
     /**
      * Returns true if the given object is an instance of StorageAccount.  This is designed to work even
@@ -114,7 +114,7 @@ export class StorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/v20190801:StorageAccount" }, { type: "azurerm:databoxedge/v20200501preview:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20190801:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200501preview:StorageAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccount.__pulumiType, name, inputs, opts);
     }

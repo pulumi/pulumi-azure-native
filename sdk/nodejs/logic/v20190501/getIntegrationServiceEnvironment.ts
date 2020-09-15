@@ -14,7 +14,7 @@ export function getIntegrationServiceEnvironment(args: GetIntegrationServiceEnvi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20190501:getIntegrationServiceEnvironment", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20190501:getIntegrationServiceEnvironment", {
         "integrationServiceEnvironmentName": args.integrationServiceEnvironmentName,
         "resourceGroup": args.resourceGroup,
     }, opts);

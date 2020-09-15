@@ -23,7 +23,7 @@ export class ServerTrustGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20200202preview:ServerTrustGroup';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20200202preview:ServerTrustGroup';
 
     /**
      * Returns true if the given object is an instance of ServerTrustGroup.  This is designed to work even

@@ -14,7 +14,7 @@ export function listBitLockerKey(args: ListBitLockerKeyArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:importexport/latest:listBitLockerKey", {
+    return pulumi.runtime.invoke("azure-nextgen:importexport/latest:listBitLockerKey", {
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

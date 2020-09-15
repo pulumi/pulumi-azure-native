@@ -21,7 +21,7 @@ export class HybridConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:relay/v20170401:HybridConnection';
+    public static readonly __pulumiType = 'azure-nextgen:relay/v20170401:HybridConnection';
 
     /**
      * Returns true if the given object is an instance of HybridConnection.  This is designed to work even
@@ -108,7 +108,7 @@ export class HybridConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:relay/latest:HybridConnection" }, { type: "azurerm:relay/v20160701:HybridConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:relay/latest:HybridConnection" }, { type: "azure-nextgen:relay/v20160701:HybridConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HybridConnection.__pulumiType, name, inputs, opts);
     }

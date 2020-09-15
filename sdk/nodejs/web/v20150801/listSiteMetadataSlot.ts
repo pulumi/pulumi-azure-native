@@ -14,7 +14,7 @@ export function listSiteMetadataSlot(args: ListSiteMetadataSlotArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:listSiteMetadataSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:listSiteMetadataSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

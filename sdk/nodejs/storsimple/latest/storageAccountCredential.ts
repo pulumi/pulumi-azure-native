@@ -23,7 +23,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storsimple/latest:StorageAccountCredential';
+    public static readonly __pulumiType = 'azure-nextgen:storsimple/latest:StorageAccountCredential';
 
     /**
      * Returns true if the given object is an instance of StorageAccountCredential.  This is designed to work even
@@ -116,7 +116,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20161001:StorageAccountCredential" }, { type: "azurerm:storsimple/v20170601:StorageAccountCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20161001:StorageAccountCredential" }, { type: "azure-nextgen:storsimple/v20170601:StorageAccountCredential" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccountCredential.__pulumiType, name, inputs, opts);
     }

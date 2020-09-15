@@ -21,7 +21,7 @@ export class Session extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:logic/v20160601:Session';
+    public static readonly __pulumiType = 'azure-nextgen:logic/v20160601:Session';
 
     /**
      * Returns true if the given object is an instance of Session.  This is designed to work even
@@ -108,7 +108,7 @@ export class Session extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:Session" }, { type: "azurerm:logic/v20180701preview:Session" }, { type: "azurerm:logic/v20190501:Session" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/latest:Session" }, { type: "azure-nextgen:logic/v20180701preview:Session" }, { type: "azure-nextgen:logic/v20190501:Session" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Session.__pulumiType, name, inputs, opts);
     }

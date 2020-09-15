@@ -14,7 +14,7 @@ export function listWebAppMetadataSlot(args: ListWebAppMetadataSlotArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20190801:listWebAppMetadataSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20190801:listWebAppMetadataSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

@@ -14,7 +14,7 @@ export function listWorkspaceCollectionAccessKeys(args: ListWorkspaceCollectionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:powerbi/latest:listWorkspaceCollectionAccessKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:powerbi/latest:listWorkspaceCollectionAccessKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceCollectionName": args.workspaceCollectionName,
     }, opts);

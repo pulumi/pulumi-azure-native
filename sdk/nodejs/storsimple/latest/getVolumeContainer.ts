@@ -14,7 +14,7 @@ export function getVolumeContainer(args: GetVolumeContainerArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storsimple/latest:getVolumeContainer", {
+    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getVolumeContainer", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

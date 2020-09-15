@@ -14,7 +14,7 @@ export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignm
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:kusto/v20200614:getDatabasePrincipalAssignment", {
+    return pulumi.runtime.invoke("azure-nextgen:kusto/v20200614:getDatabasePrincipalAssignment", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
         "principalAssignmentName": args.principalAssignmentName,

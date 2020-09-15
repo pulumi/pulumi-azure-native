@@ -23,7 +23,7 @@ export class SourceControl extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:automation/v20170515preview:SourceControl';
+    public static readonly __pulumiType = 'azure-nextgen:automation/v20170515preview:SourceControl';
 
     /**
      * Returns true if the given object is an instance of SourceControl.  This is designed to work even

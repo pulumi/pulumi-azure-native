@@ -14,7 +14,7 @@ export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:databoxedge/v20200501preview:getRole", {
+    return pulumi.runtime.invoke("azure-nextgen:databoxedge/v20200501preview:getRole", {
         "deviceName": args.deviceName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

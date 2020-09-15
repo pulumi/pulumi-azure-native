@@ -23,7 +23,7 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:logic/latest:IntegrationAccountMap';
+    public static readonly __pulumiType = 'azure-nextgen:logic/latest:IntegrationAccountMap';
 
     /**
      * Returns true if the given object is an instance of IntegrationAccountMap.  This is designed to work even
@@ -143,7 +143,7 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20150801preview:IntegrationAccountMap" }, { type: "azurerm:logic/v20160601:IntegrationAccountMap" }, { type: "azurerm:logic/v20180701preview:IntegrationAccountMap" }, { type: "azurerm:logic/v20190501:IntegrationAccountMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20150801preview:IntegrationAccountMap" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountMap" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountMap" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountMap" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountMap.__pulumiType, name, inputs, opts);
     }

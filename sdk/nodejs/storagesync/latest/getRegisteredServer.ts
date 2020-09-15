@@ -14,7 +14,7 @@ export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storagesync/latest:getRegisteredServer", {
+    return pulumi.runtime.invoke("azure-nextgen:storagesync/latest:getRegisteredServer", {
         "resourceGroupName": args.resourceGroupName,
         "serverId": args.serverId,
         "storageSyncServiceName": args.storageSyncServiceName,

@@ -23,7 +23,7 @@ export class FileServer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:batchai/v20170901preview:FileServer';
+    public static readonly __pulumiType = 'azure-nextgen:batchai/v20170901preview:FileServer';
 
     /**
      * Returns true if the given object is an instance of FileServer.  This is designed to work even
@@ -142,7 +142,7 @@ export class FileServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:batchai/v20180301:FileServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai/v20180301:FileServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServer.__pulumiType, name, inputs, opts);
     }

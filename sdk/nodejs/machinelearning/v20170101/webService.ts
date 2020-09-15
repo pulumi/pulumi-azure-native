@@ -23,7 +23,7 @@ export class WebService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:machinelearning/v20170101:WebService';
+    public static readonly __pulumiType = 'azure-nextgen:machinelearning/v20170101:WebService';
 
     /**
      * Returns true if the given object is an instance of WebService.  This is designed to work even
@@ -100,7 +100,7 @@ export class WebService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearning/latest:WebService" }, { type: "azurerm:machinelearning/v20160501preview:WebService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearning/latest:WebService" }, { type: "azure-nextgen:machinelearning/v20160501preview:WebService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebService.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:eventgrid/v20200401preview:SystemTopicEventSubscription';
+    public static readonly __pulumiType = 'azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription';
 
     /**
      * Returns true if the given object is an instance of SystemTopicEventSubscription.  This is designed to work even

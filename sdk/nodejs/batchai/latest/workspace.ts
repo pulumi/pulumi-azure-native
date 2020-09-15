@@ -21,7 +21,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:batchai/latest:Workspace';
+    public static readonly __pulumiType = 'azure-nextgen:batchai/latest:Workspace';
 
     /**
      * Returns true if the given object is an instance of Workspace.  This is designed to work even
@@ -107,7 +107,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:batchai/v20180501:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai/v20180501:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function listSiteAuthSettings(args: ListSiteAuthSettingsArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:listSiteAuthSettings", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:listSiteAuthSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

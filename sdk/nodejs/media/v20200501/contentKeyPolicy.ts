@@ -23,7 +23,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:media/v20200501:ContentKeyPolicy';
+    public static readonly __pulumiType = 'azure-nextgen:media/v20200501:ContentKeyPolicy';
 
     /**
      * Returns true if the given object is an instance of ContentKeyPolicy.  This is designed to work even
@@ -113,7 +113,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:ContentKeyPolicy" }, { type: "azurerm:media/v20180330preview:ContentKeyPolicy" }, { type: "azurerm:media/v20180601preview:ContentKeyPolicy" }, { type: "azurerm:media/v20180701:ContentKeyPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/latest:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180330preview:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180601preview:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180701:ContentKeyPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContentKeyPolicy.__pulumiType, name, inputs, opts);
     }

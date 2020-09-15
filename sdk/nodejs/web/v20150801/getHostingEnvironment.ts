@@ -14,7 +14,7 @@ export function getHostingEnvironment(args: GetHostingEnvironmentArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:getHostingEnvironment", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:getHostingEnvironment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

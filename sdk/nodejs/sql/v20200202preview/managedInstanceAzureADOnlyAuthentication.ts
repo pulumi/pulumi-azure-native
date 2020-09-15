@@ -21,7 +21,7 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication';
 
     /**
      * Returns true if the given object is an instance of ManagedInstanceAzureADOnlyAuthentication.  This is designed to work even

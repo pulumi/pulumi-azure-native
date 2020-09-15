@@ -14,7 +14,7 @@ export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/v20180401:getDisk", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/v20180401:getDisk", {
         "diskName": args.diskName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

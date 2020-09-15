@@ -23,7 +23,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:search/latest:SharedPrivateLinkResource';
+    public static readonly __pulumiType = 'azure-nextgen:search/latest:SharedPrivateLinkResource';
 
     /**
      * Returns true if the given object is an instance of SharedPrivateLinkResource.  This is designed to work even
@@ -86,7 +86,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:search/v20200801:SharedPrivateLinkResource" }, { type: "azurerm:search/v20200801preview:SharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:search/v20200801:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/v20200801preview:SharedPrivateLinkResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SharedPrivateLinkResource.__pulumiType, name, inputs, opts);
     }

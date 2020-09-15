@@ -23,7 +23,7 @@ export class RecordSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/latest:RecordSet';
+    public static readonly __pulumiType = 'azure-nextgen:network/latest:RecordSet';
 
     /**
      * Returns true if the given object is an instance of RecordSet.  This is designed to work even
@@ -162,7 +162,7 @@ export class RecordSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20180901:RecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180901:RecordSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RecordSet.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:engagementfabric/v20180901preview:getChannel", {
+    return pulumi.runtime.invoke("azure-nextgen:engagementfabric/v20180901preview:getChannel", {
         "accountName": args.accountName,
         "channelName": args.channelName,
         "resourceGroupName": args.resourceGroupName,

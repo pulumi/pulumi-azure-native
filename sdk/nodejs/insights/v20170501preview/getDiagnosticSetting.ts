@@ -14,7 +14,7 @@ export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights/v20170501preview:getDiagnosticSetting", {
+    return pulumi.runtime.invoke("azure-nextgen:insights/v20170501preview:getDiagnosticSetting", {
         "name": args.name,
         "resourceUri": args.resourceUri,
     }, opts);

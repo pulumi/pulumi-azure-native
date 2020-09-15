@@ -14,7 +14,7 @@ export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredPr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:documentdb/v20190801:getSqlResourceSqlStoredProcedure", {
+    return pulumi.runtime.invoke("azure-nextgen:documentdb/v20190801:getSqlResourceSqlStoredProcedure", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "databaseName": args.databaseName,

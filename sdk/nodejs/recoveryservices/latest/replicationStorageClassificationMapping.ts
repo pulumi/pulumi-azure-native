@@ -23,7 +23,7 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:recoveryservices/latest:ReplicationStorageClassificationMapping';
+    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping';
 
     /**
      * Returns true if the given object is an instance of ReplicationStorageClassificationMapping.  This is designed to work even
@@ -100,7 +100,7 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azurerm:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }, { type: "azurerm:recoveryservices/v20180710:ReplicationStorageClassificationMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationStorageClassificationMapping.__pulumiType, name, inputs, opts);
     }

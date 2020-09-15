@@ -23,7 +23,7 @@ export class ReportByBillingAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:billing/v20180801preview:ReportByBillingAccount';
+    public static readonly __pulumiType = 'azure-nextgen:billing/v20180801preview:ReportByBillingAccount';
 
     /**
      * Returns true if the given object is an instance of ReportByBillingAccount.  This is designed to work even

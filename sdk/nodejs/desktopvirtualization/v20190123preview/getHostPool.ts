@@ -14,7 +14,7 @@ export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:desktopvirtualization/v20190123preview:getHostPool", {
+    return pulumi.runtime.invoke("azure-nextgen:desktopvirtualization/v20190123preview:getHostPool", {
         "hostPoolName": args.hostPoolName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

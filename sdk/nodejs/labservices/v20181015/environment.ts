@@ -23,7 +23,7 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:labservices/v20181015:Environment';
+    public static readonly __pulumiType = 'azure-nextgen:labservices/v20181015:Environment';
 
     /**
      * Returns true if the given object is an instance of Environment.  This is designed to work even
@@ -172,7 +172,7 @@ export class Environment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:labservices/latest:Environment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices/latest:Environment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Environment.__pulumiType, name, inputs, opts);
     }

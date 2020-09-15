@@ -14,7 +14,7 @@ export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuth
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:notificationhubs/v20170401:getNotificationHubAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-nextgen:notificationhubs/v20170401:getNotificationHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "notificationHubName": args.notificationHubName,

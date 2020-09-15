@@ -14,7 +14,7 @@ export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:avs/v20200320:getHcxEnterpriseSite", {
+    return pulumi.runtime.invoke("azure-nextgen:avs/v20200320:getHcxEnterpriseSite", {
         "hcxEnterpriseSiteName": args.hcxEnterpriseSiteName,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

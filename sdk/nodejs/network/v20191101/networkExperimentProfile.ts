@@ -21,7 +21,7 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20191101:NetworkExperimentProfile';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20191101:NetworkExperimentProfile';
 
     /**
      * Returns true if the given object is an instance of NetworkExperimentProfile.  This is designed to work even
@@ -104,7 +104,7 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:NetworkExperimentProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:NetworkExperimentProfile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkExperimentProfile.__pulumiType, name, inputs, opts);
     }

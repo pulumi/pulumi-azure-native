@@ -21,7 +21,7 @@ export class DataConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:kusto/latest:DataConnection';
+    public static readonly __pulumiType = 'azure-nextgen:kusto/latest:DataConnection';
 
     /**
      * Returns true if the given object is an instance of DataConnection.  This is designed to work even
@@ -97,7 +97,7 @@ export class DataConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:kusto/v20190121:DataConnection" }, { type: "azurerm:kusto/v20190515:DataConnection" }, { type: "azurerm:kusto/v20190907:DataConnection" }, { type: "azurerm:kusto/v20191109:DataConnection" }, { type: "azurerm:kusto/v20200215:DataConnection" }, { type: "azurerm:kusto/v20200614:DataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/v20190121:DataConnection" }, { type: "azure-nextgen:kusto/v20190515:DataConnection" }, { type: "azure-nextgen:kusto/v20190907:DataConnection" }, { type: "azure-nextgen:kusto/v20191109:DataConnection" }, { type: "azure-nextgen:kusto/v20200215:DataConnection" }, { type: "azure-nextgen:kusto/v20200614:DataConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataConnection.__pulumiType, name, inputs, opts);
     }

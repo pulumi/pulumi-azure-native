@@ -23,7 +23,7 @@ export class Hub extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:customerinsights/latest:Hub';
+    public static readonly __pulumiType = 'azure-nextgen:customerinsights/latest:Hub';
 
     /**
      * Returns true if the given object is an instance of Hub.  This is designed to work even
@@ -118,7 +118,7 @@ export class Hub extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/v20170101:Hub" }, { type: "azurerm:customerinsights/v20170426:Hub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170101:Hub" }, { type: "azure-nextgen:customerinsights/v20170426:Hub" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Hub.__pulumiType, name, inputs, opts);
     }

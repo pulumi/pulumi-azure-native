@@ -14,7 +14,7 @@ export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20200601:getDscpConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20200601:getDscpConfiguration", {
         "dscpConfigurationName": args.dscpConfigurationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

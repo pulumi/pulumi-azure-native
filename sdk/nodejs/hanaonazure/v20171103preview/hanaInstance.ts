@@ -23,7 +23,7 @@ export class HanaInstance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hanaonazure/v20171103preview:HanaInstance';
+    public static readonly __pulumiType = 'azure-nextgen:hanaonazure/v20171103preview:HanaInstance';
 
     /**
      * Returns true if the given object is an instance of HanaInstance.  This is designed to work even

@@ -14,7 +14,7 @@ export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:databoxedge/v20190801:getContainer", {
+    return pulumi.runtime.invoke("azure-nextgen:databoxedge/v20190801:getContainer", {
         "containerName": args.containerName,
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

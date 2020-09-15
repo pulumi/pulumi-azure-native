@@ -23,7 +23,7 @@ export class ManagementConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:operationsmanagement/v20151101preview:ManagementConfiguration';
+    public static readonly __pulumiType = 'azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration';
 
     /**
      * Returns true if the given object is an instance of ManagementConfiguration.  This is designed to work even

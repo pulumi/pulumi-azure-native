@@ -14,7 +14,7 @@ export function listWebAppHybridConnectionKeysSlot(args: ListWebAppHybridConnect
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listWebAppHybridConnectionKeysSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppHybridConnectionKeysSlot", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

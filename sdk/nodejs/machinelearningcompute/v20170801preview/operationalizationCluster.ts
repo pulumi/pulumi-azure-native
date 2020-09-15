@@ -23,7 +23,7 @@ export class OperationalizationCluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:machinelearningcompute/v20170801preview:OperationalizationCluster';
+    public static readonly __pulumiType = 'azure-nextgen:machinelearningcompute/v20170801preview:OperationalizationCluster';
 
     /**
      * Returns true if the given object is an instance of OperationalizationCluster.  This is designed to work even
@@ -160,7 +160,7 @@ export class OperationalizationCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningcompute/v20170601preview:OperationalizationCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningcompute/v20170601preview:OperationalizationCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OperationalizationCluster.__pulumiType, name, inputs, opts);
     }

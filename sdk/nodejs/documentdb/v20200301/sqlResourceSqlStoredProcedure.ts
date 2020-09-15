@@ -23,7 +23,7 @@ export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:documentdb/v20200301:SqlResourceSqlStoredProcedure';
+    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20200301:SqlResourceSqlStoredProcedure';
 
     /**
      * Returns true if the given object is an instance of SqlResourceSqlStoredProcedure.  This is designed to work even
@@ -110,7 +110,7 @@ export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:SqlResourceSqlStoredProcedure" }, { type: "azurerm:documentdb/v20190801:SqlResourceSqlStoredProcedure" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlStoredProcedure" }, { type: "azurerm:documentdb/v20200401:SqlResourceSqlStoredProcedure" }, { type: "azurerm:documentdb/v20200601preview:SqlResourceSqlStoredProcedure" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlStoredProcedure" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlStoredProcedure.__pulumiType, name, inputs, opts);
     }
