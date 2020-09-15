@@ -13,7 +13,7 @@ blobs:
     provider: s3
     region: us-west-2
 builds:
-  - binary: pulumi-resource-azurerm
+  - binary: pulumi-resource-azure-nextgen
     dir: provider
     env:
       - CGO_ENABLED=0
@@ -25,8 +25,8 @@ builds:
       - windows
       - linux
     ldflags:
-      - -X github.com/pulumi/pulumi-azurerm/provider/pkg/version.Version={{.Tag}}
-    main: ./cmd/pulumi-resource-azurerm/
+      - -X github.com/pulumi/pulumi-azure-nextgen/provider/pkg/version.Version={{.Tag}}
+    main: ./cmd/pulumi-resource-azure-nextgen/
 changelog:
   skip: true
 release:

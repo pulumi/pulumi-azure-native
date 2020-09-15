@@ -5,7 +5,7 @@ PACKDIR         := sdk
 PROJECT         := github.com/pulumi/pulumi-azure-nextgen
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
-VERSION         := 0.1.0
+VERSION         := $(shell pulumictl get version)
 
 PROVIDER_PKGS    := $(shell cd ./provider && go list ./...)
 WORKING_DIR     := $(shell pwd)
@@ -63,6 +63,7 @@ build_nodejs::
 		yarn install && \
 		tsc && \
 		cp ../../README.md package.json yarn.lock ./bin/ && \
+		cp ../SDK_LICENSE ./bin/LICENSE && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 generate_python::

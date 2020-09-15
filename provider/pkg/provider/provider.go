@@ -100,7 +100,8 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 }
 
 // Configure configures the resource provider with "globals" that control its behavior.
-func (k *azureNextGenProvider) Configure(ctx context.Context, req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
+func (k *azureNextGenProvider) Configure(ctx context.Context,
+	req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
 	for key, val := range req.GetVariables() {
 		k.config[strings.TrimPrefix(key, "azure-nextgen:config:")] = val
 	}
@@ -189,7 +190,8 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
 // back as a series of messages.
-func (k *azureNextGenProvider) StreamInvoke(req *rpc.InvokeRequest, server rpc.ResourceProvider_StreamInvokeServer) error {
+func (k *azureNextGenProvider) StreamInvoke(req *rpc.InvokeRequest,
+	server rpc.ResourceProvider_StreamInvokeServer) error {
 	panic("StreamInvoke not implemented")
 }
 
@@ -296,7 +298,8 @@ func (k *azureNextGenProvider) validateType(ctx string, typ *AzureAPIType,
 }
 
 // validateProperty checks the property value against its metadata.
-func (k *azureNextGenProvider) validateProperty(ctx string, prop *AzureAPIProperty, value interface{}) []*rpc.CheckFailure {
+func (k *azureNextGenProvider) validateProperty(ctx string, prop *AzureAPIProperty,
+	value interface{}) []*rpc.CheckFailure {
 	var failures []*rpc.CheckFailure
 
 	if _, ok := value.(resource.Computed); ok {
@@ -411,7 +414,8 @@ func (k *azureNextGenProvider) validateProperty(ctx string, prop *AzureAPIProper
 	return failures
 }
 
-func (k *azureNextGenProvider) GetSchema(ctx context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
+func (k *azureNextGenProvider) GetSchema(ctx context.Context,
+	req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
@@ -830,7 +834,8 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 	return nil
 }
 
-func (k *azureNextGenProvider) azureGet(ctx context.Context, id string, apiVersion string) (map[string]interface{}, error) {
+func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
+	apiVersion string) (map[string]interface{}, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
@@ -978,13 +983,14 @@ func (k *azureNextGenProvider) getAuthConfig() (*authentication.Config, error) {
 	}
 	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
 	builder := &authentication.Builder{
-		SubscriptionID:     k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
-		ClientID:           k.getConfig("clientId", "ARM_CLIENT_ID"),
-		ClientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
-		TenantID:           k.getConfig("tenantId", "ARM_TENANT_ID"),
-		Environment:        k.getConfig("environment", "ARM_ENVIRONMENT"),
-		ClientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
-		ClientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
+		SubscriptionID: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
+		ClientID:       k.getConfig("clientId", "ARM_CLIENT_ID"),
+		ClientSecret:   k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
+		TenantID:       k.getConfig("tenantId", "ARM_TENANT_ID"),
+		Environment:    k.getConfig("environment", "ARM_ENVIRONMENT"),
+		ClientCertPath: k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
+		ClientCertPassword: k.getConfig("clientCertificatePassword",
+			"ARM_CLIENT_CERTIFICATE_PASSWORD"),
 		MsiEndpoint:        k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
 		AuxiliaryTenantIDs: auxTenants,
 
@@ -1030,7 +1036,8 @@ func (k *azureNextGenProvider) getUserAgent() string {
 
 // buildUserAgent composes a User Agent string with the provided partner ID.
 func buildUserAgent(partnerID string) (userAgent string) {
-	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-nextgen/%s", autorest.UserAgent(), version.Version))
+	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-nextgen/%s",
+		autorest.UserAgent(), version.Version))
 
 	// append the CloudShell version to the user agent if it exists
 	if azureAgent := os.Getenv("AZURE_HTTP_USER_AGENT"); azureAgent != "" {

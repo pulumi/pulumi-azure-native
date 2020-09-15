@@ -1,3 +1,2 @@
 pulumi>=2.0.0,<3.0.0
 pulumi_random>=2.0.0,<3.0.0
-../../sdk/python/bin
