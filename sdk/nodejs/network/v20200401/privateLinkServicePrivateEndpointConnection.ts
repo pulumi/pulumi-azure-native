@@ -23,7 +23,7 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20200401:PrivateLinkServicePrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20200401:PrivateLinkServicePrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkServicePrivateEndpointConnection.  This is designed to work even
@@ -111,7 +111,7 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:PrivateLinkServicePrivateEndpointConnection" }, { type: "azurerm:network/v20190901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azurerm:network/v20191101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azurerm:network/v20191201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azurerm:network/v20200301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azurerm:network/v20200501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azurerm:network/v20200601:PrivateLinkServicePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20190901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20191101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20191201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200601:PrivateLinkServicePrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateLinkServicePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

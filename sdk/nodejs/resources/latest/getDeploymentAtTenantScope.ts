@@ -14,7 +14,7 @@ export function getDeploymentAtTenantScope(args: GetDeploymentAtTenantScopeArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:resources/latest:getDeploymentAtTenantScope", {
+    return pulumi.runtime.invoke("azure-nextgen:resources/latest:getDeploymentAtTenantScope", {
         "deploymentName": args.deploymentName,
     }, opts);
 }

@@ -14,7 +14,7 @@ export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCross
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getExpressRouteCrossConnectionPeering", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getExpressRouteCrossConnectionPeering", {
         "crossConnectionName": args.crossConnectionName,
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,

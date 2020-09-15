@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20190901
+namespace Pulumi.AzureNextGen.Network.V20190901
 {
     /// <summary>
     /// Information about packet capture session.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PacketCapture(string name, PacketCaptureArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20190901:PacketCapture", name, args ?? new PacketCaptureArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20190901:PacketCapture", name, args ?? new PacketCaptureArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PacketCapture(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20190901:PacketCapture", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20190901:PacketCapture", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,35 +93,35 @@ namespace Pulumi.AzureRM.Network.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160901:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20161201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170301:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170601:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170801:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170901:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:PacketCapture"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PacketCapture"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

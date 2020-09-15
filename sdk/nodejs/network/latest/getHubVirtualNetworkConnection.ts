@@ -14,7 +14,7 @@ export function getHubVirtualNetworkConnection(args: GetHubVirtualNetworkConnect
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getHubVirtualNetworkConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getHubVirtualNetworkConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "virtualHubName": args.virtualHubName,

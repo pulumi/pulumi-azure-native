@@ -23,7 +23,7 @@ export class BlobContainer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storage/latest:BlobContainer';
+    public static readonly __pulumiType = 'azure-nextgen:storage/latest:BlobContainer';
 
     /**
      * Returns true if the given object is an instance of BlobContainer.  This is designed to work even
@@ -182,7 +182,7 @@ export class BlobContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/v20180201:BlobContainer" }, { type: "azurerm:storage/v20180301preview:BlobContainer" }, { type: "azurerm:storage/v20180701:BlobContainer" }, { type: "azurerm:storage/v20181101:BlobContainer" }, { type: "azurerm:storage/v20190401:BlobContainer" }, { type: "azurerm:storage/v20190601:BlobContainer" }, { type: "azurerm:storage/v20200801preview:BlobContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/v20180201:BlobContainer" }, { type: "azure-nextgen:storage/v20180301preview:BlobContainer" }, { type: "azure-nextgen:storage/v20180701:BlobContainer" }, { type: "azure-nextgen:storage/v20181101:BlobContainer" }, { type: "azure-nextgen:storage/v20190401:BlobContainer" }, { type: "azure-nextgen:storage/v20190601:BlobContainer" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainer.__pulumiType, name, inputs, opts);
     }

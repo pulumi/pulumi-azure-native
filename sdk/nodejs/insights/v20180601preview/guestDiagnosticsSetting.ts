@@ -23,7 +23,7 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/v20180601preview:guestDiagnosticsSetting';
+    public static readonly __pulumiType = 'azure-nextgen:insights/v20180601preview:guestDiagnosticsSetting';
 
     /**
      * Returns true if the given object is an instance of GuestDiagnosticsSetting.  This is designed to work even

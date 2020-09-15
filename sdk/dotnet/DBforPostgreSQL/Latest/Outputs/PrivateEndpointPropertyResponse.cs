@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforPostgreSQL.Latest.Outputs
+namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest.Outputs
 {
 
     [OutputType]

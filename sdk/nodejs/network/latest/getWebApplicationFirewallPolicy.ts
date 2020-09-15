@@ -14,7 +14,7 @@ export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallP
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getWebApplicationFirewallPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getWebApplicationFirewallPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

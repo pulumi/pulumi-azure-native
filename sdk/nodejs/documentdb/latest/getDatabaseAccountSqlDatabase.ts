@@ -14,7 +14,7 @@ export function getDatabaseAccountSqlDatabase(args: GetDatabaseAccountSqlDatabas
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:documentdb/latest:getDatabaseAccountSqlDatabase", {
+    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getDatabaseAccountSqlDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

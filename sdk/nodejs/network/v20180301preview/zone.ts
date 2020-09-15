@@ -23,7 +23,7 @@ export class Zone extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20180301preview:Zone';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20180301preview:Zone';
 
     /**
      * Returns true if the given object is an instance of Zone.  This is designed to work even
@@ -133,7 +133,7 @@ export class Zone extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:Zone" }, { type: "azurerm:network/v20150504preview:Zone" }, { type: "azurerm:network/v20160401:Zone" }, { type: "azurerm:network/v20170901:Zone" }, { type: "azurerm:network/v20171001:Zone" }, { type: "azurerm:network/v20180501:Zone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:Zone" }, { type: "azure-nextgen:network/v20150504preview:Zone" }, { type: "azure-nextgen:network/v20160401:Zone" }, { type: "azure-nextgen:network/v20170901:Zone" }, { type: "azure-nextgen:network/v20171001:Zone" }, { type: "azure-nextgen:network/v20180501:Zone" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Zone.__pulumiType, name, inputs, opts);
     }

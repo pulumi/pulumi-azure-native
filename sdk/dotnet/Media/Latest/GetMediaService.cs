@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.Latest
+namespace Pulumi.AzureNextGen.Media.Latest
 {
     public static class GetMediaService
     {
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azurerm:media/latest:getMediaService", args ?? new GetMediaServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-nextgen:media/latest:getMediaService", args ?? new GetMediaServiceArgs(), options.WithVersion());
     }
 
 

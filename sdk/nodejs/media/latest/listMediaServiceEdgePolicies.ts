@@ -14,7 +14,7 @@ export function listMediaServiceEdgePolicies(args: ListMediaServiceEdgePoliciesA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:media/latest:listMediaServiceEdgePolicies", {
+    return pulumi.runtime.invoke("azure-nextgen:media/latest:listMediaServiceEdgePolicies", {
         "accountName": args.accountName,
         "deviceId": args.deviceId,
         "resourceGroupName": args.resourceGroupName,

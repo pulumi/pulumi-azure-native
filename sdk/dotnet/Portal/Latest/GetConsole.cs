@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Portal.Latest
+namespace Pulumi.AzureNextGen.Portal.Latest
 {
     public static class GetConsole
     {
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azurerm:portal/latest:getConsole", args ?? new GetConsoleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-nextgen:portal/latest:getConsole", args ?? new GetConsoleArgs(), options.WithVersion());
     }
 
 

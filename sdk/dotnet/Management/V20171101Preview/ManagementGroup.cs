@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Management.V20171101Preview
+namespace Pulumi.AzureNextGen.Management.V20171101Preview
 {
     /// <summary>
     /// The management group details.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Management.V20171101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementGroup(string name, ManagementGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:management/v20171101preview:ManagementGroup", name, args ?? new ManagementGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:management/v20171101preview:ManagementGroup", name, args ?? new ManagementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:management/v20171101preview:ManagementGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:management/v20171101preview:ManagementGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,12 +75,12 @@ namespace Pulumi.AzureRM.Management.V20171101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:management/latest:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20180101preview:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20180301preview:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20191101:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20200201:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20200501:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/latest:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20180101preview:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20180301preview:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20191101:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20200201:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:ManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -23,7 +23,7 @@ export class Topic extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:servicebus/v20150801:Topic';
+    public static readonly __pulumiType = 'azure-nextgen:servicebus/v20150801:Topic';
 
     /**
      * Returns true if the given object is an instance of Topic.  This is designed to work even
@@ -206,7 +206,7 @@ export class Topic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/latest:Topic" }, { type: "azurerm:servicebus/v20140901:Topic" }, { type: "azurerm:servicebus/v20170401:Topic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/latest:Topic" }, { type: "azure-nextgen:servicebus/v20140901:Topic" }, { type: "azure-nextgen:servicebus/v20170401:Topic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Topic.__pulumiType, name, inputs, opts);
     }

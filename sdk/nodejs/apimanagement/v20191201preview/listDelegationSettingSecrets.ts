@@ -14,7 +14,7 @@ export function listDelegationSettingSecrets(args: ListDelegationSettingSecretsA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20191201preview:listDelegationSettingSecrets", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20191201preview:listDelegationSettingSecrets", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);

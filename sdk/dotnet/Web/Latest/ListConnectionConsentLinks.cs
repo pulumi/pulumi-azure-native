@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.Latest
+namespace Pulumi.AzureNextGen.Web.Latest
 {
     public static class ListConnectionConsentLinks
     {
         public static Task<ListConnectionConsentLinksResult> InvokeAsync(ListConnectionConsentLinksArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionConsentLinksResult>("azurerm:web/latest:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionConsentLinksResult>("azure-nextgen:web/latest:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksArgs(), options.WithVersion());
     }
 
 

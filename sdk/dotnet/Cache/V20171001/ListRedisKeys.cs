@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cache.V20171001
+namespace Pulumi.AzureNextGen.Cache.V20171001
 {
     public static class ListRedisKeys
     {
         public static Task<ListRedisKeysResult> InvokeAsync(ListRedisKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azurerm:cache/v20171001:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRedisKeysResult>("azure-nextgen:cache/v20171001:listRedisKeys", args ?? new ListRedisKeysArgs(), options.WithVersion());
     }
 
 

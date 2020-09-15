@@ -14,7 +14,7 @@ export function listGlobalUserEnvironments(args: ListGlobalUserEnvironmentsArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:labservices/latest:listGlobalUserEnvironments", {
+    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:listGlobalUserEnvironments", {
         "labId": args.labId,
         "userName": args.userName,
     }, opts);

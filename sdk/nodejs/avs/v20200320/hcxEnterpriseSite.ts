@@ -21,7 +21,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:avs/v20200320:HcxEnterpriseSite';
+    public static readonly __pulumiType = 'azure-nextgen:avs/v20200320:HcxEnterpriseSite';
 
     /**
      * Returns true if the given object is an instance of HcxEnterpriseSite.  This is designed to work even
@@ -90,7 +90,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:avs/latest:HcxEnterpriseSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/latest:HcxEnterpriseSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HcxEnterpriseSite.__pulumiType, name, inputs, opts);
     }

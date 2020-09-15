@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20170301
+namespace Pulumi.AzureNextGen.ApiManagement.V20170301
 {
     public static class GetProperty
     {
         public static Task<GetPropertyResult> InvokeAsync(GetPropertyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azurerm:apimanagement/v20170301:getProperty", args ?? new GetPropertyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azure-nextgen:apimanagement/v20170301:getProperty", args ?? new GetPropertyArgs(), options.WithVersion());
     }
 
 

@@ -14,7 +14,7 @@ export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:dbformysql/latest:getServerKey", {
+    return pulumi.runtime.invoke("azure-nextgen:dbformysql/latest:getServerKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

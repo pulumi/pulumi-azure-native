@@ -14,7 +14,7 @@ export function listWebAppAuthSettings(args: ListWebAppAuthSettingsArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20160801:listWebAppAuthSettings", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20160801:listWebAppAuthSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

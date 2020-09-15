@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningServices.V20190501.Inputs
+namespace Pulumi.AzureNextGen.MachineLearningServices.V20190501.Inputs
 {
 
     public sealed class HDInsightPropertiesArgs : Pulumi.ResourceArgs

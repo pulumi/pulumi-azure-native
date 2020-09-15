@@ -14,7 +14,7 @@ export function listMapContentCallbackUrl(args: ListMapContentCallbackUrlArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20160601:listMapContentCallbackUrl", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20160601:listMapContentCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,
         "mapName": args.mapName,

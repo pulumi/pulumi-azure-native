@@ -14,7 +14,7 @@ export function getManagedNetworkPeeringPolicy(args: GetManagedNetworkPeeringPol
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", {
         "managedNetworkName": args.managedNetworkName,
         "managedNetworkPeeringPolicyName": args.managedNetworkPeeringPolicyName,
         "resourceGroupName": args.resourceGroupName,

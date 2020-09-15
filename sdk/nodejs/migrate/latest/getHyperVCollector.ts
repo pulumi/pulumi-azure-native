@@ -14,7 +14,7 @@ export function getHyperVCollector(args: GetHyperVCollectorArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:migrate/latest:getHyperVCollector", {
+    return pulumi.runtime.invoke("azure-nextgen:migrate/latest:getHyperVCollector", {
         "hyperVCollectorName": args.hyperVCollectorName,
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,

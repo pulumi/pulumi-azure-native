@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataShare.V20181101Preview
+namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
 {
     /// <summary>
     /// A share subscription data transfer object.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.DataShare.V20181101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ShareSubscription(string name, ShareSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datashare/v20181101preview:ShareSubscription", name, args ?? new ShareSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datashare/v20181101preview:ShareSubscription", name, args ?? new ShareSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ShareSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datashare/v20181101preview:ShareSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datashare/v20181101preview:ShareSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,8 +129,8 @@ namespace Pulumi.AzureRM.DataShare.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datashare/latest:ShareSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:datashare/v20191101:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:ShareSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:ShareSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

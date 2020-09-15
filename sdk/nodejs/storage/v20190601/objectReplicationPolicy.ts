@@ -23,7 +23,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storage/v20190601:ObjectReplicationPolicy';
+    public static readonly __pulumiType = 'azure-nextgen:storage/v20190601:ObjectReplicationPolicy';
 
     /**
      * Returns true if the given object is an instance of ObjectReplicationPolicy.  This is designed to work even
@@ -116,7 +116,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:ObjectReplicationPolicy" }, { type: "azurerm:storage/v20200801preview:ObjectReplicationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ObjectReplicationPolicy.__pulumiType, name, inputs, opts);
     }

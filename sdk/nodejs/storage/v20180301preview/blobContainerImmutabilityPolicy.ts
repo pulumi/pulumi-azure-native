@@ -21,7 +21,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storage/v20180301preview:BlobContainerImmutabilityPolicy';
+    public static readonly __pulumiType = 'azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy';
 
     /**
      * Returns true if the given object is an instance of BlobContainerImmutabilityPolicy.  This is designed to work even
@@ -103,7 +103,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20190601:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20200801preview:BlobContainerImmutabilityPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainerImmutabilityPolicy.__pulumiType, name, inputs, opts);
     }

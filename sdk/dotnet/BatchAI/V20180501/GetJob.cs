@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BatchAI.V20180501
+namespace Pulumi.AzureNextGen.BatchAI.V20180501
 {
     public static class GetJob
     {
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azurerm:batchai/v20180501:getJob", args ?? new GetJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-nextgen:batchai/v20180501:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }
 
 

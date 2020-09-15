@@ -23,7 +23,7 @@ export class ContainerGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:containerinstance/v20180901:ContainerGroup';
+    public static readonly __pulumiType = 'azure-nextgen:containerinstance/v20180901:ContainerGroup';
 
     /**
      * Returns true if the given object is an instance of ContainerGroup.  This is designed to work even
@@ -157,7 +157,7 @@ export class ContainerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerinstance/latest:ContainerGroup" }, { type: "azurerm:containerinstance/v20170801preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20171001preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20171201preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20180201preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20180401:ContainerGroup" }, { type: "azurerm:containerinstance/v20180601:ContainerGroup" }, { type: "azurerm:containerinstance/v20181001:ContainerGroup" }, { type: "azurerm:containerinstance/v20191201:ContainerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerinstance/latest:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20171201preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180401:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180601:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20181001:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20191201:ContainerGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContainerGroup.__pulumiType, name, inputs, opts);
     }

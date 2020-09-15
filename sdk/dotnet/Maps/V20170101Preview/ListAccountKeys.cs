@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Maps.V20170101Preview
+namespace Pulumi.AzureNextGen.Maps.V20170101Preview
 {
     public static class ListAccountKeys
     {
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azurerm:maps/v20170101preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:maps/v20170101preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }
 
 

@@ -21,7 +21,7 @@ export class MyWorkbook extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/v20150501:MyWorkbook';
+    public static readonly __pulumiType = 'azure-nextgen:insights/v20150501:MyWorkbook';
 
     /**
      * Returns true if the given object is an instance of MyWorkbook.  This is designed to work even
@@ -144,7 +144,7 @@ export class MyWorkbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:MyWorkbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:MyWorkbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MyWorkbook.__pulumiType, name, inputs, opts);
     }

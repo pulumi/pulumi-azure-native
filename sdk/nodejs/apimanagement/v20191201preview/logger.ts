@@ -21,7 +21,7 @@ export class Logger extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20191201preview:Logger';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20191201preview:Logger';
 
     /**
      * Returns true if the given object is an instance of Logger.  This is designed to work even
@@ -115,7 +115,7 @@ export class Logger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Logger" }, { type: "azurerm:apimanagement/v20160707:Logger" }, { type: "azurerm:apimanagement/v20161010:Logger" }, { type: "azurerm:apimanagement/v20170301:Logger" }, { type: "azurerm:apimanagement/v20180101:Logger" }, { type: "azurerm:apimanagement/v20180601preview:Logger" }, { type: "azurerm:apimanagement/v20190101:Logger" }, { type: "azurerm:apimanagement/v20191201:Logger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Logger" }, { type: "azure-nextgen:apimanagement/v20160707:Logger" }, { type: "azure-nextgen:apimanagement/v20161010:Logger" }, { type: "azure-nextgen:apimanagement/v20170301:Logger" }, { type: "azure-nextgen:apimanagement/v20180101:Logger" }, { type: "azure-nextgen:apimanagement/v20180601preview:Logger" }, { type: "azure-nextgen:apimanagement/v20190101:Logger" }, { type: "azure-nextgen:apimanagement/v20191201:Logger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Logger.__pulumiType, name, inputs, opts);
     }

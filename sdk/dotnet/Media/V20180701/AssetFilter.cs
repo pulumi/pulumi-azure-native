@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.V20180701
+namespace Pulumi.AzureNextGen.Media.V20180701
 {
     /// <summary>
     /// An Asset Filter.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AssetFilter(string name, AssetFilterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:media/v20180701:AssetFilter", name, args ?? new AssetFilterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:media/v20180701:AssetFilter", name, args ?? new AssetFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AssetFilter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:media/v20180701:AssetFilter", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:media/v20180701:AssetFilter", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.Media.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:media/latest:AssetFilter"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20200501:AssetFilter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:AssetFilter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:AssetFilter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

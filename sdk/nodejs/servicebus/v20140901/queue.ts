@@ -23,7 +23,7 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:servicebus/v20140901:Queue';
+    public static readonly __pulumiType = 'azure-nextgen:servicebus/v20140901:Queue';
 
     /**
      * Returns true if the given object is an instance of Queue.  This is designed to work even
@@ -221,7 +221,7 @@ export class Queue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/latest:Queue" }, { type: "azurerm:servicebus/v20150801:Queue" }, { type: "azurerm:servicebus/v20170401:Queue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/latest:Queue" }, { type: "azure-nextgen:servicebus/v20150801:Queue" }, { type: "azure-nextgen:servicebus/v20170401:Queue" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Queue.__pulumiType, name, inputs, opts);
     }

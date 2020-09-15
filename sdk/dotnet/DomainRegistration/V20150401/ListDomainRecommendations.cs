@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DomainRegistration.V20150401
+namespace Pulumi.AzureNextGen.DomainRegistration.V20150401
 {
     public static class ListDomainRecommendations
     {
         public static Task<ListDomainRecommendationsResult> InvokeAsync(ListDomainRecommendationsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azurerm:domainregistration/v20150401:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-nextgen:domainregistration/v20150401:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithVersion());
     }
 
 

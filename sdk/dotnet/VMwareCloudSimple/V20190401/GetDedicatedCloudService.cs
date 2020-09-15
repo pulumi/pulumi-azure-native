@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
+namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
 {
     public static class GetDedicatedCloudService
     {
         public static Task<GetDedicatedCloudServiceResult> InvokeAsync(GetDedicatedCloudServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudServiceResult>("azurerm:vmwarecloudsimple/v20190401:getDedicatedCloudService", args ?? new GetDedicatedCloudServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudServiceResult>("azure-nextgen:vmwarecloudsimple/v20190401:getDedicatedCloudService", args ?? new GetDedicatedCloudServiceArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HDInsight.V20180601Preview
+namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview
 {
     /// <summary>
     /// The HDInsight cluster application
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hdinsight/v20180601preview:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hdinsight/v20180601preview:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hdinsight/v20180601preview:Application", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hdinsight/v20180601preview:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hdinsight/v20150301preview:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hdinsight/v20150301preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

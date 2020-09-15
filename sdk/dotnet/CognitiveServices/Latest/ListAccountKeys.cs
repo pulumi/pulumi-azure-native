@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CognitiveServices.Latest
+namespace Pulumi.AzureNextGen.CognitiveServices.Latest
 {
     public static class ListAccountKeys
     {
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azurerm:cognitiveservices/latest:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:cognitiveservices/latest:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }
 
 

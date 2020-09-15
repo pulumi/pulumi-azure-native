@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.V20170601
+namespace Pulumi.AzureNextGen.StorSimple.V20170601
 {
     /// <summary>
     /// The backup schedule.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BackupSchedule(string name, BackupScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/v20170601:BackupSchedule", name, args ?? new BackupScheduleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storsimple/v20170601:BackupSchedule", name, args ?? new BackupScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BackupSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/v20170601:BackupSchedule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storsimple/v20170601:BackupSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,7 +93,7 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storsimple/latest:BackupSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:BackupSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20190401
+namespace Pulumi.AzureNextGen.Network.V20190401
 {
     /// <summary>
     /// Route Filter Rule Resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RouteFilterRule(string name, RouteFilterRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20190401:RouteFilterRule", name, args ?? new RouteFilterRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20190401:RouteFilterRule", name, args ?? new RouteFilterRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RouteFilterRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20190401:RouteFilterRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20190401:RouteFilterRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,34 +81,34 @@ namespace Pulumi.AzureRM.Network.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20161201:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170301:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170601:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170801:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170901:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171101:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180101:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:RouteFilterRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:RouteFilterRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

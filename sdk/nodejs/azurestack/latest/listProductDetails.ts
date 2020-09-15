@@ -14,7 +14,7 @@ export function listProductDetails(args: ListProductDetailsArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:azurestack/latest:listProductDetails", {
+    return pulumi.runtime.invoke("azure-nextgen:azurestack/latest:listProductDetails", {
         "productName": args.productName,
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,

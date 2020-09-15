@@ -14,7 +14,7 @@ export function getRosettaNetProcessConfiguration(args: GetRosettaNetProcessConf
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/latest:getRosettaNetProcessConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/latest:getRosettaNetProcessConfiguration", {
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "rosettaNetProcessConfigurationName": args.rosettaNetProcessConfigurationName,

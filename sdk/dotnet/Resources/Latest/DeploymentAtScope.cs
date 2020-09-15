@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Resources.Latest
+namespace Pulumi.AzureNextGen.Resources.Latest
 {
     /// <summary>
     /// Deployment information.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Resources.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentAtScope(string name, DeploymentAtScopeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:resources/latest:DeploymentAtScope", name, args ?? new DeploymentAtScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:resources/latest:DeploymentAtScope", name, args ?? new DeploymentAtScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentAtScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:resources/latest:DeploymentAtScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:resources/latest:DeploymentAtScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,10 +69,10 @@ namespace Pulumi.AzureRM.Resources.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190701:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190801:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20191001:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20200601:DeploymentAtScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:DeploymentAtScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:DeploymentAtScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:DeploymentAtScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

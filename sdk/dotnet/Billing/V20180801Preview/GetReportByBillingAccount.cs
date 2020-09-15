@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Billing.V20180801Preview
+namespace Pulumi.AzureNextGen.Billing.V20180801Preview
 {
     public static class GetReportByBillingAccount
     {
         public static Task<GetReportByBillingAccountResult> InvokeAsync(GetReportByBillingAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByBillingAccountResult>("azurerm:billing/v20180801preview:getReportByBillingAccount", args ?? new GetReportByBillingAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByBillingAccountResult>("azure-nextgen:billing/v20180801preview:getReportByBillingAccount", args ?? new GetReportByBillingAccountArgs(), options.WithVersion());
     }
 
 

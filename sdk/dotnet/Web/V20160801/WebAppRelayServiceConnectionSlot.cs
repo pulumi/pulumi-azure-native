@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20160801
+namespace Pulumi.AzureNextGen.Web.V20160801
 {
     /// <summary>
     /// Hybrid Connection for an App Service app.
@@ -62,12 +62,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppRelayServiceConnectionSlot(string name, WebAppRelayServiceConnectionSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160801:WebAppRelayServiceConnectionSlot", name, args ?? new WebAppRelayServiceConnectionSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20160801:WebAppRelayServiceConnectionSlot", name, args ?? new WebAppRelayServiceConnectionSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppRelayServiceConnectionSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160801:WebAppRelayServiceConnectionSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20160801:WebAppRelayServiceConnectionSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,12 +78,12 @@ namespace Pulumi.AzureRM.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppRelayServiceConnectionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppRelayServiceConnectionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppRelayServiceConnectionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppRelayServiceConnectionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppRelayServiceConnectionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppRelayServiceConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

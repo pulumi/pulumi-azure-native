@@ -23,7 +23,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:timeseriesinsights/v20200515:ReferenceDataSet';
+    public static readonly __pulumiType = 'azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet';
 
     /**
      * Returns true if the given object is an instance of ReferenceDataSet.  This is designed to work even
@@ -122,7 +122,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:timeseriesinsights/latest:ReferenceDataSet" }, { type: "azurerm:timeseriesinsights/v20170228preview:ReferenceDataSet" }, { type: "azurerm:timeseriesinsights/v20171115:ReferenceDataSet" }, { type: "azurerm:timeseriesinsights/v20180815preview:ReferenceDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights/latest:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReferenceDataSet.__pulumiType, name, inputs, opts);
     }

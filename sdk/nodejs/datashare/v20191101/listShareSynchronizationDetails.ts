@@ -14,7 +14,7 @@ export function listShareSynchronizationDetails(args: ListShareSynchronizationDe
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datashare/v20191101:listShareSynchronizationDetails", {
+    return pulumi.runtime.invoke("azure-nextgen:datashare/v20191101:listShareSynchronizationDetails", {
         "accountName": args.accountName,
         "consumerEmail": args.consumerEmail,
         "consumerName": args.consumerName,

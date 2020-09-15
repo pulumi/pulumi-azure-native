@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20160601
+namespace Pulumi.AzureNextGen.Logic.V20160601
 {
     public static class ListPartnerContentCallbackUrl
     {
         public static Task<ListPartnerContentCallbackUrlResult> InvokeAsync(ListPartnerContentCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListPartnerContentCallbackUrlResult>("azurerm:logic/v20160601:listPartnerContentCallbackUrl", args ?? new ListPartnerContentCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListPartnerContentCallbackUrlResult>("azure-nextgen:logic/v20160601:listPartnerContentCallbackUrl", args ?? new ListPartnerContentCallbackUrlArgs(), options.WithVersion());
     }
 
 

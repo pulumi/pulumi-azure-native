@@ -14,7 +14,7 @@ export function getThreatIntelligenceIndicator(args: GetThreatIntelligenceIndica
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:securityinsights/v20190101preview:getThreatIntelligenceIndicator", {
+    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getThreatIntelligenceIndicator", {
         "name": args.name,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,

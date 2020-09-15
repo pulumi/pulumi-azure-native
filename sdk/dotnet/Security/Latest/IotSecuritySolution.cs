@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.Latest
+namespace Pulumi.AzureNextGen.Security.Latest
 {
     /// <summary>
     /// IoT Security solution configuration and resource information.
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.Security.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotSecuritySolution(string name, IotSecuritySolutionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/latest:IotSecuritySolution", name, args ?? new IotSecuritySolutionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/latest:IotSecuritySolution", name, args ?? new IotSecuritySolutionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotSecuritySolution(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/latest:IotSecuritySolution", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/latest:IotSecuritySolution", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,8 +123,8 @@ namespace Pulumi.AzureRM.Security.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:security/v20170801preview:IotSecuritySolution"},
-                    new Pulumi.Alias { Type = "azurerm:security/v20190801:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20190801:IotSecuritySolution"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

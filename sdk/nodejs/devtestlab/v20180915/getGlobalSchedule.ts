@@ -14,7 +14,7 @@ export function getGlobalSchedule(args: GetGlobalScheduleArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/v20180915:getGlobalSchedule", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20180915:getGlobalSchedule", {
         "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

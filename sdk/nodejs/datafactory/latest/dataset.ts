@@ -23,7 +23,7 @@ export class Dataset extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datafactory/latest:Dataset';
+    public static readonly __pulumiType = 'azure-nextgen:datafactory/latest:Dataset';
 
     /**
      * Returns true if the given object is an instance of Dataset.  This is designed to work even
@@ -95,7 +95,7 @@ export class Dataset extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/v20170901preview:Dataset" }, { type: "azurerm:datafactory/v20180601:Dataset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory/v20170901preview:Dataset" }, { type: "azure-nextgen:datafactory/v20180601:Dataset" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Dataset.__pulumiType, name, inputs, opts);
     }

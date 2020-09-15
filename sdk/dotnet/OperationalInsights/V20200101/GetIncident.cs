@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20200101
+namespace Pulumi.AzureNextGen.OperationalInsights.V20200101
 {
     public static class GetIncident
     {
         public static Task<GetIncidentResult> InvokeAsync(GetIncidentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azurerm:operationalinsights/v20200101:getIncident", args ?? new GetIncidentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentResult>("azure-nextgen:operationalinsights/v20200101:getIncident", args ?? new GetIncidentArgs(), options.WithVersion());
     }
 
 

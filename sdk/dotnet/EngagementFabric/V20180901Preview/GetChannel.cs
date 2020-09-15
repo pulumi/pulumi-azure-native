@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EngagementFabric.V20180901Preview
+namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
 {
     public static class GetChannel
     {
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azurerm:engagementfabric/v20180901preview:getChannel", args ?? new GetChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-nextgen:engagementfabric/v20180901preview:getChannel", args ?? new GetChannelArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     public static class GetIpGroup
     {
         public static Task<GetIpGroupResult> InvokeAsync(GetIpGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azurerm:network/latest:getIpGroup", args ?? new GetIpGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azure-nextgen:network/latest:getIpGroup", args ?? new GetIpGroupArgs(), options.WithVersion());
     }
 
 

@@ -23,7 +23,7 @@ export class DomainService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:aad/v20200101:DomainService';
+    public static readonly __pulumiType = 'azure-nextgen:aad/v20200101:DomainService';
 
     /**
      * Returns true if the given object is an instance of DomainService.  This is designed to work even
@@ -160,7 +160,7 @@ export class DomainService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:aad/latest:DomainService" }, { type: "azurerm:aad/v20170101:DomainService" }, { type: "azurerm:aad/v20170601:DomainService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:aad/latest:DomainService" }, { type: "azure-nextgen:aad/v20170101:DomainService" }, { type: "azure-nextgen:aad/v20170601:DomainService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainService.__pulumiType, name, inputs, opts);
     }

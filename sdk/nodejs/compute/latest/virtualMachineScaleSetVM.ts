@@ -23,7 +23,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/latest:VirtualMachineScaleSetVM';
+    public static readonly __pulumiType = 'azure-nextgen:compute/latest:VirtualMachineScaleSetVM';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineScaleSetVM.  This is designed to work even
@@ -220,7 +220,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20200601:VirtualMachineScaleSetVM" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetVM.__pulumiType, name, inputs, opts);
     }

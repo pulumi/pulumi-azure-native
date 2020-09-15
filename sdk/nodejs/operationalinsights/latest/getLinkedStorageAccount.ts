@@ -14,7 +14,7 @@ export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:operationalinsights/latest:getLinkedStorageAccount", {
+    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/latest:getLinkedStorageAccount", {
         "dataSourceType": args.dataSourceType,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

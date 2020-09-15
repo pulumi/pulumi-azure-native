@@ -14,7 +14,7 @@ export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuit
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getExpressRouteCircuitAuthorization", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getExpressRouteCircuitAuthorization", {
         "authorizationName": args.authorizationName,
         "circuitName": args.circuitName,
         "resourceGroupName": args.resourceGroupName,

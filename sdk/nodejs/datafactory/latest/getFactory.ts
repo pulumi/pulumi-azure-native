@@ -14,7 +14,7 @@ export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datafactory/latest:getFactory", {
+    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getFactory", {
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

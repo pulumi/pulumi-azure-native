@@ -21,7 +21,7 @@ export class IdentityProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20170301:IdentityProvider';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20170301:IdentityProvider';
 
     /**
      * Returns true if the given object is an instance of IdentityProvider.  This is designed to work even
@@ -126,7 +126,7 @@ export class IdentityProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:IdentityProvider" }, { type: "azurerm:apimanagement/v20160707:IdentityProvider" }, { type: "azurerm:apimanagement/v20161010:IdentityProvider" }, { type: "azurerm:apimanagement/v20180101:IdentityProvider" }, { type: "azurerm:apimanagement/v20180601preview:IdentityProvider" }, { type: "azurerm:apimanagement/v20190101:IdentityProvider" }, { type: "azurerm:apimanagement/v20191201:IdentityProvider" }, { type: "azurerm:apimanagement/v20191201preview:IdentityProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20160707:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20161010:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20180101:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20180601preview:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20190101:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20191201:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20191201preview:IdentityProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IdentityProvider.__pulumiType, name, inputs, opts);
     }

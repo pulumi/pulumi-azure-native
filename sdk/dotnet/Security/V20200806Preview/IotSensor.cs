@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20200806Preview
+namespace Pulumi.AzureNextGen.Security.V20200806Preview
 {
     /// <summary>
     /// IoT sensor
@@ -35,12 +35,12 @@ namespace Pulumi.AzureRM.Security.V20200806Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotSensor(string name, IotSensorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20200806preview:IotSensor", name, args ?? new IotSensorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/v20200806preview:IotSensor", name, args ?? new IotSensorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotSensor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20200806preview:IotSensor", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/v20200806preview:IotSensor", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -23,7 +23,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:alertsmanagement/v20190301:SmartDetectorAlertRule';
+    public static readonly __pulumiType = 'azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule';
 
     /**
      * Returns true if the given object is an instance of SmartDetectorAlertRule.  This is designed to work even
@@ -142,7 +142,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:alertsmanagement/latest:SmartDetectorAlertRule" }, { type: "azurerm:alertsmanagement/v20190601:SmartDetectorAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SmartDetectorAlertRule.__pulumiType, name, inputs, opts);
     }

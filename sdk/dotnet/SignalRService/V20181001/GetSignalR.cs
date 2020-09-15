@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SignalRService.V20181001
+namespace Pulumi.AzureNextGen.SignalRService.V20181001
 {
     public static class GetSignalR
     {
         public static Task<GetSignalRResult> InvokeAsync(GetSignalRArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRResult>("azurerm:signalrservice/v20181001:getSignalR", args ?? new GetSignalRArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRResult>("azure-nextgen:signalrservice/v20181001:getSignalR", args ?? new GetSignalRArgs(), options.WithVersion());
     }
 
 

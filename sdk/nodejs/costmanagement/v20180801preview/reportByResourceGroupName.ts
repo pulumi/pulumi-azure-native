@@ -23,7 +23,7 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:costmanagement/v20180801preview:ReportByResourceGroupName';
+    public static readonly __pulumiType = 'azure-nextgen:costmanagement/v20180801preview:ReportByResourceGroupName';
 
     /**
      * Returns true if the given object is an instance of ReportByResourceGroupName.  This is designed to work even

@@ -14,7 +14,7 @@ export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storsimple/latest:getFileShare", {
+    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getFileShare", {
         "deviceName": args.deviceName,
         "fileServerName": args.fileServerName,
         "managerName": args.managerName,

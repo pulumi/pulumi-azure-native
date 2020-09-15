@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ChangeAnalysis.V20200401Preview
+namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
 {
     public static class GetConfigurationProfile
     {
         public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azurerm:changeanalysis/v20200401preview:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-nextgen:changeanalysis/v20200401preview:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithVersion());
     }
 
 

@@ -14,7 +14,7 @@ export function listNamedValue(args: ListNamedValueArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/latest:listNamedValue", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:listNamedValue", {
         "namedValueId": args.namedValueId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

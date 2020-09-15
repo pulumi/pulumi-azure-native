@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview.Inputs
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
 {
 
     public sealed class PipelineRunSourcePropertiesArgs : Pulumi.ResourceArgs

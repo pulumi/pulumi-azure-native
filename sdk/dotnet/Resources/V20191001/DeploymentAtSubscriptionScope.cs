@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Resources.V20191001
+namespace Pulumi.AzureNextGen.Resources.V20191001
 {
     /// <summary>
     /// Deployment information.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Resources.V20191001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentAtSubscriptionScope(string name, DeploymentAtSubscriptionScopeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:resources/v20191001:DeploymentAtSubscriptionScope", name, args ?? new DeploymentAtSubscriptionScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:resources/v20191001:DeploymentAtSubscriptionScope", name, args ?? new DeploymentAtSubscriptionScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentAtSubscriptionScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:resources/v20191001:DeploymentAtSubscriptionScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:resources/v20191001:DeploymentAtSubscriptionScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,14 +69,14 @@ namespace Pulumi.AzureRM.Resources.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:resources/latest:DeploymentAtSubscriptionScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20180501:DeploymentAtSubscriptionScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190301:DeploymentAtSubscriptionScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190501:DeploymentAtSubscriptionScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190510:DeploymentAtSubscriptionScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190701:DeploymentAtSubscriptionScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190801:DeploymentAtSubscriptionScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20200601:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20180501:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190301:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190501:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190510:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:DeploymentAtSubscriptionScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -23,7 +23,7 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:security/v20190101preview:AlertsSuppressionRule';
+    public static readonly __pulumiType = 'azure-nextgen:security/v20190101preview:AlertsSuppressionRule';
 
     /**
      * Returns true if the given object is an instance of AlertsSuppressionRule.  This is designed to work even

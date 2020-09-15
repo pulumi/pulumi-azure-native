@@ -14,7 +14,7 @@ export function getSiteSourceControl(args: GetSiteSourceControlArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteSourceControl", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:getSiteSourceControl", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

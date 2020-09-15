@@ -14,7 +14,7 @@ export function listNotificationHubKeys(args: ListNotificationHubKeysArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:notificationhubs/v20170401:listNotificationHubKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:notificationhubs/v20170401:listNotificationHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "notificationHubName": args.notificationHubName,

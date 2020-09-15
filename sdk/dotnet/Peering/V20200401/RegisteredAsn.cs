@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Peering.V20200401
+namespace Pulumi.AzureNextGen.Peering.V20200401
 {
     /// <summary>
     /// The customer's ASN that is registered by the peering service provider.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Peering.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegisteredAsn(string name, RegisteredAsnArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20200401:RegisteredAsn", name, args ?? new RegisteredAsnArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:peering/v20200401:RegisteredAsn", name, args ?? new RegisteredAsnArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegisteredAsn(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20200401:RegisteredAsn", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:peering/v20200401:RegisteredAsn", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.Peering.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:peering/latest:RegisteredAsn"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20200101preview:RegisteredAsn"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/latest:RegisteredAsn"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredAsn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

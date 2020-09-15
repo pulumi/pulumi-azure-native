@@ -14,7 +14,7 @@ export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:avs/v20200320:getAuthorization", {
+    return pulumi.runtime.invoke("azure-nextgen:avs/v20200320:getAuthorization", {
         "authorizationName": args.authorizationName,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

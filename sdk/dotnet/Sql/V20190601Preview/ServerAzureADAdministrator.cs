@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20190601Preview
+namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 {
     /// <summary>
     /// Azure Active Directory administrator.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerAzureADAdministrator(string name, ServerAzureADAdministratorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20190601preview:ServerAzureADAdministrator", name, args ?? new ServerAzureADAdministratorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator", name, args ?? new ServerAzureADAdministratorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerAzureADAdministrator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20190601preview:ServerAzureADAdministrator", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,9 +81,9 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:sql/latest:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20140401:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20180601preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

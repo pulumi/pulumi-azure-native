@@ -14,7 +14,7 @@ export function listIntegrationRuntimeAuthKeys(args: ListIntegrationRuntimeAuthK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datafactory/v20170901preview:listIntegrationRuntimeAuthKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:datafactory/v20170901preview:listIntegrationRuntimeAuthKeys", {
         "factoryName": args.factoryName,
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,

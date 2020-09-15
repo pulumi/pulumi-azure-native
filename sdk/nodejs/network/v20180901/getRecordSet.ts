@@ -14,7 +14,7 @@ export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20180901:getRecordSet", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20180901:getRecordSet", {
         "privateZoneName": args.privateZoneName,
         "recordType": args.recordType,
         "relativeRecordSetName": args.relativeRecordSetName,

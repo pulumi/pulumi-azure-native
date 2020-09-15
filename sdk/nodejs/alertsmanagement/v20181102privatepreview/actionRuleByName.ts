@@ -23,7 +23,7 @@ export class ActionRuleByName extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:alertsmanagement/v20181102privatepreview:ActionRuleByName';
+    public static readonly __pulumiType = 'azure-nextgen:alertsmanagement/v20181102privatepreview:ActionRuleByName';
 
     /**
      * Returns true if the given object is an instance of ActionRuleByName.  This is designed to work even
@@ -97,7 +97,7 @@ export class ActionRuleByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:alertsmanagement/v20190505preview:ActionRuleByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:alertsmanagement/v20190505preview:ActionRuleByName" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ActionRuleByName.__pulumiType, name, inputs, opts);
     }

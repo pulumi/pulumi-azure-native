@@ -23,7 +23,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datamigration/latest:Service';
+    public static readonly __pulumiType = 'azure-nextgen:datamigration/latest:Service';
 
     /**
      * Returns true if the given object is an instance of Service.  This is designed to work even
@@ -130,7 +130,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datamigration/v20171115preview:Service" }, { type: "azurerm:datamigration/v20180315preview:Service" }, { type: "azurerm:datamigration/v20180331preview:Service" }, { type: "azurerm:datamigration/v20180419:Service" }, { type: "azurerm:datamigration/v20180715preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration/v20171115preview:Service" }, { type: "azure-nextgen:datamigration/v20180315preview:Service" }, { type: "azure-nextgen:datamigration/v20180331preview:Service" }, { type: "azure-nextgen:datamigration/v20180419:Service" }, { type: "azure-nextgen:datamigration/v20180715preview:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

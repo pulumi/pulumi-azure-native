@@ -14,7 +14,7 @@ export function getIotSensor(args: GetIotSensorArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:security/v20200806preview:getIotSensor", {
+    return pulumi.runtime.invoke("azure-nextgen:security/v20200806preview:getIotSensor", {
         "iotSensorName": args.iotSensorName,
         "scope": args.scope,
     }, opts);

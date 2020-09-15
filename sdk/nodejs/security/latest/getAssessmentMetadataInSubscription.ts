@@ -14,7 +14,7 @@ export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataI
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:security/latest:getAssessmentMetadataInSubscription", {
+    return pulumi.runtime.invoke("azure-nextgen:security/latest:getAssessmentMetadataInSubscription", {
         "assessmentMetadataName": args.assessmentMetadataName,
     }, opts);
 }

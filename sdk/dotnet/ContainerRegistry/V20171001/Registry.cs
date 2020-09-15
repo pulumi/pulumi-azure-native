@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20171001
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001
 {
     /// <summary>
     /// An object that represents a container registry.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Registry(string name, RegistryArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20171001:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/v20171001:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Registry(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20171001:Registry", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/v20171001:Registry", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,12 +111,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/latest:Registry"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20160627preview:Registry"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20170301:Registry"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20170601preview:Registry"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20190501:Registry"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20191201preview:Registry"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Registry"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20160627preview:Registry"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170301:Registry"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Registry"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Registry"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Registry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

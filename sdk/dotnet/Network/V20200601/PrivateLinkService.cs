@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200601
+namespace Pulumi.AzureNextGen.Network.V20200601
 {
     /// <summary>
     /// Private link service resource.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkService(string name, PrivateLinkServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:PrivateLinkService", name, args ?? new PrivateLinkServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200601:PrivateLinkService", name, args ?? new PrivateLinkServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:PrivateLinkService", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200601:PrivateLinkService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,17 +129,17 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PrivateLinkService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

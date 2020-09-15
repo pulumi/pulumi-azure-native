@@ -23,7 +23,7 @@ export class Resource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:resources/v20160701:Resource';
+    public static readonly __pulumiType = 'azure-nextgen:resources/v20160701:Resource';
 
     /**
      * Returns true if the given object is an instance of Resource.  This is designed to work even
@@ -136,7 +136,7 @@ export class Resource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:resources/latest:Resource" }, { type: "azurerm:resources/v20151101:Resource" }, { type: "azurerm:resources/v20160201:Resource" }, { type: "azurerm:resources/v20160901:Resource" }, { type: "azurerm:resources/v20170510:Resource" }, { type: "azurerm:resources/v20180201:Resource" }, { type: "azurerm:resources/v20180501:Resource" }, { type: "azurerm:resources/v20190301:Resource" }, { type: "azurerm:resources/v20190501:Resource" }, { type: "azurerm:resources/v20190510:Resource" }, { type: "azurerm:resources/v20190701:Resource" }, { type: "azurerm:resources/v20190801:Resource" }, { type: "azurerm:resources/v20191001:Resource" }, { type: "azurerm:resources/v20200601:Resource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/latest:Resource" }, { type: "azure-nextgen:resources/v20151101:Resource" }, { type: "azure-nextgen:resources/v20160201:Resource" }, { type: "azure-nextgen:resources/v20160901:Resource" }, { type: "azure-nextgen:resources/v20170510:Resource" }, { type: "azure-nextgen:resources/v20180201:Resource" }, { type: "azure-nextgen:resources/v20180501:Resource" }, { type: "azure-nextgen:resources/v20190301:Resource" }, { type: "azure-nextgen:resources/v20190501:Resource" }, { type: "azure-nextgen:resources/v20190510:Resource" }, { type: "azure-nextgen:resources/v20190701:Resource" }, { type: "azure-nextgen:resources/v20190801:Resource" }, { type: "azure-nextgen:resources/v20191001:Resource" }, { type: "azure-nextgen:resources/v20200601:Resource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Resource.__pulumiType, name, inputs, opts);
     }

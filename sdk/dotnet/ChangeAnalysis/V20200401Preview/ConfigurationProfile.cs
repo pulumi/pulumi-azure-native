@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ChangeAnalysis.V20200401Preview
+namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
 {
     /// <summary>
     /// A profile object that contains change analysis configuration, such as notification settings, for this subscription
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.ChangeAnalysis.V20200401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationProfile(string name, ConfigurationProfileArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:changeanalysis/v20200401preview:ConfigurationProfile", name, args ?? new ConfigurationProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile", name, args ?? new ConfigurationProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:changeanalysis/v20200401preview:ConfigurationProfile", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.Latest
+namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
     public static class GetFileServer
     {
         public static Task<GetFileServerResult> InvokeAsync(GetFileServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azurerm:storsimple/latest:getFileServer", args ?? new GetFileServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azure-nextgen:storsimple/latest:getFileServer", args ?? new GetFileServerArgs(), options.WithVersion());
     }
 
 

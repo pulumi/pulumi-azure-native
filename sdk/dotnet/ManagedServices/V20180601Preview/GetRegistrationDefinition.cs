@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ManagedServices.V20180601Preview
+namespace Pulumi.AzureNextGen.ManagedServices.V20180601Preview
 {
     public static class GetRegistrationDefinition
     {
         public static Task<GetRegistrationDefinitionResult> InvokeAsync(GetRegistrationDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationDefinitionResult>("azurerm:managedservices/v20180601preview:getRegistrationDefinition", args ?? new GetRegistrationDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationDefinitionResult>("azure-nextgen:managedservices/v20180601preview:getRegistrationDefinition", args ?? new GetRegistrationDefinitionArgs(), options.WithVersion());
     }
 
 

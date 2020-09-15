@@ -14,7 +14,7 @@ export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:resources/v20160201:getResourceGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:resources/v20160201:getResourceGroup", {
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }

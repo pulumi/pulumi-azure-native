@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Storage.Latest
+namespace Pulumi.AzureNextGen.Storage.Latest
 {
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Storage.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ObjectReplicationPolicy(string name, ObjectReplicationPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storage/latest:ObjectReplicationPolicy", name, args ?? new ObjectReplicationPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storage/latest:ObjectReplicationPolicy", name, args ?? new ObjectReplicationPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ObjectReplicationPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storage/latest:ObjectReplicationPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storage/latest:ObjectReplicationPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storage/v20190601:ObjectReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

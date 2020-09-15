@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20170401
+namespace Pulumi.AzureNextGen.Insights.V20170401
 {
     /// <summary>
     /// An activity log alert resource.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Insights.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActivityLogAlert(string name, ActivityLogAlertArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20170401:ActivityLogAlert", name, args ?? new ActivityLogAlertArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20170401:ActivityLogAlert", name, args ?? new ActivityLogAlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ActivityLogAlert(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20170401:ActivityLogAlert", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20170401:ActivityLogAlert", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.Insights.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/latest:ActivityLogAlert"},
-                    new Pulumi.Alias { Type = "azurerm:insights/v20170301preview:ActivityLogAlert"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ActivityLogAlert"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20170301preview:ActivityLogAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

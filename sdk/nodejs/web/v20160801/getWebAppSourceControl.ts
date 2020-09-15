@@ -14,7 +14,7 @@ export function getWebAppSourceControl(args: GetWebAppSourceControlArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20160801:getWebAppSourceControl", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20160801:getWebAppSourceControl", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

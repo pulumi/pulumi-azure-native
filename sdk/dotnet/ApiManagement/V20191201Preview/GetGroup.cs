@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
+namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 {
     public static class GetGroup
     {
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azurerm:apimanagement/v20191201preview:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-nextgen:apimanagement/v20191201preview:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
     }
 
 

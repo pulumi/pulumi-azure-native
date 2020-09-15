@@ -14,7 +14,7 @@ export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20181201:getNetworkProfile", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20181201:getNetworkProfile", {
         "expand": args.expand,
         "networkProfileName": args.networkProfileName,
         "resourceGroupName": args.resourceGroupName,

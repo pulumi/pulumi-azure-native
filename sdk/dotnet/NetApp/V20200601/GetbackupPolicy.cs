@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NetApp.V20200601
+namespace Pulumi.AzureNextGen.NetApp.V20200601
 {
     public static class GetbackupPolicy
     {
         public static Task<GetbackupPolicyResult> InvokeAsync(GetbackupPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetbackupPolicyResult>("azurerm:netapp/v20200601:getbackupPolicy", args ?? new GetbackupPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetbackupPolicyResult>("azure-nextgen:netapp/v20200601:getbackupPolicy", args ?? new GetbackupPolicyArgs(), options.WithVersion());
     }
 
 

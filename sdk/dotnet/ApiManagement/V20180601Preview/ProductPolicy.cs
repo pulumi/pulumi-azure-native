@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
+namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Policy Contract details.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProductPolicy(string name, ProductPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20180601preview:ProductPolicy", name, args ?? new ProductPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20180601preview:ProductPolicy", name, args ?? new ProductPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProductPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20180601preview:ProductPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20180601preview:ProductPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,12 +63,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ProductPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ProductPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

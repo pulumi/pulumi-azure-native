@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20190801
+namespace Pulumi.AzureNextGen.Web.V20190801
 {
     public static class ListWebApplicationSettingsSlot
     {
         public static Task<ListWebApplicationSettingsSlotResult> InvokeAsync(ListWebApplicationSettingsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebApplicationSettingsSlotResult>("azurerm:web/v20190801:listWebApplicationSettingsSlot", args ?? new ListWebApplicationSettingsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebApplicationSettingsSlotResult>("azure-nextgen:web/v20190801:listWebApplicationSettingsSlot", args ?? new ListWebApplicationSettingsSlotArgs(), options.WithVersion());
     }
 
 

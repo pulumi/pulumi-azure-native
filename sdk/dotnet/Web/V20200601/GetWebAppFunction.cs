@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20200601
+namespace Pulumi.AzureNextGen.Web.V20200601
 {
     public static class GetWebAppFunction
     {
         public static Task<GetWebAppFunctionResult> InvokeAsync(GetWebAppFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azurerm:web/v20200601:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-nextgen:web/v20200601:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithVersion());
     }
 
 

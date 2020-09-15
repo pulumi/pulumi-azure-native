@@ -23,7 +23,7 @@ export class GraphQuery extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:resourcegraph/v20200401preview:GraphQuery';
+    public static readonly __pulumiType = 'azure-nextgen:resourcegraph/v20200401preview:GraphQuery';
 
     /**
      * Returns true if the given object is an instance of GraphQuery.  This is designed to work even
@@ -127,7 +127,7 @@ export class GraphQuery extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:resourcegraph/v20180901preview:GraphQuery" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resourcegraph/v20180901preview:GraphQuery" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GraphQuery.__pulumiType, name, inputs, opts);
     }

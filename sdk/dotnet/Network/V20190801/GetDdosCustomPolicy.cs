@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20190801
+namespace Pulumi.AzureNextGen.Network.V20190801
 {
     public static class GetDdosCustomPolicy
     {
         public static Task<GetDdosCustomPolicyResult> InvokeAsync(GetDdosCustomPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDdosCustomPolicyResult>("azurerm:network/v20190801:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDdosCustomPolicyResult>("azure-nextgen:network/v20190801:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyArgs(), options.WithVersion());
     }
 
 

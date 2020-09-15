@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20160330
+namespace Pulumi.AzureNextGen.Network.V20160330
 {
     public static class GetRoute
     {
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azurerm:network/v20160330:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-nextgen:network/v20160330:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
     }
 
 

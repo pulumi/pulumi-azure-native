@@ -14,7 +14,7 @@ export function listConnectionKeys(args: ListConnectionKeysArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801preview:listConnectionKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801preview:listConnectionKeys", {
         "connectionName": args.connectionName,
         "id": args.id,
         "kind": args.kind,

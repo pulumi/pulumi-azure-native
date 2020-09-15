@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RecoveryServices.Latest
+namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
     public static class GetProtectionIntent
     {
         public static Task<GetProtectionIntentResult> InvokeAsync(GetProtectionIntentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azurerm:recoveryservices/latest:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-nextgen:recoveryservices/latest:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithVersion());
     }
 
 

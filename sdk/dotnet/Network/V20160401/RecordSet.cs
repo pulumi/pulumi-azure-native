@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20160401
+namespace Pulumi.AzureNextGen.Network.V20160401
 {
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type).
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.Network.V20160401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RecordSet(string name, RecordSetArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20160401:RecordSet", name, args ?? new RecordSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20160401:RecordSet", name, args ?? new RecordSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RecordSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20160401:RecordSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20160401:RecordSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,11 +123,11 @@ namespace Pulumi.AzureRM.Network.V20160401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/v20150504preview:RecordSet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170901:RecordSet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:RecordSet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180301preview:RecordSet"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180501:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150504preview:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180301preview:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180501:RecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

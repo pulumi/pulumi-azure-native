@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HealthcareApis.Latest
+namespace Pulumi.AzureNextGen.HealthcareApis.Latest
 {
     public static class GetService
     {
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azurerm:healthcareapis/latest:getService", args ?? new GetServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:healthcareapis/latest:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
 
 

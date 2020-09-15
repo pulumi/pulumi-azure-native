@@ -14,7 +14,7 @@ export function getController(args: GetControllerArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devspaces/v20190401:getController", {
+    return pulumi.runtime.invoke("azure-nextgen:devspaces/v20190401:getController", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

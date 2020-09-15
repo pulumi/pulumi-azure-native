@@ -14,7 +14,7 @@ export function getConsoleWithLocation(args: GetConsoleWithLocationArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:portal/latest:getConsoleWithLocation", {
+    return pulumi.runtime.invoke("azure-nextgen:portal/latest:getConsoleWithLocation", {
         "consoleName": args.consoleName,
         "location": args.location,
     }, opts);

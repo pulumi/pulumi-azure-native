@@ -21,7 +21,7 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:certificateregistration/v20150801:CertificateOrderCertificate';
+    public static readonly __pulumiType = 'azure-nextgen:certificateregistration/v20150801:CertificateOrderCertificate';
 
     /**
      * Returns true if the given object is an instance of CertificateOrderCertificate.  This is designed to work even
@@ -117,7 +117,7 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:certificateregistration/latest:CertificateOrderCertificate" }, { type: "azurerm:certificateregistration/v20180201:CertificateOrderCertificate" }, { type: "azurerm:certificateregistration/v20190801:CertificateOrderCertificate" }, { type: "azurerm:certificateregistration/v20200601:CertificateOrderCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:certificateregistration/latest:CertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20180201:CertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20190801:CertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20200601:CertificateOrderCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CertificateOrderCertificate.__pulumiType, name, inputs, opts);
     }

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventHub.V20170401
+namespace Pulumi.AzureNextGen.EventHub.V20170401
 {
     public static class GetEventHubAuthorizationRule
     {
         public static Task<GetEventHubAuthorizationRuleResult> InvokeAsync(GetEventHubAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubAuthorizationRuleResult>("azurerm:eventhub/v20170401:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubAuthorizationRuleResult>("azure-nextgen:eventhub/v20170401:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleArgs(), options.WithVersion());
     }
 
 

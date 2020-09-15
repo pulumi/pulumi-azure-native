@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabric.Latest
+namespace Pulumi.AzureNextGen.ServiceFabric.Latest
 {
     /// <summary>
     /// The application resource.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.ServiceFabric.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabric/latest:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicefabric/latest:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabric/latest:Application", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicefabric/latest:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,12 +135,12 @@ namespace Pulumi.AzureRM.ServiceFabric.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20170701preview:Application"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301:Application"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301preview:Application"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20190601preview:Application"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20191101preview:Application"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20200301:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301preview:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190601preview:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20191101preview:Application"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200301:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

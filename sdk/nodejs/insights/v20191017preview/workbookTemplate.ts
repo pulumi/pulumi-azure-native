@@ -23,7 +23,7 @@ export class WorkbookTemplate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/v20191017preview:WorkbookTemplate';
+    public static readonly __pulumiType = 'azure-nextgen:insights/v20191017preview:WorkbookTemplate';
 
     /**
      * Returns true if the given object is an instance of WorkbookTemplate.  This is designed to work even

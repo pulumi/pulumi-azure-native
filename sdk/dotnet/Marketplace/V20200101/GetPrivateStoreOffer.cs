@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Marketplace.V20200101
+namespace Pulumi.AzureNextGen.Marketplace.V20200101
 {
     public static class GetPrivateStoreOffer
     {
         public static Task<GetPrivateStoreOfferResult> InvokeAsync(GetPrivateStoreOfferArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreOfferResult>("azurerm:marketplace/v20200101:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreOfferResult>("azure-nextgen:marketplace/v20200101:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
+namespace Pulumi.AzureNextGen.DBForMySQL.V20171201Preview
 {
     /// <summary>
     /// A virtual network rule.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbformysql/v20171201preview:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbformysql/v20171201preview:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbformysql/v20171201preview:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbformysql/v20171201preview:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/latest:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

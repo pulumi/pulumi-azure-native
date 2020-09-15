@@ -21,7 +21,7 @@ export class FileShare extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storsimple/latest:FileShare';
+    public static readonly __pulumiType = 'azure-nextgen:storsimple/latest:FileShare';
 
     /**
      * Returns true if the given object is an instance of FileShare.  This is designed to work even
@@ -149,7 +149,7 @@ export class FileShare extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20161001:FileShare" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20161001:FileShare" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileShare.__pulumiType, name, inputs, opts);
     }

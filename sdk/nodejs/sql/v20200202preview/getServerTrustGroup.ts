@@ -14,7 +14,7 @@ export function getServerTrustGroup(args: GetServerTrustGroupArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20200202preview:getServerTrustGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20200202preview:getServerTrustGroup", {
         "locationName": args.locationName,
         "resourceGroupName": args.resourceGroupName,
         "serverTrustGroupName": args.serverTrustGroupName,

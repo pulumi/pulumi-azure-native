@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.Latest
+namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
 {
     /// <summary>
     /// The task that has the ARM resource and task properties.
@@ -108,12 +108,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Task(string name, TaskArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/latest:Task", name, args ?? new TaskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/latest:Task", name, args ?? new TaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Task(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/latest:Task", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/latest:Task", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,9 +124,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20180901:Task"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20190401:Task"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20190601preview:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180901:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190401:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190601preview:Task"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

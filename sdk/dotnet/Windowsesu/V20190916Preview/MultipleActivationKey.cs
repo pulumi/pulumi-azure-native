@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.WindowsESU.V20190916Preview
+namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
 {
     /// <summary>
     /// MAK key details.
@@ -92,12 +92,12 @@ namespace Pulumi.AzureRM.WindowsESU.V20190916Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MultipleActivationKey(string name, MultipleActivationKeyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:windowsesu/v20190916preview:MultipleActivationKey", name, args ?? new MultipleActivationKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey", name, args ?? new MultipleActivationKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MultipleActivationKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:windowsesu/v20190916preview:MultipleActivationKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

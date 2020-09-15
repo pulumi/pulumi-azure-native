@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Blueprint.V20181101Preview
+namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
 {
     /// <summary>
     /// Represents a blueprint artifact.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Artifact(string name, ArtifactArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:blueprint/v20181101preview:Artifact", name, args ?? new ArtifactArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:blueprint/v20181101preview:Artifact", name, args ?? new ArtifactArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Artifact(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:blueprint/v20181101preview:Artifact", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:blueprint/v20181101preview:Artifact", name, null, MakeResourceOptions(options, id))
         {
         }
 

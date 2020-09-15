@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMySQL.V20171201
+namespace Pulumi.AzureNextGen.DBforMySQL.V20171201
 {
     public static class GetServer
     {
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azurerm:dbformysql/v20171201:getServer", args ?? new GetServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:dbformysql/v20171201:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }
 
 

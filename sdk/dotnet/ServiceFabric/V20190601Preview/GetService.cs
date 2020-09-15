@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabric.V20190601Preview
+namespace Pulumi.AzureNextGen.ServiceFabric.V20190601Preview
 {
     public static class GetService
     {
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azurerm:servicefabric/v20190601preview:getService", args ?? new GetServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:servicefabric/v20190601preview:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
 
 

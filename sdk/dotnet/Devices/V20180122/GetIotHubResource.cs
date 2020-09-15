@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Devices.V20180122
+namespace Pulumi.AzureNextGen.Devices.V20180122
 {
     public static class GetIotHubResource
     {
         public static Task<GetIotHubResourceResult> InvokeAsync(GetIotHubResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceResult>("azurerm:devices/v20180122:getIotHubResource", args ?? new GetIotHubResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResourceResult>("azure-nextgen:devices/v20180122:getIotHubResource", args ?? new GetIotHubResourceArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.Latest
+namespace Pulumi.AzureNextGen.Web.Latest
 {
     public static class GetWebAppHostNameBinding
     {
         public static Task<GetWebAppHostNameBindingResult> InvokeAsync(GetWebAppHostNameBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingResult>("azurerm:web/latest:getWebAppHostNameBinding", args ?? new GetWebAppHostNameBindingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingResult>("azure-nextgen:web/latest:getWebAppHostNameBinding", args ?? new GetWebAppHostNameBindingArgs(), options.WithVersion());
     }
 
 

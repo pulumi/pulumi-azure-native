@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BotService.V20200602
+namespace Pulumi.AzureNextGen.BotService.V20200602
 {
     public static class GetBotConnection
     {
         public static Task<GetBotConnectionResult> InvokeAsync(GetBotConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBotConnectionResult>("azurerm:botservice/v20200602:getBotConnection", args ?? new GetBotConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBotConnectionResult>("azure-nextgen:botservice/v20200602:getBotConnection", args ?? new GetBotConnectionArgs(), options.WithVersion());
     }
 
 

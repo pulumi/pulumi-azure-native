@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     /// <summary>
     /// Represents a web app
@@ -221,12 +221,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteSlot(string name, SiteSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:SiteSlot", name, args ?? new SiteSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20150801:SiteSlot", name, args ?? new SiteSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:SiteSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20150801:SiteSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -237,12 +237,12 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:SiteSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:SiteSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:SiteSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:SiteSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMySQL.V20171201
+namespace Pulumi.AzureNextGen.DBforMySQL.V20171201
 {
     /// <summary>
     /// Represents a server firewall rule.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbformysql/v20171201:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbformysql/v20171201:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbformysql/v20171201:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbformysql/v20171201:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/latest:FirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

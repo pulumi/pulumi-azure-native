@@ -21,7 +21,7 @@ export class TagByProduct extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20180601preview:TagByProduct';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20180601preview:TagByProduct';
 
     /**
      * Returns true if the given object is an instance of TagByProduct.  This is designed to work even
@@ -88,7 +88,7 @@ export class TagByProduct extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:TagByProduct" }, { type: "azurerm:apimanagement/v20170301:TagByProduct" }, { type: "azurerm:apimanagement/v20180101:TagByProduct" }, { type: "azurerm:apimanagement/v20190101:TagByProduct" }, { type: "azurerm:apimanagement/v20191201:TagByProduct" }, { type: "azurerm:apimanagement/v20191201preview:TagByProduct" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20170301:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20180101:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20190101:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20191201:TagByProduct" }, { type: "azure-nextgen:apimanagement/v20191201preview:TagByProduct" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagByProduct.__pulumiType, name, inputs, opts);
     }

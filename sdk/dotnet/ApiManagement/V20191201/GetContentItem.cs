@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20191201
+namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 {
     public static class GetContentItem
     {
         public static Task<GetContentItemResult> InvokeAsync(GetContentItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azurerm:apimanagement/v20191201:getContentItem", args ?? new GetContentItemArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-nextgen:apimanagement/v20191201:getContentItem", args ?? new GetContentItemArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20180901
+namespace Pulumi.AzureNextGen.Insights.V20180901
 {
     /// <summary>
     /// An action group resource.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Insights.V20180901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActionGroup(string name, ActionGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20180901:ActionGroup", name, args ?? new ActionGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20180901:ActionGroup", name, args ?? new ActionGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ActionGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20180901:ActionGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20180901:ActionGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,11 +135,11 @@ namespace Pulumi.AzureRM.Insights.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/latest:ActionGroup"},
-                    new Pulumi.Alias { Type = "azurerm:insights/v20170401:ActionGroup"},
-                    new Pulumi.Alias { Type = "azurerm:insights/v20180301:ActionGroup"},
-                    new Pulumi.Alias { Type = "azurerm:insights/v20190301:ActionGroup"},
-                    new Pulumi.Alias { Type = "azurerm:insights/v20190601:ActionGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ActionGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20170401:ActionGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20180301:ActionGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20190301:ActionGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20190601:ActionGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,7 +14,7 @@ export function getWCFRelayAuthorizationRule(args: GetWCFRelayAuthorizationRuleA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:relay/v20160701:getWCFRelayAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-nextgen:relay/v20160701:getWCFRelayAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

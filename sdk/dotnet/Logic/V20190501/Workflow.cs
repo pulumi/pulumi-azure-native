@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20190501
+namespace Pulumi.AzureNextGen.Logic.V20190501
 {
     /// <summary>
     /// The workflow type.
@@ -125,12 +125,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workflow(string name, WorkflowArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20190501:Workflow", name, args ?? new WorkflowArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:logic/v20190501:Workflow", name, args ?? new WorkflowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workflow(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20190501:Workflow", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:logic/v20190501:Workflow", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -141,10 +141,10 @@ namespace Pulumi.AzureRM.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:logic/latest:Workflow"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20150201preview:Workflow"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20160601:Workflow"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:Workflow"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:Workflow"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20150201preview:Workflow"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:Workflow"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Workflow"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

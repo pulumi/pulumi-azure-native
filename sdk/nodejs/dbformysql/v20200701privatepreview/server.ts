@@ -23,7 +23,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:dbformysql/v20200701privatepreview:Server';
+    public static readonly __pulumiType = 'azure-nextgen:dbformysql/v20200701privatepreview:Server';
 
     /**
      * Returns true if the given object is an instance of Server.  This is designed to work even

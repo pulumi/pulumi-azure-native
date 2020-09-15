@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.Latest
+namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccount(string name, StorageAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/latest:StorageAccount", name, args ?? new StorageAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:databoxedge/latest:StorageAccount", name, args ?? new StorageAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/latest:StorageAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:databoxedge/latest:StorageAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,8 +87,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:StorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

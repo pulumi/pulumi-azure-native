@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20180601Preview
+namespace Pulumi.AzureNextGen.Sql.V20180601Preview
 {
     /// <summary>
     /// An Azure SQL managed instance.
@@ -188,12 +188,12 @@ namespace Pulumi.AzureRM.Sql.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedInstance(string name, ManagedInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20180601preview:ManagedInstance", name, args ?? new ManagedInstanceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20180601preview:ManagedInstance", name, args ?? new ManagedInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20180601preview:ManagedInstance", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20180601preview:ManagedInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -204,8 +204,8 @@ namespace Pulumi.AzureRM.Sql.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:sql/v20150501preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20200202preview:ManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:ManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

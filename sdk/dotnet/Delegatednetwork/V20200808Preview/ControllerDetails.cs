@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DelegatedNetwork.V20200808Preview
+namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
 {
     /// <summary>
     /// Represents an instance of a DNC controller.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.DelegatedNetwork.V20200808Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ControllerDetails(string name, ControllerDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:delegatednetwork/v20200808preview:ControllerDetails", name, args ?? new ControllerDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails", name, args ?? new ControllerDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ControllerDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:delegatednetwork/v20200808preview:ControllerDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 

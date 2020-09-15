@@ -21,7 +21,7 @@ export class Asset extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:media/v20180330preview:Asset';
+    public static readonly __pulumiType = 'azure-nextgen:media/v20180330preview:Asset';
 
     /**
      * Returns true if the given object is an instance of Asset.  This is designed to work even
@@ -126,7 +126,7 @@ export class Asset extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:Asset" }, { type: "azurerm:media/v20180601preview:Asset" }, { type: "azurerm:media/v20180701:Asset" }, { type: "azurerm:media/v20200501:Asset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/latest:Asset" }, { type: "azure-nextgen:media/v20180601preview:Asset" }, { type: "azure-nextgen:media/v20180701:Asset" }, { type: "azure-nextgen:media/v20200501:Asset" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Asset.__pulumiType, name, inputs, opts);
     }

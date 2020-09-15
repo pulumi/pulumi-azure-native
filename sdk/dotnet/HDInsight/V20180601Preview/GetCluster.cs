@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HDInsight.V20180601Preview
+namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview
 {
     public static class GetCluster
     {
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azurerm:hdinsight/v20180601preview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:hdinsight/v20180601preview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
 
 

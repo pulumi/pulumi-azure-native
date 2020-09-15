@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Maintenance.V20200401
+namespace Pulumi.AzureNextGen.Maintenance.V20200401
 {
     /// <summary>
     /// Maintenance configuration record type
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MaintenanceConfiguration(string name, MaintenanceConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:maintenance/v20200401:MaintenanceConfiguration", name, args ?? new MaintenanceConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:maintenance/v20200401:MaintenanceConfiguration", name, args ?? new MaintenanceConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MaintenanceConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:maintenance/v20200401:MaintenanceConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:maintenance/v20200401:MaintenanceConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,9 +81,9 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:maintenance/latest:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:maintenance/v20180601preview:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:maintenance/v20200701preview:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:maintenance/latest:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

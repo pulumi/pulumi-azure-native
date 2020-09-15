@@ -23,7 +23,7 @@ export class IotDpsResource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:devices/v20200901preview:IotDpsResource';
+    public static readonly __pulumiType = 'azure-nextgen:devices/v20200901preview:IotDpsResource';
 
     /**
      * Returns true if the given object is an instance of IotDpsResource.  This is designed to work even
@@ -115,7 +115,7 @@ export class IotDpsResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devices/latest:IotDpsResource" }, { type: "azurerm:devices/v20170821preview:IotDpsResource" }, { type: "azurerm:devices/v20171115:IotDpsResource" }, { type: "azurerm:devices/v20180122:IotDpsResource" }, { type: "azurerm:devices/v20200101:IotDpsResource" }, { type: "azurerm:devices/v20200301:IotDpsResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/latest:IotDpsResource" }, { type: "azure-nextgen:devices/v20170821preview:IotDpsResource" }, { type: "azure-nextgen:devices/v20171115:IotDpsResource" }, { type: "azure-nextgen:devices/v20180122:IotDpsResource" }, { type: "azure-nextgen:devices/v20200101:IotDpsResource" }, { type: "azure-nextgen:devices/v20200301:IotDpsResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotDpsResource.__pulumiType, name, inputs, opts);
     }

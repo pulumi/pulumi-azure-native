@@ -23,7 +23,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:dbformariadb/latest:Server';
+    public static readonly __pulumiType = 'azure-nextgen:dbformariadb/latest:Server';
 
     /**
      * Returns true if the given object is an instance of Server.  This is designed to work even
@@ -173,7 +173,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformariadb/v20180601:Server" }, { type: "azurerm:dbformariadb/v20180601preview:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb/v20180601:Server" }, { type: "azure-nextgen:dbformariadb/v20180601preview:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }

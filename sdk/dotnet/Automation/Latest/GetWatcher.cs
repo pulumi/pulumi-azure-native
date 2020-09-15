@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.Latest
+namespace Pulumi.AzureNextGen.Automation.Latest
 {
     public static class GetWatcher
     {
         public static Task<GetWatcherResult> InvokeAsync(GetWatcherArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azurerm:automation/latest:getWatcher", args ?? new GetWatcherArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-nextgen:automation/latest:getWatcher", args ?? new GetWatcherArgs(), options.WithVersion());
     }
 
 

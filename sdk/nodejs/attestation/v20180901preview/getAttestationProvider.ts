@@ -14,7 +14,7 @@ export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:attestation/v20180901preview:getAttestationProvider", {
+    return pulumi.runtime.invoke("azure-nextgen:attestation/v20180901preview:getAttestationProvider", {
         "providerName": args.providerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Management.V20171111Preview
+namespace Pulumi.AzureNextGen.Management.V20171111Preview
 {
     public static class GetBlueprint
     {
         public static Task<GetBlueprintResult> InvokeAsync(GetBlueprintArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlueprintResult>("azurerm:management/v20171111preview:getBlueprint", args ?? new GetBlueprintArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlueprintResult>("azure-nextgen:management/v20171111preview:getBlueprint", args ?? new GetBlueprintArgs(), options.WithVersion());
     }
 
 

@@ -21,7 +21,7 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:dbformariadb/v20180601:FirewallRule';
+    public static readonly __pulumiType = 'azure-nextgen:dbformariadb/v20180601:FirewallRule';
 
     /**
      * Returns true if the given object is an instance of FirewallRule.  This is designed to work even
@@ -96,7 +96,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformariadb/latest:FirewallRule" }, { type: "azurerm:dbformariadb/v20180601preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb/latest:FirewallRule" }, { type: "azure-nextgen:dbformariadb/v20180601preview:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

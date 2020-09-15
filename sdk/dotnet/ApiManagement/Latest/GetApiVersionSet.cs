@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.Latest
+namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
     public static class GetApiVersionSet
     {
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azurerm:apimanagement/latest:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure-nextgen:apimanagement/latest:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithVersion());
     }
 
 

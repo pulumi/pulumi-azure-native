@@ -14,7 +14,7 @@ export function getWebAppHostNameBinding(args: GetWebAppHostNameBindingArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:getWebAppHostNameBinding", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppHostNameBinding", {
         "hostName": args.hostName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

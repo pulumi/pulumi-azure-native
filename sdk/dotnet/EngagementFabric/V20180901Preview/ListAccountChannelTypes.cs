@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EngagementFabric.V20180901Preview
+namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
 {
     public static class ListAccountChannelTypes
     {
         public static Task<ListAccountChannelTypesResult> InvokeAsync(ListAccountChannelTypesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountChannelTypesResult>("azurerm:engagementfabric/v20180901preview:listAccountChannelTypes", args ?? new ListAccountChannelTypesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountChannelTypesResult>("azure-nextgen:engagementfabric/v20180901preview:listAccountChannelTypes", args ?? new ListAccountChannelTypesArgs(), options.WithVersion());
     }
 
 

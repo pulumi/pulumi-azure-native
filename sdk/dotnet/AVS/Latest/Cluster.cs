@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AVS.Latest
+namespace Pulumi.AzureNextGen.AVS.Latest
 {
     /// <summary>
     /// A cluster resource
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.AVS.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:avs/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:avs/latest:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:avs/latest:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:avs/latest:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:avs/v20190809preview:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:avs/v20200320:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20190809preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

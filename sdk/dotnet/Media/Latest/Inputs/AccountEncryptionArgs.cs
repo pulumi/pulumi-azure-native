@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.Latest.Inputs
+namespace Pulumi.AzureNextGen.Media.Latest.Inputs
 {
 
     public sealed class AccountEncryptionArgs : Pulumi.ResourceArgs

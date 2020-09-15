@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Resources.V20190510
+namespace Pulumi.AzureNextGen.Resources.V20190510
 {
     /// <summary>
     /// Resource group information.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Resources.V20190510
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceGroup(string name, ResourceGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:resources/v20190510:ResourceGroup", name, args ?? new ResourceGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:resources/v20190510:ResourceGroup", name, args ?? new ResourceGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:resources/v20190510:ResourceGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:resources/v20190510:ResourceGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,20 +75,20 @@ namespace Pulumi.AzureRM.Resources.V20190510
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:resources/latest:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20151101:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20160201:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20160701:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20160901:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20170510:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20180201:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20180501:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190301:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190501:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190701:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20190801:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20191001:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20200601:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20151101:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20160201:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20160701:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20160901:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20170510:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20180201:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20180501:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190301:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190501:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:ResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:ResourceGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

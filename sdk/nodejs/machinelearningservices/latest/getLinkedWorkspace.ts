@@ -14,7 +14,7 @@ export function getLinkedWorkspace(args: GetLinkedWorkspaceArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:machinelearningservices/latest:getLinkedWorkspace", {
+    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/latest:getLinkedWorkspace", {
         "linkName": args.linkName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

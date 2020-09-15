@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.KeyVault.Latest
+namespace Pulumi.AzureNextGen.KeyVault.Latest
 {
     public static class GetVault
     {
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azurerm:keyvault/latest:getVault", args ?? new GetVaultArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-nextgen:keyvault/latest:getVault", args ?? new GetVaultArgs(), options.WithVersion());
     }
 
 

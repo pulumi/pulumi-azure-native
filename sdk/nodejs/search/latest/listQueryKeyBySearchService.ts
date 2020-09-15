@@ -14,7 +14,7 @@ export function listQueryKeyBySearchService(args: ListQueryKeyBySearchServiceArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:search/latest:listQueryKeyBySearchService", {
+    return pulumi.runtime.invoke("azure-nextgen:search/latest:listQueryKeyBySearchService", {
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,
     }, opts);

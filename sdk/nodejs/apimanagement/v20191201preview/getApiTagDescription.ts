@@ -14,7 +14,7 @@ export function getApiTagDescription(args: GetApiTagDescriptionArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20191201preview:getApiTagDescription", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20191201preview:getApiTagDescription", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

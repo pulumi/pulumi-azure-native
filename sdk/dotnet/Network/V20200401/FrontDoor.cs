@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200401
+namespace Pulumi.AzureNextGen.Network.V20200401
 {
     /// <summary>
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
@@ -125,12 +125,12 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FrontDoor(string name, FrontDoorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200401:FrontDoor", name, args ?? new FrontDoorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200401:FrontDoor", name, args ?? new FrontDoorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FrontDoor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200401:FrontDoor", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200401:FrontDoor", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -141,12 +141,12 @@ namespace Pulumi.AzureRM.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:FrontDoor"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:FrontDoor"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:FrontDoor"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190501:FrontDoor"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200101:FrontDoor"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190501:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:FrontDoor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:FrontDoor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

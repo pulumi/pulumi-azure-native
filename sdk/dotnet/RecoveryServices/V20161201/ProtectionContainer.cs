@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RecoveryServices.V20161201
+namespace Pulumi.AzureNextGen.RecoveryServices.V20161201
 {
     /// <summary>
     /// Base class for container with backup items. Containers with specific workloads are derived from this class.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.RecoveryServices.V20161201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectionContainer(string name, ProtectionContainerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices/v20161201:ProtectionContainer", name, args ?? new ProtectionContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:recoveryservices/v20161201:ProtectionContainer", name, args ?? new ProtectionContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProtectionContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices/v20161201:ProtectionContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:recoveryservices/v20161201:ProtectionContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20161201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/latest:ProtectionContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ProtectionContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

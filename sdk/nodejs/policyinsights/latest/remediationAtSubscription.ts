@@ -23,7 +23,7 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:policyinsights/latest:RemediationAtSubscription';
+    public static readonly __pulumiType = 'azure-nextgen:policyinsights/latest:RemediationAtSubscription';
 
     /**
      * Returns true if the given object is an instance of RemediationAtSubscription.  This is designed to work even
@@ -120,7 +120,7 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:policyinsights/v20180701preview:RemediationAtSubscription" }, { type: "azurerm:policyinsights/v20190701:RemediationAtSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemediationAtSubscription.__pulumiType, name, inputs, opts);
     }

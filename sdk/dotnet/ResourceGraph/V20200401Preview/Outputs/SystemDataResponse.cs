@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ResourceGraph.V20200401Preview.Outputs
+namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview.Outputs
 {
 
     [OutputType]

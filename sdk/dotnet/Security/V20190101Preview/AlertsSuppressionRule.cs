@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20190101Preview
+namespace Pulumi.AzureNextGen.Security.V20190101Preview
 {
     /// <summary>
     /// Describes the suppression rule
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertsSuppressionRule(string name, AlertsSuppressionRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20190101preview:AlertsSuppressionRule", name, args ?? new AlertsSuppressionRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/v20190101preview:AlertsSuppressionRule", name, args ?? new AlertsSuppressionRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AlertsSuppressionRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20190101preview:AlertsSuppressionRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/v20190101preview:AlertsSuppressionRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

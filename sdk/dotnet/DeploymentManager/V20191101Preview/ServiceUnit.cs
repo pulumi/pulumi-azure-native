@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
+namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
 {
     /// <summary>
     /// Represents the response of a service unit resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceUnit(string name, ServiceUnitArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:deploymentmanager/v20191101preview:ServiceUnit", name, args ?? new ServiceUnitArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit", name, args ?? new ServiceUnitArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceUnit(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:deploymentmanager/v20191101preview:ServiceUnit", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:deploymentmanager/v20180901preview:ServiceUnit"},
+                    new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20180901preview:ServiceUnit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

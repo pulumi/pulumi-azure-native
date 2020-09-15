@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMySQL.V20200101PrivatePreview
+namespace Pulumi.AzureNextGen.DBforMySQL.V20200101PrivatePreview
 {
     /// <summary>
     /// A MySQL Server key.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.DBforMySQL.V20200101PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerKey(string name, ServerKeyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbformysql/v20200101privatepreview:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbformysql/v20200101privatepreview:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbformysql/v20200101privatepreview:ServerKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbformysql/v20200101privatepreview:ServerKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.DBforMySQL.V20200101PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/latest:ServerKey"},
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20200101:ServerKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:ServerKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200101:ServerKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

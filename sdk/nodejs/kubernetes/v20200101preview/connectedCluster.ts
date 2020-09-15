@@ -23,7 +23,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:kubernetes/v20200101preview:ConnectedCluster';
+    public static readonly __pulumiType = 'azure-nextgen:kubernetes/v20200101preview:ConnectedCluster';
 
     /**
      * Returns true if the given object is an instance of ConnectedCluster.  This is designed to work even

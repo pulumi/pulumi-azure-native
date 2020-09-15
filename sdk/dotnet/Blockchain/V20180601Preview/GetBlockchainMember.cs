@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Blockchain.V20180601Preview
+namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
 {
     public static class GetBlockchainMember
     {
         public static Task<GetBlockchainMemberResult> InvokeAsync(GetBlockchainMemberArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlockchainMemberResult>("azurerm:blockchain/v20180601preview:getBlockchainMember", args ?? new GetBlockchainMemberArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlockchainMemberResult>("azure-nextgen:blockchain/v20180601preview:getBlockchainMember", args ?? new GetBlockchainMemberArgs(), options.WithVersion());
     }
 
 

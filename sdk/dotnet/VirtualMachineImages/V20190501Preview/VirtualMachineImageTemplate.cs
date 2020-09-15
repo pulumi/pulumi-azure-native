@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
+namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190501Preview
 {
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineImageTemplate(string name, VirtualMachineImageTemplateArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate", name, args ?? new VirtualMachineImageTemplateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate", name, args ?? new VirtualMachineImageTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineImageTemplate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,10 +117,10 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:virtualmachineimages/latest:VirtualMachineImageTemplate"},
-                    new Pulumi.Alias { Type = "azurerm:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
-                    new Pulumi.Alias { Type = "azurerm:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"},
-                    new Pulumi.Alias { Type = "azurerm:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

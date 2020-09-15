@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.Latest
+namespace Pulumi.AzureNextGen.Authorization.Latest
 {
     /// <summary>
     /// The lock information.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Authorization.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementLockAtResourceGroupLevel(string name, ManagementLockAtResourceGroupLevelArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/latest:ManagementLockAtResourceGroupLevel", name, args ?? new ManagementLockAtResourceGroupLevelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel", name, args ?? new ManagementLockAtResourceGroupLevelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementLockAtResourceGroupLevel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/latest:ManagementLockAtResourceGroupLevel", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20150101:ManagementLockAtResourceGroupLevel"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20160901:ManagementLockAtResourceGroupLevel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

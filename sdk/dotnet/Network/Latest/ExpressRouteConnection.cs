@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// ExpressRouteConnection resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExpressRouteConnection(string name, ExpressRouteConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:ExpressRouteConnection", name, args ?? new ExpressRouteConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/latest:ExpressRouteConnection", name, args ?? new ExpressRouteConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ExpressRouteConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:ExpressRouteConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/latest:ExpressRouteConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,22 +81,22 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:ExpressRouteConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ExpressRouteConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ExpressRouteConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

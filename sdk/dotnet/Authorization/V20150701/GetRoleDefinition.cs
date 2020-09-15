@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.V20150701
+namespace Pulumi.AzureNextGen.Authorization.V20150701
 {
     public static class GetRoleDefinition
     {
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azurerm:authorization/v20150701:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-nextgen:authorization/v20150701:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
     }
 
 

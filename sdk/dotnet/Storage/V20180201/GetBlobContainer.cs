@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Storage.V20180201
+namespace Pulumi.AzureNextGen.Storage.V20180201
 {
     public static class GetBlobContainer
     {
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azurerm:storage/v20180201:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-nextgen:storage/v20180201:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithVersion());
     }
 
 

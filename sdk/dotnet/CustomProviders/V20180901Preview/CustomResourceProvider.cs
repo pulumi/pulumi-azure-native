@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
+namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
 {
     /// <summary>
     /// A manifest file that defines the custom resource provider resources.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomResourceProvider(string name, CustomResourceProviderArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:customproviders/v20180901preview:CustomResourceProvider", name, args ?? new CustomResourceProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:customproviders/v20180901preview:CustomResourceProvider", name, args ?? new CustomResourceProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomResourceProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:customproviders/v20180901preview:CustomResourceProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:customproviders/v20180901preview:CustomResourceProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 

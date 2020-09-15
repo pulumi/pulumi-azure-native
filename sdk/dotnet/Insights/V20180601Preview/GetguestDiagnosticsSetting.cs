@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20180601Preview
+namespace Pulumi.AzureNextGen.Insights.V20180601Preview
 {
     public static class GetguestDiagnosticsSetting
     {
         public static Task<GetguestDiagnosticsSettingResult> InvokeAsync(GetguestDiagnosticsSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetguestDiagnosticsSettingResult>("azurerm:insights/v20180601preview:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetguestDiagnosticsSettingResult>("azure-nextgen:insights/v20180601preview:getguestDiagnosticsSetting", args ?? new GetguestDiagnosticsSettingArgs(), options.WithVersion());
     }
 
 

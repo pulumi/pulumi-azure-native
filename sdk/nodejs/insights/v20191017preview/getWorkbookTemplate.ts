@@ -14,7 +14,7 @@ export function getWorkbookTemplate(args: GetWorkbookTemplateArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights/v20191017preview:getWorkbookTemplate", {
+    return pulumi.runtime.invoke("azure-nextgen:insights/v20191017preview:getWorkbookTemplate", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

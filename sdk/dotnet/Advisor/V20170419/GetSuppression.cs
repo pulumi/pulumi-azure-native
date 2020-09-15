@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Advisor.V20170419
+namespace Pulumi.AzureNextGen.Advisor.V20170419
 {
     public static class GetSuppression
     {
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azurerm:advisor/v20170419:getSuppression", args ?? new GetSuppressionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-nextgen:advisor/v20170419:getSuppression", args ?? new GetSuppressionArgs(), options.WithVersion());
     }
 
 

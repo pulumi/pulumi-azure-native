@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cdn.V20200415
+namespace Pulumi.AzureNextGen.Cdn.V20200415
 {
     /// <summary>
     /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OriginGroup(string name, OriginGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:cdn/v20200415:OriginGroup", name, args ?? new OriginGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:cdn/v20200415:OriginGroup", name, args ?? new OriginGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OriginGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:cdn/v20200415:OriginGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:cdn/v20200415:OriginGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,9 +87,9 @@ namespace Pulumi.AzureRM.Cdn.V20200415
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cdn/latest:OriginGroup"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20191231:OriginGroup"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20200331:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:OriginGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:OriginGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

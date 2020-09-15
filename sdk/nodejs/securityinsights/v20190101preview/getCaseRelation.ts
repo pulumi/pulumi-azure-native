@@ -14,7 +14,7 @@ export function getCaseRelation(args: GetCaseRelationArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:securityinsights/v20190101preview:getCaseRelation", {
+    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getCaseRelation", {
         "caseId": args.caseId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "relationName": args.relationName,

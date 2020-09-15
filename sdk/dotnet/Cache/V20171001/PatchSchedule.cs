@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cache.V20171001
+namespace Pulumi.AzureNextGen.Cache.V20171001
 {
     /// <summary>
     /// Response to put/get patch schedules for Redis cache.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Cache.V20171001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PatchSchedule(string name, PatchScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:cache/v20171001:PatchSchedule", name, args ?? new PatchScheduleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:cache/v20171001:PatchSchedule", name, args ?? new PatchScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PatchSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:cache/v20171001:PatchSchedule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:cache/v20171001:PatchSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,9 +57,9 @@ namespace Pulumi.AzureRM.Cache.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cache/latest:PatchSchedule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20180301:PatchSchedule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20190701:PatchSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:PatchSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:PatchSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:PatchSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

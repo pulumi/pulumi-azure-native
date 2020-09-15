@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-azurerm/provider
+module github.com/pulumi/pulumi-azure-nextgen/provider
 
 go 1.13
 
@@ -13,8 +13,8 @@ require (
 	github.com/hashicorp/go-azure-helpers v0.10.0
 	github.com/hashicorp/hcl/v2 v2.6.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v2 v2.10.1-0.20200915073341-3a16cf55f03e
-	github.com/pulumi/pulumi/sdk/v2 v2.10.1-0.20200915073341-3a16cf55f03e
+	github.com/pulumi/pulumi/pkg/v2 v2.10.1-0.20200915115658-da1f25928d6f
+	github.com/pulumi/pulumi/sdk/v2 v2.10.1-0.20200915115658-da1f25928d6f
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/stretchr/testify v1.6.1
 	github.com/zclconf/go-cty v1.3.1

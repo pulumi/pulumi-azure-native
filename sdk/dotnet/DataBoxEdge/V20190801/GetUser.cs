@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.V20190801
+namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
 {
     public static class GetUser
     {
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azurerm:databoxedge/v20190801:getUser", args ?? new GetUserArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-nextgen:databoxedge/v20190801:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }
 
 

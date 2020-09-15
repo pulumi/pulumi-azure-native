@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorageSync.V20190201.Outputs
+namespace Pulumi.AzureNextGen.StorageSync.V20190201.Outputs
 {
 
     [OutputType]

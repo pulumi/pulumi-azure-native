@@ -14,7 +14,7 @@ export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20200301:getFirewallPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20200301:getFirewallPolicy", {
         "expand": args.expand,
         "firewallPolicyName": args.firewallPolicyName,
         "resourceGroupName": args.resourceGroupName,

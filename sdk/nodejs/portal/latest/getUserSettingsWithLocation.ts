@@ -14,7 +14,7 @@ export function getUserSettingsWithLocation(args: GetUserSettingsWithLocationArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:portal/latest:getUserSettingsWithLocation", {
+    return pulumi.runtime.invoke("azure-nextgen:portal/latest:getUserSettingsWithLocation", {
         "location": args.location,
         "userSettingsName": args.userSettingsName,
     }, opts);

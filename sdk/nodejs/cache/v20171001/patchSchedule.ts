@@ -23,7 +23,7 @@ export class PatchSchedule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:cache/v20171001:PatchSchedule';
+    public static readonly __pulumiType = 'azure-nextgen:cache/v20171001:PatchSchedule';
 
     /**
      * Returns true if the given object is an instance of PatchSchedule.  This is designed to work even
@@ -88,7 +88,7 @@ export class PatchSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cache/latest:PatchSchedule" }, { type: "azurerm:cache/v20180301:PatchSchedule" }, { type: "azurerm:cache/v20190701:PatchSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:PatchSchedule" }, { type: "azure-nextgen:cache/v20180301:PatchSchedule" }, { type: "azure-nextgen:cache/v20190701:PatchSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PatchSchedule.__pulumiType, name, inputs, opts);
     }

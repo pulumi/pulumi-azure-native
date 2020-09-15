@@ -14,7 +14,7 @@ export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:authorization/v20180301:getPolicyDefinition", {
+    return pulumi.runtime.invoke("azure-nextgen:authorization/v20180301:getPolicyDefinition", {
         "policyDefinitionName": args.policyDefinitionName,
     }, opts);
 }

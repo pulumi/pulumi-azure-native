@@ -23,7 +23,7 @@ export class Prediction extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:customerinsights/v20170426:Prediction';
+    public static readonly __pulumiType = 'azure-nextgen:customerinsights/v20170426:Prediction';
 
     /**
      * Returns true if the given object is an instance of Prediction.  This is designed to work even
@@ -202,7 +202,7 @@ export class Prediction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/latest:Prediction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/latest:Prediction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Prediction.__pulumiType, name, inputs, opts);
     }

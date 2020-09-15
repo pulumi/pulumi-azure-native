@@ -14,7 +14,7 @@ export function getNodeType(args: GetNodeTypeArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:servicefabric/v20200101preview:getNodeType", {
+    return pulumi.runtime.invoke("azure-nextgen:servicefabric/v20200101preview:getNodeType", {
         "clusterName": args.clusterName,
         "nodeTypeName": args.nodeTypeName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataFactory.V20170901Preview
+namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 {
     public static class GetDataset
     {
         public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("azurerm:datafactory/v20170901preview:getDataset", args ?? new GetDatasetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("azure-nextgen:datafactory/v20170901preview:getDataset", args ?? new GetDatasetArgs(), options.WithVersion());
     }
 
 

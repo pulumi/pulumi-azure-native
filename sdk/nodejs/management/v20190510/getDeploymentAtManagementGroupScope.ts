@@ -14,7 +14,7 @@ export function getDeploymentAtManagementGroupScope(args: GetDeploymentAtManagem
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:management/v20190510:getDeploymentAtManagementGroupScope", {
+    return pulumi.runtime.invoke("azure-nextgen:management/v20190510:getDeploymentAtManagementGroupScope", {
         "deploymentName": args.deploymentName,
         "groupId": args.groupId,
     }, opts);

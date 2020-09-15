@@ -14,7 +14,7 @@ export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:machinelearningservices/v20181119:listWorkspaceKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/v20181119:listWorkspaceKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

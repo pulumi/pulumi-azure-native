@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class ListSiteBackupStatusSecretsSlot
     {
         public static Task<ListSiteBackupStatusSecretsSlotResult> InvokeAsync(ListSiteBackupStatusSecretsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupStatusSecretsSlotResult>("azurerm:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupStatusSecretsSlotResult>("azure-nextgen:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotArgs(), options.WithVersion());
     }
 
 

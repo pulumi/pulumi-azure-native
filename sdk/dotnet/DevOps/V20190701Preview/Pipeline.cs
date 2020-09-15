@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevOps.V20190701Preview
+namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
 {
     /// <summary>
     /// Azure DevOps Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.DevOps.V20190701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pipeline(string name, PipelineArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devops/v20190701preview:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devops/v20190701preview:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devops/v20190701preview:Pipeline", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devops/v20190701preview:Pipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 

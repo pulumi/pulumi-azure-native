@@ -21,7 +21,7 @@ export class IotDefenderSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:security/v20200806preview:IotDefenderSetting';
+    public static readonly __pulumiType = 'azure-nextgen:security/v20200806preview:IotDefenderSetting';
 
     /**
      * Returns true if the given object is an instance of IotDefenderSetting.  This is designed to work even

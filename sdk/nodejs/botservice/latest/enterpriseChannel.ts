@@ -23,7 +23,7 @@ export class EnterpriseChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:botservice/latest:EnterpriseChannel';
+    public static readonly __pulumiType = 'azure-nextgen:botservice/latest:EnterpriseChannel';
 
     /**
      * Returns true if the given object is an instance of EnterpriseChannel.  This is designed to work even
@@ -112,7 +112,7 @@ export class EnterpriseChannel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:botservice/v20180712:EnterpriseChannel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice/v20180712:EnterpriseChannel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EnterpriseChannel.__pulumiType, name, inputs, opts);
     }

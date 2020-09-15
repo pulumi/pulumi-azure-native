@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteDeployment
     {
         public static Task<GetSiteDeploymentResult> InvokeAsync(GetSiteDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteDeploymentResult>("azurerm:web/v20150801:getSiteDeployment", args ?? new GetSiteDeploymentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteDeploymentResult>("azure-nextgen:web/v20150801:getSiteDeployment", args ?? new GetSiteDeploymentArgs(), options.WithVersion());
     }
 
 

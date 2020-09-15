@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.V20171111Preview
+namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
 {
     /// <summary>
     /// Azure Migrate Project.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Migrate.V20171111Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/v20171111preview:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:migrate/v20171111preview:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Project(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/v20171111preview:Project", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:migrate/v20171111preview:Project", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,7 +117,7 @@ namespace Pulumi.AzureRM.Migrate.V20171111Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:migrate/v20180202:Project"},
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20180202:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

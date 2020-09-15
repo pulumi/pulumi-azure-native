@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.Latest
+namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppSwiftVirtualNetworkConnectionSlot(string name, WebAppSwiftVirtualNetworkConnectionSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/latest:WebAppSwiftVirtualNetworkConnectionSlot", name, args ?? new WebAppSwiftVirtualNetworkConnectionSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnectionSlot", name, args ?? new WebAppSwiftVirtualNetworkConnectionSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppSwiftVirtualNetworkConnectionSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/latest:WebAppSwiftVirtualNetworkConnectionSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnectionSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,10 +69,10 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

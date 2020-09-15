@@ -21,7 +21,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:dbformysql/latest:VirtualNetworkRule';
+    public static readonly __pulumiType = 'azure-nextgen:dbformysql/latest:VirtualNetworkRule';
 
     /**
      * Returns true if the given object is an instance of VirtualNetworkRule.  This is designed to work even
@@ -99,7 +99,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/v20171201:VirtualNetworkRule" }, { type: "azurerm:dbformysql/v20171201preview:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20171201:VirtualNetworkRule" }, { type: "azure-nextgen:dbformysql/v20171201preview:VirtualNetworkRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }

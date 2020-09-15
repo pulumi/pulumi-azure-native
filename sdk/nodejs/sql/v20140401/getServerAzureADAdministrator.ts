@@ -14,7 +14,7 @@ export function getServerAzureADAdministrator(args: GetServerAzureADAdministrato
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20140401:getServerAzureADAdministrator", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20140401:getServerAzureADAdministrator", {
         "administratorName": args.administratorName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

@@ -14,7 +14,7 @@ export function getManagedInstanceAzureADOnlyAuthentication(args: GetManagedInst
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20200202preview:getManagedInstanceAzureADOnlyAuthentication", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20200202preview:getManagedInstanceAzureADOnlyAuthentication", {
         "authenticationName": args.authenticationName,
         "managedInstanceName": args.managedInstanceName,
         "resourceGroupName": args.resourceGroupName,

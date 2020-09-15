@@ -23,7 +23,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hdinsight/v20180601preview:Cluster';
+    public static readonly __pulumiType = 'azure-nextgen:hdinsight/v20180601preview:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -106,7 +106,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hdinsight/v20150301preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:hdinsight/v20150301preview:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

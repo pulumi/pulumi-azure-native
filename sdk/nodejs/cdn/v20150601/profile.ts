@@ -23,7 +23,7 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:cdn/v20150601:Profile';
+    public static readonly __pulumiType = 'azure-nextgen:cdn/v20150601:Profile';
 
     /**
      * Returns true if the given object is an instance of Profile.  This is designed to work even
@@ -112,7 +112,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Profile" }, { type: "azurerm:cdn/v20160402:Profile" }, { type: "azurerm:cdn/v20161002:Profile" }, { type: "azurerm:cdn/v20170402:Profile" }, { type: "azurerm:cdn/v20171012:Profile" }, { type: "azurerm:cdn/v20190415:Profile" }, { type: "azurerm:cdn/v20190615:Profile" }, { type: "azurerm:cdn/v20190615preview:Profile" }, { type: "azurerm:cdn/v20191231:Profile" }, { type: "azurerm:cdn/v20200331:Profile" }, { type: "azurerm:cdn/v20200415:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:Profile" }, { type: "azure-nextgen:cdn/v20160402:Profile" }, { type: "azure-nextgen:cdn/v20161002:Profile" }, { type: "azure-nextgen:cdn/v20170402:Profile" }, { type: "azure-nextgen:cdn/v20171012:Profile" }, { type: "azure-nextgen:cdn/v20190415:Profile" }, { type: "azure-nextgen:cdn/v20190615:Profile" }, { type: "azure-nextgen:cdn/v20190615preview:Profile" }, { type: "azure-nextgen:cdn/v20191231:Profile" }, { type: "azure-nextgen:cdn/v20200331:Profile" }, { type: "azure-nextgen:cdn/v20200415:Profile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Profile.__pulumiType, name, inputs, opts);
     }

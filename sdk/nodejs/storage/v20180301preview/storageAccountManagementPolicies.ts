@@ -21,7 +21,7 @@ export class StorageAccountManagementPolicies extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storage/v20180301preview:StorageAccountManagementPolicies';
+    public static readonly __pulumiType = 'azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies';
 
     /**
      * Returns true if the given object is an instance of StorageAccountManagementPolicies.  This is designed to work even
@@ -90,7 +90,7 @@ export class StorageAccountManagementPolicies extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20181101:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20190401:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20190601:StorageAccountManagementPolicies" }, { type: "azurerm:storage/v20200801preview:StorageAccountManagementPolicies" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20181101:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20190401:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20190601:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccountManagementPolicies.__pulumiType, name, inputs, opts);
     }

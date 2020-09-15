@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerService.V20200201
+namespace Pulumi.AzureNextGen.ContainerService.V20200201
 {
     /// <summary>
     /// Managed cluster.
@@ -173,12 +173,12 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedCluster(string name, ManagedClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerservice/v20200201:ManagedCluster", name, args ?? new ManagedClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerservice/v20200201:ManagedCluster", name, args ?? new ManagedClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerservice/v20200201:ManagedCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerservice/v20200201:ManagedCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -189,22 +189,22 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:containerservice/latest:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20170831:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20180331:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20180801preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190201:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190401:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190601:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190801:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20191001:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20191101:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200101:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200301:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200401:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200601:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200701:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200901:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20170831:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20180331:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20180801preview:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190201:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190401:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190601:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190801:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20191001:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20191101:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200101:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200301:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200401:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200601:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200701:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200901:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

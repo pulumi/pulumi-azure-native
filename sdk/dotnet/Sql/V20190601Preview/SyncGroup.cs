@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20190601Preview
+namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 {
     /// <summary>
     /// An Azure SQL Database sync group.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SyncGroup(string name, SyncGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20190601preview:SyncGroup", name, args ?? new SyncGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20190601preview:SyncGroup", name, args ?? new SyncGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SyncGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20190601preview:SyncGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20190601preview:SyncGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:sql/v20150501preview:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:SyncGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

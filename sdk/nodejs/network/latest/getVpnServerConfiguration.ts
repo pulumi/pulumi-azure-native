@@ -14,7 +14,7 @@ export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getVpnServerConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVpnServerConfiguration", {
         "resourceGroupName": args.resourceGroupName,
         "vpnServerConfigurationName": args.vpnServerConfigurationName,
     }, opts);

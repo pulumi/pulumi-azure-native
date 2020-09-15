@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
+namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
 {
     public static class GetEnvironment
     {
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azurerm:timeseriesinsights/v20200515:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-nextgen:timeseriesinsights/v20200515:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
     }
 
 

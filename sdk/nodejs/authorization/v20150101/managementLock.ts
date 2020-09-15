@@ -21,7 +21,7 @@ export class ManagementLock extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:authorization/v20150101:ManagementLock';
+    public static readonly __pulumiType = 'azure-nextgen:authorization/v20150101:ManagementLock';
 
     /**
      * Returns true if the given object is an instance of ManagementLock.  This is designed to work even
@@ -82,7 +82,7 @@ export class ManagementLock extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:ManagementLock" }, { type: "azurerm:authorization/v20160901:ManagementLock" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/latest:ManagementLock" }, { type: "azure-nextgen:authorization/v20160901:ManagementLock" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementLock.__pulumiType, name, inputs, opts);
     }

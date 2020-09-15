@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Peering.V20200401
+namespace Pulumi.AzureNextGen.Peering.V20200401
 {
     /// <summary>
     /// The customer's prefix that is registered by the peering service provider.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Peering.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegisteredPrefix(string name, RegisteredPrefixArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20200401:RegisteredPrefix", name, args ?? new RegisteredPrefixArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:peering/v20200401:RegisteredPrefix", name, args ?? new RegisteredPrefixArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegisteredPrefix(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20200401:RegisteredPrefix", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:peering/v20200401:RegisteredPrefix", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.Peering.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:peering/latest:RegisteredPrefix"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20200101preview:RegisteredPrefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/latest:RegisteredPrefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

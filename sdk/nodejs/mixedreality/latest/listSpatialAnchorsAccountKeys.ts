@@ -14,7 +14,7 @@ export function listSpatialAnchorsAccountKeys(args: ListSpatialAnchorsAccountKey
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:mixedreality/latest:listSpatialAnchorsAccountKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:mixedreality/latest:listSpatialAnchorsAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

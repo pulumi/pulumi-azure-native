@@ -14,7 +14,7 @@ export function getHealthAlert(args: GetHealthAlertArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:alertsmanagement/v20200804preview:getHealthAlert", {
+    return pulumi.runtime.invoke("azure-nextgen:alertsmanagement/v20200804preview:getHealthAlert", {
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,
     }, opts);

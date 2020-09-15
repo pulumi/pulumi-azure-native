@@ -15,7 +15,7 @@ export function listEASubscriptionListMigrationDatePost(args?: ListEASubscriptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights/v20171001:listEASubscriptionListMigrationDatePost", {
+    return pulumi.runtime.invoke("azure-nextgen:insights/v20171001:listEASubscriptionListMigrationDatePost", {
     }, opts);
 }
 

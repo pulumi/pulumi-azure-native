@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kubernetes.V20200101Preview.Inputs
+namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview.Inputs
 {
 
     public sealed class ConnectedClusterAADProfileArgs : Pulumi.ResourceArgs

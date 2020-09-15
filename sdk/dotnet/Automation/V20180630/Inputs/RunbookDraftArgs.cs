@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.V20180630.Inputs
+namespace Pulumi.AzureNextGen.Automation.V20180630.Inputs
 {
 
     public sealed class RunbookDraftArgs : Pulumi.ResourceArgs

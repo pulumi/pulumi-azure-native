@@ -14,7 +14,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:dbformysql/v20200701privatepreview:getDatabase", {
+    return pulumi.runtime.invoke("azure-nextgen:dbformysql/v20200701privatepreview:getDatabase", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

@@ -14,7 +14,7 @@ export function getManagementLock(args: GetManagementLockArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:authorization/v20150101:getManagementLock", {
+    return pulumi.runtime.invoke("azure-nextgen:authorization/v20150101:getManagementLock", {
         "lockName": args.lockName,
     }, opts);
 }

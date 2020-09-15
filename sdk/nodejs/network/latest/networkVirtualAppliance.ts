@@ -23,7 +23,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/latest:NetworkVirtualAppliance';
+    public static readonly __pulumiType = 'azure-nextgen:network/latest:NetworkVirtualAppliance';
 
     /**
      * Returns true if the given object is an instance of NetworkVirtualAppliance.  This is designed to work even
@@ -167,7 +167,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20191201:NetworkVirtualAppliance" }, { type: "azurerm:network/v20200301:NetworkVirtualAppliance" }, { type: "azurerm:network/v20200401:NetworkVirtualAppliance" }, { type: "azurerm:network/v20200501:NetworkVirtualAppliance" }, { type: "azurerm:network/v20200601:NetworkVirtualAppliance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20191201:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200301:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200401:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200501:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200601:NetworkVirtualAppliance" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkVirtualAppliance.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class DataStore extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hybriddata/v20160601:DataStore';
+    public static readonly __pulumiType = 'azure-nextgen:hybriddata/v20160601:DataStore';
 
     /**
      * Returns true if the given object is an instance of DataStore.  This is designed to work even
@@ -116,7 +116,7 @@ export class DataStore extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hybriddata/latest:DataStore" }, { type: "azurerm:hybriddata/v20190601:DataStore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybriddata/latest:DataStore" }, { type: "azure-nextgen:hybriddata/v20190601:DataStore" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataStore.__pulumiType, name, inputs, opts);
     }

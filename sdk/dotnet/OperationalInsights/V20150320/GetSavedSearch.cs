@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20150320
+namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
 {
     public static class GetSavedSearch
     {
         public static Task<GetSavedSearchResult> InvokeAsync(GetSavedSearchArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSavedSearchResult>("azurerm:operationalinsights/v20150320:getSavedSearch", args ?? new GetSavedSearchArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSavedSearchResult>("azure-nextgen:operationalinsights/v20150320:getSavedSearch", args ?? new GetSavedSearchArgs(), options.WithVersion());
     }
 
 

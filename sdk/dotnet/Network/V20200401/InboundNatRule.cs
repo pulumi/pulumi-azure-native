@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200401
+namespace Pulumi.AzureNextGen.Network.V20200401
 {
     /// <summary>
     /// Inbound NAT rule of the load balancer.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InboundNatRule(string name, InboundNatRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200401:InboundNatRule", name, args ?? new InboundNatRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200401:InboundNatRule", name, args ?? new InboundNatRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InboundNatRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200401:InboundNatRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200401:InboundNatRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,32 +111,32 @@ namespace Pulumi.AzureRM.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170601:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170801:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170901:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171101:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180101:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:InboundNatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

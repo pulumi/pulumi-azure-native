@@ -14,7 +14,7 @@ export function listWebAppSyncFunctionTriggers(args: ListWebAppSyncFunctionTrigg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20180201:listWebAppSyncFunctionTriggers", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20180201:listWebAppSyncFunctionTriggers", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

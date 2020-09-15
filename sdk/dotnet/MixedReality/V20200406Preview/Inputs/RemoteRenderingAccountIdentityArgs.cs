@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MixedReality.V20200406Preview.Inputs
+namespace Pulumi.AzureNextGen.MixedReality.V20200406Preview.Inputs
 {
 
     public sealed class RemoteRenderingAccountIdentityArgs : Pulumi.ResourceArgs

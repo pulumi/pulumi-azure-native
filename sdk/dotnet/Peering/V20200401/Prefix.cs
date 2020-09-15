@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Peering.V20200401
+namespace Pulumi.AzureNextGen.Peering.V20200401
 {
     /// <summary>
     /// The peering service prefix class.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Peering.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Prefix(string name, PrefixArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20200401:Prefix", name, args ?? new PrefixArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:peering/v20200401:Prefix", name, args ?? new PrefixArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Prefix(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20200401:Prefix", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:peering/v20200401:Prefix", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,10 +93,10 @@ namespace Pulumi.AzureRM.Peering.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:peering/latest:Prefix"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20190801preview:Prefix"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20190901preview:Prefix"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20200101preview:Prefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/latest:Prefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20190801preview:Prefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20190901preview:Prefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:Prefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

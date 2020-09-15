@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20190901Preview
+namespace Pulumi.AzureNextGen.Insights.V20190901Preview
 {
     public static class GetQueryPack
     {
         public static Task<GetQueryPackResult> InvokeAsync(GetQueryPackArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueryPackResult>("azurerm:insights/v20190901preview:getQueryPack", args ?? new GetQueryPackArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueryPackResult>("azure-nextgen:insights/v20190901preview:getQueryPack", args ?? new GetQueryPackArgs(), options.WithVersion());
     }
 
 

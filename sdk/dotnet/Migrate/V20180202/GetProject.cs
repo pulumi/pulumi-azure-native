@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.V20180202
+namespace Pulumi.AzureNextGen.Migrate.V20180202
 {
     public static class GetProject
     {
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azurerm:migrate/v20180202:getProject", args ?? new GetProjectArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-nextgen:migrate/v20180202:getProject", args ?? new GetProjectArgs(), options.WithVersion());
     }
 
 

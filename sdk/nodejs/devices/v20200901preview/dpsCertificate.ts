@@ -23,7 +23,7 @@ export class DpsCertificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:devices/v20200901preview:DpsCertificate';
+    public static readonly __pulumiType = 'azure-nextgen:devices/v20200901preview:DpsCertificate';
 
     /**
      * Returns true if the given object is an instance of DpsCertificate.  This is designed to work even
@@ -93,7 +93,7 @@ export class DpsCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devices/latest:DpsCertificate" }, { type: "azurerm:devices/v20170821preview:DpsCertificate" }, { type: "azurerm:devices/v20171115:DpsCertificate" }, { type: "azurerm:devices/v20180122:DpsCertificate" }, { type: "azurerm:devices/v20200101:DpsCertificate" }, { type: "azurerm:devices/v20200301:DpsCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/latest:DpsCertificate" }, { type: "azure-nextgen:devices/v20170821preview:DpsCertificate" }, { type: "azure-nextgen:devices/v20171115:DpsCertificate" }, { type: "azure-nextgen:devices/v20180122:DpsCertificate" }, { type: "azure-nextgen:devices/v20200101:DpsCertificate" }, { type: "azure-nextgen:devices/v20200301:DpsCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DpsCertificate.__pulumiType, name, inputs, opts);
     }

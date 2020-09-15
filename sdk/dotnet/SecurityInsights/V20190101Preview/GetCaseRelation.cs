@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetCaseRelation
     {
         public static Task<GetCaseRelationResult> InvokeAsync(GetCaseRelationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCaseRelationResult>("azurerm:securityinsights/v20190101preview:getCaseRelation", args ?? new GetCaseRelationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCaseRelationResult>("azure-nextgen:securityinsights/v20190101preview:getCaseRelation", args ?? new GetCaseRelationArgs(), options.WithVersion());
     }
 
 

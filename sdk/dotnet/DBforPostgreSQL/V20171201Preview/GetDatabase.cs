@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
+namespace Pulumi.AzureNextGen.DBForPostgreSQL.V20171201Preview
 {
     public static class GetDatabase
     {
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azurerm:dbforpostgresql/v20171201preview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:dbforpostgresql/v20171201preview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }
 
 

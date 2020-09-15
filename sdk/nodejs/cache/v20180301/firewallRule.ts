@@ -21,7 +21,7 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:cache/v20180301:FirewallRule';
+    public static readonly __pulumiType = 'azure-nextgen:cache/v20180301:FirewallRule';
 
     /**
      * Returns true if the given object is an instance of FirewallRule.  This is designed to work even
@@ -96,7 +96,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cache/latest:FirewallRule" }, { type: "azurerm:cache/v20160401:FirewallRule" }, { type: "azurerm:cache/v20170201:FirewallRule" }, { type: "azurerm:cache/v20171001:FirewallRule" }, { type: "azurerm:cache/v20190701:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:FirewallRule" }, { type: "azure-nextgen:cache/v20160401:FirewallRule" }, { type: "azure-nextgen:cache/v20170201:FirewallRule" }, { type: "azure-nextgen:cache/v20171001:FirewallRule" }, { type: "azure-nextgen:cache/v20190701:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

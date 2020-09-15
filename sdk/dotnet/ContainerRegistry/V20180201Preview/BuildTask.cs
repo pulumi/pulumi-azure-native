@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
 {
     /// <summary>
     /// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BuildTask(string name, BuildTaskArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20180201preview:BuildTask", name, args ?? new BuildTaskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/v20180201preview:BuildTask", name, args ?? new BuildTaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BuildTask(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20180201preview:BuildTask", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/v20180201preview:BuildTask", name, null, MakeResourceOptions(options, id))
         {
         }
 

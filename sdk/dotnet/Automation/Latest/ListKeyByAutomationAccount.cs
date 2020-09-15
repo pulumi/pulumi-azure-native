@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.Latest
+namespace Pulumi.AzureNextGen.Automation.Latest
 {
     public static class ListKeyByAutomationAccount
     {
         public static Task<ListKeyByAutomationAccountResult> InvokeAsync(ListKeyByAutomationAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListKeyByAutomationAccountResult>("azurerm:automation/latest:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListKeyByAutomationAccountResult>("azure-nextgen:automation/latest:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountArgs(), options.WithVersion());
     }
 
 

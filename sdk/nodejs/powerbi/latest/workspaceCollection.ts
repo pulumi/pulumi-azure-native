@@ -20,7 +20,7 @@ export class WorkspaceCollection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:powerbi/latest:WorkspaceCollection';
+    public static readonly __pulumiType = 'azure-nextgen:powerbi/latest:WorkspaceCollection';
 
     /**
      * Returns true if the given object is an instance of WorkspaceCollection.  This is designed to work even
@@ -91,7 +91,7 @@ export class WorkspaceCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:powerbi/v20160129:WorkspaceCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbi/v20160129:WorkspaceCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceCollection.__pulumiType, name, inputs, opts);
     }

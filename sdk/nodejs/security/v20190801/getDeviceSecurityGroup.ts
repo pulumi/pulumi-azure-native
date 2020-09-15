@@ -14,7 +14,7 @@ export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:security/v20190801:getDeviceSecurityGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:security/v20190801:getDeviceSecurityGroup", {
         "deviceSecurityGroupName": args.deviceSecurityGroupName,
         "resourceId": args.resourceId,
     }, opts);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataShare.V20191101
+namespace Pulumi.AzureNextGen.DataShare.V20191101
 {
     /// <summary>
     /// A share data transfer object.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Share(string name, ShareArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datashare/v20191101:Share", name, args ?? new ShareArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datashare/v20191101:Share", name, args ?? new ShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Share(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datashare/v20191101:Share", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datashare/v20191101:Share", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datashare/latest:Share"},
-                    new Pulumi.Alias { Type = "azurerm:datashare/v20181101preview:Share"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:Share"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

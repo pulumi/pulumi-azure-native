@@ -4,7 +4,7 @@ package openapi
 
 import (
 	"github.com/go-openapi/spec"
-	"github.com/pulumi/pulumi-azurerm/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"os"
 	"path/filepath"

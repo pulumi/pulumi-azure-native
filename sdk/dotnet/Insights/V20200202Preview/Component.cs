@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20200202Preview
+namespace Pulumi.AzureNextGen.Insights.V20200202Preview
 {
     /// <summary>
     /// An Application Insights component definition.
@@ -185,12 +185,12 @@ namespace Pulumi.AzureRM.Insights.V20200202Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Component(string name, ComponentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20200202preview:Component", name, args ?? new ComponentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20200202preview:Component", name, args ?? new ComponentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Component(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20200202preview:Component", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20200202preview:Component", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -201,9 +201,9 @@ namespace Pulumi.AzureRM.Insights.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/latest:Component"},
-                    new Pulumi.Alias { Type = "azurerm:insights/v20150501:Component"},
-                    new Pulumi.Alias { Type = "azurerm:insights/v20180501preview:Component"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:Component"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Component"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20180501preview:Component"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

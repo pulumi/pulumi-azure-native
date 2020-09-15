@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AVS.Latest
+namespace Pulumi.AzureNextGen.AVS.Latest
 {
     public static class GetCluster
     {
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azurerm:avs/latest:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-nextgen:avs/latest:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Batch.V20181201
+namespace Pulumi.AzureNextGen.Batch.V20181201
 {
     /// <summary>
     /// Contains information about a pool.
@@ -155,12 +155,12 @@ namespace Pulumi.AzureRM.Batch.V20181201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pool(string name, PoolArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:batch/v20181201:Pool", name, args ?? new PoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:batch/v20181201:Pool", name, args ?? new PoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:batch/v20181201:Pool", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:batch/v20181201:Pool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -171,12 +171,12 @@ namespace Pulumi.AzureRM.Batch.V20181201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:batch/latest:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20170901:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20190401:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20190801:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20200301:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20200501:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/latest:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

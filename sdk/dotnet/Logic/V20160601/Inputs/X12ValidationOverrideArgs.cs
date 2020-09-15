@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20160601.Inputs
+namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
 {
 
     /// <summary>

@@ -15,7 +15,7 @@ export function listGlobalDomainRegistrationDomainRecommendations(args?: ListGlo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:domainregistration/v20150801:listGlobalDomainRegistrationDomainRecommendations", {
+    return pulumi.runtime.invoke("azure-nextgen:domainregistration/v20150801:listGlobalDomainRegistrationDomainRecommendations", {
         "keywords": args.keywords,
         "maxDomainRecommendations": args.maxDomainRecommendations,
     }, opts);

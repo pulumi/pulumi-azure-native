@@ -20,7 +20,7 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:security/v20200101:AdaptiveApplicationControl';
+    public static readonly __pulumiType = 'azure-nextgen:security/v20200101:AdaptiveApplicationControl';
 
     /**
      * Returns true if the given object is an instance of AdaptiveApplicationControl.  This is designed to work even
@@ -118,7 +118,7 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:security/latest:AdaptiveApplicationControl" }, { type: "azurerm:security/v20150601preview:AdaptiveApplicationControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/latest:AdaptiveApplicationControl" }, { type: "azure-nextgen:security/v20150601preview:AdaptiveApplicationControl" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AdaptiveApplicationControl.__pulumiType, name, inputs, opts);
     }

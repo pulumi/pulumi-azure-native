@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.V20150101
+namespace Pulumi.AzureNextGen.Authorization.V20150101
 {
     /// <summary>
     /// Management lock information.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Authorization.V20150101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementLock(string name, ManagementLockArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/v20150101:ManagementLock", name, args ?? new ManagementLockArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:authorization/v20150101:ManagementLock", name, args ?? new ManagementLockArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementLock(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/v20150101:ManagementLock", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:authorization/v20150101:ManagementLock", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Authorization.V20150101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:authorization/latest:ManagementLock"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20160901:ManagementLock"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:ManagementLock"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160901:ManagementLock"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

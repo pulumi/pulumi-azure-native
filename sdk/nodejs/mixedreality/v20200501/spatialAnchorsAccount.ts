@@ -21,7 +21,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:mixedreality/v20200501:SpatialAnchorsAccount';
+    public static readonly __pulumiType = 'azure-nextgen:mixedreality/v20200501:SpatialAnchorsAccount';
 
     /**
      * Returns true if the given object is an instance of SpatialAnchorsAccount.  This is designed to work even
@@ -101,7 +101,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:mixedreality/latest:SpatialAnchorsAccount" }, { type: "azurerm:mixedreality/v20190228preview:SpatialAnchorsAccount" }, { type: "azurerm:mixedreality/v20191202preview:SpatialAnchorsAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:mixedreality/latest:SpatialAnchorsAccount" }, { type: "azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount" }, { type: "azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SpatialAnchorsAccount.__pulumiType, name, inputs, opts);
     }

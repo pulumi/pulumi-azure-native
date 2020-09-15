@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.TimeSeriesInsights.Latest
+namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
 {
     /// <summary>
     /// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSource(string name, EventSourceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:timeseriesinsights/latest:EventSource", name, args ?? new EventSourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:timeseriesinsights/latest:EventSource", name, args ?? new EventSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:timeseriesinsights/latest:EventSource", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:timeseriesinsights/latest:EventSource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,10 +69,10 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20170228preview:EventSource"},
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20171115:EventSource"},
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20180815preview:EventSource"},
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20200515:EventSource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:EventSource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:EventSource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:EventSource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:EventSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

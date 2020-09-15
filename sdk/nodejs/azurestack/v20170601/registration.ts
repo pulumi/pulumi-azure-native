@@ -21,7 +21,7 @@ export class Registration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:azurestack/v20170601:Registration';
+    public static readonly __pulumiType = 'azure-nextgen:azurestack/v20170601:Registration';
 
     /**
      * Returns true if the given object is an instance of Registration.  This is designed to work even
@@ -117,7 +117,7 @@ export class Registration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:azurestack/latest:Registration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestack/latest:Registration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Registration.__pulumiType, name, inputs, opts);
     }

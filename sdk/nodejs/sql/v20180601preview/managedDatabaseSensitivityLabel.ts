@@ -21,7 +21,7 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20180601preview:ManagedDatabaseSensitivityLabel';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel';
 
     /**
      * Returns true if the given object is an instance of ManagedDatabaseSensitivityLabel.  This is designed to work even

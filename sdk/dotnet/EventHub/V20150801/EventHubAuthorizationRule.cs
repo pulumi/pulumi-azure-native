@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventHub.V20150801
+namespace Pulumi.AzureNextGen.EventHub.V20150801
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.EventHub.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventHubAuthorizationRule(string name, EventHubAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20150801:EventHubAuthorizationRule", name, args ?? new EventHubAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule", name, args ?? new EventHubAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventHubAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20150801:EventHubAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,9 +63,9 @@ namespace Pulumi.AzureRM.EventHub.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:eventhub/latest:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:eventhub/v20140901:EventHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:EventHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:EventHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

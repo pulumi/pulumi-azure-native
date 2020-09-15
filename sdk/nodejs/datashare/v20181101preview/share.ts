@@ -21,7 +21,7 @@ export class Share extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datashare/v20181101preview:Share';
+    public static readonly __pulumiType = 'azure-nextgen:datashare/v20181101preview:Share';
 
     /**
      * Returns true if the given object is an instance of Share.  This is designed to work even
@@ -120,7 +120,7 @@ export class Share extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datashare/latest:Share" }, { type: "azurerm:datashare/v20191101:Share" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:Share" }, { type: "azure-nextgen:datashare/v20191101:Share" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Share.__pulumiType, name, inputs, opts);
     }

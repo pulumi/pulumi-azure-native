@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataShare.Latest
+namespace Pulumi.AzureNextGen.DataShare.Latest
 {
     public static class GetInvitation
     {
         public static Task<GetInvitationResult> InvokeAsync(GetInvitationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInvitationResult>("azurerm:datashare/latest:getInvitation", args ?? new GetInvitationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInvitationResult>("azure-nextgen:datashare/latest:getInvitation", args ?? new GetInvitationArgs(), options.WithVersion());
     }
 
 

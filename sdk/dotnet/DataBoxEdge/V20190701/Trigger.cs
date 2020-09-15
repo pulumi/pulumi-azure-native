@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.V20190701
+namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
 {
     /// <summary>
     /// Trigger details.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Trigger(string name, TriggerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/v20190701:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:databoxedge/v20190701:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Trigger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/v20190701:Trigger", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:databoxedge/v20190701:Trigger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,10 +57,10 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/latest:Trigger"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:Trigger"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:Trigger"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

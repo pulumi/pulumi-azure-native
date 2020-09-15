@@ -23,7 +23,7 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:logic/latest:Workflow';
+    public static readonly __pulumiType = 'azure-nextgen:logic/latest:Workflow';
 
     /**
      * Returns true if the given object is an instance of Workflow.  This is designed to work even
@@ -166,7 +166,7 @@ export class Workflow extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20150201preview:Workflow" }, { type: "azurerm:logic/v20160601:Workflow" }, { type: "azurerm:logic/v20180701preview:Workflow" }, { type: "azurerm:logic/v20190501:Workflow" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20150201preview:Workflow" }, { type: "azure-nextgen:logic/v20160601:Workflow" }, { type: "azure-nextgen:logic/v20180701preview:Workflow" }, { type: "azure-nextgen:logic/v20190501:Workflow" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workflow.__pulumiType, name, inputs, opts);
     }

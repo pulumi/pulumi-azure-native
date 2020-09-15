@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventHub.V20180101Preview
+namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 {
     /// <summary>
     /// Single Event Hubs Cluster resource in List or Get operations.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20180101preview:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventhub/v20180101preview:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20180101preview:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventhub/v20180101preview:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 

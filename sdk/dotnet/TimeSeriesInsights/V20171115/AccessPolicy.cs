@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
+namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
 {
     /// <summary>
     /// An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessPolicy(string name, AccessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:timeseriesinsights/v20171115:AccessPolicy", name, args ?? new AccessPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:timeseriesinsights/v20171115:AccessPolicy", name, args ?? new AccessPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:timeseriesinsights/v20171115:AccessPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:timeseriesinsights/v20171115:AccessPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,10 +69,10 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/latest:AccessPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20170228preview:AccessPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20180815preview:AccessPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20200515:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/latest:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

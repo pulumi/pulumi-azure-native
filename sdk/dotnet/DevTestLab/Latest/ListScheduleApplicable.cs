@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.Latest
+namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     public static class ListScheduleApplicable
     {
         public static Task<ListScheduleApplicableResult> InvokeAsync(ListScheduleApplicableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azurerm:devtestlab/latest:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-nextgen:devtestlab/latest:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithVersion());
     }
 
 

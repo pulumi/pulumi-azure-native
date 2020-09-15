@@ -14,7 +14,7 @@ export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datalakeanalytics/latest:getComputePolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:datalakeanalytics/latest:getComputePolicy", {
         "accountName": args.accountName,
         "computePolicyName": args.computePolicyName,
         "resourceGroupName": args.resourceGroupName,

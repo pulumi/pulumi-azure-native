@@ -21,7 +21,7 @@ export class SyncAgent extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20150501preview:SyncAgent';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20150501preview:SyncAgent';
 
     /**
      * Returns true if the given object is an instance of SyncAgent.  This is designed to work even

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20160601
+namespace Pulumi.AzureNextGen.Logic.V20160601
 {
     /// <summary>
     /// The integration account certificate.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20160601:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:logic/v20160601:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20160601:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:logic/v20160601:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,10 +93,10 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:logic/latest:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20150801preview:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20190501:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

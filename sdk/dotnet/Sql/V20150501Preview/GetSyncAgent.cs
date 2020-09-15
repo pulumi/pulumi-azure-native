@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20150501Preview
+namespace Pulumi.AzureNextGen.Sql.V20150501Preview
 {
     public static class GetSyncAgent
     {
         public static Task<GetSyncAgentResult> InvokeAsync(GetSyncAgentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncAgentResult>("azurerm:sql/v20150501preview:getSyncAgent", args ?? new GetSyncAgentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncAgentResult>("azure-nextgen:sql/v20150501preview:getSyncAgent", args ?? new GetSyncAgentArgs(), options.WithVersion());
     }
 
 

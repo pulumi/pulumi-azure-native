@@ -14,7 +14,7 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datafactory/latest:getPipeline", {
+    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getPipeline", {
         "factoryName": args.factoryName,
         "pipelineName": args.pipelineName,
         "resourceGroupName": args.resourceGroupName,

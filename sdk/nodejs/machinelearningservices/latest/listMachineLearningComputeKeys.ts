@@ -14,7 +14,7 @@ export function listMachineLearningComputeKeys(args: ListMachineLearningComputeK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:machinelearningservices/latest:listMachineLearningComputeKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/latest:listMachineLearningComputeKeys", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

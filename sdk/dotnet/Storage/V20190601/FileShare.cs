@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Storage.V20190601
+namespace Pulumi.AzureNextGen.Storage.V20190601
 {
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Storage.V20190601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileShare(string name, FileShareArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storage/v20190601:FileShare", name, args ?? new FileShareArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storage/v20190601:FileShare", name, args ?? new FileShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileShare(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storage/v20190601:FileShare", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storage/v20190601:FileShare", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,9 +135,9 @@ namespace Pulumi.AzureRM.Storage.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storage/latest:FileShare"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20190401:FileShare"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:FileShare"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:FileShare"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:FileShare"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:FileShare"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

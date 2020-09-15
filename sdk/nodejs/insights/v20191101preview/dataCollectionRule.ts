@@ -23,7 +23,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/v20191101preview:DataCollectionRule';
+    public static readonly __pulumiType = 'azure-nextgen:insights/v20191101preview:DataCollectionRule';
 
     /**
      * Returns true if the given object is an instance of DataCollectionRule.  This is designed to work even

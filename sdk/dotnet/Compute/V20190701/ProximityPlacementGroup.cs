@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20190701
+namespace Pulumi.AzureNextGen.Compute.V20190701
 {
     /// <summary>
     /// Specifies information about the proximity placement group.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProximityPlacementGroup(string name, ProximityPlacementGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20190701:ProximityPlacementGroup", name, args ?? new ProximityPlacementGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20190701:ProximityPlacementGroup", name, args ?? new ProximityPlacementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProximityPlacementGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20190701:ProximityPlacementGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20190701:ProximityPlacementGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,13 +93,13 @@ namespace Pulumi.AzureRM.Compute.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/latest:ProximityPlacementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:ProximityPlacementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:ProximityPlacementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20181001:ProximityPlacementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:ProximityPlacementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:ProximityPlacementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:ProximityPlacementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

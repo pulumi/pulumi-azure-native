@@ -23,7 +23,7 @@ export class Appliance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:solutions/v20160901preview:Appliance';
+    public static readonly __pulumiType = 'azure-nextgen:solutions/v20160901preview:Appliance';
 
     /**
      * Returns true if the given object is an instance of Appliance.  This is designed to work even

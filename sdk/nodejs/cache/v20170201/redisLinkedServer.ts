@@ -21,7 +21,7 @@ export class RedisLinkedServer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:cache/v20170201:RedisLinkedServer';
+    public static readonly __pulumiType = 'azure-nextgen:cache/v20170201:RedisLinkedServer';
 
     /**
      * Returns true if the given object is an instance of RedisLinkedServer.  This is designed to work even
@@ -110,7 +110,7 @@ export class RedisLinkedServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cache/latest:RedisLinkedServer" }, { type: "azurerm:cache/v20171001:RedisLinkedServer" }, { type: "azurerm:cache/v20180301:RedisLinkedServer" }, { type: "azurerm:cache/v20190701:RedisLinkedServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/latest:RedisLinkedServer" }, { type: "azure-nextgen:cache/v20171001:RedisLinkedServer" }, { type: "azure-nextgen:cache/v20180301:RedisLinkedServer" }, { type: "azure-nextgen:cache/v20190701:RedisLinkedServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RedisLinkedServer.__pulumiType, name, inputs, opts);
     }

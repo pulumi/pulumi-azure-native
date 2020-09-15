@@ -23,7 +23,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/v20170330:VirtualMachineExtension';
+    public static readonly __pulumiType = 'azure-nextgen:compute/v20170330:VirtualMachineExtension';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineExtension.  This is designed to work even
@@ -143,7 +143,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:VirtualMachineExtension" }, { type: "azurerm:compute/v20150615:VirtualMachineExtension" }, { type: "azurerm:compute/v20160330:VirtualMachineExtension" }, { type: "azurerm:compute/v20160430preview:VirtualMachineExtension" }, { type: "azurerm:compute/v20171201:VirtualMachineExtension" }, { type: "azurerm:compute/v20180401:VirtualMachineExtension" }, { type: "azurerm:compute/v20180601:VirtualMachineExtension" }, { type: "azurerm:compute/v20181001:VirtualMachineExtension" }, { type: "azurerm:compute/v20190301:VirtualMachineExtension" }, { type: "azurerm:compute/v20190701:VirtualMachineExtension" }, { type: "azurerm:compute/v20191201:VirtualMachineExtension" }, { type: "azurerm:compute/v20200601:VirtualMachineExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20150615:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20160330:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineExtension.__pulumiType, name, inputs, opts);
     }

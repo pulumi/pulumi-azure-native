@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class ListSitePublishingCredentials
     {
         public static Task<ListSitePublishingCredentialsResult> InvokeAsync(ListSitePublishingCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSitePublishingCredentialsResult>("azurerm:web/v20150801:listSitePublishingCredentials", args ?? new ListSitePublishingCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSitePublishingCredentialsResult>("azure-nextgen:web/v20150801:listSitePublishingCredentials", args ?? new ListSitePublishingCredentialsArgs(), options.WithVersion());
     }
 
 

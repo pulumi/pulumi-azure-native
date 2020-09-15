@@ -21,7 +21,7 @@ export class Group extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20170301:Group';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20170301:Group';
 
     /**
      * Returns true if the given object is an instance of Group.  This is designed to work even
@@ -105,7 +105,7 @@ export class Group extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Group" }, { type: "azurerm:apimanagement/v20160707:Group" }, { type: "azurerm:apimanagement/v20161010:Group" }, { type: "azurerm:apimanagement/v20180101:Group" }, { type: "azurerm:apimanagement/v20180601preview:Group" }, { type: "azurerm:apimanagement/v20190101:Group" }, { type: "azurerm:apimanagement/v20191201:Group" }, { type: "azurerm:apimanagement/v20191201preview:Group" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Group" }, { type: "azure-nextgen:apimanagement/v20160707:Group" }, { type: "azure-nextgen:apimanagement/v20161010:Group" }, { type: "azure-nextgen:apimanagement/v20180101:Group" }, { type: "azure-nextgen:apimanagement/v20180601preview:Group" }, { type: "azure-nextgen:apimanagement/v20190101:Group" }, { type: "azure-nextgen:apimanagement/v20191201:Group" }, { type: "azure-nextgen:apimanagement/v20191201preview:Group" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Group.__pulumiType, name, inputs, opts);
     }

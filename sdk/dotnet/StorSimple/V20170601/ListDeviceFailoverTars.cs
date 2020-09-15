@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.V20170601
+namespace Pulumi.AzureNextGen.StorSimple.V20170601
 {
     public static class ListDeviceFailoverTars
     {
         public static Task<ListDeviceFailoverTarsResult> InvokeAsync(ListDeviceFailoverTarsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverTarsResult>("azurerm:storsimple/v20170601:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverTarsResult>("azure-nextgen:storsimple/v20170601:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsArgs(), options.WithVersion());
     }
 
 

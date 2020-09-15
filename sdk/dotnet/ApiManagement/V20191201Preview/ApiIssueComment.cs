@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
+namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 {
     /// <summary>
     /// Issue Comment Contract details.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiIssueComment(string name, ApiIssueCommentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201preview:ApiIssueComment", name, args ?? new ApiIssueCommentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20191201preview:ApiIssueComment", name, args ?? new ApiIssueCommentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiIssueComment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201preview:ApiIssueComment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20191201preview:ApiIssueComment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,12 +69,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiIssueComment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

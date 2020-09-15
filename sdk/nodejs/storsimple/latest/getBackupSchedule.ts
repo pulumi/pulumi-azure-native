@@ -14,7 +14,7 @@ export function getBackupSchedule(args: GetBackupScheduleArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storsimple/latest:getBackupSchedule", {
+    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getBackupSchedule", {
         "backupPolicyName": args.backupPolicyName,
         "backupScheduleName": args.backupScheduleName,
         "deviceName": args.deviceName,

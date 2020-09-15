@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataMigration.V20180715Preview
+namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
 {
     /// <summary>
     /// A task resource
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DataMigration.V20180715Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceTask(string name, ServiceTaskArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datamigration/v20180715preview:ServiceTask", name, args ?? new ServiceTaskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datamigration/v20180715preview:ServiceTask", name, args ?? new ServiceTaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceTask(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datamigration/v20180715preview:ServiceTask", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datamigration/v20180715preview:ServiceTask", name, null, MakeResourceOptions(options, id))
         {
         }
 

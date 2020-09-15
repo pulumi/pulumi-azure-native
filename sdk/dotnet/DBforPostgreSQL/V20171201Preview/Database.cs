@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
+namespace Pulumi.AzureNextGen.DBForPostgreSQL.V20171201Preview
 {
     /// <summary>
     /// Represents a Database.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20171201preview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbforpostgresql/v20171201preview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20171201preview:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbforpostgresql/v20171201preview:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/latest:Database"},
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

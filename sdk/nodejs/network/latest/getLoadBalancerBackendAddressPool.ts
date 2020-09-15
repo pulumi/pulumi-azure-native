@@ -14,7 +14,7 @@ export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAd
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getLoadBalancerBackendAddressPool", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getLoadBalancerBackendAddressPool", {
         "backendAddressPoolName": args.backendAddressPoolName,
         "loadBalancerName": args.loadBalancerName,
         "resourceGroupName": args.resourceGroupName,

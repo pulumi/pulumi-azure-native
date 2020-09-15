@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20190101
+namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 {
     /// <summary>
     /// ApiRelease details.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiRelease(string name, ApiReleaseArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20190101:ApiRelease", name, args ?? new ApiReleaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20190101:ApiRelease", name, args ?? new ApiReleaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiRelease(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20190101:ApiRelease", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20190101:ApiRelease", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,12 +75,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ApiRelease"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiRelease"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ApiRelease"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:ApiRelease"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ApiRelease"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiRelease"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiRelease"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

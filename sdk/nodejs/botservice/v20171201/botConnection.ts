@@ -23,7 +23,7 @@ export class BotConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:botservice/v20171201:BotConnection';
+    public static readonly __pulumiType = 'azure-nextgen:botservice/v20171201:BotConnection';
 
     /**
      * Returns true if the given object is an instance of BotConnection.  This is designed to work even
@@ -116,7 +116,7 @@ export class BotConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:botservice/latest:BotConnection" }, { type: "azurerm:botservice/v20180712:BotConnection" }, { type: "azurerm:botservice/v20200602:BotConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice/latest:BotConnection" }, { type: "azure-nextgen:botservice/v20180712:BotConnection" }, { type: "azure-nextgen:botservice/v20200602:BotConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BotConnection.__pulumiType, name, inputs, opts);
     }

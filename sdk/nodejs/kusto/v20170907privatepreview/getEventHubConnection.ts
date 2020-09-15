@@ -14,7 +14,7 @@ export function getEventHubConnection(args: GetEventHubConnectionArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:kusto/v20170907privatepreview:getEventHubConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:kusto/v20170907privatepreview:getEventHubConnection", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
         "eventHubConnectionName": args.eventHubConnectionName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.Latest
+namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     /// <summary>
     /// A virtual machine.
@@ -257,12 +257,12 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachine(string name, VirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/latest:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devtestlab/latest:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/latest:VirtualMachine", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devtestlab/latest:VirtualMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -273,9 +273,9 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20150521preview:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Synapse.V20190601Preview
+namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     /// <summary>
     /// IP firewall rule
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IpFirewallRule(string name, IpFirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:synapse/v20190601preview:IpFirewallRule", name, args ?? new IpFirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:synapse/v20190601preview:IpFirewallRule", name, args ?? new IpFirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IpFirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:synapse/v20190601preview:IpFirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:synapse/v20190601preview:IpFirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

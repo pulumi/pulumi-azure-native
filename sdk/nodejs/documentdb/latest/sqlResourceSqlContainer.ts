@@ -23,7 +23,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:documentdb/latest:SqlResourceSqlContainer';
+    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:SqlResourceSqlContainer';
 
     /**
      * Returns true if the given object is an instance of SqlResourceSqlContainer.  This is designed to work even
@@ -108,7 +108,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20200301:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20200401:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20200601preview:SqlResourceSqlContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlContainer.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20200501Preview
+namespace Pulumi.AzureNextGen.Insights.V20200501Preview
 {
     /// <summary>
     /// The scheduled query rule resource.
@@ -104,12 +104,12 @@ namespace Pulumi.AzureRM.Insights.V20200501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScheduledQueryRule(string name, ScheduledQueryRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20200501preview:ScheduledQueryRule", name, args ?? new ScheduledQueryRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20200501preview:ScheduledQueryRule", name, args ?? new ScheduledQueryRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScheduledQueryRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20200501preview:ScheduledQueryRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20200501preview:ScheduledQueryRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -120,8 +120,8 @@ namespace Pulumi.AzureRM.Insights.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/latest:ScheduledQueryRule"},
-                    new Pulumi.Alias { Type = "azurerm:insights/v20180416:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20180416:ScheduledQueryRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

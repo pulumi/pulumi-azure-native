@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.Latest
+namespace Pulumi.AzureNextGen.Authorization.Latest
 {
     public static class GetPolicyDefinition
     {
         public static Task<GetPolicyDefinitionResult> InvokeAsync(GetPolicyDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionResult>("azurerm:authorization/latest:getPolicyDefinition", args ?? new GetPolicyDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionResult>("azure-nextgen:authorization/latest:getPolicyDefinition", args ?? new GetPolicyDefinitionArgs(), options.WithVersion());
     }
 
 

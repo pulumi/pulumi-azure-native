@@ -14,7 +14,7 @@ export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:operationalinsights/latest:getLinkedService", {
+    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/latest:getLinkedService", {
         "linkedServiceName": args.linkedServiceName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

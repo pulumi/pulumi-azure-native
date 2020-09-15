@@ -21,7 +21,7 @@ export class Assessment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:migrate/v20171111preview:Assessment';
+    public static readonly __pulumiType = 'azure-nextgen:migrate/v20171111preview:Assessment';
 
     /**
      * Returns true if the given object is an instance of Assessment.  This is designed to work even
@@ -235,7 +235,7 @@ export class Assessment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:migrate/v20180202:Assessment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate/v20180202:Assessment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Assessment.__pulumiType, name, inputs, opts);
     }

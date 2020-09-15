@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceBus.V20170401
+namespace Pulumi.AzureNextGen.ServiceBus.V20170401
 {
     /// <summary>
     /// Description of queue Resource.
@@ -161,12 +161,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Queue(string name, QueueArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus/v20170401:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicebus/v20170401:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Queue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus/v20170401:Queue", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicebus/v20170401:Queue", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -177,9 +177,9 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:servicebus/latest:Queue"},
-                    new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:Queue"},
-                    new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:Queue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Queue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Queue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

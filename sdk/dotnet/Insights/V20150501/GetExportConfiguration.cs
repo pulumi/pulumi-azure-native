@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20150501
+namespace Pulumi.AzureNextGen.Insights.V20150501
 {
     public static class GetExportConfiguration
     {
         public static Task<GetExportConfigurationResult> InvokeAsync(GetExportConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportConfigurationResult>("azurerm:insights/v20150501:getExportConfiguration", args ?? new GetExportConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExportConfigurationResult>("azure-nextgen:insights/v20150501:getExportConfiguration", args ?? new GetExportConfigurationArgs(), options.WithVersion());
     }
 
 

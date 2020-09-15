@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20191101Preview
+namespace Pulumi.AzureNextGen.Insights.V20191101Preview
 {
     /// <summary>
     /// Definition of generic ARM proxy resource.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Insights.V20191101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataCollectionRuleAssociation(string name, DataCollectionRuleAssociationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20191101preview:DataCollectionRuleAssociation", name, args ?? new DataCollectionRuleAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation", name, args ?? new DataCollectionRuleAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataCollectionRuleAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20191101preview:DataCollectionRuleAssociation", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -14,7 +14,7 @@ export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:customerinsights/v20170426:getLink", {
+    return pulumi.runtime.invoke("azure-nextgen:customerinsights/v20170426:getLink", {
         "hubName": args.hubName,
         "linkName": args.linkName,
         "resourceGroupName": args.resourceGroupName,

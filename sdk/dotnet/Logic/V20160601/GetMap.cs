@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20160601
+namespace Pulumi.AzureNextGen.Logic.V20160601
 {
     public static class GetMap
     {
         public static Task<GetMapResult> InvokeAsync(GetMapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("azurerm:logic/v20160601:getMap", args ?? new GetMapArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("azure-nextgen:logic/v20160601:getMap", args ?? new GetMapArgs(), options.WithVersion());
     }
 
 

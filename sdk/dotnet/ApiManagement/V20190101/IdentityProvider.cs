@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20190101
+namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 {
     /// <summary>
     /// Identity Provider details.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityProvider(string name, IdentityProviderArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20190101:IdentityProvider", name, args ?? new IdentityProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20190101:IdentityProvider", name, args ?? new IdentityProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IdentityProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20190101:IdentityProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20190101:IdentityProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,14 +105,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:IdentityProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:IdentityProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:IdentityProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:IdentityProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:IdentityProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:IdentityProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:IdentityProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:IdentityProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

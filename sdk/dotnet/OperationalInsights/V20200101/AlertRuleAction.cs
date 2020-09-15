@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20200101
+namespace Pulumi.AzureNextGen.OperationalInsights.V20200101
 {
     /// <summary>
     /// Action for alert rule.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertRuleAction(string name, AlertRuleActionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20200101:AlertRuleAction", name, args ?? new AlertRuleActionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationalinsights/v20200101:AlertRuleAction", name, args ?? new AlertRuleActionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AlertRuleAction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20200101:AlertRuleAction", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationalinsights/v20200101:AlertRuleAction", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:AlertRuleAction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:AlertRuleAction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
+namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Contract details.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TagDescription(string name, TagDescriptionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20180601preview:TagDescription", name, args ?? new TagDescriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20180601preview:TagDescription", name, args ?? new TagDescriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TagDescription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20180601preview:TagDescription", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20180601preview:TagDescription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,12 +75,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:TagDescription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:TagDescription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:TagDescription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:TagDescription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:TagDescription"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:TagDescription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:TagDescription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:TagDescription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:TagDescription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:TagDescription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:TagDescription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:TagDescription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

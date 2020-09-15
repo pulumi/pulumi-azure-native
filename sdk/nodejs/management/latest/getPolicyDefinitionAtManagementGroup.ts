@@ -14,7 +14,7 @@ export function getPolicyDefinitionAtManagementGroup(args: GetPolicyDefinitionAt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:management/latest:getPolicyDefinitionAtManagementGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:management/latest:getPolicyDefinitionAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
         "policyDefinitionName": args.policyDefinitionName,
     }, opts);

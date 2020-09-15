@@ -21,7 +21,7 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:kusto/latest:ClusterPrincipalAssignment';
+    public static readonly __pulumiType = 'azure-nextgen:kusto/latest:ClusterPrincipalAssignment';
 
     /**
      * Returns true if the given object is an instance of ClusterPrincipalAssignment.  This is designed to work even
@@ -129,7 +129,7 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azurerm:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azurerm:kusto/v20200614:ClusterPrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ClusterPrincipalAssignment.__pulumiType, name, inputs, opts);
     }

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventHub.V20140901
+namespace Pulumi.AzureNextGen.EventHub.V20140901
 {
     public static class GetConsumerGroup
     {
         public static Task<GetConsumerGroupResult> InvokeAsync(GetConsumerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azurerm:eventhub/v20140901:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-nextgen:eventhub/v20140901:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithVersion());
     }
 
 

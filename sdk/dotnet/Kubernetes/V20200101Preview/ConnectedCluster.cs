@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kubernetes.V20200101Preview
+namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
 {
     /// <summary>
     /// Represents a connected cluster.
@@ -86,12 +86,12 @@ namespace Pulumi.AzureRM.Kubernetes.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectedCluster(string name, ConnectedClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:kubernetes/v20200101preview:ConnectedCluster", name, args ?? new ConnectedClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:kubernetes/v20200101preview:ConnectedCluster", name, args ?? new ConnectedClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectedCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:kubernetes/v20200101preview:ConnectedCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:kubernetes/v20200101preview:ConnectedCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 

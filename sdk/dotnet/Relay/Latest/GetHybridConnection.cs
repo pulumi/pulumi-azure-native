@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Relay.Latest
+namespace Pulumi.AzureNextGen.Relay.Latest
 {
     public static class GetHybridConnection
     {
         public static Task<GetHybridConnectionResult> InvokeAsync(GetHybridConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionResult>("azurerm:relay/latest:getHybridConnection", args ?? new GetHybridConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionResult>("azure-nextgen:relay/latest:getHybridConnection", args ?? new GetHybridConnectionArgs(), options.WithVersion());
     }
 
 

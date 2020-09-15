@@ -14,7 +14,7 @@ export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:netapp/v20190501:getVolume", {
+    return pulumi.runtime.invoke("azure-nextgen:netapp/v20190501:getVolume", {
         "accountName": args.accountName,
         "poolName": args.poolName,
         "resourceGroupName": args.resourceGroupName,

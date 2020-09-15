@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.Latest
+namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Function information.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppFunction(string name, WebAppFunctionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/latest:WebAppFunction", name, args ?? new WebAppFunctionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/latest:WebAppFunction", name, args ?? new WebAppFunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppFunction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/latest:WebAppFunction", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/latest:WebAppFunction", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,11 +135,11 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppFunction"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

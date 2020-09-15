@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DesktopVirtualization.V20191210Preview
+namespace Pulumi.AzureNextGen.DesktopVirtualization.V20191210Preview
 {
     /// <summary>
     /// Represents a ApplicationGroup definition.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20191210Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationGroup(string name, ApplicationGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:desktopvirtualization/v20191210preview:ApplicationGroup", name, args ?? new ApplicationGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:desktopvirtualization/v20191210preview:ApplicationGroup", name, args ?? new ApplicationGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:desktopvirtualization/v20191210preview:ApplicationGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:desktopvirtualization/v20191210preview:ApplicationGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20191210Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20190123preview:ApplicationGroup"},
-                    new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20190924preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190123preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190924preview:ApplicationGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

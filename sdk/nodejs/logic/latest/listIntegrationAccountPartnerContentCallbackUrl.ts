@@ -14,7 +14,7 @@ export function listIntegrationAccountPartnerContentCallbackUrl(args: ListIntegr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/latest:listIntegrationAccountPartnerContentCallbackUrl", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/latest:listIntegrationAccountPartnerContentCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,
         "notAfter": args.notAfter,

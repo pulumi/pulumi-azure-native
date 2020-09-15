@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CostManagement.V20180801Preview
+namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
 {
     /// <summary>
     /// The Connector model definition
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.CostManagement.V20180801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connector(string name, ConnectorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20180801preview:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:costmanagement/v20180801preview:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20180801preview:Connector", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:costmanagement/v20180801preview:Connector", name, null, MakeResourceOptions(options, id))
         {
         }
 

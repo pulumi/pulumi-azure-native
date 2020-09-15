@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cache.V20190701
+namespace Pulumi.AzureNextGen.Cache.V20190701
 {
     /// <summary>
     /// A single Redis item in List or Get Operation.
@@ -155,12 +155,12 @@ namespace Pulumi.AzureRM.Cache.V20190701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Redis(string name, RedisArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:cache/v20190701:Redis", name, args ?? new RedisArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:cache/v20190701:Redis", name, args ?? new RedisArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Redis(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:cache/v20190701:Redis", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:cache/v20190701:Redis", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -171,12 +171,12 @@ namespace Pulumi.AzureRM.Cache.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cache/latest:Redis"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20150801:Redis"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20160401:Redis"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20170201:Redis"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20171001:Redis"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20180301:Redis"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:Redis"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20150801:Redis"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20160401:Redis"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:Redis"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:Redis"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:Redis"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,7 +14,7 @@ export function listPrivateCloudAdminCredentials(args: ListPrivateCloudAdminCred
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:avs/v20200320:listPrivateCloudAdminCredentials", {
+    return pulumi.runtime.invoke("azure-nextgen:avs/v20200320:listPrivateCloudAdminCredentials", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

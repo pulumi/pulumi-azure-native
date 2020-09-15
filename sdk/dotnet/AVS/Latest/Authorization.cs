@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AVS.Latest
+namespace Pulumi.AzureNextGen.AVS.Latest
 {
     /// <summary>
     /// ExpressRoute Circuit Authorization
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.AVS.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Authorization(string name, AuthorizationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:avs/latest:Authorization", name, args ?? new AuthorizationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:avs/latest:Authorization", name, args ?? new AuthorizationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Authorization(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:avs/latest:Authorization", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:avs/latest:Authorization", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:avs/v20200320:Authorization"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Authorization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

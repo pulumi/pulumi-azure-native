@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Relay.V20160701.Outputs
+namespace Pulumi.AzureNextGen.Relay.V20160701.Outputs
 {
 
     [OutputType]

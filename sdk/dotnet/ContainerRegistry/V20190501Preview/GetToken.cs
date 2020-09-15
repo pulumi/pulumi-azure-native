@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20190501Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
 {
     public static class GetToken
     {
         public static Task<GetTokenResult> InvokeAsync(GetTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azurerm:containerregistry/v20190501preview:getToken", args ?? new GetTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azure-nextgen:containerregistry/v20190501preview:getToken", args ?? new GetTokenArgs(), options.WithVersion());
     }
 
 

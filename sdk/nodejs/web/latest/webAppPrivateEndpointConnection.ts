@@ -23,7 +23,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/latest:WebAppPrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-nextgen:web/latest:WebAppPrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of WebAppPrivateEndpointConnection.  This is designed to work even
@@ -100,7 +100,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azurerm:web/v20200601:WebAppPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
+namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
 {
     public static class GetDevice
     {
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azurerm:databoxedge/v20200501preview:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-nextgen:databoxedge/v20200501preview:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
     }
 
 

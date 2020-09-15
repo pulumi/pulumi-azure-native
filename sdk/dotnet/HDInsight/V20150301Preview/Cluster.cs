@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HDInsight.V20150301Preview
+namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
 {
     /// <summary>
     /// The HDInsight cluster.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.HDInsight.V20150301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hdinsight/v20150301preview:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hdinsight/v20150301preview:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hdinsight/v20150301preview:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hdinsight/v20150301preview:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.HDInsight.V20150301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hdinsight/v20180601preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hdinsight/v20180601preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

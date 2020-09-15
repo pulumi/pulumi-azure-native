@@ -14,7 +14,7 @@ export function listIotDpsResourceKeysForKeyName(args: ListIotDpsResourceKeysFor
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devices/v20200901preview:listIotDpsResourceKeysForKeyName", {
+    return pulumi.runtime.invoke("azure-nextgen:devices/v20200901preview:listIotDpsResourceKeysForKeyName", {
         "keyName": args.keyName,
         "provisioningServiceName": args.provisioningServiceName,
         "resourceGroupName": args.resourceGroupName,

@@ -15,7 +15,7 @@ export function getIotDefenderSetting(args?: GetIotDefenderSettingArgs, opts?: p
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:security/v20200806preview:getIotDefenderSetting", {
+    return pulumi.runtime.invoke("azure-nextgen:security/v20200806preview:getIotDefenderSetting", {
     }, opts);
 }
 

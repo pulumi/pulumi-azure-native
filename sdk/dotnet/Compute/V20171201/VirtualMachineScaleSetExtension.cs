@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20171201
+namespace Pulumi.AzureNextGen.Compute.V20171201
 {
     /// <summary>
     /// Describes a Virtual Machine Scale Set Extension.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Compute.V20171201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineScaleSetExtension(string name, VirtualMachineScaleSetExtensionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20171201:VirtualMachineScaleSetExtension", name, args ?? new VirtualMachineScaleSetExtensionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20171201:VirtualMachineScaleSetExtension", name, args ?? new VirtualMachineScaleSetExtensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineScaleSetExtension(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20171201:VirtualMachineScaleSetExtension", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20171201:VirtualMachineScaleSetExtension", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,15 +93,15 @@ namespace Pulumi.AzureRM.Compute.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachineScaleSetExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:VirtualMachineScaleSetExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:VirtualMachineScaleSetExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:VirtualMachineScaleSetExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20181001:VirtualMachineScaleSetExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:VirtualMachineScaleSetExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:VirtualMachineScaleSetExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:VirtualMachineScaleSetExtension"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:VirtualMachineScaleSetExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineScaleSetExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:VirtualMachineScaleSetExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:VirtualMachineScaleSetExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:VirtualMachineScaleSetExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:VirtualMachineScaleSetExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:VirtualMachineScaleSetExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:VirtualMachineScaleSetExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:VirtualMachineScaleSetExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:VirtualMachineScaleSetExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

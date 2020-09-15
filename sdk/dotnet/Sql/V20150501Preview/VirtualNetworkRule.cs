@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20150501Preview
+namespace Pulumi.AzureNextGen.Sql.V20150501Preview
 {
     /// <summary>
     /// A virtual network rule.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20150501preview:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20150501preview:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20150501preview:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20150501preview:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

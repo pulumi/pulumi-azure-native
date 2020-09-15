@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.Latest
+namespace Pulumi.AzureNextGen.Insights.Latest
 {
     /// <summary>
     /// The autoscale setting resource.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AutoscaleSetting(string name, AutoscaleSettingArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/latest:AutoscaleSetting", name, args ?? new AutoscaleSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/latest:AutoscaleSetting", name, args ?? new AutoscaleSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AutoscaleSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/latest:AutoscaleSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/latest:AutoscaleSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/v20150401:AutoscaleSetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20150401:AutoscaleSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

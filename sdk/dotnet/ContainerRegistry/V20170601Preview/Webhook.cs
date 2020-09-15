@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20170601Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
 {
     /// <summary>
     /// An object that represents a webhook for a container registry.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20170601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Webhook(string name, WebhookArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20170601preview:Webhook", name, args ?? new WebhookArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/v20170601preview:Webhook", name, args ?? new WebhookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Webhook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20170601preview:Webhook", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/v20170601preview:Webhook", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,10 +87,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20170601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/latest:Webhook"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20171001:Webhook"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20190501:Webhook"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20191201preview:Webhook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Webhook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Webhook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Webhook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Webhook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

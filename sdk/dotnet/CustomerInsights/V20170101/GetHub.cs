@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.V20170101
+namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 {
     public static class GetHub
     {
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azurerm:customerinsights/v20170101:getHub", args ?? new GetHubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure-nextgen:customerinsights/v20170101:getHub", args ?? new GetHubArgs(), options.WithVersion());
     }
 
 

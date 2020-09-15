@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     /// <summary>
     /// Description of an hostingEnvironment (App Service Environment)
@@ -234,12 +234,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedHostingEnvironment(string name, ManagedHostingEnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:ManagedHostingEnvironment", name, args ?? new ManagedHostingEnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20150801:ManagedHostingEnvironment", name, args ?? new ManagedHostingEnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedHostingEnvironment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:ManagedHostingEnvironment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20150801:ManagedHostingEnvironment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -250,7 +250,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:ManagedHostingEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

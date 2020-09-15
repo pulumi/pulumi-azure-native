@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AVS.V20200320
+namespace Pulumi.AzureNextGen.AVS.V20200320
 {
     public static class GetAuthorization
     {
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azurerm:avs/v20200320:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-nextgen:avs/v20200320:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithVersion());
     }
 
 

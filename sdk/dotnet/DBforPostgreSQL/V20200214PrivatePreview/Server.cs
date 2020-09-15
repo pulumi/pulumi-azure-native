@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
+namespace Pulumi.AzureNextGen.DBForPostgreSql.V20200214PrivatePreview
 {
     /// <summary>
     /// Represents a server.
@@ -164,12 +164,12 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20200214privatepreview:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbforpostgresql/v20200214privatepreview:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20200214privatepreview:Server", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbforpostgresql/v20200214privatepreview:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 

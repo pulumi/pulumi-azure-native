@@ -23,7 +23,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:appconfiguration/latest:ConfigurationStore';
+    public static readonly __pulumiType = 'azure-nextgen:appconfiguration/latest:ConfigurationStore';
 
     /**
      * Returns true if the given object is an instance of ConfigurationStore.  This is designed to work even
@@ -142,7 +142,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20191001:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20191101preview:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20200601:ConfigurationStore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200601:ConfigurationStore" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConfigurationStore.__pulumiType, name, inputs, opts);
     }

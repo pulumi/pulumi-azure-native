@@ -14,7 +14,7 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:migrate/v20171111preview:getProject", {
+    return pulumi.runtime.invoke("azure-nextgen:migrate/v20171111preview:getProject", {
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

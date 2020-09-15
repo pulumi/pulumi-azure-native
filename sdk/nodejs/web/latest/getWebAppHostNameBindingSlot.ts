@@ -14,7 +14,7 @@ export function getWebAppHostNameBindingSlot(args: GetWebAppHostNameBindingSlotA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:getWebAppHostNameBindingSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppHostNameBindingSlot", {
         "hostName": args.hostName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

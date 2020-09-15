@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
+namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
 {
     public static class GetDataSource
     {
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azurerm:operationalinsights/v20200301preview:getDataSource", args ?? new GetDataSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-nextgen:operationalinsights/v20200301preview:getDataSource", args ?? new GetDataSourceArgs(), options.WithVersion());
     }
 
 

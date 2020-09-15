@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.LabServices.Latest
+namespace Pulumi.AzureNextGen.LabServices.Latest
 {
     /// <summary>
     /// The User registered to a lab
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.LabServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:labservices/latest:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:labservices/latest:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private User(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:labservices/latest:User", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:labservices/latest:User", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.LabServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:labservices/v20181015:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

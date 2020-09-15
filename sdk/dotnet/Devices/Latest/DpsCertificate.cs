@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Devices.Latest
+namespace Pulumi.AzureNextGen.Devices.Latest
 {
     /// <summary>
     /// The X509 Certificate.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Devices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DpsCertificate(string name, DpsCertificateArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devices/latest:DpsCertificate", name, args ?? new DpsCertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devices/latest:DpsCertificate", name, args ?? new DpsCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DpsCertificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devices/latest:DpsCertificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devices/latest:DpsCertificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,12 +63,12 @@ namespace Pulumi.AzureRM.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devices/v20170821preview:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20171115:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20180122:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200101:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200301:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200901preview:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20170821preview:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20171115:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200101:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200901preview:DpsCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

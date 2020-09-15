@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.V20170515Preview
+namespace Pulumi.AzureNextGen.Automation.V20170515Preview
 {
     /// <summary>
     /// Definition of the source control.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SourceControl(string name, SourceControlArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:automation/v20170515preview:SourceControl", name, args ?? new SourceControlArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:automation/v20170515preview:SourceControl", name, args ?? new SourceControlArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SourceControl(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:automation/v20170515preview:SourceControl", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:automation/v20170515preview:SourceControl", name, null, MakeResourceOptions(options, id))
         {
         }
 

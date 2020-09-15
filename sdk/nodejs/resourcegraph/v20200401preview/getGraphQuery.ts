@@ -14,7 +14,7 @@ export function getGraphQuery(args: GetGraphQueryArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:resourcegraph/v20200401preview:getGraphQuery", {
+    return pulumi.runtime.invoke("azure-nextgen:resourcegraph/v20200401preview:getGraphQuery", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

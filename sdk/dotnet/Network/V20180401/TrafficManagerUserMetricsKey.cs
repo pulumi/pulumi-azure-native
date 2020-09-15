@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20180401
+namespace Pulumi.AzureNextGen.Network.V20180401
 {
     /// <summary>
     /// Class representing Traffic Manager User Metrics.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TrafficManagerUserMetricsKey(string name, TrafficManagerUserMetricsKeyArgs? args = null, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180401:TrafficManagerUserMetricsKey", name, args ?? new TrafficManagerUserMetricsKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey", name, args ?? new TrafficManagerUserMetricsKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TrafficManagerUserMetricsKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180401:TrafficManagerUserMetricsKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,7 +57,7 @@ namespace Pulumi.AzureRM.Network.V20180401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:TrafficManagerUserMetricsKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:TrafficManagerUserMetricsKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

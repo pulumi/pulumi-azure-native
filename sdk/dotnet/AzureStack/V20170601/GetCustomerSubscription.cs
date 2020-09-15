@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AzureStack.V20170601
+namespace Pulumi.AzureNextGen.AzureStack.V20170601
 {
     public static class GetCustomerSubscription
     {
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azurerm:azurestack/v20170601:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-nextgen:azurestack/v20170601:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithVersion());
     }
 
 

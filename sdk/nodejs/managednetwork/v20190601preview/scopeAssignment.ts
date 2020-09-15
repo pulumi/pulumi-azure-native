@@ -21,7 +21,7 @@ export class ScopeAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:managednetwork/v20190601preview:ScopeAssignment';
+    public static readonly __pulumiType = 'azure-nextgen:managednetwork/v20190601preview:ScopeAssignment';
 
     /**
      * Returns true if the given object is an instance of ScopeAssignment.  This is designed to work even

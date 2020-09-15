@@ -14,7 +14,7 @@ export function getSecurityContact(args: GetSecurityContactArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:security/v20200101preview:getSecurityContact", {
+    return pulumi.runtime.invoke("azure-nextgen:security/v20200101preview:getSecurityContact", {
         "securityContactName": args.securityContactName,
     }, opts);
 }

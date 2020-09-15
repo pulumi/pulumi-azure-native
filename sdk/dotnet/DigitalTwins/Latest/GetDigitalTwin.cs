@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DigitalTwins.Latest
+namespace Pulumi.AzureNextGen.DigitalTwins.Latest
 {
     public static class GetDigitalTwin
     {
         public static Task<GetDigitalTwinResult> InvokeAsync(GetDigitalTwinArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinResult>("azurerm:digitaltwins/latest:getDigitalTwin", args ?? new GetDigitalTwinArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinResult>("azure-nextgen:digitaltwins/latest:getDigitalTwin", args ?? new GetDigitalTwinArgs(), options.WithVersion());
     }
 
 

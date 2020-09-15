@@ -14,7 +14,7 @@ export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights/v20150401:getAutoscaleSetting", {
+    return pulumi.runtime.invoke("azure-nextgen:insights/v20150401:getAutoscaleSetting", {
         "autoscaleSettingName": args.autoscaleSettingName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

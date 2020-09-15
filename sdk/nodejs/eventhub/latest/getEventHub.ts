@@ -14,7 +14,7 @@ export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:eventhub/latest:getEventHub", {
+    return pulumi.runtime.invoke("azure-nextgen:eventhub/latest:getEventHub", {
         "eventHubName": args.eventHubName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

@@ -1,5 +1,5 @@
 import * as random from "@pulumi/random";
-import * as resources from "@pulumi/azurerm/resources/latest";
+import * as resources from "@pulumi/azure-nextgen/resources/latest";
 import * as cosmosdb from "./component";
 
 const randomString = new random.RandomString("random", {

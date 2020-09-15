@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-azurerm/sdk
+module github.com/pulumi/pulumi-azure-nextgen/sdk
 
 go 1.13
 

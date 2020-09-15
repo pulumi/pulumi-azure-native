@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Aad.V20200101
+namespace Pulumi.AzureNextGen.Aad.V20200101
 {
     /// <summary>
     /// Domain service.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainService(string name, DomainServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:aad/v20200101:DomainService", name, args ?? new DomainServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:aad/v20200101:DomainService", name, args ?? new DomainServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DomainService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:aad/v20200101:DomainService", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:aad/v20200101:DomainService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,9 +135,9 @@ namespace Pulumi.AzureRM.Aad.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:aad/latest:DomainService"},
-                    new Pulumi.Alias { Type = "azurerm:aad/v20170101:DomainService"},
-                    new Pulumi.Alias { Type = "azurerm:aad/v20170601:DomainService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:aad/latest:DomainService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:aad/v20170101:DomainService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:aad/v20170601:DomainService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

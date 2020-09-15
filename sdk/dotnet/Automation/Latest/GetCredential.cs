@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.Latest
+namespace Pulumi.AzureNextGen.Automation.Latest
 {
     public static class GetCredential
     {
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azurerm:automation/latest:getCredential", args ?? new GetCredentialArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-nextgen:automation/latest:getCredential", args ?? new GetCredentialArgs(), options.WithVersion());
     }
 
 

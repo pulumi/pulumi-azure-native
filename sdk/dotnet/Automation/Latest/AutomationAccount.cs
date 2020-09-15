@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.Latest
+namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the automation account type.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AutomationAccount(string name, AutomationAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:automation/latest:AutomationAccount", name, args ?? new AutomationAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:automation/latest:AutomationAccount", name, args ?? new AutomationAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AutomationAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:automation/latest:AutomationAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:automation/latest:AutomationAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/v20151031:AutomationAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:AutomationAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

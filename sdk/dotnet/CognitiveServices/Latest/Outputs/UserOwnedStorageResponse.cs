@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CognitiveServices.Latest.Outputs
+namespace Pulumi.AzureNextGen.CognitiveServices.Latest.Outputs
 {
 
     [OutputType]

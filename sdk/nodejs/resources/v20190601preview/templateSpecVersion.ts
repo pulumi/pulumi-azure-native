@@ -23,7 +23,7 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:resources/v20190601preview:TemplateSpecVersion';
+    public static readonly __pulumiType = 'azure-nextgen:resources/v20190601preview:TemplateSpecVersion';
 
     /**
      * Returns true if the given object is an instance of TemplateSpecVersion.  This is designed to work even

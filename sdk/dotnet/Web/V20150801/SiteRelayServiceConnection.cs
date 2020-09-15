@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     /// <summary>
     /// Class that represents a BizTalk Hybrid Connection
@@ -74,12 +74,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteRelayServiceConnection(string name, SiteRelayServiceConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:SiteRelayServiceConnection", name, args ?? new SiteRelayServiceConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20150801:SiteRelayServiceConnection", name, args ?? new SiteRelayServiceConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteRelayServiceConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:SiteRelayServiceConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20150801:SiteRelayServiceConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -90,12 +90,12 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:SiteRelayServiceConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteRelayServiceConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteRelayServiceConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteRelayServiceConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:SiteRelayServiceConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:SiteRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:SiteRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteRelayServiceConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

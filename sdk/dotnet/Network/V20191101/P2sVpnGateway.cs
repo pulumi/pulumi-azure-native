@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20191101
+namespace Pulumi.AzureNextGen.Network.V20191101
 {
     /// <summary>
     /// P2SVpnGateway Resource.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public P2sVpnGateway(string name, P2sVpnGatewayArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191101:P2sVpnGateway", name, args ?? new P2sVpnGatewayArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20191101:P2sVpnGateway", name, args ?? new P2sVpnGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private P2sVpnGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191101:P2sVpnGateway", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20191101:P2sVpnGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,22 +105,22 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:P2sVpnGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:P2sVpnGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

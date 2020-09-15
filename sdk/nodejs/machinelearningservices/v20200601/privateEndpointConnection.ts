@@ -23,7 +23,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:machinelearningservices/v20200601:PrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices/v20200601:PrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpointConnection.  This is designed to work even
@@ -101,7 +101,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/latest:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200101:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200218preview:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200301:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200401:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200501preview:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200515preview:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200901preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:machinelearningservices/v20200101:PrivateEndpointConnection" }, { type: "azure-nextgen:machinelearningservices/v20200218preview:PrivateEndpointConnection" }, { type: "azure-nextgen:machinelearningservices/v20200301:PrivateEndpointConnection" }, { type: "azure-nextgen:machinelearningservices/v20200401:PrivateEndpointConnection" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:PrivateEndpointConnection" }, { type: "azure-nextgen:machinelearningservices/v20200515preview:PrivateEndpointConnection" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20200401:SecurityPartnerProvider';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20200401:SecurityPartnerProvider';
 
     /**
      * Returns true if the given object is an instance of SecurityPartnerProvider.  This is designed to work even
@@ -119,7 +119,7 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:SecurityPartnerProvider" }, { type: "azurerm:network/v20200301:SecurityPartnerProvider" }, { type: "azurerm:network/v20200501:SecurityPartnerProvider" }, { type: "azurerm:network/v20200601:SecurityPartnerProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200301:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200501:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200601:SecurityPartnerProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SecurityPartnerProvider.__pulumiType, name, inputs, opts);
     }

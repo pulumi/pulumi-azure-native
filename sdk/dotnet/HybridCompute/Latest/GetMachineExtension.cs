@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridCompute.Latest
+namespace Pulumi.AzureNextGen.HybridCompute.Latest
 {
     public static class GetMachineExtension
     {
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azurerm:hybridcompute/latest:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-nextgen:hybridcompute/latest:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithVersion());
     }
 
 

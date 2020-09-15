@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SignalRService.V20180301Preview
+namespace Pulumi.AzureNextGen.SignalRService.V20180301Preview
 {
     /// <summary>
     /// A class represent a SignalR service resource.
@@ -96,12 +96,12 @@ namespace Pulumi.AzureRM.SignalRService.V20180301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SignalR(string name, SignalRArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:signalrservice/v20180301preview:SignalR", name, args ?? new SignalRArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:signalrservice/v20180301preview:SignalR", name, args ?? new SignalRArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SignalR(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:signalrservice/v20180301preview:SignalR", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:signalrservice/v20180301preview:SignalR", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,10 +112,10 @@ namespace Pulumi.AzureRM.SignalRService.V20180301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:signalrservice/latest:SignalR"},
-                    new Pulumi.Alias { Type = "azurerm:signalrservice/v20181001:SignalR"},
-                    new Pulumi.Alias { Type = "azurerm:signalrservice/v20200501:SignalR"},
-                    new Pulumi.Alias { Type = "azurerm:signalrservice/v20200701preview:SignalR"},
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice/latest:SignalR"},
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20181001:SignalR"},
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20200501:SignalR"},
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20200701preview:SignalR"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,7 +14,7 @@ export function listDeviceRegistrationKey(args: ListDeviceRegistrationKeyArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:hybridnetwork/v20200101preview:listDeviceRegistrationKey", {
+    return pulumi.runtime.invoke("azure-nextgen:hybridnetwork/v20200101preview:listDeviceRegistrationKey", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

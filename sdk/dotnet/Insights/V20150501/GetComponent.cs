@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20150501
+namespace Pulumi.AzureNextGen.Insights.V20150501
 {
     public static class GetComponent
     {
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azurerm:insights/v20150501:getComponent", args ?? new GetComponentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("azure-nextgen:insights/v20150501:getComponent", args ?? new GetComponentArgs(), options.WithVersion());
     }
 
 

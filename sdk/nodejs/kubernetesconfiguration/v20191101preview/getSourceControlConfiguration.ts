@@ -14,7 +14,7 @@ export function getSourceControlConfiguration(args: GetSourceControlConfiguratio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:kubernetesconfiguration/v20191101preview:getSourceControlConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:kubernetesconfiguration/v20191101preview:getSourceControlConfiguration", {
         "clusterName": args.clusterName,
         "clusterResourceName": args.clusterResourceName,
         "clusterRp": args.clusterRp,

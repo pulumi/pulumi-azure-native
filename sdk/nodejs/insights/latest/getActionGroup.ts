@@ -14,7 +14,7 @@ export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights/latest:getActionGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getActionGroup", {
         "actionGroupName": args.actionGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

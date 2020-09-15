@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.V20180601Preview
+namespace Pulumi.AzureNextGen.Media.V20180601Preview
 {
     /// <summary>
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Media.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:media/v20180601preview:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:media/v20180601preview:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:media/v20180601preview:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:media/v20180601preview:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,10 +99,10 @@ namespace Pulumi.AzureRM.Media.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:media/latest:Job"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20180330preview:Job"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20180701:Job"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20200501:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

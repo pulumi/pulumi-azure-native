@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20160331
+namespace Pulumi.AzureNextGen.DocumentDB.V20160331
 {
     public static class GetDatabaseAccountTable
     {
         public static Task<GetDatabaseAccountTableResult> InvokeAsync(GetDatabaseAccountTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountTableResult>("azurerm:documentdb/v20160331:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountTableResult>("azure-nextgen:documentdb/v20160331:getDatabaseAccountTable", args ?? new GetDatabaseAccountTableArgs(), options.WithVersion());
     }
 
 

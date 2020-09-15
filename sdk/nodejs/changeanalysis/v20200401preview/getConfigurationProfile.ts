@@ -14,7 +14,7 @@ export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:changeanalysis/v20200401preview:getConfigurationProfile", {
+    return pulumi.runtime.invoke("azure-nextgen:changeanalysis/v20200401preview:getConfigurationProfile", {
         "profileName": args.profileName,
     }, opts);
 }

@@ -14,7 +14,7 @@ export function getSecurityPartnerProvider(args: GetSecurityPartnerProviderArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getSecurityPartnerProvider", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getSecurityPartnerProvider", {
         "resourceGroupName": args.resourceGroupName,
         "securityPartnerProviderName": args.securityPartnerProviderName,
     }, opts);

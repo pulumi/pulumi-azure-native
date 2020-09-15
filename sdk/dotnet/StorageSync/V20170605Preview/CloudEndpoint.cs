@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorageSync.V20170605Preview
+namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
 {
     /// <summary>
     /// Cloud Endpoint object.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.StorageSync.V20170605Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CloudEndpoint(string name, CloudEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storagesync/v20170605preview:CloudEndpoint", name, args ?? new CloudEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storagesync/v20170605preview:CloudEndpoint", name, args ?? new CloudEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CloudEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storagesync/v20170605preview:CloudEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storagesync/v20170605preview:CloudEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,15 +111,15 @@ namespace Pulumi.AzureRM.StorageSync.V20170605Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storagesync/latest:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20180402:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20180701:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20181001:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20190201:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20190301:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20190601:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20191001:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20200301:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20181001:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190201:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190301:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20191001:CloudEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:CloudEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

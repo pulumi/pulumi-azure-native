@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.Latest
+namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     public static class GetNotificationChannel
     {
         public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationChannelResult>("azurerm:devtestlab/latest:getNotificationChannel", args ?? new GetNotificationChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationChannelResult>("azure-nextgen:devtestlab/latest:getNotificationChannel", args ?? new GetNotificationChannelArgs(), options.WithVersion());
     }
 
 

@@ -14,7 +14,7 @@ export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getBackend", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20191201:getBackend", {
         "backendId": args.backendId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

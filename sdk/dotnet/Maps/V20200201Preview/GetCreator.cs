@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Maps.V20200201Preview
+namespace Pulumi.AzureNextGen.Maps.V20200201Preview
 {
     public static class GetCreator
     {
         public static Task<GetCreatorResult> InvokeAsync(GetCreatorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCreatorResult>("azurerm:maps/v20200201preview:getCreator", args ?? new GetCreatorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCreatorResult>("azure-nextgen:maps/v20200201preview:getCreator", args ?? new GetCreatorArgs(), options.WithVersion());
     }
 
 

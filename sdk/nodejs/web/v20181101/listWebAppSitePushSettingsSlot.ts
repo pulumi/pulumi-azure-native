@@ -14,7 +14,7 @@ export function listWebAppSitePushSettingsSlot(args: ListWebAppSitePushSettingsS
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20181101:listWebAppSitePushSettingsSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20181101:listWebAppSitePushSettingsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

@@ -14,7 +14,7 @@ export function listServiceFabricApplicableSchedules(args: ListServiceFabricAppl
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/latest:listServiceFabricApplicableSchedules", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:listServiceFabricApplicableSchedules", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorageSync.V20191001
+namespace Pulumi.AzureNextGen.StorageSync.V20191001
 {
     /// <summary>
     /// Sync Group object.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SyncGroup(string name, SyncGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storagesync/v20191001:SyncGroup", name, args ?? new SyncGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storagesync/v20191001:SyncGroup", name, args ?? new SyncGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SyncGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storagesync/v20191001:SyncGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storagesync/v20191001:SyncGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,15 +63,15 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storagesync/latest:SyncGroup"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20170605preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20180402:SyncGroup"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20180701:SyncGroup"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20181001:SyncGroup"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20190201:SyncGroup"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20190301:SyncGroup"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20190601:SyncGroup"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/v20200301:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20181001:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190201:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190301:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:SyncGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

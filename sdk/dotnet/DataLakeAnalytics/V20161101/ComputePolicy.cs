@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
+namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
 {
     /// <summary>
     /// Data Lake Analytics compute policy information.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ComputePolicy(string name, ComputePolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datalakeanalytics/v20161101:ComputePolicy", name, args ?? new ComputePolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datalakeanalytics/v20161101:ComputePolicy", name, args ?? new ComputePolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ComputePolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datalakeanalytics/v20161101:ComputePolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datalakeanalytics/v20161101:ComputePolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datalakeanalytics/latest:ComputePolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/latest:ComputePolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

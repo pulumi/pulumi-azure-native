@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20200401Preview
+namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 {
     /// <summary>
     /// EventGrid System Topic.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SystemTopic(string name, SystemTopicArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20200401preview:SystemTopic", name, args ?? new SystemTopicArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventgrid/v20200401preview:SystemTopic", name, args ?? new SystemTopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SystemTopic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20200401preview:SystemTopic", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventgrid/v20200401preview:SystemTopic", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -2,9 +2,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
 import { URL } from "url";
 
-import * as cdn from "@pulumi/azurerm/cdn/latest";
-import * as resources from "@pulumi/azurerm/resources/latest";
-import * as storage from "@pulumi/azurerm/storage/latest";
+import * as cdn from "@pulumi/azure-nextgen/cdn/latest";
+import * as resources from "@pulumi/azure-nextgen/resources/latest";
+import * as storage from "@pulumi/azure-nextgen/storage/latest";
 
 const randomString = new random.RandomString("random", {
     length: 12,

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.Latest
+namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 {
     public static class GetTrigger
     {
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azurerm:databoxedge/latest:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-nextgen:databoxedge/latest:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
     }
 
 

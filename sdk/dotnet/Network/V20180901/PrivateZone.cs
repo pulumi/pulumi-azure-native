@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20180901
+namespace Pulumi.AzureNextGen.Network.V20180901
 {
     /// <summary>
     /// Describes a Private DNS zone.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Network.V20180901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateZone(string name, PrivateZoneArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180901:PrivateZone", name, args ?? new PrivateZoneArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20180901:PrivateZone", name, args ?? new PrivateZoneArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateZone(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180901:PrivateZone", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20180901:PrivateZone", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.Network.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateZone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

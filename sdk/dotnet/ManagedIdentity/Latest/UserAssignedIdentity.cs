@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ManagedIdentity.Latest
+namespace Pulumi.AzureNextGen.ManagedIdentity.Latest
 {
     /// <summary>
     /// Describes an identity resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.ManagedIdentity.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserAssignedIdentity(string name, UserAssignedIdentityArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:managedidentity/latest:UserAssignedIdentity", name, args ?? new UserAssignedIdentityArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:managedidentity/latest:UserAssignedIdentity", name, args ?? new UserAssignedIdentityArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserAssignedIdentity(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:managedidentity/latest:UserAssignedIdentity", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:managedidentity/latest:UserAssignedIdentity", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.ManagedIdentity.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:managedidentity/v20150831preview:UserAssignedIdentity"},
-                    new Pulumi.Alias { Type = "azurerm:managedidentity/v20181130:UserAssignedIdentity"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedidentity/v20181130:UserAssignedIdentity"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

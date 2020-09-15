@@ -21,7 +21,7 @@ export class SapMonitor extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hanaonazure/v20200207preview:SapMonitor';
+    public static readonly __pulumiType = 'azure-nextgen:hanaonazure/v20200207preview:SapMonitor';
 
     /**
      * Returns true if the given object is an instance of SapMonitor.  This is designed to work even
@@ -137,7 +137,7 @@ export class SapMonitor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hanaonazure/v20171103preview:SapMonitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:hanaonazure/v20171103preview:SapMonitor" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SapMonitor.__pulumiType, name, inputs, opts);
     }

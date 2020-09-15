@@ -14,7 +14,7 @@ export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:botservice/v20180712:getChannel", {
+    return pulumi.runtime.invoke("azure-nextgen:botservice/v20180712:getChannel", {
         "channelName": args.channelName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

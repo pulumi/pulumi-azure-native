@@ -1,6 +1,6 @@
-# Microsoft Azure Resource Manager (ARM) Provider (preview)
+# Next Generation Azure Pulumi Provider (preview)
 
-The Microsoft Azure Resource Manager provider for Pulumi lets you use Azure resources in your cloud programs.
+The Next Generation Azure Provider for Pulumi lets you use Azure resources in your cloud programs.
 This provider uses the Azure Resource Manager REST API directly and therefore provides full access to ARM API.
 
 The provider is currently in private preview:
@@ -47,6 +47,6 @@ Navigate to one of the `examples` and run Pulumi:
 
 ```
 $ cd ./exampes/simple
-$ yarn link @pulumi/azurerm
+$ yarn link @pulumi/azure-nextgen
 $ pulumi up
 ``` 

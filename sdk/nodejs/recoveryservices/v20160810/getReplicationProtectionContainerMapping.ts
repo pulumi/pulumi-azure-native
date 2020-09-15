@@ -14,7 +14,7 @@ export function getReplicationProtectionContainerMapping(args: GetReplicationPro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:recoveryservices/v20160810:getReplicationProtectionContainerMapping", {
+    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/v20160810:getReplicationProtectionContainerMapping", {
         "fabricName": args.fabricName,
         "mappingName": args.mappingName,
         "protectionContainerName": args.protectionContainerName,

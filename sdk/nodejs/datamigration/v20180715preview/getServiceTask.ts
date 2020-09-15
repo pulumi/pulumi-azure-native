@@ -14,7 +14,7 @@ export function getServiceTask(args: GetServiceTaskArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datamigration/v20180715preview:getServiceTask", {
+    return pulumi.runtime.invoke("azure-nextgen:datamigration/v20180715preview:getServiceTask", {
         "expand": args.expand,
         "groupName": args.groupName,
         "serviceName": args.serviceName,

@@ -23,7 +23,7 @@ export class VirtualRouter extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20190701:VirtualRouter';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20190701:VirtualRouter';
 
     /**
      * Returns true if the given object is an instance of VirtualRouter.  This is designed to work even
@@ -131,7 +131,7 @@ export class VirtualRouter extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VirtualRouter" }, { type: "azurerm:network/v20190801:VirtualRouter" }, { type: "azurerm:network/v20190901:VirtualRouter" }, { type: "azurerm:network/v20191101:VirtualRouter" }, { type: "azurerm:network/v20191201:VirtualRouter" }, { type: "azurerm:network/v20200301:VirtualRouter" }, { type: "azurerm:network/v20200401:VirtualRouter" }, { type: "azurerm:network/v20200501:VirtualRouter" }, { type: "azurerm:network/v20200601:VirtualRouter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualRouter" }, { type: "azure-nextgen:network/v20190801:VirtualRouter" }, { type: "azure-nextgen:network/v20190901:VirtualRouter" }, { type: "azure-nextgen:network/v20191101:VirtualRouter" }, { type: "azure-nextgen:network/v20191201:VirtualRouter" }, { type: "azure-nextgen:network/v20200301:VirtualRouter" }, { type: "azure-nextgen:network/v20200401:VirtualRouter" }, { type: "azure-nextgen:network/v20200501:VirtualRouter" }, { type: "azure-nextgen:network/v20200601:VirtualRouter" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualRouter.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
+namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 {
     /// <summary>
     /// An Azure Cosmos DB container.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlContainer(string name, SqlResourceSqlContainerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20200601preview:SqlResourceSqlContainer", name, args ?? new SqlResourceSqlContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer", name, args ?? new SqlResourceSqlContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20200601preview:SqlResourceSqlContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,11 +75,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:SqlResourceSqlContainer"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlContainer"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlContainer"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlContainer"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

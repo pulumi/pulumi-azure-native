@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20200301Preview
+namespace Pulumi.AzureNextGen.Insights.V20200301Preview
 {
     /// <summary>
     /// An Application Insights component linked storage accounts
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Insights.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ComponentLinkedStorageAccount(string name, ComponentLinkedStorageAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20200301preview:ComponentLinkedStorageAccount", name, args ?? new ComponentLinkedStorageAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount", name, args ?? new ComponentLinkedStorageAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ComponentLinkedStorageAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20200301preview:ComponentLinkedStorageAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 

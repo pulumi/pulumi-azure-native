@@ -14,7 +14,7 @@ export function getIntegrationRuntime(args: GetIntegrationRuntimeArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datafactory/latest:getIntegrationRuntime", {
+    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getIntegrationRuntime", {
         "factoryName": args.factoryName,
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,

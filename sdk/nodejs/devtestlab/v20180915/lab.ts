@@ -23,7 +23,7 @@ export class Lab extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:devtestlab/v20180915:Lab';
+    public static readonly __pulumiType = 'azure-nextgen:devtestlab/v20180915:Lab';
 
     /**
      * Returns true if the given object is an instance of Lab.  This is designed to work even
@@ -209,7 +209,7 @@ export class Lab extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:Lab" }, { type: "azurerm:devtestlab/v20150521preview:Lab" }, { type: "azurerm:devtestlab/v20160515:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:Lab" }, { type: "azure-nextgen:devtestlab/v20150521preview:Lab" }, { type: "azure-nextgen:devtestlab/v20160515:Lab" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Lab.__pulumiType, name, inputs, opts);
     }

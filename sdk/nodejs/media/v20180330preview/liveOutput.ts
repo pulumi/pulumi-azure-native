@@ -23,7 +23,7 @@ export class LiveOutput extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:media/v20180330preview:LiveOutput';
+    public static readonly __pulumiType = 'azure-nextgen:media/v20180330preview:LiveOutput';
 
     /**
      * Returns true if the given object is an instance of LiveOutput.  This is designed to work even
@@ -150,7 +150,7 @@ export class LiveOutput extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:LiveOutput" }, { type: "azurerm:media/v20180601preview:LiveOutput" }, { type: "azurerm:media/v20180701:LiveOutput" }, { type: "azurerm:media/v20190501preview:LiveOutput" }, { type: "azurerm:media/v20200501:LiveOutput" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/latest:LiveOutput" }, { type: "azure-nextgen:media/v20180601preview:LiveOutput" }, { type: "azure-nextgen:media/v20180701:LiveOutput" }, { type: "azure-nextgen:media/v20190501preview:LiveOutput" }, { type: "azure-nextgen:media/v20200501:LiveOutput" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LiveOutput.__pulumiType, name, inputs, opts);
     }

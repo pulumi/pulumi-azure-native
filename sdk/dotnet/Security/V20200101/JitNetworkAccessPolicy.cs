@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20200101
+namespace Pulumi.AzureNextGen.Security.V20200101
 {
     public partial class JitNetworkAccessPolicy : Pulumi.CustomResource
     {
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JitNetworkAccessPolicy(string name, JitNetworkAccessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20200101:JitNetworkAccessPolicy", name, args ?? new JitNetworkAccessPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/v20200101:JitNetworkAccessPolicy", name, args ?? new JitNetworkAccessPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JitNetworkAccessPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20200101:JitNetworkAccessPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/v20200101:JitNetworkAccessPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.Security.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:security/latest:JitNetworkAccessPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:security/v20150601preview:JitNetworkAccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:JitNetworkAccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

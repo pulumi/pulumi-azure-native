@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NotificationHubs.V20140901
+namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
 {
     public static class GetNamespace
     {
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azurerm:notificationhubs/v20140901:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-nextgen:notificationhubs/v20140901:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }
 
 

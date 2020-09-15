@@ -23,7 +23,7 @@ export class CustomApi extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20160601:CustomApi';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20160601:CustomApi';
 
     /**
      * Returns true if the given object is an instance of CustomApi.  This is designed to work even
@@ -100,7 +100,7 @@ export class CustomApi extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:CustomApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:CustomApi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomApi.__pulumiType, name, inputs, opts);
     }

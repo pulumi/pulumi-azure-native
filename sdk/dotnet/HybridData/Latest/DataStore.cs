@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridData.Latest
+namespace Pulumi.AzureNextGen.HybridData.Latest
 {
     /// <summary>
     /// Data store.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.HybridData.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataStore(string name, DataStoreArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hybriddata/latest:DataStore", name, args ?? new DataStoreArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hybriddata/latest:DataStore", name, args ?? new DataStoreArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataStore(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hybriddata/latest:DataStore", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hybriddata/latest:DataStore", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.HybridData.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hybriddata/v20160601:DataStore"},
-                    new Pulumi.Alias { Type = "azurerm:hybriddata/v20190601:DataStore"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20160601:DataStore"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:DataStore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

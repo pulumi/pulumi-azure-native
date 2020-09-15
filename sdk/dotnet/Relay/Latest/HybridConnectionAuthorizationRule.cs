@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Relay.Latest
+namespace Pulumi.AzureNextGen.Relay.Latest
 {
     /// <summary>
     /// Description of a namespace authorization rule.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Relay.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HybridConnectionAuthorizationRule(string name, HybridConnectionAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:relay/latest:HybridConnectionAuthorizationRule", name, args ?? new HybridConnectionAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:relay/latest:HybridConnectionAuthorizationRule", name, args ?? new HybridConnectionAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HybridConnectionAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:relay/latest:HybridConnectionAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:relay/latest:HybridConnectionAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Relay.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:relay/v20160701:HybridConnectionAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:relay/v20170401:HybridConnectionAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

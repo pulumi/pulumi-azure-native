@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Resources.V20190601Preview
+namespace Pulumi.AzureNextGen.Resources.V20190601Preview
 {
     public static class GetTemplateSpec
     {
         public static Task<GetTemplateSpecResult> InvokeAsync(GetTemplateSpecArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecResult>("azurerm:resources/v20190601preview:getTemplateSpec", args ?? new GetTemplateSpecArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecResult>("azure-nextgen:resources/v20190601preview:getTemplateSpec", args ?? new GetTemplateSpecArgs(), options.WithVersion());
     }
 
 

@@ -23,7 +23,7 @@ export class WebApp extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20180201:WebApp';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20180201:WebApp';
 
     /**
      * Returns true if the given object is an instance of WebApp.  This is designed to work even
@@ -328,7 +328,7 @@ export class WebApp extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebApp" }, { type: "azurerm:web/v20150801:WebApp" }, { type: "azurerm:web/v20160801:WebApp" }, { type: "azurerm:web/v20181101:WebApp" }, { type: "azurerm:web/v20190801:WebApp" }, { type: "azurerm:web/v20200601:WebApp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebApp" }, { type: "azure-nextgen:web/v20150801:WebApp" }, { type: "azure-nextgen:web/v20160801:WebApp" }, { type: "azure-nextgen:web/v20181101:WebApp" }, { type: "azure-nextgen:web/v20190801:WebApp" }, { type: "azure-nextgen:web/v20200601:WebApp" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebApp.__pulumiType, name, inputs, opts);
     }

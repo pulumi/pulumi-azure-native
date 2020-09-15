@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20170801Preview
+namespace Pulumi.AzureNextGen.Security.V20170801Preview
 {
     /// <summary>
     /// Configures where to store the OMS agent data for workspaces under a scope
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkspaceSetting(string name, WorkspaceSettingArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20170801preview:WorkspaceSetting", name, args ?? new WorkspaceSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/v20170801preview:WorkspaceSetting", name, args ?? new WorkspaceSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkspaceSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20170801preview:WorkspaceSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/v20170801preview:WorkspaceSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 

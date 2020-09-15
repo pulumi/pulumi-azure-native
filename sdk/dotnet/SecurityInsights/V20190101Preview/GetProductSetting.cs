@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetProductSetting
     {
         public static Task<GetProductSettingResult> InvokeAsync(GetProductSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductSettingResult>("azurerm:securityinsights/v20190101preview:getProductSetting", args ?? new GetProductSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductSettingResult>("azure-nextgen:securityinsights/v20190101preview:getProductSetting", args ?? new GetProductSettingArgs(), options.WithVersion());
     }
 
 

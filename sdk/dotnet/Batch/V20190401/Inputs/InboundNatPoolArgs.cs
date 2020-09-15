@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Batch.V20190401.Inputs
+namespace Pulumi.AzureNextGen.Batch.V20190401.Inputs
 {
 
     public sealed class InboundNatPoolArgs : Pulumi.ResourceArgs

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.Latest
+namespace Pulumi.AzureNextGen.Insights.Latest
 {
     /// <summary>
     /// An Application Insights private workbook definition.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MyWorkbook(string name, MyWorkbookArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/latest:MyWorkbook", name, args ?? new MyWorkbookArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/latest:MyWorkbook", name, args ?? new MyWorkbookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MyWorkbook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/latest:MyWorkbook", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/latest:MyWorkbook", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/v20150501:MyWorkbook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:MyWorkbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

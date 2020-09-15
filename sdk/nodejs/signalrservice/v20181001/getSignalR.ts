@@ -14,7 +14,7 @@ export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:signalrservice/v20181001:getSignalR", {
+    return pulumi.runtime.invoke("azure-nextgen:signalrservice/v20181001:getSignalR", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

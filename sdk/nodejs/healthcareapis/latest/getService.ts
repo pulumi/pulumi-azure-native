@@ -14,7 +14,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:healthcareapis/latest:getService", {
+    return pulumi.runtime.invoke("azure-nextgen:healthcareapis/latest:getService", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

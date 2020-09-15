@@ -21,7 +21,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20200808preview:DelegatedSubnetServiceDetails';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20200808preview:DelegatedSubnetServiceDetails';
 
     /**
      * Returns true if the given object is an instance of DelegatedSubnetServiceDetails.  This is designed to work even

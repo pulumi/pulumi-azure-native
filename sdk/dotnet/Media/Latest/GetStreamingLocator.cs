@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.Latest
+namespace Pulumi.AzureNextGen.Media.Latest
 {
     public static class GetStreamingLocator
     {
         public static Task<GetStreamingLocatorResult> InvokeAsync(GetStreamingLocatorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azurerm:media/latest:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azure-nextgen:media/latest:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithVersion());
     }
 
 

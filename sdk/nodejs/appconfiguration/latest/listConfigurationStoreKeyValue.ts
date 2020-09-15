@@ -14,7 +14,7 @@ export function listConfigurationStoreKeyValue(args: ListConfigurationStoreKeyVa
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:appconfiguration/latest:listConfigurationStoreKeyValue", {
+    return pulumi.runtime.invoke("azure-nextgen:appconfiguration/latest:listConfigurationStoreKeyValue", {
         "configStoreName": args.configStoreName,
         "key": args.key,
         "label": args.label,

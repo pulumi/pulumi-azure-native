@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataMigration.Latest
+namespace Pulumi.AzureNextGen.DataMigration.Latest
 {
     /// <summary>
     /// A task resource
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DataMigration.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Task(string name, TaskArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datamigration/latest:Task", name, args ?? new TaskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datamigration/latest:Task", name, args ?? new TaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Task(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datamigration/latest:Task", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datamigration/latest:Task", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,11 +63,11 @@ namespace Pulumi.AzureRM.DataMigration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datamigration/v20171115preview:Task"},
-                    new Pulumi.Alias { Type = "azurerm:datamigration/v20180315preview:Task"},
-                    new Pulumi.Alias { Type = "azurerm:datamigration/v20180331preview:Task"},
-                    new Pulumi.Alias { Type = "azurerm:datamigration/v20180419:Task"},
-                    new Pulumi.Alias { Type = "azurerm:datamigration/v20180715preview:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20171115preview:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180315preview:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180331preview:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180419:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180715preview:Task"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NotificationHubs.V20170401
+namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
 {
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationHubAuthorizationRule(string name, NotificationHubAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:notificationhubs/v20170401:NotificationHubAuthorizationRule", name, args ?? new NotificationHubAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule", name, args ?? new NotificationHubAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationHubAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:notificationhubs/v20170401:NotificationHubAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,8 +123,8 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/latest:NotificationHubAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/v20160301:NotificationHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:NotificationHubAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

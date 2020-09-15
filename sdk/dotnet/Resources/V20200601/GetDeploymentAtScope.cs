@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Resources.V20200601
+namespace Pulumi.AzureNextGen.Resources.V20200601
 {
     public static class GetDeploymentAtScope
     {
         public static Task<GetDeploymentAtScopeResult> InvokeAsync(GetDeploymentAtScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtScopeResult>("azurerm:resources/v20200601:getDeploymentAtScope", args ?? new GetDeploymentAtScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtScopeResult>("azure-nextgen:resources/v20200601:getDeploymentAtScope", args ?? new GetDeploymentAtScopeArgs(), options.WithVersion());
     }
 
 

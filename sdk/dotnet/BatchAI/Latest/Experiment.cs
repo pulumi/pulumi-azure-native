@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BatchAI.Latest
+namespace Pulumi.AzureNextGen.BatchAI.Latest
 {
     /// <summary>
     /// Experiment information.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.BatchAI.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Experiment(string name, ExperimentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:batchai/latest:Experiment", name, args ?? new ExperimentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:batchai/latest:Experiment", name, args ?? new ExperimentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Experiment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:batchai/latest:Experiment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:batchai/latest:Experiment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:batchai/v20180501:Experiment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Experiment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

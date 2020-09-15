@@ -14,7 +14,7 @@ export function getWorkflowAccessKey(args: GetWorkflowAccessKeyArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20150201preview:getWorkflowAccessKey", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20150201preview:getWorkflowAccessKey", {
         "accessKeyName": args.accessKeyName,
         "resourceGroupName": args.resourceGroupName,
         "workflowName": args.workflowName,

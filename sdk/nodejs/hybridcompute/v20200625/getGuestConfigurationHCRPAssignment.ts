@@ -14,7 +14,7 @@ export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationH
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:hybridcompute/v20200625:getGuestConfigurationHCRPAssignment", {
+    return pulumi.runtime.invoke("azure-nextgen:hybridcompute/v20200625:getGuestConfigurationHCRPAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
         "machineName": args.machineName,
         "resourceGroupName": args.resourceGroupName,

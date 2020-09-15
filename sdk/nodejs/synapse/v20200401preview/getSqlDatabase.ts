@@ -14,7 +14,7 @@ export function getSqlDatabase(args: GetSqlDatabaseArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:synapse/v20200401preview:getSqlDatabase", {
+    return pulumi.runtime.invoke("azure-nextgen:synapse/v20200401preview:getSqlDatabase", {
         "resourceGroupName": args.resourceGroupName,
         "sqlDatabaseName": args.sqlDatabaseName,
         "workspaceName": args.workspaceName,

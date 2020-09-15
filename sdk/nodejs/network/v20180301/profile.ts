@@ -23,7 +23,7 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20180301:Profile';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20180301:Profile';
 
     /**
      * Returns true if the given object is an instance of Profile.  This is designed to work even
@@ -125,7 +125,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:Profile" }, { type: "azurerm:network/v20151101:Profile" }, { type: "azurerm:network/v20170301:Profile" }, { type: "azurerm:network/v20170501:Profile" }, { type: "azurerm:network/v20180201:Profile" }, { type: "azurerm:network/v20180401:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:Profile" }, { type: "azure-nextgen:network/v20151101:Profile" }, { type: "azure-nextgen:network/v20170301:Profile" }, { type: "azure-nextgen:network/v20170501:Profile" }, { type: "azure-nextgen:network/v20180201:Profile" }, { type: "azure-nextgen:network/v20180401:Profile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Profile.__pulumiType, name, inputs, opts);
     }

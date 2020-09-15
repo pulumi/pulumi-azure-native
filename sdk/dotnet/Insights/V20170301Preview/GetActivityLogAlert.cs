@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20170301Preview
+namespace Pulumi.AzureNextGen.Insights.V20170301Preview
 {
     public static class GetActivityLogAlert
     {
         public static Task<GetActivityLogAlertResult> InvokeAsync(GetActivityLogAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azurerm:insights/v20170301preview:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azure-nextgen:insights/v20170301preview:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithVersion());
     }
 
 

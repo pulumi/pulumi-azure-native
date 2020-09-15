@@ -23,7 +23,7 @@ export class VpnConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20190701:VpnConnection';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20190701:VpnConnection';
 
     /**
      * Returns true if the given object is an instance of VpnConnection.  This is designed to work even
@@ -177,7 +177,7 @@ export class VpnConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VpnConnection" }, { type: "azurerm:network/v20180401:VpnConnection" }, { type: "azurerm:network/v20180601:VpnConnection" }, { type: "azurerm:network/v20180701:VpnConnection" }, { type: "azurerm:network/v20180801:VpnConnection" }, { type: "azurerm:network/v20181001:VpnConnection" }, { type: "azurerm:network/v20181101:VpnConnection" }, { type: "azurerm:network/v20181201:VpnConnection" }, { type: "azurerm:network/v20190201:VpnConnection" }, { type: "azurerm:network/v20190401:VpnConnection" }, { type: "azurerm:network/v20190601:VpnConnection" }, { type: "azurerm:network/v20190801:VpnConnection" }, { type: "azurerm:network/v20190901:VpnConnection" }, { type: "azurerm:network/v20191101:VpnConnection" }, { type: "azurerm:network/v20191201:VpnConnection" }, { type: "azurerm:network/v20200301:VpnConnection" }, { type: "azurerm:network/v20200401:VpnConnection" }, { type: "azurerm:network/v20200501:VpnConnection" }, { type: "azurerm:network/v20200601:VpnConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VpnConnection" }, { type: "azure-nextgen:network/v20180401:VpnConnection" }, { type: "azure-nextgen:network/v20180601:VpnConnection" }, { type: "azure-nextgen:network/v20180701:VpnConnection" }, { type: "azure-nextgen:network/v20180801:VpnConnection" }, { type: "azure-nextgen:network/v20181001:VpnConnection" }, { type: "azure-nextgen:network/v20181101:VpnConnection" }, { type: "azure-nextgen:network/v20181201:VpnConnection" }, { type: "azure-nextgen:network/v20190201:VpnConnection" }, { type: "azure-nextgen:network/v20190401:VpnConnection" }, { type: "azure-nextgen:network/v20190601:VpnConnection" }, { type: "azure-nextgen:network/v20190801:VpnConnection" }, { type: "azure-nextgen:network/v20190901:VpnConnection" }, { type: "azure-nextgen:network/v20191101:VpnConnection" }, { type: "azure-nextgen:network/v20191201:VpnConnection" }, { type: "azure-nextgen:network/v20200301:VpnConnection" }, { type: "azure-nextgen:network/v20200401:VpnConnection" }, { type: "azure-nextgen:network/v20200501:VpnConnection" }, { type: "azure-nextgen:network/v20200601:VpnConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VpnConnection.__pulumiType, name, inputs, opts);
     }

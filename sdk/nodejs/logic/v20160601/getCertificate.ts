@@ -14,7 +14,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20160601:getCertificate", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20160601:getCertificate", {
         "certificateName": args.certificateName,
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,

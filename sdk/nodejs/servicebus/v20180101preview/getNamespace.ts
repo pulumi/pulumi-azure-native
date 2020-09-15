@@ -14,7 +14,7 @@ export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:servicebus/v20180101preview:getNamespace", {
+    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20180101preview:getNamespace", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

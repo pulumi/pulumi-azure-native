@@ -14,7 +14,7 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:labservices/latest:getEnvironment", {
+    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:getEnvironment", {
         "environmentName": args.environmentName,
         "environmentSettingName": args.environmentSettingName,
         "expand": args.expand,

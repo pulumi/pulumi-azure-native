@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SignalRService.Latest
+namespace Pulumi.AzureNextGen.SignalRService.Latest
 {
     /// <summary>
     /// A private endpoint connection to SignalR resource
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.SignalRService.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SignalRPrivateEndpointConnection(string name, SignalRPrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:signalrservice/latest:SignalRPrivateEndpointConnection", name, args ?? new SignalRPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection", name, args ?? new SignalRPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SignalRPrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:signalrservice/latest:SignalRPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.SignalRService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:signalrservice/v20200501:SignalRPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20200501:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

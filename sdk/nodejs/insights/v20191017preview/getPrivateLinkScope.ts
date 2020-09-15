@@ -14,7 +14,7 @@ export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights/v20191017preview:getPrivateLinkScope", {
+    return pulumi.runtime.invoke("azure-nextgen:insights/v20191017preview:getPrivateLinkScope", {
         "resourceGroupName": args.resourceGroupName,
         "scopeName": args.scopeName,
     }, opts);

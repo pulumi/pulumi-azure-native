@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ManagedServices.V20180601Preview
+namespace Pulumi.AzureNextGen.ManagedServices.V20180601Preview
 {
     /// <summary>
     /// Registration definition.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.ManagedServices.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegistrationDefinition(string name, RegistrationDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:managedservices/v20180601preview:RegistrationDefinition", name, args ?? new RegistrationDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:managedservices/v20180601preview:RegistrationDefinition", name, args ?? new RegistrationDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegistrationDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:managedservices/v20180601preview:RegistrationDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:managedservices/v20180601preview:RegistrationDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,11 +63,11 @@ namespace Pulumi.AzureRM.ManagedServices.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:managedservices/latest:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:managedservices/v20190401preview:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:managedservices/v20190601:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:managedservices/v20190901:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:managedservices/v20200201preview:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/latest:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190401preview:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190601:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190901:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20200201preview:RegistrationDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

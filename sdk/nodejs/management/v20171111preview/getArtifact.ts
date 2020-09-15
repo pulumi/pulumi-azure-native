@@ -14,7 +14,7 @@ export function getArtifact(args: GetArtifactArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:management/v20171111preview:getArtifact", {
+    return pulumi.runtime.invoke("azure-nextgen:management/v20171111preview:getArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,
         "managementGroupName": args.managementGroupName,

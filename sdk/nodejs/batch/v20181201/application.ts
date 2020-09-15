@@ -21,7 +21,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:batch/v20181201:Application';
+    public static readonly __pulumiType = 'azure-nextgen:batch/v20181201:Application';
 
     /**
      * Returns true if the given object is an instance of Application.  This is designed to work even
@@ -102,7 +102,7 @@ export class Application extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:batch/latest:Application" }, { type: "azurerm:batch/v20151201:Application" }, { type: "azurerm:batch/v20170101:Application" }, { type: "azurerm:batch/v20170501:Application" }, { type: "azurerm:batch/v20170901:Application" }, { type: "azurerm:batch/v20190401:Application" }, { type: "azurerm:batch/v20190801:Application" }, { type: "azurerm:batch/v20200301:Application" }, { type: "azurerm:batch/v20200501:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/latest:Application" }, { type: "azure-nextgen:batch/v20151201:Application" }, { type: "azure-nextgen:batch/v20170101:Application" }, { type: "azure-nextgen:batch/v20170501:Application" }, { type: "azure-nextgen:batch/v20170901:Application" }, { type: "azure-nextgen:batch/v20190401:Application" }, { type: "azure-nextgen:batch/v20190801:Application" }, { type: "azure-nextgen:batch/v20200301:Application" }, { type: "azure-nextgen:batch/v20200501:Application" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Application.__pulumiType, name, inputs, opts);
     }

@@ -21,7 +21,7 @@ export class Trigger extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datashare/v20191101:Trigger';
+    public static readonly __pulumiType = 'azure-nextgen:datashare/v20191101:Trigger';
 
     /**
      * Returns true if the given object is an instance of Trigger.  This is designed to work even
@@ -91,7 +91,7 @@ export class Trigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datashare/latest:Trigger" }, { type: "azurerm:datashare/v20181101preview:Trigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:Trigger" }, { type: "azure-nextgen:datashare/v20181101preview:Trigger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Trigger.__pulumiType, name, inputs, opts);
     }

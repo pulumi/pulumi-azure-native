@@ -14,7 +14,7 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:operationalinsights/v20200301preview:getWorkspace", {
+    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/v20200301preview:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20191201
+namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 {
     public static class GetTagByApi
     {
         public static Task<GetTagByApiResult> InvokeAsync(GetTagByApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagByApiResult>("azurerm:apimanagement/v20191201:getTagByApi", args ?? new GetTagByApiArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTagByApiResult>("azure-nextgen:apimanagement/v20191201:getTagByApi", args ?? new GetTagByApiArgs(), options.WithVersion());
     }
 
 

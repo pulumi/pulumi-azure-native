@@ -21,7 +21,7 @@ export class IscsiServer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storsimple/latest:IscsiServer';
+    public static readonly __pulumiType = 'azure-nextgen:storsimple/latest:IscsiServer';
 
     /**
      * Returns true if the given object is an instance of IscsiServer.  This is designed to work even
@@ -118,7 +118,7 @@ export class IscsiServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20161001:IscsiServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20161001:IscsiServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IscsiServer.__pulumiType, name, inputs, opts);
     }

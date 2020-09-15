@@ -14,7 +14,7 @@ export function getDataConnector(args: GetDataConnectorArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:operationalinsights/v20200101:getDataConnector", {
+    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/v20200101:getDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

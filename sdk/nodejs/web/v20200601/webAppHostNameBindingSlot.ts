@@ -21,7 +21,7 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20200601:WebAppHostNameBindingSlot';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20200601:WebAppHostNameBindingSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppHostNameBindingSlot.  This is designed to work even
@@ -141,7 +141,7 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppHostNameBindingSlot" }, { type: "azurerm:web/v20150801:WebAppHostNameBindingSlot" }, { type: "azurerm:web/v20160801:WebAppHostNameBindingSlot" }, { type: "azurerm:web/v20180201:WebAppHostNameBindingSlot" }, { type: "azurerm:web/v20181101:WebAppHostNameBindingSlot" }, { type: "azurerm:web/v20190801:WebAppHostNameBindingSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20150801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20160801:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20181101:WebAppHostNameBindingSlot" }, { type: "azure-nextgen:web/v20190801:WebAppHostNameBindingSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHostNameBindingSlot.__pulumiType, name, inputs, opts);
     }

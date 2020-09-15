@@ -14,7 +14,7 @@ export function getWebAppPublicCertificate(args: GetWebAppPublicCertificateArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20181101:getWebAppPublicCertificate", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20181101:getWebAppPublicCertificate", {
         "name": args.name,
         "publicCertificateName": args.publicCertificateName,
         "resourceGroupName": args.resourceGroupName,

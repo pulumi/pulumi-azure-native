@@ -14,7 +14,7 @@ export function getConnectionType(args: GetConnectionTypeArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:automation/v20151031:getConnectionType", {
+    return pulumi.runtime.invoke("azure-nextgen:automation/v20151031:getConnectionType", {
         "automationAccountName": args.automationAccountName,
         "connectionTypeName": args.connectionTypeName,
         "resourceGroupName": args.resourceGroupName,

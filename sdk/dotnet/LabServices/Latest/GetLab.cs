@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.LabServices.Latest
+namespace Pulumi.AzureNextGen.LabServices.Latest
 {
     public static class GetLab
     {
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azurerm:labservices/latest:getLab", args ?? new GetLabArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-nextgen:labservices/latest:getLab", args ?? new GetLabArgs(), options.WithVersion());
     }
 
 

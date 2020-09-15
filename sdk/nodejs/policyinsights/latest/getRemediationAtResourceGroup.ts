@@ -14,7 +14,7 @@ export function getRemediationAtResourceGroup(args: GetRemediationAtResourceGrou
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:policyinsights/latest:getRemediationAtResourceGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:policyinsights/latest:getRemediationAtResourceGroup", {
         "remediationName": args.remediationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

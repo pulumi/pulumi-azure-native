@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ManagementPartner.V20180201
+namespace Pulumi.AzureNextGen.ManagementPartner.V20180201
 {
     /// <summary>
     /// this is the management partner operations response
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.ManagementPartner.V20180201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Partner(string name, PartnerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:managementpartner/v20180201:Partner", name, args ?? new PartnerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:managementpartner/v20180201:Partner", name, args ?? new PartnerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Partner(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:managementpartner/v20180201:Partner", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:managementpartner/v20180201:Partner", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.ManagementPartner.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:managementpartner/latest:Partner"},
+                    new Pulumi.Alias { Type = "azure-nextgen:managementpartner/latest:Partner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

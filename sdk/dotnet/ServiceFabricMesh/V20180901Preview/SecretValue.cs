@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
+namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 {
     /// <summary>
     /// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecretValue(string name, SecretValueArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabricmesh/v20180901preview:SecretValue", name, args ?? new SecretValueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicefabricmesh/v20180901preview:SecretValue", name, args ?? new SecretValueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecretValue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabricmesh/v20180901preview:SecretValue", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicefabricmesh/v20180901preview:SecretValue", name, null, MakeResourceOptions(options, id))
         {
         }
 

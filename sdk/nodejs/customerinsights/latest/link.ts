@@ -23,7 +23,7 @@ export class Link extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:customerinsights/latest:Link';
+    public static readonly __pulumiType = 'azure-nextgen:customerinsights/latest:Link';
 
     /**
      * Returns true if the given object is an instance of Link.  This is designed to work even
@@ -172,7 +172,7 @@ export class Link extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/v20170101:Link" }, { type: "azurerm:customerinsights/v20170426:Link" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170101:Link" }, { type: "azure-nextgen:customerinsights/v20170426:Link" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Link.__pulumiType, name, inputs, opts);
     }

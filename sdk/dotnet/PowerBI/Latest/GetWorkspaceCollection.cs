@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.PowerBI.Latest
+namespace Pulumi.AzureNextGen.PowerBI.Latest
 {
     public static class GetWorkspaceCollection
     {
         public static Task<GetWorkspaceCollectionResult> InvokeAsync(GetWorkspaceCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceCollectionResult>("azurerm:powerbi/latest:getWorkspaceCollection", args ?? new GetWorkspaceCollectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceCollectionResult>("azure-nextgen:powerbi/latest:getWorkspaceCollection", args ?? new GetWorkspaceCollectionArgs(), options.WithVersion());
     }
 
 

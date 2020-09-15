@@ -14,7 +14,7 @@ export function listWebAppBackupConfigurationSlot(args: ListWebAppBackupConfigur
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20160801:listWebAppBackupConfigurationSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20160801:listWebAppBackupConfigurationSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

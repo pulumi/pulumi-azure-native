@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20171001
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001
 {
     /// <summary>
     /// An object that represents a replication for a container registry.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Replication(string name, ReplicationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20171001:Replication", name, args ?? new ReplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/v20171001:Replication", name, args ?? new ReplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Replication(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20171001:Replication", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/v20171001:Replication", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,10 +75,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/latest:Replication"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20170601preview:Replication"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20190501:Replication"},
-                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20191201preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Replication"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Replication"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Replication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

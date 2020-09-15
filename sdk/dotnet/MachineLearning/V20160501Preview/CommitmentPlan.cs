@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearning.V20160501Preview
+namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
 {
     /// <summary>
     /// An Azure ML commitment plan resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.MachineLearning.V20160501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CommitmentPlan(string name, CommitmentPlanArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearning/v20160501preview:CommitmentPlan", name, args ?? new CommitmentPlanArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:machinelearning/v20160501preview:CommitmentPlan", name, args ?? new CommitmentPlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CommitmentPlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearning/v20160501preview:CommitmentPlan", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:machinelearning/v20160501preview:CommitmentPlan", name, null, MakeResourceOptions(options, id))
         {
         }
 

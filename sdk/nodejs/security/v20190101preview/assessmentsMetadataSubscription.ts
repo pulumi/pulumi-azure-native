@@ -21,7 +21,7 @@ export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:security/v20190101preview:AssessmentsMetadataSubscription';
+    public static readonly __pulumiType = 'azure-nextgen:security/v20190101preview:AssessmentsMetadataSubscription';
 
     /**
      * Returns true if the given object is an instance of AssessmentsMetadataSubscription.  This is designed to work even
@@ -139,7 +139,7 @@ export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:security/latest:AssessmentsMetadataSubscription" }, { type: "azurerm:security/v20200101:AssessmentsMetadataSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/latest:AssessmentsMetadataSubscription" }, { type: "azure-nextgen:security/v20200101:AssessmentsMetadataSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AssessmentsMetadataSubscription.__pulumiType, name, inputs, opts);
     }

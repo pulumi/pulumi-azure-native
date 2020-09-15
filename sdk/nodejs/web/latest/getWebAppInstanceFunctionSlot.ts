@@ -14,7 +14,7 @@ export function getWebAppInstanceFunctionSlot(args: GetWebAppInstanceFunctionSlo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:getWebAppInstanceFunctionSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppInstanceFunctionSlot", {
         "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

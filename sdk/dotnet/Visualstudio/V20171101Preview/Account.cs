@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Visualstudio.V20171101Preview
+namespace Pulumi.AzureNextGen.Visualstudio.V20171101Preview
 {
     /// <summary>
     /// The response to an account resource GET request.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Visualstudio.V20171101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:visualstudio/v20171101preview:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:visualstudio/v20171101preview:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:visualstudio/v20171101preview:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:visualstudio/v20171101preview:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.Visualstudio.V20171101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:visualstudio/v20140401preview:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:visualstudio/v20140401preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

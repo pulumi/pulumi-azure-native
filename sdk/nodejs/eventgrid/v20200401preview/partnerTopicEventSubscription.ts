@@ -23,7 +23,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:eventgrid/v20200401preview:PartnerTopicEventSubscription';
+    public static readonly __pulumiType = 'azure-nextgen:eventgrid/v20200401preview:PartnerTopicEventSubscription';
 
     /**
      * Returns true if the given object is an instance of PartnerTopicEventSubscription.  This is designed to work even

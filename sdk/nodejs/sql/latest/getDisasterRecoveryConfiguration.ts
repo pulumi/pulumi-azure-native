@@ -14,7 +14,7 @@ export function getDisasterRecoveryConfiguration(args: GetDisasterRecoveryConfig
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/latest:getDisasterRecoveryConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/latest:getDisasterRecoveryConfiguration", {
         "disasterRecoveryConfigurationName": args.disasterRecoveryConfigurationName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

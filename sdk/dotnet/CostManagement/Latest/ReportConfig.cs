@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CostManagement.Latest
+namespace Pulumi.AzureNextGen.CostManagement.Latest
 {
     /// <summary>
     /// A report config resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.CostManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReportConfig(string name, ReportConfigArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/latest:ReportConfig", name, args ?? new ReportConfigArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:costmanagement/latest:ReportConfig", name, args ?? new ReportConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReportConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/latest:ReportConfig", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:costmanagement/latest:ReportConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.CostManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20180531:ReportConfig"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20180531:ReportConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

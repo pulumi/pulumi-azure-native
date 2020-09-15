@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kusto.Latest
+namespace Pulumi.AzureNextGen.Kusto.Latest
 {
     /// <summary>
     /// Class representing a database principal assignment.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Kusto.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabasePrincipalAssignment(string name, DatabasePrincipalAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/latest:DatabasePrincipalAssignment", name, args ?? new DatabasePrincipalAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:kusto/latest:DatabasePrincipalAssignment", name, args ?? new DatabasePrincipalAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabasePrincipalAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:kusto/latest:DatabasePrincipalAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:kusto/latest:DatabasePrincipalAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,9 +93,9 @@ namespace Pulumi.AzureRM.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20191109:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200215:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:kusto/v20200614:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

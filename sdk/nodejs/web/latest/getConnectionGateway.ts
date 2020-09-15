@@ -14,7 +14,7 @@ export function getConnectionGateway(args: GetConnectionGatewayArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:getConnectionGateway", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:getConnectionGateway", {
         "connectionGatewayName": args.connectionGatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

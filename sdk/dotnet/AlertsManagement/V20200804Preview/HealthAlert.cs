@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AlertsManagement.V20200804Preview
+namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
 {
     /// <summary>
     /// The health alert resource.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.AlertsManagement.V20200804Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HealthAlert(string name, HealthAlertArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:alertsmanagement/v20200804preview:HealthAlert", name, args ?? new HealthAlertArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert", name, args ?? new HealthAlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HealthAlert(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:alertsmanagement/v20200804preview:HealthAlert", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert", name, null, MakeResourceOptions(options, id))
         {
         }
 

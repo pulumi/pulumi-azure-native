@@ -14,7 +14,7 @@ export function getFileServer(args: GetFileServerArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:batchai/v20170901preview:getFileServer", {
+    return pulumi.runtime.invoke("azure-nextgen:batchai/v20170901preview:getFileServer", {
         "fileServerName": args.fileServerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.V20170601
+namespace Pulumi.AzureNextGen.StorSimple.V20170601
 {
     public static class GetBandwidthSetting
     {
         public static Task<GetBandwidthSettingResult> InvokeAsync(GetBandwidthSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthSettingResult>("azurerm:storsimple/v20170601:getBandwidthSetting", args ?? new GetBandwidthSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBandwidthSettingResult>("azure-nextgen:storsimple/v20170601:getBandwidthSetting", args ?? new GetBandwidthSettingArgs(), options.WithVersion());
     }
 
 

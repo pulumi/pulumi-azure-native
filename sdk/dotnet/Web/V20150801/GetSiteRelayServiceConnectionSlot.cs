@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteRelayServiceConnectionSlot
     {
         public static Task<GetSiteRelayServiceConnectionSlotResult> InvokeAsync(GetSiteRelayServiceConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteRelayServiceConnectionSlotResult>("azurerm:web/v20150801:getSiteRelayServiceConnectionSlot", args ?? new GetSiteRelayServiceConnectionSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteRelayServiceConnectionSlotResult>("azure-nextgen:web/v20150801:getSiteRelayServiceConnectionSlot", args ?? new GetSiteRelayServiceConnectionSlotArgs(), options.WithVersion());
     }
 
 

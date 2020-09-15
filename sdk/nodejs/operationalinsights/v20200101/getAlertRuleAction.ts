@@ -14,7 +14,7 @@ export function getAlertRuleAction(args: GetAlertRuleActionArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:operationalinsights/v20200101:getAlertRuleAction", {
+    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/v20200101:getAlertRuleAction", {
         "actionId": args.actionId,
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

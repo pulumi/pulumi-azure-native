@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Intune.V20150114PrivatePreview
+namespace Pulumi.AzureNextGen.Intune.V20150114PrivatePreview
 {
     public static class GetAndroidMAMPolicyByName
     {
         public static Task<GetAndroidMAMPolicyByNameResult> InvokeAsync(GetAndroidMAMPolicyByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAndroidMAMPolicyByNameResult>("azurerm:intune/v20150114privatepreview:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAndroidMAMPolicyByNameResult>("azure-nextgen:intune/v20150114privatepreview:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameArgs(), options.WithVersion());
     }
 
 

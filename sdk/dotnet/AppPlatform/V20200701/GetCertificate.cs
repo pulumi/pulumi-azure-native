@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AppPlatform.V20200701
+namespace Pulumi.AzureNextGen.AppPlatform.V20200701
 {
     public static class GetCertificate
     {
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azurerm:appplatform/v20200701:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-nextgen:appplatform/v20200701:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }
 
 

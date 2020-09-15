@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.Latest
+namespace Pulumi.AzureNextGen.Migrate.Latest
 {
     public static class GetVMwareCollector
     {
         public static Task<GetVMwareCollectorResult> InvokeAsync(GetVMwareCollectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azurerm:migrate/latest:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-nextgen:migrate/latest:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithVersion());
     }
 
 

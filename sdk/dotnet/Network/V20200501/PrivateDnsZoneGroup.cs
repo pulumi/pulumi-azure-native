@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200501
+namespace Pulumi.AzureNextGen.Network.V20200501
 {
     /// <summary>
     /// Private dns zone group resource.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateDnsZoneGroup(string name, PrivateDnsZoneGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200501:PrivateDnsZoneGroup", name, args ?? new PrivateDnsZoneGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200501:PrivateDnsZoneGroup", name, args ?? new PrivateDnsZoneGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateDnsZoneGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200501:PrivateDnsZoneGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200501:PrivateDnsZoneGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,10 +63,10 @@ namespace Pulumi.AzureRM.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:PrivateDnsZoneGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateDnsZoneGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:PrivateDnsZoneGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PrivateDnsZoneGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateDnsZoneGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

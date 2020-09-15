@@ -23,7 +23,7 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:devtestlab/v20180915:ServiceFabricSchedule';
+    public static readonly __pulumiType = 'azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule';
 
     /**
      * Returns true if the given object is an instance of ServiceFabricSchedule.  This is designed to work even
@@ -165,7 +165,7 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:ServiceFabricSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:ServiceFabricSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceFabricSchedule.__pulumiType, name, inputs, opts);
     }

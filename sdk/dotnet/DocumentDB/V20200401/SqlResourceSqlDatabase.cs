@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20200401
+namespace Pulumi.AzureNextGen.DocumentDB.V20200401
 {
     /// <summary>
     /// An Azure Cosmos DB SQL database.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlDatabase(string name, SqlResourceSqlDatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20200401:SqlResourceSqlDatabase", name, args ?? new SqlResourceSqlDatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase", name, args ?? new SqlResourceSqlDatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlDatabase(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20200401:SqlResourceSqlDatabase", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,11 +69,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlDatabase"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:SqlResourceSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:SqlResourceSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:SqlResourceSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Relay.V20170401
+namespace Pulumi.AzureNextGen.Relay.V20170401
 {
     /// <summary>
     /// Description of hybrid connection resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Relay.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HybridConnection(string name, HybridConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:relay/v20170401:HybridConnection", name, args ?? new HybridConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:relay/v20170401:HybridConnection", name, args ?? new HybridConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HybridConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:relay/v20170401:HybridConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:relay/v20170401:HybridConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.Relay.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:relay/latest:HybridConnection"},
-                    new Pulumi.Alias { Type = "azurerm:relay/v20160701:HybridConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:relay/latest:HybridConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:HybridConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

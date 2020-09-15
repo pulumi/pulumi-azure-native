@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20160801
+namespace Pulumi.AzureNextGen.Web.V20160801
 {
     /// <summary>
     /// Site Extension Information.
@@ -149,12 +149,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppSiteExtension(string name, WebAppSiteExtensionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160801:WebAppSiteExtension", name, args ?? new WebAppSiteExtensionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20160801:WebAppSiteExtension", name, args ?? new WebAppSiteExtensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppSiteExtension(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160801:WebAppSiteExtension", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20160801:WebAppSiteExtension", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -165,11 +165,11 @@ namespace Pulumi.AzureRM.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppSiteExtension"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppSiteExtension"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppSiteExtension"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppSiteExtension"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSiteExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

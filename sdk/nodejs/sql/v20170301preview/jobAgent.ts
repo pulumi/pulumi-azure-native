@@ -23,7 +23,7 @@ export class JobAgent extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20170301preview:JobAgent';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20170301preview:JobAgent';
 
     /**
      * Returns true if the given object is an instance of JobAgent.  This is designed to work even

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AVS.V20190809Preview
+namespace Pulumi.AzureNextGen.AVS.V20190809Preview
 {
     /// <summary>
     /// A private cloud resource
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.AVS.V20190809Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateCloud(string name, PrivateCloudArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:avs/v20190809preview:PrivateCloud", name, args ?? new PrivateCloudArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:avs/v20190809preview:PrivateCloud", name, args ?? new PrivateCloudArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateCloud(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:avs/v20190809preview:PrivateCloud", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:avs/v20190809preview:PrivateCloud", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.AVS.V20190809Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:avs/latest:PrivateCloud"},
-                    new Pulumi.Alias { Type = "azurerm:avs/v20200320:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/latest:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:PrivateCloud"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

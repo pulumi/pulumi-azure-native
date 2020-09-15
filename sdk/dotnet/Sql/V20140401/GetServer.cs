@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20140401
+namespace Pulumi.AzureNextGen.Sql.V20140401
 {
     public static class GetServer
     {
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azurerm:sql/v20140401:getServer", args ?? new GetServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:sql/v20140401:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }
 
 

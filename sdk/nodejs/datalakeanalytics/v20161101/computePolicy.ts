@@ -21,7 +21,7 @@ export class ComputePolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datalakeanalytics/v20161101:ComputePolicy';
+    public static readonly __pulumiType = 'azure-nextgen:datalakeanalytics/v20161101:ComputePolicy';
 
     /**
      * Returns true if the given object is an instance of ComputePolicy.  This is designed to work even
@@ -108,7 +108,7 @@ export class ComputePolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datalakeanalytics/latest:ComputePolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics/latest:ComputePolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ComputePolicy.__pulumiType, name, inputs, opts);
     }

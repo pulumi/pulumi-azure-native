@@ -14,7 +14,7 @@ export function getP2sVpnGateway(args: GetP2sVpnGatewayArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20190701:getP2sVpnGateway", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20190701:getP2sVpnGateway", {
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

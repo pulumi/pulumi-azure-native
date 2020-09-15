@@ -21,7 +21,7 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20181101:WebAppDomainOwnershipIdentifier';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifier';
 
     /**
      * Returns true if the given object is an instance of WebAppDomainOwnershipIdentifier.  This is designed to work even
@@ -84,7 +84,7 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20200601:WebAppDomainOwnershipIdentifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
     }

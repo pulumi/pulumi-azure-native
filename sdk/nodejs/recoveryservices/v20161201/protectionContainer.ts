@@ -23,7 +23,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:recoveryservices/v20161201:ProtectionContainer';
+    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/v20161201:ProtectionContainer';
 
     /**
      * Returns true if the given object is an instance of ProtectionContainer.  This is designed to work even
@@ -108,7 +108,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/latest:ProtectionContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:ProtectionContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionContainer.__pulumiType, name, inputs, opts);
     }

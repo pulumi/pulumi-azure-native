@@ -23,7 +23,7 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:domainregistration/v20150801:Domain';
+    public static readonly __pulumiType = 'azure-nextgen:domainregistration/v20150801:Domain';
 
     /**
      * Returns true if the given object is an instance of Domain.  This is designed to work even
@@ -194,7 +194,7 @@ export class Domain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:domainregistration/latest:Domain" }, { type: "azurerm:domainregistration/v20150401:Domain" }, { type: "azurerm:domainregistration/v20180201:Domain" }, { type: "azurerm:domainregistration/v20190801:Domain" }, { type: "azurerm:domainregistration/v20200601:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration/latest:Domain" }, { type: "azure-nextgen:domainregistration/v20150401:Domain" }, { type: "azure-nextgen:domainregistration/v20180201:Domain" }, { type: "azure-nextgen:domainregistration/v20190801:Domain" }, { type: "azure-nextgen:domainregistration/v20200601:Domain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Domain.__pulumiType, name, inputs, opts);
     }

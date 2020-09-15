@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.V20180701
+namespace Pulumi.AzureNextGen.Media.V20180701
 {
     public static class GetContentKeyPolicy
     {
         public static Task<GetContentKeyPolicyResult> InvokeAsync(GetContentKeyPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyResult>("azurerm:media/v20180701:getContentKeyPolicy", args ?? new GetContentKeyPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyResult>("azure-nextgen:media/v20180701:getContentKeyPolicy", args ?? new GetContentKeyPolicyArgs(), options.WithVersion());
     }
 
 

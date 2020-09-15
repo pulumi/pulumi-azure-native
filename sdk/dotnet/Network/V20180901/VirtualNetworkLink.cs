@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20180901
+namespace Pulumi.AzureNextGen.Network.V20180901
 {
     /// <summary>
     /// Describes a link to virtual network for a Private DNS zone.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Network.V20180901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkLink(string name, VirtualNetworkLinkArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180901:VirtualNetworkLink", name, args ?? new VirtualNetworkLinkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20180901:VirtualNetworkLink", name, args ?? new VirtualNetworkLinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkLink(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180901:VirtualNetworkLink", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20180901:VirtualNetworkLink", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,7 +93,7 @@ namespace Pulumi.AzureRM.Network.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

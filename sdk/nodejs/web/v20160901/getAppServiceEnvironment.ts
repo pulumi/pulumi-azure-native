@@ -14,7 +14,7 @@ export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20160901:getAppServiceEnvironment", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20160901:getAppServiceEnvironment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

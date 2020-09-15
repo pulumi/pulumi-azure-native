@@ -14,7 +14,7 @@ export function getPrivateLinkService(args: GetPrivateLinkServiceArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20190801:getPrivateLinkService", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20190801:getPrivateLinkService", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

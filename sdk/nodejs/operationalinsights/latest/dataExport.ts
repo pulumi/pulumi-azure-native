@@ -21,7 +21,7 @@ export class DataExport extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:operationalinsights/latest:DataExport';
+    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/latest:DataExport';
 
     /**
      * Returns true if the given object is an instance of DataExport.  This is designed to work even
@@ -129,7 +129,7 @@ export class DataExport extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/v20190801preview:DataExport" }, { type: "azurerm:operationalinsights/v20200301preview:DataExport" }, { type: "azurerm:operationalinsights/v20200801:DataExport" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20190801preview:DataExport" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataExport" }, { type: "azure-nextgen:operationalinsights/v20200801:DataExport" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataExport.__pulumiType, name, inputs, opts);
     }

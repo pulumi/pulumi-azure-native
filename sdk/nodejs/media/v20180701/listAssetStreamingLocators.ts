@@ -14,7 +14,7 @@ export function listAssetStreamingLocators(args: ListAssetStreamingLocatorsArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:media/v20180701:listAssetStreamingLocators", {
+    return pulumi.runtime.invoke("azure-nextgen:media/v20180701:listAssetStreamingLocators", {
         "accountName": args.accountName,
         "assetName": args.assetName,
         "resourceGroupName": args.resourceGroupName,

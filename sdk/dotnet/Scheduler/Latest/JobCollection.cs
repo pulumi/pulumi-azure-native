@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Scheduler.Latest
+namespace Pulumi.AzureNextGen.Scheduler.Latest
 {
     public partial class JobCollection : Pulumi.CustomResource
     {
@@ -50,12 +50,12 @@ namespace Pulumi.AzureRM.Scheduler.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobCollection(string name, JobCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:scheduler/latest:JobCollection", name, args ?? new JobCollectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:scheduler/latest:JobCollection", name, args ?? new JobCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JobCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:scheduler/latest:JobCollection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:scheduler/latest:JobCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,9 +66,9 @@ namespace Pulumi.AzureRM.Scheduler.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:scheduler/v20140801preview:JobCollection"},
-                    new Pulumi.Alias { Type = "azurerm:scheduler/v20160101:JobCollection"},
-                    new Pulumi.Alias { Type = "azurerm:scheduler/v20160301:JobCollection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20140801preview:JobCollection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20160101:JobCollection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20160301:JobCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

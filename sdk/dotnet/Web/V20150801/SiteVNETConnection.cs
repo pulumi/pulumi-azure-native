@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     /// <summary>
     /// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
@@ -90,12 +90,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteVNETConnection(string name, SiteVNETConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:SiteVNETConnection", name, args ?? new SiteVNETConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20150801:SiteVNETConnection", name, args ?? new SiteVNETConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteVNETConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20150801:SiteVNETConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20150801:SiteVNETConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,12 +106,12 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:SiteVNETConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteVNETConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteVNETConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteVNETConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:SiteVNETConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteVNETConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

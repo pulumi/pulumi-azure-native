@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceBus.V20170401
+namespace Pulumi.AzureNextGen.ServiceBus.V20170401
 {
     public static class GetMigrationConfig
     {
         public static Task<GetMigrationConfigResult> InvokeAsync(GetMigrationConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azurerm:servicebus/v20170401:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-nextgen:servicebus/v20170401:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithVersion());
     }
 
 

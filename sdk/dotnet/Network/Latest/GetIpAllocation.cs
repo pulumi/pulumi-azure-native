@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     public static class GetIpAllocation
     {
         public static Task<GetIpAllocationResult> InvokeAsync(GetIpAllocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azurerm:network/latest:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpAllocationResult>("azure-nextgen:network/latest:getIpAllocation", args ?? new GetIpAllocationArgs(), options.WithVersion());
     }
 
 

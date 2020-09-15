@@ -14,7 +14,7 @@ export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/v20180601:getGalleryImage", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/v20180601:getGalleryImage", {
         "galleryImageName": args.galleryImageName,
         "galleryName": args.galleryName,
         "resourceGroupName": args.resourceGroupName,

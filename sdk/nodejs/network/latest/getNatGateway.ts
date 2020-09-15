@@ -14,7 +14,7 @@ export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getNatGateway", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getNatGateway", {
         "expand": args.expand,
         "natGatewayName": args.natGatewayName,
         "resourceGroupName": args.resourceGroupName,

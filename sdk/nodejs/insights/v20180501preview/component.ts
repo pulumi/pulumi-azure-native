@@ -23,7 +23,7 @@ export class Component extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/v20180501preview:Component';
+    public static readonly __pulumiType = 'azure-nextgen:insights/v20180501preview:Component';
 
     /**
      * Returns true if the given object is an instance of Component.  This is designed to work even
@@ -223,7 +223,7 @@ export class Component extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:Component" }, { type: "azurerm:insights/v20150501:Component" }, { type: "azurerm:insights/v20200202preview:Component" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:Component" }, { type: "azure-nextgen:insights/v20150501:Component" }, { type: "azure-nextgen:insights/v20200202preview:Component" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Component.__pulumiType, name, inputs, opts);
     }

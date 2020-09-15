@@ -14,7 +14,7 @@ export function getJobTargetGroup(args: GetJobTargetGroupArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20170301preview:getJobTargetGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20170301preview:getJobTargetGroup", {
         "jobAgentName": args.jobAgentName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

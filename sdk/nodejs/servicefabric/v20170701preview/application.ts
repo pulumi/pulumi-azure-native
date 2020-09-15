@@ -23,7 +23,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:servicefabric/v20170701preview:Application';
+    public static readonly __pulumiType = 'azure-nextgen:servicefabric/v20170701preview:Application';
 
     /**
      * Returns true if the given object is an instance of Application.  This is designed to work even
@@ -140,7 +140,7 @@ export class Application extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/latest:Application" }, { type: "azurerm:servicefabric/v20190301:Application" }, { type: "azurerm:servicefabric/v20190301preview:Application" }, { type: "azurerm:servicefabric/v20190601preview:Application" }, { type: "azurerm:servicefabric/v20191101preview:Application" }, { type: "azurerm:servicefabric/v20200301:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/latest:Application" }, { type: "azure-nextgen:servicefabric/v20190301:Application" }, { type: "azure-nextgen:servicefabric/v20190301preview:Application" }, { type: "azure-nextgen:servicefabric/v20190601preview:Application" }, { type: "azure-nextgen:servicefabric/v20191101preview:Application" }, { type: "azure-nextgen:servicefabric/v20200301:Application" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Application.__pulumiType, name, inputs, opts);
     }

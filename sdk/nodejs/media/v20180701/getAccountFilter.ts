@@ -14,7 +14,7 @@ export function getAccountFilter(args: GetAccountFilterArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:media/v20180701:getAccountFilter", {
+    return pulumi.runtime.invoke("azure-nextgen:media/v20180701:getAccountFilter", {
         "accountName": args.accountName,
         "filterName": args.filterName,
         "resourceGroupName": args.resourceGroupName,

@@ -14,7 +14,7 @@ export function getMachineLearningService(args: GetMachineLearningServiceArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:machinelearningservices/v20200515preview:getMachineLearningService", {
+    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/v20200515preview:getMachineLearningService", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

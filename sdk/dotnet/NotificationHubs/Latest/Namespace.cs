@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NotificationHubs.Latest
+namespace Pulumi.AzureNextGen.NotificationHubs.Latest
 {
     /// <summary>
     /// Description of a Namespace resource.
@@ -131,12 +131,12 @@ namespace Pulumi.AzureRM.NotificationHubs.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Namespace(string name, NamespaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:notificationhubs/latest:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:notificationhubs/latest:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Namespace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:notificationhubs/latest:Namespace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:notificationhubs/latest:Namespace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -147,9 +147,9 @@ namespace Pulumi.AzureRM.NotificationHubs.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/v20140901:Namespace"},
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/v20160301:Namespace"},
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20140901:Namespace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:Namespace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20170401:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

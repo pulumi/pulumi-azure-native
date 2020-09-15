@@ -14,7 +14,7 @@ export function getBookmark(args: GetBookmarkArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:securityinsights/v20190101preview:getBookmark", {
+    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getBookmark", {
         "bookmarkId": args.bookmarkId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,

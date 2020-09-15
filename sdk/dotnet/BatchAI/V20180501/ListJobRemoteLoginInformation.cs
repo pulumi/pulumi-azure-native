@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BatchAI.V20180501
+namespace Pulumi.AzureNextGen.BatchAI.V20180501
 {
     public static class ListJobRemoteLoginInformation
     {
         public static Task<ListJobRemoteLoginInformationResult> InvokeAsync(ListJobRemoteLoginInformationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListJobRemoteLoginInformationResult>("azurerm:batchai/v20180501:listJobRemoteLoginInformation", args ?? new ListJobRemoteLoginInformationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListJobRemoteLoginInformationResult>("azure-nextgen:batchai/v20180501:listJobRemoteLoginInformation", args ?? new ListJobRemoteLoginInformationArgs(), options.WithVersion());
     }
 
 

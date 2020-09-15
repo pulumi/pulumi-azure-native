@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.Latest
+namespace Pulumi.AzureNextGen.Migrate.Latest
 {
     /// <summary>
     /// An assessment created for a group in the Migration project.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Migrate.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assessment(string name, AssessmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/latest:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:migrate/latest:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assessment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/latest:Assessment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:migrate/latest:Assessment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:migrate/v20191001:Assessment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:Assessment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

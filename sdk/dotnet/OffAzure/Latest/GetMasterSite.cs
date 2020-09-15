@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OffAzure.Latest
+namespace Pulumi.AzureNextGen.OffAzure.Latest
 {
     public static class GetMasterSite
     {
         public static Task<GetMasterSiteResult> InvokeAsync(GetMasterSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMasterSiteResult>("azurerm:offazure/latest:getMasterSite", args ?? new GetMasterSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMasterSiteResult>("azure-nextgen:offazure/latest:getMasterSite", args ?? new GetMasterSiteArgs(), options.WithVersion());
     }
 
 

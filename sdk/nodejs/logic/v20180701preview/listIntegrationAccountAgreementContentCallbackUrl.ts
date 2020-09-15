@@ -14,7 +14,7 @@ export function listIntegrationAccountAgreementContentCallbackUrl(args: ListInte
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20180701preview:listIntegrationAccountAgreementContentCallbackUrl", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20180701preview:listIntegrationAccountAgreementContentCallbackUrl", {
         "agreementName": args.agreementName,
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cdn.V20150601
+namespace Pulumi.AzureNextGen.Cdn.V20150601
 {
     /// <summary>
     /// CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Cdn.V20150601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Profile(string name, ProfileArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:cdn/v20150601:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:cdn/v20150601:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Profile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:cdn/v20150601:Profile", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:cdn/v20150601:Profile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,17 +81,17 @@ namespace Pulumi.AzureRM.Cdn.V20150601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cdn/latest:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20160402:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20161002:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20170402:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20171012:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20190415:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615preview:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20191231:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20200415:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20160402:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20161002:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20170402:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20171012:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190415:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

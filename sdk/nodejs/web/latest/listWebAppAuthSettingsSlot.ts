@@ -14,7 +14,7 @@ export function listWebAppAuthSettingsSlot(args: ListWebAppAuthSettingsSlotArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listWebAppAuthSettingsSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppAuthSettingsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

@@ -5,11 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * The provider type for the AzureRM package.
+ * The provider type for the Azure NextGen package.
  */
 export class Provider extends pulumi.ProviderResource {
     /** @internal */
-    public static readonly __pulumiType = 'azurerm';
+    public static readonly __pulumiType = 'azure-nextgen';
 
     /**
      * Returns true if the given object is an instance of Provider.  This is designed to work even

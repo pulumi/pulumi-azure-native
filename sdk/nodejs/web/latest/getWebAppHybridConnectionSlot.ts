@@ -14,7 +14,7 @@ export function getWebAppHybridConnectionSlot(args: GetWebAppHybridConnectionSlo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:getWebAppHybridConnectionSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppHybridConnectionSlot", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

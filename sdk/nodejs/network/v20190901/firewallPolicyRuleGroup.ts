@@ -23,7 +23,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20190901:FirewallPolicyRuleGroup';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20190901:FirewallPolicyRuleGroup';
 
     /**
      * Returns true if the given object is an instance of FirewallPolicyRuleGroup.  This is designed to work even
@@ -105,7 +105,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:FirewallPolicyRuleGroup" }, { type: "azurerm:network/v20190601:FirewallPolicyRuleGroup" }, { type: "azurerm:network/v20190701:FirewallPolicyRuleGroup" }, { type: "azurerm:network/v20190801:FirewallPolicyRuleGroup" }, { type: "azurerm:network/v20191101:FirewallPolicyRuleGroup" }, { type: "azurerm:network/v20191201:FirewallPolicyRuleGroup" }, { type: "azurerm:network/v20200301:FirewallPolicyRuleGroup" }, { type: "azurerm:network/v20200401:FirewallPolicyRuleGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20190601:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20190701:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20190801:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20191101:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20191201:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20200301:FirewallPolicyRuleGroup" }, { type: "azure-nextgen:network/v20200401:FirewallPolicyRuleGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallPolicyRuleGroup.__pulumiType, name, inputs, opts);
     }

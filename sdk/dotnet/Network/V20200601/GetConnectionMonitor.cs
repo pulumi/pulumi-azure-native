@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200601
+namespace Pulumi.AzureNextGen.Network.V20200601
 {
     public static class GetConnectionMonitor
     {
         public static Task<GetConnectionMonitorResult> InvokeAsync(GetConnectionMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorResult>("azurerm:network/v20200601:getConnectionMonitor", args ?? new GetConnectionMonitorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorResult>("azure-nextgen:network/v20200601:getConnectionMonitor", args ?? new GetConnectionMonitorArgs(), options.WithVersion());
     }
 
 

@@ -23,7 +23,7 @@ export class ControllerDetails extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:delegatednetwork/v20200808preview:ControllerDetails';
+    public static readonly __pulumiType = 'azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails';
 
     /**
      * Returns true if the given object is an instance of ControllerDetails.  This is designed to work even

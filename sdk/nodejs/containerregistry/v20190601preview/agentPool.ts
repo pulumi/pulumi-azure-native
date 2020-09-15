@@ -22,7 +22,7 @@ export class AgentPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:containerregistry/v20190601preview:AgentPool';
+    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20190601preview:AgentPool';
 
     /**
      * Returns true if the given object is an instance of AgentPool.  This is designed to work even

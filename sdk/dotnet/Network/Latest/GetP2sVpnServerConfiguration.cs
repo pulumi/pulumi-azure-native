@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     public static class GetP2sVpnServerConfiguration
     {
         public static Task<GetP2sVpnServerConfigurationResult> InvokeAsync(GetP2sVpnServerConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnServerConfigurationResult>("azurerm:network/latest:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnServerConfigurationResult>("azure-nextgen:network/latest:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationArgs(), options.WithVersion());
     }
 
 

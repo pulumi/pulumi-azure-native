@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cache.Latest
+namespace Pulumi.AzureNextGen.Cache.Latest
 {
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Cache.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:cache/latest:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:cache/latest:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:cache/latest:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:cache/latest:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,11 +63,11 @@ namespace Pulumi.AzureRM.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cache/v20160401:FirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20170201:FirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20171001:FirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20180301:FirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/v20190701:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20160401:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

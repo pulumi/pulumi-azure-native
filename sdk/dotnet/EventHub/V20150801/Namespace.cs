@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventHub.V20150801
+namespace Pulumi.AzureNextGen.EventHub.V20150801
 {
     /// <summary>
     /// Single Namespace item in List or Get Operation
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.EventHub.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Namespace(string name, NamespaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20150801:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventhub/v20150801:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Namespace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub/v20150801:Namespace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventhub/v20150801:Namespace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,10 +111,10 @@ namespace Pulumi.AzureRM.EventHub.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:eventhub/latest:Namespace"},
-                    new Pulumi.Alias { Type = "azurerm:eventhub/v20140901:Namespace"},
-                    new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:Namespace"},
-                    new Pulumi.Alias { Type = "azurerm:eventhub/v20180101preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:Namespace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:Namespace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,7 +14,7 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:subscription/latest:getAlias", {
+    return pulumi.runtime.invoke("azure-nextgen:subscription/latest:getAlias", {
         "aliasName": args.aliasName,
     }, opts);
 }

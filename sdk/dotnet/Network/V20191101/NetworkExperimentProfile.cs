@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20191101
+namespace Pulumi.AzureNextGen.Network.V20191101
 {
     /// <summary>
     /// Defines an Network Experiment Profile and lists of Experiments
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkExperimentProfile(string name, NetworkExperimentProfileArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191101:NetworkExperimentProfile", name, args ?? new NetworkExperimentProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20191101:NetworkExperimentProfile", name, args ?? new NetworkExperimentProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NetworkExperimentProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191101:NetworkExperimentProfile", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20191101:NetworkExperimentProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:NetworkExperimentProfile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkExperimentProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pulumi/pulumi-azurerm/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
 	"github.com/stretchr/testify/require"
 )
 
@@ -17,7 +17,7 @@ func TestFlattenInput(t *testing.T) {
 	var metadata provider.AzureAPIMetadata
 	// TODO - Requires `make generate_schema` to be run first
 	// turn this into a proper unit test instead
-	f, err := os.Open("../../cmd/pulumi-resource-azurerm/metadata.json")
+	f, err := os.Open("../../cmd/pulumi-resource-azure-nextgen/metadata.json")
 	require.NoError(t, err)
 	require.NoError(t, json.NewDecoder(f).Decode(&metadata))
 	f.Close()
@@ -35,7 +35,7 @@ func TestFlattenInput(t *testing.T) {
 	}{
 		{
 			name:         "ContainersInBody",
-			resourceName: "azurerm:compute/v20200601:VirtualMachine",
+			resourceName: "azure-nextgen:compute/v20200601:VirtualMachine",
 			input: map[string]interface{}{
 				"parameters": map[string]interface{}{
 					"resourceGroupName": "myResourceGroup",
@@ -156,7 +156,7 @@ func TestFlattenInput(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azurerm:botservice/v20200602:BotConnection",
+			resourceName: "azure-nextgen:botservice/v20200602:BotConnection",
 			expected: map[string]interface{}{
 				"resourceGroupName": "OneResourceGroupName",
 				"resourceName":      "samplebotname",
@@ -227,7 +227,7 @@ func TestFlattenInput(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azurerm:apimanagement/v20170301:Backend",
+			resourceName: "azure-nextgen:apimanagement/v20170301:Backend",
 			expected: map[string]interface{}{
 				"serviceName":       "apimService1",
 				"resourceGroupName": "rg1",
@@ -298,7 +298,7 @@ func TestFlattenInput(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azurerm:apimanagement/v20170301:Backend",
+			resourceName: "azure-nextgen:apimanagement/v20170301:Backend",
 			expected: map[string]interface{}{
 				"serviceName":       "apimService1",
 				"resourceGroupName": "rg1",

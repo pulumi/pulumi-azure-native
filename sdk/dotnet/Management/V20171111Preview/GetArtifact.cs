@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Management.V20171111Preview
+namespace Pulumi.AzureNextGen.Management.V20171111Preview
 {
     public static class GetArtifact
     {
         public static Task<GetArtifactResult> InvokeAsync(GetArtifactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactResult>("azurerm:management/v20171111preview:getArtifact", args ?? new GetArtifactArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactResult>("azure-nextgen:management/v20171111preview:getArtifact", args ?? new GetArtifactArgs(), options.WithVersion());
     }
 
 

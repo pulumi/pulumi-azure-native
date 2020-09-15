@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DomainRegistration.V20150801
+namespace Pulumi.AzureNextGen.DomainRegistration.V20150801
 {
     /// <summary>
     /// Represents a domain
@@ -149,12 +149,12 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:domainregistration/v20150801:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:domainregistration/v20150801:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Domain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:domainregistration/v20150801:Domain", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:domainregistration/v20150801:Domain", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -165,11 +165,11 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:domainregistration/latest:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:domainregistration/v20150401:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:domainregistration/v20180201:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:domainregistration/v20190801:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:domainregistration/v20200601:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/latest:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20150401:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20180201:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20190801:Domain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200601:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

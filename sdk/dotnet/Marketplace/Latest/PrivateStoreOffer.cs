@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Marketplace.Latest
+namespace Pulumi.AzureNextGen.Marketplace.Latest
 {
     /// <summary>
     /// The privateStore offer data structure.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Marketplace.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateStoreOffer(string name, PrivateStoreOfferArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:marketplace/latest:PrivateStoreOffer", name, args ?? new PrivateStoreOfferArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:marketplace/latest:PrivateStoreOffer", name, args ?? new PrivateStoreOfferArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateStoreOffer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:marketplace/latest:PrivateStoreOffer", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:marketplace/latest:PrivateStoreOffer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.Marketplace.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:marketplace/v20200101:PrivateStoreOffer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:marketplace/v20200101:PrivateStoreOffer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

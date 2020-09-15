@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 {
     /// <summary>
     /// A Policy.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyResource(string name, PolicyResourceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20150521preview:PolicyResource", name, args ?? new PolicyResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devtestlab/v20150521preview:PolicyResource", name, args ?? new PolicyResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicyResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20150521preview:PolicyResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devtestlab/v20150521preview:PolicyResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,9 +105,9 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/latest:PolicyResource"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:PolicyResource"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:PolicyResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:PolicyResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:PolicyResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:PolicyResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

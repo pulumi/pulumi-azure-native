@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMariaDB.V20180601
+namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
 {
     public static class GetDatabase
     {
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azurerm:dbformariadb/v20180601:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:dbformariadb/v20180601:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }
 
 

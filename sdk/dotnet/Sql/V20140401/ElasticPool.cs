@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20140401
+namespace Pulumi.AzureNextGen.Sql.V20140401
 {
     /// <summary>
     /// Represents a database elastic pool.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ElasticPool(string name, ElasticPoolArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20140401:ElasticPool", name, args ?? new ElasticPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20140401:ElasticPool", name, args ?? new ElasticPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ElasticPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20140401:ElasticPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20140401:ElasticPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,8 +117,8 @@ namespace Pulumi.AzureRM.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:sql/latest:ElasticPool"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20171001preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20171001preview:ElasticPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

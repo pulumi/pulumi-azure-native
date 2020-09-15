@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMariaDB.V20180601
+namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
 {
     /// <summary>
     /// Represents a server firewall rule.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbformariadb/v20180601:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbformariadb/v20180601:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbformariadb/v20180601:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbformariadb/v20180601:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbformariadb/latest:FirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:dbformariadb/v20180601preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

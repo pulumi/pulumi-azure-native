@@ -14,7 +14,7 @@ export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20160601:getSchema", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20160601:getSchema", {
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "schemaName": args.schemaName,

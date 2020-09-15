@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NetApp.V20200601
+namespace Pulumi.AzureNextGen.NetApp.V20200601
 {
     /// <summary>
     /// Capacity pool resource
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pool(string name, PoolArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:netapp/v20200601:Pool", name, args ?? new PoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:netapp/v20200601:Pool", name, args ?? new PoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:netapp/v20200601:Pool", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:netapp/v20200601:Pool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,15 +105,15 @@ namespace Pulumi.AzureRM.NetApp.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:netapp/latest:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20170815:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190501:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190701:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190801:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20191001:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20191101:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20200201:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190701:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190801:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191001:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191101:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

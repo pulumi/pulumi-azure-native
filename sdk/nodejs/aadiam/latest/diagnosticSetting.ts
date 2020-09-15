@@ -23,7 +23,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:aadiam/latest:DiagnosticSetting';
+    public static readonly __pulumiType = 'azure-nextgen:aadiam/latest:DiagnosticSetting';
 
     /**
      * Returns true if the given object is an instance of DiagnosticSetting.  This is designed to work even
@@ -107,7 +107,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:aadiam/v20170401:DiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:aadiam/v20170401:DiagnosticSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiagnosticSetting.__pulumiType, name, inputs, opts);
     }

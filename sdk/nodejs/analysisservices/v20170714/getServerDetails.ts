@@ -14,7 +14,7 @@ export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:analysisservices/v20170714:getServerDetails", {
+    return pulumi.runtime.invoke("azure-nextgen:analysisservices/v20170714:getServerDetails", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);

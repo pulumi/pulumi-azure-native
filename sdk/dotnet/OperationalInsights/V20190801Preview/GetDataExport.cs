@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20190801Preview
+namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
 {
     public static class GetDataExport
     {
         public static Task<GetDataExportResult> InvokeAsync(GetDataExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azurerm:operationalinsights/v20190801preview:getDataExport", args ?? new GetDataExportArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-nextgen:operationalinsights/v20190801preview:getDataExport", args ?? new GetDataExportArgs(), options.WithVersion());
     }
 
 

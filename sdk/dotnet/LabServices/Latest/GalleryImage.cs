@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.LabServices.Latest
+namespace Pulumi.AzureNextGen.LabServices.Latest
 {
     /// <summary>
     /// Represents an image from the Azure Marketplace
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.LabServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GalleryImage(string name, GalleryImageArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:labservices/latest:GalleryImage", name, args ?? new GalleryImageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:labservices/latest:GalleryImage", name, args ?? new GalleryImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GalleryImage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:labservices/latest:GalleryImage", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:labservices/latest:GalleryImage", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,7 +135,7 @@ namespace Pulumi.AzureRM.LabServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:labservices/v20181015:GalleryImage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:GalleryImage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

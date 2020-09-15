@@ -23,7 +23,7 @@ export class HostingEnvironment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20150801:HostingEnvironment';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:HostingEnvironment';
 
     /**
      * Returns true if the given object is an instance of HostingEnvironment.  This is designed to work even
@@ -281,7 +281,7 @@ export class HostingEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:HostingEnvironment" }, { type: "azurerm:web/v20160901:HostingEnvironment" }, { type: "azurerm:web/v20180201:HostingEnvironment" }, { type: "azurerm:web/v20190801:HostingEnvironment" }, { type: "azurerm:web/v20200601:HostingEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:HostingEnvironment" }, { type: "azure-nextgen:web/v20160901:HostingEnvironment" }, { type: "azure-nextgen:web/v20180201:HostingEnvironment" }, { type: "azure-nextgen:web/v20190801:HostingEnvironment" }, { type: "azure-nextgen:web/v20200601:HostingEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HostingEnvironment.__pulumiType, name, inputs, opts);
     }

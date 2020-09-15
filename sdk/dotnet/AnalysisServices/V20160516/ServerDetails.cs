@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AnalysisServices.V20160516
+namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
 {
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerDetails(string name, ServerDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:analysisservices/v20160516:ServerDetails", name, args ?? new ServerDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:analysisservices/v20160516:ServerDetails", name, args ?? new ServerDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:analysisservices/v20160516:ServerDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:analysisservices/v20160516:ServerDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,10 +99,10 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:analysisservices/latest:ServerDetails"},
-                    new Pulumi.Alias { Type = "azurerm:analysisservices/v20170714:ServerDetails"},
-                    new Pulumi.Alias { Type = "azurerm:analysisservices/v20170801:ServerDetails"},
-                    new Pulumi.Alias { Type = "azurerm:analysisservices/v20170801beta:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices/latest:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170714:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170801:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170801beta:ServerDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

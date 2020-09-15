@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     public static class GetFlowLog
     {
         public static Task<GetFlowLogResult> InvokeAsync(GetFlowLogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("azurerm:network/latest:getFlowLog", args ?? new GetFlowLogArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("azure-nextgen:network/latest:getFlowLog", args ?? new GetFlowLogArgs(), options.WithVersion());
     }
 
 

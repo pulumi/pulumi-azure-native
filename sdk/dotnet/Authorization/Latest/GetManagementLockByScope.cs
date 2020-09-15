@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.Latest
+namespace Pulumi.AzureNextGen.Authorization.Latest
 {
     public static class GetManagementLockByScope
     {
         public static Task<GetManagementLockByScopeResult> InvokeAsync(GetManagementLockByScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockByScopeResult>("azurerm:authorization/latest:getManagementLockByScope", args ?? new GetManagementLockByScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockByScopeResult>("azure-nextgen:authorization/latest:getManagementLockByScope", args ?? new GetManagementLockByScopeArgs(), options.WithVersion());
     }
 
 

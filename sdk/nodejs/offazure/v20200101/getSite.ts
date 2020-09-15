@@ -14,7 +14,7 @@ export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:offazure/v20200101:getSite", {
+    return pulumi.runtime.invoke("azure-nextgen:offazure/v20200101:getSite", {
         "resourceGroupName": args.resourceGroupName,
         "siteName": args.siteName,
     }, opts);

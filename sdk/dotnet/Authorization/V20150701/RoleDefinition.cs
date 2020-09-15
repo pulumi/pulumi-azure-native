@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.V20150701
+namespace Pulumi.AzureNextGen.Authorization.V20150701
 {
     /// <summary>
     /// Role definition.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Authorization.V20150701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleDefinition(string name, RoleDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/v20150701:RoleDefinition", name, args ?? new RoleDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:authorization/v20150701:RoleDefinition", name, args ?? new RoleDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RoleDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/v20150701:RoleDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:authorization/v20150701:RoleDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.Authorization.V20150701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:authorization/latest:RoleDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20180101preview:RoleDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:RoleDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180101preview:RoleDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,7 +14,7 @@ export function listWebAppAzureStorageAccountsSlot(args: ListWebAppAzureStorageA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listWebAppAzureStorageAccountsSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppAzureStorageAccountsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

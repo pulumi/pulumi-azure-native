@@ -14,7 +14,7 @@ export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datashare/v20181101preview:getTrigger", {
+    return pulumi.runtime.invoke("azure-nextgen:datashare/v20181101preview:getTrigger", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareSubscriptionName": args.shareSubscriptionName,

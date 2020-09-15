@@ -14,7 +14,7 @@ export function getFormulaResource(args: GetFormulaResourceArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/v20150521preview:getFormulaResource", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20150521preview:getFormulaResource", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

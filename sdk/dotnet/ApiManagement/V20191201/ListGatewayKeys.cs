@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20191201
+namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 {
     public static class ListGatewayKeys
     {
         public static Task<ListGatewayKeysResult> InvokeAsync(ListGatewayKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azurerm:apimanagement/v20191201:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-nextgen:apimanagement/v20191201:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithVersion());
     }
 
 

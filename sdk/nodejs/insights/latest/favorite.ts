@@ -21,7 +21,7 @@ export class Favorite extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/latest:Favorite';
+    public static readonly __pulumiType = 'azure-nextgen:insights/latest:Favorite';
 
     /**
      * Returns true if the given object is an instance of Favorite.  This is designed to work even
@@ -131,7 +131,7 @@ export class Favorite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/v20150501:Favorite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20150501:Favorite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Favorite.__pulumiType, name, inputs, opts);
     }

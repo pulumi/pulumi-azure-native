@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Solutions.V20160901Preview
+namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
 {
     public static class GetAppliance
     {
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azurerm:solutions/v20160901preview:getAppliance", args ?? new GetApplianceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-nextgen:solutions/v20160901preview:getAppliance", args ?? new GetApplianceArgs(), options.WithVersion());
     }
 
 

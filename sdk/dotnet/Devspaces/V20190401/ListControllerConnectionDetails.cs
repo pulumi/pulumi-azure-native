@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevSpaces.V20190401
+namespace Pulumi.AzureNextGen.DevSpaces.V20190401
 {
     public static class ListControllerConnectionDetails
     {
         public static Task<ListControllerConnectionDetailsResult> InvokeAsync(ListControllerConnectionDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azurerm:devspaces/v20190401:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListControllerConnectionDetailsResult>("azure-nextgen:devspaces/v20190401:listControllerConnectionDetails", args ?? new ListControllerConnectionDetailsArgs(), options.WithVersion());
     }
 
 

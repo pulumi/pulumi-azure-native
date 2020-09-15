@@ -23,7 +23,7 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:timeseriesinsights/v20200515:Environment';
+    public static readonly __pulumiType = 'azure-nextgen:timeseriesinsights/v20200515:Environment';
 
     /**
      * Returns true if the given object is an instance of Environment.  This is designed to work even
@@ -109,7 +109,7 @@ export class Environment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:timeseriesinsights/latest:Environment" }, { type: "azurerm:timeseriesinsights/v20170228preview:Environment" }, { type: "azurerm:timeseriesinsights/v20171115:Environment" }, { type: "azurerm:timeseriesinsights/v20180815preview:Environment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights/latest:Environment" }, { type: "azure-nextgen:timeseriesinsights/v20170228preview:Environment" }, { type: "azure-nextgen:timeseriesinsights/v20171115:Environment" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:Environment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Environment.__pulumiType, name, inputs, opts);
     }

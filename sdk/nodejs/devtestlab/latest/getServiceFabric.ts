@@ -14,7 +14,7 @@ export function getServiceFabric(args: GetServiceFabricArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/latest:getServiceFabric", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getServiceFabric", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

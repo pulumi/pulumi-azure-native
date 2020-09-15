@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.PolicyInsights.V20190701
+namespace Pulumi.AzureNextGen.PolicyInsights.V20190701
 {
     /// <summary>
     /// The remediation definition.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RemediationAtManagementGroup(string name, RemediationAtManagementGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:policyinsights/v20190701:RemediationAtManagementGroup", name, args ?? new RemediationAtManagementGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:policyinsights/v20190701:RemediationAtManagementGroup", name, args ?? new RemediationAtManagementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RemediationAtManagementGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:policyinsights/v20190701:RemediationAtManagementGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:policyinsights/v20190701:RemediationAtManagementGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,8 +99,8 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:policyinsights/latest:RemediationAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:policyinsights/v20180701preview:RemediationAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/latest:RemediationAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20180701preview:RemediationAtManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -23,7 +23,7 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/latest:VirtualApplianceSite';
+    public static readonly __pulumiType = 'azure-nextgen:network/latest:VirtualApplianceSite';
 
     /**
      * Returns true if the given object is an instance of VirtualApplianceSite.  This is designed to work even
@@ -105,7 +105,7 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20200501:VirtualApplianceSite" }, { type: "azurerm:network/v20200601:VirtualApplianceSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200501:VirtualApplianceSite" }, { type: "azure-nextgen:network/v20200601:VirtualApplianceSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualApplianceSite.__pulumiType, name, inputs, opts);
     }

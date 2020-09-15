@@ -23,7 +23,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20190701:DdosProtectionPlan';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20190701:DdosProtectionPlan';
 
     /**
      * Returns true if the given object is an instance of DdosProtectionPlan.  This is designed to work even
@@ -112,7 +112,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:DdosProtectionPlan" }, { type: "azurerm:network/v20180201:DdosProtectionPlan" }, { type: "azurerm:network/v20180401:DdosProtectionPlan" }, { type: "azurerm:network/v20180601:DdosProtectionPlan" }, { type: "azurerm:network/v20180701:DdosProtectionPlan" }, { type: "azurerm:network/v20180801:DdosProtectionPlan" }, { type: "azurerm:network/v20181001:DdosProtectionPlan" }, { type: "azurerm:network/v20181101:DdosProtectionPlan" }, { type: "azurerm:network/v20181201:DdosProtectionPlan" }, { type: "azurerm:network/v20190201:DdosProtectionPlan" }, { type: "azurerm:network/v20190401:DdosProtectionPlan" }, { type: "azurerm:network/v20190601:DdosProtectionPlan" }, { type: "azurerm:network/v20190801:DdosProtectionPlan" }, { type: "azurerm:network/v20190901:DdosProtectionPlan" }, { type: "azurerm:network/v20191101:DdosProtectionPlan" }, { type: "azurerm:network/v20191201:DdosProtectionPlan" }, { type: "azurerm:network/v20200301:DdosProtectionPlan" }, { type: "azurerm:network/v20200401:DdosProtectionPlan" }, { type: "azurerm:network/v20200501:DdosProtectionPlan" }, { type: "azurerm:network/v20200601:DdosProtectionPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20180201:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20180401:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20180601:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20180701:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20180801:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20181001:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20181101:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20181201:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20190201:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20190401:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20190601:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20190801:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20190901:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20191101:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20191201:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20200301:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20200401:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20200501:DdosProtectionPlan" }, { type: "azure-nextgen:network/v20200601:DdosProtectionPlan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DdosProtectionPlan.__pulumiType, name, inputs, opts);
     }

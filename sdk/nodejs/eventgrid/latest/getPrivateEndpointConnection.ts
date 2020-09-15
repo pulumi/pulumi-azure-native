@@ -14,7 +14,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:eventgrid/latest:getPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:eventgrid/latest:getPrivateEndpointConnection", {
         "parentName": args.parentName,
         "parentType": args.parentType,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

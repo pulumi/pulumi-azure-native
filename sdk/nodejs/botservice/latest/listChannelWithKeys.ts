@@ -14,7 +14,7 @@ export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:botservice/latest:listChannelWithKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:botservice/latest:listChannelWithKeys", {
         "channelName": args.channelName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

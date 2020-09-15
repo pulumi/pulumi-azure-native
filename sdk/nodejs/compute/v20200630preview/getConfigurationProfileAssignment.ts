@@ -14,7 +14,7 @@ export function getConfigurationProfileAssignment(args: GetConfigurationProfileA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/v20200630preview:getConfigurationProfileAssignment", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/v20200630preview:getConfigurationProfileAssignment", {
         "configurationProfileAssignmentName": args.configurationProfileAssignmentName,
         "resourceGroupName": args.resourceGroupName,
         "vmName": args.vmName,

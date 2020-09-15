@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Synapse.V20200401Preview
+namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
 {
     /// <summary>
     /// A sql database resource.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlDatabase(string name, SqlDatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:synapse/v20200401preview:SqlDatabase", name, args ?? new SqlDatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:synapse/v20200401preview:SqlDatabase", name, args ?? new SqlDatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlDatabase(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:synapse/v20200401preview:SqlDatabase", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:synapse/v20200401preview:SqlDatabase", name, null, MakeResourceOptions(options, id))
         {
         }
 

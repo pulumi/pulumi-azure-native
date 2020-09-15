@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HealthcareApis.V20190916.Inputs
+namespace Pulumi.AzureNextGen.HealthcareApis.V20190916.Inputs
 {
 
     /// <summary>

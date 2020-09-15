@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.Latest
+namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
     /// <summary>
     /// Hub resource.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Hub(string name, HubArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/latest:Hub", name, args ?? new HubArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:customerinsights/latest:Hub", name, args ?? new HubArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Hub(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:customerinsights/latest:Hub", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:customerinsights/latest:Hub", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:Hub"},
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170426:Hub"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Hub"},
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Hub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

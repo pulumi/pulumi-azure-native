@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cdn.V20160402
+namespace Pulumi.AzureNextGen.Cdn.V20160402
 {
     /// <summary>
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Cdn.V20160402
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Origin(string name, OriginArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:cdn/v20160402:Origin", name, args ?? new OriginArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:cdn/v20160402:Origin", name, args ?? new OriginArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Origin(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:cdn/v20160402:Origin", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:cdn/v20160402:Origin", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,11 +81,11 @@ namespace Pulumi.AzureRM.Cdn.V20160402
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cdn/latest:Origin"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20150601:Origin"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20191231:Origin"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Origin"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20200415:Origin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Origin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:Origin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:Origin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Origin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Origin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

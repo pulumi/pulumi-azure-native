@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.V20161001
+namespace Pulumi.AzureNextGen.StorSimple.V20161001
 {
     public static class GetIscsiServer
     {
         public static Task<GetIscsiServerResult> InvokeAsync(GetIscsiServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azurerm:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azure-nextgen:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithVersion());
     }
 
 

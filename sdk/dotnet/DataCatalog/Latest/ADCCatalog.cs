@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataCatalog.Latest
+namespace Pulumi.AzureNextGen.DataCatalog.Latest
 {
     /// <summary>
     /// Azure Data Catalog.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.DataCatalog.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ADCCatalog(string name, ADCCatalogArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datacatalog/latest:ADCCatalog", name, args ?? new ADCCatalogArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datacatalog/latest:ADCCatalog", name, args ?? new ADCCatalogArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ADCCatalog(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datacatalog/latest:ADCCatalog", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datacatalog/latest:ADCCatalog", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.DataCatalog.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datacatalog/v20160330:ADCCatalog"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datacatalog/v20160330:ADCCatalog"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -23,7 +23,7 @@ export class Site extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20150801:Site';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:Site';
 
     /**
      * Returns true if the given object is an instance of Site.  This is designed to work even
@@ -269,7 +269,7 @@ export class Site extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:Site" }, { type: "azurerm:web/v20160801:Site" }, { type: "azurerm:web/v20180201:Site" }, { type: "azurerm:web/v20181101:Site" }, { type: "azurerm:web/v20190801:Site" }, { type: "azurerm:web/v20200601:Site" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:Site" }, { type: "azure-nextgen:web/v20160801:Site" }, { type: "azure-nextgen:web/v20180201:Site" }, { type: "azure-nextgen:web/v20181101:Site" }, { type: "azure-nextgen:web/v20190801:Site" }, { type: "azure-nextgen:web/v20200601:Site" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Site.__pulumiType, name, inputs, opts);
     }

@@ -23,7 +23,7 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:policyinsights/v20180701preview:RemediationAtManagementGroup';
+    public static readonly __pulumiType = 'azure-nextgen:policyinsights/v20180701preview:RemediationAtManagementGroup';
 
     /**
      * Returns true if the given object is an instance of RemediationAtManagementGroup.  This is designed to work even
@@ -122,7 +122,7 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:policyinsights/latest:RemediationAtManagementGroup" }, { type: "azurerm:policyinsights/v20190701:RemediationAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:policyinsights/latest:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtManagementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemediationAtManagementGroup.__pulumiType, name, inputs, opts);
     }

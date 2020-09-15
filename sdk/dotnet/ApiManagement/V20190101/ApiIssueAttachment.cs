@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20190101
+namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 {
     /// <summary>
     /// Issue Attachment Contract details.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiIssueAttachment(string name, ApiIssueAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20190101:ApiIssueAttachment", name, args ?? new ApiIssueAttachmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20190101:ApiIssueAttachment", name, args ?? new ApiIssueAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiIssueAttachment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20190101:ApiIssueAttachment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20190101:ApiIssueAttachment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,12 +69,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ApiIssueAttachment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiIssueAttachment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ApiIssueAttachment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:ApiIssueAttachment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ApiIssueAttachment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

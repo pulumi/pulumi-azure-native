@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20170601Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
 {
     public static class GetRegistry
     {
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azurerm:containerregistry/v20170601preview:getRegistry", args ?? new GetRegistryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure-nextgen:containerregistry/v20170601preview:getRegistry", args ?? new GetRegistryArgs(), options.WithVersion());
     }
 
 

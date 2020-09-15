@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Devices.V20200401
+namespace Pulumi.AzureNextGen.Devices.V20200401
 {
     /// <summary>
     /// The private endpoint connection of an IotHub
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Devices.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devices/v20200401:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devices/v20200401:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devices/v20200401:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devices/v20200401:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,11 +57,11 @@ namespace Pulumi.AzureRM.Devices.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devices/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200301:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200615:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200710preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200801:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200615:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200710preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200801:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

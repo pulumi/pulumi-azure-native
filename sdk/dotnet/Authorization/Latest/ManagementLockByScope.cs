@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Authorization.Latest
+namespace Pulumi.AzureNextGen.Authorization.Latest
 {
     /// <summary>
     /// The lock information.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Authorization.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementLockByScope(string name, ManagementLockByScopeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/latest:ManagementLockByScope", name, args ?? new ManagementLockByScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:authorization/latest:ManagementLockByScope", name, args ?? new ManagementLockByScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementLockByScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:authorization/latest:ManagementLockByScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:authorization/latest:ManagementLockByScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:authorization/v20160901:ManagementLockByScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160901:ManagementLockByScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

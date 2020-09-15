@@ -14,7 +14,7 @@ export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20170801:getSecurityRule", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20170801:getSecurityRule", {
         "networkSecurityGroupName": args.networkSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,
         "securityRuleName": args.securityRuleName,

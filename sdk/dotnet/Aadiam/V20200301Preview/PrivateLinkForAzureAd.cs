@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Aadiam.V20200301Preview
+namespace Pulumi.AzureNextGen.Aadiam.V20200301Preview
 {
     /// <summary>
     /// PrivateLink Policy configuration object.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Aadiam.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkForAzureAd(string name, PrivateLinkForAzureAdArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:aadiam/v20200301preview:privateLinkForAzureAd", name, args ?? new PrivateLinkForAzureAdArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd", name, args ?? new PrivateLinkForAzureAdArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkForAzureAd(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:aadiam/v20200301preview:privateLinkForAzureAd", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd", name, null, MakeResourceOptions(options, id))
         {
         }
 

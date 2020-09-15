@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20190501
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501
 {
     public static class GetReplication
     {
         public static Task<GetReplicationResult> InvokeAsync(GetReplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationResult>("azurerm:containerregistry/v20190501:getReplication", args ?? new GetReplicationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationResult>("azure-nextgen:containerregistry/v20190501:getReplication", args ?? new GetReplicationArgs(), options.WithVersion());
     }
 
 

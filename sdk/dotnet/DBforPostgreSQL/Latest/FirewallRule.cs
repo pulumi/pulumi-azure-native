@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
+namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
 {
     /// <summary>
     /// Represents a server firewall rule.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/latest:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbforpostgresql/latest:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/latest:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbforpostgresql/latest:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201:FirewallRule"},
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

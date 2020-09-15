@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.Latest
+namespace Pulumi.AzureNextGen.Logic.Latest
 {
     public static class GetIntegrationAccountSession
     {
         public static Task<GetIntegrationAccountSessionResult> InvokeAsync(GetIntegrationAccountSessionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSessionResult>("azurerm:logic/latest:getIntegrationAccountSession", args ?? new GetIntegrationAccountSessionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSessionResult>("azure-nextgen:logic/latest:getIntegrationAccountSession", args ?? new GetIntegrationAccountSessionArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.V20180915
+namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 {
     public static class GetServiceRunner
     {
         public static Task<GetServiceRunnerResult> InvokeAsync(GetServiceRunnerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceRunnerResult>("azurerm:devtestlab/v20180915:getServiceRunner", args ?? new GetServiceRunnerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceRunnerResult>("azure-nextgen:devtestlab/v20180915:getServiceRunner", args ?? new GetServiceRunnerArgs(), options.WithVersion());
     }
 
 

@@ -21,7 +21,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:eventhub/v20140901:ConsumerGroup';
+    public static readonly __pulumiType = 'azure-nextgen:eventhub/v20140901:ConsumerGroup';
 
     /**
      * Returns true if the given object is an instance of ConsumerGroup.  This is designed to work even
@@ -115,7 +115,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventhub/latest:ConsumerGroup" }, { type: "azurerm:eventhub/v20150801:ConsumerGroup" }, { type: "azurerm:eventhub/v20170401:ConsumerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20150801:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20170401:ConsumerGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConsumerGroup.__pulumiType, name, inputs, opts);
     }

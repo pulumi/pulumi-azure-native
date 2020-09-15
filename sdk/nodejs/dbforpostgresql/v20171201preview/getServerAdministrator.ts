@@ -14,7 +14,7 @@ export function getServerAdministrator(args: GetServerAdministratorArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:dbforpostgresql/v20171201preview:getServerAdministrator", {
+    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql/v20171201preview:getServerAdministrator", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);

@@ -23,7 +23,7 @@ export class Vault extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:keyvault/latest:Vault';
+    public static readonly __pulumiType = 'azure-nextgen:keyvault/latest:Vault';
 
     /**
      * Returns true if the given object is an instance of Vault.  This is designed to work even
@@ -100,7 +100,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:keyvault/v20150601:Vault" }, { type: "azurerm:keyvault/v20161001:Vault" }, { type: "azurerm:keyvault/v20180214:Vault" }, { type: "azurerm:keyvault/v20180214preview:Vault" }, { type: "azurerm:keyvault/v20190901:Vault" }, { type: "azurerm:keyvault/v20200401preview:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:keyvault/v20150601:Vault" }, { type: "azure-nextgen:keyvault/v20161001:Vault" }, { type: "azure-nextgen:keyvault/v20180214:Vault" }, { type: "azure-nextgen:keyvault/v20180214preview:Vault" }, { type: "azure-nextgen:keyvault/v20190901:Vault" }, { type: "azure-nextgen:keyvault/v20200401preview:Vault" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vault.__pulumiType, name, inputs, opts);
     }

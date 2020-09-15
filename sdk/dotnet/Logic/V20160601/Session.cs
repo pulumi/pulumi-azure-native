@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20160601
+namespace Pulumi.AzureNextGen.Logic.V20160601
 {
     /// <summary>
     /// The integration account session.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Session(string name, SessionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20160601:Session", name, args ?? new SessionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:logic/v20160601:Session", name, args ?? new SessionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Session(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:logic/v20160601:Session", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:logic/v20160601:Session", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,9 +81,9 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:logic/latest:Session"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:Session"},
-                    new Pulumi.Alias { Type = "azurerm:logic/v20190501:Session"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:Session"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Session"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:Session"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

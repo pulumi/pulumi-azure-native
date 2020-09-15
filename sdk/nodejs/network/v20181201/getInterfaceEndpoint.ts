@@ -14,7 +14,7 @@ export function getInterfaceEndpoint(args: GetInterfaceEndpointArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20181201:getInterfaceEndpoint", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20181201:getInterfaceEndpoint", {
         "expand": args.expand,
         "interfaceEndpointName": args.interfaceEndpointName,
         "resourceGroupName": args.resourceGroupName,

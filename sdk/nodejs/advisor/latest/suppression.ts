@@ -21,7 +21,7 @@ export class Suppression extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:advisor/latest:Suppression';
+    public static readonly __pulumiType = 'azure-nextgen:advisor/latest:Suppression';
 
     /**
      * Returns true if the given object is an instance of Suppression.  This is designed to work even
@@ -89,7 +89,7 @@ export class Suppression extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:advisor/v20160712preview:Suppression" }, { type: "azurerm:advisor/v20170331:Suppression" }, { type: "azurerm:advisor/v20170419:Suppression" }, { type: "azurerm:advisor/v20200101:Suppression" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:advisor/v20160712preview:Suppression" }, { type: "azure-nextgen:advisor/v20170331:Suppression" }, { type: "azure-nextgen:advisor/v20170419:Suppression" }, { type: "azure-nextgen:advisor/v20200101:Suppression" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Suppression.__pulumiType, name, inputs, opts);
     }

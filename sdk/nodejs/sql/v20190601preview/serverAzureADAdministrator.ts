@@ -21,7 +21,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20190601preview:ServerAzureADAdministrator';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator';
 
     /**
      * Returns true if the given object is an instance of ServerAzureADAdministrator.  This is designed to work even
@@ -117,7 +117,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/latest:ServerAzureADAdministrator" }, { type: "azurerm:sql/v20140401:ServerAzureADAdministrator" }, { type: "azurerm:sql/v20180601preview:ServerAzureADAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/latest:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20140401:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerAzureADAdministrator.__pulumiType, name, inputs, opts);
     }

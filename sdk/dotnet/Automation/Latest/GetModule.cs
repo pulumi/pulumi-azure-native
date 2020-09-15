@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.Latest
+namespace Pulumi.AzureNextGen.Automation.Latest
 {
     public static class GetModule
     {
         public static Task<GetModuleResult> InvokeAsync(GetModuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azurerm:automation/latest:getModule", args ?? new GetModuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-nextgen:automation/latest:getModule", args ?? new GetModuleArgs(), options.WithVersion());
     }
 
 

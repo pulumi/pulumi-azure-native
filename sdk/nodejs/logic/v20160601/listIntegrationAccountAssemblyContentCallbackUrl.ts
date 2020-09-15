@@ -14,7 +14,7 @@ export function listIntegrationAccountAssemblyContentCallbackUrl(args: ListInteg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20160601:listIntegrationAccountAssemblyContentCallbackUrl", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20160601:listIntegrationAccountAssemblyContentCallbackUrl", {
         "assemblyArtifactName": args.assemblyArtifactName,
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BotService.Latest
+namespace Pulumi.AzureNextGen.BotService.Latest
 {
     /// <summary>
     /// Enterprise Channel resource definition
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.BotService.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnterpriseChannel(string name, EnterpriseChannelArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:botservice/latest:EnterpriseChannel", name, args ?? new EnterpriseChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:botservice/latest:EnterpriseChannel", name, args ?? new EnterpriseChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EnterpriseChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:botservice/latest:EnterpriseChannel", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:botservice/latest:EnterpriseChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.BotService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:botservice/v20180712:EnterpriseChannel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice/v20180712:EnterpriseChannel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview.Outputs
+namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview.Outputs
 {
 
     [OutputType]

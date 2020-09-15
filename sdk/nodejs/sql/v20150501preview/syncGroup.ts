@@ -23,7 +23,7 @@ export class SyncGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20150501preview:SyncGroup';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20150501preview:SyncGroup';
 
     /**
      * Returns true if the given object is an instance of SyncGroup.  This is designed to work even
@@ -132,7 +132,7 @@ export class SyncGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/v20190601preview:SyncGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20190601preview:SyncGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SyncGroup.__pulumiType, name, inputs, opts);
     }

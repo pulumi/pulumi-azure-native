@@ -23,7 +23,7 @@ export class Gateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:servicefabricmesh/v20180901preview:Gateway';
+    public static readonly __pulumiType = 'azure-nextgen:servicefabricmesh/v20180901preview:Gateway';
 
     /**
      * Returns true if the given object is an instance of Gateway.  This is designed to work even

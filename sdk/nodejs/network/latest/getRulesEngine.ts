@@ -14,7 +14,7 @@ export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getRulesEngine", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getRulesEngine", {
         "frontDoorName": args.frontDoorName,
         "resourceGroupName": args.resourceGroupName,
         "rulesEngineName": args.rulesEngineName,

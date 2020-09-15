@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20171001Preview
+namespace Pulumi.AzureNextGen.Sql.V20171001Preview
 {
     /// <summary>
     /// An instance failover group.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstanceFailoverGroup(string name, InstanceFailoverGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20171001preview:InstanceFailoverGroup", name, args ?? new InstanceFailoverGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20171001preview:InstanceFailoverGroup", name, args ?? new InstanceFailoverGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InstanceFailoverGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20171001preview:InstanceFailoverGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20171001preview:InstanceFailoverGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

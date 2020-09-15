@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningExperimentation.V20170501Preview
+namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
 {
     public static class GetAccount
     {
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azurerm:machinelearningexperimentation/v20170501preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:machinelearningexperimentation/v20170501preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

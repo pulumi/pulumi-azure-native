@@ -14,7 +14,7 @@ export function getEnterpriseKnowledgeGraph(args: GetEnterpriseKnowledgeGraphArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", {
+    return pulumi.runtime.invoke("azure-nextgen:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

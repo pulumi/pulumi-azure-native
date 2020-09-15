@@ -14,7 +14,7 @@ export function listDeviceFailoverSets(args: ListDeviceFailoverSetsArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storsimple/latest:listDeviceFailoverSets", {
+    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:listDeviceFailoverSets", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20140401
+namespace Pulumi.AzureNextGen.Sql.V20140401
 {
     /// <summary>
     /// Represents a database.
@@ -247,12 +247,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20140401:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20140401:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20140401:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20140401:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -263,10 +263,10 @@ namespace Pulumi.AzureRM.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:sql/latest:Database"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20170301preview:Database"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20171001preview:Database"},
-                    new Pulumi.Alias { Type = "azurerm:sql/v20190601preview:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20171001preview:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

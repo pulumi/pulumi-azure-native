@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NetApp.Latest
+namespace Pulumi.AzureNextGen.NetApp.Latest
 {
     public static class GetBackup
     {
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azurerm:netapp/latest:getBackup", args ?? new GetBackupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-nextgen:netapp/latest:getBackup", args ?? new GetBackupArgs(), options.WithVersion());
     }
 
 

@@ -14,7 +14,7 @@ export function listWebAppPublishingCredentialsSlot(args: ListWebAppPublishingCr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listWebAppPublishingCredentialsSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppPublishingCredentialsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

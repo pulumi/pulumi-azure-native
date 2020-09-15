@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
+namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
 {
     /// <summary>
     /// HANA instance info on Azure (ARM properties and HANA properties)
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HanaInstance(string name, HanaInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hanaonazure/v20171103preview:HanaInstance", name, args ?? new HanaInstanceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hanaonazure/v20171103preview:HanaInstance", name, args ?? new HanaInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HanaInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hanaonazure/v20171103preview:HanaInstance", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hanaonazure/v20171103preview:HanaInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 

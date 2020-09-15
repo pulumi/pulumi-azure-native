@@ -21,7 +21,7 @@ export class RegisteredServer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storagesync/v20190301:RegisteredServer';
+    public static readonly __pulumiType = 'azure-nextgen:storagesync/v20190301:RegisteredServer';
 
     /**
      * Returns true if the given object is an instance of RegisteredServer.  This is designed to work even
@@ -191,7 +191,7 @@ export class RegisteredServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:RegisteredServer" }, { type: "azurerm:storagesync/v20170605preview:RegisteredServer" }, { type: "azurerm:storagesync/v20180402:RegisteredServer" }, { type: "azurerm:storagesync/v20180701:RegisteredServer" }, { type: "azurerm:storagesync/v20181001:RegisteredServer" }, { type: "azurerm:storagesync/v20190201:RegisteredServer" }, { type: "azurerm:storagesync/v20190601:RegisteredServer" }, { type: "azurerm:storagesync/v20191001:RegisteredServer" }, { type: "azurerm:storagesync/v20200301:RegisteredServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagesync/latest:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20170605preview:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20180402:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20180701:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20181001:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20190201:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20190601:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20191001:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20200301:RegisteredServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegisteredServer.__pulumiType, name, inputs, opts);
     }

@@ -21,7 +21,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storage/v20180301preview:ManagementPolicy';
+    public static readonly __pulumiType = 'azure-nextgen:storage/v20180301preview:ManagementPolicy';
 
     /**
      * Returns true if the given object is an instance of ManagementPolicy.  This is designed to work even
@@ -90,7 +90,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:ManagementPolicy" }, { type: "azurerm:storage/v20181101:ManagementPolicy" }, { type: "azurerm:storage/v20190401:ManagementPolicy" }, { type: "azurerm:storage/v20190601:ManagementPolicy" }, { type: "azurerm:storage/v20200801preview:ManagementPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:ManagementPolicy" }, { type: "azure-nextgen:storage/v20181101:ManagementPolicy" }, { type: "azure-nextgen:storage/v20190401:ManagementPolicy" }, { type: "azure-nextgen:storage/v20190601:ManagementPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ManagementPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementPolicy.__pulumiType, name, inputs, opts);
     }

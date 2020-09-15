@@ -23,7 +23,7 @@ export class ApiManagementService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20190101:ApiManagementService';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20190101:ApiManagementService';
 
     /**
      * Returns true if the given object is an instance of ApiManagementService.  This is designed to work even
@@ -244,7 +244,7 @@ export class ApiManagementService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiManagementService" }, { type: "azurerm:apimanagement/v20160707:ApiManagementService" }, { type: "azurerm:apimanagement/v20161010:ApiManagementService" }, { type: "azurerm:apimanagement/v20170301:ApiManagementService" }, { type: "azurerm:apimanagement/v20180101:ApiManagementService" }, { type: "azurerm:apimanagement/v20180601preview:ApiManagementService" }, { type: "azurerm:apimanagement/v20191201:ApiManagementService" }, { type: "azurerm:apimanagement/v20191201preview:ApiManagementService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20160707:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20161010:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20170301:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20180101:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20191201:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiManagementService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiManagementService.__pulumiType, name, inputs, opts);
     }

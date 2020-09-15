@@ -20,7 +20,7 @@ export class VMwareCollector extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:migrate/latest:VMwareCollector';
+    public static readonly __pulumiType = 'azure-nextgen:migrate/latest:VMwareCollector';
 
     /**
      * Returns true if the given object is an instance of VMwareCollector.  This is designed to work even
@@ -77,7 +77,7 @@ export class VMwareCollector extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:migrate/v20191001:VMwareCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate/v20191001:VMwareCollector" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VMwareCollector.__pulumiType, name, inputs, opts);
     }

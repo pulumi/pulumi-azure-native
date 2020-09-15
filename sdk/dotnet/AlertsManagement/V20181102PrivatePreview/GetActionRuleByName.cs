@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AlertsManagement.V20181102PrivatePreview
+namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview
 {
     public static class GetActionRuleByName
     {
         public static Task<GetActionRuleByNameResult> InvokeAsync(GetActionRuleByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azurerm:alertsmanagement/v20181102privatepreview:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-nextgen:alertsmanagement/v20181102privatepreview:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithVersion());
     }
 
 

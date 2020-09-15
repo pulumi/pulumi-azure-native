@@ -21,7 +21,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppSwiftVirtualNetworkConnectionSlot.  This is designed to work even
@@ -95,7 +95,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azurerm:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azurerm:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSwiftVirtualNetworkConnectionSlot.__pulumiType, name, inputs, opts);
     }

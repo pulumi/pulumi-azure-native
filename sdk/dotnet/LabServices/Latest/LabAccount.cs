@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.LabServices.Latest
+namespace Pulumi.AzureNextGen.LabServices.Latest
 {
     /// <summary>
     /// Represents a lab account.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.LabServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LabAccount(string name, LabAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:labservices/latest:LabAccount", name, args ?? new LabAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:labservices/latest:LabAccount", name, args ?? new LabAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LabAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:labservices/latest:LabAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:labservices/latest:LabAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,7 +93,7 @@ namespace Pulumi.AzureRM.LabServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:labservices/v20181015:LabAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:LabAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

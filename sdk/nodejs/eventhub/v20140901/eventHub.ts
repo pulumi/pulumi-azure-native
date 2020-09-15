@@ -21,7 +21,7 @@ export class EventHub extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:eventhub/v20140901:EventHub';
+    public static readonly __pulumiType = 'azure-nextgen:eventhub/v20140901:EventHub';
 
     /**
      * Returns true if the given object is an instance of EventHub.  This is designed to work even
@@ -123,7 +123,7 @@ export class EventHub extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventhub/latest:EventHub" }, { type: "azurerm:eventhub/v20150801:EventHub" }, { type: "azurerm:eventhub/v20170401:EventHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:EventHub" }, { type: "azure-nextgen:eventhub/v20150801:EventHub" }, { type: "azure-nextgen:eventhub/v20170401:EventHub" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventHub.__pulumiType, name, inputs, opts);
     }

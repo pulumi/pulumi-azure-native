@@ -14,7 +14,7 @@ export function getWebAppSwiftVirtualNetworkConnectionSlot(args: GetWebAppSwiftV
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:getWebAppSwiftVirtualNetworkConnectionSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppSwiftVirtualNetworkConnectionSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

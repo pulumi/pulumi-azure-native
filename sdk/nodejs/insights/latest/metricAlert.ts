@@ -23,7 +23,7 @@ export class MetricAlert extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/latest:MetricAlert';
+    public static readonly __pulumiType = 'azure-nextgen:insights/latest:MetricAlert';
 
     /**
      * Returns true if the given object is an instance of MetricAlert.  This is designed to work even
@@ -181,7 +181,7 @@ export class MetricAlert extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/v20180301:MetricAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20180301:MetricAlert" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MetricAlert.__pulumiType, name, inputs, opts);
     }

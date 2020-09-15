@@ -23,7 +23,7 @@ export class Machine extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hybridcompute/v20191212:Machine';
+    public static readonly __pulumiType = 'azure-nextgen:hybridcompute/v20191212:Machine';
 
     /**
      * Returns true if the given object is an instance of Machine.  This is designed to work even
@@ -177,7 +177,7 @@ export class Machine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/latest:Machine" }, { type: "azurerm:hybridcompute/v20190318preview:Machine" }, { type: "azurerm:hybridcompute/v20190802preview:Machine" }, { type: "azurerm:hybridcompute/v20200730preview:Machine" }, { type: "azurerm:hybridcompute/v20200802:Machine" }, { type: "azurerm:hybridcompute/v20200815preview:Machine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridcompute/latest:Machine" }, { type: "azure-nextgen:hybridcompute/v20190318preview:Machine" }, { type: "azure-nextgen:hybridcompute/v20190802preview:Machine" }, { type: "azure-nextgen:hybridcompute/v20200730preview:Machine" }, { type: "azure-nextgen:hybridcompute/v20200802:Machine" }, { type: "azure-nextgen:hybridcompute/v20200815preview:Machine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Machine.__pulumiType, name, inputs, opts);
     }

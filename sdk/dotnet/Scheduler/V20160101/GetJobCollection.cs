@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Scheduler.V20160101
+namespace Pulumi.AzureNextGen.Scheduler.V20160101
 {
     public static class GetJobCollection
     {
         public static Task<GetJobCollectionResult> InvokeAsync(GetJobCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azurerm:scheduler/v20160101:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure-nextgen:scheduler/v20160101:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithVersion());
     }
 
 

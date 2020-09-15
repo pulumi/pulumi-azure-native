@@ -23,7 +23,7 @@ export class VendorSkus extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hybridnetwork/v20200101preview:VendorSkus';
+    public static readonly __pulumiType = 'azure-nextgen:hybridnetwork/v20200101preview:VendorSkus';
 
     /**
      * Returns true if the given object is an instance of VendorSkus.  This is designed to work even

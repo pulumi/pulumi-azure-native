@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20190101Preview
+namespace Pulumi.AzureNextGen.Security.V20190101Preview
 {
     /// <summary>
     /// Security assessment metadata
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AssessmentsMetadataSubscription(string name, AssessmentsMetadataSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20190101preview:AssessmentsMetadataSubscription", name, args ?? new AssessmentsMetadataSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:security/v20190101preview:AssessmentsMetadataSubscription", name, args ?? new AssessmentsMetadataSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AssessmentsMetadataSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:security/v20190101preview:AssessmentsMetadataSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:security/v20190101preview:AssessmentsMetadataSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,8 +111,8 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:security/latest:AssessmentsMetadataSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:security/v20200101:AssessmentsMetadataSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:AssessmentsMetadataSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:AssessmentsMetadataSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

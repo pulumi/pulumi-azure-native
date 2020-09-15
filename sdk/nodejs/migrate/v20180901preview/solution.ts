@@ -23,7 +23,7 @@ export class Solution extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:migrate/v20180901preview:Solution';
+    public static readonly __pulumiType = 'azure-nextgen:migrate/v20180901preview:Solution';
 
     /**
      * Returns true if the given object is an instance of Solution.  This is designed to work even

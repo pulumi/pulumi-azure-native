@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RecoveryServices.V20160601
+namespace Pulumi.AzureNextGen.RecoveryServices.V20160601
 {
     public static class GetProtectionPolicy
     {
         public static Task<GetProtectionPolicyResult> InvokeAsync(GetProtectionPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azurerm:recoveryservices/v20160601:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-nextgen:recoveryservices/v20160601:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithVersion());
     }
 
 

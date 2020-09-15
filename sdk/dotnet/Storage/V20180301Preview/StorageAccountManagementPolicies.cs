@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Storage.V20180301Preview
+namespace Pulumi.AzureNextGen.Storage.V20180301Preview
 {
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Storage.V20180301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccountManagementPolicies(string name, StorageAccountManagementPoliciesArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storage/v20180301preview:StorageAccountManagementPolicies", name, args ?? new StorageAccountManagementPoliciesArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies", name, args ?? new StorageAccountManagementPoliciesArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccountManagementPolicies(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storage/v20180301preview:StorageAccountManagementPolicies", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,11 +63,11 @@ namespace Pulumi.AzureRM.Storage.V20180301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storage/latest:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20181101:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20190401:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20190601:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:StorageAccountManagementPolicies"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:StorageAccountManagementPolicies"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:StorageAccountManagementPolicies"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:StorageAccountManagementPolicies"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:StorageAccountManagementPolicies"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

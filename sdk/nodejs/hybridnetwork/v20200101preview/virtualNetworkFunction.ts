@@ -23,7 +23,7 @@ export class VirtualNetworkFunction extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hybridnetwork/v20200101preview:VirtualNetworkFunction';
+    public static readonly __pulumiType = 'azure-nextgen:hybridnetwork/v20200101preview:VirtualNetworkFunction';
 
     /**
      * Returns true if the given object is an instance of VirtualNetworkFunction.  This is designed to work even

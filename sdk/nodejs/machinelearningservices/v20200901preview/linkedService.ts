@@ -23,7 +23,7 @@ export class LinkedService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:machinelearningservices/v20200901preview:LinkedService';
+    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices/v20200901preview:LinkedService';
 
     /**
      * Returns true if the given object is an instance of LinkedService.  This is designed to work even

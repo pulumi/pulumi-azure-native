@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20150501
+namespace Pulumi.AzureNextGen.Insights.V20150501
 {
     public static class GetFavorite
     {
         public static Task<GetFavoriteResult> InvokeAsync(GetFavoriteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azurerm:insights/v20150501:getFavorite", args ?? new GetFavoriteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-nextgen:insights/v20150501:getFavorite", args ?? new GetFavoriteArgs(), options.WithVersion());
     }
 
 

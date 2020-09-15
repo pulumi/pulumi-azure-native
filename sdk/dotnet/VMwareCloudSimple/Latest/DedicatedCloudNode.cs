@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
+namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
 {
     /// <summary>
     /// Dedicated cloud node model
@@ -131,12 +131,12 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedCloudNode(string name, DedicatedCloudNodeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:vmwarecloudsimple/latest:DedicatedCloudNode", name, args ?? new DedicatedCloudNodeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode", name, args ?? new DedicatedCloudNodeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DedicatedCloudNode(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:vmwarecloudsimple/latest:DedicatedCloudNode", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -147,7 +147,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/v20190401:DedicatedCloudNode"},
+                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

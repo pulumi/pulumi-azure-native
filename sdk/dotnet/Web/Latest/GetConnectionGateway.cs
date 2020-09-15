@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.Latest
+namespace Pulumi.AzureNextGen.Web.Latest
 {
     public static class GetConnectionGateway
     {
         public static Task<GetConnectionGatewayResult> InvokeAsync(GetConnectionGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azurerm:web/latest:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-nextgen:web/latest:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithVersion());
     }
 
 

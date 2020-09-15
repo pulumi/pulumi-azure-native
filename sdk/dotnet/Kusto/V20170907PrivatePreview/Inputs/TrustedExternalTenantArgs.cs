@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kusto.V20170907PrivatePreview.Inputs
+namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview.Inputs
 {
 
     public sealed class TrustedExternalTenantArgs : Pulumi.ResourceArgs

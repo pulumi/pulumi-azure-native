@@ -23,7 +23,7 @@ export class BandwidthSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storsimple/latest:BandwidthSetting';
+    public static readonly __pulumiType = 'azure-nextgen:storsimple/latest:BandwidthSetting';
 
     /**
      * Returns true if the given object is an instance of BandwidthSetting.  This is designed to work even
@@ -101,7 +101,7 @@ export class BandwidthSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20170601:BandwidthSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20170601:BandwidthSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BandwidthSetting.__pulumiType, name, inputs, opts);
     }

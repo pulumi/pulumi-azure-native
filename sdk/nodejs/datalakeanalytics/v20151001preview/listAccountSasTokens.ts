@@ -14,7 +14,7 @@ export function listAccountSasTokens(args: ListAccountSasTokensArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datalakeanalytics/v20151001preview:listAccountSasTokens", {
+    return pulumi.runtime.invoke("azure-nextgen:datalakeanalytics/v20151001preview:listAccountSasTokens", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "resourceGroupName": args.resourceGroupName,

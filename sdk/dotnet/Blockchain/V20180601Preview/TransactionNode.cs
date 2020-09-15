@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Blockchain.V20180601Preview
+namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
 {
     /// <summary>
     /// Payload of the transaction node which is the request/response of the resource provider.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TransactionNode(string name, TransactionNodeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:blockchain/v20180601preview:TransactionNode", name, args ?? new TransactionNodeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:blockchain/v20180601preview:TransactionNode", name, args ?? new TransactionNodeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TransactionNode(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:blockchain/v20180601preview:TransactionNode", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:blockchain/v20180601preview:TransactionNode", name, null, MakeResourceOptions(options, id))
         {
         }
 

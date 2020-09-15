@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Management.Latest
+namespace Pulumi.AzureNextGen.Management.Latest
 {
     /// <summary>
     /// The details of subscription under management group.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Management.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementGroupSubscription(string name, ManagementGroupSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:management/latest:ManagementGroupSubscription", name, args ?? new ManagementGroupSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:management/latest:ManagementGroupSubscription", name, args ?? new ManagementGroupSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementGroupSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:management/latest:ManagementGroupSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:management/latest:ManagementGroupSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.Management.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:management/v20200501:ManagementGroupSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:ManagementGroupSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

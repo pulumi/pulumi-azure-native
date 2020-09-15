@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Kusto.V20180907Preview
+namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
 {
     public static class GetEventHubConnection
     {
         public static Task<GetEventHubConnectionResult> InvokeAsync(GetEventHubConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubConnectionResult>("azurerm:kusto/v20180907preview:getEventHubConnection", args ?? new GetEventHubConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubConnectionResult>("azure-nextgen:kusto/v20180907preview:getEventHubConnection", args ?? new GetEventHubConnectionArgs(), options.WithVersion());
     }
 
 

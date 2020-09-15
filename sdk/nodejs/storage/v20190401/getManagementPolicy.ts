@@ -14,7 +14,7 @@ export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storage/v20190401:getManagementPolicy", {
+    return pulumi.runtime.invoke("azure-nextgen:storage/v20190401:getManagementPolicy", {
         "accountName": args.accountName,
         "managementPolicyName": args.managementPolicyName,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class DataController extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:azuredata/v20190724preview:DataController';
+    public static readonly __pulumiType = 'azure-nextgen:azuredata/v20190724preview:DataController';
 
     /**
      * Returns true if the given object is an instance of DataController.  This is designed to work even

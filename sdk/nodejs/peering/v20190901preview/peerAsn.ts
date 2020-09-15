@@ -23,7 +23,7 @@ export class PeerAsn extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:peering/v20190901preview:PeerAsn';
+    public static readonly __pulumiType = 'azure-nextgen:peering/v20190901preview:PeerAsn';
 
     /**
      * Returns true if the given object is an instance of PeerAsn.  This is designed to work even
@@ -102,7 +102,7 @@ export class PeerAsn extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:peering/latest:PeerAsn" }, { type: "azurerm:peering/v20190801preview:PeerAsn" }, { type: "azurerm:peering/v20200101preview:PeerAsn" }, { type: "azurerm:peering/v20200401:PeerAsn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/latest:PeerAsn" }, { type: "azure-nextgen:peering/v20190801preview:PeerAsn" }, { type: "azure-nextgen:peering/v20200101preview:PeerAsn" }, { type: "azure-nextgen:peering/v20200401:PeerAsn" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PeerAsn.__pulumiType, name, inputs, opts);
     }

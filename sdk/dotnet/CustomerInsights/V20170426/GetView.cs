@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.V20170426
+namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
 {
     public static class GetView
     {
         public static Task<GetViewResult> InvokeAsync(GetViewArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azurerm:customerinsights/v20170426:getView", args ?? new GetViewArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetViewResult>("azure-nextgen:customerinsights/v20170426:getView", args ?? new GetViewArgs(), options.WithVersion());
     }
 
 

@@ -23,7 +23,7 @@ export class ConfigurationProfilePreference extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:automanage/v20200630preview:ConfigurationProfilePreference';
+    public static readonly __pulumiType = 'azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference';
 
     /**
      * Returns true if the given object is an instance of ConfigurationProfilePreference.  This is designed to work even

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorageCache.V20200301
+namespace Pulumi.AzureNextGen.StorageCache.V20200301
 {
     /// <summary>
     /// Type of the Storage Target.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageTarget(string name, StorageTargetArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storagecache/v20200301:StorageTarget", name, args ?? new StorageTargetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storagecache/v20200301:StorageTarget", name, args ?? new StorageTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageTarget(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storagecache/v20200301:StorageTarget", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storagecache/v20200301:StorageTarget", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,9 +87,9 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storagecache/latest:StorageTarget"},
-                    new Pulumi.Alias { Type = "azurerm:storagecache/v20190801preview:StorageTarget"},
-                    new Pulumi.Alias { Type = "azurerm:storagecache/v20191101:StorageTarget"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/latest:StorageTarget"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20190801preview:StorageTarget"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:StorageTarget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

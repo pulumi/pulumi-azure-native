@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridData.V20160601
+namespace Pulumi.AzureNextGen.HybridData.V20160601
 {
     /// <summary>
     /// Job Definition.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.HybridData.V20160601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobDefinition(string name, JobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hybriddata/v20160601:JobDefinition", name, args ?? new JobDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hybriddata/v20160601:JobDefinition", name, args ?? new JobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hybriddata/v20160601:JobDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hybriddata/v20160601:JobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,8 +105,8 @@ namespace Pulumi.AzureRM.HybridData.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hybriddata/latest:JobDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:hybriddata/v20190601:JobDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata/latest:JobDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:JobDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

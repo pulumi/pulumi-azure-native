@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Blueprint.V20181101Preview
+namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
 {
     public static class GetAssignment
     {
         public static Task<GetAssignmentResult> InvokeAsync(GetAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azurerm:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssignmentResult>("azure-nextgen:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentArgs(), options.WithVersion());
     }
 
 

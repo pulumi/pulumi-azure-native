@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview.Inputs
+namespace Pulumi.AzureNextGen.DBForPostgreSql.V20200214PrivatePreview.Inputs
 {
 
     /// <summary>

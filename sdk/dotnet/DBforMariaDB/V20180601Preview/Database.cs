@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
+namespace Pulumi.AzureNextGen.DBForMariaDB.V20180601Preview
 {
     /// <summary>
     /// Represents a Database.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbformariadb/v20180601preview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbformariadb/v20180601preview:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbformariadb/v20180601preview:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbformariadb/v20180601preview:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbformariadb/latest:Database"},
-                    new Pulumi.Alias { Type = "azurerm:dbformariadb/v20180601:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:Database"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

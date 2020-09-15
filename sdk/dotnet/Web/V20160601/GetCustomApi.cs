@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20160601
+namespace Pulumi.AzureNextGen.Web.V20160601
 {
     public static class GetCustomApi
     {
         public static Task<GetCustomApiResult> InvokeAsync(GetCustomApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azurerm:web/v20160601:getCustomApi", args ?? new GetCustomApiArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomApiResult>("azure-nextgen:web/v20160601:getCustomApi", args ?? new GetCustomApiArgs(), options.WithVersion());
     }
 
 

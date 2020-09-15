@@ -14,7 +14,7 @@ export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:cdn/latest:getOriginGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getOriginGroup", {
         "endpointName": args.endpointName,
         "originGroupName": args.originGroupName,
         "profileName": args.profileName,

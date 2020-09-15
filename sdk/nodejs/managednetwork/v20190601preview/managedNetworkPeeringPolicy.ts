@@ -23,7 +23,7 @@ export class ManagedNetworkPeeringPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy';
+    public static readonly __pulumiType = 'azure-nextgen:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy';
 
     /**
      * Returns true if the given object is an instance of ManagedNetworkPeeringPolicy.  This is designed to work even

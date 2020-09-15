@@ -23,7 +23,7 @@ export class OuContainer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:aad/v20170601:OuContainer';
+    public static readonly __pulumiType = 'azure-nextgen:aad/v20170601:OuContainer';
 
     /**
      * Returns true if the given object is an instance of OuContainer.  This is designed to work even
@@ -143,7 +143,7 @@ export class OuContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:aad/latest:OuContainer" }, { type: "azurerm:aad/v20200101:OuContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:aad/latest:OuContainer" }, { type: "azure-nextgen:aad/v20200101:OuContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OuContainer.__pulumiType, name, inputs, opts);
     }

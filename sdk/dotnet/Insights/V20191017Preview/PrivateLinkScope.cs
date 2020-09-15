@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20191017Preview
+namespace Pulumi.AzureNextGen.Insights.V20191017Preview
 {
     /// <summary>
     /// An Azure Monitor PrivateLinkScope definition.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Insights.V20191017Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkScope(string name, PrivateLinkScopeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20191017preview:PrivateLinkScope", name, args ?? new PrivateLinkScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20191017preview:PrivateLinkScope", name, args ?? new PrivateLinkScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20191017preview:PrivateLinkScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20191017preview:PrivateLinkScope", name, null, MakeResourceOptions(options, id))
         {
         }
 

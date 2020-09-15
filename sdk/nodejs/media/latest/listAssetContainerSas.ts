@@ -14,7 +14,7 @@ export function listAssetContainerSas(args: ListAssetContainerSasArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:media/latest:listAssetContainerSas", {
+    return pulumi.runtime.invoke("azure-nextgen:media/latest:listAssetContainerSas", {
         "accountName": args.accountName,
         "assetName": args.assetName,
         "expiryTime": args.expiryTime,

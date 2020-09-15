@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Devices.V20200301
+namespace Pulumi.AzureNextGen.Devices.V20200301
 {
     public static class GetDpsCertificate
     {
         public static Task<GetDpsCertificateResult> InvokeAsync(GetDpsCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDpsCertificateResult>("azurerm:devices/v20200301:getDpsCertificate", args ?? new GetDpsCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDpsCertificateResult>("azure-nextgen:devices/v20200301:getDpsCertificate", args ?? new GetDpsCertificateArgs(), options.WithVersion());
     }
 
 

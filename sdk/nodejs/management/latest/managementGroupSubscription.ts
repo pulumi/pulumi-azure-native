@@ -23,7 +23,7 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:management/latest:ManagementGroupSubscription';
+    public static readonly __pulumiType = 'azure-nextgen:management/latest:ManagementGroupSubscription';
 
     /**
      * Returns true if the given object is an instance of ManagementGroupSubscription.  This is designed to work even
@@ -96,7 +96,7 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:management/v20200501:ManagementGroupSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:management/v20200501:ManagementGroupSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementGroupSubscription.__pulumiType, name, inputs, opts);
     }

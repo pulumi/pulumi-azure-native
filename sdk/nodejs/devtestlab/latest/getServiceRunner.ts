@@ -14,7 +14,7 @@ export function getServiceRunner(args: GetServiceRunnerArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/latest:getServiceRunner", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getServiceRunner", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

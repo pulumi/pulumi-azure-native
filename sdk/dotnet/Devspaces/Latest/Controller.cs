@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevSpaces.Latest
+namespace Pulumi.AzureNextGen.DevSpaces.Latest
 {
     public partial class Controller : Pulumi.CustomResource
     {
@@ -86,12 +86,12 @@ namespace Pulumi.AzureRM.DevSpaces.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Controller(string name, ControllerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devspaces/latest:Controller", name, args ?? new ControllerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devspaces/latest:Controller", name, args ?? new ControllerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Controller(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devspaces/latest:Controller", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devspaces/latest:Controller", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.DevSpaces.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devspaces/v20190401:Controller"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devspaces/v20190401:Controller"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

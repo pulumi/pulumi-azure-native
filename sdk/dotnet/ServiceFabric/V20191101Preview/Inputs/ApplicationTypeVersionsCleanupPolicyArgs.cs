@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabric.V20191101Preview.Inputs
+namespace Pulumi.AzureNextGen.ServiceFabric.V20191101Preview.Inputs
 {
 
     public sealed class ApplicationTypeVersionsCleanupPolicyArgs : Pulumi.ResourceArgs

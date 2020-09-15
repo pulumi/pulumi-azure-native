@@ -23,7 +23,7 @@ export class MachineGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:operationalinsights/v20151101preview:MachineGroup';
+    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/v20151101preview:MachineGroup';
 
     /**
      * Returns true if the given object is an instance of MachineGroup.  This is designed to work even

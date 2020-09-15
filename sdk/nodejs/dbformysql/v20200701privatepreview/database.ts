@@ -21,7 +21,7 @@ export class Database extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:dbformysql/v20200701privatepreview:Database';
+    public static readonly __pulumiType = 'azure-nextgen:dbformysql/v20200701privatepreview:Database';
 
     /**
      * Returns true if the given object is an instance of Database.  This is designed to work even

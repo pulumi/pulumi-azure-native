@@ -14,7 +14,7 @@ export function getApiOperation(args: GetApiOperationArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getApiOperation", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20190101:getApiOperation", {
         "apiId": args.apiId,
         "operationId": args.operationId,
         "resourceGroupName": args.resourceGroupName,

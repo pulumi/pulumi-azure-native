@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataLakeAnalytics.V20151001Preview
+namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview
 {
     public static class ListAccountSasTokens
     {
         public static Task<ListAccountSasTokensResult> InvokeAsync(ListAccountSasTokensArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountSasTokensResult>("azurerm:datalakeanalytics/v20151001preview:listAccountSasTokens", args ?? new ListAccountSasTokensArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountSasTokensResult>("azure-nextgen:datalakeanalytics/v20151001preview:listAccountSasTokens", args ?? new ListAccountSasTokensArgs(), options.WithVersion());
     }
 
 

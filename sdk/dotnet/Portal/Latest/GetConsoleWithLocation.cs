@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Portal.Latest
+namespace Pulumi.AzureNextGen.Portal.Latest
 {
     public static class GetConsoleWithLocation
     {
         public static Task<GetConsoleWithLocationResult> InvokeAsync(GetConsoleWithLocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleWithLocationResult>("azurerm:portal/latest:getConsoleWithLocation", args ?? new GetConsoleWithLocationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleWithLocationResult>("azure-nextgen:portal/latest:getConsoleWithLocation", args ?? new GetConsoleWithLocationArgs(), options.WithVersion());
     }
 
 

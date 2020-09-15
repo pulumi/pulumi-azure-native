@@ -14,7 +14,7 @@ export function getViewByScope(args: GetViewByScopeArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:costmanagement/v20190401preview:getViewByScope", {
+    return pulumi.runtime.invoke("azure-nextgen:costmanagement/v20190401preview:getViewByScope", {
         "scope": args.scope,
         "viewName": args.viewName,
     }, opts);

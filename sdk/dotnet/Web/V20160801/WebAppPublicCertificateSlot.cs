@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20160801
+namespace Pulumi.AzureNextGen.Web.V20160801
 {
     /// <summary>
     /// Public certificate object
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppPublicCertificateSlot(string name, WebAppPublicCertificateSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160801:WebAppPublicCertificateSlot", name, args ?? new WebAppPublicCertificateSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20160801:WebAppPublicCertificateSlot", name, args ?? new WebAppPublicCertificateSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppPublicCertificateSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160801:WebAppPublicCertificateSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20160801:WebAppPublicCertificateSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,11 +75,11 @@ namespace Pulumi.AzureRM.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppPublicCertificateSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

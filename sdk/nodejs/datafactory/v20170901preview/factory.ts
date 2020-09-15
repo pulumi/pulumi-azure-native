@@ -23,7 +23,7 @@ export class Factory extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datafactory/v20170901preview:Factory';
+    public static readonly __pulumiType = 'azure-nextgen:datafactory/v20170901preview:Factory';
 
     /**
      * Returns true if the given object is an instance of Factory.  This is designed to work even
@@ -118,7 +118,7 @@ export class Factory extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/latest:Factory" }, { type: "azurerm:datafactory/v20180601:Factory" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory/latest:Factory" }, { type: "azure-nextgen:datafactory/v20180601:Factory" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Factory.__pulumiType, name, inputs, opts);
     }

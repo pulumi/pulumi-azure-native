@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.PowerBI.V20160129.Inputs
+namespace Pulumi.AzureNextGen.PowerBI.V20160129.Inputs
 {
 
     public sealed class AzureSkuArgs : Pulumi.ResourceArgs

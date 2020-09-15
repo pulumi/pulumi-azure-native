@@ -21,7 +21,7 @@ export class AlertRuleAction extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:securityinsights/v20190101preview:AlertRuleAction';
+    public static readonly __pulumiType = 'azure-nextgen:securityinsights/v20190101preview:AlertRuleAction';
 
     /**
      * Returns true if the given object is an instance of AlertRuleAction.  This is designed to work even

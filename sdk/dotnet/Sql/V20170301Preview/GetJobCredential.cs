@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20170301Preview
+namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 {
     public static class GetJobCredential
     {
         public static Task<GetJobCredentialResult> InvokeAsync(GetJobCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCredentialResult>("azurerm:sql/v20170301preview:getJobCredential", args ?? new GetJobCredentialArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCredentialResult>("azure-nextgen:sql/v20170301preview:getJobCredential", args ?? new GetJobCredentialArgs(), options.WithVersion());
     }
 
 

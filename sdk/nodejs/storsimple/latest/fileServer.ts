@@ -21,7 +21,7 @@ export class FileServer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:storsimple/latest:FileServer';
+    public static readonly __pulumiType = 'azure-nextgen:storsimple/latest:FileServer';
 
     /**
      * Returns true if the given object is an instance of FileServer.  This is designed to work even
@@ -115,7 +115,7 @@ export class FileServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20161001:FileServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20161001:FileServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServer.__pulumiType, name, inputs, opts);
     }

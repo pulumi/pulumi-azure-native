@@ -21,7 +21,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:peering/v20200401:RegisteredPrefix';
+    public static readonly __pulumiType = 'azure-nextgen:peering/v20200401:RegisteredPrefix';
 
     /**
      * Returns true if the given object is an instance of RegisteredPrefix.  This is designed to work even
@@ -108,7 +108,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:peering/latest:RegisteredPrefix" }, { type: "azurerm:peering/v20200101preview:RegisteredPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/latest:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredPrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegisteredPrefix.__pulumiType, name, inputs, opts);
     }

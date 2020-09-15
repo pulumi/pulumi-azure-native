@@ -14,7 +14,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:dbformysql/v20180601privatepreview:getPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:dbformysql/v20180601privatepreview:getPrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

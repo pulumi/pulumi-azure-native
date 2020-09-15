@@ -14,7 +14,7 @@ export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConne
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20200601:getWebAppRelayServiceConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20200601:getWebAppRelayServiceConnection", {
         "entityName": args.entityName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

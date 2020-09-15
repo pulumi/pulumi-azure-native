@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20150501
+namespace Pulumi.AzureNextGen.Insights.V20150501
 {
     public static class GetWebTest
     {
         public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azurerm:insights/v20150501:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-nextgen:insights/v20150501:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
     }
 
 

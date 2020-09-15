@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20200202Preview
+namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 {
     /// <summary>
     /// Azure Active Directory only authentication.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Sql.V20200202Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerAzureADOnlyAuthentication(string name, ServerAzureADOnlyAuthenticationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20200202preview:ServerAzureADOnlyAuthentication", name, args ?? new ServerAzureADOnlyAuthenticationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication", name, args ?? new ServerAzureADOnlyAuthenticationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerAzureADOnlyAuthentication(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/v20200202preview:ServerAzureADOnlyAuthentication", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication", name, null, MakeResourceOptions(options, id))
         {
         }
 

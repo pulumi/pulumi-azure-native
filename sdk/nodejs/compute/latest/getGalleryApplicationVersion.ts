@@ -14,7 +14,7 @@ export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/latest:getGalleryApplicationVersion", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getGalleryApplicationVersion", {
         "expand": args.expand,
         "galleryApplicationName": args.galleryApplicationName,
         "galleryApplicationVersionName": args.galleryApplicationVersionName,

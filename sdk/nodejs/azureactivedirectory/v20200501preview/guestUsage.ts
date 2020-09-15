@@ -21,7 +21,7 @@ export class GuestUsage extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:azureactivedirectory/v20200501preview:GuestUsage';
+    public static readonly __pulumiType = 'azure-nextgen:azureactivedirectory/v20200501preview:GuestUsage';
 
     /**
      * Returns true if the given object is an instance of GuestUsage.  This is designed to work even

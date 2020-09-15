@@ -21,7 +21,7 @@ export class Channel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:engagementfabric/v20180901preview:Channel';
+    public static readonly __pulumiType = 'azure-nextgen:engagementfabric/v20180901preview:Channel';
 
     /**
      * Returns true if the given object is an instance of Channel.  This is designed to work even

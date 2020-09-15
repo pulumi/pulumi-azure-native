@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CostManagement.V20191001
+namespace Pulumi.AzureNextGen.CostManagement.V20191001
 {
     /// <summary>
     /// A export resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.CostManagement.V20191001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Export(string name, ExportArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20191001:Export", name, args ?? new ExportArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:costmanagement/v20191001:Export", name, args ?? new ExportArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Export(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20191001:Export", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:costmanagement/v20191001:Export", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,11 +81,11 @@ namespace Pulumi.AzureRM.CostManagement.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/latest:Export"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20190101:Export"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20190901:Export"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20191101:Export"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20200601:Export"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:Export"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190101:Export"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190901:Export"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20191101:Export"},
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200601:Export"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

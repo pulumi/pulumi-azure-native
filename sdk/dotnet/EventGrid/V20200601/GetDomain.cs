@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20200601
+namespace Pulumi.AzureNextGen.EventGrid.V20200601
 {
     public static class GetDomain
     {
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azurerm:eventgrid/v20200601:getDomain", args ?? new GetDomainArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-nextgen:eventgrid/v20200601:getDomain", args ?? new GetDomainArgs(), options.WithVersion());
     }
 
 

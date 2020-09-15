@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 using Pulumi;
-using Pulumi.AzureRM.Resources.Latest;
-using Pulumi.AzureRM.Storage.Latest;
-using Pulumi.AzureRM.Storage.Latest.Inputs;
+using Pulumi.AzureNextGen.Resources.Latest;
+using Pulumi.AzureNextGen.Storage.Latest;
+using Pulumi.AzureNextGen.Storage.Latest.Inputs;
 using Pulumi.Random;
 
 class MyStack : Stack

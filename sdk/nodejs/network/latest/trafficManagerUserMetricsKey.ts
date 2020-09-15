@@ -21,7 +21,7 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/latest:TrafficManagerUserMetricsKey';
+    public static readonly __pulumiType = 'azure-nextgen:network/latest:TrafficManagerUserMetricsKey';
 
     /**
      * Returns true if the given object is an instance of TrafficManagerUserMetricsKey.  This is designed to work even
@@ -72,7 +72,7 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20180401:TrafficManagerUserMetricsKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TrafficManagerUserMetricsKey.__pulumiType, name, inputs, opts);
     }

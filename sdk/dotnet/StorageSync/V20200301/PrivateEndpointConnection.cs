@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorageSync.V20200301
+namespace Pulumi.AzureNextGen.StorageSync.V20200301
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storagesync/v20200301:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storagesync/v20200301:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storagesync/v20200301:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storagesync/v20200301:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storagesync/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Solutions.V20160901Preview
+namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
 {
     /// <summary>
     /// Information about appliance definition.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplianceDefinition(string name, ApplianceDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:solutions/v20160901preview:ApplianceDefinition", name, args ?? new ApplianceDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:solutions/v20160901preview:ApplianceDefinition", name, args ?? new ApplianceDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplianceDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:solutions/v20160901preview:ApplianceDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:solutions/v20160901preview:ApplianceDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

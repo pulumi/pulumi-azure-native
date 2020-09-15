@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceBus.V20150801
+namespace Pulumi.AzureNextGen.ServiceBus.V20150801
 {
     /// <summary>
     /// Description of a namespace authorization rule.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceAuthorizationRule(string name, NamespaceAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus/v20150801:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus/v20150801:NamespaceAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,9 +63,9 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:servicebus/latest:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

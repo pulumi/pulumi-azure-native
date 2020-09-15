@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
+namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
 {
     public static class GetStorageAccount
     {
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azurerm:databoxedge/v20200501preview:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-nextgen:databoxedge/v20200501preview:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
     }
 
 

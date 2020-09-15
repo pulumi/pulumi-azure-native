@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
+namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
 {
     public static class GetApiSchema
     {
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azurerm:apimanagement/v20180601preview:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-nextgen:apimanagement/v20180601preview:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithVersion());
     }
 
 

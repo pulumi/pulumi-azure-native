@@ -21,7 +21,7 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20200202preview:ServerAzureADOnlyAuthentication';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication';
 
     /**
      * Returns true if the given object is an instance of ServerAzureADOnlyAuthentication.  This is designed to work even

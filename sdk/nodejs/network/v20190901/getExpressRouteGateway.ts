@@ -14,7 +14,7 @@ export function getExpressRouteGateway(args: GetExpressRouteGatewayArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20190901:getExpressRouteGateway", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20190901:getExpressRouteGateway", {
         "expressRouteGatewayName": args.expressRouteGatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

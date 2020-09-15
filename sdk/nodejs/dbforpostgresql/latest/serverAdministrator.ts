@@ -21,7 +21,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:dbforpostgresql/latest:ServerAdministrator';
+    public static readonly __pulumiType = 'azure-nextgen:dbforpostgresql/latest:ServerAdministrator';
 
     /**
      * Returns true if the given object is an instance of ServerAdministrator.  This is designed to work even
@@ -110,7 +110,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbforpostgresql/v20171201:ServerAdministrator" }, { type: "azurerm:dbforpostgresql/v20171201preview:ServerAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerAdministrator.__pulumiType, name, inputs, opts);
     }

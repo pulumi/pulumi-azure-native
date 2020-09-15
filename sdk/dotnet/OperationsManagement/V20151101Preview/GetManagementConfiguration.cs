@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
+namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview
 {
     public static class GetManagementConfiguration
     {
         public static Task<GetManagementConfigurationResult> InvokeAsync(GetManagementConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementConfigurationResult>("azurerm:operationsmanagement/v20151101preview:getManagementConfiguration", args ?? new GetManagementConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementConfigurationResult>("azure-nextgen:operationsmanagement/v20151101preview:getManagementConfiguration", args ?? new GetManagementConfigurationArgs(), options.WithVersion());
     }
 
 

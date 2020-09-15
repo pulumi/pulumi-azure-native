@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
+namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 {
     /// <summary>
     /// This type describes a gateway resource.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Gateway(string name, GatewayArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabricmesh/v20180901preview:Gateway", name, args ?? new GatewayArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:servicefabricmesh/v20180901preview:Gateway", name, args ?? new GatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Gateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:servicefabricmesh/v20180901preview:Gateway", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:servicefabricmesh/v20180901preview:Gateway", name, null, MakeResourceOptions(options, id))
         {
         }
 

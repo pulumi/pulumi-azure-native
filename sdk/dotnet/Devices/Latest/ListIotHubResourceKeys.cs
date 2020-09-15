@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Devices.Latest
+namespace Pulumi.AzureNextGen.Devices.Latest
 {
     public static class ListIotHubResourceKeys
     {
         public static Task<ListIotHubResourceKeysResult> InvokeAsync(ListIotHubResourceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysResult>("azurerm:devices/latest:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIotHubResourceKeysResult>("azure-nextgen:devices/latest:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysArgs(), options.WithVersion());
     }
 
 

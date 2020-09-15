@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20191101
+namespace Pulumi.AzureNextGen.Network.V20191101
 {
     /// <summary>
     /// Application gateway resource.
@@ -215,12 +215,12 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationGateway(string name, ApplicationGatewayArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191101:ApplicationGateway", name, args ?? new ApplicationGatewayArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20191101:ApplicationGateway", name, args ?? new ApplicationGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20191101:ApplicationGateway", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20191101:ApplicationGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -231,39 +231,39 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20150501preview:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20150615:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160330:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160601:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160901:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20161201:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170301:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170601:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170801:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170901:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171101:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180101:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180701:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:ApplicationGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ApplicationGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,7 +14,7 @@ export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:costmanagement/latest:getView", {
+    return pulumi.runtime.invoke("azure-nextgen:costmanagement/latest:getView", {
         "viewName": args.viewName,
     }, opts);
 }

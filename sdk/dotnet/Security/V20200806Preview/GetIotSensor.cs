@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20200806Preview
+namespace Pulumi.AzureNextGen.Security.V20200806Preview
 {
     public static class GetIotSensor
     {
         public static Task<GetIotSensorResult> InvokeAsync(GetIotSensorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotSensorResult>("azurerm:security/v20200806preview:getIotSensor", args ?? new GetIotSensorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIotSensorResult>("azure-nextgen:security/v20200806preview:getIotSensor", args ?? new GetIotSensorArgs(), options.WithVersion());
     }
 
 

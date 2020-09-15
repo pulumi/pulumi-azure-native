@@ -14,7 +14,7 @@ export function getMachineLearningCompute(args: GetMachineLearningComputeArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:machinelearningservices/v20191101:getMachineLearningCompute", {
+    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/v20191101:getMachineLearningCompute", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

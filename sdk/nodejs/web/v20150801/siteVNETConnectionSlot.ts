@@ -23,7 +23,7 @@ export class SiteVNETConnectionSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20150801:SiteVNETConnectionSlot';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteVNETConnectionSlot';
 
     /**
      * Returns true if the given object is an instance of SiteVNETConnectionSlot.  This is designed to work even
@@ -142,7 +142,7 @@ export class SiteVNETConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20160801:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20180201:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20181101:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20190801:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20200601:SiteVNETConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteVNETConnectionSlot" }, { type: "azure-nextgen:web/v20160801:SiteVNETConnectionSlot" }, { type: "azure-nextgen:web/v20180201:SiteVNETConnectionSlot" }, { type: "azure-nextgen:web/v20181101:SiteVNETConnectionSlot" }, { type: "azure-nextgen:web/v20190801:SiteVNETConnectionSlot" }, { type: "azure-nextgen:web/v20200601:SiteVNETConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteVNETConnectionSlot.__pulumiType, name, inputs, opts);
     }

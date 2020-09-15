@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20200101
+namespace Pulumi.AzureNextGen.OperationalInsights.V20200101
 {
     public static class GetBookmark
     {
         public static Task<GetBookmarkResult> InvokeAsync(GetBookmarkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azurerm:operationalinsights/v20200101:getBookmark", args ?? new GetBookmarkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-nextgen:operationalinsights/v20200101:getBookmark", args ?? new GetBookmarkArgs(), options.WithVersion());
     }
 
 

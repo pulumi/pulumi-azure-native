@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerService.Latest
+namespace Pulumi.AzureNextGen.ContainerService.Latest
 {
     /// <summary>
     /// A private endpoint connection
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerservice/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerservice/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerservice/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerservice/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,9 +69,9 @@ namespace Pulumi.AzureRM.ContainerService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200601:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200701:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200901:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200701:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200901:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

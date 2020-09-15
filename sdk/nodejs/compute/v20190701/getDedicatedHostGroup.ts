@@ -14,7 +14,7 @@ export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/v20190701:getDedicatedHostGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/v20190701:getDedicatedHostGroup", {
         "hostGroupName": args.hostGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

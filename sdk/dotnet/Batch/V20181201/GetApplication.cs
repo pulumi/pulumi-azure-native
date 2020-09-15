@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Batch.V20181201
+namespace Pulumi.AzureNextGen.Batch.V20181201
 {
     public static class GetApplication
     {
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azurerm:batch/v20181201:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:batch/v20181201:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }
 
 

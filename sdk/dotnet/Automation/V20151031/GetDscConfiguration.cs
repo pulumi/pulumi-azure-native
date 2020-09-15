@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.V20151031
+namespace Pulumi.AzureNextGen.Automation.V20151031
 {
     public static class GetDscConfiguration
     {
         public static Task<GetDscConfigurationResult> InvokeAsync(GetDscConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDscConfigurationResult>("azurerm:automation/v20151031:getDscConfiguration", args ?? new GetDscConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDscConfigurationResult>("azure-nextgen:automation/v20151031:getDscConfiguration", args ?? new GetDscConfigurationArgs(), options.WithVersion());
     }
 
 

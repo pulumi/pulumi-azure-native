@@ -23,7 +23,7 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:kubernetesconfiguration/v20191101preview:SourceControlConfiguration';
+    public static readonly __pulumiType = 'azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration';
 
     /**
      * Returns true if the given object is an instance of SourceControlConfiguration.  This is designed to work even

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Databricks.V20180401
+namespace Pulumi.AzureNextGen.Databricks.V20180401
 {
     /// <summary>
     /// Information about workspace.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:databricks/v20180401:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:databricks/v20180401:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:databricks/v20180401:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:databricks/v20180401:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,7 +135,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databricks/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databricks/latest:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -23,7 +23,7 @@ export class BatchAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:batch/v20190801:BatchAccount';
+    public static readonly __pulumiType = 'azure-nextgen:batch/v20190801:BatchAccount';
 
     /**
      * Returns true if the given object is an instance of BatchAccount.  This is designed to work even
@@ -151,7 +151,7 @@ export class BatchAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:batch/latest:BatchAccount" }, { type: "azurerm:batch/v20151201:BatchAccount" }, { type: "azurerm:batch/v20170101:BatchAccount" }, { type: "azurerm:batch/v20170501:BatchAccount" }, { type: "azurerm:batch/v20170901:BatchAccount" }, { type: "azurerm:batch/v20181201:BatchAccount" }, { type: "azurerm:batch/v20190401:BatchAccount" }, { type: "azurerm:batch/v20200301:BatchAccount" }, { type: "azurerm:batch/v20200501:BatchAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/latest:BatchAccount" }, { type: "azure-nextgen:batch/v20151201:BatchAccount" }, { type: "azure-nextgen:batch/v20170101:BatchAccount" }, { type: "azure-nextgen:batch/v20170501:BatchAccount" }, { type: "azure-nextgen:batch/v20170901:BatchAccount" }, { type: "azure-nextgen:batch/v20181201:BatchAccount" }, { type: "azure-nextgen:batch/v20190401:BatchAccount" }, { type: "azure-nextgen:batch/v20200301:BatchAccount" }, { type: "azure-nextgen:batch/v20200501:BatchAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BatchAccount.__pulumiType, name, inputs, opts);
     }

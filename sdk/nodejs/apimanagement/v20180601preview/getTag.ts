@@ -14,7 +14,7 @@ export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20180601preview:getTag", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20180601preview:getTag", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "tagId": args.tagId,

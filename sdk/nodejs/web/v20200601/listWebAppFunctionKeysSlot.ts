@@ -14,7 +14,7 @@ export function listWebAppFunctionKeysSlot(args: ListWebAppFunctionKeysSlotArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20200601:listWebAppFunctionKeysSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20200601:listWebAppFunctionKeysSlot", {
         "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

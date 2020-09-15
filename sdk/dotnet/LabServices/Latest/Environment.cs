@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.LabServices.Latest
+namespace Pulumi.AzureNextGen.LabServices.Latest
 {
     /// <summary>
     /// Represents an environment instance
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.LabServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:labservices/latest:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:labservices/latest:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Environment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:labservices/latest:Environment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:labservices/latest:Environment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,7 +135,7 @@ namespace Pulumi.AzureRM.LabServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:labservices/v20181015:Environment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:Environment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

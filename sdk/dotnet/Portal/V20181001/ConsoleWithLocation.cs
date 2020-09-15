@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Portal.V20181001
+namespace Pulumi.AzureNextGen.Portal.V20181001
 {
     /// <summary>
     /// Cloud shell console
@@ -29,12 +29,12 @@ namespace Pulumi.AzureRM.Portal.V20181001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConsoleWithLocation(string name, ConsoleWithLocationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:portal/v20181001:ConsoleWithLocation", name, args ?? new ConsoleWithLocationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:portal/v20181001:ConsoleWithLocation", name, args ?? new ConsoleWithLocationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConsoleWithLocation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:portal/v20181001:ConsoleWithLocation", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:portal/v20181001:ConsoleWithLocation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -45,7 +45,7 @@ namespace Pulumi.AzureRM.Portal.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:portal/latest:ConsoleWithLocation"},
+                    new Pulumi.Alias { Type = "azure-nextgen:portal/latest:ConsoleWithLocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

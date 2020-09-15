@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.WindowsIoT.Latest
+namespace Pulumi.AzureNextGen.WindowsIoT.Latest
 {
     /// <summary>
     /// The description of the Windows IoT Device Service.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.WindowsIoT.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:windowsiot/latest:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:windowsiot/latest:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:windowsiot/latest:Service", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:windowsiot/latest:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,8 +99,8 @@ namespace Pulumi.AzureRM.WindowsIoT.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:windowsiot/v20180216preview:Service"},
-                    new Pulumi.Alias { Type = "azurerm:windowsiot/v20190601:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:windowsiot/v20180216preview:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:windowsiot/v20190601:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

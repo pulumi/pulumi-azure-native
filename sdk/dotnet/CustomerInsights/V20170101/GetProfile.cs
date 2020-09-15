@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.V20170101
+namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 {
     public static class GetProfile
     {
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azurerm:customerinsights/v20170101:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-nextgen:customerinsights/v20170101:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
     }
 
 

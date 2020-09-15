@@ -14,7 +14,7 @@ export function listWebAppConnectionStrings(args: ListWebAppConnectionStringsArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listWebAppConnectionStrings", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppConnectionStrings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

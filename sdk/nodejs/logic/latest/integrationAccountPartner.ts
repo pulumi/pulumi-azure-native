@@ -23,7 +23,7 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:logic/latest:IntegrationAccountPartner';
+    public static readonly __pulumiType = 'azure-nextgen:logic/latest:IntegrationAccountPartner';
 
     /**
      * Returns true if the given object is an instance of IntegrationAccountPartner.  This is designed to work even
@@ -128,7 +128,7 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20150801preview:IntegrationAccountPartner" }, { type: "azurerm:logic/v20160601:IntegrationAccountPartner" }, { type: "azurerm:logic/v20180701preview:IntegrationAccountPartner" }, { type: "azurerm:logic/v20190501:IntegrationAccountPartner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20150801preview:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountPartner" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountPartner.__pulumiType, name, inputs, opts);
     }

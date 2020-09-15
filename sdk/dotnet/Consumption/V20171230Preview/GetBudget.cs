@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Consumption.V20171230Preview
+namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
 {
     public static class GetBudget
     {
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azurerm:consumption/v20171230preview:getBudget", args ?? new GetBudgetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-nextgen:consumption/v20171230preview:getBudget", args ?? new GetBudgetArgs(), options.WithVersion());
     }
 
 

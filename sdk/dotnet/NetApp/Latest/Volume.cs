@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.NetApp.Latest
+namespace Pulumi.AzureNextGen.NetApp.Latest
 {
     /// <summary>
     /// Volume resource
@@ -158,12 +158,12 @@ namespace Pulumi.AzureRM.NetApp.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Volume(string name, VolumeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:netapp/latest:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:netapp/latest:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Volume(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:netapp/latest:Volume", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:netapp/latest:Volume", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -174,15 +174,15 @@ namespace Pulumi.AzureRM.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20170815:Volume"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190501:Volume"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Volume"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190701:Volume"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20190801:Volume"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20191001:Volume"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20191101:Volume"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20200201:Volume"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/v20200601:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190701:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190801:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191001:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191101:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

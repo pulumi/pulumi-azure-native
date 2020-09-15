@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20150801
+namespace Pulumi.AzureNextGen.Web.V20150801
 {
     public static class GetSiteSourceControl
     {
         public static Task<GetSiteSourceControlResult> InvokeAsync(GetSiteSourceControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSourceControlResult>("azurerm:web/v20150801:getSiteSourceControl", args ?? new GetSiteSourceControlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSourceControlResult>("azure-nextgen:web/v20150801:getSiteSourceControl", args ?? new GetSiteSourceControlArgs(), options.WithVersion());
     }
 
 

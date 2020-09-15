@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     public static class GetCustomIPPrefix
     {
         public static Task<GetCustomIPPrefixResult> InvokeAsync(GetCustomIPPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomIPPrefixResult>("azurerm:network/latest:getCustomIPPrefix", args ?? new GetCustomIPPrefixArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomIPPrefixResult>("azure-nextgen:network/latest:getCustomIPPrefix", args ?? new GetCustomIPPrefixArgs(), options.WithVersion());
     }
 
 

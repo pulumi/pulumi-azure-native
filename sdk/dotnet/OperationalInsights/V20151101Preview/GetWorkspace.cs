@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20151101Preview
+namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
 {
     public static class GetWorkspace
     {
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azurerm:operationalinsights/v20151101preview:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:operationalinsights/v20151101preview:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }
 
 

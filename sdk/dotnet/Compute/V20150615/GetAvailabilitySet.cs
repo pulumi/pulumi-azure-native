@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20150615
+namespace Pulumi.AzureNextGen.Compute.V20150615
 {
     public static class GetAvailabilitySet
     {
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azurerm:compute/v20150615:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure-nextgen:compute/v20150615:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithVersion());
     }
 
 

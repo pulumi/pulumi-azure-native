@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridData.Latest
+namespace Pulumi.AzureNextGen.HybridData.Latest
 {
     public static class GetJobDefinition
     {
         public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azurerm:hybriddata/latest:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("azure-nextgen:hybriddata/latest:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithVersion());
     }
 
 

@@ -14,7 +14,7 @@ export function listWorkflowRunActionRepetitionExpressionTraces(args: ListWorkfl
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:logic/v20180701preview:listWorkflowRunActionRepetitionExpressionTraces", {
+    return pulumi.runtime.invoke("azure-nextgen:logic/v20180701preview:listWorkflowRunActionRepetitionExpressionTraces", {
         "actionName": args.actionName,
         "repetitionName": args.repetitionName,
         "resourceGroupName": args.resourceGroupName,

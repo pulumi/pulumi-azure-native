@@ -23,7 +23,7 @@ export class Device extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:hybridnetwork/v20200101preview:Device';
+    public static readonly __pulumiType = 'azure-nextgen:hybridnetwork/v20200101preview:Device';
 
     /**
      * Returns true if the given object is an instance of Device.  This is designed to work even

@@ -14,7 +14,7 @@ export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:servicebus/v20170401:getMigrationConfig", {
+    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20170401:getMigrationConfig", {
         "configName": args.configName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.V20200801
+namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
 {
     /// <summary>
     /// The top level Log Analytics cluster resource container.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20200801:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:operationalinsights/v20200801:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20200801:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:operationalinsights/v20200801:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -99,9 +99,9 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20190801preview:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

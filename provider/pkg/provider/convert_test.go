@@ -8,10 +8,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var p = &azurermProvider{
+var p = &azureNextGenProvider{
 	resourceMap: &AzureAPIMetadata{
 		Types: map[string]AzureAPIType{
-			"azurerm:testing:Structure": {
+			"azure-nextgen:testing:Structure": {
 				Properties: map[string]AzureAPIProperty{
 					"v1": {},
 					"v2": {},
@@ -24,16 +24,16 @@ var p = &azurermProvider{
 					},
 				},
 			},
-			"azurerm:testing:More": {
+			"azure-nextgen:testing:More": {
 				Properties: map[string]AzureAPIProperty{
 					"items": {
 						Items: &AzureAPIProperty{
-							Ref: "#/types/azurerm:testing:MoreItem",
+							Ref: "#/types/azure-nextgen:testing:MoreItem",
 						},
 					},
 				},
 			},
-			"azurerm:testing:MoreItem": {
+			"azure-nextgen:testing:MoreItem": {
 				Properties: map[string]AzureAPIProperty{
 					"aaa": {
 						SdkName: "Aaa",
@@ -43,7 +43,7 @@ var p = &azurermProvider{
 					},
 				},
 			},
-			"azurerm:testing:OptionA": {
+			"azure-nextgen:testing:OptionA": {
 				Properties: map[string]AzureAPIProperty{
 					"type": {
 						Const: "AAA",
@@ -53,7 +53,7 @@ var p = &azurermProvider{
 					},
 				},
 			},
-			"azurerm:testing:OptionB": {
+			"azure-nextgen:testing:OptionB": {
 				Properties: map[string]AzureAPIProperty{
 					"type": {
 						Const: "BBB",
@@ -75,7 +75,7 @@ var p = &azurermProvider{
 									SdkName: "threshold",
 								},
 								"structure": {
-									Ref: "#/types/azurerm:testing:Structure",
+									Ref: "#/types/azure-nextgen:testing:Structure",
 								},
 								"p1": {
 									Container: "properties",
@@ -85,10 +85,10 @@ var p = &azurermProvider{
 								},
 								"more": {
 									Container: "properties",
-									Ref:       "#/types/azurerm:testing:More",
+									Ref:       "#/types/azure-nextgen:testing:More",
 								},
 								"union": {
-									OneOf: []string{"#/types/azurerm:testing:OptionA", "#/types/azurerm:testing:OptionB"},
+									OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
 								},
 								"tags": {},
 							},
@@ -101,7 +101,7 @@ var p = &azurermProvider{
 						SdkName: "threshold",
 					},
 					"structure": {
-						Ref: "#/types/azurerm:testing:Structure",
+						Ref: "#/types/azure-nextgen:testing:Structure",
 					},
 					"p1": {
 						Container: "properties",
@@ -111,10 +111,10 @@ var p = &azurermProvider{
 					},
 					"more": {
 						Container: "properties",
-						Ref:       "#/types/azurerm:testing:More",
+						Ref:       "#/types/azure-nextgen:testing:More",
 					},
 					"union": {
-						OneOf: []string{"#/types/azurerm:testing:OptionA", "#/types/azurerm:testing:OptionB"},
+						OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
 					},
 					"tags": {},
 				},

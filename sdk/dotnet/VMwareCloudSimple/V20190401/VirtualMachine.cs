@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
+namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
 {
     /// <summary>
     /// Virtual machine model
@@ -179,12 +179,12 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachine(string name, VirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:vmwarecloudsimple/v20190401:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:vmwarecloudsimple/v20190401:VirtualMachine", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -195,7 +195,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/latest:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/latest:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

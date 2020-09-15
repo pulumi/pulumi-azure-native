@@ -14,7 +14,7 @@ export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/latest:getDisk", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getDisk", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

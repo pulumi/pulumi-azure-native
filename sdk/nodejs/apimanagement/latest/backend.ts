@@ -23,7 +23,7 @@ export class Backend extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/latest:Backend';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/latest:Backend';
 
     /**
      * Returns true if the given object is an instance of Backend.  This is designed to work even
@@ -140,7 +140,7 @@ export class Backend extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:Backend" }, { type: "azurerm:apimanagement/v20161010:Backend" }, { type: "azurerm:apimanagement/v20170301:Backend" }, { type: "azurerm:apimanagement/v20180101:Backend" }, { type: "azurerm:apimanagement/v20180601preview:Backend" }, { type: "azurerm:apimanagement/v20190101:Backend" }, { type: "azurerm:apimanagement/v20191201:Backend" }, { type: "azurerm:apimanagement/v20191201preview:Backend" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20160707:Backend" }, { type: "azure-nextgen:apimanagement/v20161010:Backend" }, { type: "azure-nextgen:apimanagement/v20170301:Backend" }, { type: "azure-nextgen:apimanagement/v20180101:Backend" }, { type: "azure-nextgen:apimanagement/v20180601preview:Backend" }, { type: "azure-nextgen:apimanagement/v20190101:Backend" }, { type: "azure-nextgen:apimanagement/v20191201:Backend" }, { type: "azure-nextgen:apimanagement/v20191201preview:Backend" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backend.__pulumiType, name, inputs, opts);
     }

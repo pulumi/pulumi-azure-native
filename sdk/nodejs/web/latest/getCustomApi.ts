@@ -14,7 +14,7 @@ export function getCustomApi(args: GetCustomApiArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:getCustomApi", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:getCustomApi", {
         "apiName": args.apiName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

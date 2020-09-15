@@ -14,7 +14,7 @@ export function getProperty(args: GetPropertyArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getProperty", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20190101:getProperty", {
         "propId": args.propId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

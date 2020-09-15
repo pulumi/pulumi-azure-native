@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
+namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
 {
     /// <summary>
     /// App resource payload
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public App(string name, AppArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:appplatform/v20190501preview:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:appplatform/v20190501preview:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private App(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:appplatform/v20190501preview:App", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:appplatform/v20190501preview:App", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:appplatform/latest:App"},
-                    new Pulumi.Alias { Type = "azurerm:appplatform/v20200701:App"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:App"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:App"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

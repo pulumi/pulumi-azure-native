@@ -23,7 +23,7 @@ export class ManagementAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:operationsmanagement/v20151101preview:ManagementAssociation';
+    public static readonly __pulumiType = 'azure-nextgen:operationsmanagement/v20151101preview:ManagementAssociation';
 
     /**
      * Returns true if the given object is an instance of ManagementAssociation.  This is designed to work even

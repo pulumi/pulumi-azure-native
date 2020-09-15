@@ -21,7 +21,7 @@ export class Group extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:migrate/v20180202:Group';
+    public static readonly __pulumiType = 'azure-nextgen:migrate/v20180202:Group';
 
     /**
      * Returns true if the given object is an instance of Group.  This is designed to work even
@@ -111,7 +111,7 @@ export class Group extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:migrate/v20171111preview:Group" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate/v20171111preview:Group" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Group.__pulumiType, name, inputs, opts);
     }

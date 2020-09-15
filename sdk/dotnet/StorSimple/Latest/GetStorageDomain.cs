@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.Latest
+namespace Pulumi.AzureNextGen.StorSimple.Latest
 {
     public static class GetStorageDomain
     {
         public static Task<GetStorageDomainResult> InvokeAsync(GetStorageDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageDomainResult>("azurerm:storsimple/latest:getStorageDomain", args ?? new GetStorageDomainArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageDomainResult>("azure-nextgen:storsimple/latest:getStorageDomain", args ?? new GetStorageDomainArgs(), options.WithVersion());
     }
 
 

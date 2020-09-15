@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RedHatOpenShift.V20200430.Inputs
+namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430.Inputs
 {
 
     /// <summary>

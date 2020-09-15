@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20200501Preview
+namespace Pulumi.AzureNextGen.Insights.V20200501Preview
 {
     public static class GetScheduledQueryRule
     {
         public static Task<GetScheduledQueryRuleResult> InvokeAsync(GetScheduledQueryRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azurerm:insights/v20200501preview:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-nextgen:insights/v20200501preview:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithVersion());
     }
 
 

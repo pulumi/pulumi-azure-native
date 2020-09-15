@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OffAzure.Latest
+namespace Pulumi.AzureNextGen.OffAzure.Latest
 {
     /// <summary>
     /// Site REST Resource.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.OffAzure.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MasterSite(string name, MasterSiteArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:offazure/latest:MasterSite", name, args ?? new MasterSiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:offazure/latest:MasterSite", name, args ?? new MasterSiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MasterSite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:offazure/latest:MasterSite", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:offazure/latest:MasterSite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.OffAzure.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:offazure/v20200707:MasterSite"},
+                    new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:MasterSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

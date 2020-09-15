@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Management.V20161201
+namespace Pulumi.AzureNextGen.Management.V20161201
 {
     /// <summary>
     /// The policy definition.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Management.V20161201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyDefinitionAtManagementGroup(string name, PolicyDefinitionAtManagementGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:management/v20161201:PolicyDefinitionAtManagementGroup", name, args ?? new PolicyDefinitionAtManagementGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:management/v20161201:PolicyDefinitionAtManagementGroup", name, args ?? new PolicyDefinitionAtManagementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicyDefinitionAtManagementGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:management/v20161201:PolicyDefinitionAtManagementGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:management/v20161201:PolicyDefinitionAtManagementGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,13 +87,13 @@ namespace Pulumi.AzureRM.Management.V20161201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:management/latest:PolicyDefinitionAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20180301:PolicyDefinitionAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20180501:PolicyDefinitionAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20190101:PolicyDefinitionAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20190601:PolicyDefinitionAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20190901:PolicyDefinitionAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20200301:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/latest:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20180301:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20180501:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20190101:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20190601:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20190901:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20200301:PolicyDefinitionAtManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

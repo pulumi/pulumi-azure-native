@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.Latest
+namespace Pulumi.AzureNextGen.Web.Latest
 {
     public static class ListStaticSiteUsers
     {
         public static Task<ListStaticSiteUsersResult> InvokeAsync(ListStaticSiteUsersArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azurerm:web/latest:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azure-nextgen:web/latest:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithVersion());
     }
 
 

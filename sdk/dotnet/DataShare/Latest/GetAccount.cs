@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataShare.Latest
+namespace Pulumi.AzureNextGen.DataShare.Latest
 {
     public static class GetAccount
     {
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azurerm:datashare/latest:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:datashare/latest:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

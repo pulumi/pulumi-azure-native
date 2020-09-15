@@ -14,7 +14,7 @@ export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20200601:getWebAppFunction", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20200601:getWebAppFunction", {
         "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

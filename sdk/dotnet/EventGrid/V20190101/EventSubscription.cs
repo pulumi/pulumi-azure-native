@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20190101
+namespace Pulumi.AzureNextGen.EventGrid.V20190101
 {
     /// <summary>
     /// Event Subscription
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSubscription(string name, EventSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20190101:EventSubscription", name, args ?? new EventSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:eventgrid/v20190101:EventSubscription", name, args ?? new EventSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid/v20190101:EventSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:eventgrid/v20190101:EventSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,17 +93,17 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/latest:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20170615preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20170915preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180101:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180501preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180915preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190201preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190601:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200101preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200401preview:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200601:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170615preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170915preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180101:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180501preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180915preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:EventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

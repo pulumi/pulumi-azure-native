@@ -14,7 +14,7 @@ export function getManagementConfiguration(args: GetManagementConfigurationArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:operationsmanagement/v20151101preview:getManagementConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:operationsmanagement/v20151101preview:getManagementConfiguration", {
         "managementConfigurationName": args.managementConfigurationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

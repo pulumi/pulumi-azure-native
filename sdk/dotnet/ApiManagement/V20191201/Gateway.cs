@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20191201
+namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 {
     /// <summary>
     /// Gateway details.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Gateway(string name, GatewayArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201:Gateway", name, args ?? new GatewayArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20191201:Gateway", name, args ?? new GatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Gateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201:Gateway", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20191201:Gateway", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Gateway"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:Gateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Gateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Gateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -23,7 +23,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/v20191017preview:PrivateLinkScope';
+    public static readonly __pulumiType = 'azure-nextgen:insights/v20191017preview:PrivateLinkScope';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkScope.  This is designed to work even

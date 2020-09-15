@@ -14,7 +14,7 @@ export function listWebAppPublishingCredentials(args: ListWebAppPublishingCreden
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listWebAppPublishingCredentials", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppPublishingCredentials", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

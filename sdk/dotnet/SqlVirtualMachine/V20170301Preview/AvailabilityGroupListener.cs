@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
+namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
 {
     /// <summary>
     /// A SQL Server availability group listener.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AvailabilityGroupListener(string name, AvailabilityGroupListenerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener", name, args ?? new AvailabilityGroupListenerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener", name, args ?? new AvailabilityGroupListenerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AvailabilityGroupListener(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener", name, null, MakeResourceOptions(options, id))
         {
         }
 

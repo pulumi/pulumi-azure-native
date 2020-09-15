@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RecoveryServices.V20180110
+namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
 {
     public static class GetReplicationNetworkMapping
     {
         public static Task<GetReplicationNetworkMappingResult> InvokeAsync(GetReplicationNetworkMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationNetworkMappingResult>("azurerm:recoveryservices/v20180110:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationNetworkMappingResult>("azure-nextgen:recoveryservices/v20180110:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingArgs(), options.WithVersion());
     }
 
 

@@ -21,7 +21,7 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20170301preview:ManagedInstanceAdministrator';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20170301preview:ManagedInstanceAdministrator';
 
     /**
      * Returns true if the given object is an instance of ManagedInstanceAdministrator.  This is designed to work even

@@ -14,7 +14,7 @@ export function getDedicatedCloudService(args: GetDedicatedCloudServiceArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:vmwarecloudsimple/v20190401:getDedicatedCloudService", {
+    return pulumi.runtime.invoke("azure-nextgen:vmwarecloudsimple/v20190401:getDedicatedCloudService", {
         "dedicatedCloudServiceName": args.dedicatedCloudServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

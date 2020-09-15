@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
+namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 {
     public static class GetVendor
     {
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azurerm:hybridnetwork/v20200101preview:getVendor", args ?? new GetVendorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azure-nextgen:hybridnetwork/v20200101preview:getVendor", args ?? new GetVendorArgs(), options.WithVersion());
     }
 
 

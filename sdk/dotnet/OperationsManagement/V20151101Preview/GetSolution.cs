@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
+namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview
 {
     public static class GetSolution
     {
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azurerm:operationsmanagement/v20151101preview:getSolution", args ?? new GetSolutionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-nextgen:operationsmanagement/v20151101preview:getSolution", args ?? new GetSolutionArgs(), options.WithVersion());
     }
 
 

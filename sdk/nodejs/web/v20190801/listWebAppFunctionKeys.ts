@@ -14,7 +14,7 @@ export function listWebAppFunctionKeys(args: ListWebAppFunctionKeysArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20190801:listWebAppFunctionKeys", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20190801:listWebAppFunctionKeys", {
         "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -6,88 +6,88 @@ import (
 
 // excludeResourcePatterns lists resources being skipped due to known codegen issues.
 var excludeResourcePatterns = []string{
-	"azurerm:attestation/.*:AttestationProvider",
+	"azure-nextgen:attestation/.*:AttestationProvider",
 
-	"azurerm:billing/.*:ReportByBillingAccount",
-	"azurerm:billing/.*:ReportByDepartment",
+	"azure-nextgen:billing/.*:ReportByBillingAccount",
+	"azure-nextgen:billing/.*:ReportByDepartment",
 
-	"azurerm:batch/.*:Certificate",
-	"azurerm:batch/.*:Pool",
+	"azure-nextgen:batch/.*:Certificate",
+	"azure-nextgen:batch/.*:Pool",
 
-	"azurerm:batchai/v20180501:Workspace",
-	"azurerm:batchai/latest:Workspace",
+	"azure-nextgen:batchai/v20180501:Workspace",
+	"azure-nextgen:batchai/latest:Workspace",
 
-	"azurerm:costmanagement/v20180531:ReportConfig",
-	"azurerm:costmanagement/latest:ReportConfig",
-	"azurerm:costmanagement/.*:Export",
-	"azurerm:costmanagement/.*:ReportConfigByResourceGroupName",
-	"azurerm:costmanagement/.*:Export",
-	"azurerm:costmanagement/.*:ViewByScope",
-	"azurerm:costmanagement/.*:View",
-	"azurerm:costmanagement/.*:Report",
-	"azurerm:costmanagement/.*:Budget",
+	"azure-nextgen:costmanagement/v20180531:ReportConfig",
+	"azure-nextgen:costmanagement/latest:ReportConfig",
+	"azure-nextgen:costmanagement/.*:Export",
+	"azure-nextgen:costmanagement/.*:ReportConfigByResourceGroupName",
+	"azure-nextgen:costmanagement/.*:Export",
+	"azure-nextgen:costmanagement/.*:ViewByScope",
+	"azure-nextgen:costmanagement/.*:View",
+	"azure-nextgen:costmanagement/.*:Report",
+	"azure-nextgen:costmanagement/.*:Budget",
 
-	"azurerm:databox/.*:Job",
+	"azure-nextgen:databox/.*:Job",
 
-	"azurerm:datamigration/.*:Task",
-	"azurerm:datamigration/.*:ServiceTask",
+	"azure-nextgen:datamigration/.*:Task",
+	"azure-nextgen:datamigration/.*:ServiceTask",
 
-	"azurerm:hybridcompute/.*:Machine",
+	"azure-nextgen:hybridcompute/.*:Machine",
 
-	"azurerm:machinelearning/.*:WebService",
+	"azure-nextgen:machinelearning/.*:WebService",
 
-	"azurerm:media/.*:Job",
+	"azure-nextgen:media/.*:Job",
 
-	"azurerm:management/.*:DeploymentAtManagementGroupScope",
-	"azurerm:management/.*:ManagementGroup",
+	"azure-nextgen:management/.*:DeploymentAtManagementGroupScope",
+	"azure-nextgen:management/.*:ManagementGroup",
 
-	"azurerm:migrate/.*:MoveResource",
+	"azure-nextgen:migrate/.*:MoveResource",
 
-	"azurerm:network/.*:ApplicationGateway",
-	"azurerm:network/.*:InboundNatRule",
-	"azurerm:network/.*:LoadBalancer",
-	"azurerm:network/.*:NetworkInterface",
-	"azurerm:network/.*:NetworkSecurityGroup",
-	"azurerm:network/.*:PublicIPAddress",
-	"azurerm:network/.*:PrivateEndpoint",
-	"azurerm:network/.*:RouteTable",
-	"azurerm:network/.*:Subnet",
-	"azurerm:network/.*:VirtualNetwork",
-	"azurerm:network/.*:RouteFilter",
-	"azurerm:network/.*:ExpressRouteCircuit",
-	"azurerm:network/.*:ExpressRouteCircuitPeering",
-	"azurerm:network/.*:ExpressRouteCrossConnectionPeering",
-	"azurerm:network/.*:InterfaceEndpoint",
-	"azurerm:network/.*:NetworkInterfaceTapConfiguration",
-	"azurerm:network/.*:NetworkProfile",
-	"azurerm:network/.*:ServiceEndpointPolicy",
-	"azurerm:network/.*:VirtualNetworkTap",
-	"azurerm:network/.*:WebApplicationFirewallPolicy",
-	"azurerm:network/.*:PrivateLinkService",
-	"azurerm:network/.*:PrivateLinkServicePrivateEndpointConnection",
-	"azurerm:network/.*:LoadBalancerBackendAddressPool",
-	"azurerm:network/.*:VirtualHubIpConfiguration",
-	"azurerm:network/.*:VpnSite",
-	"azurerm:network/.*:ApplicationGatewayPrivateEndpointConnection",
-	"azurerm:network/.*:DscpConfiguration",
+	"azure-nextgen:network/.*:ApplicationGateway",
+	"azure-nextgen:network/.*:InboundNatRule",
+	"azure-nextgen:network/.*:LoadBalancer",
+	"azure-nextgen:network/.*:NetworkInterface",
+	"azure-nextgen:network/.*:NetworkSecurityGroup",
+	"azure-nextgen:network/.*:PublicIPAddress",
+	"azure-nextgen:network/.*:PrivateEndpoint",
+	"azure-nextgen:network/.*:RouteTable",
+	"azure-nextgen:network/.*:Subnet",
+	"azure-nextgen:network/.*:VirtualNetwork",
+	"azure-nextgen:network/.*:RouteFilter",
+	"azure-nextgen:network/.*:ExpressRouteCircuit",
+	"azure-nextgen:network/.*:ExpressRouteCircuitPeering",
+	"azure-nextgen:network/.*:ExpressRouteCrossConnectionPeering",
+	"azure-nextgen:network/.*:InterfaceEndpoint",
+	"azure-nextgen:network/.*:NetworkInterfaceTapConfiguration",
+	"azure-nextgen:network/.*:NetworkProfile",
+	"azure-nextgen:network/.*:ServiceEndpointPolicy",
+	"azure-nextgen:network/.*:VirtualNetworkTap",
+	"azure-nextgen:network/.*:WebApplicationFirewallPolicy",
+	"azure-nextgen:network/.*:PrivateLinkService",
+	"azure-nextgen:network/.*:PrivateLinkServicePrivateEndpointConnection",
+	"azure-nextgen:network/.*:LoadBalancerBackendAddressPool",
+	"azure-nextgen:network/.*:VirtualHubIpConfiguration",
+	"azure-nextgen:network/.*:VpnSite",
+	"azure-nextgen:network/.*:ApplicationGatewayPrivateEndpointConnection",
+	"azure-nextgen:network/.*:DscpConfiguration",
 
-	"azurerm:powerbidedicated/.*:CapacityDetails",
+	"azure-nextgen:powerbidedicated/.*:CapacityDetails",
 
-	"azurerm:recoveryservices/.*:ReplicationFabric",
-	"azurerm:recoveryservices/.*:ReplicationProtectedItem",
-	"azurerm:recoveryservices/.*:ReplicationProtectionContainerMapping",
+	"azure-nextgen:recoveryservices/.*:ReplicationFabric",
+	"azure-nextgen:recoveryservices/.*:ReplicationProtectedItem",
+	"azure-nextgen:recoveryservices/.*:ReplicationProtectionContainerMapping",
 
-	"azurerm:resources/.*:Deployment",
-	"azurerm:resources/.*:DeploymentAtScope",
-	"azurerm:resources/.*:DeploymentAtTenantScope",
-	"azurerm:resources/.*:DeploymentAtSubscriptionScope",
+	"azure-nextgen:resources/.*:Deployment",
+	"azure-nextgen:resources/.*:DeploymentAtScope",
+	"azure-nextgen:resources/.*:DeploymentAtTenantScope",
+	"azure-nextgen:resources/.*:DeploymentAtSubscriptionScope",
 	// ^ recursive references in schema
 
-	"azurerm:botservice/v20200602:BotConnection", // malformed body
+	"azure-nextgen:botservice/v20200602:BotConnection", // malformed body
 
-	"azurerm:hybridcompute/v20181120:GuestConfigurationHCRPAssignment",
-	"azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment", // python name mismatch
-	"azurerm:hybridcompute/latest:GuestConfigurationHCRPAssignment",    // python name mismatch
+	"azure-nextgen:hybridcompute/v20181120:GuestConfigurationHCRPAssignment",
+	"azure-nextgen:hybridcompute/v20200625:GuestConfigurationHCRPAssignment", // python name mismatch
+	"azure-nextgen:hybridcompute/latest:GuestConfigurationHCRPAssignment",    // python name mismatch
 }
 var excludeRegexes []*regexp.Regexp
 

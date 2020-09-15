@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Security.V20170801Preview
+namespace Pulumi.AzureNextGen.Security.V20170801Preview
 {
     public static class GetSecurityContact
     {
         public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azurerm:security/v20170801preview:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-nextgen:security/v20170801preview:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithVersion());
     }
 
 

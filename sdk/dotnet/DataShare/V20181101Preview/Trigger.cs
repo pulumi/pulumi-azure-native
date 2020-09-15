@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataShare.V20181101Preview
+namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
 {
     /// <summary>
     /// A Trigger data transfer object.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.DataShare.V20181101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Trigger(string name, TriggerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datashare/v20181101preview:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datashare/v20181101preview:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Trigger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datashare/v20181101preview:Trigger", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datashare/v20181101preview:Trigger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.DataShare.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datashare/latest:Trigger"},
-                    new Pulumi.Alias { Type = "azurerm:datashare/v20191101:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

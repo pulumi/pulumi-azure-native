@@ -23,7 +23,7 @@ export class MoveCollection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:migrate/v20191001preview:MoveCollection';
+    public static readonly __pulumiType = 'azure-nextgen:migrate/v20191001preview:MoveCollection';
 
     /**
      * Returns true if the given object is an instance of MoveCollection.  This is designed to work even

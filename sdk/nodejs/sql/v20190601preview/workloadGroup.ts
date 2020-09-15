@@ -21,7 +21,7 @@ export class WorkloadGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20190601preview:WorkloadGroup';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20190601preview:WorkloadGroup';
 
     /**
      * Returns true if the given object is an instance of WorkloadGroup.  This is designed to work even

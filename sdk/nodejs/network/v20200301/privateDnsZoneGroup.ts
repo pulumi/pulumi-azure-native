@@ -23,7 +23,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20200301:PrivateDnsZoneGroup';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20200301:PrivateDnsZoneGroup';
 
     /**
      * Returns true if the given object is an instance of PrivateDnsZoneGroup.  This is designed to work even
@@ -93,7 +93,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:PrivateDnsZoneGroup" }, { type: "azurerm:network/v20200401:PrivateDnsZoneGroup" }, { type: "azurerm:network/v20200501:PrivateDnsZoneGroup" }, { type: "azurerm:network/v20200601:PrivateDnsZoneGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200401:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200501:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200601:PrivateDnsZoneGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateDnsZoneGroup.__pulumiType, name, inputs, opts);
     }

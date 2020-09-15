@@ -21,7 +21,7 @@ export class ComponentLinkedStorageAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/v20200301preview:ComponentLinkedStorageAccount';
+    public static readonly __pulumiType = 'azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount';
 
     /**
      * Returns true if the given object is an instance of ComponentLinkedStorageAccount.  This is designed to work even

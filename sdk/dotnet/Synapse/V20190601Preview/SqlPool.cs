@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Synapse.V20190601Preview
+namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     /// <summary>
     /// A SQL Analytics pool
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlPool(string name, SqlPoolArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:synapse/v20190601preview:SqlPool", name, args ?? new SqlPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:synapse/v20190601preview:SqlPool", name, args ?? new SqlPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:synapse/v20190601preview:SqlPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:synapse/v20190601preview:SqlPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,7 +123,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:synapse/v20200401preview:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20200401preview:SqlPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningServices.V20200601.Inputs
+namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601.Inputs
 {
 
     public sealed class KeyVaultPropertiesArgs : Pulumi.ResourceArgs

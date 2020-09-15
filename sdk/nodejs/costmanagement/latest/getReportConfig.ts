@@ -14,7 +14,7 @@ export function getReportConfig(args: GetReportConfigArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:costmanagement/latest:getReportConfig", {
+    return pulumi.runtime.invoke("azure-nextgen:costmanagement/latest:getReportConfig", {
         "reportConfigName": args.reportConfigName,
     }, opts);
 }

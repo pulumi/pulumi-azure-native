@@ -23,7 +23,7 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/v20200630:Snapshot';
+    public static readonly __pulumiType = 'azure-nextgen:compute/v20200630:Snapshot';
 
     /**
      * Returns true if the given object is an instance of Snapshot.  This is designed to work even
@@ -190,7 +190,7 @@ export class Snapshot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:Snapshot" }, { type: "azurerm:compute/v20160430preview:Snapshot" }, { type: "azurerm:compute/v20170330:Snapshot" }, { type: "azurerm:compute/v20180401:Snapshot" }, { type: "azurerm:compute/v20180601:Snapshot" }, { type: "azurerm:compute/v20180930:Snapshot" }, { type: "azurerm:compute/v20190301:Snapshot" }, { type: "azurerm:compute/v20190701:Snapshot" }, { type: "azurerm:compute/v20191101:Snapshot" }, { type: "azurerm:compute/v20200501:Snapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:Snapshot" }, { type: "azure-nextgen:compute/v20160430preview:Snapshot" }, { type: "azure-nextgen:compute/v20170330:Snapshot" }, { type: "azure-nextgen:compute/v20180401:Snapshot" }, { type: "azure-nextgen:compute/v20180601:Snapshot" }, { type: "azure-nextgen:compute/v20180930:Snapshot" }, { type: "azure-nextgen:compute/v20190301:Snapshot" }, { type: "azure-nextgen:compute/v20190701:Snapshot" }, { type: "azure-nextgen:compute/v20191101:Snapshot" }, { type: "azure-nextgen:compute/v20200501:Snapshot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Snapshot.__pulumiType, name, inputs, opts);
     }

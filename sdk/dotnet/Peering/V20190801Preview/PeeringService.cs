@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Peering.V20190801Preview
+namespace Pulumi.AzureNextGen.Peering.V20190801Preview
 {
     /// <summary>
     /// Peering Service
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.Peering.V20190801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PeeringService(string name, PeeringServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20190801preview:PeeringService", name, args ?? new PeeringServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:peering/v20190801preview:PeeringService", name, args ?? new PeeringServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PeeringService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:peering/v20190801preview:PeeringService", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:peering/v20190801preview:PeeringService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,10 +81,10 @@ namespace Pulumi.AzureRM.Peering.V20190801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:peering/latest:PeeringService"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20190901preview:PeeringService"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20200101preview:PeeringService"},
-                    new Pulumi.Alias { Type = "azurerm:peering/v20200401:PeeringService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/latest:PeeringService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20190901preview:PeeringService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:PeeringService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:PeeringService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

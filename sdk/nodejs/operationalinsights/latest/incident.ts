@@ -23,7 +23,7 @@ export class Incident extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:operationalinsights/latest:Incident';
+    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/latest:Incident';
 
     /**
      * Returns true if the given object is an instance of Incident.  This is designed to work even
@@ -197,7 +197,7 @@ export class Incident extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/v20200101:Incident" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20200101:Incident" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Incident.__pulumiType, name, inputs, opts);
     }

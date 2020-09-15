@@ -23,7 +23,7 @@ export class MachineLearningService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:machinelearningservices/v20200515preview:MachineLearningService';
+    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService';
 
     /**
      * Returns true if the given object is an instance of MachineLearningService.  This is designed to work even
@@ -118,7 +118,7 @@ export class MachineLearningService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azurerm:machinelearningservices/v20200901preview:MachineLearningService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineLearningService.__pulumiType, name, inputs, opts);
     }

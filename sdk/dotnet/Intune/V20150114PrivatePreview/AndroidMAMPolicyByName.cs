@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Intune.V20150114PrivatePreview
+namespace Pulumi.AzureNextGen.Intune.V20150114PrivatePreview
 {
     /// <summary>
     /// Android Policy entity for Intune MAM.
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.Intune.V20150114PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AndroidMAMPolicyByName(string name, AndroidMAMPolicyByNameArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:intune/v20150114privatepreview:AndroidMAMPolicyByName", name, args ?? new AndroidMAMPolicyByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName", name, args ?? new AndroidMAMPolicyByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AndroidMAMPolicyByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:intune/v20150114privatepreview:AndroidMAMPolicyByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,7 +123,7 @@ namespace Pulumi.AzureRM.Intune.V20150114PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:intune/v20150114preview:AndroidMAMPolicyByName"},
+                    new Pulumi.Alias { Type = "azure-nextgen:intune/v20150114preview:AndroidMAMPolicyByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

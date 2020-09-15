@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Synapse.V20190601Preview
+namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 {
     public static class GetPrivateLinkHub
     {
         public static Task<GetPrivateLinkHubResult> InvokeAsync(GetPrivateLinkHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azurerm:synapse/v20190601preview:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azure-nextgen:synapse/v20190601preview:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithVersion());
     }
 
 

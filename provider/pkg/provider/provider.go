@@ -24,7 +24,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azurerm/provider/pkg/version"
+	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
@@ -41,7 +41,7 @@ const (
 	PulumiPartnerID = "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
 )
 
-type azurermProvider struct {
+type azureNextGenProvider struct {
 	host           *provider.HostClient
 	name           string
 	version        string
@@ -88,7 +88,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	}
 
 	// Return the new provider
-	return &azurermProvider{
+	return &azureNextGenProvider{
 		host:        host,
 		name:        name,
 		version:     version,
@@ -100,9 +100,10 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 }
 
 // Configure configures the resource provider with "globals" that control its behavior.
-func (k *azurermProvider) Configure(ctx context.Context, req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
+func (k *azureNextGenProvider) Configure(ctx context.Context,
+	req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
 	for key, val := range req.GetVariables() {
-		k.config[strings.TrimPrefix(key, "azurerm:config:")] = val
+		k.config[strings.TrimPrefix(key, "azure-nextgen:config:")] = val
 	}
 
 	k.setLoggingContext(ctx)
@@ -125,7 +126,7 @@ func (k *azurermProvider) Configure(ctx context.Context, req *rpc.ConfigureReque
 }
 
 // Invoke dynamically executes a built-in function in the provider.
-func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
+func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
 	label := fmt.Sprintf("%s.Invoke(%s)", k.name, req.Tok)
 	glog.V(9).Infof("%s executing", label)
 
@@ -189,7 +190,8 @@ func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
 // back as a series of messages.
-func (k *azurermProvider) StreamInvoke(req *rpc.InvokeRequest, server rpc.ResourceProvider_StreamInvokeServer) error {
+func (k *azureNextGenProvider) StreamInvoke(req *rpc.InvokeRequest,
+	server rpc.ResourceProvider_StreamInvokeServer) error {
 	panic("StreamInvoke not implemented")
 }
 
@@ -199,7 +201,7 @@ func (k *azurermProvider) StreamInvoke(req *rpc.InvokeRequest, server rpc.Resour
 // representation of the properties as present in the program inputs. Though this rule is not
 // required for correctness, violations thereof can negatively impact the end-user experience, as
 // the provider inputs are using for detecting and rendering diffs.
-func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
+func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Check(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
@@ -256,7 +258,7 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 }
 
 // validateType checks the all properties and required properties of the given type and value map.
-func (k *azurermProvider) validateType(ctx string, typ *AzureAPIType,
+func (k *azureNextGenProvider) validateType(ctx string, typ *AzureAPIType,
 	values map[string]interface{}) []*rpc.CheckFailure {
 	var failures []*rpc.CheckFailure
 
@@ -296,7 +298,8 @@ func (k *azurermProvider) validateType(ctx string, typ *AzureAPIType,
 }
 
 // validateProperty checks the property value against its metadata.
-func (k *azurermProvider) validateProperty(ctx string, prop *AzureAPIProperty, value interface{}) []*rpc.CheckFailure {
+func (k *azureNextGenProvider) validateProperty(ctx string, prop *AzureAPIProperty,
+	value interface{}) []*rpc.CheckFailure {
 	var failures []*rpc.CheckFailure
 
 	if _, ok := value.(resource.Computed); ok {
@@ -354,7 +357,7 @@ func (k *azurermProvider) validateProperty(ctx string, prop *AzureAPIProperty, v
 		}
 		if prop.Pattern != "" {
 			pattern, err := regexp.Compile(prop.Pattern)
-			// TODO: Support ECMA-262 regexp https://github.com/pulumi/pulumi-azurerm/issues/164
+			// TODO: Support ECMA-262 regexp https://github.com/pulumi/pulumi-azure-nextgen-provider/issues/164
 			if err == nil && !pattern.MatchString(value) {
 				failures = append(failures, &rpc.CheckFailure{
 					Reason: fmt.Sprintf("'%s' does not match expression '%s'", ctx, prop.Pattern),
@@ -411,7 +414,8 @@ func (k *azurermProvider) validateProperty(ctx string, prop *AzureAPIProperty, v
 	return failures
 }
 
-func (k *azurermProvider) GetSchema(ctx context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
+func (k *azureNextGenProvider) GetSchema(ctx context.Context,
+	req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
@@ -420,12 +424,12 @@ func (k *azurermProvider) GetSchema(ctx context.Context, req *rpc.GetSchemaReque
 }
 
 // CheckConfig validates the configuration for this provider.
-func (k *azurermProvider) CheckConfig(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
+func (k *azureNextGenProvider) CheckConfig(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
 	return &rpc.CheckResponse{Inputs: req.GetNews()}, nil
 }
 
 // DiffConfig diffs the configuration for this provider.
-func (k *azurermProvider) DiffConfig(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNextGenProvider) DiffConfig(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	return &rpc.DiffResponse{
 		Changes:             0,
 		Replaces:            []string{},
@@ -435,7 +439,7 @@ func (k *azurermProvider) DiffConfig(ctx context.Context, req *rpc.DiffRequest) 
 }
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
-func (k *azurermProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNextGenProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", k.name, urn)
 
@@ -517,7 +521,7 @@ func (k *azurermProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.
 }
 
 // Create allocates a new instance of the provided resource and returns its unique ID afterwards.
-func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*rpc.CreateResponse, error) {
+func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*rpc.CreateResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Create(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
@@ -588,7 +592,7 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 }
 
 // Read the current live state associated with a resource.
-func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
+func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Read(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
@@ -634,7 +638,7 @@ func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.
 }
 
 // Update updates an existing resource with new values.
-func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*rpc.UpdateResponse, error) {
+func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*rpc.UpdateResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Update(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
@@ -690,7 +694,7 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 
 // Delete tears down an existing resource with the given ID. If it fails, the resource is assumed
 // to still exist.
-func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
+func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Delete(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
@@ -708,12 +712,12 @@ func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*
 }
 
 // Construct creates a new component resource.
-func (k *azurermProvider) Construct(_ context.Context, _ *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
+func (k *azureNextGenProvider) Construct(_ context.Context, _ *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
 	panic("Construct not implemented")
 }
 
 // GetPluginInfo returns generic information about this plugin, like its version.
-func (k *azurermProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*rpc.PluginInfo, error) {
+func (k *azureNextGenProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*rpc.PluginInfo, error) {
 	return &rpc.PluginInfo{
 		Version: k.version,
 	}, nil
@@ -724,12 +728,12 @@ func (k *azurermProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*rpc.P
 // creation error or an initialization error). Since Cancel is advisory and non-blocking, it is up
 // to the host to decide how long to wait after Cancel is called before (e.g.)
 // hard-closing any gRPC connection.
-func (k *azurermProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
+func (k *azureNextGenProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
 	// TODO
 	return &pbempty.Empty{}, nil
 }
 
-func (k *azurermProvider) azureCreateOrUpdate(
+func (k *azureNextGenProvider) azureCreateOrUpdate(
 	ctx context.Context,
 	id string,
 	bodyProps map[string]interface{},
@@ -783,7 +787,7 @@ func (k *azurermProvider) azureCreateOrUpdate(
 	return outputs, nil
 }
 
-func (k *azurermProvider) azureDelete(ctx context.Context, id string, apiVersion string) error {
+func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVersion string) error {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
@@ -830,7 +834,8 @@ func (k *azurermProvider) azureDelete(ctx context.Context, id string, apiVersion
 	return nil
 }
 
-func (k *azurermProvider) azureGet(ctx context.Context, id string, apiVersion string) (map[string]interface{}, error) {
+func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
+	apiVersion string) (map[string]interface{}, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
@@ -864,7 +869,7 @@ func (k *azurermProvider) azureGet(ctx context.Context, id string, apiVersion st
 	return outputs, nil
 }
 
-func (k *azurermProvider) azurePost(
+func (k *azureNextGenProvider) azurePost(
 	ctx context.Context,
 	id string,
 	bodyProps map[string]interface{},
@@ -903,7 +908,7 @@ func (k *azurermProvider) azurePost(
 	return outputs, nil
 }
 
-func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []AzureAPIParameter, methodInputs,
+func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []AzureAPIParameter, methodInputs,
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
 	locations := map[string]map[string]interface{}{
@@ -950,7 +955,7 @@ func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []Azure
 	return id, params["body"], params["query"], nil
 }
 
-func (k *azurermProvider) setLoggingContext(ctx context.Context) {
+func (k *azureNextGenProvider) setLoggingContext(ctx context.Context) {
 	log.SetOutput(&LogRedirector{
 		writers: map[string]func(string) error{
 			tfTracePrefix: func(msg string) error { return k.host.Log(ctx, diag.Debug, "", msg) },
@@ -962,7 +967,7 @@ func (k *azurermProvider) setLoggingContext(ctx context.Context) {
 	})
 }
 
-func (k *azurermProvider) getConfig(configName, envName string) string {
+func (k *azureNextGenProvider) getConfig(configName, envName string) string {
 	if val, ok := k.config[configName]; ok {
 		return val
 	}
@@ -970,7 +975,7 @@ func (k *azurermProvider) getConfig(configName, envName string) string {
 	return os.Getenv(envName)
 }
 
-func (k *azurermProvider) getAuthConfig() (*authentication.Config, error) {
+func (k *azureNextGenProvider) getAuthConfig() (*authentication.Config, error) {
 	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
 	if auxTenantsString != "" {
@@ -978,13 +983,14 @@ func (k *azurermProvider) getAuthConfig() (*authentication.Config, error) {
 	}
 	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
 	builder := &authentication.Builder{
-		SubscriptionID:     k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
-		ClientID:           k.getConfig("clientId", "ARM_CLIENT_ID"),
-		ClientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
-		TenantID:           k.getConfig("tenantId", "ARM_TENANT_ID"),
-		Environment:        k.getConfig("environment", "ARM_ENVIRONMENT"),
-		ClientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
-		ClientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
+		SubscriptionID: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
+		ClientID:       k.getConfig("clientId", "ARM_CLIENT_ID"),
+		ClientSecret:   k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
+		TenantID:       k.getConfig("tenantId", "ARM_TENANT_ID"),
+		Environment:    k.getConfig("environment", "ARM_ENVIRONMENT"),
+		ClientCertPath: k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
+		ClientCertPassword: k.getConfig("clientCertificatePassword",
+			"ARM_CLIENT_CERTIFICATE_PASSWORD"),
 		MsiEndpoint:        k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
 		AuxiliaryTenantIDs: auxTenants,
 
@@ -999,7 +1005,7 @@ func (k *azurermProvider) getAuthConfig() (*authentication.Config, error) {
 	return builder.Build()
 }
 
-func (k *azurermProvider) getAuthorizationToken(authConfig *authentication.Config) (autorest.Authorizer, error) {
+func (k *azureNextGenProvider) getAuthorizationToken(authConfig *authentication.Config) (autorest.Authorizer, error) {
 	oauthConfig, err := authConfig.BuildOAuthConfig(ActiveDirectoryEndpoint)
 	if err != nil {
 		return nil, err
@@ -1009,12 +1015,12 @@ func (k *azurermProvider) getAuthorizationToken(authConfig *authentication.Confi
 		return nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
 	}
 
-	sender := sender.BuildSender("AzureRM")
+	sender := sender.BuildSender("AzureNextGen")
 	return authConfig.GetAuthorizationToken(sender, oauthConfig, AuthTokenAudience)
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.
-func (k *azurermProvider) getUserAgent() string {
+func (k *azureNextGenProvider) getUserAgent() string {
 	partnerID := PulumiPartnerID
 	customPartnerID := k.getConfig("partnerId", "ARM_PARTNER_ID")
 	if customPartnerID != "" {
@@ -1030,7 +1036,8 @@ func (k *azurermProvider) getUserAgent() string {
 
 // buildUserAgent composes a User Agent string with the provided partner ID.
 func buildUserAgent(partnerID string) (userAgent string) {
-	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azurerm/%s", autorest.UserAgent(), version.Version))
+	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-nextgen/%s",
+		autorest.UserAgent(), version.Version))
 
 	// append the CloudShell version to the user agent if it exists
 	if azureAgent := os.Getenv("AZURE_HTTP_USER_AGENT"); azureAgent != "" {
@@ -1042,7 +1049,7 @@ func buildUserAgent(partnerID string) (userAgent string) {
 		userAgent = fmt.Sprintf("%s pid-%s", userAgent, partnerID)
 	}
 
-	glog.V(9).Infof("AzureRM User Agent: %s", userAgent)
+	glog.V(9).Infof("AzureNextGen User Agent: %s", userAgent)
 	return
 }
 

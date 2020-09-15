@@ -14,7 +14,7 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:customerinsights/latest:getProfile", {
+    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getProfile", {
         "hubName": args.hubName,
         "localeCode": args.localeCode,
         "profileName": args.profileName,

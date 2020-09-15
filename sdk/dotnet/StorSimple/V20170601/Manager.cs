@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorSimple.V20170601
+namespace Pulumi.AzureNextGen.StorSimple.V20170601
 {
     /// <summary>
     /// The StorSimple Manager.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Manager(string name, ManagerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/v20170601:Manager", name, args ?? new ManagerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storsimple/v20170601:Manager", name, args ?? new ManagerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Manager(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple/v20170601:Manager", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storsimple/v20170601:Manager", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,8 +87,8 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storsimple/latest:Manager"},
-                    new Pulumi.Alias { Type = "azurerm:storsimple/v20161001:Manager"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:Manager"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:Manager"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

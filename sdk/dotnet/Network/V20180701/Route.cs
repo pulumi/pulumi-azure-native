@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20180701
+namespace Pulumi.AzureNextGen.Network.V20180701
 {
     /// <summary>
     /// Route resource
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Route(string name, RouteArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180701:Route", name, args ?? new RouteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20180701:Route", name, args ?? new RouteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Route(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20180701:Route", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20180701:Route", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,39 +75,39 @@ namespace Pulumi.AzureRM.Network.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20150501preview:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20150615:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160330:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160601:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20160901:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20161201:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170301:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170601:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170801:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170901:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171001:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20171101:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180101:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180601:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180801:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181001:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:Route"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:Route"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:Route"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

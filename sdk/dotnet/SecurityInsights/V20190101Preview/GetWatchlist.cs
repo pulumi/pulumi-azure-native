@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 {
     public static class GetWatchlist
     {
         public static Task<GetWatchlistResult> InvokeAsync(GetWatchlistArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azurerm:securityinsights/v20190101preview:getWatchlist", args ?? new GetWatchlistArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-nextgen:securityinsights/v20190101preview:getWatchlist", args ?? new GetWatchlistArgs(), options.WithVersion());
     }
 
 

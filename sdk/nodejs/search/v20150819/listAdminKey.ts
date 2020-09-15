@@ -14,7 +14,7 @@ export function listAdminKey(args: ListAdminKeyArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:search/v20150819:listAdminKey", {
+    return pulumi.runtime.invoke("azure-nextgen:search/v20150819:listAdminKey", {
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,
     }, opts);

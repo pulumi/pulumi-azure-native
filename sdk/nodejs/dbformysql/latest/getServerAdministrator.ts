@@ -14,7 +14,7 @@ export function getServerAdministrator(args: GetServerAdministratorArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:dbformysql/latest:getServerAdministrator", {
+    return pulumi.runtime.invoke("azure-nextgen:dbformysql/latest:getServerAdministrator", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);

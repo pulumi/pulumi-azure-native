@@ -21,7 +21,7 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:insights/v20191101preview:DataCollectionRuleAssociation';
+    public static readonly __pulumiType = 'azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation';
 
     /**
      * Returns true if the given object is an instance of DataCollectionRuleAssociation.  This is designed to work even

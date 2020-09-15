@@ -21,7 +21,7 @@ export class SshPublicKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/v20191201:SshPublicKey';
+    public static readonly __pulumiType = 'azure-nextgen:compute/v20191201:SshPublicKey';
 
     /**
      * Returns true if the given object is an instance of SshPublicKey.  This is designed to work even
@@ -95,7 +95,7 @@ export class SshPublicKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:SshPublicKey" }, { type: "azurerm:compute/v20200601:SshPublicKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:SshPublicKey" }, { type: "azure-nextgen:compute/v20200601:SshPublicKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SshPublicKey.__pulumiType, name, inputs, opts);
     }

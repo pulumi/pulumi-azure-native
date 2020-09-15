@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.Latest
+namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Image(string name, ImageArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/latest:Image", name, args ?? new ImageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/latest:Image", name, args ?? new ImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Image(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/latest:Image", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/latest:Image", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,16 +87,16 @@ namespace Pulumi.AzureRM.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:Image"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:Image"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20171201:Image"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:Image"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:Image"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20181001:Image"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:Image"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:Image"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:Image"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:Image"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:Image"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

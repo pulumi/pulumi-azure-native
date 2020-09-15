@@ -14,7 +14,7 @@ export function listSitePublishingCredentials(args: ListSitePublishingCredential
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:listSitePublishingCredentials", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:listSitePublishingCredentials", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

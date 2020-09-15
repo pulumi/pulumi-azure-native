@@ -21,7 +21,7 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20171001preview:ManagedInstanceKey';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20171001preview:ManagedInstanceKey';
 
     /**
      * Returns true if the given object is an instance of ManagedInstanceKey.  This is designed to work even

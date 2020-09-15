@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.Latest
+namespace Pulumi.AzureNextGen.Sql.Latest
 {
     public static class GetServerCommunicationLink
     {
         public static Task<GetServerCommunicationLinkResult> InvokeAsync(GetServerCommunicationLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerCommunicationLinkResult>("azurerm:sql/latest:getServerCommunicationLink", args ?? new GetServerCommunicationLinkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerCommunicationLinkResult>("azure-nextgen:sql/latest:getServerCommunicationLink", args ?? new GetServerCommunicationLinkArgs(), options.WithVersion());
     }
 
 

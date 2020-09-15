@@ -21,7 +21,7 @@ export class IpFirewallRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:synapse/v20190601preview:IpFirewallRule';
+    public static readonly __pulumiType = 'azure-nextgen:synapse/v20190601preview:IpFirewallRule';
 
     /**
      * Returns true if the given object is an instance of IpFirewallRule.  This is designed to work even

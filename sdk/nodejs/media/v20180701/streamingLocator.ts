@@ -23,7 +23,7 @@ export class StreamingLocator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:media/v20180701:StreamingLocator';
+    public static readonly __pulumiType = 'azure-nextgen:media/v20180701:StreamingLocator';
 
     /**
      * Returns true if the given object is an instance of StreamingLocator.  This is designed to work even
@@ -146,7 +146,7 @@ export class StreamingLocator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:StreamingLocator" }, { type: "azurerm:media/v20180330preview:StreamingLocator" }, { type: "azurerm:media/v20180601preview:StreamingLocator" }, { type: "azurerm:media/v20200501:StreamingLocator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/latest:StreamingLocator" }, { type: "azure-nextgen:media/v20180330preview:StreamingLocator" }, { type: "azure-nextgen:media/v20180601preview:StreamingLocator" }, { type: "azure-nextgen:media/v20200501:StreamingLocator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StreamingLocator.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Management.Latest
+namespace Pulumi.AzureNextGen.Management.Latest
 {
     /// <summary>
     /// Settings defined at the Management Group scope.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Management.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HierarchySetting(string name, HierarchySettingArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:management/latest:HierarchySetting", name, args ?? new HierarchySettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:management/latest:HierarchySetting", name, args ?? new HierarchySettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HierarchySetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:management/latest:HierarchySetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:management/latest:HierarchySetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.Management.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:management/v20200201:HierarchySetting"},
-                    new Pulumi.Alias { Type = "azurerm:management/v20200501:HierarchySetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20200201:HierarchySetting"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:HierarchySetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

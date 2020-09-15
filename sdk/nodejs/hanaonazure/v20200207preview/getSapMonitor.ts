@@ -14,7 +14,7 @@ export function getSapMonitor(args: GetSapMonitorArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:hanaonazure/v20200207preview:getSapMonitor", {
+    return pulumi.runtime.invoke("azure-nextgen:hanaonazure/v20200207preview:getSapMonitor", {
         "resourceGroupName": args.resourceGroupName,
         "sapMonitorName": args.sapMonitorName,
     }, opts);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20190501Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
 {
     /// <summary>
     /// An object that represents a scope map for a container registry.
@@ -61,12 +61,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScopeMap(string name, ScopeMapArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20190501preview:ScopeMap", name, args ?? new ScopeMapArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/v20190501preview:ScopeMap", name, args ?? new ScopeMapArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScopeMap(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20190501preview:ScopeMap", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/v20190501preview:ScopeMap", name, null, MakeResourceOptions(options, id))
         {
         }
 

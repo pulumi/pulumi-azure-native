@@ -23,7 +23,7 @@ export class ManagedHsm extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:keyvault/v20200401preview:ManagedHsm';
+    public static readonly __pulumiType = 'azure-nextgen:keyvault/v20200401preview:ManagedHsm';
 
     /**
      * Returns true if the given object is an instance of ManagedHsm.  This is designed to work even

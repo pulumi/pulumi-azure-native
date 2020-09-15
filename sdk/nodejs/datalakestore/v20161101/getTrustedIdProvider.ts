@@ -14,7 +14,7 @@ export function getTrustedIdProvider(args: GetTrustedIdProviderArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datalakestore/v20161101:getTrustedIdProvider", {
+    return pulumi.runtime.invoke("azure-nextgen:datalakestore/v20161101:getTrustedIdProvider", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "trustedIdProviderName": args.trustedIdProviderName,

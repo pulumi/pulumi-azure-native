@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.V20191001
+namespace Pulumi.AzureNextGen.Migrate.V20191001
 {
     public partial class VMwareCollector : Pulumi.CustomResource
     {
@@ -32,12 +32,12 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VMwareCollector(string name, VMwareCollectorArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/v20191001:VMwareCollector", name, args ?? new VMwareCollectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:migrate/v20191001:VMwareCollector", name, args ?? new VMwareCollectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VMwareCollector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/v20191001:VMwareCollector", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:migrate/v20191001:VMwareCollector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:migrate/latest:VMwareCollector"},
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:VMwareCollector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

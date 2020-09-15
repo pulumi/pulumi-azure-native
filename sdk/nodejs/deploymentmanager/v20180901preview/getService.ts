@@ -14,7 +14,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:deploymentmanager/v20180901preview:getService", {
+    return pulumi.runtime.invoke("azure-nextgen:deploymentmanager/v20180901preview:getService", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "serviceTopologyName": args.serviceTopologyName,

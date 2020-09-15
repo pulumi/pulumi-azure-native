@@ -14,7 +14,7 @@ export function listKeyByAutomationAccount(args: ListKeyByAutomationAccountArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:automation/latest:listKeyByAutomationAccount", {
+    return pulumi.runtime.invoke("azure-nextgen:automation/latest:listKeyByAutomationAccount", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

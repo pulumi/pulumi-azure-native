@@ -23,7 +23,7 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:managednetwork/v20190601preview:ManagedNetworkGroup';
+    public static readonly __pulumiType = 'azure-nextgen:managednetwork/v20190601preview:ManagedNetworkGroup';
 
     /**
      * Returns true if the given object is an instance of ManagedNetworkGroup.  This is designed to work even

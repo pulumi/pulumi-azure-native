@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.Latest
+namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
     public static class GetRelationship
     {
         public static Task<GetRelationshipResult> InvokeAsync(GetRelationshipArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipResult>("azurerm:customerinsights/latest:getRelationship", args ?? new GetRelationshipArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipResult>("azure-nextgen:customerinsights/latest:getRelationship", args ?? new GetRelationshipArgs(), options.WithVersion());
     }
 
 

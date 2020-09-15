@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BotService.Latest
+namespace Pulumi.AzureNextGen.BotService.Latest
 {
     public static class GetEnterpriseChannel
     {
         public static Task<GetEnterpriseChannelResult> InvokeAsync(GetEnterpriseChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseChannelResult>("azurerm:botservice/latest:getEnterpriseChannel", args ?? new GetEnterpriseChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseChannelResult>("azure-nextgen:botservice/latest:getEnterpriseChannel", args ?? new GetEnterpriseChannelArgs(), options.WithVersion());
     }
 
 

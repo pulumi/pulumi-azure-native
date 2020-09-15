@@ -14,7 +14,7 @@ export function getVirtualMachineScaleSetExtension(args: GetVirtualMachineScaleS
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/v20180601:getVirtualMachineScaleSetExtension", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/v20180601:getVirtualMachineScaleSetExtension", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "vmScaleSetName": args.vmScaleSetName,

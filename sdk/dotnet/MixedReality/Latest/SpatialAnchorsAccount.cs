@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MixedReality.Latest
+namespace Pulumi.AzureNextGen.MixedReality.Latest
 {
     /// <summary>
     /// SpatialAnchorsAccount Response.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.MixedReality.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SpatialAnchorsAccount(string name, SpatialAnchorsAccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:mixedreality/latest:SpatialAnchorsAccount", name, args ?? new SpatialAnchorsAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:mixedreality/latest:SpatialAnchorsAccount", name, args ?? new SpatialAnchorsAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SpatialAnchorsAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:mixedreality/latest:SpatialAnchorsAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:mixedreality/latest:SpatialAnchorsAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,9 +75,9 @@ namespace Pulumi.AzureRM.MixedReality.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:mixedreality/v20190228preview:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azurerm:mixedreality/v20191202preview:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azurerm:mixedreality/v20200501:SpatialAnchorsAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20200501:SpatialAnchorsAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

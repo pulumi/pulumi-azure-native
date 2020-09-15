@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
+namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 {
     /// <summary>
     /// An object that represents a private endpoint connection for a container registry.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20191201preview:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:containerregistry/v20191201preview:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:containerregistry/v20191201preview:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:containerregistry/v20191201preview:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 

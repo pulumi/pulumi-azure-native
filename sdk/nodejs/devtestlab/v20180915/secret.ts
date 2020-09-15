@@ -21,7 +21,7 @@ export class Secret extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:devtestlab/v20180915:Secret';
+    public static readonly __pulumiType = 'azure-nextgen:devtestlab/v20180915:Secret';
 
     /**
      * Returns true if the given object is an instance of Secret.  This is designed to work even
@@ -111,7 +111,7 @@ export class Secret extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:Secret" }, { type: "azurerm:devtestlab/v20160515:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:Secret" }, { type: "azure-nextgen:devtestlab/v20160515:Secret" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Secret.__pulumiType, name, inputs, opts);
     }

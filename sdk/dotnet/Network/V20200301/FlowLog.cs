@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200301
+namespace Pulumi.AzureNextGen.Network.V20200301
 {
     /// <summary>
     /// A flow log resource.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FlowLog(string name, FlowLogArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200301:FlowLog", name, args ?? new FlowLogArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200301:FlowLog", name, args ?? new FlowLogArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FlowLog(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200301:FlowLog", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200301:FlowLog", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,12 +117,12 @@ namespace Pulumi.AzureRM.Network.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:FlowLog"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:FlowLog"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:FlowLog"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:FlowLog"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:FlowLog"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:FlowLog"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20151106
+namespace Pulumi.AzureNextGen.DocumentDB.V20151106
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccountCassandraTable(string name, DatabaseAccountCassandraTableArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20151106:DatabaseAccountCassandraTable", name, args ?? new DatabaseAccountCassandraTableArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable", name, args ?? new DatabaseAccountCassandraTableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccountCassandraTable(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20151106:DatabaseAccountCassandraTable", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,11 +75,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountCassandraTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

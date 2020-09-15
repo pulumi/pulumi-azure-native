@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventGrid.V20200401Preview
+namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 {
     public static class GetPartnerNamespace
     {
         public static Task<GetPartnerNamespaceResult> InvokeAsync(GetPartnerNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerNamespaceResult>("azurerm:eventgrid/v20200401preview:getPartnerNamespace", args ?? new GetPartnerNamespaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerNamespaceResult>("azure-nextgen:eventgrid/v20200401preview:getPartnerNamespace", args ?? new GetPartnerNamespaceArgs(), options.WithVersion());
     }
 
 

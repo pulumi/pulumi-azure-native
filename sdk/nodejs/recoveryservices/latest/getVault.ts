@@ -14,7 +14,7 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:recoveryservices/latest:getVault", {
+    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getVault", {
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,
     }, opts);

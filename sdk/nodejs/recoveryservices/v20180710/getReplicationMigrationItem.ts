@@ -14,7 +14,7 @@ export function getReplicationMigrationItem(args: GetReplicationMigrationItemArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:recoveryservices/v20180710:getReplicationMigrationItem", {
+    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/v20180710:getReplicationMigrationItem", {
         "fabricName": args.fabricName,
         "migrationItemName": args.migrationItemName,
         "protectionContainerName": args.protectionContainerName,

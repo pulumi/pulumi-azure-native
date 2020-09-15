@@ -14,7 +14,7 @@ export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:customerinsights/latest:getKpi", {
+    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getKpi", {
         "hubName": args.hubName,
         "kpiName": args.kpiName,
         "resourceGroupName": args.resourceGroupName,

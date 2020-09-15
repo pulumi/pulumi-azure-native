@@ -14,7 +14,7 @@ export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/latest:getSshPublicKey", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getSshPublicKey", {
         "resourceGroupName": args.resourceGroupName,
         "sshPublicKeyName": args.sshPublicKeyName,
     }, opts);

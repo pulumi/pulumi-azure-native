@@ -14,7 +14,7 @@ export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storagesync/v20180701:getStorageSyncService", {
+    return pulumi.runtime.invoke("azure-nextgen:storagesync/v20180701:getStorageSyncService", {
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,
     }, opts);

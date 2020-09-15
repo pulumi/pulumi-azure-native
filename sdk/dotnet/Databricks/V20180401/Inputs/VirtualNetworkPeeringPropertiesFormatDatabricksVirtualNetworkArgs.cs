@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Databricks.V20180401.Inputs
+namespace Pulumi.AzureNextGen.Databricks.V20180401.Inputs
 {
 
     /// <summary>

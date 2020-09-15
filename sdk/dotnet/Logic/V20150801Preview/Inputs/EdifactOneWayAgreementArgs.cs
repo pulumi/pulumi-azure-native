@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20150801Preview.Inputs
+namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
 {
 
     public sealed class EdifactOneWayAgreementArgs : Pulumi.ResourceArgs

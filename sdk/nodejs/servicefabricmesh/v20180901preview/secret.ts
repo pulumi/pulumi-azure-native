@@ -23,7 +23,7 @@ export class Secret extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:servicefabricmesh/v20180901preview:Secret';
+    public static readonly __pulumiType = 'azure-nextgen:servicefabricmesh/v20180901preview:Secret';
 
     /**
      * Returns true if the given object is an instance of Secret.  This is designed to work even

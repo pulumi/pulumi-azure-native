@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20190301
+namespace Pulumi.AzureNextGen.Compute.V20190301
 {
     public static class GetImage
     {
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azurerm:compute/v20190301:getImage", args ?? new GetImageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-nextgen:compute/v20190301:getImage", args ?? new GetImageArgs(), options.WithVersion());
     }
 
 

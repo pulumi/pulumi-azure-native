@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DesktopVirtualization.V20190123Preview
+namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190123Preview
 {
     /// <summary>
     /// Represents a Workspace definition.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190123Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:desktopvirtualization/v20190123preview:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:desktopvirtualization/v20190123preview:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:desktopvirtualization/v20190123preview:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:desktopvirtualization/v20190123preview:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190123Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20190924preview:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20191210preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190924preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -23,7 +23,7 @@ export class Gateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20191201preview:Gateway';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20191201preview:Gateway';
 
     /**
      * Returns true if the given object is an instance of Gateway.  This is designed to work even
@@ -92,7 +92,7 @@ export class Gateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Gateway" }, { type: "azurerm:apimanagement/v20191201:Gateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Gateway" }, { type: "azure-nextgen:apimanagement/v20191201:Gateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Gateway.__pulumiType, name, inputs, opts);
     }

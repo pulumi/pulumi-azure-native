@@ -14,7 +14,7 @@ export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getConnectionMonitor", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getConnectionMonitor", {
         "connectionMonitorName": args.connectionMonitorName,
         "networkWatcherName": args.networkWatcherName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.RecoveryServices.Latest
+namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 {
     /// <summary>
     /// Migration item.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationMigrationItem(string name, ReplicationMigrationItemArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices/latest:ReplicationMigrationItem", name, args ?? new ReplicationMigrationItemArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:recoveryservices/latest:ReplicationMigrationItem", name, args ?? new ReplicationMigrationItemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationMigrationItem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices/latest:ReplicationMigrationItem", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:recoveryservices/latest:ReplicationMigrationItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/v20180110:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/v20180710:ReplicationMigrationItem"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

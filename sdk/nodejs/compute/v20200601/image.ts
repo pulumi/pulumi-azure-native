@@ -23,7 +23,7 @@ export class Image extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/v20200601:Image';
+    public static readonly __pulumiType = 'azure-nextgen:compute/v20200601:Image';
 
     /**
      * Returns true if the given object is an instance of Image.  This is designed to work even
@@ -115,7 +115,7 @@ export class Image extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:Image" }, { type: "azurerm:compute/v20160430preview:Image" }, { type: "azurerm:compute/v20170330:Image" }, { type: "azurerm:compute/v20171201:Image" }, { type: "azurerm:compute/v20180401:Image" }, { type: "azurerm:compute/v20180601:Image" }, { type: "azurerm:compute/v20181001:Image" }, { type: "azurerm:compute/v20190301:Image" }, { type: "azurerm:compute/v20190701:Image" }, { type: "azurerm:compute/v20191201:Image" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:Image" }, { type: "azure-nextgen:compute/v20160430preview:Image" }, { type: "azure-nextgen:compute/v20170330:Image" }, { type: "azure-nextgen:compute/v20171201:Image" }, { type: "azure-nextgen:compute/v20180401:Image" }, { type: "azure-nextgen:compute/v20180601:Image" }, { type: "azure-nextgen:compute/v20181001:Image" }, { type: "azure-nextgen:compute/v20190301:Image" }, { type: "azure-nextgen:compute/v20190701:Image" }, { type: "azure-nextgen:compute/v20191201:Image" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Image.__pulumiType, name, inputs, opts);
     }

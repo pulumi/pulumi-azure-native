@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Cdn.V20191231
+namespace Pulumi.AzureNextGen.Cdn.V20191231
 {
     public static class GetOrigin
     {
         public static Task<GetOriginResult> InvokeAsync(GetOriginArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginResult>("azurerm:cdn/v20191231:getOrigin", args ?? new GetOriginArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginResult>("azure-nextgen:cdn/v20191231:getOrigin", args ?? new GetOriginArgs(), options.WithVersion());
     }
 
 

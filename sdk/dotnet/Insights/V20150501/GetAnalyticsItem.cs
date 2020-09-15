@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20150501
+namespace Pulumi.AzureNextGen.Insights.V20150501
 {
     public static class GetAnalyticsItem
     {
         public static Task<GetAnalyticsItemResult> InvokeAsync(GetAnalyticsItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azurerm:insights/v20150501:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsItemResult>("azure-nextgen:insights/v20150501:getAnalyticsItem", args ?? new GetAnalyticsItemArgs(), options.WithVersion());
     }
 
 

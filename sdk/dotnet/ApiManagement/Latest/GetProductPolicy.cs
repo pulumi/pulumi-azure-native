@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.Latest
+namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
     public static class GetProductPolicy
     {
         public static Task<GetProductPolicyResult> InvokeAsync(GetProductPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductPolicyResult>("azurerm:apimanagement/latest:getProductPolicy", args ?? new GetProductPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductPolicyResult>("azure-nextgen:apimanagement/latest:getProductPolicy", args ?? new GetProductPolicyArgs(), options.WithVersion());
     }
 
 

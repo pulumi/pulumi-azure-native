@@ -14,7 +14,7 @@ export function getCloudConnector(args: GetCloudConnectorArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:costmanagement/v20190301preview:getCloudConnector", {
+    return pulumi.runtime.invoke("azure-nextgen:costmanagement/v20190301preview:getCloudConnector", {
         "connectorName": args.connectorName,
         "expand": args.expand,
     }, opts);

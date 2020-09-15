@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20191201
+namespace Pulumi.AzureNextGen.Compute.V20191201
 {
     public static class GetGalleryApplication
     {
         public static Task<GetGalleryApplicationResult> InvokeAsync(GetGalleryApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationResult>("azurerm:compute/v20191201:getGalleryApplication", args ?? new GetGalleryApplicationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationResult>("azure-nextgen:compute/v20191201:getGalleryApplication", args ?? new GetGalleryApplicationArgs(), options.WithVersion());
     }
 
 

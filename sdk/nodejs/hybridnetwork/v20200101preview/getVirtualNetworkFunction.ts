@@ -14,7 +14,7 @@ export function getVirtualNetworkFunction(args: GetVirtualNetworkFunctionArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:hybridnetwork/v20200101preview:getVirtualNetworkFunction", {
+    return pulumi.runtime.invoke("azure-nextgen:hybridnetwork/v20200101preview:getVirtualNetworkFunction", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkFunctionName": args.virtualNetworkFunctionName,
     }, opts);

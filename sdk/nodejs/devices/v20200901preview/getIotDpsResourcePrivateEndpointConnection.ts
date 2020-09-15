@@ -14,7 +14,7 @@ export function getIotDpsResourcePrivateEndpointConnection(args: GetIotDpsResour
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devices/v20200901preview:getIotDpsResourcePrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:devices/v20200901preview:getIotDpsResourcePrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

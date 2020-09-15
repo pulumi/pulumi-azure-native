@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
+namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
 {
     /// <summary>
     /// The Managed Network resource
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScopeAssignment(string name, ScopeAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:managednetwork/v20190601preview:ScopeAssignment", name, args ?? new ScopeAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:managednetwork/v20190601preview:ScopeAssignment", name, args ?? new ScopeAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScopeAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:managednetwork/v20190601preview:ScopeAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:managednetwork/v20190601preview:ScopeAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 

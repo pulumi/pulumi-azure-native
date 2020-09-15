@@ -14,7 +14,7 @@ export function getTagByApi(args: GetTagByApiArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/latest:getTagByApi", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getTagByApi", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
+namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
 {
     /// <summary>
     /// Custom domain resource payload.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomDomain(string name, CustomDomainArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:appplatform/v20190501preview:CustomDomain", name, args ?? new CustomDomainArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:appplatform/v20190501preview:CustomDomain", name, args ?? new CustomDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomDomain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:appplatform/v20190501preview:CustomDomain", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:appplatform/v20190501preview:CustomDomain", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:appplatform/latest:CustomDomain"},
-                    new Pulumi.Alias { Type = "azurerm:appplatform/v20200701:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

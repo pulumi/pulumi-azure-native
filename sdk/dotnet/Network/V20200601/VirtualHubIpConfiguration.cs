@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200601
+namespace Pulumi.AzureNextGen.Network.V20200601
 {
     /// <summary>
     /// IpConfigurations.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualHubIpConfiguration(string name, VirtualHubIpConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:VirtualHubIpConfiguration", name, args ?? new VirtualHubIpConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200601:VirtualHubIpConfiguration", name, args ?? new VirtualHubIpConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualHubIpConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:VirtualHubIpConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200601:VirtualHubIpConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,8 +87,8 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:VirtualHubIpConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualHubIpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHubIpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualHubIpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

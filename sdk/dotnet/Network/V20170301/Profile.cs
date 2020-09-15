@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20170301
+namespace Pulumi.AzureNextGen.Network.V20170301
 {
     /// <summary>
     /// Class representing a Traffic Manager profile.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Network.V20170301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Profile(string name, ProfileArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20170301:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20170301:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Profile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20170301:Profile", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20170301:Profile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,12 +93,12 @@ namespace Pulumi.AzureRM.Network.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20151101:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20170501:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180201:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180301:Profile"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20180401:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20151101:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170501:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180301:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

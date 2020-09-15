@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.PowerBIDedicated.Latest
+namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
 {
     public static class GetCapacityDetails
     {
         public static Task<GetCapacityDetailsResult> InvokeAsync(GetCapacityDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azurerm:powerbidedicated/latest:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-nextgen:powerbidedicated/latest:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
     }
 
 

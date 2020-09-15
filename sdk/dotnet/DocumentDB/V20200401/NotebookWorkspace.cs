@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20200401
+namespace Pulumi.AzureNextGen.DocumentDB.V20200401
 {
     /// <summary>
     /// A notebook workspace resource
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotebookWorkspace(string name, NotebookWorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20200401:NotebookWorkspace", name, args ?? new NotebookWorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/v20200401:NotebookWorkspace", name, args ?? new NotebookWorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotebookWorkspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20200401:NotebookWorkspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/v20200401:NotebookWorkspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,11 +63,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:NotebookWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

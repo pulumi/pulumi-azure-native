@@ -23,7 +23,7 @@ export class DeploymentAtScope extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:resources/v20200601:DeploymentAtScope';
+    public static readonly __pulumiType = 'azure-nextgen:resources/v20200601:DeploymentAtScope';
 
     /**
      * Returns true if the given object is an instance of DeploymentAtScope.  This is designed to work even
@@ -97,7 +97,7 @@ export class DeploymentAtScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:resources/latest:DeploymentAtScope" }, { type: "azurerm:resources/v20190701:DeploymentAtScope" }, { type: "azurerm:resources/v20190801:DeploymentAtScope" }, { type: "azurerm:resources/v20191001:DeploymentAtScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/latest:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentAtScope.__pulumiType, name, inputs, opts);
     }

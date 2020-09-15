@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StorageSync.Latest
+namespace Pulumi.AzureNextGen.StorageSync.Latest
 {
     public static class GetCloudEndpoint
     {
         public static Task<GetCloudEndpointResult> InvokeAsync(GetCloudEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azurerm:storagesync/latest:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azure-nextgen:storagesync/latest:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithVersion());
     }
 
 

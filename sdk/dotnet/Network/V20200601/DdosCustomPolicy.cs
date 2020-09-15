@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200601
+namespace Pulumi.AzureNextGen.Network.V20200601
 {
     /// <summary>
     /// A DDoS custom policy in a resource group.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DdosCustomPolicy(string name, DdosCustomPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:DdosCustomPolicy", name, args ?? new DdosCustomPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200601:DdosCustomPolicy", name, args ?? new DdosCustomPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DdosCustomPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:DdosCustomPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200601:DdosCustomPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,20 +93,20 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181101:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20181201:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:DdosCustomPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

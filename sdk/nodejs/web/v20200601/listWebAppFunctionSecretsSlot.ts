@@ -14,7 +14,7 @@ export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20200601:listWebAppFunctionSecretsSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20200601:listWebAppFunctionSecretsSlot", {
         "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AzureStack.V20170601
+namespace Pulumi.AzureNextGen.AzureStack.V20170601
 {
     /// <summary>
     /// Registration information.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Registration(string name, RegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:azurestack/v20170601:Registration", name, args ?? new RegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:azurestack/v20170601:Registration", name, args ?? new RegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Registration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:azurestack/v20170601:Registration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:azurestack/v20170601:Registration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:azurestack/latest:Registration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestack/latest:Registration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

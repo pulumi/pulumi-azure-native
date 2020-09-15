@@ -14,7 +14,7 @@ export function listManagerActivationKey(args: ListManagerActivationKeyArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storsimple/latest:listManagerActivationKey", {
+    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:listManagerActivationKey", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200601
+namespace Pulumi.AzureNextGen.Network.V20200601
 {
     /// <summary>
     /// Nat Gateway resource.
@@ -101,12 +101,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NatGateway(string name, NatGatewayArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:NatGateway", name, args ?? new NatGatewayArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200601:NatGateway", name, args ?? new NatGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NatGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200601:NatGateway", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200601:NatGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -117,18 +117,18 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190201:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200501:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NatGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

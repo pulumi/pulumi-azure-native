@@ -21,7 +21,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:apimanagement/v20190101:Certificate';
+    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20190101:Certificate';
 
     /**
      * Returns true if the given object is an instance of Certificate.  This is designed to work even
@@ -104,7 +104,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Certificate" }, { type: "azurerm:apimanagement/v20160707:Certificate" }, { type: "azurerm:apimanagement/v20161010:Certificate" }, { type: "azurerm:apimanagement/v20170301:Certificate" }, { type: "azurerm:apimanagement/v20180101:Certificate" }, { type: "azurerm:apimanagement/v20180601preview:Certificate" }, { type: "azurerm:apimanagement/v20191201:Certificate" }, { type: "azurerm:apimanagement/v20191201preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Certificate" }, { type: "azure-nextgen:apimanagement/v20160707:Certificate" }, { type: "azure-nextgen:apimanagement/v20161010:Certificate" }, { type: "azure-nextgen:apimanagement/v20170301:Certificate" }, { type: "azure-nextgen:apimanagement/v20180101:Certificate" }, { type: "azure-nextgen:apimanagement/v20180601preview:Certificate" }, { type: "azure-nextgen:apimanagement/v20191201:Certificate" }, { type: "azure-nextgen:apimanagement/v20191201preview:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

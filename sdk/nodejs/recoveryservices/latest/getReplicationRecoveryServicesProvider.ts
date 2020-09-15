@@ -14,7 +14,7 @@ export function getReplicationRecoveryServicesProvider(args: GetReplicationRecov
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:recoveryservices/latest:getReplicationRecoveryServicesProvider", {
+    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getReplicationRecoveryServicesProvider", {
         "fabricName": args.fabricName,
         "providerName": args.providerName,
         "resourceGroupName": args.resourceGroupName,

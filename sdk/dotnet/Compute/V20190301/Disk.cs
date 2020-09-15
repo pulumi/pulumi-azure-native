@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Compute.V20190301
+namespace Pulumi.AzureNextGen.Compute.V20190301
 {
     /// <summary>
     /// Disk resource.
@@ -137,12 +137,12 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Disk(string name, DiskArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20190301:Disk", name, args ?? new DiskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:compute/v20190301:Disk", name, args ?? new DiskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Disk(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:compute/v20190301:Disk", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:compute/v20190301:Disk", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -153,16 +153,16 @@ namespace Pulumi.AzureRM.Compute.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:compute/latest:Disk"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:Disk"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:Disk"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:Disk"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:Disk"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20180930:Disk"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:Disk"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20191101:Disk"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200501:Disk"},
-                    new Pulumi.Alias { Type = "azurerm:compute/v20200630:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20180930:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

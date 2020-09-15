@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.IoTSpaces.V20171001Preview.Inputs
+namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview.Inputs
 {
 
     /// <summary>

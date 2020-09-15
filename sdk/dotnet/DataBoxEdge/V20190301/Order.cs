@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataBoxEdge.V20190301
+namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
 {
     /// <summary>
     /// The order details.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Order(string name, OrderArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/v20190301:Order", name, args ?? new OrderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:databoxedge/v20190301:Order", name, args ?? new OrderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Order(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge/v20190301:Order", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:databoxedge/v20190301:Order", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,10 +93,10 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/latest:Order"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Order"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:Order"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Order"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Order"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Order"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Order"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Order"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Logic.V20160601
+namespace Pulumi.AzureNextGen.Logic.V20160601
 {
     public static class ListSchemaContentCallbackUrl
     {
         public static Task<ListSchemaContentCallbackUrlResult> InvokeAsync(ListSchemaContentCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSchemaContentCallbackUrlResult>("azurerm:logic/v20160601:listSchemaContentCallbackUrl", args ?? new ListSchemaContentCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSchemaContentCallbackUrlResult>("azure-nextgen:logic/v20160601:listSchemaContentCallbackUrl", args ?? new ListSchemaContentCallbackUrlArgs(), options.WithVersion());
     }
 
 

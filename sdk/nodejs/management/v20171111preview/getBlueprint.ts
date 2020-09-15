@@ -14,7 +14,7 @@ export function getBlueprint(args: GetBlueprintArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:management/v20171111preview:getBlueprint", {
+    return pulumi.runtime.invoke("azure-nextgen:management/v20171111preview:getBlueprint", {
         "blueprintName": args.blueprintName,
         "managementGroupName": args.managementGroupName,
     }, opts);

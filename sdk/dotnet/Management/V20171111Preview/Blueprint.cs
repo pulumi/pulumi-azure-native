@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Management.V20171111Preview
+namespace Pulumi.AzureNextGen.Management.V20171111Preview
 {
     /// <summary>
     /// Represents a Blueprint definition.
@@ -83,12 +83,12 @@ namespace Pulumi.AzureRM.Management.V20171111Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Blueprint(string name, BlueprintArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:management/v20171111preview:Blueprint", name, args ?? new BlueprintArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:management/v20171111preview:Blueprint", name, args ?? new BlueprintArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Blueprint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:management/v20171111preview:Blueprint", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:management/v20171111preview:Blueprint", name, null, MakeResourceOptions(options, id))
         {
         }
 

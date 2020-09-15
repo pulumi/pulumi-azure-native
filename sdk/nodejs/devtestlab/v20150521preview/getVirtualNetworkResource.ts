@@ -14,7 +14,7 @@ export function getVirtualNetworkResource(args: GetVirtualNetworkResourceArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/v20150521preview:getVirtualNetworkResource", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20150521preview:getVirtualNetworkResource", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

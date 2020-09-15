@@ -14,7 +14,7 @@ export function listRunLogSasUrl(args: ListRunLogSasUrlArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:containerregistry/v20190401:listRunLogSasUrl", {
+    return pulumi.runtime.invoke("azure-nextgen:containerregistry/v20190401:listRunLogSasUrl", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "runId": args.runId,

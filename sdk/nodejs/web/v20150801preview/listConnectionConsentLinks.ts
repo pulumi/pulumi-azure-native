@@ -14,7 +14,7 @@ export function listConnectionConsentLinks(args: ListConnectionConsentLinksArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801preview:listConnectionConsentLinks", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801preview:listConnectionConsentLinks", {
         "connectionName": args.connectionName,
         "id": args.id,
         "kind": args.kind,

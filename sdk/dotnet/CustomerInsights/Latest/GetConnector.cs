@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CustomerInsights.Latest
+namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 {
     public static class GetConnector
     {
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azurerm:customerinsights/latest:getConnector", args ?? new GetConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-nextgen:customerinsights/latest:getConnector", args ?? new GetConnectorArgs(), options.WithVersion());
     }
 
 

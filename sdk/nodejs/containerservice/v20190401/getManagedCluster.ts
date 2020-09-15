@@ -14,7 +14,7 @@ export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:containerservice/v20190401:getManagedCluster", {
+    return pulumi.runtime.invoke("azure-nextgen:containerservice/v20190401:getManagedCluster", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

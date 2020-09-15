@@ -23,7 +23,7 @@ export class NodeType extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:servicefabric/v20200101preview:NodeType';
+    public static readonly __pulumiType = 'azure-nextgen:servicefabric/v20200101preview:NodeType';
 
     /**
      * Returns true if the given object is an instance of NodeType.  This is designed to work even

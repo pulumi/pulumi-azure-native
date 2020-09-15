@@ -14,7 +14,7 @@ export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storagecache/v20191101:getStorageTarget", {
+    return pulumi.runtime.invoke("azure-nextgen:storagecache/v20191101:getStorageTarget", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,
         "storageTargetName": args.storageTargetName,

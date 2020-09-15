@@ -23,7 +23,7 @@ export class ServiceTask extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datamigration/v20180715preview:ServiceTask';
+    public static readonly __pulumiType = 'azure-nextgen:datamigration/v20180715preview:ServiceTask';
 
     /**
      * Returns true if the given object is an instance of ServiceTask.  This is designed to work even

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.CostManagement.V20180801Preview
+namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
 {
     /// <summary>
     /// A report resource.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.CostManagement.V20180801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Report(string name, ReportArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20180801preview:Report", name, args ?? new ReportArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:costmanagement/v20180801preview:Report", name, args ?? new ReportArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Report(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:costmanagement/v20180801preview:Report", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:costmanagement/v20180801preview:Report", name, null, MakeResourceOptions(options, id))
         {
         }
 

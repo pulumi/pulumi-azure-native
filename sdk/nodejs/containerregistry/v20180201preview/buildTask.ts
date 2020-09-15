@@ -23,7 +23,7 @@ export class BuildTask extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:containerregistry/v20180201preview:BuildTask';
+    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20180201preview:BuildTask';
 
     /**
      * Returns true if the given object is an instance of BuildTask.  This is designed to work even

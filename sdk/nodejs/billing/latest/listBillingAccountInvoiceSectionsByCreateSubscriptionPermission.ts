@@ -14,7 +14,7 @@ export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:billing/latest:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", {
+    return pulumi.runtime.invoke("azure-nextgen:billing/latest:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", {
         "billingAccountName": args.billingAccountName,
     }, opts);
 }

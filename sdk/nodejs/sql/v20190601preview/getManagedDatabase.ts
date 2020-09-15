@@ -14,7 +14,7 @@ export function getManagedDatabase(args: GetManagedDatabaseArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sql/v20190601preview:getManagedDatabase", {
+    return pulumi.runtime.invoke("azure-nextgen:sql/v20190601preview:getManagedDatabase", {
         "databaseName": args.databaseName,
         "managedInstanceName": args.managedInstanceName,
         "resourceGroupName": args.resourceGroupName,

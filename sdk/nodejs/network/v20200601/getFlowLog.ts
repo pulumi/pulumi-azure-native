@@ -14,7 +14,7 @@ export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20200601:getFlowLog", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20200601:getFlowLog", {
         "flowLogName": args.flowLogName,
         "networkWatcherName": args.networkWatcherName,
         "resourceGroupName": args.resourceGroupName,

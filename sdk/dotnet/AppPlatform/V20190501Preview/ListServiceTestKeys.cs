@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
+namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
 {
     public static class ListServiceTestKeys
     {
         public static Task<ListServiceTestKeysResult> InvokeAsync(ListServiceTestKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azurerm:appplatform/v20190501preview:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-nextgen:appplatform/v20190501preview:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.Latest
+namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     public static class GetServiceFabricSchedule
     {
         public static Task<GetServiceFabricScheduleResult> InvokeAsync(GetServiceFabricScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricScheduleResult>("azurerm:devtestlab/latest:getServiceFabricSchedule", args ?? new GetServiceFabricScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricScheduleResult>("azure-nextgen:devtestlab/latest:getServiceFabricSchedule", args ?? new GetServiceFabricScheduleArgs(), options.WithVersion());
     }
 
 

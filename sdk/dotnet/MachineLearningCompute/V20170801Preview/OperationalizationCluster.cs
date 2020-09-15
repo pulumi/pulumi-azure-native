@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
+namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
 {
     /// <summary>
     /// Instance of an Azure ML Operationalization Cluster resource.
@@ -113,12 +113,12 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OperationalizationCluster(string name, OperationalizationClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningcompute/v20170801preview:OperationalizationCluster", name, args ?? new OperationalizationClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:machinelearningcompute/v20170801preview:OperationalizationCluster", name, args ?? new OperationalizationClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OperationalizationCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningcompute/v20170801preview:OperationalizationCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:machinelearningcompute/v20170801preview:OperationalizationCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -129,7 +129,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:machinelearningcompute/v20170601preview:OperationalizationCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningcompute/v20170601preview:OperationalizationCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

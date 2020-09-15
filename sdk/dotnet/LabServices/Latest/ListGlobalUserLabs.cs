@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.LabServices.Latest
+namespace Pulumi.AzureNextGen.LabServices.Latest
 {
     public static class ListGlobalUserLabs
     {
         public static Task<ListGlobalUserLabsResult> InvokeAsync(ListGlobalUserLabsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserLabsResult>("azurerm:labservices/latest:listGlobalUserLabs", args ?? new ListGlobalUserLabsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserLabsResult>("azure-nextgen:labservices/latest:listGlobalUserLabs", args ?? new ListGlobalUserLabsArgs(), options.WithVersion());
     }
 
 

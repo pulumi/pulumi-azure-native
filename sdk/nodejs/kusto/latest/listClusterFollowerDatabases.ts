@@ -14,7 +14,7 @@ export function listClusterFollowerDatabases(args: ListClusterFollowerDatabasesA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:kusto/latest:listClusterFollowerDatabases", {
+    return pulumi.runtime.invoke("azure-nextgen:kusto/latest:listClusterFollowerDatabases", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

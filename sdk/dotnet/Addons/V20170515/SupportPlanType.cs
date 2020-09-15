@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Addons.V20170515
+namespace Pulumi.AzureNextGen.Addons.V20170515
 {
     /// <summary>
     /// The status of the Canonical support plan.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Addons.V20170515
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SupportPlanType(string name, SupportPlanTypeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:addons/v20170515:SupportPlanType", name, args ?? new SupportPlanTypeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:addons/v20170515:SupportPlanType", name, args ?? new SupportPlanTypeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SupportPlanType(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:addons/v20170515:SupportPlanType", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:addons/v20170515:SupportPlanType", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Addons.V20170515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:addons/latest:SupportPlanType"},
-                    new Pulumi.Alias { Type = "azurerm:addons/v20180301:SupportPlanType"},
+                    new Pulumi.Alias { Type = "azure-nextgen:addons/latest:SupportPlanType"},
+                    new Pulumi.Alias { Type = "azure-nextgen:addons/v20180301:SupportPlanType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

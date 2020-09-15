@@ -14,7 +14,7 @@ export function getSiteHostNameBindingSlot(args: GetSiteHostNameBindingSlotArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteHostNameBindingSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:getSiteHostNameBindingSlot", {
         "hostName": args.hostName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

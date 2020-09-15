@@ -14,7 +14,7 @@ export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/v20160430preview:getSnapshot", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/v20160430preview:getSnapshot", {
         "resourceGroupName": args.resourceGroupName,
         "snapshotName": args.snapshotName,
     }, opts);

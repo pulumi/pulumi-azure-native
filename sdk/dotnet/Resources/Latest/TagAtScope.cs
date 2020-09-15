@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Resources.Latest
+namespace Pulumi.AzureNextGen.Resources.Latest
 {
     /// <summary>
     /// Wrapper resource for tags API requests and responses.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Resources.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TagAtScope(string name, TagAtScopeArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:resources/latest:TagAtScope", name, args ?? new TagAtScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:resources/latest:TagAtScope", name, args ?? new TagAtScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TagAtScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:resources/latest:TagAtScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:resources/latest:TagAtScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Resources.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:resources/v20191001:TagAtScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/v20200601:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:TagAtScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

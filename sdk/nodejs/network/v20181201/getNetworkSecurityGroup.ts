@@ -14,7 +14,7 @@ export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/v20181201:getNetworkSecurityGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:network/v20181201:getNetworkSecurityGroup", {
         "expand": args.expand,
         "networkSecurityGroupName": args.networkSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,

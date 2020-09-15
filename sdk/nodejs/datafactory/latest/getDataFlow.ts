@@ -14,7 +14,7 @@ export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datafactory/latest:getDataFlow", {
+    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getDataFlow", {
         "dataFlowName": args.dataFlowName,
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,

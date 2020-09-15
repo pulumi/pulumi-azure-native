@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Portal.V20200901Preview
+namespace Pulumi.AzureNextGen.Portal.V20200901Preview
 {
     /// <summary>
     /// Tenant configuration.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Portal.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TenantConfiguration(string name, TenantConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:portal/v20200901preview:TenantConfiguration", name, args ?? new TenantConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:portal/v20200901preview:TenantConfiguration", name, args ?? new TenantConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TenantConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:portal/v20200901preview:TenantConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:portal/v20200901preview:TenantConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,7 +57,7 @@ namespace Pulumi.AzureRM.Portal.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:portal/v20190101preview:TenantConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:portal/v20190101preview:TenantConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

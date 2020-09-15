@@ -23,7 +23,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:certificateregistration/v20180201:AppServiceCertificateOrder';
+    public static readonly __pulumiType = 'azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder';
 
     /**
      * Returns true if the given object is an instance of AppServiceCertificateOrder.  This is designed to work even
@@ -214,7 +214,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:certificateregistration/latest:AppServiceCertificateOrder" }, { type: "azurerm:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azurerm:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azurerm:certificateregistration/v20200601:AppServiceCertificateOrder" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceCertificateOrder.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20180301
+namespace Pulumi.AzureNextGen.Insights.V20180301
 {
     /// <summary>
     /// The metric alert resource.
@@ -119,12 +119,12 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MetricAlert(string name, MetricAlertArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20180301:MetricAlert", name, args ?? new MetricAlertArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20180301:MetricAlert", name, args ?? new MetricAlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MetricAlert(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20180301:MetricAlert", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20180301:MetricAlert", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -135,7 +135,7 @@ namespace Pulumi.AzureRM.Insights.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/latest:MetricAlert"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:MetricAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.V20160801
+namespace Pulumi.AzureNextGen.Web.V20160801
 {
     /// <summary>
     /// User credentials used for publishing activity.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppDeploymentSlot(string name, WebAppDeploymentSlotArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160801:WebAppDeploymentSlot", name, args ?? new WebAppDeploymentSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/v20160801:WebAppDeploymentSlot", name, args ?? new WebAppDeploymentSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppDeploymentSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/v20160801:WebAppDeploymentSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/v20160801:WebAppDeploymentSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,12 +111,12 @@ namespace Pulumi.AzureRM.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppDeploymentSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppDeploymentSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppDeploymentSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppDeploymentSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppDeploymentSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppDeploymentSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

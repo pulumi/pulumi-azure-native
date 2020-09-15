@@ -23,7 +23,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/v20190201:InterfaceEndpoint';
+    public static readonly __pulumiType = 'azure-nextgen:network/v20190201:InterfaceEndpoint';
 
     /**
      * Returns true if the given object is an instance of InterfaceEndpoint.  This is designed to work even
@@ -131,7 +131,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:InterfaceEndpoint" }, { type: "azurerm:network/v20180801:InterfaceEndpoint" }, { type: "azurerm:network/v20181001:InterfaceEndpoint" }, { type: "azurerm:network/v20181101:InterfaceEndpoint" }, { type: "azurerm:network/v20181201:InterfaceEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20180801:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181001:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181101:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181201:InterfaceEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(InterfaceEndpoint.__pulumiType, name, inputs, opts);
     }

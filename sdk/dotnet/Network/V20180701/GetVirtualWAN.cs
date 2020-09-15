@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20180701
+namespace Pulumi.AzureNextGen.Network.V20180701
 {
     public static class GetVirtualWAN
     {
         public static Task<GetVirtualWANResult> InvokeAsync(GetVirtualWANArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWANResult>("azurerm:network/v20180701:getVirtualWAN", args ?? new GetVirtualWANArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWANResult>("azure-nextgen:network/v20180701:getVirtualWAN", args ?? new GetVirtualWANArgs(), options.WithVersion());
     }
 
 

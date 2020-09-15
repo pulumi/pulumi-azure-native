@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
+namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
 {
     public static class GetNodeType
     {
         public static Task<GetNodeTypeResult> InvokeAsync(GetNodeTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeResult>("azurerm:servicefabric/v20200101preview:getNodeType", args ?? new GetNodeTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeResult>("azure-nextgen:servicefabric/v20200101preview:getNodeType", args ?? new GetNodeTypeArgs(), options.WithVersion());
     }
 
 

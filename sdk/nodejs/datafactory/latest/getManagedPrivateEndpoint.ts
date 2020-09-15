@@ -14,7 +14,7 @@ export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datafactory/latest:getManagedPrivateEndpoint", {
+    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getManagedPrivateEndpoint", {
         "factoryName": args.factoryName,
         "managedPrivateEndpointName": args.managedPrivateEndpointName,
         "managedVirtualNetworkName": args.managedVirtualNetworkName,

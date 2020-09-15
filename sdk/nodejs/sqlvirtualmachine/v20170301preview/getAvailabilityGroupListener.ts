@@ -14,7 +14,7 @@ export function getAvailabilityGroupListener(args: GetAvailabilityGroupListenerA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:sqlvirtualmachine/v20170301preview:getAvailabilityGroupListener", {
+    return pulumi.runtime.invoke("azure-nextgen:sqlvirtualmachine/v20170301preview:getAvailabilityGroupListener", {
         "availabilityGroupListenerName": args.availabilityGroupListenerName,
         "resourceGroupName": args.resourceGroupName,
         "sqlVirtualMachineGroupName": args.sqlVirtualMachineGroupName,

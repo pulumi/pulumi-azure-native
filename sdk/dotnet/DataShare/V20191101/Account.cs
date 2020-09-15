@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataShare.V20191101
+namespace Pulumi.AzureNextGen.DataShare.V20191101
 {
     /// <summary>
     /// An account data transfer object.
@@ -77,12 +77,12 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:datashare/v20191101:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:datashare/v20191101:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:datashare/v20191101:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:datashare/v20191101:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datashare/latest:Account"},
-                    new Pulumi.Alias { Type = "azurerm:datashare/v20181101preview:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

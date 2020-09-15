@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AppConfiguration.V20190201Preview
+namespace Pulumi.AzureNextGen.AppConfiguration.V20190201Preview
 {
     public static class GetConfigurationStore
     {
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azurerm:appconfiguration/v20190201preview:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-nextgen:appconfiguration/v20190201preview:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithVersion());
     }
 
 

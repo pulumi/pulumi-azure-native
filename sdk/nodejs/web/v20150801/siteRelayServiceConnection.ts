@@ -21,7 +21,7 @@ export class SiteRelayServiceConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20150801:SiteRelayServiceConnection';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteRelayServiceConnection';
 
     /**
      * Returns true if the given object is an instance of SiteRelayServiceConnection.  This is designed to work even
@@ -119,7 +119,7 @@ export class SiteRelayServiceConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:SiteRelayServiceConnection" }, { type: "azurerm:web/v20160801:SiteRelayServiceConnection" }, { type: "azurerm:web/v20180201:SiteRelayServiceConnection" }, { type: "azurerm:web/v20181101:SiteRelayServiceConnection" }, { type: "azurerm:web/v20190801:SiteRelayServiceConnection" }, { type: "azurerm:web/v20200601:SiteRelayServiceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:SiteRelayServiceConnection" }, { type: "azure-nextgen:web/v20160801:SiteRelayServiceConnection" }, { type: "azure-nextgen:web/v20180201:SiteRelayServiceConnection" }, { type: "azure-nextgen:web/v20181101:SiteRelayServiceConnection" }, { type: "azure-nextgen:web/v20190801:SiteRelayServiceConnection" }, { type: "azure-nextgen:web/v20200601:SiteRelayServiceConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteRelayServiceConnection.__pulumiType, name, inputs, opts);
     }

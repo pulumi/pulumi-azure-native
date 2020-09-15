@@ -23,7 +23,7 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:datafactory/latest:Pipeline';
+    public static readonly __pulumiType = 'azure-nextgen:datafactory/latest:Pipeline';
 
     /**
      * Returns true if the given object is an instance of Pipeline.  This is designed to work even
@@ -134,7 +134,7 @@ export class Pipeline extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/v20170901preview:Pipeline" }, { type: "azurerm:datafactory/v20180601:Pipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory/v20170901preview:Pipeline" }, { type: "azure-nextgen:datafactory/v20180601:Pipeline" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Pipeline.__pulumiType, name, inputs, opts);
     }

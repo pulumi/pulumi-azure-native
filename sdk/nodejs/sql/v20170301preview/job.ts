@@ -23,7 +23,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20170301preview:Job';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20170301preview:Job';
 
     /**
      * Returns true if the given object is an instance of Job.  This is designed to work even

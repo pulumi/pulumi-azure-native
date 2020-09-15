@@ -14,7 +14,7 @@ export function getWorkspaceCollection(args: GetWorkspaceCollectionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:powerbi/latest:getWorkspaceCollection", {
+    return pulumi.runtime.invoke("azure-nextgen:powerbi/latest:getWorkspaceCollection", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceCollectionName": args.workspaceCollectionName,
     }, opts);

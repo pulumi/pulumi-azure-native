@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Batch.V20170901
+namespace Pulumi.AzureNextGen.Batch.V20170901
 {
     /// <summary>
     /// Contains information about a certificate.
@@ -93,12 +93,12 @@ namespace Pulumi.AzureRM.Batch.V20170901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:batch/v20170901:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:batch/v20170901:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:batch/v20170901:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:batch/v20170901:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -109,12 +109,12 @@ namespace Pulumi.AzureRM.Batch.V20170901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:batch/latest:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20181201:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20190401:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20190801:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20200301:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:batch/v20200501:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

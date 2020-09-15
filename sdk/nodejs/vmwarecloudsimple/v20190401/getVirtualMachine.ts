@@ -14,7 +14,7 @@ export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:vmwarecloudsimple/v20190401:getVirtualMachine", {
+    return pulumi.runtime.invoke("azure-nextgen:vmwarecloudsimple/v20190401:getVirtualMachine", {
         "resourceGroupName": args.resourceGroupName,
         "virtualMachineName": args.virtualMachineName,
     }, opts);

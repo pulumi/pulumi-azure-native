@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.StreamAnalytics.V20200301Preview
+namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
 {
     /// <summary>
     /// Complete information about the private endpoint.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpoint(string name, PrivateEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics/v20200301preview:PrivateEndpoint", name, args ?? new PrivateEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint", name, args ?? new PrivateEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics/v20200301preview:PrivateEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Blockchain.V20180601Preview
+namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
 {
     public static class ListLocationConsortiums
     {
         public static Task<ListLocationConsortiumsResult> InvokeAsync(ListLocationConsortiumsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListLocationConsortiumsResult>("azurerm:blockchain/v20180601preview:listLocationConsortiums", args ?? new ListLocationConsortiumsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListLocationConsortiumsResult>("azure-nextgen:blockchain/v20180601preview:listLocationConsortiums", args ?? new ListLocationConsortiumsArgs(), options.WithVersion());
     }
 
 

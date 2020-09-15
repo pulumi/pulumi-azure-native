@@ -14,7 +14,7 @@ export function getApiIssue(args: GetApiIssueArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:apimanagement/v20170301:getApiIssue", {
+    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20170301:getApiIssue", {
         "apiId": args.apiId,
         "issueId": args.issueId,
         "resourceGroupName": args.resourceGroupName,

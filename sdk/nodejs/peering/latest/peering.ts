@@ -23,7 +23,7 @@ export class Peering extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:peering/latest:Peering';
+    public static readonly __pulumiType = 'azure-nextgen:peering/latest:Peering';
 
     /**
      * Returns true if the given object is an instance of Peering.  This is designed to work even
@@ -133,7 +133,7 @@ export class Peering extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:peering/v20190801preview:Peering" }, { type: "azurerm:peering/v20190901preview:Peering" }, { type: "azurerm:peering/v20200101preview:Peering" }, { type: "azurerm:peering/v20200401:Peering" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/v20190801preview:Peering" }, { type: "azure-nextgen:peering/v20190901preview:Peering" }, { type: "azure-nextgen:peering/v20200101preview:Peering" }, { type: "azure-nextgen:peering/v20200401:Peering" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Peering.__pulumiType, name, inputs, opts);
     }

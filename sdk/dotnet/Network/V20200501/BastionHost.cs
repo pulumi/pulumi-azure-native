@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20200501
+namespace Pulumi.AzureNextGen.Network.V20200501
 {
     /// <summary>
     /// Bastion Host resource.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BastionHost(string name, BastionHostArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200501:BastionHost", name, args ?? new BastionHostArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/v20200501:BastionHost", name, args ?? new BastionHostArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BastionHost(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/v20200501:BastionHost", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/v20200501:BastionHost", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,17 +87,17 @@ namespace Pulumi.AzureRM.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/latest:BastionHost"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:BastionHost"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:BastionHost"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:BastionHost"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:BastionHost"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190901:BastionHost"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191101:BastionHost"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20191201:BastionHost"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200301:BastionHost"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200401:BastionHost"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:BastionHost"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:BastionHost"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

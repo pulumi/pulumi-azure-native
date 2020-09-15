@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataLakeStore.V20161101
+namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
 {
     public static class GetAccount
     {
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azurerm:datalakestore/v20161101:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:datalakestore/v20161101:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

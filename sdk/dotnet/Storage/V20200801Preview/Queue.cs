@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Storage.V20200801Preview
+namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 {
     public partial class Queue : Pulumi.CustomResource
     {
@@ -44,12 +44,12 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Queue(string name, QueueArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storage/v20200801preview:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storage/v20200801preview:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Queue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storage/v20200801preview:Queue", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storage/v20200801preview:Queue", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,8 +60,8 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storage/latest:Queue"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20190601:Queue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:Queue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

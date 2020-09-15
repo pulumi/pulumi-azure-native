@@ -14,7 +14,7 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:costmanagement/v20190901:getExport", {
+    return pulumi.runtime.invoke("azure-nextgen:costmanagement/v20190901:getExport", {
         "exportName": args.exportName,
         "scope": args.scope,
     }, opts);

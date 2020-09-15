@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.BatchAI.V20180301
+namespace Pulumi.AzureNextGen.BatchAI.V20180301
 {
     /// <summary>
     /// Contains information about a Cluster.
@@ -125,12 +125,12 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:batchai/v20180301:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:batchai/v20180301:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:batchai/v20180301:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:batchai/v20180301:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -141,7 +141,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:batchai/v20170901preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai/v20170901preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

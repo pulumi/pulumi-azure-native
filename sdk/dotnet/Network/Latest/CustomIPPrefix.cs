@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.Latest
+namespace Pulumi.AzureNextGen.Network.Latest
 {
     /// <summary>
     /// Custom IP prefix resource.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomIPPrefix(string name, CustomIPPrefixArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:CustomIPPrefix", name, args ?? new CustomIPPrefixArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:network/latest:CustomIPPrefix", name, args ?? new CustomIPPrefixArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomIPPrefix(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network/latest:CustomIPPrefix", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:network/latest:CustomIPPrefix", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/v20200601:CustomIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:CustomIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

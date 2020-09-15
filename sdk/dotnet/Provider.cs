@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM
+namespace Pulumi.AzureNextGen
 {
     /// <summary>
-    /// The provider type for the AzureRM package.
+    /// The provider type for the Azure NextGen package.
     /// </summary>
     public partial class Provider : Pulumi.ProviderResource
     {
@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
-            : base("azurerm", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 

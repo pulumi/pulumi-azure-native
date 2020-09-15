@@ -14,7 +14,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:batch/v20181201:getApplication", {
+    return pulumi.runtime.invoke("azure-nextgen:batch/v20181201:getApplication", {
         "accountName": args.accountName,
         "applicationName": args.applicationName,
         "resourceGroupName": args.resourceGroupName,

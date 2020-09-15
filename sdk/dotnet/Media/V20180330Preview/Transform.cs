@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.V20180330Preview
+namespace Pulumi.AzureNextGen.Media.V20180330Preview
 {
     /// <summary>
     /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Transform(string name, TransformArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:media/v20180330preview:Transform", name, args ?? new TransformArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:media/v20180330preview:Transform", name, args ?? new TransformArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Transform(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:media/v20180330preview:Transform", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:media/v20180330preview:Transform", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,10 +75,10 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:media/latest:Transform"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20180601preview:Transform"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20180701:Transform"},
-                    new Pulumi.Alias { Type = "azurerm:media/v20200501:Transform"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:Transform"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Transform"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:Transform"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:Transform"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

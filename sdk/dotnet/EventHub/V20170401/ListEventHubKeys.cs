@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EventHub.V20170401
+namespace Pulumi.AzureNextGen.EventHub.V20170401
 {
     public static class ListEventHubKeys
     {
         public static Task<ListEventHubKeysResult> InvokeAsync(ListEventHubKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListEventHubKeysResult>("azurerm:eventhub/v20170401:listEventHubKeys", args ?? new ListEventHubKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListEventHubKeysResult>("azure-nextgen:eventhub/v20170401:listEventHubKeys", args ?? new ListEventHubKeysArgs(), options.WithVersion());
     }
 
 

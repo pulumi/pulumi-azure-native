@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.Latest
+namespace Pulumi.AzureNextGen.Sql.Latest
 {
     /// <summary>
     /// Server communication link.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Sql.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerCommunicationLink(string name, ServerCommunicationLinkArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:sql/latest:ServerCommunicationLink", name, args ?? new ServerCommunicationLinkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:sql/latest:ServerCommunicationLink", name, args ?? new ServerCommunicationLinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerCommunicationLink(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:sql/latest:ServerCommunicationLink", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:sql/latest:ServerCommunicationLink", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:sql/v20140401:ServerCommunicationLink"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ServerCommunicationLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

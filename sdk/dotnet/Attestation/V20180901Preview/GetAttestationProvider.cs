@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Attestation.V20180901Preview
+namespace Pulumi.AzureNextGen.Attestation.V20180901Preview
 {
     public static class GetAttestationProvider
     {
         public static Task<GetAttestationProviderResult> InvokeAsync(GetAttestationProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azurerm:attestation/v20180901preview:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-nextgen:attestation/v20180901preview:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithVersion());
     }
 
 

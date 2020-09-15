@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Insights.V20180416
+namespace Pulumi.AzureNextGen.Insights.V20180416
 {
     /// <summary>
     /// The Log Search Rule resource.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.Insights.V20180416
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScheduledQueryRule(string name, ScheduledQueryRuleArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20180416:ScheduledQueryRule", name, args ?? new ScheduledQueryRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:insights/v20180416:ScheduledQueryRule", name, args ?? new ScheduledQueryRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScheduledQueryRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights/v20180416:ScheduledQueryRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:insights/v20180416:ScheduledQueryRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,8 +105,8 @@ namespace Pulumi.AzureRM.Insights.V20180416
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/latest:ScheduledQueryRule"},
-                    new Pulumi.Alias { Type = "azurerm:insights/v20200501preview:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20200501preview:ScheduledQueryRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

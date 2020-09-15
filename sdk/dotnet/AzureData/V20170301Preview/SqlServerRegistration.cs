@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AzureData.V20170301Preview
+namespace Pulumi.AzureNextGen.AzureData.V20170301Preview
 {
     /// <summary>
     /// A SQL server registration.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.AzureData.V20170301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlServerRegistration(string name, SqlServerRegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:azuredata/v20170301preview:SqlServerRegistration", name, args ?? new SqlServerRegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:azuredata/v20170301preview:SqlServerRegistration", name, args ?? new SqlServerRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlServerRegistration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:azuredata/v20170301preview:SqlServerRegistration", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:azuredata/v20170301preview:SqlServerRegistration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.AzureData.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:azuredata/v20190724preview:SqlServerRegistration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20190724preview:SqlServerRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

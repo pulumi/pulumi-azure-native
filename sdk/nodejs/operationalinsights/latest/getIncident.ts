@@ -14,7 +14,7 @@ export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:operationalinsights/latest:getIncident", {
+    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/latest:getIncident", {
         "incidentId": args.incidentId,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

@@ -23,7 +23,7 @@ export class DeploymentAtTenantScope extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:resources/latest:DeploymentAtTenantScope';
+    public static readonly __pulumiType = 'azure-nextgen:resources/latest:DeploymentAtTenantScope';
 
     /**
      * Returns true if the given object is an instance of DeploymentAtTenantScope.  This is designed to work even
@@ -96,7 +96,7 @@ export class DeploymentAtTenantScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:resources/v20190701:DeploymentAtTenantScope" }, { type: "azurerm:resources/v20190801:DeploymentAtTenantScope" }, { type: "azurerm:resources/v20191001:DeploymentAtTenantScope" }, { type: "azurerm:resources/v20200601:DeploymentAtTenantScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20190701:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtTenantScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentAtTenantScope.__pulumiType, name, inputs, opts);
     }

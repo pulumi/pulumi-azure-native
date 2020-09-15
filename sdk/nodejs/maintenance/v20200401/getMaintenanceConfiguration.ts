@@ -14,7 +14,7 @@ export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:maintenance/v20200401:getMaintenanceConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:maintenance/v20200401:getMaintenanceConfiguration", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

@@ -14,7 +14,7 @@ export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:containerinstance/v20171001preview:getContainerGroup", {
+    return pulumi.runtime.invoke("azure-nextgen:containerinstance/v20171001preview:getContainerGroup", {
         "containerGroupName": args.containerGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

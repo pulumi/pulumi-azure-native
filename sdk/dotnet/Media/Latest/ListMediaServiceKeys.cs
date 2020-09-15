@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Media.Latest
+namespace Pulumi.AzureNextGen.Media.Latest
 {
     public static class ListMediaServiceKeys
     {
         public static Task<ListMediaServiceKeysResult> InvokeAsync(ListMediaServiceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceKeysResult>("azurerm:media/latest:listMediaServiceKeys", args ?? new ListMediaServiceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceKeysResult>("azure-nextgen:media/latest:listMediaServiceKeys", args ?? new ListMediaServiceKeysArgs(), options.WithVersion());
     }
 
 

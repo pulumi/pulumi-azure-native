@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HealthcareApis.V20190916
+namespace Pulumi.AzureNextGen.HealthcareApis.V20190916
 {
     /// <summary>
     /// The description of the service.
@@ -71,12 +71,12 @@ namespace Pulumi.AzureRM.HealthcareApis.V20190916
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:healthcareapis/v20190916:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:healthcareapis/v20190916:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:healthcareapis/v20190916:Service", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:healthcareapis/v20190916:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -87,8 +87,8 @@ namespace Pulumi.AzureRM.HealthcareApis.V20190916
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:healthcareapis/latest:Service"},
-                    new Pulumi.Alias { Type = "azurerm:healthcareapis/v20180820preview:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/latest:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20180820preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

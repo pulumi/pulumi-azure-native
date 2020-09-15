@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Automation.V20151031
+namespace Pulumi.AzureNextGen.Automation.V20151031
 {
     /// <summary>
     /// Definition of the runbook type.
@@ -143,12 +143,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Runbook(string name, RunbookArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:automation/v20151031:Runbook", name, args ?? new RunbookArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:automation/v20151031:Runbook", name, args ?? new RunbookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Runbook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:automation/v20151031:Runbook", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:automation/v20151031:Runbook", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -159,8 +159,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/latest:Runbook"},
-                    new Pulumi.Alias { Type = "azurerm:automation/v20180630:Runbook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Runbook"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20180630:Runbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

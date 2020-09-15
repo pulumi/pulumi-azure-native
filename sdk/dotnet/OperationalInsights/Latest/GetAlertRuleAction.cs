@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.OperationalInsights.Latest
+namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 {
     public static class GetAlertRuleAction
     {
         public static Task<GetAlertRuleActionResult> InvokeAsync(GetAlertRuleActionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleActionResult>("azurerm:operationalinsights/latest:getAlertRuleAction", args ?? new GetAlertRuleActionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleActionResult>("azure-nextgen:operationalinsights/latest:getAlertRuleAction", args ?? new GetAlertRuleActionArgs(), options.WithVersion());
     }
 
 

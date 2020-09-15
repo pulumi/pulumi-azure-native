@@ -23,7 +23,7 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:documentdb/v20200401:CassandraResourceCassandraTable';
+    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20200401:CassandraResourceCassandraTable';
 
     /**
      * Returns true if the given object is an instance of CassandraResourceCassandraTable.  This is designed to work even
@@ -108,7 +108,7 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:CassandraResourceCassandraTable" }, { type: "azurerm:documentdb/v20190801:CassandraResourceCassandraTable" }, { type: "azurerm:documentdb/v20191212:CassandraResourceCassandraTable" }, { type: "azurerm:documentdb/v20200301:CassandraResourceCassandraTable" }, { type: "azurerm:documentdb/v20200601preview:CassandraResourceCassandraTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CassandraResourceCassandraTable.__pulumiType, name, inputs, opts);
     }

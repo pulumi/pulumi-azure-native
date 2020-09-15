@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Subscription.V20191001Preview
+namespace Pulumi.AzureNextGen.Subscription.V20191001Preview
 {
     /// <summary>
     /// Subscription Information with the alias.
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Subscription.V20191001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SubscriptionAlias(string name, SubscriptionAliasArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:subscription/v20191001preview:SubscriptionAlias", name, args ?? new SubscriptionAliasArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:subscription/v20191001preview:SubscriptionAlias", name, args ?? new SubscriptionAliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SubscriptionAlias(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:subscription/v20191001preview:SubscriptionAlias", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:subscription/v20191001preview:SubscriptionAlias", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Subscription.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:subscription/latest:SubscriptionAlias"},
-                    new Pulumi.Alias { Type = "azurerm:subscription/v20200901:SubscriptionAlias"},
+                    new Pulumi.Alias { Type = "azure-nextgen:subscription/latest:SubscriptionAlias"},
+                    new Pulumi.Alias { Type = "azure-nextgen:subscription/v20200901:SubscriptionAlias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

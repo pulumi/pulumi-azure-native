@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.WindowsESU.V20190916Preview
+namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
 {
     public static class GetMultipleActivationKey
     {
         public static Task<GetMultipleActivationKeyResult> InvokeAsync(GetMultipleActivationKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMultipleActivationKeyResult>("azurerm:windowsesu/v20190916preview:getMultipleActivationKey", args ?? new GetMultipleActivationKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMultipleActivationKeyResult>("azure-nextgen:windowsesu/v20190916preview:getMultipleActivationKey", args ?? new GetMultipleActivationKeyArgs(), options.WithVersion());
     }
 
 

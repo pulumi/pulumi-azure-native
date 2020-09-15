@@ -14,7 +14,7 @@ export function getHierarchySetting(args: GetHierarchySettingArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:management/latest:getHierarchySetting", {
+    return pulumi.runtime.invoke("azure-nextgen:management/latest:getHierarchySetting", {
         "groupId": args.groupId,
     }, opts);
 }

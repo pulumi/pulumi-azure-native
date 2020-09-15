@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101
+namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200101
 {
     /// <summary>
     /// A PostgreSQL Server key.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerKey(string name, ServerKeyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20200101:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbforpostgresql/v20200101:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbforpostgresql/v20200101:ServerKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbforpostgresql/v20200101:ServerKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/latest:ServerKey"},
-                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20200101privatepreview:ServerKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:ServerKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200101privatepreview:ServerKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

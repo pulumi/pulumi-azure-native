@@ -14,7 +14,7 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:domainregistration/latest:getDomain", {
+    return pulumi.runtime.invoke("azure-nextgen:domainregistration/latest:getDomain", {
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

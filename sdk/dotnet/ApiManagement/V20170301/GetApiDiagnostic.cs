@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20170301
+namespace Pulumi.AzureNextGen.ApiManagement.V20170301
 {
     public static class GetApiDiagnostic
     {
         public static Task<GetApiDiagnosticResult> InvokeAsync(GetApiDiagnosticArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiDiagnosticResult>("azurerm:apimanagement/v20170301:getApiDiagnostic", args ?? new GetApiDiagnosticArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiDiagnosticResult>("azure-nextgen:apimanagement/v20170301:getApiDiagnostic", args ?? new GetApiDiagnosticArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Devices.V20191104
+namespace Pulumi.AzureNextGen.Devices.V20191104
 {
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.Devices.V20191104
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotHubResourceEventHubConsumerGroup(string name, IotHubResourceEventHubConsumerGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devices/v20191104:IotHubResourceEventHubConsumerGroup", name, args ?? new IotHubResourceEventHubConsumerGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devices/v20191104:IotHubResourceEventHubConsumerGroup", name, args ?? new IotHubResourceEventHubConsumerGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotHubResourceEventHubConsumerGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devices/v20191104:IotHubResourceEventHubConsumerGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devices/v20191104:IotHubResourceEventHubConsumerGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,21 +63,21 @@ namespace Pulumi.AzureRM.Devices.V20191104
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devices/latest:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20160203:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20170119:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20170701:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20180122:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20180401:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20181201preview:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20190322:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20190322preview:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20190701preview:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200301:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200401:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200615:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200710preview:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/v20200801:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/latest:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20160203:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20170119:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20170701:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20180401:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20181201preview:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20190322:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20190322preview:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20190701preview:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200401:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200615:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200710preview:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200801:IotHubResourceEventHubConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

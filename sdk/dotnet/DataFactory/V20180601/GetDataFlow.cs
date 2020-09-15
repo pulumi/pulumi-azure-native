@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DataFactory.V20180601
+namespace Pulumi.AzureNextGen.DataFactory.V20180601
 {
     public static class GetDataFlow
     {
         public static Task<GetDataFlowResult> InvokeAsync(GetDataFlowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowResult>("azurerm:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowResult>("azure-nextgen:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowArgs(), options.WithVersion());
     }
 
 

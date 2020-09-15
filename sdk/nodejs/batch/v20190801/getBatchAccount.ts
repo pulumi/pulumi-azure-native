@@ -14,7 +14,7 @@ export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:batch/v20190801:getBatchAccount", {
+    return pulumi.runtime.invoke("azure-nextgen:batch/v20190801:getBatchAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

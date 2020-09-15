@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridCompute.V20190318Preview
+namespace Pulumi.AzureNextGen.HybridCompute.V20190318Preview
 {
     /// <summary>
     /// Describes a hybrid machine.
@@ -137,12 +137,12 @@ namespace Pulumi.AzureRM.HybridCompute.V20190318Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Machine(string name, MachineArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:hybridcompute/v20190318preview:Machine", name, args ?? new MachineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:hybridcompute/v20190318preview:Machine", name, args ?? new MachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Machine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:hybridcompute/v20190318preview:Machine", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:hybridcompute/v20190318preview:Machine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -153,12 +153,12 @@ namespace Pulumi.AzureRM.HybridCompute.V20190318Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hybridcompute/latest:Machine"},
-                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20190802preview:Machine"},
-                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20191212:Machine"},
-                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200730preview:Machine"},
-                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200802:Machine"},
-                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200815preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/latest:Machine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20190802preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20191212:Machine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200730preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200802:Machine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200815preview:Machine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

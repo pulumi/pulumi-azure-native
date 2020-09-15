@@ -21,7 +21,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:compute/v20180401:VirtualMachineScaleSetExtension';
+    public static readonly __pulumiType = 'azure-nextgen:compute/v20180401:VirtualMachineScaleSetExtension';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineScaleSetExtension.  This is designed to work even
@@ -120,7 +120,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:VirtualMachineScaleSetExtension" }, { type: "azurerm:compute/v20170330:VirtualMachineScaleSetExtension" }, { type: "azurerm:compute/v20171201:VirtualMachineScaleSetExtension" }, { type: "azurerm:compute/v20180601:VirtualMachineScaleSetExtension" }, { type: "azurerm:compute/v20181001:VirtualMachineScaleSetExtension" }, { type: "azurerm:compute/v20190301:VirtualMachineScaleSetExtension" }, { type: "azurerm:compute/v20190701:VirtualMachineScaleSetExtension" }, { type: "azurerm:compute/v20191201:VirtualMachineScaleSetExtension" }, { type: "azurerm:compute/v20200601:VirtualMachineScaleSetExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20170330:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetExtension.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:compute/v20200601:getVirtualMachineExtension", {
+    return pulumi.runtime.invoke("azure-nextgen:compute/v20200601:getVirtualMachineExtension", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "vmExtensionName": args.vmExtensionName,

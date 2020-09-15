@@ -21,7 +21,7 @@ export class ServerKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:sql/v20150501preview:ServerKey';
+    public static readonly __pulumiType = 'azure-nextgen:sql/v20150501preview:ServerKey';
 
     /**
      * Returns true if the given object is an instance of ServerKey.  This is designed to work even

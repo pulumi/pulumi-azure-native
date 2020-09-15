@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Migrate.V20180901Preview
+namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
 {
     /// <summary>
     /// Migrate Project REST Resource.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Migrate.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MigrateProject(string name, MigrateProjectArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/v20180901preview:MigrateProject", name, args ?? new MigrateProjectArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:migrate/v20180901preview:MigrateProject", name, args ?? new MigrateProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MigrateProject(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:migrate/v20180901preview:MigrateProject", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:migrate/v20180901preview:MigrateProject", name, null, MakeResourceOptions(options, id))
         {
         }
 

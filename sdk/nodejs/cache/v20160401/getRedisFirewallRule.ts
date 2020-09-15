@@ -14,7 +14,7 @@ export function getRedisFirewallRule(args: GetRedisFirewallRuleArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:cache/v20160401:getRedisFirewallRule", {
+    return pulumi.runtime.invoke("azure-nextgen:cache/v20160401:getRedisFirewallRule", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,

@@ -21,7 +21,7 @@ export class PrivateLinkHub extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:synapse/v20190601preview:PrivateLinkHub';
+    public static readonly __pulumiType = 'azure-nextgen:synapse/v20190601preview:PrivateLinkHub';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkHub.  This is designed to work even

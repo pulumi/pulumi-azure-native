@@ -23,7 +23,7 @@ export class Channel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:botservice/v20171201:Channel';
+    public static readonly __pulumiType = 'azure-nextgen:botservice/v20171201:Channel';
 
     /**
      * Returns true if the given object is an instance of Channel.  This is designed to work even
@@ -116,7 +116,7 @@ export class Channel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:botservice/latest:Channel" }, { type: "azurerm:botservice/v20180712:Channel" }, { type: "azurerm:botservice/v20200602:Channel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice/latest:Channel" }, { type: "azure-nextgen:botservice/v20180712:Channel" }, { type: "azure-nextgen:botservice/v20200602:Channel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Channel.__pulumiType, name, inputs, opts);
     }

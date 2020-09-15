@@ -23,7 +23,7 @@ export class IoTSpace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:iotspaces/v20171001preview:IoTSpace';
+    public static readonly __pulumiType = 'azure-nextgen:iotspaces/v20171001preview:IoTSpace';
 
     /**
      * Returns true if the given object is an instance of IoTSpace.  This is designed to work even

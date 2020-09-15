@@ -23,7 +23,7 @@ export class OriginGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:cdn/latest:OriginGroup';
+    public static readonly __pulumiType = 'azure-nextgen:cdn/latest:OriginGroup';
 
     /**
      * Returns true if the given object is an instance of OriginGroup.  This is designed to work even
@@ -123,7 +123,7 @@ export class OriginGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cdn/v20191231:OriginGroup" }, { type: "azurerm:cdn/v20200331:OriginGroup" }, { type: "azurerm:cdn/v20200415:OriginGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20191231:OriginGroup" }, { type: "azure-nextgen:cdn/v20200331:OriginGroup" }, { type: "azure-nextgen:cdn/v20200415:OriginGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OriginGroup.__pulumiType, name, inputs, opts);
     }

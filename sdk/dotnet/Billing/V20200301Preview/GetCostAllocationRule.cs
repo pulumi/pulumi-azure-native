@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Billing.V20200301Preview
+namespace Pulumi.AzureNextGen.Billing.V20200301Preview
 {
     public static class GetCostAllocationRule
     {
         public static Task<GetCostAllocationRuleResult> InvokeAsync(GetCostAllocationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azurerm:billing/v20200301preview:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azure-nextgen:billing/v20200301preview:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithVersion());
     }
 
 

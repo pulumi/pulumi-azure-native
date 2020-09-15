@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Maps.V20200201Preview
+namespace Pulumi.AzureNextGen.Maps.V20200201Preview
 {
     /// <summary>
     /// An Azure resource which represents which will provision the ability to create private location data.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateAtlase(string name, PrivateAtlaseArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:maps/v20200201preview:PrivateAtlase", name, args ?? new PrivateAtlaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:maps/v20200201preview:PrivateAtlase", name, args ?? new PrivateAtlaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateAtlase(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:maps/v20200201preview:PrivateAtlase", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:maps/v20200201preview:PrivateAtlase", name, null, MakeResourceOptions(options, id))
         {
         }
 

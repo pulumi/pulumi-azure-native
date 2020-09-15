@@ -14,7 +14,7 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datashare/v20181101preview:getDataSet", {
+    return pulumi.runtime.invoke("azure-nextgen:datashare/v20181101preview:getDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,
         "resourceGroupName": args.resourceGroupName,

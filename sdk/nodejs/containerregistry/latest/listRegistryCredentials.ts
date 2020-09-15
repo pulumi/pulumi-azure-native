@@ -14,7 +14,7 @@ export function listRegistryCredentials(args: ListRegistryCredentialsArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:containerregistry/latest:listRegistryCredentials", {
+    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:listRegistryCredentials", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

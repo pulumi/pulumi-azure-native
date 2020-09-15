@@ -14,7 +14,7 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:storagecache/v20190801preview:getCache", {
+    return pulumi.runtime.invoke("azure-nextgen:storagecache/v20190801preview:getCache", {
         "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.AzureStack.Latest
+namespace Pulumi.AzureNextGen.AzureStack.Latest
 {
     /// <summary>
     /// Customer subscription.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.AzureStack.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomerSubscription(string name, CustomerSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:azurestack/latest:CustomerSubscription", name, args ?? new CustomerSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:azurestack/latest:CustomerSubscription", name, args ?? new CustomerSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomerSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:azurestack/latest:CustomerSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:azurestack/latest:CustomerSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.AzureStack.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:azurestack/v20170601:CustomerSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20170601:CustomerSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

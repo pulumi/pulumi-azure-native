@@ -14,7 +14,7 @@ export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfig
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:kusto/v20191109:getAttachedDatabaseConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:kusto/v20191109:getAttachedDatabaseConfiguration", {
         "attachedDatabaseConfigurationName": args.attachedDatabaseConfigurationName,
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

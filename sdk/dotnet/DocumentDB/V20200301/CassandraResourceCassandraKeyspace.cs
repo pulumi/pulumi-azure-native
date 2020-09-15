@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20200301
+namespace Pulumi.AzureNextGen.DocumentDB.V20200301
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra keyspace.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CassandraResourceCassandraKeyspace(string name, CassandraResourceCassandraKeyspaceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20200301:CassandraResourceCassandraKeyspace", name, args ?? new CassandraResourceCassandraKeyspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace", name, args ?? new CassandraResourceCassandraKeyspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CassandraResourceCassandraKeyspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20200301:CassandraResourceCassandraKeyspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/v20200301:CassandraResourceCassandraKeyspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,11 +69,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:CassandraResourceCassandraKeyspace"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

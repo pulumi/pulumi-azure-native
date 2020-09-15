@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
+namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 {
     /// <summary>
     /// NamedValue details.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamedValue(string name, NamedValueArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201preview:NamedValue", name, args ?? new NamedValueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20191201preview:NamedValue", name, args ?? new NamedValueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamedValue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201preview:NamedValue", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20191201preview:NamedValue", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:NamedValue"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:NamedValue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

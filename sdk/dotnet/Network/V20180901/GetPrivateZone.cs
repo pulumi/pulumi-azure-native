@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Network.V20180901
+namespace Pulumi.AzureNextGen.Network.V20180901
 {
     public static class GetPrivateZone
     {
         public static Task<GetPrivateZoneResult> InvokeAsync(GetPrivateZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateZoneResult>("azurerm:network/v20180901:getPrivateZone", args ?? new GetPrivateZoneArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateZoneResult>("azure-nextgen:network/v20180901:getPrivateZone", args ?? new GetPrivateZoneArgs(), options.WithVersion());
     }
 
 

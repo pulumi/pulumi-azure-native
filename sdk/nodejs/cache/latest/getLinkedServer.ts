@@ -14,7 +14,7 @@ export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:cache/latest:getLinkedServer", {
+    return pulumi.runtime.invoke("azure-nextgen:cache/latest:getLinkedServer", {
         "linkedServerName": args.linkedServerName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

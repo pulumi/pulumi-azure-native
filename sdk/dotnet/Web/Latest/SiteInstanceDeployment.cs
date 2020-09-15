@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Web.Latest
+namespace Pulumi.AzureNextGen.Web.Latest
 {
     /// <summary>
     /// Represents user credentials used for publishing activity
@@ -107,12 +107,12 @@ namespace Pulumi.AzureRM.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteInstanceDeployment(string name, SiteInstanceDeploymentArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:web/latest:SiteInstanceDeployment", name, args ?? new SiteInstanceDeploymentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:web/latest:SiteInstanceDeployment", name, args ?? new SiteInstanceDeploymentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteInstanceDeployment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:web/latest:SiteInstanceDeployment", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:web/latest:SiteInstanceDeployment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,7 +123,7 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/v20150801:SiteInstanceDeployment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteInstanceDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

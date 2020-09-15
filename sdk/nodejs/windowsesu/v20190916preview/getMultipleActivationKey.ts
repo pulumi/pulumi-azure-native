@@ -14,7 +14,7 @@ export function getMultipleActivationKey(args: GetMultipleActivationKeyArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:windowsesu/v20190916preview:getMultipleActivationKey", {
+    return pulumi.runtime.invoke("azure-nextgen:windowsesu/v20190916preview:getMultipleActivationKey", {
         "multipleActivationKeyName": args.multipleActivationKeyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

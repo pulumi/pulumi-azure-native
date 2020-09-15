@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMariaDB.V20200101PrivatePreview
+namespace Pulumi.AzureNextGen.DBforMariaDB.V20200101PrivatePreview
 {
     /// <summary>
     /// A MariaDB Server key.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20200101PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerKey(string name, ServerKeyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:dbformariadb/v20200101privatepreview:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:dbformariadb/v20200101privatepreview:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:dbformariadb/v20200101privatepreview:ServerKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:dbformariadb/v20200101privatepreview:ServerKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

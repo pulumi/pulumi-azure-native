@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.Latest
+namespace Pulumi.AzureNextGen.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
@@ -95,12 +95,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccountGremlinGraph(string name, DatabaseAccountGremlinGraphArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/latest:DatabaseAccountGremlinGraph", name, args ?? new DatabaseAccountGremlinGraphArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph", name, args ?? new DatabaseAccountGremlinGraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccountGremlinGraph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/latest:DatabaseAccountGremlinGraph", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,11 +111,11 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountGremlinGraph"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountGremlinGraph"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountGremlinGraph"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountGremlinGraph"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

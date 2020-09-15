@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.Latest
+namespace Pulumi.AzureNextGen.DevTestLab.Latest
 {
     /// <summary>
     /// A container for a managed identity to execute DevTest lab services.
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceRunner(string name, ServiceRunnerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/latest:ServiceRunner", name, args ?? new ServiceRunnerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devtestlab/latest:ServiceRunner", name, args ?? new ServiceRunnerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceRunner(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/latest:ServiceRunner", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devtestlab/latest:ServiceRunner", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:ServiceRunner"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:ServiceRunner"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:ServiceRunner"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ServiceRunner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

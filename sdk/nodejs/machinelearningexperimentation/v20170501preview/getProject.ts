@@ -14,7 +14,7 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:machinelearningexperimentation/v20170501preview:getProject", {
+    return pulumi.runtime.invoke("azure-nextgen:machinelearningexperimentation/v20170501preview:getProject", {
         "accountName": args.accountName,
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,

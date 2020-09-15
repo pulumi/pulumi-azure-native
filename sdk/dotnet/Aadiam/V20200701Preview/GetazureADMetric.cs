@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Aadiam.V20200701Preview
+namespace Pulumi.AzureNextGen.Aadiam.V20200701Preview
 {
     public static class GetazureADMetric
     {
         public static Task<GetazureADMetricResult> InvokeAsync(GetazureADMetricArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetazureADMetricResult>("azurerm:aadiam/v20200701preview:getazureADMetric", args ?? new GetazureADMetricArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetazureADMetricResult>("azure-nextgen:aadiam/v20200701preview:getazureADMetric", args ?? new GetazureADMetricArgs(), options.WithVersion());
     }
 
 

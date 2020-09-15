@@ -14,7 +14,7 @@ export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:customerinsights/v20170101:getHub", {
+    return pulumi.runtime.invoke("azure-nextgen:customerinsights/v20170101:getHub", {
         "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

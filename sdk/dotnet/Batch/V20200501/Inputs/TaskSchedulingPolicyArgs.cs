@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Batch.V20200501.Inputs
+namespace Pulumi.AzureNextGen.Batch.V20200501.Inputs
 {
 
     public sealed class TaskSchedulingPolicyArgs : Pulumi.ResourceArgs

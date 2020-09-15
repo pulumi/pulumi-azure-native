@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.Latest
+namespace Pulumi.AzureNextGen.ApiManagement.Latest
 {
     /// <summary>
     /// External OAuth authorization server settings.
@@ -131,12 +131,12 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AuthorizationServer(string name, AuthorizationServerArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/latest:AuthorizationServer", name, args ?? new AuthorizationServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/latest:AuthorizationServer", name, args ?? new AuthorizationServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AuthorizationServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/latest:AuthorizationServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/latest:AuthorizationServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -147,14 +147,14 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:AuthorizationServer"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:AuthorizationServer"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:AuthorizationServer"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:AuthorizationServer"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:AuthorizationServer"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:AuthorizationServer"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:AuthorizationServer"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:AuthorizationServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,7 +14,7 @@ export function getDataSetMapping(args: GetDataSetMappingArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:datashare/v20181101preview:getDataSetMapping", {
+    return pulumi.runtime.invoke("azure-nextgen:datashare/v20181101preview:getDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,
         "resourceGroupName": args.resourceGroupName,

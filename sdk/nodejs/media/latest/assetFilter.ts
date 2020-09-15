@@ -23,7 +23,7 @@ export class AssetFilter extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:media/latest:AssetFilter';
+    public static readonly __pulumiType = 'azure-nextgen:media/latest:AssetFilter';
 
     /**
      * Returns true if the given object is an instance of AssetFilter.  This is designed to work even
@@ -102,7 +102,7 @@ export class AssetFilter extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/v20180701:AssetFilter" }, { type: "azurerm:media/v20200501:AssetFilter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20180701:AssetFilter" }, { type: "azure-nextgen:media/v20200501:AssetFilter" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AssetFilter.__pulumiType, name, inputs, opts);
     }

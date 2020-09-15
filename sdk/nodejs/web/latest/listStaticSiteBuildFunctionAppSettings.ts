@@ -14,7 +14,7 @@ export function listStaticSiteBuildFunctionAppSettings(args: ListStaticSiteBuild
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/latest:listStaticSiteBuildFunctionAppSettings", {
+    return pulumi.runtime.invoke("azure-nextgen:web/latest:listStaticSiteBuildFunctionAppSettings", {
         "name": args.name,
         "prId": args.prId,
         "resourceGroupName": args.resourceGroupName,

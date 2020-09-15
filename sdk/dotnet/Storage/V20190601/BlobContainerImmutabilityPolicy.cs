@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Storage.V20190601
+namespace Pulumi.AzureNextGen.Storage.V20190601
 {
     /// <summary>
     /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
@@ -59,12 +59,12 @@ namespace Pulumi.AzureRM.Storage.V20190601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BlobContainerImmutabilityPolicy(string name, BlobContainerImmutabilityPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:storage/v20190601:BlobContainerImmutabilityPolicy", name, args ?? new BlobContainerImmutabilityPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy", name, args ?? new BlobContainerImmutabilityPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BlobContainerImmutabilityPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:storage/v20190601:BlobContainerImmutabilityPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -75,13 +75,13 @@ namespace Pulumi.AzureRM.Storage.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storage/latest:BlobContainerImmutabilityPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20180201:BlobContainerImmutabilityPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20180301preview:BlobContainerImmutabilityPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20180701:BlobContainerImmutabilityPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20181101:BlobContainerImmutabilityPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20190401:BlobContainerImmutabilityPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:storage/v20200801preview:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20180201:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

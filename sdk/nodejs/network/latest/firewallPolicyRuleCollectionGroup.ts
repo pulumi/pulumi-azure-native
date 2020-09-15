@@ -23,7 +23,7 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network/latest:FirewallPolicyRuleCollectionGroup';
+    public static readonly __pulumiType = 'azure-nextgen:network/latest:FirewallPolicyRuleCollectionGroup';
 
     /**
      * Returns true if the given object is an instance of FirewallPolicyRuleCollectionGroup.  This is designed to work even
@@ -105,7 +105,7 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20200501:FirewallPolicyRuleCollectionGroup" }, { type: "azurerm:network/v20200601:FirewallPolicyRuleCollectionGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup" }, { type: "azure-nextgen:network/v20200601:FirewallPolicyRuleCollectionGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DocumentDB.V20150401
+namespace Pulumi.AzureNextGen.DocumentDB.V20150401
 {
     /// <summary>
     /// An Azure Cosmos DB Table.
@@ -47,12 +47,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccountTable(string name, DatabaseAccountTableArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20150401:DatabaseAccountTable", name, args ?? new DatabaseAccountTableArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:documentdb/v20150401:DatabaseAccountTable", name, args ?? new DatabaseAccountTableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccountTable(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb/v20150401:DatabaseAccountTable", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:documentdb/v20150401:DatabaseAccountTable", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,11 +63,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountTable"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccountTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccountTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

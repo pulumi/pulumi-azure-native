@@ -21,7 +21,7 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20200601:WebAppSwiftVirtualNetworkConnection';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnection';
 
     /**
      * Returns true if the given object is an instance of WebAppSwiftVirtualNetworkConnection.  This is designed to work even
@@ -91,7 +91,7 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppSwiftVirtualNetworkConnection" }, { type: "azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnection" }, { type: "azurerm:web/v20181101:WebAppSwiftVirtualNetworkConnection" }, { type: "azurerm:web/v20190801:WebAppSwiftVirtualNetworkConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSwiftVirtualNetworkConnection.__pulumiType, name, inputs, opts);
     }

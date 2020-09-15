@@ -14,7 +14,7 @@ export function getSiteRelayServiceConnection(args: GetSiteRelayServiceConnectio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteRelayServiceConnection", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:getSiteRelayServiceConnection", {
         "entityName": args.entityName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

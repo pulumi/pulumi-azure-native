@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.ApiManagement.V20191201
+namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 {
     /// <summary>
     /// OpenId Connect Provider details.
@@ -65,12 +65,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OpenIdConnectProvider(string name, OpenIdConnectProviderArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201:OpenIdConnectProvider", name, args ?? new OpenIdConnectProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:apimanagement/v20191201:OpenIdConnectProvider", name, args ?? new OpenIdConnectProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OpenIdConnectProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement/v20191201:OpenIdConnectProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:apimanagement/v20191201:OpenIdConnectProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,14 +81,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:OpenIdConnectProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:OpenIdConnectProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

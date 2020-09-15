@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 {
     /// <summary>
     /// A custom image.
@@ -89,12 +89,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomImageResource(string name, CustomImageResourceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20150521preview:CustomImageResource", name, args ?? new CustomImageResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:devtestlab/v20150521preview:CustomImageResource", name, args ?? new CustomImageResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomImageResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab/v20150521preview:CustomImageResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:devtestlab/v20150521preview:CustomImageResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -105,9 +105,9 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/latest:CustomImageResource"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:CustomImageResource"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:CustomImageResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:CustomImageResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:CustomImageResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:CustomImageResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

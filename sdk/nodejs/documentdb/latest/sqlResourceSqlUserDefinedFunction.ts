@@ -23,7 +23,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:documentdb/latest:SqlResourceSqlUserDefinedFunction';
+    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction';
 
     /**
      * Returns true if the given object is an instance of SqlResourceSqlUserDefinedFunction.  This is designed to work even
@@ -110,7 +110,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlUserDefinedFunction.__pulumiType, name, inputs, opts);
     }

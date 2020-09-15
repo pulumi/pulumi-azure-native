@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Portal.V20190101Preview
+namespace Pulumi.AzureNextGen.Portal.V20190101Preview
 {
     public static class GetTenantConfiguration
     {
         public static Task<GetTenantConfigurationResult> InvokeAsync(GetTenantConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTenantConfigurationResult>("azurerm:portal/v20190101preview:getTenantConfiguration", args ?? new GetTenantConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTenantConfigurationResult>("azure-nextgen:portal/v20190101preview:getTenantConfiguration", args ?? new GetTenantConfigurationArgs(), options.WithVersion());
     }
 
 

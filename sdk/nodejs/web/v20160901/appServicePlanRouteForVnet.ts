@@ -21,7 +21,7 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:web/v20160901:AppServicePlanRouteForVnet';
+    public static readonly __pulumiType = 'azure-nextgen:web/v20160901:AppServicePlanRouteForVnet';
 
     /**
      * Returns true if the given object is an instance of AppServicePlanRouteForVnet.  This is designed to work even
@@ -116,7 +116,7 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20200601:AppServicePlanRouteForVnet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20200601:AppServicePlanRouteForVnet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServicePlanRouteForVnet.__pulumiType, name, inputs, opts);
     }

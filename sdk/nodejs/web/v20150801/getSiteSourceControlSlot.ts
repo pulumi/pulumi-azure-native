@@ -14,7 +14,7 @@ export function getSiteSourceControlSlot(args: GetSiteSourceControlSlotArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteSourceControlSlot", {
+    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:getSiteSourceControlSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

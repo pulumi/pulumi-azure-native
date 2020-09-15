@@ -14,7 +14,7 @@ export function getvNetPeering(args: GetvNetPeeringArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:databricks/latest:getvNetPeering", {
+    return pulumi.runtime.invoke("azure-nextgen:databricks/latest:getvNetPeering", {
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
+namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 {
     public static class GetVirtualNetworkFunction
     {
         public static Task<GetVirtualNetworkFunctionResult> InvokeAsync(GetVirtualNetworkFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkFunctionResult>("azurerm:hybridnetwork/v20200101preview:getVirtualNetworkFunction", args ?? new GetVirtualNetworkFunctionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkFunctionResult>("azure-nextgen:hybridnetwork/v20200101preview:getVirtualNetworkFunction", args ?? new GetVirtualNetworkFunctionArgs(), options.WithVersion());
     }
 
 

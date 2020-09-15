@@ -14,7 +14,7 @@ export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getRouteTable", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getRouteTable", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "routeTableName": args.routeTableName,

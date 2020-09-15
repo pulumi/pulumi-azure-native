@@ -14,7 +14,7 @@ export function getApplicationType(args: GetApplicationTypeArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:servicefabric/latest:getApplicationType", {
+    return pulumi.runtime.invoke("azure-nextgen:servicefabric/latest:getApplicationType", {
         "applicationTypeName": args.applicationTypeName,
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

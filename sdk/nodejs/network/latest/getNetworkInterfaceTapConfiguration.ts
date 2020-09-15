@@ -14,7 +14,7 @@ export function getNetworkInterfaceTapConfiguration(args: GetNetworkInterfaceTap
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network/latest:getNetworkInterfaceTapConfiguration", {
+    return pulumi.runtime.invoke("azure-nextgen:network/latest:getNetworkInterfaceTapConfiguration", {
         "networkInterfaceName": args.networkInterfaceName,
         "resourceGroupName": args.resourceGroupName,
         "tapConfigurationName": args.tapConfigurationName,

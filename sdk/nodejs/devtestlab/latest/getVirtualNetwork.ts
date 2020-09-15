@@ -14,7 +14,7 @@ export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:devtestlab/latest:getVirtualNetwork", {
+    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getVirtualNetwork", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

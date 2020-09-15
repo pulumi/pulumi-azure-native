@@ -23,7 +23,7 @@ export class Budget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:consumption/v20190601:Budget';
+    public static readonly __pulumiType = 'azure-nextgen:consumption/v20190601:Budget';
 
     /**
      * Returns true if the given object is an instance of Budget.  This is designed to work even
@@ -136,7 +136,7 @@ export class Budget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:consumption/latest:Budget" }, { type: "azurerm:consumption/v20190101:Budget" }, { type: "azurerm:consumption/v20190401preview:Budget" }, { type: "azurerm:consumption/v20190501:Budget" }, { type: "azurerm:consumption/v20190501preview:Budget" }, { type: "azurerm:consumption/v20191001:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:consumption/latest:Budget" }, { type: "azure-nextgen:consumption/v20190101:Budget" }, { type: "azure-nextgen:consumption/v20190401preview:Budget" }, { type: "azure-nextgen:consumption/v20190501:Budget" }, { type: "azure-nextgen:consumption/v20190501preview:Budget" }, { type: "azure-nextgen:consumption/v20191001:Budget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Budget.__pulumiType, name, inputs, opts);
     }

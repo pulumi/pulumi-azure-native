@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Sql.V20190601Preview
+namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 {
     public static class GetWorkloadClassifier
     {
         public static Task<GetWorkloadClassifierResult> InvokeAsync(GetWorkloadClassifierArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadClassifierResult>("azurerm:sql/v20190601preview:getWorkloadClassifier", args ?? new GetWorkloadClassifierArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadClassifierResult>("azure-nextgen:sql/v20190601preview:getWorkloadClassifier", args ?? new GetWorkloadClassifierArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.EnterpriseKnowledgeGraph.V20181203.Inputs
+namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.V20181203.Inputs
 {
 
     /// <summary>

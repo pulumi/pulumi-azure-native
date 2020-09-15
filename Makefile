@@ -1,16 +1,16 @@
-PROJECT_NAME := Pulumi AzureRM Resource Provider
+PROJECT_NAME := Pulumi Azure NextGen Resource Provider
 
-PACK            := azurerm
+PACK            := azure-nextgen
 PACKDIR         := sdk
-PROJECT         := github.com/pulumi/pulumi-azurerm
+PROJECT         := github.com/pulumi/pulumi-azure-nextgen
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
-VERSION         := 0.1.0
+VERSION         := $(shell pulumictl get version)
 
 PROVIDER_PKGS    := $(shell cd ./provider && go list ./...)
 WORKING_DIR     := $(shell pwd)
 
-VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azurerm/provider/pkg/version.Version=${VERSION}"
+VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azure-nextgen/provider/pkg/version.Version=${VERSION}"
 
 init_submodules::
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
@@ -63,6 +63,7 @@ build_nodejs::
 		yarn install && \
 		tsc && \
 		cp ../../README.md package.json yarn.lock ./bin/ && \
+		cp ../SDK_LICENSE ./bin/LICENSE && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 generate_python::
@@ -97,7 +98,7 @@ clean::
 	rm -rf sdk/nodejs
 	rm -rf sdk/python
 	rm -rf sdk/dotnet
-	rm -rf sdk/go/azurerm
+	rm -rf sdk/go/azure-nextgen
 	rm -rf sdk/schema
 
 install_dotnet_sdk::
