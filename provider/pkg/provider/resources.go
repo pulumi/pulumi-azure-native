@@ -61,6 +61,12 @@ type AzureAPIResource struct {
 	Response      map[string]AzureAPIProperty `json:"response"`
 }
 
+// AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.
+type AzureAPIExample struct {
+	Description string `json:"description"`
+	Location    string `json:"location"`
+}
+
 // AzureAPIInvoke is an invocation target (a function) in Azure REST API.
 type AzureAPIInvoke struct {
 	APIVersion     string                      `json:"apiVersion"`

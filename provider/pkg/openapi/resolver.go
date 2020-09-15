@@ -161,6 +161,15 @@ func (ctx *ReferenceContext) MergeParameters(operation []spec.Parameter, pathIte
 	return result
 }
 
+// ResolveReference resolves a relative reference relative to current swagger spec URL
+func (ctx *ReferenceContext) ResolveReference(ref string) (string, error) {
+	relativeURL, err := url.Parse(ref)
+	if err != nil {
+		return "", err
+	}
+	return ctx.url.ResolveReference(relativeURL).String(), nil
+}
+
 type reference struct {
 	*ReferenceContext
 	value interface{}
