@@ -4,7 +4,7 @@ package provider
 
 import "strings"
 
-func (k *azurermProvider) sdkPropertyToRequest(prop *AzureAPIProperty, value interface{}) interface{} {
+func (k *azureNextGenProvider) sdkPropertyToRequest(prop *AzureAPIProperty, value interface{}) interface{} {
 	switch value := value.(type) {
 	case map[string]interface{}:
 		// For union types, iterate through types and find the first one that matches the shape.
@@ -35,7 +35,7 @@ func (k *azurermProvider) sdkPropertyToRequest(prop *AzureAPIProperty, value int
 	return value
 }
 
-func (k *azurermProvider) sdkPropertiesToRequest(props map[string]AzureAPIProperty,
+func (k *azureNextGenProvider) sdkPropertiesToRequest(props map[string]AzureAPIProperty,
 	values map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 	for name, prop := range props {
@@ -67,7 +67,7 @@ func (k *azurermProvider) sdkPropertiesToRequest(props map[string]AzureAPIProper
 	return result
 }
 
-func (k *azurermProvider) responsePropertyToSdk(prop *AzureAPIProperty, value interface{}) interface{} {
+func (k *azureNextGenProvider) responsePropertyToSdk(prop *AzureAPIProperty, value interface{}) interface{} {
 	switch value := value.(type) {
 	case map[string]interface{}:
 		// For union types, iterate through types and find the first one that matches the shape.
@@ -98,7 +98,7 @@ func (k *azurermProvider) responsePropertyToSdk(prop *AzureAPIProperty, value in
 	return value
 }
 
-func (k *azurermProvider) responseToSdkOutputs(props map[string]AzureAPIProperty,
+func (k *azureNextGenProvider) responseToSdkOutputs(props map[string]AzureAPIProperty,
 	response map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 	for name, prop := range props {

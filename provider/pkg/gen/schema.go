@@ -27,25 +27,25 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azurerm/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azurerm/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 )
 
 // Note - this needs to be kept in sync with the layout in the SDK package
-const goBasePath = "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
+const goBasePath = "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure-nextgen"
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
 func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureAPIMetadata, map[string][]provider.AzureAPIExample, error) {
 	pkg := pschema.PackageSpec{
-		Name:        "azurerm",
-		Description: "A Pulumi package for creating and managing Azure resources.",
+		Name:        "azure-nextgen",
+		Description: "A Next Generation Pulumi package for creating and managing Azure resources.",
 		License:     "Apache-2.0",
-		Keywords:    []string{"pulumi", "azure", "azurerm"},
+		Keywords:    []string{"pulumi", "azure", "azure-nextgen"},
 		Homepage:    "https://pulumi.com",
-		Repository:  "https://github.com/pulumi/pulumi-azurerm",
+		Repository:  "https://github.com/pulumi/pulumi-azure-nextgen",
 		Config: pschema.ConfigSpec{
 			Variables: map[string]pschema.PropertySpec{
 				"subscriptionId": {
@@ -100,7 +100,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		},
 		Provider: pschema.ResourceSpec{
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
-				Description: "The provider type for the AzureRM package.",
+				Description: "The provider type for the Azure NextGen package.",
 				Type:        "object",
 			},
 			InputProperties: map[string]pschema.PropertySpec{
@@ -229,7 +229,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 
 	csharpVersionReplacer := strings.NewReplacer("privatepreview", "PrivatePreview", "preview", "Preview")
 	csharpNamespaces := map[string]string{
-		"azurerm": "AzureRM",
+		"azure-nextgen": "AzureNextGen",
 	}
 	pythonModuleNames := map[string]string{}
 	golangImportAliases := map[string]string{}
@@ -299,7 +299,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		"dependencies": map[string]string{
 			"@pulumi/pulumi": "^2.0.0",
 		},
-		"readme": `The AzureRM provider package offers support for all Azure Resource Manager (ARM)
+		"readme": `The Azure NextGen provider package offers support for all Azure Resource Manager (ARM)
 resources and their properties. Resources are exposed as types from modules based on Azure Resource
 Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
 allows you to programmatically declare instances of any Azure resource and any supported resource
@@ -311,7 +311,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		"requires": map[string]string{
 			"pulumi": ">=2.0.0,<3.0.0",
 		},
-		"readme": `The AzureRM provider package offers support for all Azure Resource Manager (ARM)
+		"readme": `The Azure NextGen provider package offers support for all Azure Resource Manager (ARM)
 resources and their properties. Resources are exposed as types from modules based on Azure Resource
 Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
 allows you to programmatically declare instances of any Azure resource and any supported resource
@@ -1131,7 +1131,7 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 	if isOutput {
 		suffix = "Response"
 	}
-	return fmt.Sprintf("azurerm:%s:%s%s", m.module, makeLegalIdentifier(ctx.ReferenceName), suffix)
+	return fmt.Sprintf("azure-nextgen:%s:%s%s", m.module, makeLegalIdentifier(ctx.ReferenceName), suffix)
 }
 
 // parameterBag keeps the schema and metadata parameters for a single resource or invocation.
