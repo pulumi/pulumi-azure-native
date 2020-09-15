@@ -26,6 +26,8 @@ type Workbook struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringOutput `pulumi:"serializedData"`
+	// ResourceId for a source resource.
+	SourceId pulumi.StringPtrOutput `pulumi:"sourceId"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this workbook definition.
@@ -61,9 +63,6 @@ func NewWorkbook(ctx *pulumi.Context,
 	}
 	if args == nil || args.SourceId == nil {
 		return nil, errors.New("missing required argument 'SourceId'")
-	}
-	if args == nil || args.UserId == nil {
-		return nil, errors.New("missing required argument 'UserId'")
 	}
 	if args == nil {
 		args = &WorkbookArgs{}
@@ -111,6 +110,8 @@ type workbookState struct {
 	Name *string `pulumi:"name"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData *string `pulumi:"serializedData"`
+	// ResourceId for a source resource.
+	SourceId *string `pulumi:"sourceId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this workbook definition.
@@ -136,6 +137,8 @@ type WorkbookState struct {
 	Name pulumi.StringPtrInput
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringPtrInput
+	// ResourceId for a source resource.
+	SourceId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Date and time in UTC of the last modification that was made to this workbook definition.
@@ -167,12 +170,10 @@ type workbookArgs struct {
 	ResourceName string `pulumi:"resourceName"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
-	// Azure Resource Id that will fetch all related workbooks.
+	// ResourceId for a source resource.
 	SourceId string `pulumi:"sourceId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// Unique user id of the specific user that owns this workbook.
-	UserId string `pulumi:"userId"`
 	// Workbook version
 	Version *string `pulumi:"version"`
 }
@@ -193,12 +194,10 @@ type WorkbookArgs struct {
 	ResourceName pulumi.StringInput
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringInput
-	// Azure Resource Id that will fetch all related workbooks.
+	// ResourceId for a source resource.
 	SourceId pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
-	// Unique user id of the specific user that owns this workbook.
-	UserId pulumi.StringInput
 	// Workbook version
 	Version pulumi.StringPtrInput
 }

@@ -316,6 +316,206 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Server info for the server trust group.
+type ServerInfo struct {
+	// Server Id.
+	ServerId string `pulumi:"serverId"`
+}
+
+// ServerInfoInput is an input type that accepts ServerInfoArgs and ServerInfoOutput values.
+// You can construct a concrete instance of `ServerInfoInput` via:
+//
+//          ServerInfoArgs{...}
+type ServerInfoInput interface {
+	pulumi.Input
+
+	ToServerInfoOutput() ServerInfoOutput
+	ToServerInfoOutputWithContext(context.Context) ServerInfoOutput
+}
+
+// Server info for the server trust group.
+type ServerInfoArgs struct {
+	// Server Id.
+	ServerId pulumi.StringInput `pulumi:"serverId"`
+}
+
+func (ServerInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerInfo)(nil)).Elem()
+}
+
+func (i ServerInfoArgs) ToServerInfoOutput() ServerInfoOutput {
+	return i.ToServerInfoOutputWithContext(context.Background())
+}
+
+func (i ServerInfoArgs) ToServerInfoOutputWithContext(ctx context.Context) ServerInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerInfoOutput)
+}
+
+// ServerInfoArrayInput is an input type that accepts ServerInfoArray and ServerInfoArrayOutput values.
+// You can construct a concrete instance of `ServerInfoArrayInput` via:
+//
+//          ServerInfoArray{ ServerInfoArgs{...} }
+type ServerInfoArrayInput interface {
+	pulumi.Input
+
+	ToServerInfoArrayOutput() ServerInfoArrayOutput
+	ToServerInfoArrayOutputWithContext(context.Context) ServerInfoArrayOutput
+}
+
+type ServerInfoArray []ServerInfoInput
+
+func (ServerInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerInfo)(nil)).Elem()
+}
+
+func (i ServerInfoArray) ToServerInfoArrayOutput() ServerInfoArrayOutput {
+	return i.ToServerInfoArrayOutputWithContext(context.Background())
+}
+
+func (i ServerInfoArray) ToServerInfoArrayOutputWithContext(ctx context.Context) ServerInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerInfoArrayOutput)
+}
+
+// Server info for the server trust group.
+type ServerInfoOutput struct{ *pulumi.OutputState }
+
+func (ServerInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerInfo)(nil)).Elem()
+}
+
+func (o ServerInfoOutput) ToServerInfoOutput() ServerInfoOutput {
+	return o
+}
+
+func (o ServerInfoOutput) ToServerInfoOutputWithContext(ctx context.Context) ServerInfoOutput {
+	return o
+}
+
+// Server Id.
+func (o ServerInfoOutput) ServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerInfo) string { return v.ServerId }).(pulumi.StringOutput)
+}
+
+type ServerInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerInfo)(nil)).Elem()
+}
+
+func (o ServerInfoArrayOutput) ToServerInfoArrayOutput() ServerInfoArrayOutput {
+	return o
+}
+
+func (o ServerInfoArrayOutput) ToServerInfoArrayOutputWithContext(ctx context.Context) ServerInfoArrayOutput {
+	return o
+}
+
+func (o ServerInfoArrayOutput) Index(i pulumi.IntInput) ServerInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerInfo {
+		return vs[0].([]ServerInfo)[vs[1].(int)]
+	}).(ServerInfoOutput)
+}
+
+// Server info for the server trust group.
+type ServerInfoResponse struct {
+	// Server Id.
+	ServerId string `pulumi:"serverId"`
+}
+
+// ServerInfoResponseInput is an input type that accepts ServerInfoResponseArgs and ServerInfoResponseOutput values.
+// You can construct a concrete instance of `ServerInfoResponseInput` via:
+//
+//          ServerInfoResponseArgs{...}
+type ServerInfoResponseInput interface {
+	pulumi.Input
+
+	ToServerInfoResponseOutput() ServerInfoResponseOutput
+	ToServerInfoResponseOutputWithContext(context.Context) ServerInfoResponseOutput
+}
+
+// Server info for the server trust group.
+type ServerInfoResponseArgs struct {
+	// Server Id.
+	ServerId pulumi.StringInput `pulumi:"serverId"`
+}
+
+func (ServerInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerInfoResponse)(nil)).Elem()
+}
+
+func (i ServerInfoResponseArgs) ToServerInfoResponseOutput() ServerInfoResponseOutput {
+	return i.ToServerInfoResponseOutputWithContext(context.Background())
+}
+
+func (i ServerInfoResponseArgs) ToServerInfoResponseOutputWithContext(ctx context.Context) ServerInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerInfoResponseOutput)
+}
+
+// ServerInfoResponseArrayInput is an input type that accepts ServerInfoResponseArray and ServerInfoResponseArrayOutput values.
+// You can construct a concrete instance of `ServerInfoResponseArrayInput` via:
+//
+//          ServerInfoResponseArray{ ServerInfoResponseArgs{...} }
+type ServerInfoResponseArrayInput interface {
+	pulumi.Input
+
+	ToServerInfoResponseArrayOutput() ServerInfoResponseArrayOutput
+	ToServerInfoResponseArrayOutputWithContext(context.Context) ServerInfoResponseArrayOutput
+}
+
+type ServerInfoResponseArray []ServerInfoResponseInput
+
+func (ServerInfoResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerInfoResponse)(nil)).Elem()
+}
+
+func (i ServerInfoResponseArray) ToServerInfoResponseArrayOutput() ServerInfoResponseArrayOutput {
+	return i.ToServerInfoResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServerInfoResponseArray) ToServerInfoResponseArrayOutputWithContext(ctx context.Context) ServerInfoResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerInfoResponseArrayOutput)
+}
+
+// Server info for the server trust group.
+type ServerInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerInfoResponse)(nil)).Elem()
+}
+
+func (o ServerInfoResponseOutput) ToServerInfoResponseOutput() ServerInfoResponseOutput {
+	return o
+}
+
+func (o ServerInfoResponseOutput) ToServerInfoResponseOutputWithContext(ctx context.Context) ServerInfoResponseOutput {
+	return o
+}
+
+// Server Id.
+func (o ServerInfoResponseOutput) ServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerInfoResponse) string { return v.ServerId }).(pulumi.StringOutput)
+}
+
+type ServerInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerInfoResponse)(nil)).Elem()
+}
+
+func (o ServerInfoResponseArrayOutput) ToServerInfoResponseArrayOutput() ServerInfoResponseArrayOutput {
+	return o
+}
+
+func (o ServerInfoResponseArrayOutput) ToServerInfoResponseArrayOutputWithContext(ctx context.Context) ServerInfoResponseArrayOutput {
+	return o
+}
+
+func (o ServerInfoResponseArrayOutput) Index(i pulumi.IntInput) ServerInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerInfoResponse {
+		return vs[0].([]ServerInfoResponse)[vs[1].(int)]
+	}).(ServerInfoResponseOutput)
+}
+
 // An ARM Resource SKU.
 type Sku struct {
 	// Capacity of the particular SKU.
@@ -741,6 +941,10 @@ func init() {
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerInfoOutput{})
+	pulumi.RegisterOutputType(ServerInfoArrayOutput{})
+	pulumi.RegisterOutputType(ServerInfoResponseOutput{})
+	pulumi.RegisterOutputType(ServerInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

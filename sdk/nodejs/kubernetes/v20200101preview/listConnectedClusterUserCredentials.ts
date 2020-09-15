@@ -15,12 +15,18 @@ export function listConnectedClusterUserCredentials(args: ListConnectedClusterUs
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:kubernetes/v20200101preview:listConnectedClusterUserCredentials", {
+        "authenticationMethod": args.authenticationMethod,
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
+        "value": args.value,
     }, opts);
 }
 
 export interface ListConnectedClusterUserCredentialsArgs {
+    /**
+     * The mode of client authentication.
+     */
+    readonly authenticationMethod: string;
     /**
      * The name of the Kubernetes cluster on which get is called.
      */
@@ -29,6 +35,7 @@ export interface ListConnectedClusterUserCredentialsArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    readonly value: inputs.kubernetes.v20200101preview.AuthenticationDetailsValue;
 }
 
 /**

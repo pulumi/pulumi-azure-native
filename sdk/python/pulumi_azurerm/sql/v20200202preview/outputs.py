@@ -10,6 +10,7 @@ from ... import _utilities, _tables
 
 __all__ = [
     'ResourceIdentityResponse',
+    'ServerInfoResponse',
     'SkuResponse',
 ]
 
@@ -56,6 +57,31 @@ class ResourceIdentityResponse(dict):
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServerInfoResponse(dict):
+    """
+    Server info for the server trust group.
+    """
+    def __init__(__self__, *,
+                 server_id: str):
+        """
+        Server info for the server trust group.
+        :param str server_id: Server Id.
+        """
+        pulumi.set(__self__, "server_id", server_id)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> str:
+        """
+        Server Id.
+        """
+        return pulumi.get(self, "server_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

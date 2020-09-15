@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SnapshotPolicy']
 
@@ -16,15 +18,15 @@ class SnapshotPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 daily_schedule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 daily_schedule: Optional[pulumi.Input[pulumi.InputType['DailyScheduleArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 hourly_schedule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 hourly_schedule: Optional[pulumi.Input[pulumi.InputType['HourlyScheduleArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monthly_schedule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 monthly_schedule: Optional[pulumi.Input[pulumi.InputType['MonthlyScheduleArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  snapshot_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 weekly_schedule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 weekly_schedule: Optional[pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,15 +36,15 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[Mapping[str, Any]] daily_schedule: Schedule for daily snapshots
+        :param pulumi.Input[pulumi.InputType['DailyScheduleArgs']] daily_schedule: Schedule for daily snapshots
         :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
-        :param pulumi.Input[Mapping[str, Any]] hourly_schedule: Schedule for hourly snapshots
+        :param pulumi.Input[pulumi.InputType['HourlyScheduleArgs']] hourly_schedule: Schedule for hourly snapshots
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Mapping[str, Any]] monthly_schedule: Schedule for monthly snapshots
+        :param pulumi.Input[pulumi.InputType['MonthlyScheduleArgs']] monthly_schedule: Schedule for monthly snapshots
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy target
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[Mapping[str, Any]] weekly_schedule: Schedule for weekly snapshots
+        :param pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']] weekly_schedule: Schedule for weekly snapshots
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,6 +82,7 @@ class SnapshotPolicy(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['weekly_schedule'] = weekly_schedule
             __props__['name'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:netapp/v20200601:snapshotPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -109,7 +112,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailySchedule")
-    def daily_schedule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def daily_schedule(self) -> pulumi.Output[Optional['outputs.DailyScheduleResponse']]:
         """
         Schedule for daily snapshots
         """
@@ -125,7 +128,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hourlySchedule")
-    def hourly_schedule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def hourly_schedule(self) -> pulumi.Output[Optional['outputs.HourlyScheduleResponse']]:
         """
         Schedule for hourly snapshots
         """
@@ -141,7 +144,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthlySchedule")
-    def monthly_schedule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def monthly_schedule(self) -> pulumi.Output[Optional['outputs.MonthlyScheduleResponse']]:
         """
         Schedule for monthly snapshots
         """
@@ -151,9 +154,17 @@ class SnapshotPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        Snapshot policy name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -173,7 +184,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklySchedule")
-    def weekly_schedule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def weekly_schedule(self) -> pulumi.Output[Optional['outputs.WeeklyScheduleResponse']]:
         """
         Schedule for weekly snapshots
         """

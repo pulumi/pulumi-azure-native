@@ -121,6 +121,8 @@ export class DigitalTwin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:digitaltwins/latest:DigitalTwin" }, { type: "azurerm:digitaltwins/v20201031:DigitalTwin" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DigitalTwin.__pulumiType, name, inputs, opts);
     }
 }

@@ -11,7 +11,10 @@ from . import outputs
 
 __all__ = [
     'ActiveDirectoryResponse',
+    'DailyScheduleResponse',
     'ExportPolicyRuleResponse',
+    'HourlyScheduleResponse',
+    'MonthlyScheduleResponse',
     'MountTargetPropertiesResponse',
     'ReplicationObjectResponse',
     'VolumeBackupPropertiesResponse',
@@ -19,6 +22,7 @@ __all__ = [
     'VolumePropertiesResponseDataProtection',
     'VolumePropertiesResponseExportPolicy',
     'VolumeSnapshotPropertiesResponse',
+    'WeeklyScheduleResponse',
 ]
 
 @pulumi.output_type
@@ -202,6 +206,68 @@ class ActiveDirectoryResponse(dict):
 
 
 @pulumi.output_type
+class DailyScheduleResponse(dict):
+    """
+    Daily Schedule properties
+    """
+    def __init__(__self__, *,
+                 hour: Optional[float] = None,
+                 minute: Optional[float] = None,
+                 snapshots_to_keep: Optional[float] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Daily Schedule properties
+        :param float hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param float minute: Indicates which minute snapshot should be taken
+        :param float snapshots_to_keep: Daily snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[float]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[float]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[float]:
+        """
+        Daily snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ExportPolicyRuleResponse(dict):
     """
     Volume Export Policy Rule
@@ -378,6 +444,130 @@ class ExportPolicyRuleResponse(dict):
         Read and write access
         """
         return pulumi.get(self, "unix_read_write")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HourlyScheduleResponse(dict):
+    """
+    Hourly Schedule properties
+    """
+    def __init__(__self__, *,
+                 minute: Optional[float] = None,
+                 snapshots_to_keep: Optional[float] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Hourly Schedule properties
+        :param float minute: Indicates which minute snapshot should be taken
+        :param float snapshots_to_keep: Hourly snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[float]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[float]:
+        """
+        Hourly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MonthlyScheduleResponse(dict):
+    """
+    Monthly Schedule properties
+    """
+    def __init__(__self__, *,
+                 days_of_month: Optional[str] = None,
+                 hour: Optional[float] = None,
+                 minute: Optional[float] = None,
+                 snapshots_to_keep: Optional[float] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Monthly Schedule properties
+        :param str days_of_month: Indicates which days of the month snapshot should be taken. A comma delimited string.
+        :param float hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param float minute: Indicates which minute snapshot should be taken
+        :param float snapshots_to_keep: Monthly snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if days_of_month is not None:
+            pulumi.set(__self__, "days_of_month", days_of_month)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter(name="daysOfMonth")
+    def days_of_month(self) -> Optional[str]:
+        """
+        Indicates which days of the month snapshot should be taken. A comma delimited string.
+        """
+        return pulumi.get(self, "days_of_month")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[float]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[float]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[float]:
+        """
+        Monthly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -723,6 +913,80 @@ class VolumeSnapshotPropertiesResponse(dict):
         Snapshot Policy ResourceId
         """
         return pulumi.get(self, "snapshot_policy_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WeeklyScheduleResponse(dict):
+    """
+    Weekly Schedule properties, make a snapshot every week at a specific day or days
+    """
+    def __init__(__self__, *,
+                 day: Optional[str] = None,
+                 hour: Optional[float] = None,
+                 minute: Optional[float] = None,
+                 snapshots_to_keep: Optional[float] = None,
+                 used_bytes: Optional[float] = None):
+        """
+        Weekly Schedule properties, make a snapshot every week at a specific day or days
+        :param str day: Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
+        :param float hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param float minute: Indicates which minute snapshot should be taken
+        :param float snapshots_to_keep: Weekly snapshot count to keep
+        :param float used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if minute is not None:
+            pulumi.set(__self__, "minute", minute)
+        if snapshots_to_keep is not None:
+            pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+        if used_bytes is not None:
+            pulumi.set(__self__, "used_bytes", used_bytes)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[str]:
+        """
+        Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> Optional[float]:
+        """
+        Indicates which hour in UTC timezone a snapshot should be taken
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> Optional[float]:
+        """
+        Indicates which minute snapshot should be taken
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> Optional[float]:
+        """
+        Weekly snapshot count to keep
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @property
+    @pulumi.getter(name="usedBytes")
+    def used_bytes(self) -> Optional[float]:
+        """
+        Resource size in bytes, current storage usage for the volume in bytes
+        """
+        return pulumi.get(self, "used_bytes")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

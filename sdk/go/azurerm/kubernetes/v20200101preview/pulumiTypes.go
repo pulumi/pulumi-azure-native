@@ -10,6 +10,214 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type AuthenticationCertificateDetails struct {
+	// Base64 encoded client certificate data.
+	CertificateData string `pulumi:"certificateData"`
+	// Base64 encoded key data.
+	KeyData string `pulumi:"keyData"`
+}
+
+// AuthenticationCertificateDetailsInput is an input type that accepts AuthenticationCertificateDetailsArgs and AuthenticationCertificateDetailsOutput values.
+// You can construct a concrete instance of `AuthenticationCertificateDetailsInput` via:
+//
+//          AuthenticationCertificateDetailsArgs{...}
+type AuthenticationCertificateDetailsInput interface {
+	pulumi.Input
+
+	ToAuthenticationCertificateDetailsOutput() AuthenticationCertificateDetailsOutput
+	ToAuthenticationCertificateDetailsOutputWithContext(context.Context) AuthenticationCertificateDetailsOutput
+}
+
+type AuthenticationCertificateDetailsArgs struct {
+	// Base64 encoded client certificate data.
+	CertificateData pulumi.StringInput `pulumi:"certificateData"`
+	// Base64 encoded key data.
+	KeyData pulumi.StringInput `pulumi:"keyData"`
+}
+
+func (AuthenticationCertificateDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationCertificateDetails)(nil)).Elem()
+}
+
+func (i AuthenticationCertificateDetailsArgs) ToAuthenticationCertificateDetailsOutput() AuthenticationCertificateDetailsOutput {
+	return i.ToAuthenticationCertificateDetailsOutputWithContext(context.Background())
+}
+
+func (i AuthenticationCertificateDetailsArgs) ToAuthenticationCertificateDetailsOutputWithContext(ctx context.Context) AuthenticationCertificateDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationCertificateDetailsOutput)
+}
+
+func (i AuthenticationCertificateDetailsArgs) ToAuthenticationCertificateDetailsPtrOutput() AuthenticationCertificateDetailsPtrOutput {
+	return i.ToAuthenticationCertificateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i AuthenticationCertificateDetailsArgs) ToAuthenticationCertificateDetailsPtrOutputWithContext(ctx context.Context) AuthenticationCertificateDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationCertificateDetailsOutput).ToAuthenticationCertificateDetailsPtrOutputWithContext(ctx)
+}
+
+// AuthenticationCertificateDetailsPtrInput is an input type that accepts AuthenticationCertificateDetailsArgs, AuthenticationCertificateDetailsPtr and AuthenticationCertificateDetailsPtrOutput values.
+// You can construct a concrete instance of `AuthenticationCertificateDetailsPtrInput` via:
+//
+//          AuthenticationCertificateDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type AuthenticationCertificateDetailsPtrInput interface {
+	pulumi.Input
+
+	ToAuthenticationCertificateDetailsPtrOutput() AuthenticationCertificateDetailsPtrOutput
+	ToAuthenticationCertificateDetailsPtrOutputWithContext(context.Context) AuthenticationCertificateDetailsPtrOutput
+}
+
+type authenticationCertificateDetailsPtrType AuthenticationCertificateDetailsArgs
+
+func AuthenticationCertificateDetailsPtr(v *AuthenticationCertificateDetailsArgs) AuthenticationCertificateDetailsPtrInput {
+	return (*authenticationCertificateDetailsPtrType)(v)
+}
+
+func (*authenticationCertificateDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationCertificateDetails)(nil)).Elem()
+}
+
+func (i *authenticationCertificateDetailsPtrType) ToAuthenticationCertificateDetailsPtrOutput() AuthenticationCertificateDetailsPtrOutput {
+	return i.ToAuthenticationCertificateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *authenticationCertificateDetailsPtrType) ToAuthenticationCertificateDetailsPtrOutputWithContext(ctx context.Context) AuthenticationCertificateDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationCertificateDetailsPtrOutput)
+}
+
+type AuthenticationCertificateDetailsOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationCertificateDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationCertificateDetails)(nil)).Elem()
+}
+
+func (o AuthenticationCertificateDetailsOutput) ToAuthenticationCertificateDetailsOutput() AuthenticationCertificateDetailsOutput {
+	return o
+}
+
+func (o AuthenticationCertificateDetailsOutput) ToAuthenticationCertificateDetailsOutputWithContext(ctx context.Context) AuthenticationCertificateDetailsOutput {
+	return o
+}
+
+func (o AuthenticationCertificateDetailsOutput) ToAuthenticationCertificateDetailsPtrOutput() AuthenticationCertificateDetailsPtrOutput {
+	return o.ToAuthenticationCertificateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticationCertificateDetailsOutput) ToAuthenticationCertificateDetailsPtrOutputWithContext(ctx context.Context) AuthenticationCertificateDetailsPtrOutput {
+	return o.ApplyT(func(v AuthenticationCertificateDetails) *AuthenticationCertificateDetails {
+		return &v
+	}).(AuthenticationCertificateDetailsPtrOutput)
+}
+
+// Base64 encoded client certificate data.
+func (o AuthenticationCertificateDetailsOutput) CertificateData() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthenticationCertificateDetails) string { return v.CertificateData }).(pulumi.StringOutput)
+}
+
+// Base64 encoded key data.
+func (o AuthenticationCertificateDetailsOutput) KeyData() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthenticationCertificateDetails) string { return v.KeyData }).(pulumi.StringOutput)
+}
+
+type AuthenticationCertificateDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationCertificateDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationCertificateDetails)(nil)).Elem()
+}
+
+func (o AuthenticationCertificateDetailsPtrOutput) ToAuthenticationCertificateDetailsPtrOutput() AuthenticationCertificateDetailsPtrOutput {
+	return o
+}
+
+func (o AuthenticationCertificateDetailsPtrOutput) ToAuthenticationCertificateDetailsPtrOutputWithContext(ctx context.Context) AuthenticationCertificateDetailsPtrOutput {
+	return o
+}
+
+func (o AuthenticationCertificateDetailsPtrOutput) Elem() AuthenticationCertificateDetailsOutput {
+	return o.ApplyT(func(v *AuthenticationCertificateDetails) AuthenticationCertificateDetails { return *v }).(AuthenticationCertificateDetailsOutput)
+}
+
+// Base64 encoded client certificate data.
+func (o AuthenticationCertificateDetailsPtrOutput) CertificateData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthenticationCertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateData
+	}).(pulumi.StringPtrOutput)
+}
+
+// Base64 encoded key data.
+func (o AuthenticationCertificateDetailsPtrOutput) KeyData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthenticationCertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyData
+	}).(pulumi.StringPtrOutput)
+}
+
+type AuthenticationDetailsValue struct {
+	ClientCertificate *AuthenticationCertificateDetails `pulumi:"clientCertificate"`
+	// Authentication token.
+	Token *string `pulumi:"token"`
+}
+
+// AuthenticationDetailsValueInput is an input type that accepts AuthenticationDetailsValueArgs and AuthenticationDetailsValueOutput values.
+// You can construct a concrete instance of `AuthenticationDetailsValueInput` via:
+//
+//          AuthenticationDetailsValueArgs{...}
+type AuthenticationDetailsValueInput interface {
+	pulumi.Input
+
+	ToAuthenticationDetailsValueOutput() AuthenticationDetailsValueOutput
+	ToAuthenticationDetailsValueOutputWithContext(context.Context) AuthenticationDetailsValueOutput
+}
+
+type AuthenticationDetailsValueArgs struct {
+	ClientCertificate AuthenticationCertificateDetailsPtrInput `pulumi:"clientCertificate"`
+	// Authentication token.
+	Token pulumi.StringPtrInput `pulumi:"token"`
+}
+
+func (AuthenticationDetailsValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationDetailsValue)(nil)).Elem()
+}
+
+func (i AuthenticationDetailsValueArgs) ToAuthenticationDetailsValueOutput() AuthenticationDetailsValueOutput {
+	return i.ToAuthenticationDetailsValueOutputWithContext(context.Background())
+}
+
+func (i AuthenticationDetailsValueArgs) ToAuthenticationDetailsValueOutputWithContext(ctx context.Context) AuthenticationDetailsValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationDetailsValueOutput)
+}
+
+type AuthenticationDetailsValueOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationDetailsValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationDetailsValue)(nil)).Elem()
+}
+
+func (o AuthenticationDetailsValueOutput) ToAuthenticationDetailsValueOutput() AuthenticationDetailsValueOutput {
+	return o
+}
+
+func (o AuthenticationDetailsValueOutput) ToAuthenticationDetailsValueOutputWithContext(ctx context.Context) AuthenticationDetailsValueOutput {
+	return o
+}
+
+func (o AuthenticationDetailsValueOutput) ClientCertificate() AuthenticationCertificateDetailsPtrOutput {
+	return o.ApplyT(func(v AuthenticationDetailsValue) *AuthenticationCertificateDetails { return v.ClientCertificate }).(AuthenticationCertificateDetailsPtrOutput)
+}
+
+// Authentication token.
+func (o AuthenticationDetailsValueOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationDetailsValue) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
 type ConnectedClusterAADProfile struct {
 	// The client app id configured on target K8 cluster
 	ClientAppId string `pulumi:"clientAppId"`
@@ -764,6 +972,9 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 }
 
 func init() {
+	pulumi.RegisterOutputType(AuthenticationCertificateDetailsOutput{})
+	pulumi.RegisterOutputType(AuthenticationCertificateDetailsPtrOutput{})
+	pulumi.RegisterOutputType(AuthenticationDetailsValueOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterAADProfilePtrOutput{})
 	pulumi.RegisterOutputType(ConnectedClusterAADProfileResponseOutput{})

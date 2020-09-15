@@ -59,6 +59,10 @@ export class Workbook extends pulumi.CustomResource {
      */
     public readonly serializedData!: pulumi.Output<string>;
     /**
+     * ResourceId for a source resource.
+     */
+    public readonly sourceId!: pulumi.Output<string | undefined>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -73,7 +77,7 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * Unique user id of the specific user that owns this workbook.
      */
-    public readonly userId!: pulumi.Output<string>;
+    public /*out*/ readonly userId!: pulumi.Output<string>;
     /**
      * Workbook version
      */
@@ -110,9 +114,6 @@ export class Workbook extends pulumi.CustomResource {
             if (!args || args.sourceId === undefined) {
                 throw new Error("Missing required property 'sourceId'");
             }
-            if (!args || args.userId === undefined) {
-                throw new Error("Missing required property 'userId'");
-            }
             inputs["category"] = args ? args.category : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
@@ -122,11 +123,11 @@ export class Workbook extends pulumi.CustomResource {
             inputs["serializedData"] = args ? args.serializedData : undefined;
             inputs["sourceId"] = args ? args.sourceId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userId"] = undefined /*out*/;
         } else {
             inputs["category"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
@@ -134,6 +135,7 @@ export class Workbook extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["serializedData"] = undefined /*out*/;
+            inputs["sourceId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -186,17 +188,13 @@ export interface WorkbookArgs {
      */
     readonly serializedData: pulumi.Input<string>;
     /**
-     * Azure Resource Id that will fetch all related workbooks.
+     * ResourceId for a source resource.
      */
     readonly sourceId: pulumi.Input<string>;
     /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Unique user id of the specific user that owns this workbook.
-     */
-    readonly userId: pulumi.Input<string>;
     /**
      * Workbook version
      */

@@ -51,6 +51,12 @@ namespace Pulumi.AzureRM.Insights.V20180617Preview
         public Output<string> SerializedData { get; private set; } = null!;
 
         /// <summary>
+        /// ResourceId for a source resource.
+        /// </summary>
+        [Output("sourceId")]
+        public Output<string?> SourceId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
@@ -173,7 +179,7 @@ namespace Pulumi.AzureRM.Insights.V20180617Preview
         public Input<string> SerializedData { get; set; } = null!;
 
         /// <summary>
-        /// Azure Resource Id that will fetch all related workbooks.
+        /// ResourceId for a source resource.
         /// </summary>
         [Input("sourceId", required: true)]
         public Input<string> SourceId { get; set; } = null!;
@@ -189,12 +195,6 @@ namespace Pulumi.AzureRM.Insights.V20180617Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Unique user id of the specific user that owns this workbook.
-        /// </summary>
-        [Input("userId", required: true)]
-        public Input<string> UserId { get; set; } = null!;
 
         /// <summary>
         /// Workbook version

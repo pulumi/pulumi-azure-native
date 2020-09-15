@@ -10,6 +10,7 @@ from ... import _utilities, _tables
 
 __all__ = [
     'ResourceIdentityArgs',
+    'ServerInfoArgs',
     'SkuArgs',
 ]
 
@@ -35,6 +36,29 @@ class ResourceIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ServerInfoArgs:
+    def __init__(__self__, *,
+                 server_id: pulumi.Input[str]):
+        """
+        Server info for the server trust group.
+        :param pulumi.Input[str] server_id: Server Id.
+        """
+        pulumi.set(__self__, "server_id", server_id)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> pulumi.Input[str]:
+        """
+        Server Id.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_id", value)
 
 
 @pulumi.input_type

@@ -60,6 +60,10 @@ export interface GetWorkbookResult {
      */
     readonly serializedData: string;
     /**
+     * ResourceId for a source resource.
+     */
+    readonly sourceId?: string;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};

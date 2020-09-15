@@ -19,7 +19,7 @@ class GetWorkbookResult:
     """
     An Application Insights workbook definition.
     """
-    def __init__(__self__, category=None, display_name=None, kind=None, location=None, name=None, serialized_data=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
+    def __init__(__self__, category=None, display_name=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
@@ -38,6 +38,9 @@ class GetWorkbookResult:
         if serialized_data and not isinstance(serialized_data, str):
             raise TypeError("Expected argument 'serialized_data' to be a str")
         pulumi.set(__self__, "serialized_data", serialized_data)
+        if source_id and not isinstance(source_id, str):
+            raise TypeError("Expected argument 'source_id' to be a str")
+        pulumi.set(__self__, "source_id", source_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -103,6 +106,14 @@ class GetWorkbookResult:
         return pulumi.get(self, "serialized_data")
 
     @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[str]:
+        """
+        ResourceId for a source resource.
+        """
+        return pulumi.get(self, "source_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -155,6 +166,7 @@ class AwaitableGetWorkbookResult(GetWorkbookResult):
             location=self.location,
             name=self.name,
             serialized_data=self.serialized_data,
+            source_id=self.source_id,
             tags=self.tags,
             time_modified=self.time_modified,
             type=self.type,
@@ -187,6 +199,7 @@ def get_workbook(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         serialized_data=__ret__.serialized_data,
+        source_id=__ret__.source_id,
         tags=__ret__.tags,
         time_modified=__ret__.time_modified,
         type=__ret__.type,
