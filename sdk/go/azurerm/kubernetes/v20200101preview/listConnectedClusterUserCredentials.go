@@ -17,10 +17,13 @@ func ListConnectedClusterUserCredentials(ctx *pulumi.Context, args *ListConnecte
 }
 
 type ListConnectedClusterUserCredentialsArgs struct {
+	// The mode of client authentication.
+	AuthenticationMethod string `pulumi:"authenticationMethod"`
 	// The name of the Kubernetes cluster on which get is called.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	Value             AuthenticationDetailsValue `pulumi:"value"`
 }
 
 // The list of credential result response.

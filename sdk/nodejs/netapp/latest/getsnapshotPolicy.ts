@@ -43,7 +43,7 @@ export interface GetsnapshotPolicyResult {
     /**
      * Schedule for daily snapshots
      */
-    readonly dailySchedule?: {[key: string]: any};
+    readonly dailySchedule?: outputs.netapp.latest.DailyScheduleResponse;
     /**
      * The property to decide policy is enabled or not
      */
@@ -51,7 +51,7 @@ export interface GetsnapshotPolicyResult {
     /**
      * Schedule for hourly snapshots
      */
-    readonly hourlySchedule?: {[key: string]: any};
+    readonly hourlySchedule?: outputs.netapp.latest.HourlyScheduleResponse;
     /**
      * Resource location
      */
@@ -59,11 +59,15 @@ export interface GetsnapshotPolicyResult {
     /**
      * Schedule for monthly snapshots
      */
-    readonly monthlySchedule?: {[key: string]: any};
+    readonly monthlySchedule?: outputs.netapp.latest.MonthlyScheduleResponse;
     /**
-     * Resource name
+     * Snapshot policy name
      */
     readonly name: string;
+    /**
+     * Azure lifecycle management
+     */
+    readonly provisioningState: string;
     /**
      * Resource tags
      */
@@ -75,5 +79,5 @@ export interface GetsnapshotPolicyResult {
     /**
      * Schedule for weekly snapshots
      */
-    readonly weeklySchedule?: {[key: string]: any};
+    readonly weeklySchedule?: outputs.netapp.latest.WeeklyScheduleResponse;
 }

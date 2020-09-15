@@ -28,21 +28,23 @@ type GetsnapshotPolicyArgs struct {
 // Snapshot policy information
 type GetsnapshotPolicyResult struct {
 	// Schedule for daily snapshots
-	DailySchedule map[string]interface{} `pulumi:"dailySchedule"`
+	DailySchedule *DailyScheduleResponse `pulumi:"dailySchedule"`
 	// The property to decide policy is enabled or not
 	Enabled *bool `pulumi:"enabled"`
 	// Schedule for hourly snapshots
-	HourlySchedule map[string]interface{} `pulumi:"hourlySchedule"`
+	HourlySchedule *HourlyScheduleResponse `pulumi:"hourlySchedule"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Schedule for monthly snapshots
-	MonthlySchedule map[string]interface{} `pulumi:"monthlySchedule"`
-	// Resource name
+	MonthlySchedule *MonthlyScheduleResponse `pulumi:"monthlySchedule"`
+	// Snapshot policy name
 	Name string `pulumi:"name"`
+	// Azure lifecycle management
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// Schedule for weekly snapshots
-	WeeklySchedule map[string]interface{} `pulumi:"weeklySchedule"`
+	WeeklySchedule *WeeklyScheduleResponse `pulumi:"weeklySchedule"`
 }

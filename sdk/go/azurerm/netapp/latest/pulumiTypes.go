@@ -473,6 +473,47 @@ func (i DailyScheduleArgs) ToDailyScheduleOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DailyScheduleOutput)
 }
 
+func (i DailyScheduleArgs) ToDailySchedulePtrOutput() DailySchedulePtrOutput {
+	return i.ToDailySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i DailyScheduleArgs) ToDailySchedulePtrOutputWithContext(ctx context.Context) DailySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyScheduleOutput).ToDailySchedulePtrOutputWithContext(ctx)
+}
+
+// DailySchedulePtrInput is an input type that accepts DailyScheduleArgs, DailySchedulePtr and DailySchedulePtrOutput values.
+// You can construct a concrete instance of `DailySchedulePtrInput` via:
+//
+//          DailyScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type DailySchedulePtrInput interface {
+	pulumi.Input
+
+	ToDailySchedulePtrOutput() DailySchedulePtrOutput
+	ToDailySchedulePtrOutputWithContext(context.Context) DailySchedulePtrOutput
+}
+
+type dailySchedulePtrType DailyScheduleArgs
+
+func DailySchedulePtr(v *DailyScheduleArgs) DailySchedulePtrInput {
+	return (*dailySchedulePtrType)(v)
+}
+
+func (*dailySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailySchedule)(nil)).Elem()
+}
+
+func (i *dailySchedulePtrType) ToDailySchedulePtrOutput() DailySchedulePtrOutput {
+	return i.ToDailySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *dailySchedulePtrType) ToDailySchedulePtrOutputWithContext(ctx context.Context) DailySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailySchedulePtrOutput)
+}
+
 // Daily Schedule properties
 type DailyScheduleOutput struct{ *pulumi.OutputState }
 
@@ -486,6 +527,16 @@ func (o DailyScheduleOutput) ToDailyScheduleOutput() DailyScheduleOutput {
 
 func (o DailyScheduleOutput) ToDailyScheduleOutputWithContext(ctx context.Context) DailyScheduleOutput {
 	return o
+}
+
+func (o DailyScheduleOutput) ToDailySchedulePtrOutput() DailySchedulePtrOutput {
+	return o.ToDailySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o DailyScheduleOutput) ToDailySchedulePtrOutputWithContext(ctx context.Context) DailySchedulePtrOutput {
+	return o.ApplyT(func(v DailySchedule) *DailySchedule {
+		return &v
+	}).(DailySchedulePtrOutput)
 }
 
 // Indicates which hour in UTC timezone a snapshot should be taken
@@ -506,6 +557,64 @@ func (o DailyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 // Resource size in bytes, current storage usage for the volume in bytes
 func (o DailyScheduleOutput) UsedBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DailySchedule) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+}
+
+type DailySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (DailySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailySchedule)(nil)).Elem()
+}
+
+func (o DailySchedulePtrOutput) ToDailySchedulePtrOutput() DailySchedulePtrOutput {
+	return o
+}
+
+func (o DailySchedulePtrOutput) ToDailySchedulePtrOutputWithContext(ctx context.Context) DailySchedulePtrOutput {
+	return o
+}
+
+func (o DailySchedulePtrOutput) Elem() DailyScheduleOutput {
+	return o.ApplyT(func(v *DailySchedule) DailySchedule { return *v }).(DailyScheduleOutput)
+}
+
+// Indicates which hour in UTC timezone a snapshot should be taken
+func (o DailySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DailySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates which minute snapshot should be taken
+func (o DailySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DailySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Daily snapshot count to keep
+func (o DailySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DailySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource size in bytes, current storage usage for the volume in bytes
+func (o DailySchedulePtrOutput) UsedBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DailySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UsedBytes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Daily Schedule properties
@@ -555,6 +664,47 @@ func (i DailyScheduleResponseArgs) ToDailyScheduleResponseOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DailyScheduleResponseOutput)
 }
 
+func (i DailyScheduleResponseArgs) ToDailyScheduleResponsePtrOutput() DailyScheduleResponsePtrOutput {
+	return i.ToDailyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DailyScheduleResponseArgs) ToDailyScheduleResponsePtrOutputWithContext(ctx context.Context) DailyScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyScheduleResponseOutput).ToDailyScheduleResponsePtrOutputWithContext(ctx)
+}
+
+// DailyScheduleResponsePtrInput is an input type that accepts DailyScheduleResponseArgs, DailyScheduleResponsePtr and DailyScheduleResponsePtrOutput values.
+// You can construct a concrete instance of `DailyScheduleResponsePtrInput` via:
+//
+//          DailyScheduleResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DailyScheduleResponsePtrInput interface {
+	pulumi.Input
+
+	ToDailyScheduleResponsePtrOutput() DailyScheduleResponsePtrOutput
+	ToDailyScheduleResponsePtrOutputWithContext(context.Context) DailyScheduleResponsePtrOutput
+}
+
+type dailyScheduleResponsePtrType DailyScheduleResponseArgs
+
+func DailyScheduleResponsePtr(v *DailyScheduleResponseArgs) DailyScheduleResponsePtrInput {
+	return (*dailyScheduleResponsePtrType)(v)
+}
+
+func (*dailyScheduleResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailyScheduleResponse)(nil)).Elem()
+}
+
+func (i *dailyScheduleResponsePtrType) ToDailyScheduleResponsePtrOutput() DailyScheduleResponsePtrOutput {
+	return i.ToDailyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dailyScheduleResponsePtrType) ToDailyScheduleResponsePtrOutputWithContext(ctx context.Context) DailyScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyScheduleResponsePtrOutput)
+}
+
 // Daily Schedule properties
 type DailyScheduleResponseOutput struct{ *pulumi.OutputState }
 
@@ -568,6 +718,16 @@ func (o DailyScheduleResponseOutput) ToDailyScheduleResponseOutput() DailySchedu
 
 func (o DailyScheduleResponseOutput) ToDailyScheduleResponseOutputWithContext(ctx context.Context) DailyScheduleResponseOutput {
 	return o
+}
+
+func (o DailyScheduleResponseOutput) ToDailyScheduleResponsePtrOutput() DailyScheduleResponsePtrOutput {
+	return o.ToDailyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DailyScheduleResponseOutput) ToDailyScheduleResponsePtrOutputWithContext(ctx context.Context) DailyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v DailyScheduleResponse) *DailyScheduleResponse {
+		return &v
+	}).(DailyScheduleResponsePtrOutput)
 }
 
 // Indicates which hour in UTC timezone a snapshot should be taken
@@ -588,6 +748,64 @@ func (o DailyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 // Resource size in bytes, current storage usage for the volume in bytes
 func (o DailyScheduleResponseOutput) UsedBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DailyScheduleResponse) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+}
+
+type DailyScheduleResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DailyScheduleResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailyScheduleResponse)(nil)).Elem()
+}
+
+func (o DailyScheduleResponsePtrOutput) ToDailyScheduleResponsePtrOutput() DailyScheduleResponsePtrOutput {
+	return o
+}
+
+func (o DailyScheduleResponsePtrOutput) ToDailyScheduleResponsePtrOutputWithContext(ctx context.Context) DailyScheduleResponsePtrOutput {
+	return o
+}
+
+func (o DailyScheduleResponsePtrOutput) Elem() DailyScheduleResponseOutput {
+	return o.ApplyT(func(v *DailyScheduleResponse) DailyScheduleResponse { return *v }).(DailyScheduleResponseOutput)
+}
+
+// Indicates which hour in UTC timezone a snapshot should be taken
+func (o DailyScheduleResponsePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DailyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates which minute snapshot should be taken
+func (o DailyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DailyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Daily snapshot count to keep
+func (o DailyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DailyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource size in bytes, current storage usage for the volume in bytes
+func (o DailyScheduleResponsePtrOutput) UsedBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DailyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UsedBytes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Volume Export Policy Rule
@@ -1067,6 +1285,47 @@ func (i HourlyScheduleArgs) ToHourlyScheduleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(HourlyScheduleOutput)
 }
 
+func (i HourlyScheduleArgs) ToHourlySchedulePtrOutput() HourlySchedulePtrOutput {
+	return i.ToHourlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i HourlyScheduleArgs) ToHourlySchedulePtrOutputWithContext(ctx context.Context) HourlySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HourlyScheduleOutput).ToHourlySchedulePtrOutputWithContext(ctx)
+}
+
+// HourlySchedulePtrInput is an input type that accepts HourlyScheduleArgs, HourlySchedulePtr and HourlySchedulePtrOutput values.
+// You can construct a concrete instance of `HourlySchedulePtrInput` via:
+//
+//          HourlyScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type HourlySchedulePtrInput interface {
+	pulumi.Input
+
+	ToHourlySchedulePtrOutput() HourlySchedulePtrOutput
+	ToHourlySchedulePtrOutputWithContext(context.Context) HourlySchedulePtrOutput
+}
+
+type hourlySchedulePtrType HourlyScheduleArgs
+
+func HourlySchedulePtr(v *HourlyScheduleArgs) HourlySchedulePtrInput {
+	return (*hourlySchedulePtrType)(v)
+}
+
+func (*hourlySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HourlySchedule)(nil)).Elem()
+}
+
+func (i *hourlySchedulePtrType) ToHourlySchedulePtrOutput() HourlySchedulePtrOutput {
+	return i.ToHourlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *hourlySchedulePtrType) ToHourlySchedulePtrOutputWithContext(ctx context.Context) HourlySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HourlySchedulePtrOutput)
+}
+
 // Hourly Schedule properties
 type HourlyScheduleOutput struct{ *pulumi.OutputState }
 
@@ -1082,6 +1341,16 @@ func (o HourlyScheduleOutput) ToHourlyScheduleOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o HourlyScheduleOutput) ToHourlySchedulePtrOutput() HourlySchedulePtrOutput {
+	return o.ToHourlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o HourlyScheduleOutput) ToHourlySchedulePtrOutputWithContext(ctx context.Context) HourlySchedulePtrOutput {
+	return o.ApplyT(func(v HourlySchedule) *HourlySchedule {
+		return &v
+	}).(HourlySchedulePtrOutput)
+}
+
 // Indicates which minute snapshot should be taken
 func (o HourlyScheduleOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HourlySchedule) *int { return v.Minute }).(pulumi.IntPtrOutput)
@@ -1095,6 +1364,54 @@ func (o HourlyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 // Resource size in bytes, current storage usage for the volume in bytes
 func (o HourlyScheduleOutput) UsedBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HourlySchedule) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+}
+
+type HourlySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (HourlySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HourlySchedule)(nil)).Elem()
+}
+
+func (o HourlySchedulePtrOutput) ToHourlySchedulePtrOutput() HourlySchedulePtrOutput {
+	return o
+}
+
+func (o HourlySchedulePtrOutput) ToHourlySchedulePtrOutputWithContext(ctx context.Context) HourlySchedulePtrOutput {
+	return o
+}
+
+func (o HourlySchedulePtrOutput) Elem() HourlyScheduleOutput {
+	return o.ApplyT(func(v *HourlySchedule) HourlySchedule { return *v }).(HourlyScheduleOutput)
+}
+
+// Indicates which minute snapshot should be taken
+func (o HourlySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HourlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Hourly snapshot count to keep
+func (o HourlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HourlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource size in bytes, current storage usage for the volume in bytes
+func (o HourlySchedulePtrOutput) UsedBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HourlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UsedBytes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Hourly Schedule properties
@@ -1140,6 +1457,47 @@ func (i HourlyScheduleResponseArgs) ToHourlyScheduleResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(HourlyScheduleResponseOutput)
 }
 
+func (i HourlyScheduleResponseArgs) ToHourlyScheduleResponsePtrOutput() HourlyScheduleResponsePtrOutput {
+	return i.ToHourlyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i HourlyScheduleResponseArgs) ToHourlyScheduleResponsePtrOutputWithContext(ctx context.Context) HourlyScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HourlyScheduleResponseOutput).ToHourlyScheduleResponsePtrOutputWithContext(ctx)
+}
+
+// HourlyScheduleResponsePtrInput is an input type that accepts HourlyScheduleResponseArgs, HourlyScheduleResponsePtr and HourlyScheduleResponsePtrOutput values.
+// You can construct a concrete instance of `HourlyScheduleResponsePtrInput` via:
+//
+//          HourlyScheduleResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type HourlyScheduleResponsePtrInput interface {
+	pulumi.Input
+
+	ToHourlyScheduleResponsePtrOutput() HourlyScheduleResponsePtrOutput
+	ToHourlyScheduleResponsePtrOutputWithContext(context.Context) HourlyScheduleResponsePtrOutput
+}
+
+type hourlyScheduleResponsePtrType HourlyScheduleResponseArgs
+
+func HourlyScheduleResponsePtr(v *HourlyScheduleResponseArgs) HourlyScheduleResponsePtrInput {
+	return (*hourlyScheduleResponsePtrType)(v)
+}
+
+func (*hourlyScheduleResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HourlyScheduleResponse)(nil)).Elem()
+}
+
+func (i *hourlyScheduleResponsePtrType) ToHourlyScheduleResponsePtrOutput() HourlyScheduleResponsePtrOutput {
+	return i.ToHourlyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *hourlyScheduleResponsePtrType) ToHourlyScheduleResponsePtrOutputWithContext(ctx context.Context) HourlyScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HourlyScheduleResponsePtrOutput)
+}
+
 // Hourly Schedule properties
 type HourlyScheduleResponseOutput struct{ *pulumi.OutputState }
 
@@ -1155,6 +1513,16 @@ func (o HourlyScheduleResponseOutput) ToHourlyScheduleResponseOutputWithContext(
 	return o
 }
 
+func (o HourlyScheduleResponseOutput) ToHourlyScheduleResponsePtrOutput() HourlyScheduleResponsePtrOutput {
+	return o.ToHourlyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (o HourlyScheduleResponseOutput) ToHourlyScheduleResponsePtrOutputWithContext(ctx context.Context) HourlyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v HourlyScheduleResponse) *HourlyScheduleResponse {
+		return &v
+	}).(HourlyScheduleResponsePtrOutput)
+}
+
 // Indicates which minute snapshot should be taken
 func (o HourlyScheduleResponseOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HourlyScheduleResponse) *int { return v.Minute }).(pulumi.IntPtrOutput)
@@ -1168,6 +1536,54 @@ func (o HourlyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 // Resource size in bytes, current storage usage for the volume in bytes
 func (o HourlyScheduleResponseOutput) UsedBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HourlyScheduleResponse) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+}
+
+type HourlyScheduleResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (HourlyScheduleResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HourlyScheduleResponse)(nil)).Elem()
+}
+
+func (o HourlyScheduleResponsePtrOutput) ToHourlyScheduleResponsePtrOutput() HourlyScheduleResponsePtrOutput {
+	return o
+}
+
+func (o HourlyScheduleResponsePtrOutput) ToHourlyScheduleResponsePtrOutputWithContext(ctx context.Context) HourlyScheduleResponsePtrOutput {
+	return o
+}
+
+func (o HourlyScheduleResponsePtrOutput) Elem() HourlyScheduleResponseOutput {
+	return o.ApplyT(func(v *HourlyScheduleResponse) HourlyScheduleResponse { return *v }).(HourlyScheduleResponseOutput)
+}
+
+// Indicates which minute snapshot should be taken
+func (o HourlyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HourlyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Hourly snapshot count to keep
+func (o HourlyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HourlyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource size in bytes, current storage usage for the volume in bytes
+func (o HourlyScheduleResponsePtrOutput) UsedBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HourlyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UsedBytes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Monthly Schedule properties
@@ -1221,6 +1637,47 @@ func (i MonthlyScheduleArgs) ToMonthlyScheduleOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MonthlyScheduleOutput)
 }
 
+func (i MonthlyScheduleArgs) ToMonthlySchedulePtrOutput() MonthlySchedulePtrOutput {
+	return i.ToMonthlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i MonthlyScheduleArgs) ToMonthlySchedulePtrOutputWithContext(ctx context.Context) MonthlySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthlyScheduleOutput).ToMonthlySchedulePtrOutputWithContext(ctx)
+}
+
+// MonthlySchedulePtrInput is an input type that accepts MonthlyScheduleArgs, MonthlySchedulePtr and MonthlySchedulePtrOutput values.
+// You can construct a concrete instance of `MonthlySchedulePtrInput` via:
+//
+//          MonthlyScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type MonthlySchedulePtrInput interface {
+	pulumi.Input
+
+	ToMonthlySchedulePtrOutput() MonthlySchedulePtrOutput
+	ToMonthlySchedulePtrOutputWithContext(context.Context) MonthlySchedulePtrOutput
+}
+
+type monthlySchedulePtrType MonthlyScheduleArgs
+
+func MonthlySchedulePtr(v *MonthlyScheduleArgs) MonthlySchedulePtrInput {
+	return (*monthlySchedulePtrType)(v)
+}
+
+func (*monthlySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonthlySchedule)(nil)).Elem()
+}
+
+func (i *monthlySchedulePtrType) ToMonthlySchedulePtrOutput() MonthlySchedulePtrOutput {
+	return i.ToMonthlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *monthlySchedulePtrType) ToMonthlySchedulePtrOutputWithContext(ctx context.Context) MonthlySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthlySchedulePtrOutput)
+}
+
 // Monthly Schedule properties
 type MonthlyScheduleOutput struct{ *pulumi.OutputState }
 
@@ -1234,6 +1691,16 @@ func (o MonthlyScheduleOutput) ToMonthlyScheduleOutput() MonthlyScheduleOutput {
 
 func (o MonthlyScheduleOutput) ToMonthlyScheduleOutputWithContext(ctx context.Context) MonthlyScheduleOutput {
 	return o
+}
+
+func (o MonthlyScheduleOutput) ToMonthlySchedulePtrOutput() MonthlySchedulePtrOutput {
+	return o.ToMonthlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o MonthlyScheduleOutput) ToMonthlySchedulePtrOutputWithContext(ctx context.Context) MonthlySchedulePtrOutput {
+	return o.ApplyT(func(v MonthlySchedule) *MonthlySchedule {
+		return &v
+	}).(MonthlySchedulePtrOutput)
 }
 
 // Indicates which days of the month snapshot should be taken. A comma delimited string.
@@ -1259,6 +1726,74 @@ func (o MonthlyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 // Resource size in bytes, current storage usage for the volume in bytes
 func (o MonthlyScheduleOutput) UsedBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonthlySchedule) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+}
+
+type MonthlySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (MonthlySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonthlySchedule)(nil)).Elem()
+}
+
+func (o MonthlySchedulePtrOutput) ToMonthlySchedulePtrOutput() MonthlySchedulePtrOutput {
+	return o
+}
+
+func (o MonthlySchedulePtrOutput) ToMonthlySchedulePtrOutputWithContext(ctx context.Context) MonthlySchedulePtrOutput {
+	return o
+}
+
+func (o MonthlySchedulePtrOutput) Elem() MonthlyScheduleOutput {
+	return o.ApplyT(func(v *MonthlySchedule) MonthlySchedule { return *v }).(MonthlyScheduleOutput)
+}
+
+// Indicates which days of the month snapshot should be taken. A comma delimited string.
+func (o MonthlySchedulePtrOutput) DaysOfMonth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonthlySchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfMonth
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates which hour in UTC timezone a snapshot should be taken
+func (o MonthlySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonthlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates which minute snapshot should be taken
+func (o MonthlySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonthlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Monthly snapshot count to keep
+func (o MonthlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonthlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource size in bytes, current storage usage for the volume in bytes
+func (o MonthlySchedulePtrOutput) UsedBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonthlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UsedBytes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Monthly Schedule properties
@@ -1312,6 +1847,47 @@ func (i MonthlyScheduleResponseArgs) ToMonthlyScheduleResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MonthlyScheduleResponseOutput)
 }
 
+func (i MonthlyScheduleResponseArgs) ToMonthlyScheduleResponsePtrOutput() MonthlyScheduleResponsePtrOutput {
+	return i.ToMonthlyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MonthlyScheduleResponseArgs) ToMonthlyScheduleResponsePtrOutputWithContext(ctx context.Context) MonthlyScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthlyScheduleResponseOutput).ToMonthlyScheduleResponsePtrOutputWithContext(ctx)
+}
+
+// MonthlyScheduleResponsePtrInput is an input type that accepts MonthlyScheduleResponseArgs, MonthlyScheduleResponsePtr and MonthlyScheduleResponsePtrOutput values.
+// You can construct a concrete instance of `MonthlyScheduleResponsePtrInput` via:
+//
+//          MonthlyScheduleResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MonthlyScheduleResponsePtrInput interface {
+	pulumi.Input
+
+	ToMonthlyScheduleResponsePtrOutput() MonthlyScheduleResponsePtrOutput
+	ToMonthlyScheduleResponsePtrOutputWithContext(context.Context) MonthlyScheduleResponsePtrOutput
+}
+
+type monthlyScheduleResponsePtrType MonthlyScheduleResponseArgs
+
+func MonthlyScheduleResponsePtr(v *MonthlyScheduleResponseArgs) MonthlyScheduleResponsePtrInput {
+	return (*monthlyScheduleResponsePtrType)(v)
+}
+
+func (*monthlyScheduleResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonthlyScheduleResponse)(nil)).Elem()
+}
+
+func (i *monthlyScheduleResponsePtrType) ToMonthlyScheduleResponsePtrOutput() MonthlyScheduleResponsePtrOutput {
+	return i.ToMonthlyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *monthlyScheduleResponsePtrType) ToMonthlyScheduleResponsePtrOutputWithContext(ctx context.Context) MonthlyScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthlyScheduleResponsePtrOutput)
+}
+
 // Monthly Schedule properties
 type MonthlyScheduleResponseOutput struct{ *pulumi.OutputState }
 
@@ -1325,6 +1901,16 @@ func (o MonthlyScheduleResponseOutput) ToMonthlyScheduleResponseOutput() Monthly
 
 func (o MonthlyScheduleResponseOutput) ToMonthlyScheduleResponseOutputWithContext(ctx context.Context) MonthlyScheduleResponseOutput {
 	return o
+}
+
+func (o MonthlyScheduleResponseOutput) ToMonthlyScheduleResponsePtrOutput() MonthlyScheduleResponsePtrOutput {
+	return o.ToMonthlyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MonthlyScheduleResponseOutput) ToMonthlyScheduleResponsePtrOutputWithContext(ctx context.Context) MonthlyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v MonthlyScheduleResponse) *MonthlyScheduleResponse {
+		return &v
+	}).(MonthlyScheduleResponsePtrOutput)
 }
 
 // Indicates which days of the month snapshot should be taken. A comma delimited string.
@@ -1350,6 +1936,74 @@ func (o MonthlyScheduleResponseOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 // Resource size in bytes, current storage usage for the volume in bytes
 func (o MonthlyScheduleResponseOutput) UsedBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonthlyScheduleResponse) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+}
+
+type MonthlyScheduleResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MonthlyScheduleResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonthlyScheduleResponse)(nil)).Elem()
+}
+
+func (o MonthlyScheduleResponsePtrOutput) ToMonthlyScheduleResponsePtrOutput() MonthlyScheduleResponsePtrOutput {
+	return o
+}
+
+func (o MonthlyScheduleResponsePtrOutput) ToMonthlyScheduleResponsePtrOutputWithContext(ctx context.Context) MonthlyScheduleResponsePtrOutput {
+	return o
+}
+
+func (o MonthlyScheduleResponsePtrOutput) Elem() MonthlyScheduleResponseOutput {
+	return o.ApplyT(func(v *MonthlyScheduleResponse) MonthlyScheduleResponse { return *v }).(MonthlyScheduleResponseOutput)
+}
+
+// Indicates which days of the month snapshot should be taken. A comma delimited string.
+func (o MonthlyScheduleResponsePtrOutput) DaysOfMonth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonthlyScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfMonth
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates which hour in UTC timezone a snapshot should be taken
+func (o MonthlyScheduleResponsePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonthlyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates which minute snapshot should be taken
+func (o MonthlyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonthlyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Monthly snapshot count to keep
+func (o MonthlyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonthlyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource size in bytes, current storage usage for the volume in bytes
+func (o MonthlyScheduleResponsePtrOutput) UsedBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonthlyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UsedBytes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Mount target properties
@@ -3557,6 +4211,47 @@ func (i WeeklyScheduleArgs) ToWeeklyScheduleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(WeeklyScheduleOutput)
 }
 
+func (i WeeklyScheduleArgs) ToWeeklySchedulePtrOutput() WeeklySchedulePtrOutput {
+	return i.ToWeeklySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i WeeklyScheduleArgs) ToWeeklySchedulePtrOutputWithContext(ctx context.Context) WeeklySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyScheduleOutput).ToWeeklySchedulePtrOutputWithContext(ctx)
+}
+
+// WeeklySchedulePtrInput is an input type that accepts WeeklyScheduleArgs, WeeklySchedulePtr and WeeklySchedulePtrOutput values.
+// You can construct a concrete instance of `WeeklySchedulePtrInput` via:
+//
+//          WeeklyScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type WeeklySchedulePtrInput interface {
+	pulumi.Input
+
+	ToWeeklySchedulePtrOutput() WeeklySchedulePtrOutput
+	ToWeeklySchedulePtrOutputWithContext(context.Context) WeeklySchedulePtrOutput
+}
+
+type weeklySchedulePtrType WeeklyScheduleArgs
+
+func WeeklySchedulePtr(v *WeeklyScheduleArgs) WeeklySchedulePtrInput {
+	return (*weeklySchedulePtrType)(v)
+}
+
+func (*weeklySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklySchedule)(nil)).Elem()
+}
+
+func (i *weeklySchedulePtrType) ToWeeklySchedulePtrOutput() WeeklySchedulePtrOutput {
+	return i.ToWeeklySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *weeklySchedulePtrType) ToWeeklySchedulePtrOutputWithContext(ctx context.Context) WeeklySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklySchedulePtrOutput)
+}
+
 // Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleOutput struct{ *pulumi.OutputState }
 
@@ -3570,6 +4265,16 @@ func (o WeeklyScheduleOutput) ToWeeklyScheduleOutput() WeeklyScheduleOutput {
 
 func (o WeeklyScheduleOutput) ToWeeklyScheduleOutputWithContext(ctx context.Context) WeeklyScheduleOutput {
 	return o
+}
+
+func (o WeeklyScheduleOutput) ToWeeklySchedulePtrOutput() WeeklySchedulePtrOutput {
+	return o.ToWeeklySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o WeeklyScheduleOutput) ToWeeklySchedulePtrOutputWithContext(ctx context.Context) WeeklySchedulePtrOutput {
+	return o.ApplyT(func(v WeeklySchedule) *WeeklySchedule {
+		return &v
+	}).(WeeklySchedulePtrOutput)
 }
 
 // Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
@@ -3595,6 +4300,74 @@ func (o WeeklyScheduleOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
 // Resource size in bytes, current storage usage for the volume in bytes
 func (o WeeklyScheduleOutput) UsedBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WeeklySchedule) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
+}
+
+type WeeklySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (WeeklySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklySchedule)(nil)).Elem()
+}
+
+func (o WeeklySchedulePtrOutput) ToWeeklySchedulePtrOutput() WeeklySchedulePtrOutput {
+	return o
+}
+
+func (o WeeklySchedulePtrOutput) ToWeeklySchedulePtrOutputWithContext(ctx context.Context) WeeklySchedulePtrOutput {
+	return o
+}
+
+func (o WeeklySchedulePtrOutput) Elem() WeeklyScheduleOutput {
+	return o.ApplyT(func(v *WeeklySchedule) WeeklySchedule { return *v }).(WeeklyScheduleOutput)
+}
+
+// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
+func (o WeeklySchedulePtrOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WeeklySchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Day
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates which hour in UTC timezone a snapshot should be taken
+func (o WeeklySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WeeklySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates which minute snapshot should be taken
+func (o WeeklySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WeeklySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Weekly snapshot count to keep
+func (o WeeklySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WeeklySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource size in bytes, current storage usage for the volume in bytes
+func (o WeeklySchedulePtrOutput) UsedBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WeeklySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UsedBytes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Weekly Schedule properties, make a snapshot every week at a specific day or days
@@ -3648,6 +4421,47 @@ func (i WeeklyScheduleResponseArgs) ToWeeklyScheduleResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WeeklyScheduleResponseOutput)
 }
 
+func (i WeeklyScheduleResponseArgs) ToWeeklyScheduleResponsePtrOutput() WeeklyScheduleResponsePtrOutput {
+	return i.ToWeeklyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WeeklyScheduleResponseArgs) ToWeeklyScheduleResponsePtrOutputWithContext(ctx context.Context) WeeklyScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyScheduleResponseOutput).ToWeeklyScheduleResponsePtrOutputWithContext(ctx)
+}
+
+// WeeklyScheduleResponsePtrInput is an input type that accepts WeeklyScheduleResponseArgs, WeeklyScheduleResponsePtr and WeeklyScheduleResponsePtrOutput values.
+// You can construct a concrete instance of `WeeklyScheduleResponsePtrInput` via:
+//
+//          WeeklyScheduleResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WeeklyScheduleResponsePtrInput interface {
+	pulumi.Input
+
+	ToWeeklyScheduleResponsePtrOutput() WeeklyScheduleResponsePtrOutput
+	ToWeeklyScheduleResponsePtrOutputWithContext(context.Context) WeeklyScheduleResponsePtrOutput
+}
+
+type weeklyScheduleResponsePtrType WeeklyScheduleResponseArgs
+
+func WeeklyScheduleResponsePtr(v *WeeklyScheduleResponseArgs) WeeklyScheduleResponsePtrInput {
+	return (*weeklyScheduleResponsePtrType)(v)
+}
+
+func (*weeklyScheduleResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklyScheduleResponse)(nil)).Elem()
+}
+
+func (i *weeklyScheduleResponsePtrType) ToWeeklyScheduleResponsePtrOutput() WeeklyScheduleResponsePtrOutput {
+	return i.ToWeeklyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *weeklyScheduleResponsePtrType) ToWeeklyScheduleResponsePtrOutputWithContext(ctx context.Context) WeeklyScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyScheduleResponsePtrOutput)
+}
+
 // Weekly Schedule properties, make a snapshot every week at a specific day or days
 type WeeklyScheduleResponseOutput struct{ *pulumi.OutputState }
 
@@ -3661,6 +4475,16 @@ func (o WeeklyScheduleResponseOutput) ToWeeklyScheduleResponseOutput() WeeklySch
 
 func (o WeeklyScheduleResponseOutput) ToWeeklyScheduleResponseOutputWithContext(ctx context.Context) WeeklyScheduleResponseOutput {
 	return o
+}
+
+func (o WeeklyScheduleResponseOutput) ToWeeklyScheduleResponsePtrOutput() WeeklyScheduleResponsePtrOutput {
+	return o.ToWeeklyScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WeeklyScheduleResponseOutput) ToWeeklyScheduleResponsePtrOutputWithContext(ctx context.Context) WeeklyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v WeeklyScheduleResponse) *WeeklyScheduleResponse {
+		return &v
+	}).(WeeklyScheduleResponsePtrOutput)
 }
 
 // Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
@@ -3688,21 +4512,95 @@ func (o WeeklyScheduleResponseOutput) UsedBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WeeklyScheduleResponse) *int { return v.UsedBytes }).(pulumi.IntPtrOutput)
 }
 
+type WeeklyScheduleResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WeeklyScheduleResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklyScheduleResponse)(nil)).Elem()
+}
+
+func (o WeeklyScheduleResponsePtrOutput) ToWeeklyScheduleResponsePtrOutput() WeeklyScheduleResponsePtrOutput {
+	return o
+}
+
+func (o WeeklyScheduleResponsePtrOutput) ToWeeklyScheduleResponsePtrOutputWithContext(ctx context.Context) WeeklyScheduleResponsePtrOutput {
+	return o
+}
+
+func (o WeeklyScheduleResponsePtrOutput) Elem() WeeklyScheduleResponseOutput {
+	return o.ApplyT(func(v *WeeklyScheduleResponse) WeeklyScheduleResponse { return *v }).(WeeklyScheduleResponseOutput)
+}
+
+// Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
+func (o WeeklyScheduleResponsePtrOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WeeklyScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Day
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates which hour in UTC timezone a snapshot should be taken
+func (o WeeklyScheduleResponsePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WeeklyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates which minute snapshot should be taken
+func (o WeeklyScheduleResponsePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WeeklyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Weekly snapshot count to keep
+func (o WeeklyScheduleResponsePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WeeklyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource size in bytes, current storage usage for the volume in bytes
+func (o WeeklyScheduleResponsePtrOutput) UsedBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WeeklyScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UsedBytes
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryResponseOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryResponseArrayOutput{})
 	pulumi.RegisterOutputType(DailyScheduleOutput{})
+	pulumi.RegisterOutputType(DailySchedulePtrOutput{})
 	pulumi.RegisterOutputType(DailyScheduleResponseOutput{})
+	pulumi.RegisterOutputType(DailyScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleResponseOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(HourlyScheduleOutput{})
+	pulumi.RegisterOutputType(HourlySchedulePtrOutput{})
 	pulumi.RegisterOutputType(HourlyScheduleResponseOutput{})
+	pulumi.RegisterOutputType(HourlyScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(MonthlyScheduleOutput{})
+	pulumi.RegisterOutputType(MonthlySchedulePtrOutput{})
 	pulumi.RegisterOutputType(MonthlyScheduleResponseOutput{})
+	pulumi.RegisterOutputType(MonthlyScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseOutput{})
@@ -3732,5 +4630,7 @@ func init() {
 	pulumi.RegisterOutputType(VolumeSnapshotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VolumeSnapshotPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WeeklyScheduleOutput{})
+	pulumi.RegisterOutputType(WeeklySchedulePtrOutput{})
 	pulumi.RegisterOutputType(WeeklyScheduleResponseOutput{})
+	pulumi.RegisterOutputType(WeeklyScheduleResponsePtrOutput{})
 }

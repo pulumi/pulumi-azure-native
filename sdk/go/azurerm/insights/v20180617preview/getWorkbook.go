@@ -37,6 +37,8 @@ type LookupWorkbookResult struct {
 	Name string `pulumi:"name"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
+	// ResourceId for a source resource.
+	SourceId *string `pulumi:"sourceId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this workbook definition.

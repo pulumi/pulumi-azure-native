@@ -24,7 +24,6 @@ class Workbook(pulumi.CustomResource):
                  serialized_data: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -41,9 +40,8 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
-        :param pulumi.Input[str] source_id: Azure Resource Id that will fetch all related workbooks.
+        :param pulumi.Input[str] source_id: ResourceId for a source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] user_id: Unique user id of the specific user that owns this workbook.
         :param pulumi.Input[str] version: Workbook version
         """
         if __name__ is not None:
@@ -86,13 +84,11 @@ class Workbook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_id'")
             __props__['source_id'] = source_id
             __props__['tags'] = tags
-            if user_id is None:
-                raise TypeError("Missing required property 'user_id'")
-            __props__['user_id'] = user_id
             __props__['version'] = version
             __props__['name'] = None
             __props__['time_modified'] = None
             __props__['type'] = None
+            __props__['user_id'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:Workbook"), pulumi.Alias(type_="azurerm:insights/v20150501:Workbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workbook, __self__).__init__(
@@ -166,6 +162,14 @@ class Workbook(pulumi.CustomResource):
         Configuration of this particular workbook. Configuration data is a string containing valid JSON
         """
         return pulumi.get(self, "serialized_data")
+
+    @property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ResourceId for a source resource.
+        """
+        return pulumi.get(self, "source_id")
 
     @property
     @pulumi.getter

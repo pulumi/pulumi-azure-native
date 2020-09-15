@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,7 +39,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * Schedule for daily snapshots
      */
-    public readonly dailySchedule!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly dailySchedule!: pulumi.Output<outputs.netapp.latest.DailyScheduleResponse | undefined>;
     /**
      * The property to decide policy is enabled or not
      */
@@ -45,7 +47,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * Schedule for hourly snapshots
      */
-    public readonly hourlySchedule!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly hourlySchedule!: pulumi.Output<outputs.netapp.latest.HourlyScheduleResponse | undefined>;
     /**
      * Resource location
      */
@@ -53,11 +55,15 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * Schedule for monthly snapshots
      */
-    public readonly monthlySchedule!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly monthlySchedule!: pulumi.Output<outputs.netapp.latest.MonthlyScheduleResponse | undefined>;
     /**
-     * Resource name
+     * Snapshot policy name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Azure lifecycle management
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -69,7 +75,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * Schedule for weekly snapshots
      */
-    public readonly weeklySchedule!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly weeklySchedule!: pulumi.Output<outputs.netapp.latest.WeeklyScheduleResponse | undefined>;
 
     /**
      * Create a SnapshotPolicy resource with the given unique name, arguments, and options.
@@ -104,6 +110,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["dailySchedule"] = undefined /*out*/;
@@ -112,6 +119,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["monthlySchedule"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["weeklySchedule"] = undefined /*out*/;
@@ -140,7 +148,7 @@ export interface SnapshotPolicyArgs {
     /**
      * Schedule for daily snapshots
      */
-    readonly dailySchedule?: pulumi.Input<{[key: string]: any}>;
+    readonly dailySchedule?: pulumi.Input<inputs.netapp.latest.DailySchedule>;
     /**
      * The property to decide policy is enabled or not
      */
@@ -148,7 +156,7 @@ export interface SnapshotPolicyArgs {
     /**
      * Schedule for hourly snapshots
      */
-    readonly hourlySchedule?: pulumi.Input<{[key: string]: any}>;
+    readonly hourlySchedule?: pulumi.Input<inputs.netapp.latest.HourlySchedule>;
     /**
      * Resource location
      */
@@ -156,7 +164,7 @@ export interface SnapshotPolicyArgs {
     /**
      * Schedule for monthly snapshots
      */
-    readonly monthlySchedule?: pulumi.Input<{[key: string]: any}>;
+    readonly monthlySchedule?: pulumi.Input<inputs.netapp.latest.MonthlySchedule>;
     /**
      * The name of the resource group.
      */
@@ -172,5 +180,5 @@ export interface SnapshotPolicyArgs {
     /**
      * Schedule for weekly snapshots
      */
-    readonly weeklySchedule?: pulumi.Input<{[key: string]: any}>;
+    readonly weeklySchedule?: pulumi.Input<inputs.netapp.latest.WeeklySchedule>;
 }

@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// Schedule for daily snapshots
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? DailySchedule;
+        public readonly Outputs.DailyScheduleResponseResult? DailySchedule;
         /// <summary>
         /// The property to decide policy is enabled or not
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// Schedule for hourly snapshots
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? HourlySchedule;
+        public readonly Outputs.HourlyScheduleResponseResult? HourlySchedule;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -64,11 +64,15 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// Schedule for monthly snapshots
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? MonthlySchedule;
+        public readonly Outputs.MonthlyScheduleResponseResult? MonthlySchedule;
         /// <summary>
-        /// Resource name
+        /// Snapshot policy name
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Azure lifecycle management
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -80,27 +84,29 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// Schedule for weekly snapshots
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? WeeklySchedule;
+        public readonly Outputs.WeeklyScheduleResponseResult? WeeklySchedule;
 
         [OutputConstructor]
         private GetsnapshotPolicyResult(
-            ImmutableDictionary<string, object>? dailySchedule,
+            Outputs.DailyScheduleResponseResult? dailySchedule,
 
             bool? enabled,
 
-            ImmutableDictionary<string, object>? hourlySchedule,
+            Outputs.HourlyScheduleResponseResult? hourlySchedule,
 
             string location,
 
-            ImmutableDictionary<string, object>? monthlySchedule,
+            Outputs.MonthlyScheduleResponseResult? monthlySchedule,
 
             string name,
+
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableDictionary<string, object>? weeklySchedule)
+            Outputs.WeeklyScheduleResponseResult? weeklySchedule)
         {
             DailySchedule = dailySchedule;
             Enabled = enabled;
@@ -108,6 +114,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
             Location = location;
             MonthlySchedule = monthlySchedule;
             Name = name;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
             WeeklySchedule = weeklySchedule;

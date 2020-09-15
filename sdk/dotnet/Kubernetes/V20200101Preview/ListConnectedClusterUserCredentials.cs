@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Kubernetes.V20200101Preview
     public sealed class ListConnectedClusterUserCredentialsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The mode of client authentication.
+        /// </summary>
+        [Input("authenticationMethod", required: true)]
+        public string AuthenticationMethod { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Kubernetes cluster on which get is called.
         /// </summary>
         [Input("clusterName", required: true)]
@@ -29,6 +35,9 @@ namespace Pulumi.AzureRM.Kubernetes.V20200101Preview
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        [Input("value", required: true)]
+        public Inputs.AuthenticationDetailsValueArgs Value { get; set; } = null!;
 
         public ListConnectedClusterUserCredentialsArgs()
         {

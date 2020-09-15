@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
         /// Schedule for daily snapshots
         /// </summary>
         [Output("dailySchedule")]
-        public Output<ImmutableDictionary<string, object>?> DailySchedule { get; private set; } = null!;
+        public Output<Outputs.DailyScheduleResponseResult?> DailySchedule { get; private set; } = null!;
 
         /// <summary>
         /// The property to decide policy is enabled or not
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
         /// Schedule for hourly snapshots
         /// </summary>
         [Output("hourlySchedule")]
-        public Output<ImmutableDictionary<string, object>?> HourlySchedule { get; private set; } = null!;
+        public Output<Outputs.HourlyScheduleResponseResult?> HourlySchedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -42,13 +42,19 @@ namespace Pulumi.AzureRM.NetApp.Latest
         /// Schedule for monthly snapshots
         /// </summary>
         [Output("monthlySchedule")]
-        public Output<ImmutableDictionary<string, object>?> MonthlySchedule { get; private set; } = null!;
+        public Output<Outputs.MonthlyScheduleResponseResult?> MonthlySchedule { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// Snapshot policy name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure lifecycle management
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -66,7 +72,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
         /// Schedule for weekly snapshots
         /// </summary>
         [Output("weeklySchedule")]
-        public Output<ImmutableDictionary<string, object>?> WeeklySchedule { get; private set; } = null!;
+        public Output<Outputs.WeeklyScheduleResponseResult?> WeeklySchedule { get; private set; } = null!;
 
 
         /// <summary>
@@ -123,17 +129,11 @@ namespace Pulumi.AzureRM.NetApp.Latest
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
-        [Input("dailySchedule")]
-        private InputMap<object>? _dailySchedule;
-
         /// <summary>
         /// Schedule for daily snapshots
         /// </summary>
-        public InputMap<object> DailySchedule
-        {
-            get => _dailySchedule ?? (_dailySchedule = new InputMap<object>());
-            set => _dailySchedule = value;
-        }
+        [Input("dailySchedule")]
+        public Input<Inputs.DailyScheduleArgs>? DailySchedule { get; set; }
 
         /// <summary>
         /// The property to decide policy is enabled or not
@@ -141,17 +141,11 @@ namespace Pulumi.AzureRM.NetApp.Latest
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        [Input("hourlySchedule")]
-        private InputMap<object>? _hourlySchedule;
-
         /// <summary>
         /// Schedule for hourly snapshots
         /// </summary>
-        public InputMap<object> HourlySchedule
-        {
-            get => _hourlySchedule ?? (_hourlySchedule = new InputMap<object>());
-            set => _hourlySchedule = value;
-        }
+        [Input("hourlySchedule")]
+        public Input<Inputs.HourlyScheduleArgs>? HourlySchedule { get; set; }
 
         /// <summary>
         /// Resource location
@@ -159,17 +153,11 @@ namespace Pulumi.AzureRM.NetApp.Latest
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        [Input("monthlySchedule")]
-        private InputMap<object>? _monthlySchedule;
-
         /// <summary>
         /// Schedule for monthly snapshots
         /// </summary>
-        public InputMap<object> MonthlySchedule
-        {
-            get => _monthlySchedule ?? (_monthlySchedule = new InputMap<object>());
-            set => _monthlySchedule = value;
-        }
+        [Input("monthlySchedule")]
+        public Input<Inputs.MonthlyScheduleArgs>? MonthlySchedule { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -195,17 +183,11 @@ namespace Pulumi.AzureRM.NetApp.Latest
             set => _tags = value;
         }
 
-        [Input("weeklySchedule")]
-        private InputMap<object>? _weeklySchedule;
-
         /// <summary>
         /// Schedule for weekly snapshots
         /// </summary>
-        public InputMap<object> WeeklySchedule
-        {
-            get => _weeklySchedule ?? (_weeklySchedule = new InputMap<object>());
-            set => _weeklySchedule = value;
-        }
+        [Input("weeklySchedule")]
+        public Input<Inputs.WeeklyScheduleArgs>? WeeklySchedule { get; set; }
 
         public SnapshotPolicyArgs()
         {

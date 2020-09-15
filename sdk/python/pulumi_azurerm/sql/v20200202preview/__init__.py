@@ -7,9 +7,11 @@ from .get_managed_database import *
 from .get_managed_instance import *
 from .get_managed_instance_azure_ad_only_authentication import *
 from .get_server_azure_ad_only_authentication import *
+from .get_server_trust_group import *
 from .managed_database import *
 from .managed_instance import *
 from .managed_instance_azure_ad_only_authentication import *
 from .server_azure_ad_only_authentication import *
+from .server_trust_group import *
 from ._inputs import *
 from . import outputs

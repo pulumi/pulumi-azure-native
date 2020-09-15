@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetsnapshotPolicyResult',
@@ -19,7 +20,7 @@ class GetsnapshotPolicyResult:
     """
     Snapshot policy information
     """
-    def __init__(__self__, daily_schedule=None, enabled=None, hourly_schedule=None, location=None, monthly_schedule=None, name=None, tags=None, type=None, weekly_schedule=None):
+    def __init__(__self__, daily_schedule=None, enabled=None, hourly_schedule=None, location=None, monthly_schedule=None, name=None, provisioning_state=None, tags=None, type=None, weekly_schedule=None):
         if daily_schedule and not isinstance(daily_schedule, dict):
             raise TypeError("Expected argument 'daily_schedule' to be a dict")
         pulumi.set(__self__, "daily_schedule", daily_schedule)
@@ -38,6 +39,9 @@ class GetsnapshotPolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -50,7 +54,7 @@ class GetsnapshotPolicyResult:
 
     @property
     @pulumi.getter(name="dailySchedule")
-    def daily_schedule(self) -> Optional[Mapping[str, Any]]:
+    def daily_schedule(self) -> Optional['outputs.DailyScheduleResponse']:
         """
         Schedule for daily snapshots
         """
@@ -66,7 +70,7 @@ class GetsnapshotPolicyResult:
 
     @property
     @pulumi.getter(name="hourlySchedule")
-    def hourly_schedule(self) -> Optional[Mapping[str, Any]]:
+    def hourly_schedule(self) -> Optional['outputs.HourlyScheduleResponse']:
         """
         Schedule for hourly snapshots
         """
@@ -82,7 +86,7 @@ class GetsnapshotPolicyResult:
 
     @property
     @pulumi.getter(name="monthlySchedule")
-    def monthly_schedule(self) -> Optional[Mapping[str, Any]]:
+    def monthly_schedule(self) -> Optional['outputs.MonthlyScheduleResponse']:
         """
         Schedule for monthly snapshots
         """
@@ -92,9 +96,17 @@ class GetsnapshotPolicyResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        Snapshot policy name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -114,7 +126,7 @@ class GetsnapshotPolicyResult:
 
     @property
     @pulumi.getter(name="weeklySchedule")
-    def weekly_schedule(self) -> Optional[Mapping[str, Any]]:
+    def weekly_schedule(self) -> Optional['outputs.WeeklyScheduleResponse']:
         """
         Schedule for weekly snapshots
         """
@@ -133,6 +145,7 @@ class AwaitableGetsnapshotPolicyResult(GetsnapshotPolicyResult):
             location=self.location,
             monthly_schedule=self.monthly_schedule,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type,
             weekly_schedule=self.weekly_schedule)
@@ -166,6 +179,7 @@ def getsnapshot_policy(account_name: Optional[str] = None,
         location=__ret__.location,
         monthly_schedule=__ret__.monthly_schedule,
         name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
         tags=__ret__.tags,
         type=__ret__.type,
         weekly_schedule=__ret__.weekly_schedule)

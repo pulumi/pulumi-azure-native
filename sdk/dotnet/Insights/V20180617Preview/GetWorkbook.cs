@@ -64,6 +64,10 @@ namespace Pulumi.AzureRM.Insights.V20180617Preview
         /// </summary>
         public readonly string SerializedData;
         /// <summary>
+        /// ResourceId for a source resource.
+        /// </summary>
+        public readonly string? SourceId;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureRM.Insights.V20180617Preview
 
             string serializedData,
 
+            string? sourceId,
+
             ImmutableDictionary<string, string>? tags,
 
             string timeModified,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureRM.Insights.V20180617Preview
             Location = location;
             Name = name;
             SerializedData = serializedData;
+            SourceId = sourceId;
             Tags = tags;
             TimeModified = timeModified;
             Type = type;
