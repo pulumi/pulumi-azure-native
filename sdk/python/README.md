@@ -22,7 +22,7 @@ https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/) for possible con
 
 ### Dependencies
 
-- Go 1.13
+- Go 1.14
 - NodeJS 10.X.X or later
 - Python 3.6 or later
 - .NET Core 3.1
